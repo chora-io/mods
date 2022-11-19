@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// chora.intertx.v1 describes the API for the intertx module.
+//
+// The following outlines revisions and tagged versions of the compiled code in
+// relation to tagged releases in choraio/mods:
+//
+// - Revision 0: (in progress)
+//
+package chora.intertx.v1;
+
+option go_package = "github.com/choraio/mods/intertx/types/v1";
