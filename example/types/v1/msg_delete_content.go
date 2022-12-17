@@ -33,7 +33,7 @@ func (m MsgDeleteContent) GetSigners() []sdk.AccAddress {
 
 // GetSignBytes implements the LegacyMsg interface.
 func (m MsgDeleteContent) GetSignBytes() []byte {
-	return sdk.MustSortJSON(ModuleCdc.MustMarshalJSON(&m))
+	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.

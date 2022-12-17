@@ -12,8 +12,8 @@ import (
 )
 
 var (
-	amino     = codec.NewLegacyAmino()
-	ModuleCdc = codec.NewAminoCodec(amino)
+	amino      = codec.NewLegacyAmino()
+	AminoCodec = codec.NewAminoCodec(amino)
 )
 
 func init() {

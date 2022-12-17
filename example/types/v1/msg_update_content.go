@@ -41,7 +41,7 @@ func (m MsgUpdateContent) GetSigners() []sdk.AccAddress {
 
 // GetSignBytes implements the LegacyMsg interface.
 func (m MsgUpdateContent) GetSignBytes() []byte {
-	return ModuleCdc.MustMarshalJSON(&m)
+	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.

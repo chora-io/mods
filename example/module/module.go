@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
+	"github.com/choraio/mods/example"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
 
@@ -18,7 +19,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/choraio/mods/example"
 	"github.com/choraio/mods/example/client"
 	"github.com/choraio/mods/example/server"
 	"github.com/choraio/mods/example/types/v1"
@@ -141,12 +141,12 @@ func (m Module) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig,
 
 // GetTxCmd implements AppModule/GetTxCmd.
 func (m Module) GetTxCmd() *cobra.Command {
-	return client.GetTxCmd()
+	return client.TxCmd()
 }
 
 // GetQueryCmd implements AppModule/GetQueryCmd.
 func (m Module) GetQueryCmd() *cobra.Command {
-	return client.GetQueryCmd()
+	return client.QueryCmd()
 }
 
 // LegacyQuerierHandler implements AppModule/LegacyQuerierHandler.
