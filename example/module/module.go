@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/choraio/mods/example"
+	"github.com/choraio/mods/example/cmd"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
 
@@ -19,19 +19,15 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/choraio/mods/example/client"
+	"github.com/choraio/mods/example"
 	"github.com/choraio/mods/example/server"
 	"github.com/choraio/mods/example/types/v1"
 )
 
-var (
-	_ module.AppModule = &Module{}
-)
+var _ module.AppModule = &Module{}
 
-const (
-	// ConsensusVersion is the module consensus version.
-	ConsensusVersion = 1
-)
+// ConsensusVersion is the module consensus version.
+const ConsensusVersion = 1
 
 // Module implements the AppModule interface.
 type Module struct {
@@ -39,7 +35,7 @@ type Module struct {
 	srv server.Server
 }
 
-// NewModule returns a new example module.
+// NewModule returns a new module.
 func NewModule(key storetypes.StoreKey, server server.Server) Module {
 	return Module{
 		key: key,
@@ -107,11 +103,11 @@ func (m Module) InitGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec, message 
 
 // ExportGenesis implements AppModule/ExportGenesis.
 func (m Module) ExportGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec) json.RawMessage {
-	json, err := m.srv.ExportGenesis(ctx, jsonCodec)
+	export, err := m.srv.ExportGenesis(ctx, jsonCodec)
 	if err != nil {
 		panic(err)
 	}
-	return json
+	return export
 }
 
 // DefaultGenesis implements AppModule/DefaultGenesis.
@@ -141,12 +137,12 @@ func (m Module) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig,
 
 // GetTxCmd implements AppModule/GetTxCmd.
 func (m Module) GetTxCmd() *cobra.Command {
-	return client.TxCmd()
+	return cmd.TxCmd()
 }
 
 // GetQueryCmd implements AppModule/GetQueryCmd.
 func (m Module) GetQueryCmd() *cobra.Command {
-	return client.QueryCmd()
+	return cmd.QueryCmd()
 }
 
 // LegacyQuerierHandler implements AppModule/LegacyQuerierHandler.

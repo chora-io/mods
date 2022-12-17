@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package chora.example.v1;
 
+import "cosmos/base/query/v1beta1/pagination.proto";
 import "google/api/annotations.proto";
-import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/choraio/mods/example/types/v1";
 
@@ -39,14 +39,8 @@ message QueryContentResponse {
   // creator is the creator of the content.
   string creator = 2;
 
-  // created_at is the timestamp of when the content was created.
-  google.protobuf.Timestamp created_at = 3;
-
-  // updated_at is the timestamp of when the content was updated.
-  google.protobuf.Timestamp updated_at = 4;
-
   // hash is the content hash of the content.
-  string hash = 5;
+  string hash = 3;
 }
 
 // QueryContentByCreatorRequest is the Query/ContentByCreator request type.
@@ -54,6 +48,9 @@ message QueryContentByCreatorRequest {
 
   // creator is the address of the content creator.
   string creator = 1;
+
+  // pagination is the optional pagination in the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
 }
 
 // QueryContentByCreatorResponse is the Query/ContentByCreator response type.
@@ -65,19 +62,16 @@ message QueryContentByCreatorResponse {
   // content is the content created by the creator.
   repeated Content content = 2;
 
+  // pagination is the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
   // Content is the content properties.
   message Content {
 
     // id is the unique identifier of the content.
     uint64 id = 1;
 
-    // created_at is the timestamp of when the content was created.
-    google.protobuf.Timestamp created_at = 2;
-
-    // updated_at is the timestamp of when the content was updated.
-    google.protobuf.Timestamp updated_at = 3;
-
     // hash is the content hash of the content.
-    string hash = 4;
+    string hash = 2;
   }
 }

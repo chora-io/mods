@@ -31,7 +31,11 @@ message MsgCreateContent {
 }
 
 // MsgCreateContentResponse is the Msg/CreateContent response type.
-message MsgCreateContentResponse {}
+message MsgCreateContentResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
 
 // MsgUpdateContent is the Msg/UpdateContent request type.
 message MsgUpdateContent {
@@ -48,7 +52,11 @@ message MsgUpdateContent {
 }
 
 // MsgUpdateContentResponse is the Msg/DeleteContent response type.
-message MsgUpdateContentResponse {}
+message MsgUpdateContentResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
 
 // MsgDeleteContent is the Msg/DeleteContent request type.
 message MsgDeleteContent {
@@ -62,4 +70,8 @@ message MsgDeleteContent {
 }
 
 // MsgDeleteContentResponse is the Msg/DeleteContent response type.
-message MsgDeleteContentResponse {}
+message MsgDeleteContentResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}

@@ -6,9 +6,9 @@ package v1
 import (
 	context "context"
 	fmt "fmt"
+	query "github.com/cosmos/cosmos-sdk/types/query"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
-	types "github.com/gogo/protobuf/types"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -81,12 +81,8 @@ type QueryContentResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	// creator is the creator of the content.
 	Creator string `protobuf:"bytes,2,opt,name=creator,proto3" json:"creator,omitempty"`
-	// created_at is the timestamp of when the content was created.
-	CreatedAt *types.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// updated_at is the timestamp of when the content was updated.
-	UpdatedAt *types.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// hash is the content hash of the content.
-	Hash string `protobuf:"bytes,5,opt,name=hash,proto3" json:"hash,omitempty"`
+	Hash string `protobuf:"bytes,3,opt,name=hash,proto3" json:"hash,omitempty"`
 }
 
 func (m *QueryContentResponse) Reset()         { *m = QueryContentResponse{} }
@@ -136,20 +132,6 @@ func (m *QueryContentResponse) GetCreator() string {
 	return ""
 }
 
-func (m *QueryContentResponse) GetCreatedAt() *types.Timestamp {
-	if m != nil {
-		return m.CreatedAt
-	}
-	return nil
-}
-
-func (m *QueryContentResponse) GetUpdatedAt() *types.Timestamp {
-	if m != nil {
-		return m.UpdatedAt
-	}
-	return nil
-}
-
 func (m *QueryContentResponse) GetHash() string {
 	if m != nil {
 		return m.Hash
@@ -161,6 +143,8 @@ func (m *QueryContentResponse) GetHash() string {
 type QueryContentByCreatorRequest struct {
 	// creator is the address of the content creator.
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	// pagination is the optional pagination in the request.
+	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
 func (m *QueryContentByCreatorRequest) Reset()         { *m = QueryContentByCreatorRequest{} }
@@ -203,12 +187,21 @@ func (m *QueryContentByCreatorRequest) GetCreator() string {
 	return ""
 }
 
+func (m *QueryContentByCreatorRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 // QueryContentByCreatorResponse is the Query/ContentByCreator response type.
 type QueryContentByCreatorResponse struct {
 	// creator is the address of the content creator.
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	// content is the content created by the creator.
 	Content []*QueryContentByCreatorResponse_Content `protobuf:"bytes,2,rep,name=content,proto3" json:"content,omitempty"`
+	// pagination is the pagination in the response.
+	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
 func (m *QueryContentByCreatorResponse) Reset()         { *m = QueryContentByCreatorResponse{} }
@@ -258,16 +251,19 @@ func (m *QueryContentByCreatorResponse) GetContent() []*QueryContentByCreatorRes
 	return nil
 }
 
+func (m *QueryContentByCreatorResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 // Content is the content properties.
 type QueryContentByCreatorResponse_Content struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	// created_at is the timestamp of when the content was created.
-	CreatedAt *types.Timestamp `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// updated_at is the timestamp of when the content was updated.
-	UpdatedAt *types.Timestamp `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// hash is the content hash of the content.
-	Hash string `protobuf:"bytes,4,opt,name=hash,proto3" json:"hash,omitempty"`
+	Hash string `protobuf:"bytes,2,opt,name=hash,proto3" json:"hash,omitempty"`
 }
 
 func (m *QueryContentByCreatorResponse_Content) Reset()         { *m = QueryContentByCreatorResponse_Content{} }
@@ -310,20 +306,6 @@ func (m *QueryContentByCreatorResponse_Content) GetId() uint64 {
 	return 0
 }
 
-func (m *QueryContentByCreatorResponse_Content) GetCreatedAt() *types.Timestamp {
-	if m != nil {
-		return m.CreatedAt
-	}
-	return nil
-}
-
-func (m *QueryContentByCreatorResponse_Content) GetUpdatedAt() *types.Timestamp {
-	if m != nil {
-		return m.UpdatedAt
-	}
-	return nil
-}
-
 func (m *QueryContentByCreatorResponse_Content) GetHash() string {
 	if m != nil {
 		return m.Hash
@@ -342,37 +324,36 @@ func init() {
 func init() { proto.RegisterFile("v1/query.proto", fileDescriptor_0801432bccbe1b86) }
 
 var fileDescriptor_0801432bccbe1b86 = []byte{
-	// 465 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x52, 0xcf, 0x6a, 0x13, 0x41,
-	0x1c, 0xce, 0x4c, 0x52, 0x43, 0xa7, 0x50, 0xca, 0xe8, 0x61, 0x59, 0xea, 0xba, 0x2c, 0xb4, 0xec,
-	0xa5, 0x33, 0x26, 0x82, 0x7f, 0x8e, 0x4d, 0x9f, 0xa0, 0xc1, 0x93, 0x17, 0x99, 0x64, 0xc7, 0x64,
-	0xa0, 0xbb, 0xb3, 0xdd, 0x99, 0x5d, 0x5c, 0x4a, 0x41, 0x7c, 0x02, 0xc1, 0x47, 0xf0, 0xe8, 0xcd,
-	0x93, 0x8f, 0x20, 0x9e, 0x0a, 0x5e, 0x3c, 0x4a, 0xe2, 0x83, 0x48, 0x67, 0x66, 0x35, 0x89, 0xa4,
-	0xd5, 0xdc, 0x7e, 0x93, 0x7c, 0xdf, 0xc7, 0xf7, 0x67, 0xd1, 0x6e, 0xd5, 0xa3, 0xe7, 0x25, 0x2f,
-	0x6a, 0x92, 0x17, 0x52, 0x4b, 0xbc, 0x37, 0x9e, 0xca, 0x82, 0x11, 0xfe, 0x9a, 0xa5, 0xf9, 0x19,
-	0x27, 0x55, 0xcf, 0xdf, 0x9f, 0x48, 0x39, 0x39, 0xe3, 0x94, 0xe5, 0x82, 0xb2, 0x2c, 0x93, 0x9a,
-	0x69, 0x21, 0x33, 0x65, 0xf1, 0xfe, 0x03, 0xf7, 0xaf, 0x79, 0x8d, 0xca, 0x57, 0x54, 0x8b, 0x94,
-	0x2b, 0xcd, 0xd2, 0xdc, 0x02, 0xa2, 0x03, 0x74, 0xf7, 0xf4, 0x5a, 0xff, 0x44, 0x66, 0x9a, 0x67,
-	0x7a, 0xc8, 0xcf, 0x4b, 0xae, 0x34, 0xde, 0x45, 0x50, 0x24, 0x1e, 0x08, 0x41, 0xdc, 0x19, 0x42,
-	0x91, 0x44, 0x5f, 0x01, 0xba, 0xb7, 0x8c, 0x53, 0xb9, 0xcc, 0x14, 0x5f, 0x05, 0x62, 0x0f, 0x75,
-	0xc7, 0x05, 0x67, 0x5a, 0x16, 0x1e, 0x0c, 0x41, 0xbc, 0x3d, 0x6c, 0x9e, 0xf8, 0x19, 0x42, 0xe6,
-	0xe4, 0xc9, 0x4b, 0xa6, 0xbd, 0x76, 0x08, 0xe2, 0x9d, 0xbe, 0x4f, 0xac, 0x3f, 0xd2, 0xf8, 0x23,
-	0xcf, 0x1b, 0x7f, 0xc3, 0x6d, 0x87, 0x3e, 0xd6, 0xd7, 0xd4, 0x32, 0x4f, 0x1a, 0x6a, 0xe7, 0x76,
-	0xaa, 0x43, 0x1f, 0x6b, 0x8c, 0x51, 0x67, 0xca, 0xd4, 0xd4, 0xdb, 0x32, 0x66, 0xcc, 0x1d, 0x3d,
-	0x45, 0xfb, 0x8b, 0x59, 0x06, 0xf5, 0x89, 0xb5, 0xd8, 0x84, 0x5f, 0xc8, 0x00, 0x96, 0x32, 0x44,
-	0x9f, 0x20, 0xba, 0xbf, 0x86, 0xea, 0xfa, 0x58, 0xcb, 0xc5, 0xa7, 0xa8, 0x3b, 0xb6, 0x2c, 0x0f,
-	0x86, 0xed, 0x78, 0xa7, 0xff, 0x84, 0xac, 0x8e, 0x49, 0x6e, 0xd4, 0x26, 0x4d, 0xf7, 0x8d, 0x8e,
-	0xff, 0x01, 0xa0, 0xae, 0xfb, 0xf1, 0xaf, 0x21, 0x96, 0xeb, 0x86, 0x9b, 0xd7, 0xdd, 0xde, 0xa4,
-	0xee, 0xce, 0x9f, 0xba, 0xfb, 0x9f, 0x21, 0xda, 0x32, 0xc1, 0xf0, 0x9b, 0x05, 0xbf, 0x07, 0x37,
-	0xa7, 0x77, 0x5b, 0xf8, 0x87, 0xb7, 0xc1, 0x6c, 0x37, 0xd1, 0xe1, 0xdb, 0x6f, 0x3f, 0xdf, 0xc3,
-	0x10, 0x07, 0xd4, 0xe0, 0xa9, 0xc3, 0xd3, 0xaa, 0x47, 0x5d, 0x5b, 0xf4, 0x42, 0x24, 0x97, 0xf8,
-	0x23, 0x40, 0x7b, 0xab, 0x05, 0x63, 0xf2, 0xcf, 0x4b, 0x58, 0x53, 0xf4, 0x3f, 0x97, 0x8b, 0x1e,
-	0x1b, 0x77, 0x0f, 0x31, 0x59, 0xeb, 0xee, 0x68, 0x54, 0x1f, 0xb9, 0x2f, 0x85, 0x5e, 0xb8, 0xe3,
-	0x72, 0x30, 0xf8, 0x32, 0x0b, 0xc0, 0xd5, 0x2c, 0x00, 0x3f, 0x66, 0x01, 0x78, 0x37, 0x0f, 0x5a,
-	0x57, 0xf3, 0xa0, 0xf5, 0x7d, 0x1e, 0xb4, 0x5e, 0xc4, 0x13, 0xa1, 0xa7, 0xe5, 0x88, 0x8c, 0x65,
-	0x6a, 0x35, 0x85, 0xa4, 0xa9, 0x4c, 0xd4, 0x6f, 0x69, 0x5d, 0xe7, 0x5c, 0xd1, 0xaa, 0x37, 0xba,
-	0x63, 0x16, 0x7b, 0xf4, 0x2b, 0x00, 0x00, 0xff, 0xff, 0x66, 0xfb, 0xf4, 0xc0, 0x4b, 0x04, 0x00,
-	0x00,
+	// 460 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x53, 0xcd, 0x8a, 0x13, 0x31,
+	0x00, 0x6e, 0xd2, 0xd5, 0x62, 0x16, 0x96, 0x25, 0x7a, 0x18, 0xca, 0x3a, 0x94, 0x81, 0xad, 0x45,
+	0x68, 0xe2, 0x54, 0xd0, 0x7b, 0x17, 0xf4, 0xea, 0x16, 0x4f, 0xde, 0xd2, 0x69, 0x98, 0x09, 0xec,
+	0x4c, 0x66, 0x27, 0xe9, 0xe0, 0xb0, 0x2c, 0x2c, 0xe2, 0x03, 0x08, 0x3e, 0x86, 0x2f, 0xe0, 0x23,
+	0x78, 0x5c, 0xf0, 0xe2, 0x51, 0x5a, 0x1f, 0x44, 0x9a, 0x64, 0xec, 0xb4, 0xd2, 0xad, 0xde, 0xd2,
+	0xe6, 0xfb, 0xbe, 0xf9, 0x7e, 0x08, 0x3a, 0x2a, 0x43, 0x7a, 0x39, 0xe7, 0x45, 0x45, 0xf2, 0x42,
+	0x6a, 0x89, 0x8f, 0xa3, 0x44, 0x16, 0x8c, 0xf0, 0xf7, 0x2c, 0xcd, 0x2f, 0x38, 0x29, 0xc3, 0xee,
+	0xd3, 0x48, 0xaa, 0x54, 0x2a, 0x3a, 0x65, 0x8a, 0x5b, 0x28, 0x2d, 0xc3, 0x29, 0xd7, 0x2c, 0xa4,
+	0x39, 0x8b, 0x45, 0xc6, 0xb4, 0x90, 0x99, 0x65, 0x77, 0x4f, 0x62, 0x29, 0xe3, 0x0b, 0x4e, 0x59,
+	0x2e, 0x28, 0xcb, 0x32, 0xa9, 0xcd, 0xa5, 0xb2, 0xb7, 0xc1, 0x29, 0x7a, 0x78, 0xbe, 0xe2, 0x9f,
+	0xc9, 0x4c, 0xf3, 0x4c, 0x4f, 0xf8, 0xe5, 0x9c, 0x2b, 0x8d, 0x8f, 0x10, 0x14, 0x33, 0x0f, 0xf4,
+	0xc0, 0xe0, 0x60, 0x02, 0xc5, 0x2c, 0x78, 0x8b, 0x1e, 0x6d, 0xc2, 0x54, 0x2e, 0x33, 0xc5, 0xb7,
+	0x71, 0xd8, 0x43, 0x9d, 0xa8, 0xe0, 0x4c, 0xcb, 0xc2, 0x83, 0x3d, 0x30, 0x78, 0x30, 0xa9, 0x7f,
+	0x62, 0x8c, 0x0e, 0x12, 0xa6, 0x12, 0xaf, 0x6d, 0xfe, 0x36, 0xe7, 0xe0, 0x06, 0xa0, 0x93, 0xa6,
+	0xec, 0xb8, 0x3a, 0xb3, 0xe8, 0xda, 0x46, 0x43, 0x0e, 0x6c, 0xca, 0xbd, 0x42, 0x68, 0x9d, 0xd4,
+	0x7c, 0xeb, 0x70, 0xd4, 0x27, 0xb6, 0x16, 0xb2, 0xaa, 0x85, 0xd8, 0x06, 0x5d, 0x2d, 0xe4, 0x0d,
+	0x8b, 0xb9, 0x53, 0x9d, 0x34, 0x98, 0xc1, 0x47, 0x88, 0x1e, 0xef, 0xb0, 0xe0, 0x22, 0xee, 0xf6,
+	0x70, 0x8e, 0x3a, 0x91, 0x65, 0x79, 0xb0, 0xd7, 0x1e, 0x1c, 0x8e, 0x5e, 0x92, 0xed, 0xa5, 0xc8,
+	0x9d, 0xda, 0xa4, 0xae, 0xb3, 0xd6, 0xc1, 0xaf, 0x37, 0x62, 0xb5, 0x4d, 0xac, 0x27, 0x7b, 0x63,
+	0x59, 0xb5, 0x66, 0xae, 0xee, 0x10, 0x75, 0x9c, 0xf8, 0x5f, 0x1b, 0xd5, 0x4b, 0xc0, 0xf5, 0x12,
+	0xa3, 0xaf, 0x10, 0xdd, 0x33, 0x56, 0xf1, 0x0d, 0x58, 0x33, 0x4f, 0xef, 0xce, 0xe3, 0xfa, 0xec,
+	0xf6, 0xf7, 0xc1, 0xac, 0xbf, 0xa0, 0xff, 0xe1, 0xfb, 0xaf, 0xcf, 0xb0, 0x87, 0x7d, 0x6a, 0xf0,
+	0xd4, 0xe1, 0x69, 0x19, 0x52, 0x97, 0x9f, 0x5e, 0x89, 0xd9, 0x35, 0xfe, 0x02, 0xd0, 0xf1, 0x76,
+	0x65, 0x98, 0xfc, 0x73, 0xb7, 0xd6, 0x14, 0xfd, 0xcf, 0x2d, 0x82, 0x17, 0xc6, 0xdd, 0x33, 0x4c,
+	0x76, 0xba, 0x1b, 0x4e, 0xab, 0xa1, 0xdb, 0x9e, 0x5e, 0xb9, 0xc3, 0xf5, 0x78, 0xfc, 0x6d, 0xe1,
+	0x83, 0xdb, 0x85, 0x0f, 0x7e, 0x2e, 0x7c, 0xf0, 0x69, 0xe9, 0xb7, 0x6e, 0x97, 0x7e, 0xeb, 0xc7,
+	0xd2, 0x6f, 0xbd, 0x1b, 0xc4, 0x42, 0x27, 0xf3, 0x29, 0x89, 0x64, 0x6a, 0x35, 0x85, 0xa4, 0xa9,
+	0x9c, 0xa9, 0x3f, 0xd2, 0xba, 0xca, 0xb9, 0x5a, 0xbd, 0xdc, 0xfb, 0xe6, 0x31, 0x3e, 0xff, 0x1d,
+	0x00, 0x00, 0xff, 0xff, 0x17, 0xc1, 0x5a, 0xee, 0xfa, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -548,30 +529,6 @@ func (m *QueryContentResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.Hash)
 		i = encodeVarintQuery(dAtA, i, uint64(len(m.Hash)))
 		i--
-		dAtA[i] = 0x2a
-	}
-	if m.UpdatedAt != nil {
-		{
-			size, err := m.UpdatedAt.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintQuery(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x22
-	}
-	if m.CreatedAt != nil {
-		{
-			size, err := m.CreatedAt.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintQuery(dAtA, i, uint64(size))
-		}
-		i--
 		dAtA[i] = 0x1a
 	}
 	if len(m.Creator) > 0 {
@@ -609,6 +566,18 @@ func (m *QueryContentByCreatorRequest) MarshalToSizedBuffer(dAtA []byte) (int, e
 	_ = i
 	var l int
 	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
 	if len(m.Creator) > 0 {
 		i -= len(m.Creator)
 		copy(dAtA[i:], m.Creator)
@@ -639,6 +608,18 @@ func (m *QueryContentByCreatorResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
 	if len(m.Content) > 0 {
 		for iNdEx := len(m.Content) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -688,30 +669,6 @@ func (m *QueryContentByCreatorResponse_Content) MarshalToSizedBuffer(dAtA []byte
 		copy(dAtA[i:], m.Hash)
 		i = encodeVarintQuery(dAtA, i, uint64(len(m.Hash)))
 		i--
-		dAtA[i] = 0x22
-	}
-	if m.UpdatedAt != nil {
-		{
-			size, err := m.UpdatedAt.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintQuery(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x1a
-	}
-	if m.CreatedAt != nil {
-		{
-			size, err := m.CreatedAt.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintQuery(dAtA, i, uint64(size))
-		}
-		i--
 		dAtA[i] = 0x12
 	}
 	if m.Id != 0 {
@@ -758,14 +715,6 @@ func (m *QueryContentResponse) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
 	}
-	if m.CreatedAt != nil {
-		l = m.CreatedAt.Size()
-		n += 1 + l + sovQuery(uint64(l))
-	}
-	if m.UpdatedAt != nil {
-		l = m.UpdatedAt.Size()
-		n += 1 + l + sovQuery(uint64(l))
-	}
 	l = len(m.Hash)
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
@@ -781,6 +730,10 @@ func (m *QueryContentByCreatorRequest) Size() (n int) {
 	_ = l
 	l = len(m.Creator)
 	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
 		n += 1 + l + sovQuery(uint64(l))
 	}
 	return n
@@ -802,6 +755,10 @@ func (m *QueryContentByCreatorResponse) Size() (n int) {
 			n += 1 + l + sovQuery(uint64(l))
 		}
 	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
 	return n
 }
 
@@ -813,14 +770,6 @@ func (m *QueryContentByCreatorResponse_Content) Size() (n int) {
 	_ = l
 	if m.Id != 0 {
 		n += 1 + sovQuery(uint64(m.Id))
-	}
-	if m.CreatedAt != nil {
-		l = m.CreatedAt.Size()
-		n += 1 + l + sovQuery(uint64(l))
-	}
-	if m.UpdatedAt != nil {
-		l = m.UpdatedAt.Size()
-		n += 1 + l + sovQuery(uint64(l))
 	}
 	l = len(m.Hash)
 	if l > 0 {
@@ -986,78 +935,6 @@ func (m *QueryContentResponse) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field CreatedAt", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthQuery
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthQuery
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.CreatedAt == nil {
-				m.CreatedAt = &types.Timestamp{}
-			}
-			if err := m.CreatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UpdatedAt", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthQuery
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthQuery
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.UpdatedAt == nil {
-				m.UpdatedAt = &types.Timestamp{}
-			}
-			if err := m.UpdatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 5:
-			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}
 			var stringLen uint64
@@ -1169,6 +1046,42 @@ func (m *QueryContentByCreatorRequest) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1286,6 +1199,42 @@ func (m *QueryContentByCreatorResponse) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipQuery(dAtA[iNdEx:])
@@ -1356,78 +1305,6 @@ func (m *QueryContentByCreatorResponse_Content) Unmarshal(dAtA []byte) error {
 				}
 			}
 		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field CreatedAt", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthQuery
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthQuery
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.CreatedAt == nil {
-				m.CreatedAt = &types.Timestamp{}
-			}
-			if err := m.CreatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UpdatedAt", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthQuery
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthQuery
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.UpdatedAt == nil {
-				m.UpdatedAt = &types.Timestamp{}
-			}
-			if err := m.UpdatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 4:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}

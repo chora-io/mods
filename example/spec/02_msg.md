@@ -1,6 +1,10 @@
 # Msg Service
 
-The `example` module provides a message service for interacting with the state of the module. The messages are defined in the proto files available on [Buf Schema Registry](https://buf.build/chora/mods).
+The `example` module provides a message service for interacting with the state of the module.
+
+## Proto Definitions
+
+The messages are defined in proto files available to view on [Buf Schema Registry](https://buf.build/chora/mods).
 
 <!-- listed alphabetically -->
 

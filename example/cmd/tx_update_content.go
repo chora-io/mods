@@ -1,30 +1,38 @@
-package client
+package cmd
 
 import (
+	"strconv"
+
 	"github.com/spf13/cobra"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 
-	types "github.com/choraio/mods/example/types/v1"
+	"github.com/choraio/mods/example/types/v1"
 )
 
-func TxCreateContentCmd() *cobra.Command {
+func TxUpdateContentCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-content [hash]",
-		Short: "submit a transaction to create content",
-		Long:  "submit a transaction to create content",
-		Args:  cobra.ExactArgs(1),
+		Use:   "update-content [id] [new-hash]",
+		Short: "submit a transaction to update content",
+		Long:  "submit a transaction to update content",
+		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.MsgCreateContent{
+			id, err := strconv.ParseUint(args[0], 0, 64)
+			if err != nil {
+				return err
+			}
+
+			msg := v1.MsgUpdateContent{
+				Id:      id,
 				Creator: clientCtx.GetFromAddress().String(),
-				Hash:    args[0],
+				NewHash: args[1],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

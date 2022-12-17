@@ -124,7 +124,7 @@ replace github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8
 // NOTE: use same version of cosmos-sdk as regen-ledger v5.0.0
 replace github.com/cosmos/cosmos-sdk => github.com/regen-network/cosmos-sdk v0.46.7-regen-1
 
-// NOTE: use same version as custom version with configurable data module
+// NOTE: use same version of regen-ledger as chora application
 replace github.com/regen-network/regen-ledger/api/v2 => github.com/regen-network/regen-ledger/api/v2 v2.0.0-20221216204149-fcf6a0740861
 
 // NOTE: use same version of regen-ledger as chora application

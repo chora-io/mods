@@ -1,6 +1,10 @@
 # Events
 
-The `example` module emits events upon the successful execution of messages. The events are defined in the proto files available on [Buf Schema Registry](https://buf.build/chora/mods).
+The `example` module emits events upon the successful execution of messages.
+
+## Proto Definitions
+
+The events are defined in the proto files available to view on [Buf Schema Registry](https://buf.build/chora/mods).
 
 <!-- listed alphabetically -->
 

@@ -88,8 +88,8 @@ func (x *fastReflection_EventCreateContent) Interface() protoreflect.ProtoMessag
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_EventCreateContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Id != "" {
-		value := protoreflect.ValueOfString(x.Id)
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
 		if !f(fd_EventCreateContent_id, value) {
 			return
 		}
@@ -110,7 +110,7 @@ func (x *fastReflection_EventCreateContent) Range(f func(protoreflect.FieldDescr
 func (x *fastReflection_EventCreateContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
 	case "chora.example.v1.EventCreateContent.id":
-		return x.Id != ""
+		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventCreateContent"))
@@ -128,7 +128,7 @@ func (x *fastReflection_EventCreateContent) Has(fd protoreflect.FieldDescriptor)
 func (x *fastReflection_EventCreateContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
 	case "chora.example.v1.EventCreateContent.id":
-		x.Id = ""
+		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventCreateContent"))
@@ -147,7 +147,7 @@ func (x *fastReflection_EventCreateContent) Get(descriptor protoreflect.FieldDes
 	switch descriptor.FullName() {
 	case "chora.example.v1.EventCreateContent.id":
 		value := x.Id
-		return protoreflect.ValueOfString(value)
+		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventCreateContent"))
@@ -169,7 +169,7 @@ func (x *fastReflection_EventCreateContent) Get(descriptor protoreflect.FieldDes
 func (x *fastReflection_EventCreateContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
 	case "chora.example.v1.EventCreateContent.id":
-		x.Id = value.Interface().(string)
+		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventCreateContent"))
@@ -206,7 +206,7 @@ func (x *fastReflection_EventCreateContent) Mutable(fd protoreflect.FieldDescrip
 func (x *fastReflection_EventCreateContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
 	case "chora.example.v1.EventCreateContent.id":
-		return protoreflect.ValueOfString("")
+		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventCreateContent"))
@@ -276,9 +276,8 @@ func (x *fastReflection_EventCreateContent) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		l = len(x.Id)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
 		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
@@ -309,12 +308,10 @@ func (x *fastReflection_EventCreateContent) ProtoMethods() *protoiface.Methods {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if len(x.Id) > 0 {
-			i -= len(x.Id)
-			copy(dAtA[i:], x.Id)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Id)))
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
 			i--
-			dAtA[i] = 0xa
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -366,10 +363,10 @@ func (x *fastReflection_EventCreateContent) ProtoMethods() *protoiface.Methods {
 			}
 			switch fieldNum {
 			case 1:
-				if wireType != 2 {
+				if wireType != 0 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 				}
-				var stringLen uint64
+				x.Id = 0
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -379,24 +376,11 @@ func (x *fastReflection_EventCreateContent) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
+					x.Id |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Id = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -508,8 +492,8 @@ func (x *fastReflection_EventUpdateContent) Interface() protoreflect.ProtoMessag
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_EventUpdateContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Id != "" {
-		value := protoreflect.ValueOfString(x.Id)
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
 		if !f(fd_EventUpdateContent_id, value) {
 			return
 		}
@@ -530,7 +514,7 @@ func (x *fastReflection_EventUpdateContent) Range(f func(protoreflect.FieldDescr
 func (x *fastReflection_EventUpdateContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
 	case "chora.example.v1.EventUpdateContent.id":
-		return x.Id != ""
+		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventUpdateContent"))
@@ -548,7 +532,7 @@ func (x *fastReflection_EventUpdateContent) Has(fd protoreflect.FieldDescriptor)
 func (x *fastReflection_EventUpdateContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
 	case "chora.example.v1.EventUpdateContent.id":
-		x.Id = ""
+		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventUpdateContent"))
@@ -567,7 +551,7 @@ func (x *fastReflection_EventUpdateContent) Get(descriptor protoreflect.FieldDes
 	switch descriptor.FullName() {
 	case "chora.example.v1.EventUpdateContent.id":
 		value := x.Id
-		return protoreflect.ValueOfString(value)
+		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventUpdateContent"))
@@ -589,7 +573,7 @@ func (x *fastReflection_EventUpdateContent) Get(descriptor protoreflect.FieldDes
 func (x *fastReflection_EventUpdateContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
 	case "chora.example.v1.EventUpdateContent.id":
-		x.Id = value.Interface().(string)
+		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventUpdateContent"))
@@ -626,7 +610,7 @@ func (x *fastReflection_EventUpdateContent) Mutable(fd protoreflect.FieldDescrip
 func (x *fastReflection_EventUpdateContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
 	case "chora.example.v1.EventUpdateContent.id":
-		return protoreflect.ValueOfString("")
+		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventUpdateContent"))
@@ -696,9 +680,8 @@ func (x *fastReflection_EventUpdateContent) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		l = len(x.Id)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
 		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
@@ -729,12 +712,10 @@ func (x *fastReflection_EventUpdateContent) ProtoMethods() *protoiface.Methods {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if len(x.Id) > 0 {
-			i -= len(x.Id)
-			copy(dAtA[i:], x.Id)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Id)))
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
 			i--
-			dAtA[i] = 0xa
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -786,10 +767,10 @@ func (x *fastReflection_EventUpdateContent) ProtoMethods() *protoiface.Methods {
 			}
 			switch fieldNum {
 			case 1:
-				if wireType != 2 {
+				if wireType != 0 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 				}
-				var stringLen uint64
+				x.Id = 0
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -799,24 +780,11 @@ func (x *fastReflection_EventUpdateContent) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
+					x.Id |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Id = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -928,8 +896,8 @@ func (x *fastReflection_EventDeleteContent) Interface() protoreflect.ProtoMessag
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_EventDeleteContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Id != "" {
-		value := protoreflect.ValueOfString(x.Id)
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
 		if !f(fd_EventDeleteContent_id, value) {
 			return
 		}
@@ -950,7 +918,7 @@ func (x *fastReflection_EventDeleteContent) Range(f func(protoreflect.FieldDescr
 func (x *fastReflection_EventDeleteContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
 	case "chora.example.v1.EventDeleteContent.id":
-		return x.Id != ""
+		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventDeleteContent"))
@@ -968,7 +936,7 @@ func (x *fastReflection_EventDeleteContent) Has(fd protoreflect.FieldDescriptor)
 func (x *fastReflection_EventDeleteContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
 	case "chora.example.v1.EventDeleteContent.id":
-		x.Id = ""
+		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventDeleteContent"))
@@ -987,7 +955,7 @@ func (x *fastReflection_EventDeleteContent) Get(descriptor protoreflect.FieldDes
 	switch descriptor.FullName() {
 	case "chora.example.v1.EventDeleteContent.id":
 		value := x.Id
-		return protoreflect.ValueOfString(value)
+		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventDeleteContent"))
@@ -1009,7 +977,7 @@ func (x *fastReflection_EventDeleteContent) Get(descriptor protoreflect.FieldDes
 func (x *fastReflection_EventDeleteContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
 	case "chora.example.v1.EventDeleteContent.id":
-		x.Id = value.Interface().(string)
+		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventDeleteContent"))
@@ -1046,7 +1014,7 @@ func (x *fastReflection_EventDeleteContent) Mutable(fd protoreflect.FieldDescrip
 func (x *fastReflection_EventDeleteContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
 	case "chora.example.v1.EventDeleteContent.id":
-		return protoreflect.ValueOfString("")
+		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.EventDeleteContent"))
@@ -1116,9 +1084,8 @@ func (x *fastReflection_EventDeleteContent) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		l = len(x.Id)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
 		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
@@ -1149,12 +1116,10 @@ func (x *fastReflection_EventDeleteContent) ProtoMethods() *protoiface.Methods {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if len(x.Id) > 0 {
-			i -= len(x.Id)
-			copy(dAtA[i:], x.Id)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Id)))
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
 			i--
-			dAtA[i] = 0xa
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -1206,10 +1171,10 @@ func (x *fastReflection_EventDeleteContent) ProtoMethods() *protoiface.Methods {
 			}
 			switch fieldNum {
 			case 1:
-				if wireType != 2 {
+				if wireType != 0 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 				}
-				var stringLen uint64
+				x.Id = 0
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -1219,24 +1184,11 @@ func (x *fastReflection_EventDeleteContent) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
+					x.Id |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Id = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -1292,7 +1244,7 @@ type EventCreateContent struct {
 	unknownFields protoimpl.UnknownFields
 
 	// id is the unique identifier of the content.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *EventCreateContent) Reset() {
@@ -1315,11 +1267,11 @@ func (*EventCreateContent) Descriptor() ([]byte, []int) {
 	return file_v1_events_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EventCreateContent) GetId() string {
+func (x *EventCreateContent) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 // EventUpdateContent is an event emitted when content is updated.
@@ -1329,7 +1281,7 @@ type EventUpdateContent struct {
 	unknownFields protoimpl.UnknownFields
 
 	// id is the unique identifier of the content.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *EventUpdateContent) Reset() {
@@ -1352,11 +1304,11 @@ func (*EventUpdateContent) Descriptor() ([]byte, []int) {
 	return file_v1_events_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *EventUpdateContent) GetId() string {
+func (x *EventUpdateContent) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 // EventDeleteContent is an event emitted when content is deleted.
@@ -1366,7 +1318,7 @@ type EventDeleteContent struct {
 	unknownFields protoimpl.UnknownFields
 
 	// id is the unique identifier of the content.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *EventDeleteContent) Reset() {
@@ -1389,11 +1341,11 @@ func (*EventDeleteContent) Descriptor() ([]byte, []int) {
 	return file_v1_events_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *EventDeleteContent) GetId() string {
+func (x *EventDeleteContent) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 var File_v1_events_proto protoreflect.FileDescriptor
@@ -1403,12 +1355,12 @@ var file_v1_events_proto_rawDesc = []byte{
 	0x6f, 0x12, 0x10, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65,
 	0x2e, 0x76, 0x31, 0x22, 0x24, 0x0a, 0x12, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x72, 0x65, 0x61,
 	0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x24, 0x0a, 0x12, 0x45, 0x76, 0x65,
+	0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x24, 0x0a, 0x12, 0x45, 0x76, 0x65,
 	0x6e, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12,
-	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22,
 	0x24, 0x0a, 0x12, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x43, 0x6f,
 	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x02, 0x69, 0x64, 0x42, 0xb2, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68,
+	0x04, 0x52, 0x02, 0x69, 0x64, 0x42, 0xb2, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68,
 	0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x0b,
 	0x45, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x2b, 0x67,
 	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69,

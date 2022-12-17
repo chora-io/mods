@@ -1,6 +1,10 @@
 # Query Service
 
-The `example` module provides a query service for querying the state of the module. The queries are defined in the proto files available on [Buf Schema Registry](https://buf.build/chora/mods).
+The `example` module provides a query service for querying the state of the module.
+
+## Proto Definitions
+
+The queries are defined in the proto files available to view on [Buf Schema Registry](https://buf.build/chora/mods).
 
 <!-- listed alphabetically -->
 

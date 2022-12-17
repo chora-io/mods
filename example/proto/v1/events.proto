@@ -8,19 +8,19 @@ option go_package = "github.com/choraio/mods/example/types/v1";
 message EventCreateContent {
 
   // id is the unique identifier of the content.
-  string id = 1;
+  uint64 id = 1;
 }
 
 // EventUpdateContent is an event emitted when content is updated.
 message EventUpdateContent {
 
   // id is the unique identifier of the content.
-  string id = 1;
+  uint64 id = 1;
 }
 
 // EventDeleteContent is an event emitted when content is deleted.
 message EventDeleteContent {
 
   // id is the unique identifier of the content.
-  string id = 1;
+  uint64 id = 1;
 }

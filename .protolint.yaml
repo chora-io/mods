@@ -1,5 +1,6 @@
 lint:
   rules_option:
-    # allow messages with empty struct and no newline
-    indent:
-      not_insert_newline: true
+    # allow selected field names that are already plural
+    repeated_field_names_pluralized:
+      uncountable_rules:
+        - content

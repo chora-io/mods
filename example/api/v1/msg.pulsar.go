@@ -498,12 +498,14 @@ func (x *fastReflection_MsgCreateContent) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgCreateContentResponse protoreflect.MessageDescriptor
+	md_MsgCreateContentResponse    protoreflect.MessageDescriptor
+	fd_MsgCreateContentResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_v1_msg_proto_init()
 	md_MsgCreateContentResponse = File_v1_msg_proto.Messages().ByName("MsgCreateContentResponse")
+	fd_MsgCreateContentResponse_id = md_MsgCreateContentResponse.Fields().ByName("id")
 }
 
 var _ protoreflect.Message = (*fastReflection_MsgCreateContentResponse)(nil)
@@ -571,6 +573,12 @@ func (x *fastReflection_MsgCreateContentResponse) Interface() protoreflect.Proto
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_MsgCreateContentResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_MsgCreateContentResponse_id, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -586,6 +594,8 @@ func (x *fastReflection_MsgCreateContentResponse) Range(f func(protoreflect.Fiel
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_MsgCreateContentResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgCreateContentResponse.id":
+		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgCreateContentResponse"))
@@ -602,6 +612,8 @@ func (x *fastReflection_MsgCreateContentResponse) Has(fd protoreflect.FieldDescr
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgCreateContentResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgCreateContentResponse.id":
+		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgCreateContentResponse"))
@@ -618,6 +630,9 @@ func (x *fastReflection_MsgCreateContentResponse) Clear(fd protoreflect.FieldDes
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_MsgCreateContentResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
+	case "chora.example.v1.MsgCreateContentResponse.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgCreateContentResponse"))
@@ -638,6 +653,8 @@ func (x *fastReflection_MsgCreateContentResponse) Get(descriptor protoreflect.Fi
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgCreateContentResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgCreateContentResponse.id":
+		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgCreateContentResponse"))
@@ -658,6 +675,8 @@ func (x *fastReflection_MsgCreateContentResponse) Set(fd protoreflect.FieldDescr
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgCreateContentResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgCreateContentResponse.id":
+		panic(fmt.Errorf("field id of message chora.example.v1.MsgCreateContentResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgCreateContentResponse"))
@@ -671,6 +690,8 @@ func (x *fastReflection_MsgCreateContentResponse) Mutable(fd protoreflect.FieldD
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_MsgCreateContentResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgCreateContentResponse.id":
+		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgCreateContentResponse"))
@@ -740,6 +761,9 @@ func (x *fastReflection_MsgCreateContentResponse) ProtoMethods() *protoiface.Met
 		var n int
 		var l int
 		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -768,6 +792,11 @@ func (x *fastReflection_MsgCreateContentResponse) ProtoMethods() *protoiface.Met
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -818,6 +847,25 @@ func (x *fastReflection_MsgCreateContentResponse) ProtoMethods() *protoiface.Met
 				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -1386,12 +1434,14 @@ func (x *fastReflection_MsgUpdateContent) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgUpdateContentResponse protoreflect.MessageDescriptor
+	md_MsgUpdateContentResponse    protoreflect.MessageDescriptor
+	fd_MsgUpdateContentResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_v1_msg_proto_init()
 	md_MsgUpdateContentResponse = File_v1_msg_proto.Messages().ByName("MsgUpdateContentResponse")
+	fd_MsgUpdateContentResponse_id = md_MsgUpdateContentResponse.Fields().ByName("id")
 }
 
 var _ protoreflect.Message = (*fastReflection_MsgUpdateContentResponse)(nil)
@@ -1459,6 +1509,12 @@ func (x *fastReflection_MsgUpdateContentResponse) Interface() protoreflect.Proto
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_MsgUpdateContentResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_MsgUpdateContentResponse_id, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -1474,6 +1530,8 @@ func (x *fastReflection_MsgUpdateContentResponse) Range(f func(protoreflect.Fiel
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_MsgUpdateContentResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgUpdateContentResponse.id":
+		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgUpdateContentResponse"))
@@ -1490,6 +1548,8 @@ func (x *fastReflection_MsgUpdateContentResponse) Has(fd protoreflect.FieldDescr
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgUpdateContentResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgUpdateContentResponse.id":
+		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgUpdateContentResponse"))
@@ -1506,6 +1566,9 @@ func (x *fastReflection_MsgUpdateContentResponse) Clear(fd protoreflect.FieldDes
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_MsgUpdateContentResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
+	case "chora.example.v1.MsgUpdateContentResponse.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgUpdateContentResponse"))
@@ -1526,6 +1589,8 @@ func (x *fastReflection_MsgUpdateContentResponse) Get(descriptor protoreflect.Fi
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgUpdateContentResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgUpdateContentResponse.id":
+		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgUpdateContentResponse"))
@@ -1546,6 +1611,8 @@ func (x *fastReflection_MsgUpdateContentResponse) Set(fd protoreflect.FieldDescr
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgUpdateContentResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgUpdateContentResponse.id":
+		panic(fmt.Errorf("field id of message chora.example.v1.MsgUpdateContentResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgUpdateContentResponse"))
@@ -1559,6 +1626,8 @@ func (x *fastReflection_MsgUpdateContentResponse) Mutable(fd protoreflect.FieldD
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_MsgUpdateContentResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgUpdateContentResponse.id":
+		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgUpdateContentResponse"))
@@ -1628,6 +1697,9 @@ func (x *fastReflection_MsgUpdateContentResponse) ProtoMethods() *protoiface.Met
 		var n int
 		var l int
 		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -1656,6 +1728,11 @@ func (x *fastReflection_MsgUpdateContentResponse) ProtoMethods() *protoiface.Met
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -1706,6 +1783,25 @@ func (x *fastReflection_MsgUpdateContentResponse) ProtoMethods() *protoiface.Met
 				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -2210,12 +2306,14 @@ func (x *fastReflection_MsgDeleteContent) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgDeleteContentResponse protoreflect.MessageDescriptor
+	md_MsgDeleteContentResponse    protoreflect.MessageDescriptor
+	fd_MsgDeleteContentResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_v1_msg_proto_init()
 	md_MsgDeleteContentResponse = File_v1_msg_proto.Messages().ByName("MsgDeleteContentResponse")
+	fd_MsgDeleteContentResponse_id = md_MsgDeleteContentResponse.Fields().ByName("id")
 }
 
 var _ protoreflect.Message = (*fastReflection_MsgDeleteContentResponse)(nil)
@@ -2283,6 +2381,12 @@ func (x *fastReflection_MsgDeleteContentResponse) Interface() protoreflect.Proto
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_MsgDeleteContentResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_MsgDeleteContentResponse_id, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -2298,6 +2402,8 @@ func (x *fastReflection_MsgDeleteContentResponse) Range(f func(protoreflect.Fiel
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_MsgDeleteContentResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgDeleteContentResponse.id":
+		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgDeleteContentResponse"))
@@ -2314,6 +2420,8 @@ func (x *fastReflection_MsgDeleteContentResponse) Has(fd protoreflect.FieldDescr
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgDeleteContentResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgDeleteContentResponse.id":
+		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgDeleteContentResponse"))
@@ -2330,6 +2438,9 @@ func (x *fastReflection_MsgDeleteContentResponse) Clear(fd protoreflect.FieldDes
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_MsgDeleteContentResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
+	case "chora.example.v1.MsgDeleteContentResponse.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgDeleteContentResponse"))
@@ -2350,6 +2461,8 @@ func (x *fastReflection_MsgDeleteContentResponse) Get(descriptor protoreflect.Fi
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgDeleteContentResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgDeleteContentResponse.id":
+		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgDeleteContentResponse"))
@@ -2370,6 +2483,8 @@ func (x *fastReflection_MsgDeleteContentResponse) Set(fd protoreflect.FieldDescr
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgDeleteContentResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgDeleteContentResponse.id":
+		panic(fmt.Errorf("field id of message chora.example.v1.MsgDeleteContentResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgDeleteContentResponse"))
@@ -2383,6 +2498,8 @@ func (x *fastReflection_MsgDeleteContentResponse) Mutable(fd protoreflect.FieldD
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_MsgDeleteContentResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.MsgDeleteContentResponse.id":
+		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.MsgDeleteContentResponse"))
@@ -2452,6 +2569,9 @@ func (x *fastReflection_MsgDeleteContentResponse) ProtoMethods() *protoiface.Met
 		var n int
 		var l int
 		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -2480,6 +2600,11 @@ func (x *fastReflection_MsgDeleteContentResponse) ProtoMethods() *protoiface.Met
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -2530,6 +2655,25 @@ func (x *fastReflection_MsgDeleteContentResponse) ProtoMethods() *protoiface.Met
 				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgDeleteContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -2629,6 +2773,9 @@ type MsgCreateContentResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the content.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *MsgCreateContentResponse) Reset() {
@@ -2649,6 +2796,13 @@ func (*MsgCreateContentResponse) ProtoMessage() {}
 // Deprecated: Use MsgCreateContentResponse.ProtoReflect.Descriptor instead.
 func (*MsgCreateContentResponse) Descriptor() ([]byte, []int) {
 	return file_v1_msg_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *MsgCreateContentResponse) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
 }
 
 // MsgUpdateContent is the Msg/UpdateContent request type.
@@ -2711,6 +2865,9 @@ type MsgUpdateContentResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the content.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *MsgUpdateContentResponse) Reset() {
@@ -2731,6 +2888,13 @@ func (*MsgUpdateContentResponse) ProtoMessage() {}
 // Deprecated: Use MsgUpdateContentResponse.ProtoReflect.Descriptor instead.
 func (*MsgUpdateContentResponse) Descriptor() ([]byte, []int) {
 	return file_v1_msg_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *MsgUpdateContentResponse) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
 }
 
 // MsgDeleteContent is the Msg/DeleteContent request type.
@@ -2784,6 +2948,9 @@ type MsgDeleteContentResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the content.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *MsgDeleteContentResponse) Reset() {
@@ -2806,6 +2973,13 @@ func (*MsgDeleteContentResponse) Descriptor() ([]byte, []int) {
 	return file_v1_msg_proto_rawDescGZIP(), []int{5}
 }
 
+func (x *MsgDeleteContentResponse) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 var File_v1_msg_proto protoreflect.FileDescriptor
 
 var file_v1_msg_proto_rawDesc = []byte{
@@ -2817,23 +2991,26 @@ var file_v1_msg_proto_rawDesc = []byte{
 	0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
 	0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x3a, 0x0c, 0x82, 0xe7, 0xb0,
-	0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x1a, 0x0a, 0x18, 0x4d, 0x73, 0x67,
+	0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x2a, 0x0a, 0x18, 0x4d, 0x73, 0x67,
 	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x65, 0x0a, 0x10, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x65, 0x0a, 0x10, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61,
 	0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65,
 	0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61,
 	0x74, 0x6f, 0x72, 0x12, 0x19, 0x0a, 0x08, 0x6e, 0x65, 0x77, 0x5f, 0x68, 0x61, 0x73, 0x68, 0x18,
 	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6e, 0x65, 0x77, 0x48, 0x61, 0x73, 0x68, 0x3a, 0x0c,
-	0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x1a, 0x0a, 0x18,
+	0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x2a, 0x0a, 0x18,
 	0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x4a, 0x0a, 0x10, 0x4d, 0x73, 0x67, 0x44,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x4a, 0x0a, 0x10, 0x4d, 0x73, 0x67, 0x44,
 	0x65, 0x6c, 0x65, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02,
 	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07,
 	0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63,
 	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x72, 0x65,
-	0x61, 0x74, 0x6f, 0x72, 0x22, 0x1a, 0x0a, 0x18, 0x4d, 0x73, 0x67, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x61, 0x74, 0x6f, 0x72, 0x22, 0x2a, 0x0a, 0x18, 0x4d, 0x73, 0x67, 0x44, 0x65, 0x6c, 0x65, 0x74,
 	0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
 	0x32, 0xa8, 0x02, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x5f, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61,
 	0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x22, 0x2e, 0x63, 0x68, 0x6f, 0x72,
 	0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67,

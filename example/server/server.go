@@ -47,12 +47,12 @@ func NewServer(key storetypes.StoreKey) Server {
 	return s
 }
 
-// RegisterInvariants registers the invariants.
+// RegisterInvariants registers invariants.
 func (s Server) RegisterInvariants(_ sdk.InvariantRegistry) {
 	return
 }
 
-// InitGenesis creates genesis state.
+// InitGenesis initializes genesis state.
 func (s Server) InitGenesis(ctx sdk.Context, _ codec.JSONCodec, data json.RawMessage) ([]abci.ValidatorUpdate, error) {
 	source, err := ormjson.NewRawMessageSource(data)
 	if err != nil {

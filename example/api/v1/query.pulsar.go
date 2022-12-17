@@ -4,11 +4,11 @@ package examplev1
 import (
 	fmt "fmt"
 	runtime "github.com/cosmos/cosmos-proto/runtime"
+	v1beta1 "github.com/cosmos/cosmos-sdk/api/cosmos/base/query/v1beta1"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoiface "google.golang.org/protobuf/runtime/protoiface"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	io "io"
 	reflect "reflect"
 	sync "sync"
@@ -419,12 +419,10 @@ func (x *fastReflection_QueryContentRequest) ProtoMethods() *protoiface.Methods 
 }
 
 var (
-	md_QueryContentResponse            protoreflect.MessageDescriptor
-	fd_QueryContentResponse_id         protoreflect.FieldDescriptor
-	fd_QueryContentResponse_creator    protoreflect.FieldDescriptor
-	fd_QueryContentResponse_created_at protoreflect.FieldDescriptor
-	fd_QueryContentResponse_updated_at protoreflect.FieldDescriptor
-	fd_QueryContentResponse_hash       protoreflect.FieldDescriptor
+	md_QueryContentResponse         protoreflect.MessageDescriptor
+	fd_QueryContentResponse_id      protoreflect.FieldDescriptor
+	fd_QueryContentResponse_creator protoreflect.FieldDescriptor
+	fd_QueryContentResponse_hash    protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -432,8 +430,6 @@ func init() {
 	md_QueryContentResponse = File_v1_query_proto.Messages().ByName("QueryContentResponse")
 	fd_QueryContentResponse_id = md_QueryContentResponse.Fields().ByName("id")
 	fd_QueryContentResponse_creator = md_QueryContentResponse.Fields().ByName("creator")
-	fd_QueryContentResponse_created_at = md_QueryContentResponse.Fields().ByName("created_at")
-	fd_QueryContentResponse_updated_at = md_QueryContentResponse.Fields().ByName("updated_at")
 	fd_QueryContentResponse_hash = md_QueryContentResponse.Fields().ByName("hash")
 }
 
@@ -514,18 +510,6 @@ func (x *fastReflection_QueryContentResponse) Range(f func(protoreflect.FieldDes
 			return
 		}
 	}
-	if x.CreatedAt != nil {
-		value := protoreflect.ValueOfMessage(x.CreatedAt.ProtoReflect())
-		if !f(fd_QueryContentResponse_created_at, value) {
-			return
-		}
-	}
-	if x.UpdatedAt != nil {
-		value := protoreflect.ValueOfMessage(x.UpdatedAt.ProtoReflect())
-		if !f(fd_QueryContentResponse_updated_at, value) {
-			return
-		}
-	}
 	if x.Hash != "" {
 		value := protoreflect.ValueOfString(x.Hash)
 		if !f(fd_QueryContentResponse_hash, value) {
@@ -551,10 +535,6 @@ func (x *fastReflection_QueryContentResponse) Has(fd protoreflect.FieldDescripto
 		return x.Id != uint64(0)
 	case "chora.example.v1.QueryContentResponse.creator":
 		return x.Creator != ""
-	case "chora.example.v1.QueryContentResponse.created_at":
-		return x.CreatedAt != nil
-	case "chora.example.v1.QueryContentResponse.updated_at":
-		return x.UpdatedAt != nil
 	case "chora.example.v1.QueryContentResponse.hash":
 		return x.Hash != ""
 	default:
@@ -577,10 +557,6 @@ func (x *fastReflection_QueryContentResponse) Clear(fd protoreflect.FieldDescrip
 		x.Id = uint64(0)
 	case "chora.example.v1.QueryContentResponse.creator":
 		x.Creator = ""
-	case "chora.example.v1.QueryContentResponse.created_at":
-		x.CreatedAt = nil
-	case "chora.example.v1.QueryContentResponse.updated_at":
-		x.UpdatedAt = nil
 	case "chora.example.v1.QueryContentResponse.hash":
 		x.Hash = ""
 	default:
@@ -605,12 +581,6 @@ func (x *fastReflection_QueryContentResponse) Get(descriptor protoreflect.FieldD
 	case "chora.example.v1.QueryContentResponse.creator":
 		value := x.Creator
 		return protoreflect.ValueOfString(value)
-	case "chora.example.v1.QueryContentResponse.created_at":
-		value := x.CreatedAt
-		return protoreflect.ValueOfMessage(value.ProtoReflect())
-	case "chora.example.v1.QueryContentResponse.updated_at":
-		value := x.UpdatedAt
-		return protoreflect.ValueOfMessage(value.ProtoReflect())
 	case "chora.example.v1.QueryContentResponse.hash":
 		value := x.Hash
 		return protoreflect.ValueOfString(value)
@@ -638,10 +608,6 @@ func (x *fastReflection_QueryContentResponse) Set(fd protoreflect.FieldDescripto
 		x.Id = value.Uint()
 	case "chora.example.v1.QueryContentResponse.creator":
 		x.Creator = value.Interface().(string)
-	case "chora.example.v1.QueryContentResponse.created_at":
-		x.CreatedAt = value.Message().Interface().(*timestamppb.Timestamp)
-	case "chora.example.v1.QueryContentResponse.updated_at":
-		x.UpdatedAt = value.Message().Interface().(*timestamppb.Timestamp)
 	case "chora.example.v1.QueryContentResponse.hash":
 		x.Hash = value.Interface().(string)
 	default:
@@ -664,16 +630,6 @@ func (x *fastReflection_QueryContentResponse) Set(fd protoreflect.FieldDescripto
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_QueryContentResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.example.v1.QueryContentResponse.created_at":
-		if x.CreatedAt == nil {
-			x.CreatedAt = new(timestamppb.Timestamp)
-		}
-		return protoreflect.ValueOfMessage(x.CreatedAt.ProtoReflect())
-	case "chora.example.v1.QueryContentResponse.updated_at":
-		if x.UpdatedAt == nil {
-			x.UpdatedAt = new(timestamppb.Timestamp)
-		}
-		return protoreflect.ValueOfMessage(x.UpdatedAt.ProtoReflect())
 	case "chora.example.v1.QueryContentResponse.id":
 		panic(fmt.Errorf("field id of message chora.example.v1.QueryContentResponse is not mutable"))
 	case "chora.example.v1.QueryContentResponse.creator":
@@ -697,12 +653,6 @@ func (x *fastReflection_QueryContentResponse) NewField(fd protoreflect.FieldDesc
 		return protoreflect.ValueOfUint64(uint64(0))
 	case "chora.example.v1.QueryContentResponse.creator":
 		return protoreflect.ValueOfString("")
-	case "chora.example.v1.QueryContentResponse.created_at":
-		m := new(timestamppb.Timestamp)
-		return protoreflect.ValueOfMessage(m.ProtoReflect())
-	case "chora.example.v1.QueryContentResponse.updated_at":
-		m := new(timestamppb.Timestamp)
-		return protoreflect.ValueOfMessage(m.ProtoReflect())
 	case "chora.example.v1.QueryContentResponse.hash":
 		return protoreflect.ValueOfString("")
 	default:
@@ -781,14 +731,6 @@ func (x *fastReflection_QueryContentResponse) ProtoMethods() *protoiface.Methods
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
-		if x.CreatedAt != nil {
-			l = options.Size(x.CreatedAt)
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
-		if x.UpdatedAt != nil {
-			l = options.Size(x.UpdatedAt)
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
 		l = len(x.Hash)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
@@ -826,34 +768,6 @@ func (x *fastReflection_QueryContentResponse) ProtoMethods() *protoiface.Methods
 			i -= len(x.Hash)
 			copy(dAtA[i:], x.Hash)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Hash)))
-			i--
-			dAtA[i] = 0x2a
-		}
-		if x.UpdatedAt != nil {
-			encoded, err := options.Marshal(x.UpdatedAt)
-			if err != nil {
-				return protoiface.MarshalOutput{
-					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-					Buf:               input.Buf,
-				}, err
-			}
-			i -= len(encoded)
-			copy(dAtA[i:], encoded)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
-			i--
-			dAtA[i] = 0x22
-		}
-		if x.CreatedAt != nil {
-			encoded, err := options.Marshal(x.CreatedAt)
-			if err != nil {
-				return protoiface.MarshalOutput{
-					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-					Buf:               input.Buf,
-				}, err
-			}
-			i -= len(encoded)
-			copy(dAtA[i:], encoded)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
 			i--
 			dAtA[i] = 0x1a
 		}
@@ -971,78 +885,6 @@ func (x *fastReflection_QueryContentResponse) ProtoMethods() *protoiface.Methods
 				iNdEx = postIndex
 			case 3:
 				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field CreatedAt", wireType)
-				}
-				var msglen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					msglen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if msglen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + msglen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				if x.CreatedAt == nil {
-					x.CreatedAt = &timestamppb.Timestamp{}
-				}
-				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.CreatedAt); err != nil {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
-				}
-				iNdEx = postIndex
-			case 4:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field UpdatedAt", wireType)
-				}
-				var msglen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					msglen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if msglen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + msglen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				if x.UpdatedAt == nil {
-					x.UpdatedAt = &timestamppb.Timestamp{}
-				}
-				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.UpdatedAt); err != nil {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
-				}
-				iNdEx = postIndex
-			case 5:
-				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 				}
 				var stringLen uint64
@@ -1109,14 +951,16 @@ func (x *fastReflection_QueryContentResponse) ProtoMethods() *protoiface.Methods
 }
 
 var (
-	md_QueryContentByCreatorRequest         protoreflect.MessageDescriptor
-	fd_QueryContentByCreatorRequest_creator protoreflect.FieldDescriptor
+	md_QueryContentByCreatorRequest            protoreflect.MessageDescriptor
+	fd_QueryContentByCreatorRequest_creator    protoreflect.FieldDescriptor
+	fd_QueryContentByCreatorRequest_pagination protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_v1_query_proto_init()
 	md_QueryContentByCreatorRequest = File_v1_query_proto.Messages().ByName("QueryContentByCreatorRequest")
 	fd_QueryContentByCreatorRequest_creator = md_QueryContentByCreatorRequest.Fields().ByName("creator")
+	fd_QueryContentByCreatorRequest_pagination = md_QueryContentByCreatorRequest.Fields().ByName("pagination")
 }
 
 var _ protoreflect.Message = (*fastReflection_QueryContentByCreatorRequest)(nil)
@@ -1190,6 +1034,12 @@ func (x *fastReflection_QueryContentByCreatorRequest) Range(f func(protoreflect.
 			return
 		}
 	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryContentByCreatorRequest_pagination, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -1207,6 +1057,8 @@ func (x *fastReflection_QueryContentByCreatorRequest) Has(fd protoreflect.FieldD
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorRequest.creator":
 		return x.Creator != ""
+	case "chora.example.v1.QueryContentByCreatorRequest.pagination":
+		return x.Pagination != nil
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorRequest"))
@@ -1225,6 +1077,8 @@ func (x *fastReflection_QueryContentByCreatorRequest) Clear(fd protoreflect.Fiel
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorRequest.creator":
 		x.Creator = ""
+	case "chora.example.v1.QueryContentByCreatorRequest.pagination":
+		x.Pagination = nil
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorRequest"))
@@ -1244,6 +1098,9 @@ func (x *fastReflection_QueryContentByCreatorRequest) Get(descriptor protoreflec
 	case "chora.example.v1.QueryContentByCreatorRequest.creator":
 		value := x.Creator
 		return protoreflect.ValueOfString(value)
+	case "chora.example.v1.QueryContentByCreatorRequest.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorRequest"))
@@ -1266,6 +1123,8 @@ func (x *fastReflection_QueryContentByCreatorRequest) Set(fd protoreflect.FieldD
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorRequest.creator":
 		x.Creator = value.Interface().(string)
+	case "chora.example.v1.QueryContentByCreatorRequest.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorRequest"))
@@ -1286,6 +1145,11 @@ func (x *fastReflection_QueryContentByCreatorRequest) Set(fd protoreflect.FieldD
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_QueryContentByCreatorRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
+	case "chora.example.v1.QueryContentByCreatorRequest.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageRequest)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
 	case "chora.example.v1.QueryContentByCreatorRequest.creator":
 		panic(fmt.Errorf("field creator of message chora.example.v1.QueryContentByCreatorRequest is not mutable"))
 	default:
@@ -1303,6 +1167,9 @@ func (x *fastReflection_QueryContentByCreatorRequest) NewField(fd protoreflect.F
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorRequest.creator":
 		return protoreflect.ValueOfString("")
+	case "chora.example.v1.QueryContentByCreatorRequest.pagination":
+		m := new(v1beta1.PageRequest)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorRequest"))
@@ -1376,6 +1243,10 @@ func (x *fastReflection_QueryContentByCreatorRequest) ProtoMethods() *protoiface
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -1404,6 +1275,20 @@ func (x *fastReflection_QueryContentByCreatorRequest) ProtoMethods() *protoiface
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
 		}
 		if len(x.Creator) > 0 {
 			i -= len(x.Creator)
@@ -1493,6 +1378,42 @@ func (x *fastReflection_QueryContentByCreatorRequest) ProtoMethods() *protoiface
 				}
 				x.Creator = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageRequest{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -1580,9 +1501,10 @@ func (x *_QueryContentByCreatorResponse_2_list) IsValid() bool {
 }
 
 var (
-	md_QueryContentByCreatorResponse         protoreflect.MessageDescriptor
-	fd_QueryContentByCreatorResponse_creator protoreflect.FieldDescriptor
-	fd_QueryContentByCreatorResponse_content protoreflect.FieldDescriptor
+	md_QueryContentByCreatorResponse            protoreflect.MessageDescriptor
+	fd_QueryContentByCreatorResponse_creator    protoreflect.FieldDescriptor
+	fd_QueryContentByCreatorResponse_content    protoreflect.FieldDescriptor
+	fd_QueryContentByCreatorResponse_pagination protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -1590,6 +1512,7 @@ func init() {
 	md_QueryContentByCreatorResponse = File_v1_query_proto.Messages().ByName("QueryContentByCreatorResponse")
 	fd_QueryContentByCreatorResponse_creator = md_QueryContentByCreatorResponse.Fields().ByName("creator")
 	fd_QueryContentByCreatorResponse_content = md_QueryContentByCreatorResponse.Fields().ByName("content")
+	fd_QueryContentByCreatorResponse_pagination = md_QueryContentByCreatorResponse.Fields().ByName("pagination")
 }
 
 var _ protoreflect.Message = (*fastReflection_QueryContentByCreatorResponse)(nil)
@@ -1669,6 +1592,12 @@ func (x *fastReflection_QueryContentByCreatorResponse) Range(f func(protoreflect
 			return
 		}
 	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryContentByCreatorResponse_pagination, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -1688,6 +1617,8 @@ func (x *fastReflection_QueryContentByCreatorResponse) Has(fd protoreflect.Field
 		return x.Creator != ""
 	case "chora.example.v1.QueryContentByCreatorResponse.content":
 		return len(x.Content) != 0
+	case "chora.example.v1.QueryContentByCreatorResponse.pagination":
+		return x.Pagination != nil
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorResponse"))
@@ -1708,6 +1639,8 @@ func (x *fastReflection_QueryContentByCreatorResponse) Clear(fd protoreflect.Fie
 		x.Creator = ""
 	case "chora.example.v1.QueryContentByCreatorResponse.content":
 		x.Content = nil
+	case "chora.example.v1.QueryContentByCreatorResponse.pagination":
+		x.Pagination = nil
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorResponse"))
@@ -1733,6 +1666,9 @@ func (x *fastReflection_QueryContentByCreatorResponse) Get(descriptor protorefle
 		}
 		listValue := &_QueryContentByCreatorResponse_2_list{list: &x.Content}
 		return protoreflect.ValueOfList(listValue)
+	case "chora.example.v1.QueryContentByCreatorResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorResponse"))
@@ -1759,6 +1695,8 @@ func (x *fastReflection_QueryContentByCreatorResponse) Set(fd protoreflect.Field
 		lv := value.List()
 		clv := lv.(*_QueryContentByCreatorResponse_2_list)
 		x.Content = *clv.list
+	case "chora.example.v1.QueryContentByCreatorResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorResponse"))
@@ -1785,6 +1723,11 @@ func (x *fastReflection_QueryContentByCreatorResponse) Mutable(fd protoreflect.F
 		}
 		value := &_QueryContentByCreatorResponse_2_list{list: &x.Content}
 		return protoreflect.ValueOfList(value)
+	case "chora.example.v1.QueryContentByCreatorResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
 	case "chora.example.v1.QueryContentByCreatorResponse.creator":
 		panic(fmt.Errorf("field creator of message chora.example.v1.QueryContentByCreatorResponse is not mutable"))
 	default:
@@ -1805,6 +1748,9 @@ func (x *fastReflection_QueryContentByCreatorResponse) NewField(fd protoreflect.
 	case "chora.example.v1.QueryContentByCreatorResponse.content":
 		list := []*QueryContentByCreatorResponse_Content{}
 		return protoreflect.ValueOfList(&_QueryContentByCreatorResponse_2_list{list: &list})
+	case "chora.example.v1.QueryContentByCreatorResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.example.v1.QueryContentByCreatorResponse"))
@@ -1884,6 +1830,10 @@ func (x *fastReflection_QueryContentByCreatorResponse) ProtoMethods() *protoifac
 				n += 1 + l + runtime.Sov(uint64(l))
 			}
 		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -1912,6 +1862,20 @@ func (x *fastReflection_QueryContentByCreatorResponse) ProtoMethods() *protoifac
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x1a
 		}
 		if len(x.Content) > 0 {
 			for iNdEx := len(x.Content) - 1; iNdEx >= 0; iNdEx-- {
@@ -2051,6 +2015,42 @@ func (x *fastReflection_QueryContentByCreatorResponse) ProtoMethods() *protoifac
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
 				}
 				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -2087,19 +2087,15 @@ func (x *fastReflection_QueryContentByCreatorResponse) ProtoMethods() *protoifac
 }
 
 var (
-	md_QueryContentByCreatorResponse_Content            protoreflect.MessageDescriptor
-	fd_QueryContentByCreatorResponse_Content_id         protoreflect.FieldDescriptor
-	fd_QueryContentByCreatorResponse_Content_created_at protoreflect.FieldDescriptor
-	fd_QueryContentByCreatorResponse_Content_updated_at protoreflect.FieldDescriptor
-	fd_QueryContentByCreatorResponse_Content_hash       protoreflect.FieldDescriptor
+	md_QueryContentByCreatorResponse_Content      protoreflect.MessageDescriptor
+	fd_QueryContentByCreatorResponse_Content_id   protoreflect.FieldDescriptor
+	fd_QueryContentByCreatorResponse_Content_hash protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_v1_query_proto_init()
 	md_QueryContentByCreatorResponse_Content = File_v1_query_proto.Messages().ByName("QueryContentByCreatorResponse").Messages().ByName("Content")
 	fd_QueryContentByCreatorResponse_Content_id = md_QueryContentByCreatorResponse_Content.Fields().ByName("id")
-	fd_QueryContentByCreatorResponse_Content_created_at = md_QueryContentByCreatorResponse_Content.Fields().ByName("created_at")
-	fd_QueryContentByCreatorResponse_Content_updated_at = md_QueryContentByCreatorResponse_Content.Fields().ByName("updated_at")
 	fd_QueryContentByCreatorResponse_Content_hash = md_QueryContentByCreatorResponse_Content.Fields().ByName("hash")
 }
 
@@ -2174,18 +2170,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) Range(f func(prot
 			return
 		}
 	}
-	if x.CreatedAt != nil {
-		value := protoreflect.ValueOfMessage(x.CreatedAt.ProtoReflect())
-		if !f(fd_QueryContentByCreatorResponse_Content_created_at, value) {
-			return
-		}
-	}
-	if x.UpdatedAt != nil {
-		value := protoreflect.ValueOfMessage(x.UpdatedAt.ProtoReflect())
-		if !f(fd_QueryContentByCreatorResponse_Content_updated_at, value) {
-			return
-		}
-	}
 	if x.Hash != "" {
 		value := protoreflect.ValueOfString(x.Hash)
 		if !f(fd_QueryContentByCreatorResponse_Content_hash, value) {
@@ -2209,10 +2193,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) Has(fd protorefle
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.id":
 		return x.Id != uint64(0)
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.created_at":
-		return x.CreatedAt != nil
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.updated_at":
-		return x.UpdatedAt != nil
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.hash":
 		return x.Hash != ""
 	default:
@@ -2233,10 +2213,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) Clear(fd protoref
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.id":
 		x.Id = uint64(0)
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.created_at":
-		x.CreatedAt = nil
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.updated_at":
-		x.UpdatedAt = nil
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.hash":
 		x.Hash = ""
 	default:
@@ -2258,12 +2234,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) Get(descriptor pr
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.created_at":
-		value := x.CreatedAt
-		return protoreflect.ValueOfMessage(value.ProtoReflect())
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.updated_at":
-		value := x.UpdatedAt
-		return protoreflect.ValueOfMessage(value.ProtoReflect())
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.hash":
 		value := x.Hash
 		return protoreflect.ValueOfString(value)
@@ -2289,10 +2259,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) Set(fd protorefle
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.id":
 		x.Id = value.Uint()
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.created_at":
-		x.CreatedAt = value.Message().Interface().(*timestamppb.Timestamp)
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.updated_at":
-		x.UpdatedAt = value.Message().Interface().(*timestamppb.Timestamp)
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.hash":
 		x.Hash = value.Interface().(string)
 	default:
@@ -2315,16 +2281,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) Set(fd protorefle
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_QueryContentByCreatorResponse_Content) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.created_at":
-		if x.CreatedAt == nil {
-			x.CreatedAt = new(timestamppb.Timestamp)
-		}
-		return protoreflect.ValueOfMessage(x.CreatedAt.ProtoReflect())
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.updated_at":
-		if x.UpdatedAt == nil {
-			x.UpdatedAt = new(timestamppb.Timestamp)
-		}
-		return protoreflect.ValueOfMessage(x.UpdatedAt.ProtoReflect())
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.id":
 		panic(fmt.Errorf("field id of message chora.example.v1.QueryContentByCreatorResponse.Content is not mutable"))
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.hash":
@@ -2344,12 +2300,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) NewField(fd proto
 	switch fd.FullName() {
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.id":
 		return protoreflect.ValueOfUint64(uint64(0))
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.created_at":
-		m := new(timestamppb.Timestamp)
-		return protoreflect.ValueOfMessage(m.ProtoReflect())
-	case "chora.example.v1.QueryContentByCreatorResponse.Content.updated_at":
-		m := new(timestamppb.Timestamp)
-		return protoreflect.ValueOfMessage(m.ProtoReflect())
 	case "chora.example.v1.QueryContentByCreatorResponse.Content.hash":
 		return protoreflect.ValueOfString("")
 	default:
@@ -2424,14 +2374,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) ProtoMethods() *p
 		if x.Id != 0 {
 			n += 1 + runtime.Sov(uint64(x.Id))
 		}
-		if x.CreatedAt != nil {
-			l = options.Size(x.CreatedAt)
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
-		if x.UpdatedAt != nil {
-			l = options.Size(x.UpdatedAt)
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
 		l = len(x.Hash)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
@@ -2469,34 +2411,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) ProtoMethods() *p
 			i -= len(x.Hash)
 			copy(dAtA[i:], x.Hash)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Hash)))
-			i--
-			dAtA[i] = 0x22
-		}
-		if x.UpdatedAt != nil {
-			encoded, err := options.Marshal(x.UpdatedAt)
-			if err != nil {
-				return protoiface.MarshalOutput{
-					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-					Buf:               input.Buf,
-				}, err
-			}
-			i -= len(encoded)
-			copy(dAtA[i:], encoded)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
-			i--
-			dAtA[i] = 0x1a
-		}
-		if x.CreatedAt != nil {
-			encoded, err := options.Marshal(x.CreatedAt)
-			if err != nil {
-				return protoiface.MarshalOutput{
-					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-					Buf:               input.Buf,
-				}, err
-			}
-			i -= len(encoded)
-			copy(dAtA[i:], encoded)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
 			i--
 			dAtA[i] = 0x12
 		}
@@ -2574,78 +2488,6 @@ func (x *fastReflection_QueryContentByCreatorResponse_Content) ProtoMethods() *p
 					}
 				}
 			case 2:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field CreatedAt", wireType)
-				}
-				var msglen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					msglen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if msglen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + msglen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				if x.CreatedAt == nil {
-					x.CreatedAt = &timestamppb.Timestamp{}
-				}
-				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.CreatedAt); err != nil {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
-				}
-				iNdEx = postIndex
-			case 3:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field UpdatedAt", wireType)
-				}
-				var msglen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					msglen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if msglen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + msglen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				if x.UpdatedAt == nil {
-					x.UpdatedAt = &timestamppb.Timestamp{}
-				}
-				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.UpdatedAt); err != nil {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
-				}
-				iNdEx = postIndex
-			case 4:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 				}
@@ -2772,12 +2614,8 @@ type QueryContentResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	// creator is the creator of the content.
 	Creator string `protobuf:"bytes,2,opt,name=creator,proto3" json:"creator,omitempty"`
-	// created_at is the timestamp of when the content was created.
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// updated_at is the timestamp of when the content was updated.
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// hash is the content hash of the content.
-	Hash string `protobuf:"bytes,5,opt,name=hash,proto3" json:"hash,omitempty"`
+	Hash string `protobuf:"bytes,3,opt,name=hash,proto3" json:"hash,omitempty"`
 }
 
 func (x *QueryContentResponse) Reset() {
@@ -2814,20 +2652,6 @@ func (x *QueryContentResponse) GetCreator() string {
 	return ""
 }
 
-func (x *QueryContentResponse) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *QueryContentResponse) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
 func (x *QueryContentResponse) GetHash() string {
 	if x != nil {
 		return x.Hash
@@ -2843,6 +2667,8 @@ type QueryContentByCreatorRequest struct {
 
 	// creator is the address of the content creator.
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	// pagination is the optional pagination in the request.
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
 func (x *QueryContentByCreatorRequest) Reset() {
@@ -2872,6 +2698,13 @@ func (x *QueryContentByCreatorRequest) GetCreator() string {
 	return ""
 }
 
+func (x *QueryContentByCreatorRequest) GetPagination() *v1beta1.PageRequest {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
 // QueryContentByCreatorResponse is the Query/ContentByCreator response type.
 type QueryContentByCreatorResponse struct {
 	state         protoimpl.MessageState
@@ -2882,6 +2715,8 @@ type QueryContentByCreatorResponse struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	// content is the content created by the creator.
 	Content []*QueryContentByCreatorResponse_Content `protobuf:"bytes,2,rep,name=content,proto3" json:"content,omitempty"`
+	// pagination is the pagination in the response.
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
 func (x *QueryContentByCreatorResponse) Reset() {
@@ -2918,6 +2753,13 @@ func (x *QueryContentByCreatorResponse) GetContent() []*QueryContentByCreatorRes
 	return nil
 }
 
+func (x *QueryContentByCreatorResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
 // Content is the content properties.
 type QueryContentByCreatorResponse_Content struct {
 	state         protoimpl.MessageState
@@ -2926,12 +2768,8 @@ type QueryContentByCreatorResponse_Content struct {
 
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	// created_at is the timestamp of when the content was created.
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// updated_at is the timestamp of when the content was updated.
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// hash is the content hash of the content.
-	Hash string `protobuf:"bytes,4,opt,name=hash,proto3" json:"hash,omitempty"`
+	Hash string `protobuf:"bytes,2,opt,name=hash,proto3" json:"hash,omitempty"`
 }
 
 func (x *QueryContentByCreatorResponse_Content) Reset() {
@@ -2961,20 +2799,6 @@ func (x *QueryContentByCreatorResponse_Content) GetId() uint64 {
 	return 0
 }
 
-func (x *QueryContentByCreatorResponse_Content) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *QueryContentByCreatorResponse_Content) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
 func (x *QueryContentByCreatorResponse_Content) GetHash() string {
 	if x != nil {
 		return x.Hash
@@ -2987,80 +2811,75 @@ var File_v1_query_proto protoreflect.FileDescriptor
 var file_v1_query_proto_rawDesc = []byte{
 	0x0a, 0x0e, 0x76, 0x31, 0x2f, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x12, 0x10, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e,
-	0x76, 0x31, 0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61,
-	0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x1a, 0x1f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x22, 0x25, 0x0a, 0x13, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0xca, 0x01, 0x0a, 0x14, 0x51, 0x75, 0x65,
-	0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69,
-	0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x39, 0x0a, 0x0a, 0x63,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x39, 0x0a, 0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x64, 0x5f, 0x61, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d,
-	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41,
-	0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x04, 0x68, 0x61, 0x73, 0x68, 0x22, 0x38, 0x0a, 0x1c, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f,
+	0x76, 0x31, 0x1a, 0x2a, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x62, 0x61, 0x73, 0x65, 0x2f,
+	0x71, 0x75, 0x65, 0x72, 0x79, 0x2f, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2f, 0x70, 0x61,
+	0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c,
+	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x25, 0x0a, 0x13,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x02, 0x69, 0x64, 0x22, 0x54, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63,
+	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x72,
+	0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x22, 0x80, 0x01, 0x0a, 0x1c, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72,
+	0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x6f, 0x72, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62,
+	0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x84, 0x02, 0x0a,
+	0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43,
+	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x51, 0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x63, 0x68, 0x6f, 0x72,
+	0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x47, 0x0a, 0x0a, 0x70,
+	0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75,
+	0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x2d, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68,
+	0x61, 0x73, 0x68, 0x32, 0xb8, 0x02, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x80, 0x01,
+	0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x25, 0x2e, 0x63, 0x68, 0x6f, 0x72,
+	0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x20,
+	0x12, 0x1e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65,
+	0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x7b, 0x69, 0x64, 0x7d,
+	0x12, 0xab, 0x01, 0x0a, 0x10, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78,
+	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f,
 	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22,
-	0xb2, 0x02, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
-	0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x51, 0x0a, 0x07, 0x63,
-	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x63,
-	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x43, 0x6f,
-	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x1a, 0xa3,
-	0x01, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x39, 0x0a, 0x0a, 0x63, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a,
-	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
-	0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61,
-	0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x39, 0x0a, 0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64,
-	0x5f, 0x61, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67,
-	0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65,
-	0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74,
-	0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x68, 0x61, 0x73, 0x68, 0x32, 0xb8, 0x02, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x80,
-	0x01, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x25, 0x2e, 0x63, 0x68, 0x6f,
-	0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
-	0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
-	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93, 0x02,
-	0x20, 0x12, 0x1e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
-	0x65, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x7b, 0x69, 0x64,
-	0x7d, 0x12, 0xab, 0x01, 0x0a, 0x10, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65,
-	0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43,
-	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65,
-	0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43,
-	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x36, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x30, 0x12,
-	0x2e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2f,
-	0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2d, 0x62, 0x79, 0x2d, 0x63, 0x72,
-	0x65, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x7b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x7d, 0x42,
-	0xb1, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78,
-	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50,
-	0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x2b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
-	0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70,
-	0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x3b, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
-	0x65, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x45, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72,
-	0x61, 0x2e, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43,
-	0x68, 0x6f, 0x72, 0x61, 0x5c, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0xe2,
-	0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x5c,
-	0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02,
-	0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x3a,
-	0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78,
+	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x36, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x30, 0x12, 0x2e,
+	0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2f, 0x76,
+	0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2d, 0x62, 0x79, 0x2d, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x6f, 0x72, 0x2f, 0x7b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x7d, 0x42, 0xb1,
+	0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x65, 0x78, 0x61,
+	0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72,
+	0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x2b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
+	0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x76, 0x31, 0x3b, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65,
+	0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x45, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61,
+	0x2e, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68,
+	0x6f, 0x72, 0x61, 0x5c, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x5c, 0x56, 0x31, 0xe2, 0x02,
+	0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x5c, 0x56,
+	0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12,
+	0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x45, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x3a, 0x3a,
+	0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -3082,23 +2901,22 @@ var file_v1_query_proto_goTypes = []interface{}{
 	(*QueryContentByCreatorRequest)(nil),          // 2: chora.example.v1.QueryContentByCreatorRequest
 	(*QueryContentByCreatorResponse)(nil),         // 3: chora.example.v1.QueryContentByCreatorResponse
 	(*QueryContentByCreatorResponse_Content)(nil), // 4: chora.example.v1.QueryContentByCreatorResponse.Content
-	(*timestamppb.Timestamp)(nil),                 // 5: google.protobuf.Timestamp
+	(*v1beta1.PageRequest)(nil),                   // 5: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil),                  // 6: cosmos.base.query.v1beta1.PageResponse
 }
 var file_v1_query_proto_depIdxs = []int32{
-	5, // 0: chora.example.v1.QueryContentResponse.created_at:type_name -> google.protobuf.Timestamp
-	5, // 1: chora.example.v1.QueryContentResponse.updated_at:type_name -> google.protobuf.Timestamp
-	4, // 2: chora.example.v1.QueryContentByCreatorResponse.content:type_name -> chora.example.v1.QueryContentByCreatorResponse.Content
-	5, // 3: chora.example.v1.QueryContentByCreatorResponse.Content.created_at:type_name -> google.protobuf.Timestamp
-	5, // 4: chora.example.v1.QueryContentByCreatorResponse.Content.updated_at:type_name -> google.protobuf.Timestamp
-	0, // 5: chora.example.v1.Query.Content:input_type -> chora.example.v1.QueryContentRequest
-	2, // 6: chora.example.v1.Query.ContentByCreator:input_type -> chora.example.v1.QueryContentByCreatorRequest
-	1, // 7: chora.example.v1.Query.Content:output_type -> chora.example.v1.QueryContentResponse
-	3, // 8: chora.example.v1.Query.ContentByCreator:output_type -> chora.example.v1.QueryContentByCreatorResponse
-	7, // [7:9] is the sub-list for method output_type
-	5, // [5:7] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	5, // 0: chora.example.v1.QueryContentByCreatorRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	4, // 1: chora.example.v1.QueryContentByCreatorResponse.content:type_name -> chora.example.v1.QueryContentByCreatorResponse.Content
+	6, // 2: chora.example.v1.QueryContentByCreatorResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	0, // 3: chora.example.v1.Query.Content:input_type -> chora.example.v1.QueryContentRequest
+	2, // 4: chora.example.v1.Query.ContentByCreator:input_type -> chora.example.v1.QueryContentByCreatorRequest
+	1, // 5: chora.example.v1.Query.Content:output_type -> chora.example.v1.QueryContentResponse
+	3, // 6: chora.example.v1.Query.ContentByCreator:output_type -> chora.example.v1.QueryContentByCreatorResponse
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_v1_query_proto_init() }

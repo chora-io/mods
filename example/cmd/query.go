@@ -1,10 +1,11 @@
-package client
+package cmd
 
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/choraio/mods/example"
 	"github.com/cosmos/cosmos-sdk/client"
+
+	"github.com/choraio/mods/example"
 )
 
 // QueryCmd creates and returns the query command.

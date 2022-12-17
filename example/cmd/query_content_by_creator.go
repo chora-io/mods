@@ -1,11 +1,11 @@
-package client
+package cmd
 
 import (
 	"github.com/spf13/cobra"
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	types "github.com/choraio/mods/example/types/v1"
+	"github.com/choraio/mods/example/types/v1"
 )
 
 // QueryContentByCreatorCmd creates and returns the query content-by-creator command.
@@ -21,7 +21,7 @@ func QueryContentByCreatorCmd() *cobra.Command {
 				return err
 			}
 
-			req := types.QueryContentByCreatorRequest{
+			req := v1.QueryContentByCreatorRequest{
 				Creator: args[0],
 			}
 

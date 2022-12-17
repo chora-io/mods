@@ -1,4 +1,4 @@
-package client
+package cmd
 
 import (
 	"strconv"
@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	types "github.com/choraio/mods/example/types/v1"
+	"github.com/choraio/mods/example/types/v1"
 )
 
 // QueryContentCmd creates and returns the query content command.
@@ -28,7 +28,7 @@ func QueryContentCmd() *cobra.Command {
 				return err
 			}
 
-			req := types.QueryContentRequest{
+			req := v1.QueryContentRequest{
 				Id: id,
 			}
 

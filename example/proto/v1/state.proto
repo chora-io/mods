@@ -3,7 +3,6 @@ syntax = "proto3";
 package chora.example.v1;
 
 import "cosmos/orm/v1/orm.proto";
-import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/choraio/mods/example/types/v1";
 
@@ -21,12 +20,6 @@ message Content {
   // creator is the address of the content creator.
   bytes creator = 2;
 
-  // created_at is the timestamp of when the content was created.
-  google.protobuf.Timestamp created_at = 3;
-
-  // updated_at is the timestamp of when the content was updated.
-  google.protobuf.Timestamp updated_at = 4;
-
   // hash is the content hash of the content.
-  string hash = 5;
+  string hash = 3;
 }

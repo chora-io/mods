@@ -25,7 +25,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 // EventCreateContent is an event emitted when content is created.
 type EventCreateContent struct {
 	// id is the unique identifier of the content.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (m *EventCreateContent) Reset()         { *m = EventCreateContent{} }
@@ -61,17 +61,17 @@ func (m *EventCreateContent) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_EventCreateContent proto.InternalMessageInfo
 
-func (m *EventCreateContent) GetId() string {
+func (m *EventCreateContent) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
-	return ""
+	return 0
 }
 
 // EventUpdateContent is an event emitted when content is updated.
 type EventUpdateContent struct {
 	// id is the unique identifier of the content.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (m *EventUpdateContent) Reset()         { *m = EventUpdateContent{} }
@@ -107,17 +107,17 @@ func (m *EventUpdateContent) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_EventUpdateContent proto.InternalMessageInfo
 
-func (m *EventUpdateContent) GetId() string {
+func (m *EventUpdateContent) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
-	return ""
+	return 0
 }
 
 // EventDeleteContent is an event emitted when content is deleted.
 type EventDeleteContent struct {
 	// id is the unique identifier of the content.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (m *EventDeleteContent) Reset()         { *m = EventDeleteContent{} }
@@ -153,11 +153,11 @@ func (m *EventDeleteContent) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_EventDeleteContent proto.InternalMessageInfo
 
-func (m *EventDeleteContent) GetId() string {
+func (m *EventDeleteContent) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
-	return ""
+	return 0
 }
 
 func init() {
@@ -174,13 +174,13 @@ var fileDescriptor_4785fa397ea31433 = []byte{
 	0x2d, 0x4b, 0xcd, 0x2b, 0x29, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x48, 0xce, 0xc8,
 	0x2f, 0x4a, 0xd4, 0x4b, 0xad, 0x48, 0xcc, 0x2d, 0xc8, 0x49, 0xd5, 0x2b, 0x33, 0x54, 0x52, 0xe1,
 	0x12, 0x72, 0x05, 0xa9, 0x70, 0x2e, 0x4a, 0x4d, 0x2c, 0x49, 0x75, 0xce, 0xcf, 0x2b, 0x49, 0xcd,
-	0x2b, 0x11, 0xe2, 0xe3, 0x62, 0xca, 0x4c, 0x91, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x62, 0xca,
+	0x2b, 0x11, 0xe2, 0xe3, 0x62, 0xca, 0x4c, 0x91, 0x60, 0x54, 0x60, 0xd4, 0x60, 0x09, 0x62, 0xca,
 	0x4c, 0x81, 0xab, 0x0a, 0x2d, 0x48, 0x21, 0x42, 0x95, 0x4b, 0x6a, 0x4e, 0x2a, 0x4e, 0x55, 0x4e,
 	0x4e, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7,
 	0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7, 0x10, 0xa5, 0x91, 0x9e, 0x59, 0x92,
 	0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab, 0x0f, 0x76, 0x68, 0x66, 0xbe, 0x7e, 0x6e, 0x7e, 0x4a,
 	0xb1, 0x3e, 0xd4, 0xbd, 0xfa, 0x25, 0x95, 0x05, 0xa9, 0xc5, 0xfa, 0x65, 0x86, 0x49, 0x6c, 0x60,
-	0xef, 0x18, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0xbf, 0x7c, 0xb0, 0xe1, 0xe1, 0x00, 0x00, 0x00,
+	0xef, 0x18, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x3e, 0x65, 0x0b, 0x96, 0xe1, 0x00, 0x00, 0x00,
 }
 
 func (m *EventCreateContent) Marshal() (dAtA []byte, err error) {
@@ -203,12 +203,10 @@ func (m *EventCreateContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		i -= len(m.Id)
-		copy(dAtA[i:], m.Id)
-		i = encodeVarintEvents(dAtA, i, uint64(len(m.Id)))
+	if m.Id != 0 {
+		i = encodeVarintEvents(dAtA, i, uint64(m.Id))
 		i--
-		dAtA[i] = 0xa
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -233,12 +231,10 @@ func (m *EventUpdateContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		i -= len(m.Id)
-		copy(dAtA[i:], m.Id)
-		i = encodeVarintEvents(dAtA, i, uint64(len(m.Id)))
+	if m.Id != 0 {
+		i = encodeVarintEvents(dAtA, i, uint64(m.Id))
 		i--
-		dAtA[i] = 0xa
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -263,12 +259,10 @@ func (m *EventDeleteContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		i -= len(m.Id)
-		copy(dAtA[i:], m.Id)
-		i = encodeVarintEvents(dAtA, i, uint64(len(m.Id)))
+	if m.Id != 0 {
+		i = encodeVarintEvents(dAtA, i, uint64(m.Id))
 		i--
-		dAtA[i] = 0xa
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -290,9 +284,8 @@ func (m *EventCreateContent) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Id)
-	if l > 0 {
-		n += 1 + l + sovEvents(uint64(l))
+	if m.Id != 0 {
+		n += 1 + sovEvents(uint64(m.Id))
 	}
 	return n
 }
@@ -303,9 +296,8 @@ func (m *EventUpdateContent) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Id)
-	if l > 0 {
-		n += 1 + l + sovEvents(uint64(l))
+	if m.Id != 0 {
+		n += 1 + sovEvents(uint64(m.Id))
 	}
 	return n
 }
@@ -316,9 +308,8 @@ func (m *EventDeleteContent) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Id)
-	if l > 0 {
-		n += 1 + l + sovEvents(uint64(l))
+	if m.Id != 0 {
+		n += 1 + sovEvents(uint64(m.Id))
 	}
 	return n
 }
@@ -359,10 +350,10 @@ func (m *EventCreateContent) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 			}
-			var stringLen uint64
+			m.Id = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowEvents
@@ -372,24 +363,11 @@ func (m *EventCreateContent) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Id |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthEvents
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthEvents
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Id = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipEvents(dAtA[iNdEx:])
@@ -441,10 +419,10 @@ func (m *EventUpdateContent) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 			}
-			var stringLen uint64
+			m.Id = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowEvents
@@ -454,24 +432,11 @@ func (m *EventUpdateContent) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Id |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthEvents
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthEvents
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Id = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipEvents(dAtA[iNdEx:])
@@ -523,10 +488,10 @@ func (m *EventDeleteContent) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 			}
-			var stringLen uint64
+			m.Id = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowEvents
@@ -536,24 +501,11 @@ func (m *EventDeleteContent) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Id |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthEvents
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthEvents
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Id = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipEvents(dAtA[iNdEx:])

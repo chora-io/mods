@@ -22,18 +22,20 @@ func init() {
 	sdk.RegisterLegacyAminoCodec(amino)
 
 	// Register all Amino interfaces and concrete types on the authz, gov, and group Amino codec so that
-	// this can later be used to properly serialize MsgGrant, MsgExec and MsgSubmitProposal instances
+	// they can later be used to properly serialize MsgGrant, MsgExec and MsgSubmitProposal instances.
 	RegisterLegacyAminoCodec(authzcodec.Amino)
 	RegisterLegacyAminoCodec(govcodec.Amino)
 	RegisterLegacyAminoCodec(groupcodec.Amino)
 }
 
+// RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateContent{}, "example/MsgCreateContent", nil)
 	cdc.RegisterConcrete(&MsgUpdateContent{}, "example/MsgUpdateContent", nil)
 	cdc.RegisterConcrete(&MsgDeleteContent{}, "example/MsgDeleteContent", nil)
 }
 
+// RegisterTypes registers types.
 func RegisterTypes(registry types.InterfaceRegistry) {
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
 	registry.RegisterImplementations(

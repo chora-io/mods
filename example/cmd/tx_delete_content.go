@@ -1,4 +1,4 @@
-package client
+package cmd
 
 import (
 	"strconv"
@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 
-	types "github.com/choraio/mods/example/types/v1"
+	"github.com/choraio/mods/example/types/v1"
 )
 
 func TxDeleteContentCmd() *cobra.Command {
@@ -29,7 +29,7 @@ func TxDeleteContentCmd() *cobra.Command {
 				return err
 			}
 
-			msg := types.MsgDeleteContent{
+			msg := v1.MsgDeleteContent{
 				Id:      id,
 				Creator: clientCtx.GetFromAddress().String(),
 			}
