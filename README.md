@@ -2,12 +2,11 @@
 
 modules for [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) applications
 
-- [intertx](intertx)
+- [example](example)
 
 ## Prerequisites
 
 - [Go >= 1.19](https://golang.org/doc/install)
-- [Buf >= 1.9](https://docs.buf.build/installation)
 
 ## Documentation
 

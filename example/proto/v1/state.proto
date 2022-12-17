@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package chora.example.v1;
+
+import "cosmos/orm/v1/orm.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/choraio/mods/example/types/v1";
+
+// Content defines the table and properties of content stored in state.
+message Content {
+  option (cosmos.orm.v1.table) = {
+    id : 1,
+    primary_key : {fields : "id", auto_increment : true}
+    index : {id : 1, fields : "creator"}
+  };
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // creator is the address of the content creator.
+  bytes creator = 2;
+
+  // created_at is the timestamp of when the content was created.
+  google.protobuf.Timestamp created_at = 3;
+
+  // updated_at is the timestamp of when the content was updated.
+  google.protobuf.Timestamp updated_at = 4;
+
+  // hash is the content hash of the content.
+  string hash = 5;
+}

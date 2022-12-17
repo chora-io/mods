@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package chora.example.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/choraio/mods/example/types/v1";
+
+// Msg is the example Msg service.
+service Msg {
+
+  // CreateContent creates content.
+  rpc CreateContent(MsgCreateContent) returns (MsgCreateContentResponse);
+
+  // UpdateContent updates content.
+  rpc UpdateContent(MsgUpdateContent) returns (MsgUpdateContentResponse);
+
+  // DeleteContent deletes content.
+  rpc DeleteContent(MsgDeleteContent) returns (MsgDeleteContentResponse);
+}
+
+// MsgCreateContent is the Msg/CreateContent request type.
+message MsgCreateContent {
+  option (cosmos.msg.v1.signer) = "creator";
+
+  // creator is the address of the content creator.
+  string creator = 1;
+
+  // hash is the content hash of the content.
+  string hash = 2;
+}
+
+// MsgCreateContentResponse is the Msg/CreateContent response type.
+message MsgCreateContentResponse {}
+
+// MsgUpdateContent is the Msg/UpdateContent request type.
+message MsgUpdateContent {
+  option (cosmos.msg.v1.signer) = "creator";
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // creator is the address of the content creator.
+  string creator = 2;
+
+  // new_hash is the new content of the content.
+  string new_hash = 3;
+}
+
+// MsgUpdateContentResponse is the Msg/DeleteContent response type.
+message MsgUpdateContentResponse {}
+
+// MsgDeleteContent is the Msg/DeleteContent request type.
+message MsgDeleteContent {
+  option (cosmos.msg.v1.signer) = "creator";
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // creator is the address of the content creator.
+  string creator = 2;
+}
+
+// MsgDeleteContentResponse is the Msg/DeleteContent response type.
+message MsgDeleteContentResponse {}

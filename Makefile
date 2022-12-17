@@ -82,12 +82,12 @@ tools: go-version
 ###                                Protobuf                                 ###
 ###############################################################################
 
-containerProtoVer=v0.7
-containerProtoImage=tendermintdev/sdk-proto-gen:$(containerProtoVer)
-containerProtoFmt=chora-mods-proto-fmt-$(containerProtoVer)
-containerProtoGen=chora-mods-proto-gen-$(containerProtoVer)
+protoVersion=v0.7
+protoImage=tendermintdev/sdk-proto-gen:$(protoVersion)
+containerProtoFmt=chora-mods-proto-fmt-$(protoVersion)
+containerProtoGen=chora-mods-proto-gen-$(protoVersion)
 
-proto-all: proto-lint-fix proto-format proto-gen-intertx proto-check-breaking
+proto-all: proto-lint-fix proto-format proto-gen-example proto-check-breaking
 
 proto-lint:
 	@protolint .
@@ -100,15 +100,15 @@ proto-format:
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoFmt}$$"; then docker start -a $(containerProtoFmt); else docker run --name $(containerProtoFmt) -v $(CURDIR):/workspace --workdir /workspace tendermintdev/docker-build-proto \
 		find .  -name "*.proto" -exec clang-format -i {} \; ; fi
 
-proto-gen-intertx:
+proto-gen-example:
 	@echo "Generating protobuf files"
-	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}$$"; then docker start -a $(containerProtoGen); else docker run --name $(containerProtoGen) -v $(CURDIR):/workspace --workdir /workspace $(containerProtoImage) \
-		sh 'cd intertx; sh ./scripts/protocgen.sh'; fi
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}$$"; then docker start -a $(containerProtoGen); else docker run --name $(containerProtoGen) -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd example; ./scripts/protocgen.sh'; fi
 
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-intertx proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-example proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -126,10 +126,10 @@ test-all:
 		go test ./...; \
 	done
 
-test-intertx:
-	@echo "Testing Module intertx"
+test-example:
+	@echo "Testing Module example"
 	@go test ./... \
-		-coverprofile=coverage-intertx.out -covermode=atomic
+		-coverprofile=coverage-example.out -covermode=atomic
 
 test-coverage:
 	@cat coverage*.out | grep -v "mode: atomic" >> coverage.txt
@@ -139,7 +139,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-intertx test-coverage test-clean
+.PHONY: test test-all test-example test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

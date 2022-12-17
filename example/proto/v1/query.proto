@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package chora.example.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/choraio/mods/example/types/v1";
+
+// Query is the example Query service.
+service Query {
+
+  // Content queries content by the unique identifier of the content.
+  rpc Content(QueryContentRequest) returns (QueryContentResponse) {
+    option (google.api.http).get = "/chora/example/v1/content/{id}";
+  }
+
+  // ContentByCreator queries all content by the creator of the content.
+  rpc ContentByCreator(QueryContentByCreatorRequest)
+      returns (QueryContentByCreatorResponse) {
+    option (google.api.http).get =
+        "/chora/example/v1/content-by-creator/{creator}";
+  }
+}
+
+// QueryContentRequest is the Query/Content request type.
+message QueryContentRequest {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// QueryContentResponse is the Query/Content response type.
+message QueryContentResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // creator is the creator of the content.
+  string creator = 2;
+
+  // created_at is the timestamp of when the content was created.
+  google.protobuf.Timestamp created_at = 3;
+
+  // updated_at is the timestamp of when the content was updated.
+  google.protobuf.Timestamp updated_at = 4;
+
+  // hash is the content hash of the content.
+  string hash = 5;
+}
+
+// QueryContentByCreatorRequest is the Query/ContentByCreator request type.
+message QueryContentByCreatorRequest {
+
+  // creator is the address of the content creator.
+  string creator = 1;
+}
+
+// QueryContentByCreatorResponse is the Query/ContentByCreator response type.
+message QueryContentByCreatorResponse {
+
+  // creator is the address of the content creator.
+  string creator = 1;
+
+  // content is the content created by the creator.
+  repeated Content content = 2;
+
+  // Content is the content properties.
+  message Content {
+
+    // id is the unique identifier of the content.
+    uint64 id = 1;
+
+    // created_at is the timestamp of when the content was created.
+    google.protobuf.Timestamp created_at = 2;
+
+    // updated_at is the timestamp of when the content was updated.
+    google.protobuf.Timestamp updated_at = 3;
+
+    // hash is the content hash of the content.
+    string hash = 4;
+  }
+}
