@@ -1,0 +1,96 @@
+name: Lint
+
+# **What it does**: Runs go linter when go files have been modified
+# and proto linters when proto files have been modified.
+#
+# **Why we have it**: Ensures all go files and proto files are
+# properly formatted according to lint configuration files.
+#
+# **What does it impact**: Code quality.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  golangci:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read  # for technote-space/get-diff-action to get git reference
+    strategy:
+      matrix:
+        module: ["example"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-example
+        with:
+          PATTERNS: |
+            example/**/**.go
+            example/go.mod
+            example/go.sum
+        if: matrix.module == 'example'
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'example/go.mod'
+        if: env.GIT_DIFF
+      - uses: golangci/golangci-lint-action@v3
+        with:
+          working-directory: "example"
+        if: steps.git-diff-example.outputs.diff
+
+  buf-lint:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read  # for technote-space/get-diff-action to get git reference
+    strategy:
+      matrix:
+        module: ["example"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-example
+        with:
+          PATTERNS: |
+            example/**/**.proto
+        if: matrix.module == 'example'
+      - uses: bufbuild/buf-setup-action@v1
+        if: env.GIT_DIFF
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: 'proto'
+        if: steps.git-diff-example.outputs.diff
+
+  protolint:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read  # for technote-space/get-diff-action to get git reference
+    strategy:
+      matrix:
+        module: ["example"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-example
+        with:
+          PATTERNS: |
+            example/**/**.proto
+        if: matrix.module == 'example'
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'example/go.mod'
+        if: env.GIT_DIFF
+      - name: Run protolint
+        run: |
+          go install github.com/yoheimuta/protolint/cmd/protolint@latest
+          protolint .
+        if: steps.git-diff-example.outputs.diff

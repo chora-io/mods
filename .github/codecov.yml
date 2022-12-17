@@ -1,0 +1,32 @@
+#
+# Codecov Docs:
+# https://docs.codecov.com/docs
+#
+# Codecov Reports:
+# https://app.codecov.io/gh/choraio/mods
+#
+coverage:
+  precision: 2
+  round: down
+  range: 70...100
+  status:
+    project:
+      default:
+        threshold: 1%
+      app:
+        paths:
+          - "example/"
+    changes: false
+
+comment:
+  layout: "diff, flags, files"
+  behavior: default
+  require_changes: true
+
+ignore:
+  - "**/mocks"
+  - "**/*.cosmos_orm.go"
+  - "**/*.pb.go"
+  - "**/*.pb.gw.go"
+  - "**/*.pulsar.go"
+  - "**/statik.go"
