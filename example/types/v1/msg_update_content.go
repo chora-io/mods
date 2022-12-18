@@ -11,11 +11,7 @@ var _ legacytx.LegacyMsg = &MsgUpdateContent{}
 // ValidateBasic performs stateless validation on MsgUpdateContent.
 func (m MsgUpdateContent) ValidateBasic() error {
 	if m.Id == 0 {
-		return sdkerrors.ErrInvalidRequest.Wrap("id: cannot be empty")
-	}
-
-	if m.Creator == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("creator: cannot be empty")
+		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
 	}
 
 	if _, err := sdk.AccAddressFromBech32(m.Creator); err != nil {
@@ -23,7 +19,7 @@ func (m MsgUpdateContent) ValidateBasic() error {
 	}
 
 	if m.NewHash == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("new hash: cannot be empty")
+		return sdkerrors.ErrInvalidRequest.Wrap("new hash: empty string is not allowed")
 	}
 
 	if len(m.NewHash) > HashMaxLength {

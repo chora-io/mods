@@ -12,14 +12,13 @@ import (
 	sdkclient "github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
-	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
-	"github.com/cosmos/cosmos-sdk/orm/types/ormjson"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
 	"github.com/choraio/mods/example"
 	"github.com/choraio/mods/example/cmd"
+	"github.com/choraio/mods/example/genesis"
 	"github.com/choraio/mods/example/server"
 	v1 "github.com/choraio/mods/example/types/v1"
 )
@@ -64,9 +63,7 @@ func (m Module) QuerierRoute() string {
 }
 
 // RegisterInvariants implements AppModule/RegisterInvariants.
-func (m Module) RegisterInvariants(registry sdk.InvariantRegistry) {
-	m.srv.RegisterInvariants(registry)
-}
+func (m Module) RegisterInvariants(_ sdk.InvariantRegistry) {}
 
 // RegisterInterfaces implements AppModule/RegisterTypes.
 func (m Module) RegisterInterfaces(registry codectypes.InterfaceRegistry) {
@@ -117,22 +114,7 @@ func (m Module) DefaultGenesis(_ codec.JSONCodec) json.RawMessage {
 
 // ValidateGenesis implements AppModule/ValidateGenesis.
 func (m Module) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig, bz json.RawMessage) error {
-	db, err := ormdb.NewModuleDB(&example.ModuleSchema, ormdb.ModuleDBOptions{})
-	if err != nil {
-		return err
-	}
-
-	src, err := ormjson.NewRawMessageSource(bz)
-	if err != nil {
-		return err
-	}
-
-	err = db.ValidateJSON(src)
-	if err != nil {
-		return err
-	}
-
-	return m.srv.ValidateGenesis(bz)
+	return genesis.ValidateGenesis(bz)
 }
 
 // GetTxCmd implements AppModule/GetTxCmd.

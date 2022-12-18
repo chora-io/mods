@@ -11,11 +11,7 @@ var _ legacytx.LegacyMsg = &MsgDeleteContent{}
 // ValidateBasic performs stateless validation on MsgDeleteContent.
 func (m MsgDeleteContent) ValidateBasic() error {
 	if m.Id == 0 {
-		return sdkerrors.ErrInvalidRequest.Wrap("id: cannot be empty")
-	}
-
-	if m.Creator == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("creator: cannot be empty")
+		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
 	}
 
 	if _, err := sdk.AccAddressFromBech32(m.Creator); err != nil {

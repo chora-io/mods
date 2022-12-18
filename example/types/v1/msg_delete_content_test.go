@@ -24,13 +24,13 @@ func (s *msgDeleteContent) Before(t gocuke.TestingT) {
 	s.t = t
 }
 
-func (s *msgDeleteContent) TheMessage(a gocuke.DocString) {
+func (s *msgDeleteContent) Message(a gocuke.DocString) {
 	s.msg = &MsgDeleteContent{}
 	err := jsonpb.UnmarshalString(a.Content, s.msg)
 	require.NoError(s.t, err)
 }
 
-func (s *msgDeleteContent) TheMessageIsValidated() {
+func (s *msgDeleteContent) ValidateMessage() {
 	s.err = s.msg.ValidateBasic()
 }
 

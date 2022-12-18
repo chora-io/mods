@@ -26,7 +26,7 @@ func (s *msgCreateContent) Before(t gocuke.TestingT) {
 	s.t = t
 }
 
-func (s *msgCreateContent) TheMessage(a gocuke.DocString) {
+func (s *msgCreateContent) Message(a gocuke.DocString) {
 	s.msg = &MsgCreateContent{}
 	err := jsonpb.UnmarshalString(a.Content, s.msg)
 	require.NoError(s.t, err)
@@ -39,7 +39,7 @@ func (s *msgCreateContent) HashWithLength(a string) {
 	s.msg.Hash = strings.Repeat("x", int(length))
 }
 
-func (s *msgCreateContent) TheMessageIsValidated() {
+func (s *msgCreateContent) ValidateMessage() {
 	s.err = s.msg.ValidateBasic()
 }
 
