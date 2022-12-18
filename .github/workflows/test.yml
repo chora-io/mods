@@ -47,7 +47,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: coverage-example
-          path: coverage-example.out
+          path: example/coverage-example.out
         if: |
           (env.GIT_DIFF && matrix.module == 'example') ||
           github.ref == 'refs/heads/main'
