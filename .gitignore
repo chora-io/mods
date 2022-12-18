@@ -1,5 +1,8 @@
-# goland project files
+# goland project
 .idea
 
-# output from code coverage
-.out
+# coverage output
+*.out
+
+# coverage report
+coverage.txt

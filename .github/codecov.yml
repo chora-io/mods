@@ -13,7 +13,7 @@ coverage:
     project:
       default:
         threshold: 1%
-      app:
+      example:
         paths:
           - "example/"
     changes: false
