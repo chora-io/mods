@@ -14,19 +14,19 @@ import (
 	"github.com/regen-network/regen-ledger/types/v2/ormstore"
 
 	"github.com/choraio/mods/example"
-	api "github.com/choraio/mods/example/api/v1"
-	types "github.com/choraio/mods/example/types/v1"
+	examplev1 "github.com/choraio/mods/example/api/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 var (
-	_ types.MsgServer   = &Server{}
-	_ types.QueryServer = &Server{}
+	_ v1.MsgServer   = &Server{}
+	_ v1.QueryServer = &Server{}
 )
 
 // Server is the server.
 type Server struct {
 	db ormdb.ModuleDB
-	ss api.StateStore
+	ss examplev1.StateStore
 }
 
 // NewServer creates a new server.
@@ -39,7 +39,7 @@ func NewServer(key storetypes.StoreKey) Server {
 		panic(err)
 	}
 
-	s.ss, err = api.NewStateStore(s.db)
+	s.ss, err = examplev1.NewStateStore(s.db)
 	if err != nil {
 		panic(err)
 	}
@@ -48,9 +48,7 @@ func NewServer(key storetypes.StoreKey) Server {
 }
 
 // RegisterInvariants registers invariants.
-func (s Server) RegisterInvariants(_ sdk.InvariantRegistry) {
-	return
-}
+func (s Server) RegisterInvariants(_ sdk.InvariantRegistry) {}
 
 // InitGenesis initializes genesis state.
 func (s Server) InitGenesis(ctx sdk.Context, _ codec.JSONCodec, data json.RawMessage) ([]abci.ValidatorUpdate, error) {

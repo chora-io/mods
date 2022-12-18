@@ -1,9 +1,9 @@
 package example
 
 import (
-	"github.com/cosmos/cosmos-sdk/api/cosmos/orm/v1alpha1"
+	ormv1alpha1 "github.com/cosmos/cosmos-sdk/api/cosmos/orm/v1alpha1"
 
-	"github.com/choraio/mods/example/api/v1"
+	examplev1 "github.com/choraio/mods/example/api/v1"
 )
 
 // ModuleSchema is the schema of the module.

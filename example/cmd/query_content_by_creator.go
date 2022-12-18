@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/choraio/mods/example/types/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 // QueryContentByCreatorCmd creates and returns the query content-by-creator command.

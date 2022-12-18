@@ -9,8 +9,8 @@ import (
 
 	"github.com/regen-network/regen-ledger/types/v2/ormutil"
 
-	"github.com/choraio/mods/example/api/v1"
-	"github.com/choraio/mods/example/types/v1"
+	examplev1 "github.com/choraio/mods/example/api/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 // ContentByCreator implements the Query/ContentByCreator method.

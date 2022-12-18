@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/choraio/mods/example/cmd"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
 
@@ -20,8 +19,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 
 	"github.com/choraio/mods/example"
+	"github.com/choraio/mods/example/cmd"
 	"github.com/choraio/mods/example/server"
-	"github.com/choraio/mods/example/types/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 var _ module.AppModule = &Module{}

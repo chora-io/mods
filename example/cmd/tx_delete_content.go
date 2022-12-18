@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 
-	"github.com/choraio/mods/example/types/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 func TxDeleteContentCmd() *cobra.Command {

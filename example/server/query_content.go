@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/choraio/mods/example/types/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 // Content implements the Query/Content method.

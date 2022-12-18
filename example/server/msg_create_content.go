@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/choraio/mods/example/api/v1"
-	"github.com/choraio/mods/example/types/v1"
+	examplev1 "github.com/choraio/mods/example/api/v1"
+	v1 "github.com/choraio/mods/example/types/v1"
 )
 
 // CreateContent implements Msg/CreateContent.

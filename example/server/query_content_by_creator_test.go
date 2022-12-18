@@ -3,11 +3,11 @@ package server
 import (
 	"testing"
 
-	examplev1 "github.com/choraio/mods/example/api/v1"
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
+	examplev1 "github.com/choraio/mods/example/api/v1"
 	v1 "github.com/choraio/mods/example/types/v1"
 )
 

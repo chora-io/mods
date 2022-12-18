@@ -56,7 +56,6 @@ format_filter = -name '*.go' -type f
 format_local = \
 	github.com/tendermint/tendermint \
 	github.com/cosmos/cosmos-sdk \
-	github.com/cosmos/ibc-go \
 	github.com/choraio/mods
 
 format:
