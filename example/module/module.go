@@ -35,10 +35,11 @@ type Module struct {
 }
 
 // NewModule returns a new module.
-func NewModule(key storetypes.StoreKey, server server.Server) Module {
+func NewModule(key storetypes.StoreKey) Module {
+	srv := server.NewServer(key)
 	return Module{
 		key: key,
-		srv: server,
+		srv: srv,
 	}
 }
 
