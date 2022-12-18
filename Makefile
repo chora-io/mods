@@ -128,7 +128,7 @@ test-all:
 
 test-example:
 	@echo "Testing Module example"
-	@go test ./... \
+	@cd example && go test ./... \
 		-coverprofile=coverage-example.out -covermode=atomic
 
 test-coverage:

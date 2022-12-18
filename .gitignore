@@ -1,1 +1,5 @@
+# goland project files
 .idea
+
+# output from code coverage
+.out

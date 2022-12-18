@@ -15,7 +15,7 @@ func (m MsgDeleteContent) ValidateBasic() error {
 	}
 
 	if m.Creator == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("creator cannot be empty")
+		return sdkerrors.ErrInvalidRequest.Wrap("creator: cannot be empty")
 	}
 
 	if _, err := sdk.AccAddressFromBech32(m.Creator); err != nil {

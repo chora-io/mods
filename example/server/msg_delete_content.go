@@ -25,7 +25,7 @@ func (s Server) DeleteContent(ctx context.Context, req *v1.MsgDeleteContent) (*v
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"content with id %s: %s", req.Id, err,
+				"content with id %d: %s", req.Id, err,
 			)
 		}
 		return nil, err // internal error
@@ -37,7 +37,7 @@ func (s Server) DeleteContent(ctx context.Context, req *v1.MsgDeleteContent) (*v
 	// verify creator is content creator
 	if !contentCreator.Equals(creator) {
 		return nil, sdkerrors.ErrUnauthorized.Wrapf(
-			"content creator %s: %s", contentCreator.String(), err,
+			"creator %s: content creator %s", creator, contentCreator.String(),
 		)
 	}
 

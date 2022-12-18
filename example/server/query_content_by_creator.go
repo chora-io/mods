@@ -17,7 +17,10 @@ import (
 func (s Server) ContentByCreator(ctx context.Context, req *v1.QueryContentByCreatorRequest) (*v1.QueryContentByCreatorResponse, error) {
 
 	// convert creator to account
-	creator := sdk.AccAddress(req.Creator)
+	creator, err := sdk.AccAddressFromBech32(req.Creator)
+	if err != nil {
+		return nil, sdkerrors.ErrInvalidAddress.Wrapf("creator: %s", err)
+	}
 
 	// set the index for table lookup
 	index := examplev1.ContentCreatorIndexKey{}.WithCreator(creator)
@@ -25,9 +28,7 @@ func (s Server) ContentByCreator(ctx context.Context, req *v1.QueryContentByCrea
 	// set the pagination for table lookup
 	pg, err := ormutil.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
-		return nil, sdkerrors.ErrInvalidRequest.Wrapf(
-			"invalid pagination: %s", err,
-		)
+		return nil, err // internal error
 	}
 
 	// get iterator for content by creator from content table
@@ -50,9 +51,15 @@ func (s Server) ContentByCreator(ctx context.Context, req *v1.QueryContentByCrea
 		content = append(content, &c)
 	}
 
+	pr, err := ormutil.PulsarPageResToGogoPageRes(it.PageResponse())
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// return query content by creator response
 	return &v1.QueryContentByCreatorResponse{
-		Creator: creator.String(),
-		Content: content,
+		Creator:    creator.String(),
+		Content:    content,
+		Pagination: pr,
 	}, nil
 }

@@ -18,7 +18,7 @@ func (s Server) Content(ctx context.Context, req *v1.QueryContentRequest) (*v1.Q
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"content with id %s: %s", req.Id, err,
+				"content with id %d", req.Id,
 			)
 		}
 		return nil, err // internal error
