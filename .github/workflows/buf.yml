@@ -1,4 +1,4 @@
-name: Buf Registry
+name: Buf
 
 # **What it does**: Pushes proto files to buf schema registry when
 # proto files have been modified (https://buf.build/chora/mods).
@@ -30,5 +30,5 @@ jobs:
       - uses: bufbuild/buf-setup-action@v1
       - uses: bufbuild/buf-push-action@v1
         with:
-          input: 'proto'
+          input: 'example/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
