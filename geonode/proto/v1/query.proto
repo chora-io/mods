@@ -16,8 +16,10 @@ service Query {
   }
 
   // NodeByCurator queries nodes by the curator of the nodes.
-  rpc NodeByCurator(QueryNodeByCuratorRequest) returns (QueryNodeByCuratorResponse) {
-    option (google.api.http).get = "/chora/geonode/v1/node-by-curator/{curator}";
+  rpc NodeByCurator(QueryNodeByCuratorRequest)
+      returns (QueryNodeByCuratorResponse) {
+    option (google.api.http).get =
+        "/chora/geonode/v1/node-by-curator/{curator}";
   }
 }
 
