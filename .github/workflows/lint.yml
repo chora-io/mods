@@ -67,7 +67,7 @@ jobs:
         if: env.GIT_DIFF
       - uses: bufbuild/buf-lint-action@v1
         with:
-          input: 'proto'
+          input: 'content/proto'
         if: steps.git-diff-content.outputs.diff
 
   protolint:
