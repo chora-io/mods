@@ -10,18 +10,20 @@ fi
 echo "Generating gogo files"
 
 cd proto
+
 buf mod update
 
 proto_dirs=$(find . -path -prune -o -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq)
 for dir in $proto_dirs; do
   for file in $(find "${dir}" -maxdepth 1 -name '*.proto'); do
-    if grep go_package $file &> /dev/null ; then
-      buf generate --template buf.gen.gogo.yaml $file
+    if grep go_package "$file" &> /dev/null ; then
+      buf generate --template buf.gen.gogo.yaml "$file"
     fi
   done
 done
 
 cd ..
+
 cp -r github.com/choraio/mods/geonode/* ./
 rm -rf github.com
 
@@ -32,8 +34,29 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 go install github.com/cosmos/cosmos-sdk/orm/cmd/protoc-gen-go-cosmos-orm@latest
 
 cd api
+
 find ./ -type f \( -iname \*.pulsar.go -o -iname \*.pb.go -o -iname \*.cosmos_orm.go -o -iname \*.pb.gw.go \) -delete
 find . -empty -type d -delete
 
 cd ../proto
+
 buf generate --template buf.gen.pulsar.yaml
+
+echo "Generating swagger files"
+
+proto_dirs=$(find . -path -prune -o -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq)
+for dir in $proto_dirs; do
+  file=$(find "${dir}" -maxdepth 1 \( -name 'query.proto' \))
+  if [[ ! -z "$file" ]]; then
+    buf generate --template buf.gen.swagger.yaml "$file"
+  fi
+done
+
+cd ../docs
+
+npm list -g | grep swagger-combine > /dev/null || npm install -g swagger-combine --no-shrinkwrap
+
+swagger-combine config.json -f yaml \
+  -o swagger.yaml \
+  --continueOnConflictingPaths true \
+  --includeDefinitions true

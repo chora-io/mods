@@ -102,12 +102,12 @@ proto-format:
 proto-gen-content:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-content$$"; then docker start -a $(containerProtoGen)-content; else docker run --name $(containerProtoGen)-content -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd content; ./scripts/protocgen.sh'; fi
+		sh -c 'cd content; ./scripts/bufgen.sh'; fi
 
 proto-gen-geonode:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-geonode$$"; then docker start -a $(containerProtoGen)-geonode; else docker run --name $(containerProtoGen)-geonode -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd geonode; ./scripts/protocgen.sh'; fi
+		sh -c 'cd geonode; ./scripts/bufgen.sh'; fi
 
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main
