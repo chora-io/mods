@@ -2,7 +2,7 @@
 
 modules for [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) applications
 
-- [example](example)
+- [content](content)
 
 ## Prerequisites
 

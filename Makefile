@@ -86,7 +86,7 @@ protoImage=tendermintdev/sdk-proto-gen:$(protoVersion)
 containerProtoFmt=chora-mods-proto-fmt-$(protoVersion)
 containerProtoGen=chora-mods-proto-gen-$(protoVersion)
 
-proto-all: proto-lint-fix proto-format proto-gen-example proto-check-breaking
+proto-all: proto-lint-fix proto-format proto-gen-content proto-check-breaking
 
 proto-lint:
 	@protolint .
@@ -99,15 +99,15 @@ proto-format:
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoFmt}$$"; then docker start -a $(containerProtoFmt); else docker run --name $(containerProtoFmt) -v $(CURDIR):/workspace --workdir /workspace tendermintdev/docker-build-proto \
 		find .  -name "*.proto" -exec clang-format -i {} \; ; fi
 
-proto-gen-example:
+proto-gen-content:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}$$"; then docker start -a $(containerProtoGen); else docker run --name $(containerProtoGen) -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd example; ./scripts/protocgen.sh'; fi
+		sh -c 'cd content; ./scripts/protocgen.sh'; fi
 
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-example proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -125,10 +125,10 @@ test-all:
 		go test ./...; \
 	done
 
-test-example:
-	@echo "Testing Module example"
-	@cd example && go test ./... \
-		-coverprofile=coverage-example.out -covermode=atomic
+test-content:
+	@echo "Testing Module content"
+	@cd content && go test ./... \
+		-coverprofile=coverage-content.out -covermode=atomic
 
 test-coverage:
 	@cat coverage*.out | grep -v "mode: atomic" >> coverage.txt
@@ -138,7 +138,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-example test-coverage test-clean
+.PHONY: test test-all test-content test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

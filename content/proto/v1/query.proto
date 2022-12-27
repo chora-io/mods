@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package chora.content.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/choraio/mods/content/types/v1";
+
+// Query is the content Query service.
+service Query {
+
+  // Content queries content by the unique identifier of the content.
+  rpc Content(QueryContentRequest) returns (QueryContentResponse) {
+    option (google.api.http).get = "/chora/content/v1/content/{id}";
+  }
+
+  // ContentByCurator queries all content by the curator of the content.
+  rpc ContentByCurator(QueryContentByCuratorRequest)
+      returns (QueryContentByCuratorResponse) {
+    option (google.api.http).get =
+        "/chora/content/v1/content-by-curator/{curator}";
+  }
+}
+
+// QueryContentRequest is the Query/Content request type.
+message QueryContentRequest {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// QueryContentResponse is the Query/Content response type.
+message QueryContentResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // curator is the curator of the content.
+  string curator = 2;
+
+  // hash is the content hash of the content.
+  string hash = 3;
+}
+
+// QueryContentByCuratorRequest is the Query/ContentByCurator request type.
+message QueryContentByCuratorRequest {
+
+  // curator is the address of the content curator.
+  string curator = 1;
+
+  // pagination is the optional pagination in the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QueryContentByCuratorResponse is the Query/ContentByCurator response type.
+message QueryContentByCuratorResponse {
+
+  // curator is the address of the content curator.
+  string curator = 1;
+
+  // content is the content created by the curator.
+  repeated Content content = 2;
+
+  // pagination is the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Content is the content properties.
+  message Content {
+
+    // id is the unique identifier of the content.
+    uint64 id = 1;
+
+    // hash is the content hash of the content.
+    string hash = 2;
+  }
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package chora.content.v1;
+
+option go_package = "github.com/choraio/mods/content/types/v1";
+
+// EventCreate is an event emitted when content is created.
+message EventCreate {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// EventUpdate is an event emitted when content is updated.
+message EventUpdate {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// EventDelete is an event emitted when content is deleted.
+message EventDelete {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}

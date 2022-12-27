@@ -13,9 +13,9 @@ coverage:
     project:
       default:
         threshold: 1%
-      example:
+      content:
         paths:
-          - "example/"
+          - "content/"
     changes: false
 
 comment:

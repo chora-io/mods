@@ -28,25 +28,25 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["example"]
+        module: ["content"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-example
+        id: git-diff-content
         with:
           PATTERNS: |
-            example/**/**.go
-            example/go.mod
-            example/go.sum
-        if: matrix.module == 'example'
+            content/**/**.go
+            content/go.mod
+            content/go.sum
+        if: matrix.module == 'content'
       - uses: actions/setup-go@v3
         with:
-          go-version-file: 'example/go.mod'
+          go-version-file: 'content/go.mod'
         if: env.GIT_DIFF
       - uses: golangci/golangci-lint-action@v3
         with:
-          working-directory: "example"
-        if: steps.git-diff-example.outputs.diff
+          working-directory: "content"
+        if: steps.git-diff-content.outputs.diff
 
   buf-lint:
     runs-on: ubuntu-latest
@@ -54,21 +54,21 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["example"]
+        module: ["content"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-example
+        id: git-diff-content
         with:
           PATTERNS: |
-            example/**/**.proto
-        if: matrix.module == 'example'
+            content/**/**.proto
+        if: matrix.module == 'content'
       - uses: bufbuild/buf-setup-action@v1
         if: env.GIT_DIFF
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: 'proto'
-        if: steps.git-diff-example.outputs.diff
+        if: steps.git-diff-content.outputs.diff
 
   protolint:
     runs-on: ubuntu-latest
@@ -76,21 +76,21 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["example"]
+        module: ["content"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-example
+        id: git-diff-content
         with:
           PATTERNS: |
-            example/**/**.proto
-        if: matrix.module == 'example'
+            content/**/**.proto
+        if: matrix.module == 'content'
       - uses: actions/setup-go@v3
         with:
-          go-version-file: 'example/go.mod'
+          go-version-file: 'content/go.mod'
         if: env.GIT_DIFF
       - name: Run protolint
         run: |
           go install github.com/yoheimuta/protolint/cmd/protolint@latest
           protolint .
-        if: steps.git-diff-example.outputs.diff
+        if: steps.git-diff-content.outputs.diff
