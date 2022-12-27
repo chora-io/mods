@@ -16,12 +16,12 @@ func (m *Content) Validate() error {
 		return errors.ErrParse.Wrapf("curator: %s", err)
 	}
 
-	if m.Hash == "" {
-		return errors.ErrParse.Wrap("hash: empty string is not allowed")
+	if m.Metadata == "" {
+		return errors.ErrParse.Wrap("metadata: empty string is not allowed")
 	}
 
-	if len(m.Hash) > HashMaxLength {
-		return errors.ErrParse.Wrapf("hash: exceeds max length %d", HashMaxLength)
+	if len(m.Metadata) > MetadataMaxLength {
+		return errors.ErrParse.Wrapf("metadata: exceeds max length %d", MetadataMaxLength)
 	}
 
 	return nil

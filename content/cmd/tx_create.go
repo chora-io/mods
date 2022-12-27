@@ -12,7 +12,7 @@ import (
 
 func TxCreateCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create [hash]",
+		Use:   "create [metadata]",
 		Short: "submit a transaction to create content",
 		Long:  "submit a transaction to create content",
 		Args:  cobra.ExactArgs(1),
@@ -23,8 +23,8 @@ func TxCreateCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgCreate{
-				Curator: clientCtx.GetFromAddress().String(),
-				Hash:    args[0],
+				Curator:  clientCtx.GetFromAddress().String(),
+				Metadata: args[0],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package chora.geonode.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/choraio/mods/geonode/types/v1";
+
+// Msg is the geonode Msg service.
+service Msg {
+
+  // Create creates a node.
+  rpc Create(MsgCreate) returns (MsgCreateResponse);
+
+  // Update updates a node.
+  rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+}
+
+// MsgCreate is the Msg/Create request type.
+message MsgCreate {
+  option (cosmos.msg.v1.signer) = "curator";
+
+  // curator is the address of the node curator.
+  string curator = 1;
+
+  // metadata is the metadata of the node.
+  string metadata = 2;
+}
+
+// MsgCreateResponse is the Msg/Create response type.
+message MsgCreateResponse {
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+}
+
+// MsgUpdate is the Msg/Update request type.
+message MsgUpdate {
+  option (cosmos.msg.v1.signer) = "curator";
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+
+  // curator is the address of the node curator.
+  string curator = 2;
+
+  // new_metadata is the new metadata of the node.
+  string new_metadata = 3;
+}
+
+// MsgUpdateResponse is the Msg/Delete response type.
+message MsgUpdateResponse {
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+}

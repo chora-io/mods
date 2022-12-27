@@ -39,8 +39,8 @@ message QueryContentResponse {
   // curator is the curator of the content.
   string curator = 2;
 
-  // hash is the content hash of the content.
-  string hash = 3;
+  // metadata is the metadata of the content.
+  string metadata = 3;
 }
 
 // QueryContentByCuratorRequest is the Query/ContentByCurator request type.
@@ -71,7 +71,7 @@ message QueryContentByCuratorResponse {
     // id is the unique identifier of the content.
     uint64 id = 1;
 
-    // hash is the content hash of the content.
-    string hash = 2;
+    // metadata is the metadata of the content.
+    string metadata = 2;
   }
 }

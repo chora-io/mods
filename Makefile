@@ -101,13 +101,18 @@ proto-format:
 
 proto-gen-content:
 	@echo "Generating protobuf files"
-	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}$$"; then docker start -a $(containerProtoGen); else docker run --name $(containerProtoGen) -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-content$$"; then docker start -a $(containerProtoGen)-content; else docker run --name $(containerProtoGen)-content -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
 		sh -c 'cd content; ./scripts/protocgen.sh'; fi
+
+proto-gen-geonode:
+	@echo "Generating protobuf files"
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-geonode$$"; then docker start -a $(containerProtoGen)-geonode; else docker run --name $(containerProtoGen)-geonode -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd geonode; ./scripts/protocgen.sh'; fi
 
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-gen-geonode proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -128,7 +133,12 @@ test-all:
 test-content:
 	@echo "Testing Module content"
 	@cd content && go test ./... \
-		-coverprofile=coverage-content.out -covermode=atomic
+		-coverprofile=../coverage-content.out -covermode=atomic
+
+test-geonode:
+	@echo "Testing Module geonode"
+	@cd geonode && go test ./... \
+		-coverprofile=../coverage-geonode.out -covermode=atomic
 
 test-coverage:
 	@cat coverage*.out | grep -v "mode: atomic" >> coverage.txt
@@ -138,7 +148,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-content test-coverage test-clean
+.PHONY: test test-all test-content test-geonode test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

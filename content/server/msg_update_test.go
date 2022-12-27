@@ -35,8 +35,8 @@ func (s *msgUpdate) Content(a gocuke.DocString) {
 	require.NoError(s.t, err)
 
 	id, err := s.srv.ss.ContentTable().InsertReturningID(s.ctx, &contentv1.Content{
-		Curator: content.Curator,
-		Hash:    content.Hash,
+		Curator:  content.Curator,
+		Metadata: content.Metadata,
 	})
 	require.NoError(s.t, err)
 	require.Equal(s.t, content.Id, id)
@@ -76,7 +76,7 @@ func (s *msgUpdate) ExpectStateContent(a gocuke.DocString) {
 
 	require.Equal(s.t, expected.Id, actual.Id)
 	require.Equal(s.t, expected.Curator, actual.Curator)
-	require.Equal(s.t, expected.Hash, actual.Hash)
+	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
 func (s *msgUpdate) ExpectEventUpdate(a gocuke.DocString) {

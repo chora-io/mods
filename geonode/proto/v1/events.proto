@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package chora.geonode.v1;
+
+option go_package = "github.com/choraio/mods/geonode/types/v1";
+
+// EventCreate is an event emitted when a node is created.
+message EventCreate {
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+}
+
+// EventUpdate is an event emitted when a node is updated.
+message EventUpdate {
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+}

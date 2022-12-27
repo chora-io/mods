@@ -36,8 +36,8 @@ func (s *msgDelete) Content(a gocuke.DocString) {
 	require.NoError(s.t, err)
 
 	id, err := s.srv.ss.ContentTable().InsertReturningID(s.ctx, &contentv1.Content{
-		Curator: content.Curator,
-		Hash:    content.Hash,
+		Curator:  content.Curator,
+		Metadata: content.Metadata,
 	})
 	require.NoError(s.t, err)
 	require.Equal(s.t, content.Id, id)

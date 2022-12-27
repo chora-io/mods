@@ -25,10 +25,40 @@ concurrency:
 jobs:
   break-check:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read  # for technote-space/get-diff-action to get git reference
+    strategy:
+      matrix:
+        module: ["content", "geonode"]
     steps:
       - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-content
+        with:
+          PATTERNS: |
+            content/**/**.go
+            content/go.mod
+            content/go.sum
+        if: matrix.module == 'content'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-geonode
+        with:
+          PATTERNS: |
+            geonode/**/**.go
+            geonode/go.mod
+            geonode/go.sum
+        if: matrix.module == 'geonode'
       - uses: bufbuild/buf-setup-action@v1
+        if: |
+          steps.git-diff-content.outputs.diff ||
+          steps.git-diff-geonode.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
           input: 'content/proto'
           against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=content/proto'
+        if: steps.git-diff-content.outputs.diff
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          input: 'geonode/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=geonode/proto'
+        if: steps.git-diff-geonode.outputs.diff

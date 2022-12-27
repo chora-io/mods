@@ -1,7 +1,7 @@
 name: Buf
 
 # **What it does**: Pushes proto files to buf schema registry when
-# proto files have been modified (https://buf.build/chora/mods).
+# proto files have been modified (https://buf.build/chora).
 #
 # **Why we have it**: Buf schema registry serves as a source of truth
 # for application developers consuming the API of chora modules.
@@ -25,10 +25,33 @@ concurrency:
 jobs:
   push:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read  # for technote-space/get-diff-action to get git reference
+    strategy:
+      matrix:
+        module: ["content", "geonode"]
     steps:
       - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-content
+        with:
+          PATTERNS: |
+            content/**/**.proto
+        if: matrix.module == 'content'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-geonode
+        with:
+          PATTERNS: |
+            geonode/**/**.proto
+        if: matrix.module == 'geonode'
       - uses: bufbuild/buf-setup-action@v1
       - uses: bufbuild/buf-push-action@v1
         with:
           input: 'content/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
+        if: steps.git-diff-content.outputs.diff
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          input: 'geonode/proto'
+          buf_token: ${{ secrets.BUF_TOKEN }}
+        if: steps.git-diff-geonode.outputs.diff

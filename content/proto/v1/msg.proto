@@ -26,8 +26,8 @@ message MsgCreate {
   // curator is the address of the content curator.
   string curator = 1;
 
-  // hash is the content hash of the content.
-  string hash = 2;
+  // metadata is the metadata of the content.
+  string metadata = 2;
 }
 
 // MsgCreateResponse is the Msg/Create response type.
@@ -47,8 +47,8 @@ message MsgUpdate {
   // curator is the address of the content curator.
   string curator = 2;
 
-  // new_hash is the new content of the content.
-  string new_hash = 3;
+  // new_metadata is the new metadata of the content.
+  string new_metadata = 3;
 }
 
 // MsgUpdateResponse is the Msg/Delete response type.

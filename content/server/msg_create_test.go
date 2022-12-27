@@ -59,7 +59,7 @@ func (s *msgCreate) ExpectStateContent(a gocuke.DocString) {
 
 	require.Equal(s.t, expected.Id, actual.Id)
 	require.Equal(s.t, expected.Curator, actual.Curator)
-	require.Equal(s.t, expected.Hash, actual.Hash)
+	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
 func (s *msgCreate) ExpectEventCreate(a gocuke.DocString) {

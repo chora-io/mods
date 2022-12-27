@@ -28,7 +28,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content"]
+        module: ["content", "geonode"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -39,14 +39,30 @@ jobs:
             content/go.mod
             content/go.sum
         if: matrix.module == 'content'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-geonode
+        with:
+          PATTERNS: |
+            geonode/**/**.go
+            geonode/go.mod
+            geonode/go.sum
+        if: matrix.module == 'geonode'
       - uses: actions/setup-go@v3
         with:
           go-version-file: 'content/go.mod'
-        if: env.GIT_DIFF
+        if: steps.git-diff-content.outputs.diff
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'geonode/go.mod'
+        if: steps.git-diff-geonode.outputs.diff
       - uses: golangci/golangci-lint-action@v3
         with:
           working-directory: "content"
         if: steps.git-diff-content.outputs.diff
+      - uses: golangci/golangci-lint-action@v3
+        with:
+          working-directory: "geonode"
+        if: steps.git-diff-geonode.outputs.diff
 
   buf-lint:
     runs-on: ubuntu-latest
@@ -54,7 +70,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content"]
+        module: ["content", "geonode"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -63,12 +79,24 @@ jobs:
           PATTERNS: |
             content/**/**.proto
         if: matrix.module == 'content'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-geonode
+        with:
+          PATTERNS: |
+            geonode/**/**.proto
+        if: matrix.module == 'geonode'
       - uses: bufbuild/buf-setup-action@v1
-        if: env.GIT_DIFF
+        if: |
+          steps.git-diff-content.outputs.diff ||
+          steps.git-diff-geonode.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: 'content/proto'
         if: steps.git-diff-content.outputs.diff
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: 'geonode/proto'
+        if: steps.git-diff-geonode.outputs.diff
 
   protolint:
     runs-on: ubuntu-latest
@@ -76,7 +104,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content"]
+        module: ["content", "geonode"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -85,12 +113,28 @@ jobs:
           PATTERNS: |
             content/**/**.proto
         if: matrix.module == 'content'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-geonode
+        with:
+          PATTERNS: |
+            geonode/**/**.proto
+        if: matrix.module == 'geonode'
       - uses: actions/setup-go@v3
         with:
           go-version-file: 'content/go.mod'
-        if: env.GIT_DIFF
-      - name: Run protolint
-        run: |
-          go install github.com/yoheimuta/protolint/cmd/protolint@latest
-          protolint .
         if: steps.git-diff-content.outputs.diff
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'geonode/go.mod'
+        if: steps.git-diff-geonode.outputs.diff
+      - name: Install protolint
+        run: go install github.com/yoheimuta/protolint/cmd/protolint@latest
+        if: |
+          steps.git-diff-content.outputs.diff ||
+          steps.git-diff-geonode.outputs.diff
+      - name: Run protolint
+        run: protolint ./content
+        if: steps.git-diff-content.outputs.diff
+      - name: Run protolint
+        run: protolint ./geonode
+        if: steps.git-diff-geonode.outputs.diff

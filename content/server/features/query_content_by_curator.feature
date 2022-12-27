@@ -37,7 +37,7 @@ Feature: Query/ContentByCurator
       {
         "id": 1,
         "curator": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -63,7 +63,7 @@ Feature: Query/ContentByCurator
       {
         "id": 2,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       When query content by curator
@@ -79,7 +79,7 @@ Feature: Query/ContentByCurator
         "content": [
           {
             "id": 2,
-            "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+            "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
           }
         ],
         "pagination": {
@@ -94,7 +94,7 @@ Feature: Query/ContentByCurator
       {
         "id": 2,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Given content
@@ -102,7 +102,7 @@ Feature: Query/ContentByCurator
       {
         "id": 3,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       When query content by curator
@@ -118,11 +118,11 @@ Feature: Query/ContentByCurator
         "content": [
           {
             "id": 2,
-            "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+            "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
           },
           {
             "id": 3,
-            "hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+            "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
           }
         ],
         "pagination": {

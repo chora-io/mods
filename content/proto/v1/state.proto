@@ -20,6 +20,6 @@ message Content {
   // curator is the address of the content curator.
   bytes curator = 2;
 
-  // hash is the content hash of the content.
-  string hash = 3;
+  // metadata is the metadata of the content.
+  string metadata = 3;
 }

@@ -2,4 +2,4 @@
 
 ## Content
 
-Content is any content that has been hashed and stored on chain.
+Content is the on-chain representation of any type of content.

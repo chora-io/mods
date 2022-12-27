@@ -45,8 +45,8 @@ func (s Server) ContentByCurator(ctx context.Context, req *v1.QueryContentByCura
 			return nil, err // internal error
 		}
 		c := v1.QueryContentByCuratorResponse_Content{
-			Id:   v.Id,
-			Hash: v.Hash,
+			Id:       v.Id,
+			Metadata: v.Metadata,
 		}
 		content = append(content, &c)
 	}

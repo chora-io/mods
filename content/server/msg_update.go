@@ -41,8 +41,8 @@ func (s Server) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateRes
 		)
 	}
 
-	// set new content hash
-	content.Hash = req.NewHash
+	// set new content metadata
+	content.Metadata = req.NewMetadata
 
 	// update content in content table
 	err = s.ss.ContentTable().Update(ctx, content)

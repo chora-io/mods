@@ -28,8 +28,8 @@ func TestValidateGenesis(t *testing.T) {
 			name: "valid",
 			setup: func(ctx context.Context, ss contentv1.StateStore) {
 				require.NoError(t, ss.ContentTable().Insert(ctx, &contentv1.Content{
-					Curator: []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y="),
-					Hash:    "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
+					Curator:  []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y="),
+					Metadata: "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
 				}))
 			},
 		},

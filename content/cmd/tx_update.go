@@ -14,7 +14,7 @@ import (
 
 func TxUpdateCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update [id] [new-hash]",
+		Use:   "update [id] [new-metadata]",
 		Short: "submit a transaction to update content",
 		Long:  "submit a transaction to update content",
 		Args:  cobra.ExactArgs(2),
@@ -30,9 +30,9 @@ func TxUpdateCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgUpdate{
-				Id:      id,
-				Curator: clientCtx.GetFromAddress().String(),
-				NewHash: args[1],
+				Id:          id,
+				Curator:     clientCtx.GetFromAddress().String(),
+				NewMetadata: args[1],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

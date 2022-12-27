@@ -32,11 +32,11 @@ func (s *content) Content(a gocuke.DocString) {
 	require.NoError(s.t, err)
 }
 
-func (s *content) HashWithLength(a string) {
+func (s *content) MetadataWithLength(a string) {
 	length, err := strconv.ParseInt(a, 10, 64)
 	require.NoError(s.t, err)
 
-	s.content.Hash = strings.Repeat("x", int(length))
+	s.content.Metadata = strings.Repeat("x", int(length))
 }
 
 func (s *content) ValidateContent() {

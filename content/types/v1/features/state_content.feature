@@ -6,7 +6,7 @@ Feature: Content
     {
       "id": 1,
       "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-      "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+      "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
     }
     """
     When validate content
@@ -36,7 +36,7 @@ Feature: Content
     curator: empty address string is not allowed: parse error
     """
 
-  Scenario: an error is returned if hash is empty
+  Scenario: an error is returned if metadata is empty
     Given content
     """
     {
@@ -47,10 +47,10 @@ Feature: Content
     When validate content
     Then expect the error
     """
-    hash: empty string is not allowed: parse error
+    metadata: empty string is not allowed: parse error
     """
 
-  Scenario: an error is returned if hash exceeds 128 characters
+  Scenario: an error is returned if metadata exceeds 128 characters
     Given content
     """
     {
@@ -58,9 +58,9 @@ Feature: Content
       "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
     }
     """
-    And hash with length "129"
+    And metadata with length "129"
     When validate content
     Then expect the error
     """
-    hash: exceeds max length 128: parse error
+    metadata: exceeds max length 128: parse error
     """

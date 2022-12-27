@@ -29,8 +29,8 @@ func (s Server) Content(ctx context.Context, req *v1.QueryContentRequest) (*v1.Q
 
 	// return query content response
 	return &v1.QueryContentResponse{
-		Id:      content.Id,
-		Curator: curator.String(),
-		Hash:    content.Hash,
+		Id:       content.Id,
+		Curator:  curator.String(),
+		Metadata: content.Metadata,
 	}, nil
 }

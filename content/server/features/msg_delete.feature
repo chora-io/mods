@@ -16,7 +16,7 @@ Feature: Msg/Delete
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -51,7 +51,7 @@ Feature: Msg/Delete
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -80,7 +80,7 @@ Feature: Msg/Delete
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -104,7 +104,7 @@ Feature: Msg/Delete
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 

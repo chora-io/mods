@@ -16,7 +16,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -26,7 +26,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "new_hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       Then expect no error
@@ -37,7 +37,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "new_hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       Then expect the error
@@ -53,7 +53,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -63,7 +63,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "new_hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       Then expect response
@@ -83,7 +83,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -93,7 +93,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "new_hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       Then expect state content
@@ -101,7 +101,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
 
@@ -115,7 +115,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -125,7 +125,7 @@ Feature: Msg/Update
       {
         "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "new_hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       Then expect event update

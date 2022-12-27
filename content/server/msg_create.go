@@ -21,8 +21,8 @@ func (s Server) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateRes
 
 	// insert content into content table
 	id, err := s.ss.ContentTable().InsertReturningID(ctx, &contentv1.Content{
-		Curator: curator,
-		Hash:    req.Hash,
+		Curator:  curator,
+		Metadata: req.Metadata,
 	})
 	if err != nil {
 		return nil, err // internal error

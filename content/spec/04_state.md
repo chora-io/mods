@@ -4,8 +4,8 @@ The `content` module uses the `orm` module as an abstraction layer over the `KVS
 
 ## Proto Definitions
 
-The state is defined in the proto files available to view on [Buf Schema Registry](https://buf.build/chora/mods).
+The state is defined in the proto files available to view on [Buf Schema Registry](https://buf.build/chora/content).
 
 <!-- listed alphabetically -->
 
-- [Content](https://buf.build/chora/mods/docs/main:chora.content.v1#chora.content.v1.Content)
+- [Content](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Content)
