@@ -9,6 +9,6 @@ import (
 // ModuleSchema is the schema of the module.
 var ModuleSchema = ormv1alpha1.ModuleSchemaDescriptor{
 	SchemaFile: []*ormv1alpha1.ModuleSchemaDescriptor_FileEntry{
-		{Id: 1, ProtoFileName: contentv1.File_v1_state_proto.Path()},
+		{Id: 1, ProtoFileName: contentv1.File_chora_content_v1_state_proto.Path()},
 	},
 }

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: v1/msg.proto
+// source: chora/geonode/v1/msg.proto
 
 package geonodev1
 
@@ -141,5 +141,5 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "v1/msg.proto",
+	Metadata: "chora/geonode/v1/msg.proto",
 }

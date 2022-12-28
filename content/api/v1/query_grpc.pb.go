@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: v1/query.proto
+// source: chora/content/v1/query.proto
 
 package contentv1
 
@@ -141,5 +141,5 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "v1/query.proto",
+	Metadata: "chora/content/v1/query.proto",
 }

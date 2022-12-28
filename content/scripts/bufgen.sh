@@ -7,11 +7,28 @@ if ! grep "github.com/choraio/mods/content" go.mod &>/dev/null ; then
   return 1
 fi
 
-echo "Generating gogo files"
+echo "Updating dependencies"
 
 cd proto
 
 buf mod update
+
+cd ..
+
+echo "Creating tmp directory"
+
+mkdir -p proto-tmp/chora/content
+
+cd proto
+
+find . -maxdepth 1 -mindepth 1 -type f -exec cp '{}' ../proto-tmp/ \;
+find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../proto-tmp/chora/content/ \;
+
+cd ..
+
+echo "Generating gogo files"
+
+cd proto-tmp
 
 proto_dirs=$(find . -path -prune -o -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq)
 for dir in $proto_dirs; do
@@ -38,11 +55,23 @@ cd api
 find ./ -type f \( -iname \*.pulsar.go -o -iname \*.pb.go -o -iname \*.cosmos_orm.go -o -iname \*.pb.gw.go \) -delete
 find . -empty -type d -delete
 
-cd ../proto
+cd ../proto-tmp
 
 buf generate --template buf.gen.pulsar.yaml
 
+cd ../api/chora/content
+
+find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
+
+cd ../..
+
+rm -rf chora
+
+cd ..
+
 echo "Generating swagger files"
+
+cd proto-tmp
 
 proto_dirs=$(find . -path -prune -o -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq)
 for dir in $proto_dirs; do
@@ -60,3 +89,9 @@ swagger-combine config.json -f yaml \
   -o swagger.yaml \
   --continueOnConflictingPaths true \
   --includeDefinitions true
+
+cd ..
+
+echo "Removing tmp directory"
+
+rm -rf proto-tmp

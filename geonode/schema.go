@@ -9,6 +9,6 @@ import (
 // ModuleSchema is the schema of the module.
 var ModuleSchema = ormv1alpha1.ModuleSchemaDescriptor{
 	SchemaFile: []*ormv1alpha1.ModuleSchemaDescriptor_FileEntry{
-		{Id: 1, ProtoFileName: geonodev1.File_v1_state_proto.Path()},
+		{Id: 1, ProtoFileName: geonodev1.File_chora_geonode_v1_state_proto.Path()},
 	},
 }
