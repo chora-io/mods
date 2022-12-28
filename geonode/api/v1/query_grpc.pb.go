@@ -24,8 +24,10 @@ const _ = grpc.SupportPackageIsVersion7
 type QueryClient interface {
 	// Node queries a node by the unique identifier of the node.
 	Node(ctx context.Context, in *QueryNodeRequest, opts ...grpc.CallOption) (*QueryNodeResponse, error)
-	// NodeByCurator queries nodes by the curator of the nodes.
-	NodeByCurator(ctx context.Context, in *QueryNodeByCuratorRequest, opts ...grpc.CallOption) (*QueryNodeByCuratorResponse, error)
+	// Nodes queries all nodes.
+	Nodes(ctx context.Context, in *QueryNodesRequest, opts ...grpc.CallOption) (*QueryNodesResponse, error)
+	// NodesByCurator queries nodes by curator.
+	NodesByCurator(ctx context.Context, in *QueryNodesByCuratorRequest, opts ...grpc.CallOption) (*QueryNodesByCuratorResponse, error)
 }
 
 type queryClient struct {
@@ -45,9 +47,18 @@ func (c *queryClient) Node(ctx context.Context, in *QueryNodeRequest, opts ...gr
 	return out, nil
 }
 
-func (c *queryClient) NodeByCurator(ctx context.Context, in *QueryNodeByCuratorRequest, opts ...grpc.CallOption) (*QueryNodeByCuratorResponse, error) {
-	out := new(QueryNodeByCuratorResponse)
-	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Query/NodeByCurator", in, out, opts...)
+func (c *queryClient) Nodes(ctx context.Context, in *QueryNodesRequest, opts ...grpc.CallOption) (*QueryNodesResponse, error) {
+	out := new(QueryNodesResponse)
+	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Query/Nodes", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) NodesByCurator(ctx context.Context, in *QueryNodesByCuratorRequest, opts ...grpc.CallOption) (*QueryNodesByCuratorResponse, error) {
+	out := new(QueryNodesByCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Query/NodesByCurator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,8 +71,10 @@ func (c *queryClient) NodeByCurator(ctx context.Context, in *QueryNodeByCuratorR
 type QueryServer interface {
 	// Node queries a node by the unique identifier of the node.
 	Node(context.Context, *QueryNodeRequest) (*QueryNodeResponse, error)
-	// NodeByCurator queries nodes by the curator of the nodes.
-	NodeByCurator(context.Context, *QueryNodeByCuratorRequest) (*QueryNodeByCuratorResponse, error)
+	// Nodes queries all nodes.
+	Nodes(context.Context, *QueryNodesRequest) (*QueryNodesResponse, error)
+	// NodesByCurator queries nodes by curator.
+	NodesByCurator(context.Context, *QueryNodesByCuratorRequest) (*QueryNodesByCuratorResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -72,8 +85,11 @@ type UnimplementedQueryServer struct {
 func (UnimplementedQueryServer) Node(context.Context, *QueryNodeRequest) (*QueryNodeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Node not implemented")
 }
-func (UnimplementedQueryServer) NodeByCurator(context.Context, *QueryNodeByCuratorRequest) (*QueryNodeByCuratorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method NodeByCurator not implemented")
+func (UnimplementedQueryServer) Nodes(context.Context, *QueryNodesRequest) (*QueryNodesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Nodes not implemented")
+}
+func (UnimplementedQueryServer) NodesByCurator(context.Context, *QueryNodesByCuratorRequest) (*QueryNodesByCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NodesByCurator not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -106,20 +122,38 @@ func _Query_Node_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Query_NodeByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryNodeByCuratorRequest)
+func _Query_Nodes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryNodesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).NodeByCurator(ctx, in)
+		return srv.(QueryServer).Nodes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.geonode.v1.Query/NodeByCurator",
+		FullMethod: "/chora.geonode.v1.Query/Nodes",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).NodeByCurator(ctx, req.(*QueryNodeByCuratorRequest))
+		return srv.(QueryServer).Nodes(ctx, req.(*QueryNodesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_NodesByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryNodesByCuratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).NodesByCurator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.geonode.v1.Query/NodesByCurator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).NodesByCurator(ctx, req.(*QueryNodesByCuratorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -136,8 +170,12 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Query_Node_Handler,
 		},
 		{
-			MethodName: "NodeByCurator",
-			Handler:    _Query_NodeByCurator_Handler,
+			MethodName: "Nodes",
+			Handler:    _Query_Nodes_Handler,
+		},
+		{
+			MethodName: "NodesByCurator",
+			Handler:    _Query_NodesByCurator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

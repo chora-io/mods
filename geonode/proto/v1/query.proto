@@ -15,11 +15,16 @@ service Query {
     option (google.api.http).get = "/chora/geonode/v1/node/{id}";
   }
 
-  // NodeByCurator queries nodes by the curator of the nodes.
-  rpc NodeByCurator(QueryNodeByCuratorRequest)
-      returns (QueryNodeByCuratorResponse) {
+  // Nodes queries all nodes.
+  rpc Nodes(QueryNodesRequest) returns (QueryNodesResponse) {
+    option (google.api.http).get = "/chora/geonode/v1/nodes";
+  }
+
+  // NodesByCurator queries nodes by curator.
+  rpc NodesByCurator(QueryNodesByCuratorRequest)
+      returns (QueryNodesByCuratorResponse) {
     option (google.api.http).get =
-        "/chora/geonode/v1/node-by-curator/{curator}";
+        "/chora/geonode/v1/nodes-by-curator/{curator}";
   }
 }
 
@@ -43,8 +48,38 @@ message QueryNodeResponse {
   string metadata = 3;
 }
 
-// QueryNodeByCuratorRequest is the Query/NodeByCurator request type.
-message QueryNodeByCuratorRequest {
+// QueryNodesRequest is the Query/Nodes request type.
+message QueryNodesRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryNodesResponse is the Query/Nodes response type.
+message QueryNodesResponse {
+
+  // nodes is the list of nodes.
+  repeated Node nodes = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Node is the node properties.
+  message Node {
+
+    // id is the unique identifier of the node.
+    uint64 id = 1;
+
+    // curator is the address of the node curator.
+    string curator = 2;
+
+    // metadata is the metadata of the node.
+    string metadata = 3;
+  }
+}
+
+// QueryNodesByCuratorRequest is the Query/NodesByCurator request type.
+message QueryNodesByCuratorRequest {
 
   // curator is the address of the node curator.
   string curator = 1;
@@ -53,13 +88,13 @@ message QueryNodeByCuratorRequest {
   cosmos.base.query.v1beta1.PageRequest pagination = 2;
 }
 
-// QueryNodeByCuratorResponse is the Query/NodeByCurator response type.
-message QueryNodeByCuratorResponse {
+// QueryNodesByCuratorResponse is the Query/NodesByCurator response type.
+message QueryNodesByCuratorResponse {
 
   // curator is the address of the node curator.
   string curator = 1;
 
-  // node is the node managed by the curator.
+  // nodes is the list of nodes managed by the curator.
   repeated Node nodes = 2;
 
   // pagination is the pagination of the response.

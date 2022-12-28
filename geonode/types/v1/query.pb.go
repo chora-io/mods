@@ -139,26 +139,24 @@ func (m *QueryNodeResponse) GetMetadata() string {
 	return ""
 }
 
-// QueryNodeByCuratorRequest is the Query/NodeByCurator request type.
-type QueryNodeByCuratorRequest struct {
-	// curator is the address of the node curator.
-	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+// QueryNodesRequest is the Query/Nodes request type.
+type QueryNodesRequest struct {
 	// pagination is the optional pagination of the request.
-	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (m *QueryNodeByCuratorRequest) Reset()         { *m = QueryNodeByCuratorRequest{} }
-func (m *QueryNodeByCuratorRequest) String() string { return proto.CompactTextString(m) }
-func (*QueryNodeByCuratorRequest) ProtoMessage()    {}
-func (*QueryNodeByCuratorRequest) Descriptor() ([]byte, []int) {
+func (m *QueryNodesRequest) Reset()         { *m = QueryNodesRequest{} }
+func (m *QueryNodesRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryNodesRequest) ProtoMessage()    {}
+func (*QueryNodesRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c491fa080d8b0e30, []int{2}
 }
-func (m *QueryNodeByCuratorRequest) XXX_Unmarshal(b []byte) error {
+func (m *QueryNodesRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryNodeByCuratorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QueryNodesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryNodeByCuratorRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QueryNodesRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -168,54 +166,45 @@ func (m *QueryNodeByCuratorRequest) XXX_Marshal(b []byte, deterministic bool) ([
 		return b[:n], nil
 	}
 }
-func (m *QueryNodeByCuratorRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryNodeByCuratorRequest.Merge(m, src)
+func (m *QueryNodesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryNodesRequest.Merge(m, src)
 }
-func (m *QueryNodeByCuratorRequest) XXX_Size() int {
+func (m *QueryNodesRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryNodeByCuratorRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryNodeByCuratorRequest.DiscardUnknown(m)
+func (m *QueryNodesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryNodesRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryNodeByCuratorRequest proto.InternalMessageInfo
+var xxx_messageInfo_QueryNodesRequest proto.InternalMessageInfo
 
-func (m *QueryNodeByCuratorRequest) GetCurator() string {
-	if m != nil {
-		return m.Curator
-	}
-	return ""
-}
-
-func (m *QueryNodeByCuratorRequest) GetPagination() *query.PageRequest {
+func (m *QueryNodesRequest) GetPagination() *query.PageRequest {
 	if m != nil {
 		return m.Pagination
 	}
 	return nil
 }
 
-// QueryNodeByCuratorResponse is the Query/NodeByCurator response type.
-type QueryNodeByCuratorResponse struct {
-	// curator is the address of the node curator.
-	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
-	// node is the node managed by the curator.
-	Nodes []*QueryNodeByCuratorResponse_Node `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
+// QueryNodesResponse is the Query/Nodes response type.
+type QueryNodesResponse struct {
+	// nodes is the list of nodes.
+	Nodes []*QueryNodesResponse_Node `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
 	// pagination is the pagination of the response.
 	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (m *QueryNodeByCuratorResponse) Reset()         { *m = QueryNodeByCuratorResponse{} }
-func (m *QueryNodeByCuratorResponse) String() string { return proto.CompactTextString(m) }
-func (*QueryNodeByCuratorResponse) ProtoMessage()    {}
-func (*QueryNodeByCuratorResponse) Descriptor() ([]byte, []int) {
+func (m *QueryNodesResponse) Reset()         { *m = QueryNodesResponse{} }
+func (m *QueryNodesResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryNodesResponse) ProtoMessage()    {}
+func (*QueryNodesResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c491fa080d8b0e30, []int{3}
 }
-func (m *QueryNodeByCuratorResponse) XXX_Unmarshal(b []byte) error {
+func (m *QueryNodesResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryNodeByCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QueryNodesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryNodeByCuratorResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QueryNodesResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -225,33 +214,26 @@ func (m *QueryNodeByCuratorResponse) XXX_Marshal(b []byte, deterministic bool) (
 		return b[:n], nil
 	}
 }
-func (m *QueryNodeByCuratorResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryNodeByCuratorResponse.Merge(m, src)
+func (m *QueryNodesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryNodesResponse.Merge(m, src)
 }
-func (m *QueryNodeByCuratorResponse) XXX_Size() int {
+func (m *QueryNodesResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryNodeByCuratorResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryNodeByCuratorResponse.DiscardUnknown(m)
+func (m *QueryNodesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryNodesResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryNodeByCuratorResponse proto.InternalMessageInfo
+var xxx_messageInfo_QueryNodesResponse proto.InternalMessageInfo
 
-func (m *QueryNodeByCuratorResponse) GetCurator() string {
-	if m != nil {
-		return m.Curator
-	}
-	return ""
-}
-
-func (m *QueryNodeByCuratorResponse) GetNodes() []*QueryNodeByCuratorResponse_Node {
+func (m *QueryNodesResponse) GetNodes() []*QueryNodesResponse_Node {
 	if m != nil {
 		return m.Nodes
 	}
 	return nil
 }
 
-func (m *QueryNodeByCuratorResponse) GetPagination() *query.PageResponse {
+func (m *QueryNodesResponse) GetPagination() *query.PageResponse {
 	if m != nil {
 		return m.Pagination
 	}
@@ -259,25 +241,27 @@ func (m *QueryNodeByCuratorResponse) GetPagination() *query.PageResponse {
 }
 
 // Node is the node properties.
-type QueryNodeByCuratorResponse_Node struct {
+type QueryNodesResponse_Node struct {
 	// id is the unique identifier of the node.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// curator is the address of the node curator.
+	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 	// metadata is the metadata of the node.
-	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (m *QueryNodeByCuratorResponse_Node) Reset()         { *m = QueryNodeByCuratorResponse_Node{} }
-func (m *QueryNodeByCuratorResponse_Node) String() string { return proto.CompactTextString(m) }
-func (*QueryNodeByCuratorResponse_Node) ProtoMessage()    {}
-func (*QueryNodeByCuratorResponse_Node) Descriptor() ([]byte, []int) {
+func (m *QueryNodesResponse_Node) Reset()         { *m = QueryNodesResponse_Node{} }
+func (m *QueryNodesResponse_Node) String() string { return proto.CompactTextString(m) }
+func (*QueryNodesResponse_Node) ProtoMessage()    {}
+func (*QueryNodesResponse_Node) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c491fa080d8b0e30, []int{3, 0}
 }
-func (m *QueryNodeByCuratorResponse_Node) XXX_Unmarshal(b []byte) error {
+func (m *QueryNodesResponse_Node) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryNodeByCuratorResponse_Node) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QueryNodesResponse_Node) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryNodeByCuratorResponse_Node.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QueryNodesResponse_Node.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -287,26 +271,207 @@ func (m *QueryNodeByCuratorResponse_Node) XXX_Marshal(b []byte, deterministic bo
 		return b[:n], nil
 	}
 }
-func (m *QueryNodeByCuratorResponse_Node) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryNodeByCuratorResponse_Node.Merge(m, src)
+func (m *QueryNodesResponse_Node) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryNodesResponse_Node.Merge(m, src)
 }
-func (m *QueryNodeByCuratorResponse_Node) XXX_Size() int {
+func (m *QueryNodesResponse_Node) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryNodeByCuratorResponse_Node) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryNodeByCuratorResponse_Node.DiscardUnknown(m)
+func (m *QueryNodesResponse_Node) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryNodesResponse_Node.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryNodeByCuratorResponse_Node proto.InternalMessageInfo
+var xxx_messageInfo_QueryNodesResponse_Node proto.InternalMessageInfo
 
-func (m *QueryNodeByCuratorResponse_Node) GetId() uint64 {
+func (m *QueryNodesResponse_Node) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-func (m *QueryNodeByCuratorResponse_Node) GetMetadata() string {
+func (m *QueryNodesResponse_Node) GetCurator() string {
+	if m != nil {
+		return m.Curator
+	}
+	return ""
+}
+
+func (m *QueryNodesResponse_Node) GetMetadata() string {
+	if m != nil {
+		return m.Metadata
+	}
+	return ""
+}
+
+// QueryNodesByCuratorRequest is the Query/NodesByCurator request type.
+type QueryNodesByCuratorRequest struct {
+	// curator is the address of the node curator.
+	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+	// pagination is the optional pagination of the request.
+	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryNodesByCuratorRequest) Reset()         { *m = QueryNodesByCuratorRequest{} }
+func (m *QueryNodesByCuratorRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryNodesByCuratorRequest) ProtoMessage()    {}
+func (*QueryNodesByCuratorRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c491fa080d8b0e30, []int{4}
+}
+func (m *QueryNodesByCuratorRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryNodesByCuratorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryNodesByCuratorRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryNodesByCuratorRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryNodesByCuratorRequest.Merge(m, src)
+}
+func (m *QueryNodesByCuratorRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryNodesByCuratorRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryNodesByCuratorRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryNodesByCuratorRequest proto.InternalMessageInfo
+
+func (m *QueryNodesByCuratorRequest) GetCurator() string {
+	if m != nil {
+		return m.Curator
+	}
+	return ""
+}
+
+func (m *QueryNodesByCuratorRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+// QueryNodesByCuratorResponse is the Query/NodesByCurator response type.
+type QueryNodesByCuratorResponse struct {
+	// curator is the address of the node curator.
+	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+	// nodes is the list of nodes managed by the curator.
+	Nodes []*QueryNodesByCuratorResponse_Node `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
+	// pagination is the pagination of the response.
+	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryNodesByCuratorResponse) Reset()         { *m = QueryNodesByCuratorResponse{} }
+func (m *QueryNodesByCuratorResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryNodesByCuratorResponse) ProtoMessage()    {}
+func (*QueryNodesByCuratorResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c491fa080d8b0e30, []int{5}
+}
+func (m *QueryNodesByCuratorResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryNodesByCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryNodesByCuratorResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryNodesByCuratorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryNodesByCuratorResponse.Merge(m, src)
+}
+func (m *QueryNodesByCuratorResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryNodesByCuratorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryNodesByCuratorResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryNodesByCuratorResponse proto.InternalMessageInfo
+
+func (m *QueryNodesByCuratorResponse) GetCurator() string {
+	if m != nil {
+		return m.Curator
+	}
+	return ""
+}
+
+func (m *QueryNodesByCuratorResponse) GetNodes() []*QueryNodesByCuratorResponse_Node {
+	if m != nil {
+		return m.Nodes
+	}
+	return nil
+}
+
+func (m *QueryNodesByCuratorResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+// Node is the node properties.
+type QueryNodesByCuratorResponse_Node struct {
+	// id is the unique identifier of the node.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// metadata is the metadata of the node.
+	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+}
+
+func (m *QueryNodesByCuratorResponse_Node) Reset()         { *m = QueryNodesByCuratorResponse_Node{} }
+func (m *QueryNodesByCuratorResponse_Node) String() string { return proto.CompactTextString(m) }
+func (*QueryNodesByCuratorResponse_Node) ProtoMessage()    {}
+func (*QueryNodesByCuratorResponse_Node) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c491fa080d8b0e30, []int{5, 0}
+}
+func (m *QueryNodesByCuratorResponse_Node) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryNodesByCuratorResponse_Node) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryNodesByCuratorResponse_Node.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryNodesByCuratorResponse_Node) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryNodesByCuratorResponse_Node.Merge(m, src)
+}
+func (m *QueryNodesByCuratorResponse_Node) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryNodesByCuratorResponse_Node) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryNodesByCuratorResponse_Node.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryNodesByCuratorResponse_Node proto.InternalMessageInfo
+
+func (m *QueryNodesByCuratorResponse_Node) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *QueryNodesByCuratorResponse_Node) GetMetadata() string {
 	if m != nil {
 		return m.Metadata
 	}
@@ -316,44 +481,51 @@ func (m *QueryNodeByCuratorResponse_Node) GetMetadata() string {
 func init() {
 	proto.RegisterType((*QueryNodeRequest)(nil), "chora.geonode.v1.QueryNodeRequest")
 	proto.RegisterType((*QueryNodeResponse)(nil), "chora.geonode.v1.QueryNodeResponse")
-	proto.RegisterType((*QueryNodeByCuratorRequest)(nil), "chora.geonode.v1.QueryNodeByCuratorRequest")
-	proto.RegisterType((*QueryNodeByCuratorResponse)(nil), "chora.geonode.v1.QueryNodeByCuratorResponse")
-	proto.RegisterType((*QueryNodeByCuratorResponse_Node)(nil), "chora.geonode.v1.QueryNodeByCuratorResponse.Node")
+	proto.RegisterType((*QueryNodesRequest)(nil), "chora.geonode.v1.QueryNodesRequest")
+	proto.RegisterType((*QueryNodesResponse)(nil), "chora.geonode.v1.QueryNodesResponse")
+	proto.RegisterType((*QueryNodesResponse_Node)(nil), "chora.geonode.v1.QueryNodesResponse.Node")
+	proto.RegisterType((*QueryNodesByCuratorRequest)(nil), "chora.geonode.v1.QueryNodesByCuratorRequest")
+	proto.RegisterType((*QueryNodesByCuratorResponse)(nil), "chora.geonode.v1.QueryNodesByCuratorResponse")
+	proto.RegisterType((*QueryNodesByCuratorResponse_Node)(nil), "chora.geonode.v1.QueryNodesByCuratorResponse.Node")
 }
 
 func init() { proto.RegisterFile("chora/geonode/v1/query.proto", fileDescriptor_c491fa080d8b0e30) }
 
 var fileDescriptor_c491fa080d8b0e30 = []byte{
-	// 460 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xcd, 0x8e, 0xd3, 0x30,
-	0x14, 0x85, 0xeb, 0x74, 0x86, 0x1f, 0x8f, 0x40, 0x83, 0x57, 0x21, 0x0c, 0x51, 0xe5, 0x91, 0xa0,
-	0x62, 0xa8, 0xad, 0x74, 0xde, 0xa0, 0x48, 0xcc, 0x0e, 0x41, 0x77, 0xb0, 0x73, 0x1b, 0x2b, 0x63,
-	0x89, 0xe6, 0x66, 0x62, 0xa7, 0x52, 0x34, 0xea, 0x86, 0x27, 0x40, 0xe2, 0x01, 0xe6, 0x75, 0x58,
-	0x8e, 0xc4, 0x86, 0x25, 0x6a, 0x79, 0x0c, 0x16, 0x28, 0x76, 0x5a, 0x92, 0xf9, 0x29, 0xb0, 0x6a,
-	0xad, 0x7b, 0xef, 0xf1, 0x39, 0xdf, 0x8d, 0xf1, 0xc1, 0xf4, 0x14, 0x72, 0xc1, 0x13, 0x09, 0x29,
-	0xc4, 0x92, 0xcf, 0x23, 0x7e, 0x56, 0xc8, 0xbc, 0x64, 0x59, 0x0e, 0x06, 0xc8, 0xbe, 0xad, 0xb2,
-	0xba, 0xca, 0xe6, 0x51, 0xf0, 0x62, 0x0a, 0x7a, 0x06, 0x9a, 0x4f, 0x84, 0x96, 0xae, 0x95, 0xcf,
-	0xa3, 0x89, 0x34, 0x22, 0xe2, 0x99, 0x48, 0x54, 0x2a, 0x8c, 0x82, 0xd4, 0x4d, 0x07, 0x07, 0x09,
-	0x40, 0xf2, 0x51, 0x72, 0x91, 0x29, 0x2e, 0xd2, 0x14, 0x8c, 0x2d, 0x6a, 0x57, 0xa5, 0x14, 0xef,
-	0xbf, 0xab, 0xe6, 0xdf, 0x40, 0x2c, 0xc7, 0xf2, 0xac, 0x90, 0xda, 0x90, 0x87, 0xd8, 0x53, 0xb1,
-	0x8f, 0x7a, 0xa8, 0xbf, 0x33, 0xf6, 0x54, 0x4c, 0xdf, 0xe3, 0x47, 0x8d, 0x1e, 0x9d, 0x41, 0xaa,
-	0xe5, 0xd5, 0x26, 0xe2, 0xe3, 0xbb, 0xd3, 0x22, 0x17, 0x06, 0x72, 0xdf, 0xeb, 0xa1, 0xfe, 0xfd,
-	0xf1, 0xfa, 0x48, 0x02, 0x7c, 0x6f, 0x26, 0x8d, 0x88, 0x85, 0x11, 0x7e, 0xd7, 0x96, 0x36, 0x67,
-	0xba, 0xc0, 0x8f, 0x37, 0xd2, 0xa3, 0xf2, 0x95, 0x9b, 0x58, 0xfb, 0x68, 0x48, 0xa2, 0xb6, 0xe4,
-	0x6b, 0x8c, 0xff, 0xe4, 0xb4, 0xf7, 0xed, 0x0d, 0x9f, 0x31, 0x07, 0x85, 0x55, 0x50, 0x98, 0xe3,
-	0x57, 0x43, 0x61, 0x6f, 0x45, 0xb2, 0x4e, 0x37, 0x6e, 0x4c, 0xd2, 0x5f, 0x08, 0x07, 0x37, 0xdd,
-	0x5f, 0x67, 0xbc, 0xdd, 0xc0, 0x09, 0xde, 0xad, 0x76, 0xa1, 0x7d, 0xaf, 0xd7, 0xed, 0xef, 0x0d,
-	0x23, 0x76, 0x75, 0x45, 0xec, 0x76, 0x59, 0x66, 0x39, 0xba, 0x79, 0x72, 0xd2, 0x4a, 0xd2, 0xb5,
-	0x49, 0x9e, 0xff, 0x35, 0x89, 0x13, 0x6a, 0x46, 0x09, 0x86, 0x78, 0xa7, 0xd2, 0xbd, 0xb6, 0x97,
-	0x26, 0x7d, 0xaf, 0x4d, 0x7f, 0x78, 0xe1, 0xe1, 0x5d, 0xeb, 0x93, 0x98, 0x7a, 0x9a, 0x6e, 0x09,
-	0x52, 0x03, 0x0c, 0x0e, 0xb7, 0xf6, 0x38, 0x6b, 0xf4, 0xf0, 0xd3, 0xb7, 0x9f, 0x5f, 0xbc, 0xa7,
-	0xe4, 0x09, 0xbf, 0xf6, 0x69, 0xdb, 0xdf, 0x73, 0x15, 0x2f, 0xc8, 0x05, 0xc2, 0x0f, 0x5a, 0x88,
-	0xc8, 0xd1, 0xbf, 0x81, 0x74, 0x46, 0x5e, 0xfe, 0x0f, 0x75, 0x7a, 0x6c, 0x1d, 0x0d, 0xc8, 0xd1,
-	0xcd, 0x8e, 0x06, 0x93, 0x72, 0x50, 0x6f, 0x97, 0x9f, 0xd7, 0x7f, 0x16, 0xa3, 0xd1, 0xd7, 0x65,
-	0x88, 0x2e, 0x97, 0x21, 0xfa, 0xb1, 0x0c, 0xd1, 0xe7, 0x55, 0xd8, 0xb9, 0x5c, 0x85, 0x9d, 0xef,
-	0xab, 0xb0, 0xf3, 0xa1, 0x9f, 0x28, 0x73, 0x5a, 0x4c, 0xd8, 0x14, 0x66, 0x4e, 0x50, 0x01, 0x9f,
-	0x41, 0xac, 0x37, 0xba, 0xa6, 0xcc, 0xa4, 0xae, 0x9e, 0xe5, 0x1d, 0xfb, 0xd2, 0x8e, 0x7f, 0x07,
-	0x00, 0x00, 0xff, 0xff, 0x26, 0x0e, 0xe9, 0x4d, 0xe5, 0x03, 0x00, 0x00,
+	// 524 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xcf, 0x6f, 0xd3, 0x30,
+	0x14, 0x9e, 0xd3, 0x95, 0x1f, 0x9e, 0x34, 0x0d, 0x5f, 0x08, 0xd9, 0x08, 0x95, 0x8b, 0xa0, 0xa0,
+	0xd5, 0x56, 0x03, 0x77, 0xa4, 0x22, 0x01, 0x07, 0x84, 0xa0, 0x37, 0xe0, 0xe4, 0x36, 0x56, 0x16,
+	0x89, 0xe6, 0x65, 0xb1, 0x5b, 0xa9, 0x9a, 0xc6, 0x81, 0xbf, 0x00, 0x89, 0x0b, 0x77, 0xfe, 0x19,
+	0x8e, 0x93, 0xb8, 0x70, 0x44, 0x2d, 0x47, 0xfe, 0x06, 0x84, 0x62, 0xa7, 0x5b, 0xb2, 0xae, 0x65,
+	0x20, 0x38, 0x25, 0xd6, 0x7b, 0xdf, 0xf7, 0xbe, 0xf7, 0x7d, 0x96, 0xf1, 0xce, 0x60, 0x0f, 0x32,
+	0xc1, 0x23, 0x09, 0x09, 0x84, 0x92, 0x8f, 0x3b, 0x7c, 0x7f, 0x24, 0xb3, 0x09, 0x4b, 0x33, 0xd0,
+	0x40, 0xb6, 0x4c, 0x95, 0x15, 0x55, 0x36, 0xee, 0x78, 0x77, 0x07, 0xa0, 0x86, 0xa0, 0x78, 0x5f,
+	0x28, 0x69, 0x5b, 0xf9, 0xb8, 0xd3, 0x97, 0x5a, 0x74, 0x78, 0x2a, 0xa2, 0x38, 0x11, 0x3a, 0x86,
+	0xc4, 0xa2, 0xbd, 0x9d, 0x08, 0x20, 0x7a, 0x23, 0xb9, 0x48, 0x63, 0x2e, 0x92, 0x04, 0xb4, 0x29,
+	0x2a, 0x5b, 0xa5, 0x14, 0x6f, 0xbd, 0xc8, 0xf1, 0xcf, 0x20, 0x94, 0x3d, 0xb9, 0x3f, 0x92, 0x4a,
+	0x93, 0x4d, 0xec, 0xc4, 0xa1, 0x8b, 0x1a, 0xa8, 0xb5, 0xde, 0x73, 0xe2, 0x90, 0xbe, 0xc4, 0x57,
+	0x4a, 0x3d, 0x2a, 0x85, 0x44, 0xc9, 0xd3, 0x4d, 0xc4, 0xc5, 0x17, 0x07, 0xa3, 0x4c, 0x68, 0xc8,
+	0x5c, 0xa7, 0x81, 0x5a, 0x97, 0x7b, 0xf3, 0x23, 0xf1, 0xf0, 0xa5, 0xa1, 0xd4, 0x22, 0x14, 0x5a,
+	0xb8, 0x35, 0x53, 0x3a, 0x3e, 0xd3, 0xd7, 0x25, 0x6a, 0x35, 0x9f, 0xff, 0x08, 0xe3, 0x93, 0x2d,
+	0xcc, 0x88, 0x8d, 0xe0, 0x16, 0xb3, 0x2b, 0xb3, 0x7c, 0x65, 0x66, 0xdd, 0x29, 0x56, 0x66, 0xcf,
+	0x45, 0x34, 0xd7, 0xde, 0x2b, 0x21, 0xe9, 0x0f, 0x84, 0x49, 0x99, 0xbd, 0x50, 0xfe, 0x00, 0xd7,
+	0x73, 0x1f, 0x95, 0xeb, 0x34, 0x6a, 0xad, 0x8d, 0xe0, 0x0e, 0x3b, 0x6d, 0x2f, 0x5b, 0x04, 0x31,
+	0xb3, 0xbb, 0xc5, 0x91, 0xc7, 0x15, 0x7d, 0x35, 0xa3, 0xef, 0xf6, 0x6f, 0xf5, 0x59, 0xa2, 0xb2,
+	0x40, 0xef, 0x29, 0x5e, 0xcf, 0x79, 0xff, 0x91, 0x97, 0x6f, 0xb1, 0x77, 0x22, 0xbc, 0x3b, 0x79,
+	0x68, 0x21, 0x73, 0x53, 0x4b, 0x9c, 0xa8, 0xca, 0x59, 0xb5, 0xdb, 0xf9, 0x6b, 0xbb, 0x7f, 0x22,
+	0xbc, 0x7d, 0xa6, 0x80, 0xc2, 0xf7, 0xe5, 0x0a, 0x9e, 0x54, 0x13, 0x09, 0x56, 0x25, 0xb2, 0xc0,
+	0xfb, 0x7f, 0xa2, 0x09, 0x96, 0x44, 0x53, 0x0e, 0xc0, 0xa9, 0x06, 0x10, 0x7c, 0xac, 0xe1, 0xba,
+	0x11, 0x4a, 0x74, 0x81, 0xa6, 0x2b, 0x36, 0x29, 0x2c, 0xf4, 0x9a, 0x2b, 0x7b, 0xac, 0x34, 0xda,
+	0x7c, 0xf7, 0xe5, 0xfb, 0x07, 0xe7, 0x3a, 0xd9, 0xe6, 0x0b, 0x2f, 0x85, 0xf9, 0x1e, 0xc4, 0xe1,
+	0x21, 0x51, 0xb8, 0x6e, 0x2c, 0x22, 0xcd, 0xd5, 0x57, 0xda, 0xce, 0xbd, 0x79, 0x9e, 0x7b, 0x4f,
+	0x6f, 0x98, 0xc1, 0xd7, 0xc8, 0xd5, 0xb3, 0x07, 0x2b, 0xf2, 0x09, 0xe1, 0xcd, 0x6a, 0x30, 0x64,
+	0xf7, 0x9c, 0xf9, 0x59, 0x1d, 0xed, 0x3f, 0x4a, 0x9b, 0xde, 0x37, 0x82, 0x18, 0xd9, 0x5d, 0x22,
+	0xa8, 0xdd, 0x9f, 0xb4, 0x8b, 0x7b, 0xc5, 0x0f, 0x8a, 0x9f, 0xc3, 0x6e, 0xf7, 0xf3, 0xd4, 0x47,
+	0x47, 0x53, 0x1f, 0x7d, 0x9b, 0xfa, 0xe8, 0xfd, 0xcc, 0x5f, 0x3b, 0x9a, 0xf9, 0x6b, 0x5f, 0x67,
+	0xfe, 0xda, 0xab, 0x56, 0x14, 0xeb, 0xbd, 0x51, 0x9f, 0x0d, 0x60, 0x68, 0x19, 0x63, 0xe0, 0x43,
+	0x08, 0xd5, 0x31, 0xb1, 0x9e, 0xa4, 0x52, 0xe5, 0xcf, 0xeb, 0x05, 0xf3, 0x62, 0xde, 0xfb, 0x15,
+	0x00, 0x00, 0xff, 0xff, 0x56, 0x0f, 0x00, 0x8c, 0xad, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -370,8 +542,10 @@ const _ = grpc.SupportPackageIsVersion4
 type QueryClient interface {
 	// Node queries a node by the unique identifier of the node.
 	Node(ctx context.Context, in *QueryNodeRequest, opts ...grpc.CallOption) (*QueryNodeResponse, error)
-	// NodeByCurator queries nodes by the curator of the nodes.
-	NodeByCurator(ctx context.Context, in *QueryNodeByCuratorRequest, opts ...grpc.CallOption) (*QueryNodeByCuratorResponse, error)
+	// Nodes queries all nodes.
+	Nodes(ctx context.Context, in *QueryNodesRequest, opts ...grpc.CallOption) (*QueryNodesResponse, error)
+	// NodesByCurator queries nodes by curator.
+	NodesByCurator(ctx context.Context, in *QueryNodesByCuratorRequest, opts ...grpc.CallOption) (*QueryNodesByCuratorResponse, error)
 }
 
 type queryClient struct {
@@ -391,9 +565,18 @@ func (c *queryClient) Node(ctx context.Context, in *QueryNodeRequest, opts ...gr
 	return out, nil
 }
 
-func (c *queryClient) NodeByCurator(ctx context.Context, in *QueryNodeByCuratorRequest, opts ...grpc.CallOption) (*QueryNodeByCuratorResponse, error) {
-	out := new(QueryNodeByCuratorResponse)
-	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Query/NodeByCurator", in, out, opts...)
+func (c *queryClient) Nodes(ctx context.Context, in *QueryNodesRequest, opts ...grpc.CallOption) (*QueryNodesResponse, error) {
+	out := new(QueryNodesResponse)
+	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Query/Nodes", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) NodesByCurator(ctx context.Context, in *QueryNodesByCuratorRequest, opts ...grpc.CallOption) (*QueryNodesByCuratorResponse, error) {
+	out := new(QueryNodesByCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Query/NodesByCurator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -404,8 +587,10 @@ func (c *queryClient) NodeByCurator(ctx context.Context, in *QueryNodeByCuratorR
 type QueryServer interface {
 	// Node queries a node by the unique identifier of the node.
 	Node(context.Context, *QueryNodeRequest) (*QueryNodeResponse, error)
-	// NodeByCurator queries nodes by the curator of the nodes.
-	NodeByCurator(context.Context, *QueryNodeByCuratorRequest) (*QueryNodeByCuratorResponse, error)
+	// Nodes queries all nodes.
+	Nodes(context.Context, *QueryNodesRequest) (*QueryNodesResponse, error)
+	// NodesByCurator queries nodes by curator.
+	NodesByCurator(context.Context, *QueryNodesByCuratorRequest) (*QueryNodesByCuratorResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -415,8 +600,11 @@ type UnimplementedQueryServer struct {
 func (*UnimplementedQueryServer) Node(ctx context.Context, req *QueryNodeRequest) (*QueryNodeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Node not implemented")
 }
-func (*UnimplementedQueryServer) NodeByCurator(ctx context.Context, req *QueryNodeByCuratorRequest) (*QueryNodeByCuratorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method NodeByCurator not implemented")
+func (*UnimplementedQueryServer) Nodes(ctx context.Context, req *QueryNodesRequest) (*QueryNodesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Nodes not implemented")
+}
+func (*UnimplementedQueryServer) NodesByCurator(ctx context.Context, req *QueryNodesByCuratorRequest) (*QueryNodesByCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NodesByCurator not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -441,20 +629,38 @@ func _Query_Node_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Query_NodeByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryNodeByCuratorRequest)
+func _Query_Nodes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryNodesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).NodeByCurator(ctx, in)
+		return srv.(QueryServer).Nodes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.geonode.v1.Query/NodeByCurator",
+		FullMethod: "/chora.geonode.v1.Query/Nodes",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).NodeByCurator(ctx, req.(*QueryNodeByCuratorRequest))
+		return srv.(QueryServer).Nodes(ctx, req.(*QueryNodesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_NodesByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryNodesByCuratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).NodesByCurator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.geonode.v1.Query/NodesByCurator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).NodesByCurator(ctx, req.(*QueryNodesByCuratorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -468,8 +674,12 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Query_Node_Handler,
 		},
 		{
-			MethodName: "NodeByCurator",
-			Handler:    _Query_NodeByCurator_Handler,
+			MethodName: "Nodes",
+			Handler:    _Query_Nodes_Handler,
+		},
+		{
+			MethodName: "NodesByCurator",
+			Handler:    _Query_NodesByCurator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -546,7 +756,7 @@ func (m *QueryNodeResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryNodeByCuratorRequest) Marshal() (dAtA []byte, err error) {
+func (m *QueryNodesRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -556,12 +766,138 @@ func (m *QueryNodeByCuratorRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryNodeByCuratorRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *QueryNodesRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryNodeByCuratorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QueryNodesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryNodesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryNodesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryNodesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Nodes) > 0 {
+		for iNdEx := len(m.Nodes) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Nodes[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x12
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryNodesResponse_Node) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryNodesResponse_Node) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryNodesResponse_Node) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Metadata) > 0 {
+		i -= len(m.Metadata)
+		copy(dAtA[i:], m.Metadata)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Metadata)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Curator) > 0 {
+		i -= len(m.Curator)
+		copy(dAtA[i:], m.Curator)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Curator)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryNodesByCuratorRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryNodesByCuratorRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryNodesByCuratorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -588,7 +924,7 @@ func (m *QueryNodeByCuratorRequest) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryNodeByCuratorResponse) Marshal() (dAtA []byte, err error) {
+func (m *QueryNodesByCuratorResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -598,12 +934,12 @@ func (m *QueryNodeByCuratorResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryNodeByCuratorResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *QueryNodesByCuratorResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryNodeByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QueryNodesByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -644,7 +980,7 @@ func (m *QueryNodeByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryNodeByCuratorResponse_Node) Marshal() (dAtA []byte, err error) {
+func (m *QueryNodesByCuratorResponse_Node) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -654,12 +990,12 @@ func (m *QueryNodeByCuratorResponse_Node) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryNodeByCuratorResponse_Node) MarshalTo(dAtA []byte) (int, error) {
+func (m *QueryNodesByCuratorResponse_Node) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryNodeByCuratorResponse_Node) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QueryNodesByCuratorResponse_Node) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -722,7 +1058,59 @@ func (m *QueryNodeResponse) Size() (n int) {
 	return n
 }
 
-func (m *QueryNodeByCuratorRequest) Size() (n int) {
+func (m *QueryNodesRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryNodesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Nodes) > 0 {
+		for _, e := range m.Nodes {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryNodesResponse_Node) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	l = len(m.Curator)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	l = len(m.Metadata)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryNodesByCuratorRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -739,7 +1127,7 @@ func (m *QueryNodeByCuratorRequest) Size() (n int) {
 	return n
 }
 
-func (m *QueryNodeByCuratorResponse) Size() (n int) {
+func (m *QueryNodesByCuratorResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -762,7 +1150,7 @@ func (m *QueryNodeByCuratorResponse) Size() (n int) {
 	return n
 }
 
-func (m *QueryNodeByCuratorResponse_Node) Size() (n int) {
+func (m *QueryNodesByCuratorResponse_Node) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -986,7 +1374,7 @@ func (m *QueryNodeResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryNodeByCuratorRequest) Unmarshal(dAtA []byte) error {
+func (m *QueryNodesRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1009,10 +1397,349 @@ func (m *QueryNodeByCuratorRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryNodeByCuratorRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: QueryNodesRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryNodeByCuratorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QueryNodesRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryNodesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryNodesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryNodesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Nodes", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Nodes = append(m.Nodes, &QueryNodesResponse_Node{})
+			if err := m.Nodes[len(m.Nodes)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryNodesResponse_Node) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: Node: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: Node: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Curator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Curator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Metadata = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryNodesByCuratorRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryNodesByCuratorRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryNodesByCuratorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1104,7 +1831,7 @@ func (m *QueryNodeByCuratorRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryNodeByCuratorResponse) Unmarshal(dAtA []byte) error {
+func (m *QueryNodesByCuratorResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1127,10 +1854,10 @@ func (m *QueryNodeByCuratorResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryNodeByCuratorResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: QueryNodesByCuratorResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryNodeByCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QueryNodesByCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1194,7 +1921,7 @@ func (m *QueryNodeByCuratorResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Nodes = append(m.Nodes, &QueryNodeByCuratorResponse_Node{})
+			m.Nodes = append(m.Nodes, &QueryNodesByCuratorResponse_Node{})
 			if err := m.Nodes[len(m.Nodes)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
@@ -1256,7 +1983,7 @@ func (m *QueryNodeByCuratorResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryNodeByCuratorResponse_Node) Unmarshal(dAtA []byte) error {
+func (m *QueryNodesByCuratorResponse_Node) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {

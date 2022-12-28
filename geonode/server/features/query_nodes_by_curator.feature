@@ -1,15 +1,15 @@
-Feature: Query/NodeByCurator
+Feature: Query/NodesByCurator
 
-  Query/NodeByCurator is successful when:
+  Query/NodesByCurator is successful when:
   - curator is a bech32 address
 
-  Query/NodeByCurator has the following outcomes:
+  Query/NodesByCurator has the following outcomes:
   - query response returned
 
   Rule: The curator address must be a valid bech32 address
 
     Scenario: valid curator address
-      When query node by curator
+      When query nodes by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -18,7 +18,7 @@ Feature: Query/NodeByCurator
       Then expect no error
 
     Scenario: invalid curator address
-      When query node by curator
+      When query nodes by curator
       """
       {
         "curator": "foo"
@@ -41,8 +41,8 @@ Feature: Query/NodeByCurator
       }
       """
 
-    Scenario: response with no node by curator
-      When query node by curator
+    Scenario: response with no nodes by curator
+      When query nodes by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -66,7 +66,7 @@ Feature: Query/NodeByCurator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      When query node by curator
+      When query nodes by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -88,7 +88,7 @@ Feature: Query/NodeByCurator
       }
       """
 
-    Scenario: response with two node by curator
+    Scenario: response with two nodes by curator
       Given node
       """
       {
@@ -105,7 +105,7 @@ Feature: Query/NodeByCurator
         "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      When query node by curator
+      When query nodes by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"

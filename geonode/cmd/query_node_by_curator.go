@@ -8,10 +8,10 @@ import (
 	v1 "github.com/choraio/mods/geonode/types/v1"
 )
 
-// QueryNodeByCuratorCmd creates and returns the query node-by-curator command.
-func QueryNodeByCuratorCmd() *cobra.Command {
+// QueryNodesByCuratorCmd creates and returns the query nodes-by-curator command.
+func QueryNodesByCuratorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "node-by-curator [curator]",
+		Use:   "nodes-by-curator [curator]",
 		Short: "query node by the curator of the node",
 		Long:  "query node by the curator of the node",
 		Args:  cobra.ExactArgs(1),
@@ -21,11 +21,11 @@ func QueryNodeByCuratorCmd() *cobra.Command {
 				return err
 			}
 
-			req := v1.QueryNodeByCuratorRequest{
+			req := v1.QueryNodesByCuratorRequest{
 				Curator: args[0],
 			}
 
-			res, err := c.NodeByCurator(cmd.Context(), &req)
+			res, err := c.NodesByCurator(cmd.Context(), &req)
 			if err != nil {
 				return err
 			}

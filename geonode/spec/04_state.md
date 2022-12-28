@@ -4,8 +4,8 @@ The `geonode` module uses the `orm` module as an abstraction layer over the `KVS
 
 ## Proto Definitions
 
-The state is defined in the proto files available to view on [Buf Schema Registry](https://buf.build/chora/mods).
+The state is defined in the proto files available to view on [Buf Schema Registry](https://buf.build/chora/geonode).
 
 <!-- listed alphabetically -->
 
-- [Node](https://buf.build/chora/mods/docs/main:chora.geonode.v1#chora.geonode.v1.Node)
+- [Node](https://buf.build/chora/geonode/docs/main:chora.geonode.v1#chora.geonode.v1.Node)

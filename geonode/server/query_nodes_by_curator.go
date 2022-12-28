@@ -13,8 +13,8 @@ import (
 	v1 "github.com/choraio/mods/geonode/types/v1"
 )
 
-// NodeByCurator implements the Query/NodeByCurator method.
-func (s Server) NodeByCurator(ctx context.Context, req *v1.QueryNodeByCuratorRequest) (*v1.QueryNodeByCuratorResponse, error) {
+// NodesByCurator implements the Query/NodesByCurator method.
+func (s Server) NodesByCurator(ctx context.Context, req *v1.QueryNodesByCuratorRequest) (*v1.QueryNodesByCuratorResponse, error) {
 
 	// convert curator to account
 	curator, err := sdk.AccAddressFromBech32(req.Curator)
@@ -37,14 +37,14 @@ func (s Server) NodeByCurator(ctx context.Context, req *v1.QueryNodeByCuratorReq
 		return nil, err // internal error
 	}
 
-	// set node for node by curator response
-	nodes := make([]*v1.QueryNodeByCuratorResponse_Node, 0, 10)
+	// set nodes for query nodes by curator response
+	nodes := make([]*v1.QueryNodesByCuratorResponse_Node, 0, 10)
 	for it.Next() {
 		v, err := it.Value()
 		if err != nil {
 			return nil, err // internal error
 		}
-		n := v1.QueryNodeByCuratorResponse_Node{
+		n := v1.QueryNodesByCuratorResponse_Node{
 			Id:       v.Id,
 			Metadata: v.Metadata,
 		}
@@ -56,8 +56,8 @@ func (s Server) NodeByCurator(ctx context.Context, req *v1.QueryNodeByCuratorReq
 		return nil, err // internal error
 	}
 
-	// return query node by curator response
-	return &v1.QueryNodeByCuratorResponse{
+	// return query nodes by curator response
+	return &v1.QueryNodesByCuratorResponse{
 		Curator:    curator.String(),
 		Nodes:      nodes,
 		Pagination: pr,
