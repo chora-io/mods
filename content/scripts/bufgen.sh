@@ -10,20 +10,15 @@ fi
 echo "Updating dependencies"
 
 cd proto
-
 buf mod update
-
 cd ..
 
 echo "Creating tmp directory"
 
 mkdir -p proto-tmp/chora/content
-
 cd proto
-
 find . -maxdepth 1 -mindepth 1 -type f -exec cp '{}' ../proto-tmp/ \;
 find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../proto-tmp/chora/content/ \;
-
 cd ..
 
 echo "Generating gogo files"
@@ -60,11 +55,8 @@ cd ../proto-tmp
 buf generate --template buf.gen.pulsar.yaml
 
 cd ../api/chora/content
-
 find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
-
 cd ../..
-
 rm -rf chora
 
 cd ..
@@ -81,7 +73,10 @@ for dir in $proto_dirs; do
   fi
 done
 
-cd ../docs
+cd ../docs/chora/content
+find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
+cd ../..
+rm -rf chora
 
 npm list -g | grep swagger-combine > /dev/null || npm install -g swagger-combine --no-shrinkwrap
 

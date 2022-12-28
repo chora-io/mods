@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "v1/query.proto",
+    "title": "chora/content/v1/query.proto",
     "version": "version not set"
   },
   "consumes": [
