@@ -12,11 +12,12 @@ import (
 	v1 "github.com/choraio/mods/geonode/types/v1"
 )
 
-func TxUpdateCmd() *cobra.Command {
+// TxUpdateMetadataCmd creates and returns the tx update-metadata command.
+func TxUpdateMetadataCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update [id] [new-metadata]",
-		Short: "submit a transaction to update a node",
-		Long:  "submit a transaction to update a node",
+		Use:   "update-metadata [id] [new-metadata]",
+		Short: "submit a transaction to update node metadata",
+		Long:  "submit a transaction to update node metadata",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -29,7 +30,7 @@ func TxUpdateCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgUpdate{
+			msg := v1.MsgUpdateMetadata{
 				Id:          id,
 				Curator:     clientCtx.GetFromAddress().String(),
 				NewMetadata: args[1],

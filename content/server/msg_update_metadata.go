@@ -10,11 +10,11 @@ import (
 	v1 "github.com/choraio/mods/content/types/v1"
 )
 
-// Update implements the Msg/Update method.
-func (s Server) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateResponse, error) {
+// UpdateMetadata implements the Msg/UpdateMetadata method.
+func (s Server) UpdateMetadata(ctx context.Context, req *v1.MsgUpdateMetadata) (*v1.MsgUpdateMetadataResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	// get curator account from bech32
+	// get account from curator address
 	curator, err := sdk.AccAddressFromBech32(req.Curator)
 	if err != nil {
 		return nil, err // internal error
@@ -24,14 +24,12 @@ func (s Server) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateRes
 	content, err := s.ss.ContentTable().Get(ctx, req.Id)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
-			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"content with id %d: %s", req.Id, err,
-			)
+			return nil, sdkerrors.ErrNotFound.Wrapf("content with id %d: %s", req.Id, err)
 		}
 		return nil, err // internal error
 	}
 
-	// convert content curator to account
+	// get account from account bytes
 	contentCurator := sdk.AccAddress(content.Curator)
 
 	// verify curator is content curator
@@ -50,15 +48,15 @@ func (s Server) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateRes
 		return nil, err // internal error
 	}
 
-	// emit update event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdate{
+	// emit event
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateMetadata{
 		Id: content.Id,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
-	// return update response
-	return &v1.MsgUpdateResponse{
+	// return response
+	return &v1.MsgUpdateMetadataResponse{
 		Id: content.Id,
 	}, nil
 }

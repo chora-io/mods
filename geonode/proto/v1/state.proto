@@ -6,7 +6,7 @@ import "cosmos/orm/v1/orm.proto";
 
 option go_package = "github.com/choraio/mods/geonode/types/v1";
 
-// Node defines the table and properties of a node stored in state.
+// Node defines the table and properties of a node.
 message Node {
   option (cosmos.orm.v1.table) = {
     id : 1,

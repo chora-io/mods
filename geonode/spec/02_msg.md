@@ -9,4 +9,5 @@ The messages are defined in proto files available to view on [Buf Schema Registr
 <!-- listed alphabetically -->
 
 - [Create](https://buf.build/chora/geonode/docs/main:chora.geonode.v1#chora.geonode.v1.Msg.Create)
-- [Update](https://buf.build/chora/geonode/docs/main:chora.geonode.v1#chora.geonode.v1.Msg.Update)
+- [UpdateCurator](https://buf.build/chora/geonode/docs/main:chora.geonode.v1#chora.geonode.v1.Msg.UpdateCurator)
+- [UpdateMetadata](https://buf.build/chora/geonode/docs/main:chora.geonode.v1#chora.geonode.v1.Msg.UpdateMetadata)

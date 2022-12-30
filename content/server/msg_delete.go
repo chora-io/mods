@@ -14,7 +14,7 @@ import (
 func (s Server) Delete(ctx context.Context, req *v1.MsgDelete) (*v1.MsgDeleteResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	// get curator account from bech32
+	// get account from curator address
 	curator, err := sdk.AccAddressFromBech32(req.Curator)
 	if err != nil {
 		return nil, err // internal error
@@ -31,7 +31,7 @@ func (s Server) Delete(ctx context.Context, req *v1.MsgDelete) (*v1.MsgDeleteRes
 		return nil, err // internal error
 	}
 
-	// convert content curator to account
+	// get account from account bytes
 	contentCurator := sdk.AccAddress(content.Curator)
 
 	// verify curator is content curator
@@ -47,14 +47,14 @@ func (s Server) Delete(ctx context.Context, req *v1.MsgDelete) (*v1.MsgDeleteRes
 		return nil, err // internal error
 	}
 
-	// emit delete event
+	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventDelete{
 		Id: content.Id,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
-	// return delete response
+	// return response
 	return &v1.MsgDeleteResponse{
 		Id: content.Id,
 	}, nil

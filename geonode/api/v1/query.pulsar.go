@@ -1385,54 +1385,54 @@ func (x *fastReflection_QueryNodesRequest) ProtoMethods() *protoiface.Methods {
 	}
 }
 
-var _ protoreflect.List = (*_QueryNodesResponse_2_list)(nil)
+var _ protoreflect.List = (*_QueryNodesResponse_1_list)(nil)
 
-type _QueryNodesResponse_2_list struct {
+type _QueryNodesResponse_1_list struct {
 	list *[]*QueryNodesResponse_Node
 }
 
-func (x *_QueryNodesResponse_2_list) Len() int {
+func (x *_QueryNodesResponse_1_list) Len() int {
 	if x.list == nil {
 		return 0
 	}
 	return len(*x.list)
 }
 
-func (x *_QueryNodesResponse_2_list) Get(i int) protoreflect.Value {
+func (x *_QueryNodesResponse_1_list) Get(i int) protoreflect.Value {
 	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
 }
 
-func (x *_QueryNodesResponse_2_list) Set(i int, value protoreflect.Value) {
+func (x *_QueryNodesResponse_1_list) Set(i int, value protoreflect.Value) {
 	valueUnwrapped := value.Message()
 	concreteValue := valueUnwrapped.Interface().(*QueryNodesResponse_Node)
 	(*x.list)[i] = concreteValue
 }
 
-func (x *_QueryNodesResponse_2_list) Append(value protoreflect.Value) {
+func (x *_QueryNodesResponse_1_list) Append(value protoreflect.Value) {
 	valueUnwrapped := value.Message()
 	concreteValue := valueUnwrapped.Interface().(*QueryNodesResponse_Node)
 	*x.list = append(*x.list, concreteValue)
 }
 
-func (x *_QueryNodesResponse_2_list) AppendMutable() protoreflect.Value {
+func (x *_QueryNodesResponse_1_list) AppendMutable() protoreflect.Value {
 	v := new(QueryNodesResponse_Node)
 	*x.list = append(*x.list, v)
 	return protoreflect.ValueOfMessage(v.ProtoReflect())
 }
 
-func (x *_QueryNodesResponse_2_list) Truncate(n int) {
+func (x *_QueryNodesResponse_1_list) Truncate(n int) {
 	for i := n; i < len(*x.list); i++ {
 		(*x.list)[i] = nil
 	}
 	*x.list = (*x.list)[:n]
 }
 
-func (x *_QueryNodesResponse_2_list) NewElement() protoreflect.Value {
+func (x *_QueryNodesResponse_1_list) NewElement() protoreflect.Value {
 	v := new(QueryNodesResponse_Node)
 	return protoreflect.ValueOfMessage(v.ProtoReflect())
 }
 
-func (x *_QueryNodesResponse_2_list) IsValid() bool {
+func (x *_QueryNodesResponse_1_list) IsValid() bool {
 	return x.list != nil
 }
 
@@ -1515,7 +1515,7 @@ func (x *fastReflection_QueryNodesResponse) Interface() protoreflect.ProtoMessag
 // on the current field descriptor.
 func (x *fastReflection_QueryNodesResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if len(x.Nodes) != 0 {
-		value := protoreflect.ValueOfList(&_QueryNodesResponse_2_list{list: &x.Nodes})
+		value := protoreflect.ValueOfList(&_QueryNodesResponse_1_list{list: &x.Nodes})
 		if !f(fd_QueryNodesResponse_nodes, value) {
 			return
 		}
@@ -1583,9 +1583,9 @@ func (x *fastReflection_QueryNodesResponse) Get(descriptor protoreflect.FieldDes
 	switch descriptor.FullName() {
 	case "chora.geonode.v1.QueryNodesResponse.nodes":
 		if len(x.Nodes) == 0 {
-			return protoreflect.ValueOfList(&_QueryNodesResponse_2_list{})
+			return protoreflect.ValueOfList(&_QueryNodesResponse_1_list{})
 		}
-		listValue := &_QueryNodesResponse_2_list{list: &x.Nodes}
+		listValue := &_QueryNodesResponse_1_list{list: &x.Nodes}
 		return protoreflect.ValueOfList(listValue)
 	case "chora.geonode.v1.QueryNodesResponse.pagination":
 		value := x.Pagination
@@ -1612,7 +1612,7 @@ func (x *fastReflection_QueryNodesResponse) Set(fd protoreflect.FieldDescriptor,
 	switch fd.FullName() {
 	case "chora.geonode.v1.QueryNodesResponse.nodes":
 		lv := value.List()
-		clv := lv.(*_QueryNodesResponse_2_list)
+		clv := lv.(*_QueryNodesResponse_1_list)
 		x.Nodes = *clv.list
 	case "chora.geonode.v1.QueryNodesResponse.pagination":
 		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
@@ -1640,7 +1640,7 @@ func (x *fastReflection_QueryNodesResponse) Mutable(fd protoreflect.FieldDescrip
 		if x.Nodes == nil {
 			x.Nodes = []*QueryNodesResponse_Node{}
 		}
-		value := &_QueryNodesResponse_2_list{list: &x.Nodes}
+		value := &_QueryNodesResponse_1_list{list: &x.Nodes}
 		return protoreflect.ValueOfList(value)
 	case "chora.geonode.v1.QueryNodesResponse.pagination":
 		if x.Pagination == nil {
@@ -1662,7 +1662,7 @@ func (x *fastReflection_QueryNodesResponse) NewField(fd protoreflect.FieldDescri
 	switch fd.FullName() {
 	case "chora.geonode.v1.QueryNodesResponse.nodes":
 		list := []*QueryNodesResponse_Node{}
-		return protoreflect.ValueOfList(&_QueryNodesResponse_2_list{list: &list})
+		return protoreflect.ValueOfList(&_QueryNodesResponse_1_list{list: &list})
 	case "chora.geonode.v1.QueryNodesResponse.pagination":
 		m := new(v1beta1.PageResponse)
 		return protoreflect.ValueOfMessage(m.ProtoReflect())
@@ -1786,7 +1786,7 @@ func (x *fastReflection_QueryNodesResponse) ProtoMethods() *protoiface.Methods {
 			copy(dAtA[i:], encoded)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
 			i--
-			dAtA[i] = 0x1a
+			dAtA[i] = 0x12
 		}
 		if len(x.Nodes) > 0 {
 			for iNdEx := len(x.Nodes) - 1; iNdEx >= 0; iNdEx-- {
@@ -1801,7 +1801,7 @@ func (x *fastReflection_QueryNodesResponse) ProtoMethods() *protoiface.Methods {
 				copy(dAtA[i:], encoded)
 				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
 				i--
-				dAtA[i] = 0x12
+				dAtA[i] = 0xa
 			}
 		}
 		if input.Buf != nil {
@@ -1853,7 +1853,7 @@ func (x *fastReflection_QueryNodesResponse) ProtoMethods() *protoiface.Methods {
 				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryNodesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
-			case 2:
+			case 1:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Nodes", wireType)
 				}
@@ -1887,7 +1887,7 @@ func (x *fastReflection_QueryNodesResponse) ProtoMethods() *protoiface.Methods {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
 				}
 				iNdEx = postIndex
-			case 3:
+			case 2:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
 				}
@@ -4152,7 +4152,7 @@ type QueryNodeResponse struct {
 
 	// id is the unique identifier of the node.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	// curator is the curator of the node.
+	// curator is the address of the node curator.
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 	// metadata is the metadata of the node.
 	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
@@ -4243,9 +4243,9 @@ type QueryNodesResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// nodes is the list of nodes.
-	Nodes []*QueryNodesResponse_Node `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
+	Nodes []*QueryNodesResponse_Node `protobuf:"bytes,1,rep,name=nodes,proto3" json:"nodes,omitempty"`
 	// pagination is the pagination of the response.
-	Pagination *v1beta1.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
 func (x *QueryNodesResponse) Reset() {
@@ -4510,11 +4510,11 @@ var file_chora_geonode_v1_query_proto_rawDesc = []byte{
 	0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69,
 	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0xec, 0x01, 0x0a, 0x12, 0x51, 0x75, 0x65, 0x72, 0x79,
 	0x4e, 0x6f, 0x64, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3f, 0x0a,
-	0x05, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x29, 0x2e, 0x63,
+	0x05, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x29, 0x2e, 0x63,
 	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x67, 0x65, 0x6f, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e,
 	0x51, 0x75, 0x65, 0x72, 0x79, 0x4e, 0x6f, 0x64, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
 	0x73, 0x65, 0x2e, 0x4e, 0x6f, 0x64, 0x65, 0x52, 0x05, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x12, 0x47,
-	0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01,
+	0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01,
 	0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65,
 	0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50,
 	0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67,

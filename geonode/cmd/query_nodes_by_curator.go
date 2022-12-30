@@ -5,15 +5,15 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	v1 "github.com/choraio/mods/content/types/v1"
+	v1 "github.com/choraio/mods/geonode/types/v1"
 )
 
-// QueryContentByCuratorCmd creates and returns the query content-by-curator command.
-func QueryContentByCuratorCmd() *cobra.Command {
+// QueryNodesByCuratorCmd creates and returns the query nodes-by-curator command.
+func QueryNodesByCuratorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "content-by-curator [curator]",
-		Short: "query content by the curator of the content",
-		Long:  "query content by the curator of the content",
+		Use:   "nodes-by-curator [curator]",
+		Short: "query nodes by curator",
+		Long:  "query nodes by curator",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			c, ctx, err := getQueryClient(cmd)
@@ -21,11 +21,11 @@ func QueryContentByCuratorCmd() *cobra.Command {
 				return err
 			}
 
-			req := v1.QueryContentByCuratorRequest{
+			req := v1.QueryNodesByCuratorRequest{
 				Curator: args[0],
 			}
 
-			res, err := c.ContentByCurator(cmd.Context(), &req)
+			res, err := c.NodesByCurator(cmd.Context(), &req)
 			if err != nil {
 				return err
 			}

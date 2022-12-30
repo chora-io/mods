@@ -6,7 +6,7 @@ info:
 paths:
   /chora/geonode/v1/node/{id}:
     get:
-      summary: Node queries a node by the unique identifier of the node.
+      summary: Node queries a node by id.
       operationId: Node
       responses:
         '200':
@@ -20,7 +20,7 @@ paths:
                 description: id is the unique identifier of the node.
               curator:
                 type: string
-                description: curator is the curator of the node.
+                description: curator is the address of the node curator.
               metadata:
                 type: string
                 description: metadata is the metadata of the node.
@@ -329,7 +329,7 @@ definitions:
         description: id is the unique identifier of the node.
       curator:
         type: string
-        description: curator is the curator of the node.
+        description: curator is the address of the node curator.
       metadata:
         type: string
         description: metadata is the metadata of the node.

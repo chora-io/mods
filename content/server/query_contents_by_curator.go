@@ -13,53 +13,56 @@ import (
 	v1 "github.com/choraio/mods/content/types/v1"
 )
 
-// ContentByCurator implements the Query/ContentByCurator method.
-func (s Server) ContentByCurator(ctx context.Context, req *v1.QueryContentByCuratorRequest) (*v1.QueryContentByCuratorResponse, error) {
+// ContentsByCurator implements the Query/ContentsByCurator method.
+func (s Server) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCuratorRequest) (*v1.QueryContentsByCuratorResponse, error) {
 
-	// convert curator to account
+	// get account from curator address
 	curator, err := sdk.AccAddressFromBech32(req.Curator)
 	if err != nil {
 		return nil, sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
 	}
 
-	// set the index for table lookup
+	// set index for table lookup
 	index := contentv1.ContentCuratorIndexKey{}.WithCurator(curator)
 
-	// set the pagination for table lookup
+	// set pagination for table lookup
 	pg, err := ormutil.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
 
-	// get iterator for content by curator from content table
+	// get contents by curator from content table
 	it, err := s.ss.ContentTable().List(ctx, index, ormlist.Paginate(pg))
 	if err != nil {
 		return nil, err // internal error
 	}
 
-	// set content for content by curator response
-	content := make([]*v1.QueryContentByCuratorResponse_Content, 0, 10)
+	// set contents for query response
+	contents := make([]*v1.QueryContentsByCuratorResponse_Content, 0, 10)
 	for it.Next() {
 		v, err := it.Value()
 		if err != nil {
 			return nil, err // internal error
 		}
-		c := v1.QueryContentByCuratorResponse_Content{
+
+		c := v1.QueryContentsByCuratorResponse_Content{
 			Id:       v.Id,
 			Metadata: v.Metadata,
 		}
-		content = append(content, &c)
+
+		contents = append(contents, &c)
 	}
 
+	// set pagination for query response
 	pr, err := ormutil.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}
 
-	// return query content by curator response
-	return &v1.QueryContentByCuratorResponse{
+	// return query response
+	return &v1.QueryContentsByCuratorResponse{
 		Curator:    curator.String(),
-		Content:    content,
+		Contents:   contents,
 		Pagination: pr,
 	}, nil
 }

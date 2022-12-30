@@ -17,17 +17,15 @@ func (s Server) Content(ctx context.Context, req *v1.QueryContentRequest) (*v1.Q
 	content, err := s.ss.ContentTable().Get(ctx, req.Id)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
-			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"content with id %d", req.Id,
-			)
+			return nil, sdkerrors.ErrNotFound.Wrapf("content with id %d", req.Id)
 		}
 		return nil, err // internal error
 	}
 
-	// convert curator bytes to account
+	// get account from account bytes
 	curator := sdk.AccAddress(content.Curator)
 
-	// return query content response
+	// return query response
 	return &v1.QueryContentResponse{
 		Id:       content.Id,
 		Curator:  curator.String(),

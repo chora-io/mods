@@ -1,15 +1,15 @@
-Feature: Query/ContentByCurator
+Feature: Query/ContentsByCurator
 
-  Query/ContentByCurator is successful when:
+  Query/ContentsByCurator is successful when:
   - curator is a bech32 address
 
-  Query/ContentByCurator has the following outcomes:
+  Query/ContentsByCurator has the following outcomes:
   - query response returned
 
   Rule: The curator address must be a valid bech32 address
 
     Scenario: valid curator address
-      When query content by curator
+      When query contents by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -18,7 +18,7 @@ Feature: Query/ContentByCurator
       Then expect no error
 
     Scenario: invalid curator address
-      When query content by curator
+      When query contents by curator
       """
       {
         "curator": "foo"
@@ -41,8 +41,8 @@ Feature: Query/ContentByCurator
       }
       """
 
-    Scenario: response with no content by curator
-      When query content by curator
+    Scenario: response with no contents by curator
+      When query contents by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -52,7 +52,7 @@ Feature: Query/ContentByCurator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "content": [],
+        "contents": [],
         "pagination": {}
       }
       """
@@ -66,7 +66,7 @@ Feature: Query/ContentByCurator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      When query content by curator
+      When query contents by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -76,7 +76,7 @@ Feature: Query/ContentByCurator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "content": [
+        "contents": [
           {
             "id": 2,
             "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
@@ -88,7 +88,7 @@ Feature: Query/ContentByCurator
       }
       """
 
-    Scenario: response with two content by curator
+    Scenario: response with two contents by curator
       Given content
       """
       {
@@ -105,7 +105,7 @@ Feature: Query/ContentByCurator
         "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      When query content by curator
+      When query contents by curator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -115,7 +115,7 @@ Feature: Query/ContentByCurator
       """
       {
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "content": [
+        "contents": [
           {
             "id": 2,
             "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"

@@ -23,7 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// Content defines the table and properties of content stored in state.
+// Content defines the table and properties of a content.
 type Content struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`

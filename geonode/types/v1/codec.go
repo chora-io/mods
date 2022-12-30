@@ -31,7 +31,8 @@ func init() {
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreate{}, "node/MsgCreate", nil)
-	cdc.RegisterConcrete(&MsgUpdate{}, "node/MsgUpdate", nil)
+	cdc.RegisterConcrete(&MsgUpdateCurator{}, "node/MsgUpdateCurator", nil)
+	cdc.RegisterConcrete(&MsgUpdateMetadata{}, "node/MsgUpdateMetadata", nil)
 }
 
 // RegisterTypes registers types.
@@ -40,6 +41,7 @@ func RegisterTypes(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
 		&MsgCreate{},
-		&MsgUpdate{},
+		&MsgUpdateCurator{},
+		&MsgUpdateMetadata{},
 	)
 }

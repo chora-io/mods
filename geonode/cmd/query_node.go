@@ -14,8 +14,8 @@ import (
 func QueryNodeCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "node [id]",
-		Short: "query node by the unique identifier of the node",
-		Long:  "query node by the unique identifier of the node",
+		Short: "query node by id",
+		Long:  "query node by id",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			c, ctx, err := getQueryClient(cmd)

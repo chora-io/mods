@@ -79,7 +79,7 @@ func (m *QueryContentRequest) GetId() uint64 {
 type QueryContentResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	// curator is the curator of the content.
+	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 	// metadata is the metadata of the content.
 	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
@@ -139,26 +139,24 @@ func (m *QueryContentResponse) GetMetadata() string {
 	return ""
 }
 
-// QueryContentByCuratorRequest is the Query/ContentByCurator request type.
-type QueryContentByCuratorRequest struct {
-	// curator is the address of the content curator.
-	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
-	// pagination is the optional pagination in the request.
-	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+// QueryContentsRequest is the Query/Contents request type.
+type QueryContentsRequest struct {
+	// pagination is the optional pagination of the request.
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (m *QueryContentByCuratorRequest) Reset()         { *m = QueryContentByCuratorRequest{} }
-func (m *QueryContentByCuratorRequest) String() string { return proto.CompactTextString(m) }
-func (*QueryContentByCuratorRequest) ProtoMessage()    {}
-func (*QueryContentByCuratorRequest) Descriptor() ([]byte, []int) {
+func (m *QueryContentsRequest) Reset()         { *m = QueryContentsRequest{} }
+func (m *QueryContentsRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryContentsRequest) ProtoMessage()    {}
+func (*QueryContentsRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_4470c37943e78342, []int{2}
 }
-func (m *QueryContentByCuratorRequest) XXX_Unmarshal(b []byte) error {
+func (m *QueryContentsRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryContentByCuratorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QueryContentsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryContentByCuratorRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QueryContentsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -168,54 +166,45 @@ func (m *QueryContentByCuratorRequest) XXX_Marshal(b []byte, deterministic bool)
 		return b[:n], nil
 	}
 }
-func (m *QueryContentByCuratorRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryContentByCuratorRequest.Merge(m, src)
+func (m *QueryContentsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryContentsRequest.Merge(m, src)
 }
-func (m *QueryContentByCuratorRequest) XXX_Size() int {
+func (m *QueryContentsRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryContentByCuratorRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryContentByCuratorRequest.DiscardUnknown(m)
+func (m *QueryContentsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryContentsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryContentByCuratorRequest proto.InternalMessageInfo
+var xxx_messageInfo_QueryContentsRequest proto.InternalMessageInfo
 
-func (m *QueryContentByCuratorRequest) GetCurator() string {
-	if m != nil {
-		return m.Curator
-	}
-	return ""
-}
-
-func (m *QueryContentByCuratorRequest) GetPagination() *query.PageRequest {
+func (m *QueryContentsRequest) GetPagination() *query.PageRequest {
 	if m != nil {
 		return m.Pagination
 	}
 	return nil
 }
 
-// QueryContentByCuratorResponse is the Query/ContentByCurator response type.
-type QueryContentByCuratorResponse struct {
-	// curator is the address of the content curator.
-	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
-	// content is the content created by the curator.
-	Content []*QueryContentByCuratorResponse_Content `protobuf:"bytes,2,rep,name=content,proto3" json:"content,omitempty"`
-	// pagination is the pagination in the response.
+// QueryContentsResponse is the Query/Contents response type.
+type QueryContentsResponse struct {
+	// contents is the list of contents.
+	Contents []*QueryContentsResponse_Content `protobuf:"bytes,1,rep,name=contents,proto3" json:"contents,omitempty"`
+	// pagination is the pagination of the response.
 	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (m *QueryContentByCuratorResponse) Reset()         { *m = QueryContentByCuratorResponse{} }
-func (m *QueryContentByCuratorResponse) String() string { return proto.CompactTextString(m) }
-func (*QueryContentByCuratorResponse) ProtoMessage()    {}
-func (*QueryContentByCuratorResponse) Descriptor() ([]byte, []int) {
+func (m *QueryContentsResponse) Reset()         { *m = QueryContentsResponse{} }
+func (m *QueryContentsResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryContentsResponse) ProtoMessage()    {}
+func (*QueryContentsResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_4470c37943e78342, []int{3}
 }
-func (m *QueryContentByCuratorResponse) XXX_Unmarshal(b []byte) error {
+func (m *QueryContentsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryContentByCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QueryContentsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryContentByCuratorResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QueryContentsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -225,33 +214,26 @@ func (m *QueryContentByCuratorResponse) XXX_Marshal(b []byte, deterministic bool
 		return b[:n], nil
 	}
 }
-func (m *QueryContentByCuratorResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryContentByCuratorResponse.Merge(m, src)
+func (m *QueryContentsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryContentsResponse.Merge(m, src)
 }
-func (m *QueryContentByCuratorResponse) XXX_Size() int {
+func (m *QueryContentsResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryContentByCuratorResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryContentByCuratorResponse.DiscardUnknown(m)
+func (m *QueryContentsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryContentsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryContentByCuratorResponse proto.InternalMessageInfo
+var xxx_messageInfo_QueryContentsResponse proto.InternalMessageInfo
 
-func (m *QueryContentByCuratorResponse) GetCurator() string {
+func (m *QueryContentsResponse) GetContents() []*QueryContentsResponse_Content {
 	if m != nil {
-		return m.Curator
-	}
-	return ""
-}
-
-func (m *QueryContentByCuratorResponse) GetContent() []*QueryContentByCuratorResponse_Content {
-	if m != nil {
-		return m.Content
+		return m.Contents
 	}
 	return nil
 }
 
-func (m *QueryContentByCuratorResponse) GetPagination() *query.PageResponse {
+func (m *QueryContentsResponse) GetPagination() *query.PageResponse {
 	if m != nil {
 		return m.Pagination
 	}
@@ -259,25 +241,27 @@ func (m *QueryContentByCuratorResponse) GetPagination() *query.PageResponse {
 }
 
 // Content is the content properties.
-type QueryContentByCuratorResponse_Content struct {
+type QueryContentsResponse_Content struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// curator is the address of the content curator.
+	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 	// metadata is the metadata of the content.
-	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (m *QueryContentByCuratorResponse_Content) Reset()         { *m = QueryContentByCuratorResponse_Content{} }
-func (m *QueryContentByCuratorResponse_Content) String() string { return proto.CompactTextString(m) }
-func (*QueryContentByCuratorResponse_Content) ProtoMessage()    {}
-func (*QueryContentByCuratorResponse_Content) Descriptor() ([]byte, []int) {
+func (m *QueryContentsResponse_Content) Reset()         { *m = QueryContentsResponse_Content{} }
+func (m *QueryContentsResponse_Content) String() string { return proto.CompactTextString(m) }
+func (*QueryContentsResponse_Content) ProtoMessage()    {}
+func (*QueryContentsResponse_Content) Descriptor() ([]byte, []int) {
 	return fileDescriptor_4470c37943e78342, []int{3, 0}
 }
-func (m *QueryContentByCuratorResponse_Content) XXX_Unmarshal(b []byte) error {
+func (m *QueryContentsResponse_Content) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *QueryContentByCuratorResponse_Content) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *QueryContentsResponse_Content) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_QueryContentByCuratorResponse_Content.Marshal(b, m, deterministic)
+		return xxx_messageInfo_QueryContentsResponse_Content.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -287,26 +271,209 @@ func (m *QueryContentByCuratorResponse_Content) XXX_Marshal(b []byte, determinis
 		return b[:n], nil
 	}
 }
-func (m *QueryContentByCuratorResponse_Content) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QueryContentByCuratorResponse_Content.Merge(m, src)
+func (m *QueryContentsResponse_Content) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryContentsResponse_Content.Merge(m, src)
 }
-func (m *QueryContentByCuratorResponse_Content) XXX_Size() int {
+func (m *QueryContentsResponse_Content) XXX_Size() int {
 	return m.Size()
 }
-func (m *QueryContentByCuratorResponse_Content) XXX_DiscardUnknown() {
-	xxx_messageInfo_QueryContentByCuratorResponse_Content.DiscardUnknown(m)
+func (m *QueryContentsResponse_Content) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryContentsResponse_Content.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_QueryContentByCuratorResponse_Content proto.InternalMessageInfo
+var xxx_messageInfo_QueryContentsResponse_Content proto.InternalMessageInfo
 
-func (m *QueryContentByCuratorResponse_Content) GetId() uint64 {
+func (m *QueryContentsResponse_Content) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-func (m *QueryContentByCuratorResponse_Content) GetMetadata() string {
+func (m *QueryContentsResponse_Content) GetCurator() string {
+	if m != nil {
+		return m.Curator
+	}
+	return ""
+}
+
+func (m *QueryContentsResponse_Content) GetMetadata() string {
+	if m != nil {
+		return m.Metadata
+	}
+	return ""
+}
+
+// QueryContentsByCuratorRequest is the Query/ContentsByCurator request type.
+type QueryContentsByCuratorRequest struct {
+	// curator is the address of the content curator.
+	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+	// pagination is the optional pagination of the request.
+	Pagination *query.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryContentsByCuratorRequest) Reset()         { *m = QueryContentsByCuratorRequest{} }
+func (m *QueryContentsByCuratorRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryContentsByCuratorRequest) ProtoMessage()    {}
+func (*QueryContentsByCuratorRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4470c37943e78342, []int{4}
+}
+func (m *QueryContentsByCuratorRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryContentsByCuratorRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryContentsByCuratorRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryContentsByCuratorRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryContentsByCuratorRequest.Merge(m, src)
+}
+func (m *QueryContentsByCuratorRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryContentsByCuratorRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryContentsByCuratorRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryContentsByCuratorRequest proto.InternalMessageInfo
+
+func (m *QueryContentsByCuratorRequest) GetCurator() string {
+	if m != nil {
+		return m.Curator
+	}
+	return ""
+}
+
+func (m *QueryContentsByCuratorRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+// QueryContentsByCuratorResponse is the Query/ContentsByCurator response type.
+type QueryContentsByCuratorResponse struct {
+	// curator is the address of the content curator.
+	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+	// contents is the list of contents managed by the curator.
+	Contents []*QueryContentsByCuratorResponse_Content `protobuf:"bytes,2,rep,name=contents,proto3" json:"contents,omitempty"`
+	// pagination is the pagination of the response.
+	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryContentsByCuratorResponse) Reset()         { *m = QueryContentsByCuratorResponse{} }
+func (m *QueryContentsByCuratorResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryContentsByCuratorResponse) ProtoMessage()    {}
+func (*QueryContentsByCuratorResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4470c37943e78342, []int{5}
+}
+func (m *QueryContentsByCuratorResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryContentsByCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryContentsByCuratorResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryContentsByCuratorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryContentsByCuratorResponse.Merge(m, src)
+}
+func (m *QueryContentsByCuratorResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryContentsByCuratorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryContentsByCuratorResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryContentsByCuratorResponse proto.InternalMessageInfo
+
+func (m *QueryContentsByCuratorResponse) GetCurator() string {
+	if m != nil {
+		return m.Curator
+	}
+	return ""
+}
+
+func (m *QueryContentsByCuratorResponse) GetContents() []*QueryContentsByCuratorResponse_Content {
+	if m != nil {
+		return m.Contents
+	}
+	return nil
+}
+
+func (m *QueryContentsByCuratorResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+// Content is the content properties.
+type QueryContentsByCuratorResponse_Content struct {
+	// id is the unique identifier of the content.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// metadata is the metadata of the content.
+	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+}
+
+func (m *QueryContentsByCuratorResponse_Content) Reset() {
+	*m = QueryContentsByCuratorResponse_Content{}
+}
+func (m *QueryContentsByCuratorResponse_Content) String() string { return proto.CompactTextString(m) }
+func (*QueryContentsByCuratorResponse_Content) ProtoMessage()    {}
+func (*QueryContentsByCuratorResponse_Content) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4470c37943e78342, []int{5, 0}
+}
+func (m *QueryContentsByCuratorResponse_Content) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryContentsByCuratorResponse_Content) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryContentsByCuratorResponse_Content.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryContentsByCuratorResponse_Content) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryContentsByCuratorResponse_Content.Merge(m, src)
+}
+func (m *QueryContentsByCuratorResponse_Content) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryContentsByCuratorResponse_Content) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryContentsByCuratorResponse_Content.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryContentsByCuratorResponse_Content proto.InternalMessageInfo
+
+func (m *QueryContentsByCuratorResponse_Content) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *QueryContentsByCuratorResponse_Content) GetMetadata() string {
 	if m != nil {
 		return m.Metadata
 	}
@@ -316,44 +483,52 @@ func (m *QueryContentByCuratorResponse_Content) GetMetadata() string {
 func init() {
 	proto.RegisterType((*QueryContentRequest)(nil), "chora.content.v1.QueryContentRequest")
 	proto.RegisterType((*QueryContentResponse)(nil), "chora.content.v1.QueryContentResponse")
-	proto.RegisterType((*QueryContentByCuratorRequest)(nil), "chora.content.v1.QueryContentByCuratorRequest")
-	proto.RegisterType((*QueryContentByCuratorResponse)(nil), "chora.content.v1.QueryContentByCuratorResponse")
-	proto.RegisterType((*QueryContentByCuratorResponse_Content)(nil), "chora.content.v1.QueryContentByCuratorResponse.Content")
+	proto.RegisterType((*QueryContentsRequest)(nil), "chora.content.v1.QueryContentsRequest")
+	proto.RegisterType((*QueryContentsResponse)(nil), "chora.content.v1.QueryContentsResponse")
+	proto.RegisterType((*QueryContentsResponse_Content)(nil), "chora.content.v1.QueryContentsResponse.Content")
+	proto.RegisterType((*QueryContentsByCuratorRequest)(nil), "chora.content.v1.QueryContentsByCuratorRequest")
+	proto.RegisterType((*QueryContentsByCuratorResponse)(nil), "chora.content.v1.QueryContentsByCuratorResponse")
+	proto.RegisterType((*QueryContentsByCuratorResponse_Content)(nil), "chora.content.v1.QueryContentsByCuratorResponse.Content")
 }
 
 func init() { proto.RegisterFile("chora/content/v1/query.proto", fileDescriptor_4470c37943e78342) }
 
 var fileDescriptor_4470c37943e78342 = []byte{
-	// 463 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xc1, 0x8a, 0xd3, 0x40,
-	0x18, 0xc7, 0x3b, 0x53, 0xb5, 0x3a, 0x0b, 0xb2, 0x8c, 0x1e, 0x42, 0xa8, 0xa1, 0x04, 0xb6, 0x16,
-	0x61, 0x67, 0x6c, 0x45, 0xbd, 0x77, 0x41, 0xaf, 0x6e, 0x8f, 0xe2, 0x65, 0x9a, 0x0c, 0xd9, 0x01,
-	0x93, 0xc9, 0x66, 0x26, 0x85, 0xb0, 0x2c, 0x2c, 0x9e, 0x3d, 0x08, 0x3e, 0x86, 0x2f, 0xe0, 0x23,
-	0x78, 0x5c, 0xf0, 0xe2, 0x51, 0x5a, 0x1f, 0x44, 0x3a, 0x33, 0xd9, 0x4d, 0xba, 0x74, 0xab, 0xb7,
-	0x0c, 0xdf, 0xf7, 0xfd, 0xf2, 0xff, 0xff, 0xbf, 0x19, 0xd4, 0x8f, 0x4e, 0x64, 0xc1, 0x68, 0x24,
-	0x33, 0xcd, 0x33, 0x4d, 0x17, 0x63, 0x7a, 0x5a, 0xf2, 0xa2, 0x22, 0x79, 0x21, 0xb5, 0xc4, 0xfb,
-	0xa6, 0x4a, 0x5c, 0x95, 0x2c, 0xc6, 0xfe, 0xb3, 0x48, 0xaa, 0x54, 0x2a, 0x3a, 0x67, 0x8a, 0xdb,
-	0x56, 0xba, 0x18, 0xcf, 0xb9, 0x66, 0x63, 0x9a, 0xb3, 0x44, 0x64, 0x4c, 0x0b, 0x99, 0xd9, 0x69,
-	0xbf, 0x9f, 0x48, 0x99, 0x7c, 0xe4, 0x94, 0xe5, 0x82, 0xb2, 0x2c, 0x93, 0xda, 0x14, 0x95, 0xad,
-	0x86, 0x07, 0xe8, 0xd1, 0xf1, 0x7a, 0xfe, 0xc8, 0xc2, 0x67, 0xfc, 0xb4, 0xe4, 0x4a, 0xe3, 0x87,
-	0x08, 0x8a, 0xd8, 0x03, 0x03, 0x30, 0xba, 0x33, 0x83, 0x22, 0x0e, 0x3f, 0xa0, 0xc7, 0xed, 0x36,
-	0x95, 0xcb, 0x4c, 0xf1, 0xcd, 0x3e, 0xec, 0xa1, 0x5e, 0x54, 0x16, 0x4c, 0xcb, 0xc2, 0x83, 0x03,
-	0x30, 0x7a, 0x30, 0xab, 0x8f, 0xd8, 0x47, 0xf7, 0x53, 0xae, 0x59, 0xcc, 0x34, 0xf3, 0xba, 0xa6,
-	0x74, 0x75, 0x0e, 0x2f, 0x00, 0xea, 0x37, 0xf1, 0xd3, 0xea, 0xc8, 0x4e, 0xd5, 0x72, 0x1a, 0x58,
-	0xd0, 0xc6, 0xbe, 0x41, 0xe8, 0xda, 0xb1, 0xf9, 0xe7, 0xde, 0x64, 0x48, 0x6c, 0x3c, 0x64, 0x1d,
-	0x0f, 0xb1, 0x49, 0xba, 0x78, 0xc8, 0x3b, 0x96, 0x70, 0x47, 0x9d, 0x35, 0x26, 0xc3, 0xcf, 0x10,
-	0x3d, 0xd9, 0x22, 0xc1, 0x59, 0xdd, 0xae, 0xe1, 0x18, 0xf5, 0xdc, 0x6e, 0x3c, 0x38, 0xe8, 0x8e,
-	0xf6, 0x26, 0xaf, 0xc9, 0xe6, 0xc6, 0xc8, 0xad, 0x6c, 0x52, 0xc7, 0x5a, 0x73, 0xf0, 0xdb, 0x96,
-	0xad, 0xae, 0xb1, 0xf5, 0x74, 0xa7, 0x2d, 0x4b, 0x6b, 0xfa, 0xf2, 0x5f, 0xa2, 0x9e, 0x83, 0xdf,
-	0xd8, 0x55, 0x73, 0x23, 0xb0, 0xbd, 0x91, 0xc9, 0x77, 0x88, 0xee, 0x1a, 0xc9, 0xf8, 0x02, 0x5c,
-	0x13, 0x0e, 0x6e, 0xf7, 0xe5, 0x72, 0xf5, 0x87, 0xbb, 0xda, 0xac, 0xce, 0x70, 0xf8, 0xe9, 0xe7,
-	0x9f, 0xaf, 0x70, 0x80, 0x03, 0x7a, 0xe3, 0xfa, 0xd7, 0x9f, 0x67, 0x22, 0x3e, 0xc7, 0xdf, 0x00,
-	0xda, 0xdf, 0x8c, 0x0e, 0x93, 0x7f, 0xce, 0xd8, 0x8a, 0xa2, 0xff, 0xb9, 0x93, 0xf0, 0x95, 0x51,
-	0xf7, 0x1c, 0x93, 0xad, 0xea, 0x0e, 0xe7, 0xd5, 0xa1, 0xbb, 0x03, 0xf4, 0xcc, 0x7d, 0x9c, 0x4f,
-	0xa7, 0x3f, 0x96, 0x01, 0xb8, 0x5c, 0x06, 0xe0, 0xf7, 0x32, 0x00, 0x5f, 0x56, 0x41, 0xe7, 0x72,
-	0x15, 0x74, 0x7e, 0xad, 0x82, 0xce, 0xfb, 0x51, 0x22, 0xf4, 0x49, 0x39, 0x27, 0x91, 0x4c, 0x2d,
-	0x53, 0x48, 0x9a, 0xca, 0x58, 0x5d, 0xa1, 0x75, 0x95, 0x73, 0xb5, 0x7e, 0xc9, 0xf7, 0xcc, 0xe3,
-	0x7c, 0xf1, 0x37, 0x00, 0x00, 0xff, 0xff, 0x88, 0x09, 0x87, 0xd2, 0x18, 0x04, 0x00, 0x00,
+	// 530 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x94, 0x4f, 0x8b, 0xd3, 0x40,
+	0x18, 0xc6, 0x3b, 0xa9, 0xba, 0x75, 0x16, 0x44, 0x47, 0x85, 0x10, 0x6a, 0x28, 0x81, 0xed, 0x16,
+	0x61, 0x67, 0x4c, 0x45, 0xf4, 0xdc, 0x05, 0x3d, 0x78, 0x50, 0x8b, 0x27, 0x11, 0x61, 0x9a, 0x0c,
+	0xd9, 0x80, 0xcd, 0x64, 0x33, 0xd3, 0x42, 0x59, 0x16, 0xff, 0x7c, 0x82, 0x05, 0x3f, 0x88, 0x9f,
+	0xc0, 0xbb, 0xc7, 0x05, 0x2f, 0x1e, 0xa5, 0xf5, 0x73, 0x88, 0x74, 0x66, 0xd2, 0x4d, 0x5a, 0x63,
+	0x56, 0xd1, 0x5b, 0xc2, 0xfb, 0xbe, 0x4f, 0x7e, 0xef, 0xf3, 0x64, 0x06, 0xb6, 0x83, 0x03, 0x9e,
+	0x51, 0x12, 0xf0, 0x44, 0xb2, 0x44, 0x92, 0xa9, 0x4f, 0x0e, 0x27, 0x2c, 0x9b, 0xe1, 0x34, 0xe3,
+	0x92, 0xa3, 0xab, 0xaa, 0x8a, 0x4d, 0x15, 0x4f, 0x7d, 0xe7, 0x76, 0xc0, 0xc5, 0x98, 0x0b, 0x32,
+	0xa2, 0x82, 0xe9, 0x56, 0x32, 0xf5, 0x47, 0x4c, 0x52, 0x9f, 0xa4, 0x34, 0x8a, 0x13, 0x2a, 0x63,
+	0x9e, 0xe8, 0x69, 0xa7, 0x1d, 0x71, 0x1e, 0xbd, 0x66, 0x84, 0xa6, 0x31, 0xa1, 0x49, 0xc2, 0xa5,
+	0x2a, 0x0a, 0x5d, 0xf5, 0x76, 0xe0, 0xf5, 0x67, 0xcb, 0xf9, 0x7d, 0x2d, 0x3e, 0x64, 0x87, 0x13,
+	0x26, 0x24, 0xba, 0x02, 0xad, 0x38, 0xb4, 0x41, 0x07, 0xf4, 0x2e, 0x0c, 0xad, 0x38, 0xf4, 0x5e,
+	0xc2, 0x1b, 0xe5, 0x36, 0x91, 0xf2, 0x44, 0xb0, 0xf5, 0x3e, 0x64, 0xc3, 0xad, 0x60, 0x92, 0x51,
+	0xc9, 0x33, 0xdb, 0xea, 0x80, 0xde, 0xe5, 0x61, 0xfe, 0x8a, 0x1c, 0xd8, 0x1a, 0x33, 0x49, 0x43,
+	0x2a, 0xa9, 0xdd, 0x54, 0xa5, 0xd5, 0xbb, 0xf7, 0xaa, 0xac, 0x2e, 0x72, 0x8a, 0x87, 0x10, 0x9e,
+	0xad, 0xa3, 0xbe, 0xb2, 0xdd, 0xef, 0x62, 0xbd, 0x3b, 0x5e, 0xee, 0x8e, 0xb5, 0x4d, 0x66, 0x77,
+	0xfc, 0x94, 0x46, 0xcc, 0xcc, 0x0e, 0x0b, 0x93, 0xde, 0x0f, 0x00, 0x6f, 0xae, 0x7d, 0xc0, 0xf0,
+	0x3f, 0x86, 0x2d, 0x63, 0xab, 0xb0, 0x41, 0xa7, 0xd9, 0xdb, 0xee, 0x13, 0xbc, 0xee, 0x36, 0xfe,
+	0xe5, 0x28, 0xce, 0xad, 0x58, 0x09, 0xa0, 0x47, 0x25, 0xdc, 0xa6, 0xc2, 0xdd, 0xad, 0xc5, 0xd5,
+	0x72, 0x45, 0x5e, 0xe7, 0x09, 0xdc, 0x32, 0xea, 0xff, 0xc8, 0xe0, 0x77, 0x00, 0xde, 0x2a, 0x6d,
+	0x31, 0x98, 0xed, 0xeb, 0xb1, 0xdc, 0xea, 0x82, 0x2e, 0x28, 0xeb, 0x96, 0x43, 0xb0, 0xfe, 0x3a,
+	0x84, 0x13, 0x0b, 0xba, 0x55, 0x0c, 0x26, 0x8d, 0x6a, 0x88, 0xe7, 0x85, 0x9c, 0x2c, 0x95, 0xd3,
+	0x83, 0x9a, 0x9c, 0x36, 0xd4, 0xff, 0x67, 0x60, 0xf7, 0xaa, 0x03, 0x2b, 0xc6, 0x62, 0x95, 0x63,
+	0xe9, 0x7f, 0x6a, 0xc2, 0x8b, 0x0a, 0x1a, 0xbd, 0x05, 0x67, 0x0a, 0x3b, 0xbf, 0xdf, 0xcc, 0x78,
+	0xeb, 0x74, 0xeb, 0xda, 0x34, 0xa7, 0xd7, 0x7d, 0xff, 0xe5, 0xfb, 0x07, 0xab, 0x83, 0x5c, 0xb2,
+	0x71, 0xc9, 0xe4, 0x8f, 0x47, 0x71, 0x78, 0x8c, 0xde, 0xc0, 0x56, 0xee, 0x1d, 0xea, 0xd6, 0x1e,
+	0x02, 0xcd, 0xb0, 0x7b, 0xce, 0xc3, 0xe2, 0x79, 0x0a, 0xa2, 0x8d, 0x9c, 0x4a, 0x08, 0x81, 0x3e,
+	0x02, 0x78, 0x6d, 0x23, 0x3d, 0x44, 0xce, 0x9f, 0xb3, 0x66, 0xba, 0xf3, 0xa7, 0x3f, 0x86, 0x77,
+	0x5f, 0xc1, 0xf9, 0x88, 0x54, 0xc3, 0xed, 0x8d, 0x66, 0x7b, 0xe6, 0x5f, 0x24, 0x47, 0xe6, 0xe1,
+	0x78, 0x30, 0xf8, 0x3c, 0x77, 0xc1, 0xe9, 0xdc, 0x05, 0xdf, 0xe6, 0x2e, 0x38, 0x59, 0xb8, 0x8d,
+	0xd3, 0x85, 0xdb, 0xf8, 0xba, 0x70, 0x1b, 0x2f, 0x7a, 0x51, 0x2c, 0x0f, 0x26, 0x23, 0x1c, 0xf0,
+	0xb1, 0x16, 0x8d, 0x39, 0x19, 0xf3, 0x50, 0xac, 0xb4, 0xe5, 0x2c, 0x65, 0x62, 0x79, 0x69, 0x5f,
+	0x52, 0xf7, 0xf0, 0xdd, 0x9f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x02, 0x5a, 0x41, 0xf5, 0x03, 0x06,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -368,10 +543,12 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
-	// Content queries content by the unique identifier of the content.
+	// Content queries a content by id.
 	Content(ctx context.Context, in *QueryContentRequest, opts ...grpc.CallOption) (*QueryContentResponse, error)
-	// ContentByCurator queries all content by the curator of the content.
-	ContentByCurator(ctx context.Context, in *QueryContentByCuratorRequest, opts ...grpc.CallOption) (*QueryContentByCuratorResponse, error)
+	// Contents queries all contents.
+	Contents(ctx context.Context, in *QueryContentsRequest, opts ...grpc.CallOption) (*QueryContentsResponse, error)
+	// ContentsByCurator queries contents by curator.
+	ContentsByCurator(ctx context.Context, in *QueryContentsByCuratorRequest, opts ...grpc.CallOption) (*QueryContentsByCuratorResponse, error)
 }
 
 type queryClient struct {
@@ -391,9 +568,18 @@ func (c *queryClient) Content(ctx context.Context, in *QueryContentRequest, opts
 	return out, nil
 }
 
-func (c *queryClient) ContentByCurator(ctx context.Context, in *QueryContentByCuratorRequest, opts ...grpc.CallOption) (*QueryContentByCuratorResponse, error) {
-	out := new(QueryContentByCuratorResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Query/ContentByCurator", in, out, opts...)
+func (c *queryClient) Contents(ctx context.Context, in *QueryContentsRequest, opts ...grpc.CallOption) (*QueryContentsResponse, error) {
+	out := new(QueryContentsResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Query/Contents", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) ContentsByCurator(ctx context.Context, in *QueryContentsByCuratorRequest, opts ...grpc.CallOption) (*QueryContentsByCuratorResponse, error) {
+	out := new(QueryContentsByCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Query/ContentsByCurator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -402,10 +588,12 @@ func (c *queryClient) ContentByCurator(ctx context.Context, in *QueryContentByCu
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
-	// Content queries content by the unique identifier of the content.
+	// Content queries a content by id.
 	Content(context.Context, *QueryContentRequest) (*QueryContentResponse, error)
-	// ContentByCurator queries all content by the curator of the content.
-	ContentByCurator(context.Context, *QueryContentByCuratorRequest) (*QueryContentByCuratorResponse, error)
+	// Contents queries all contents.
+	Contents(context.Context, *QueryContentsRequest) (*QueryContentsResponse, error)
+	// ContentsByCurator queries contents by curator.
+	ContentsByCurator(context.Context, *QueryContentsByCuratorRequest) (*QueryContentsByCuratorResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -415,8 +603,11 @@ type UnimplementedQueryServer struct {
 func (*UnimplementedQueryServer) Content(ctx context.Context, req *QueryContentRequest) (*QueryContentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Content not implemented")
 }
-func (*UnimplementedQueryServer) ContentByCurator(ctx context.Context, req *QueryContentByCuratorRequest) (*QueryContentByCuratorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ContentByCurator not implemented")
+func (*UnimplementedQueryServer) Contents(ctx context.Context, req *QueryContentsRequest) (*QueryContentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Contents not implemented")
+}
+func (*UnimplementedQueryServer) ContentsByCurator(ctx context.Context, req *QueryContentsByCuratorRequest) (*QueryContentsByCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ContentsByCurator not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -441,20 +632,38 @@ func _Query_Content_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Query_ContentByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryContentByCuratorRequest)
+func _Query_Contents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).ContentByCurator(ctx, in)
+		return srv.(QueryServer).Contents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.content.v1.Query/ContentByCurator",
+		FullMethod: "/chora.content.v1.Query/Contents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).ContentByCurator(ctx, req.(*QueryContentByCuratorRequest))
+		return srv.(QueryServer).Contents(ctx, req.(*QueryContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_ContentsByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryContentsByCuratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).ContentsByCurator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.content.v1.Query/ContentsByCurator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).ContentsByCurator(ctx, req.(*QueryContentsByCuratorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -468,8 +677,12 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Query_Content_Handler,
 		},
 		{
-			MethodName: "ContentByCurator",
-			Handler:    _Query_ContentByCurator_Handler,
+			MethodName: "Contents",
+			Handler:    _Query_Contents_Handler,
+		},
+		{
+			MethodName: "ContentsByCurator",
+			Handler:    _Query_ContentsByCurator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -546,7 +759,7 @@ func (m *QueryContentResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryContentByCuratorRequest) Marshal() (dAtA []byte, err error) {
+func (m *QueryContentsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -556,12 +769,138 @@ func (m *QueryContentByCuratorRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryContentByCuratorRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *QueryContentsRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryContentByCuratorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QueryContentsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryContentsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryContentsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryContentsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Contents) > 0 {
+		for iNdEx := len(m.Contents) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Contents[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryContentsResponse_Content) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryContentsResponse_Content) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryContentsResponse_Content) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Metadata) > 0 {
+		i -= len(m.Metadata)
+		copy(dAtA[i:], m.Metadata)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Metadata)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Curator) > 0 {
+		i -= len(m.Curator)
+		copy(dAtA[i:], m.Curator)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Curator)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryContentsByCuratorRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryContentsByCuratorRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryContentsByCuratorRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -588,7 +927,7 @@ func (m *QueryContentByCuratorRequest) MarshalToSizedBuffer(dAtA []byte) (int, e
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryContentByCuratorResponse) Marshal() (dAtA []byte, err error) {
+func (m *QueryContentsByCuratorResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -598,12 +937,12 @@ func (m *QueryContentByCuratorResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *QueryContentByCuratorResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *QueryContentsByCuratorResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryContentByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QueryContentsByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -620,10 +959,10 @@ func (m *QueryContentByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 		i--
 		dAtA[i] = 0x1a
 	}
-	if len(m.Content) > 0 {
-		for iNdEx := len(m.Content) - 1; iNdEx >= 0; iNdEx-- {
+	if len(m.Contents) > 0 {
+		for iNdEx := len(m.Contents) - 1; iNdEx >= 0; iNdEx-- {
 			{
-				size, err := m.Content[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				size, err := m.Contents[iNdEx].MarshalToSizedBuffer(dAtA[:i])
 				if err != nil {
 					return 0, err
 				}
@@ -644,7 +983,7 @@ func (m *QueryContentByCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	return len(dAtA) - i, nil
 }
 
-func (m *QueryContentByCuratorResponse_Content) Marshal() (dAtA []byte, err error) {
+func (m *QueryContentsByCuratorResponse_Content) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -654,12 +993,12 @@ func (m *QueryContentByCuratorResponse_Content) Marshal() (dAtA []byte, err erro
 	return dAtA[:n], nil
 }
 
-func (m *QueryContentByCuratorResponse_Content) MarshalTo(dAtA []byte) (int, error) {
+func (m *QueryContentsByCuratorResponse_Content) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *QueryContentByCuratorResponse_Content) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *QueryContentsByCuratorResponse_Content) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -722,16 +1061,12 @@ func (m *QueryContentResponse) Size() (n int) {
 	return n
 }
 
-func (m *QueryContentByCuratorRequest) Size() (n int) {
+func (m *QueryContentsRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Curator)
-	if l > 0 {
-		n += 1 + l + sovQuery(uint64(l))
-	}
 	if m.Pagination != nil {
 		l = m.Pagination.Size()
 		n += 1 + l + sovQuery(uint64(l))
@@ -739,18 +1074,14 @@ func (m *QueryContentByCuratorRequest) Size() (n int) {
 	return n
 }
 
-func (m *QueryContentByCuratorResponse) Size() (n int) {
+func (m *QueryContentsResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Curator)
-	if l > 0 {
-		n += 1 + l + sovQuery(uint64(l))
-	}
-	if len(m.Content) > 0 {
-		for _, e := range m.Content {
+	if len(m.Contents) > 0 {
+		for _, e := range m.Contents {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -762,7 +1093,67 @@ func (m *QueryContentByCuratorResponse) Size() (n int) {
 	return n
 }
 
-func (m *QueryContentByCuratorResponse_Content) Size() (n int) {
+func (m *QueryContentsResponse_Content) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	l = len(m.Curator)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	l = len(m.Metadata)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryContentsByCuratorRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Curator)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryContentsByCuratorResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Curator)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	if len(m.Contents) > 0 {
+		for _, e := range m.Contents {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryContentsByCuratorResponse_Content) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -986,7 +1377,7 @@ func (m *QueryContentResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryContentByCuratorRequest) Unmarshal(dAtA []byte) error {
+func (m *QueryContentsRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1009,10 +1400,349 @@ func (m *QueryContentByCuratorRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryContentByCuratorRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: QueryContentsRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryContentByCuratorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QueryContentsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryContentsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryContentsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryContentsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Contents", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Contents = append(m.Contents, &QueryContentsResponse_Content{})
+			if err := m.Contents[len(m.Contents)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryContentsResponse_Content) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: Content: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: Content: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Curator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Curator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Metadata = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryContentsByCuratorRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryContentsByCuratorRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryContentsByCuratorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1104,7 +1834,7 @@ func (m *QueryContentByCuratorRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryContentByCuratorResponse) Unmarshal(dAtA []byte) error {
+func (m *QueryContentsByCuratorResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1127,10 +1857,10 @@ func (m *QueryContentByCuratorResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: QueryContentByCuratorResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: QueryContentsByCuratorResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: QueryContentByCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: QueryContentsByCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1167,7 +1897,7 @@ func (m *QueryContentByCuratorResponse) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Content", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Contents", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -1194,8 +1924,8 @@ func (m *QueryContentByCuratorResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Content = append(m.Content, &QueryContentByCuratorResponse_Content{})
-			if err := m.Content[len(m.Content)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			m.Contents = append(m.Contents, &QueryContentsByCuratorResponse_Content{})
+			if err := m.Contents[len(m.Contents)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -1256,7 +1986,7 @@ func (m *QueryContentByCuratorResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *QueryContentByCuratorResponse_Content) Unmarshal(dAtA []byte) error {
+func (m *QueryContentsByCuratorResponse_Content) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {

@@ -10,11 +10,12 @@ import (
 	v1 "github.com/choraio/mods/geonode/types/v1"
 )
 
+// TxCreateCmd creates and returns the tx create command.
 func TxCreateCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "create [metadata]",
-		Short: "submit a transaction to create a node",
-		Long:  "submit a transaction to create a node",
+		Short: "submit a transaction to create node",
+		Long:  "submit a transaction to create node",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

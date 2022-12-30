@@ -10,4 +10,5 @@ The messages are defined in proto files available to view on [Buf Schema Registr
 
 - [Create](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Msg.Create)
 - [Delete](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Msg.Delete)
-- [Update](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Msg.Update)
+- [UpdateCurator](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Msg.UpdateCurator)
+- [UpdateMetadata](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Msg.UpdateMetadata)

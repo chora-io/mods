@@ -560,7 +560,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Node defines the table and properties of a node stored in state.
+// Node defines the table and properties of a node.
 type Node struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

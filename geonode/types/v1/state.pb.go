@@ -23,7 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// Node defines the table and properties of a node stored in state.
+// Node defines the table and properties of a node.
 type Node struct {
 	// id is the unique identifier of the node.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`

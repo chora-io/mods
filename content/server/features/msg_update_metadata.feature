@@ -1,17 +1,17 @@
-Feature: Msg/Update
+Feature: Msg/UpdateMetadata
 
-  Update is successful when:
-  - curator is the node curator
+  UpdateMetadata is successful when:
+  - curator is the content curator
 
-  Update has the following outcomes:
+  UpdateMetadata has the following outcomes:
   - message response returned
-  - Node is updated in state
-  - EventUpdate is emitted
+  - Content is updated in state
+  - EventUpdateMetadata is emitted
 
-  Rule: The curator must be the node curator
+  Rule: The curator must be the content curator
 
     Background:
-      Given node
+      Given content
       """
       {
         "id": 1,
@@ -20,8 +20,8 @@ Feature: Msg/Update
       }
       """
 
-    Scenario: curator is node curator
-      When msg update
+    Scenario: curator is content curator
+      When msg update metadata
       """
       {
         "id": 1,
@@ -31,8 +31,8 @@ Feature: Msg/Update
       """
       Then expect no error
 
-    Scenario: curator is not node curator
-      When msg update
+    Scenario: curator is not content curator
+      When msg update metadata
       """
       {
         "id": 1,
@@ -42,13 +42,13 @@ Feature: Msg/Update
       """
       Then expect the error
       """
-      curator chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: node curator chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38: unauthorized
+      curator chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: content curator chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38: unauthorized
       """
 
   Rule: The message response is returned
 
     Background:
-      Given node
+      Given content
       """
       {
         "id": 1,
@@ -58,7 +58,7 @@ Feature: Msg/Update
       """
 
     Scenario: message response returned
-      When msg update
+      When msg update metadata
       """
       {
         "id": 1,
@@ -75,10 +75,10 @@ Feature: Msg/Update
 
     # No failing scenario - response is never returned when message fails
 
-  Rule: Node is updated in state
+  Rule: Content is updated in state
 
     Background:
-      Given node
+      Given content
       """
       {
         "id": 1,
@@ -87,8 +87,8 @@ Feature: Msg/Update
       }
       """
 
-    Scenario: state node updated
-      When msg update
+    Scenario: state content updated
+      When msg update metadata
       """
       {
         "id": 1,
@@ -96,7 +96,7 @@ Feature: Msg/Update
         "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      Then expect state node
+      Then expect state content
       """
       {
         "id": 1,
@@ -107,10 +107,10 @@ Feature: Msg/Update
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventUpdate emitted
+  Rule: EventUpdateMetadata emitted
 
     Background:
-      Given node
+      Given content
       """
       {
         "id": 1,
@@ -119,8 +119,8 @@ Feature: Msg/Update
       }
       """
 
-    Scenario: event update emitted
-      When msg update
+    Scenario: event update metadata emitted
+      When msg update metadata
       """
       {
         "id": 1,
@@ -128,7 +128,7 @@ Feature: Msg/Update
         "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      Then expect event update
+      Then expect event update metadata
       """
       {
         "id": 1

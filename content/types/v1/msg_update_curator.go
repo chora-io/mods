@@ -6,10 +6,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 )
 
-var _ legacytx.LegacyMsg = &MsgUpdate{}
+var _ legacytx.LegacyMsg = &MsgUpdateCurator{}
 
-// ValidateBasic performs stateless validation on MsgUpdate.
-func (m MsgUpdate) ValidateBasic() error {
+// ValidateBasic performs stateless validation on MsgUpdateCurator.
+func (m MsgUpdateCurator) ValidateBasic() error {
 	if m.Id == 0 {
 		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
 	}
@@ -18,34 +18,30 @@ func (m MsgUpdate) ValidateBasic() error {
 		return sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
 	}
 
-	if m.NewMetadata == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("new metadata: empty string is not allowed")
-	}
-
-	if len(m.NewMetadata) > MetadataMaxLength {
-		return sdkerrors.ErrInvalidRequest.Wrapf("new metadata: exceeds max length %d", MetadataMaxLength)
+	if _, err := sdk.AccAddressFromBech32(m.NewCurator); err != nil {
+		return sdkerrors.ErrInvalidAddress.Wrapf("new curator: %s", err)
 	}
 
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgUpdate.
-func (m MsgUpdate) GetSigners() []sdk.AccAddress {
+// GetSigners returns the expected signers for MsgUpdateCurator.
+func (m MsgUpdateCurator) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Curator)
 	return []sdk.AccAddress{addr}
 }
 
 // GetSignBytes implements the LegacyMsg interface.
-func (m MsgUpdate) GetSignBytes() []byte {
+func (m MsgUpdateCurator) GetSignBytes() []byte {
 	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgUpdate) Route() string {
+func (m MsgUpdateCurator) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgUpdate) Type() string {
+func (m MsgUpdateCurator) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

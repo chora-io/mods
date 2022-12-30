@@ -951,27 +951,25 @@ func (x *fastReflection_QueryContentResponse) ProtoMethods() *protoiface.Methods
 }
 
 var (
-	md_QueryContentByCuratorRequest            protoreflect.MessageDescriptor
-	fd_QueryContentByCuratorRequest_curator    protoreflect.FieldDescriptor
-	fd_QueryContentByCuratorRequest_pagination protoreflect.FieldDescriptor
+	md_QueryContentsRequest            protoreflect.MessageDescriptor
+	fd_QueryContentsRequest_pagination protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_query_proto_init()
-	md_QueryContentByCuratorRequest = File_chora_content_v1_query_proto.Messages().ByName("QueryContentByCuratorRequest")
-	fd_QueryContentByCuratorRequest_curator = md_QueryContentByCuratorRequest.Fields().ByName("curator")
-	fd_QueryContentByCuratorRequest_pagination = md_QueryContentByCuratorRequest.Fields().ByName("pagination")
+	md_QueryContentsRequest = File_chora_content_v1_query_proto.Messages().ByName("QueryContentsRequest")
+	fd_QueryContentsRequest_pagination = md_QueryContentsRequest.Fields().ByName("pagination")
 }
 
-var _ protoreflect.Message = (*fastReflection_QueryContentByCuratorRequest)(nil)
+var _ protoreflect.Message = (*fastReflection_QueryContentsRequest)(nil)
 
-type fastReflection_QueryContentByCuratorRequest QueryContentByCuratorRequest
+type fastReflection_QueryContentsRequest QueryContentsRequest
 
-func (x *QueryContentByCuratorRequest) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_QueryContentByCuratorRequest)(x)
+func (x *QueryContentsRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryContentsRequest)(x)
 }
 
-func (x *QueryContentByCuratorRequest) slowProtoReflect() protoreflect.Message {
+func (x *QueryContentsRequest) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_query_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -983,43 +981,43 @@ func (x *QueryContentByCuratorRequest) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_QueryContentByCuratorRequest_messageType fastReflection_QueryContentByCuratorRequest_messageType
-var _ protoreflect.MessageType = fastReflection_QueryContentByCuratorRequest_messageType{}
+var _fastReflection_QueryContentsRequest_messageType fastReflection_QueryContentsRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryContentsRequest_messageType{}
 
-type fastReflection_QueryContentByCuratorRequest_messageType struct{}
+type fastReflection_QueryContentsRequest_messageType struct{}
 
-func (x fastReflection_QueryContentByCuratorRequest_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_QueryContentByCuratorRequest)(nil)
+func (x fastReflection_QueryContentsRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryContentsRequest)(nil)
 }
-func (x fastReflection_QueryContentByCuratorRequest_messageType) New() protoreflect.Message {
-	return new(fastReflection_QueryContentByCuratorRequest)
+func (x fastReflection_QueryContentsRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsRequest)
 }
-func (x fastReflection_QueryContentByCuratorRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_QueryContentByCuratorRequest
+func (x fastReflection_QueryContentsRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsRequest
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_QueryContentByCuratorRequest) Descriptor() protoreflect.MessageDescriptor {
-	return md_QueryContentByCuratorRequest
+func (x *fastReflection_QueryContentsRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsRequest
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_QueryContentByCuratorRequest) Type() protoreflect.MessageType {
-	return _fastReflection_QueryContentByCuratorRequest_messageType
+func (x *fastReflection_QueryContentsRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryContentsRequest_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_QueryContentByCuratorRequest) New() protoreflect.Message {
-	return new(fastReflection_QueryContentByCuratorRequest)
+func (x *fastReflection_QueryContentsRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsRequest)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_QueryContentByCuratorRequest) Interface() protoreflect.ProtoMessage {
-	return (*QueryContentByCuratorRequest)(x)
+func (x *fastReflection_QueryContentsRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryContentsRequest)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -1027,16 +1025,10 @@ func (x *fastReflection_QueryContentByCuratorRequest) Interface() protoreflect.P
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_QueryContentByCuratorRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Curator != "" {
-		value := protoreflect.ValueOfString(x.Curator)
-		if !f(fd_QueryContentByCuratorRequest_curator, value) {
-			return
-		}
-	}
+func (x *fastReflection_QueryContentsRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Pagination != nil {
 		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
-		if !f(fd_QueryContentByCuratorRequest_pagination, value) {
+		if !f(fd_QueryContentsRequest_pagination, value) {
 			return
 		}
 	}
@@ -1053,17 +1045,15 @@ func (x *fastReflection_QueryContentByCuratorRequest) Range(f func(protoreflect.
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_QueryContentByCuratorRequest) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_QueryContentsRequest) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorRequest.curator":
-		return x.Curator != ""
-	case "chora.content.v1.QueryContentByCuratorRequest.pagination":
+	case "chora.content.v1.QueryContentsRequest.pagination":
 		return x.Pagination != nil
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorRequest"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsRequest"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorRequest does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsRequest does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1073,17 +1063,15 @@ func (x *fastReflection_QueryContentByCuratorRequest) Has(fd protoreflect.FieldD
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorRequest) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_QueryContentsRequest) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorRequest.curator":
-		x.Curator = ""
-	case "chora.content.v1.QueryContentByCuratorRequest.pagination":
+	case "chora.content.v1.QueryContentsRequest.pagination":
 		x.Pagination = nil
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorRequest"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsRequest"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorRequest does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsRequest does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1093,19 +1081,16 @@ func (x *fastReflection_QueryContentByCuratorRequest) Clear(fd protoreflect.Fiel
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_QueryContentByCuratorRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.QueryContentByCuratorRequest.curator":
-		value := x.Curator
-		return protoreflect.ValueOfString(value)
-	case "chora.content.v1.QueryContentByCuratorRequest.pagination":
+	case "chora.content.v1.QueryContentsRequest.pagination":
 		value := x.Pagination
 		return protoreflect.ValueOfMessage(value.ProtoReflect())
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorRequest"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsRequest"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorRequest does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsRequest does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1119,17 +1104,15 @@ func (x *fastReflection_QueryContentByCuratorRequest) Get(descriptor protoreflec
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_QueryContentsRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorRequest.curator":
-		x.Curator = value.Interface().(string)
-	case "chora.content.v1.QueryContentByCuratorRequest.pagination":
+	case "chora.content.v1.QueryContentsRequest.pagination":
 		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorRequest"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsRequest"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorRequest does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsRequest does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1143,48 +1126,44 @@ func (x *fastReflection_QueryContentByCuratorRequest) Set(fd protoreflect.FieldD
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorRequest.pagination":
+	case "chora.content.v1.QueryContentsRequest.pagination":
 		if x.Pagination == nil {
 			x.Pagination = new(v1beta1.PageRequest)
 		}
 		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
-	case "chora.content.v1.QueryContentByCuratorRequest.curator":
-		panic(fmt.Errorf("field curator of message chora.content.v1.QueryContentByCuratorRequest is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorRequest"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsRequest"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorRequest does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsRequest does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_QueryContentByCuratorRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorRequest.curator":
-		return protoreflect.ValueOfString("")
-	case "chora.content.v1.QueryContentByCuratorRequest.pagination":
+	case "chora.content.v1.QueryContentsRequest.pagination":
 		m := new(v1beta1.PageRequest)
 		return protoreflect.ValueOfMessage(m.ProtoReflect())
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorRequest"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsRequest"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorRequest does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsRequest does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_QueryContentByCuratorRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_QueryContentsRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentByCuratorRequest", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentsRequest", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1192,7 +1171,7 @@ func (x *fastReflection_QueryContentByCuratorRequest) WhichOneof(d protoreflect.
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_QueryContentByCuratorRequest) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_QueryContentsRequest) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1203,7 +1182,7 @@ func (x *fastReflection_QueryContentByCuratorRequest) GetUnknown() protoreflect.
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorRequest) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_QueryContentsRequest) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1215,7 +1194,7 @@ func (x *fastReflection_QueryContentByCuratorRequest) SetUnknown(fields protoref
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_QueryContentByCuratorRequest) IsValid() bool {
+func (x *fastReflection_QueryContentsRequest) IsValid() bool {
 	return x != nil
 }
 
@@ -1225,9 +1204,1570 @@ func (x *fastReflection_QueryContentByCuratorRequest) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_QueryContentByCuratorRequest) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_QueryContentsRequest) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*QueryContentByCuratorRequest)
+		x := input.Message.Interface().(*QueryContentsRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryContentsRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryContentsRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageRequest{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryContentsResponse_1_list)(nil)
+
+type _QueryContentsResponse_1_list struct {
+	list *[]*QueryContentsResponse_Content
+}
+
+func (x *_QueryContentsResponse_1_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryContentsResponse_1_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_QueryContentsResponse_1_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryContentsResponse_Content)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryContentsResponse_1_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryContentsResponse_Content)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryContentsResponse_1_list) AppendMutable() protoreflect.Value {
+	v := new(QueryContentsResponse_Content)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryContentsResponse_1_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryContentsResponse_1_list) NewElement() protoreflect.Value {
+	v := new(QueryContentsResponse_Content)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryContentsResponse_1_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryContentsResponse            protoreflect.MessageDescriptor
+	fd_QueryContentsResponse_contents   protoreflect.FieldDescriptor
+	fd_QueryContentsResponse_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_content_v1_query_proto_init()
+	md_QueryContentsResponse = File_chora_content_v1_query_proto.Messages().ByName("QueryContentsResponse")
+	fd_QueryContentsResponse_contents = md_QueryContentsResponse.Fields().ByName("contents")
+	fd_QueryContentsResponse_pagination = md_QueryContentsResponse.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryContentsResponse)(nil)
+
+type fastReflection_QueryContentsResponse QueryContentsResponse
+
+func (x *QueryContentsResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryContentsResponse)(x)
+}
+
+func (x *QueryContentsResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_content_v1_query_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryContentsResponse_messageType fastReflection_QueryContentsResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryContentsResponse_messageType{}
+
+type fastReflection_QueryContentsResponse_messageType struct{}
+
+func (x fastReflection_QueryContentsResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryContentsResponse)(nil)
+}
+func (x fastReflection_QueryContentsResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsResponse)
+}
+func (x fastReflection_QueryContentsResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryContentsResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryContentsResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryContentsResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryContentsResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryContentsResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryContentsResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryContentsResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if len(x.Contents) != 0 {
+		value := protoreflect.ValueOfList(&_QueryContentsResponse_1_list{list: &x.Contents})
+		if !f(fd_QueryContentsResponse_contents, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryContentsResponse_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryContentsResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.contents":
+		return len(x.Contents) != 0
+	case "chora.content.v1.QueryContentsResponse.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.contents":
+		x.Contents = nil
+	case "chora.content.v1.QueryContentsResponse.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryContentsResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.content.v1.QueryContentsResponse.contents":
+		if len(x.Contents) == 0 {
+			return protoreflect.ValueOfList(&_QueryContentsResponse_1_list{})
+		}
+		listValue := &_QueryContentsResponse_1_list{list: &x.Contents}
+		return protoreflect.ValueOfList(listValue)
+	case "chora.content.v1.QueryContentsResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.contents":
+		lv := value.List()
+		clv := lv.(*_QueryContentsResponse_1_list)
+		x.Contents = *clv.list
+	case "chora.content.v1.QueryContentsResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.contents":
+		if x.Contents == nil {
+			x.Contents = []*QueryContentsResponse_Content{}
+		}
+		value := &_QueryContentsResponse_1_list{list: &x.Contents}
+		return protoreflect.ValueOfList(value)
+	case "chora.content.v1.QueryContentsResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryContentsResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.contents":
+		list := []*QueryContentsResponse_Content{}
+		return protoreflect.ValueOfList(&_QueryContentsResponse_1_list{list: &list})
+	case "chora.content.v1.QueryContentsResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryContentsResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentsResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryContentsResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryContentsResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryContentsResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryContentsResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if len(x.Contents) > 0 {
+			for _, e := range x.Contents {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryContentsResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.Contents) > 0 {
+			for iNdEx := len(x.Contents) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.Contents[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0xa
+			}
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryContentsResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Contents", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Contents = append(x.Contents, &QueryContentsResponse_Content{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Contents[len(x.Contents)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryContentsResponse_Content          protoreflect.MessageDescriptor
+	fd_QueryContentsResponse_Content_id       protoreflect.FieldDescriptor
+	fd_QueryContentsResponse_Content_curator  protoreflect.FieldDescriptor
+	fd_QueryContentsResponse_Content_metadata protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_content_v1_query_proto_init()
+	md_QueryContentsResponse_Content = File_chora_content_v1_query_proto.Messages().ByName("QueryContentsResponse").Messages().ByName("Content")
+	fd_QueryContentsResponse_Content_id = md_QueryContentsResponse_Content.Fields().ByName("id")
+	fd_QueryContentsResponse_Content_curator = md_QueryContentsResponse_Content.Fields().ByName("curator")
+	fd_QueryContentsResponse_Content_metadata = md_QueryContentsResponse_Content.Fields().ByName("metadata")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryContentsResponse_Content)(nil)
+
+type fastReflection_QueryContentsResponse_Content QueryContentsResponse_Content
+
+func (x *QueryContentsResponse_Content) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryContentsResponse_Content)(x)
+}
+
+func (x *QueryContentsResponse_Content) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_content_v1_query_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryContentsResponse_Content_messageType fastReflection_QueryContentsResponse_Content_messageType
+var _ protoreflect.MessageType = fastReflection_QueryContentsResponse_Content_messageType{}
+
+type fastReflection_QueryContentsResponse_Content_messageType struct{}
+
+func (x fastReflection_QueryContentsResponse_Content_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryContentsResponse_Content)(nil)
+}
+func (x fastReflection_QueryContentsResponse_Content_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsResponse_Content)
+}
+func (x fastReflection_QueryContentsResponse_Content_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsResponse_Content
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryContentsResponse_Content) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsResponse_Content
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryContentsResponse_Content) Type() protoreflect.MessageType {
+	return _fastReflection_QueryContentsResponse_Content_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryContentsResponse_Content) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsResponse_Content)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryContentsResponse_Content) Interface() protoreflect.ProtoMessage {
+	return (*QueryContentsResponse_Content)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryContentsResponse_Content) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryContentsResponse_Content_id, value) {
+			return
+		}
+	}
+	if x.Curator != "" {
+		value := protoreflect.ValueOfString(x.Curator)
+		if !f(fd_QueryContentsResponse_Content_curator, value) {
+			return
+		}
+	}
+	if x.Metadata != "" {
+		value := protoreflect.ValueOfString(x.Metadata)
+		if !f(fd_QueryContentsResponse_Content_metadata, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryContentsResponse_Content) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.Content.id":
+		return x.Id != uint64(0)
+	case "chora.content.v1.QueryContentsResponse.Content.curator":
+		return x.Curator != ""
+	case "chora.content.v1.QueryContentsResponse.Content.metadata":
+		return x.Metadata != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse.Content"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse.Content does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse_Content) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.Content.id":
+		x.Id = uint64(0)
+	case "chora.content.v1.QueryContentsResponse.Content.curator":
+		x.Curator = ""
+	case "chora.content.v1.QueryContentsResponse.Content.metadata":
+		x.Metadata = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse.Content"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse.Content does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryContentsResponse_Content) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.content.v1.QueryContentsResponse.Content.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	case "chora.content.v1.QueryContentsResponse.Content.curator":
+		value := x.Curator
+		return protoreflect.ValueOfString(value)
+	case "chora.content.v1.QueryContentsResponse.Content.metadata":
+		value := x.Metadata
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse.Content"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse.Content does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse_Content) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.Content.id":
+		x.Id = value.Uint()
+	case "chora.content.v1.QueryContentsResponse.Content.curator":
+		x.Curator = value.Interface().(string)
+	case "chora.content.v1.QueryContentsResponse.Content.metadata":
+		x.Metadata = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse.Content"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse.Content does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse_Content) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.Content.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.QueryContentsResponse.Content is not mutable"))
+	case "chora.content.v1.QueryContentsResponse.Content.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.QueryContentsResponse.Content is not mutable"))
+	case "chora.content.v1.QueryContentsResponse.Content.metadata":
+		panic(fmt.Errorf("field metadata of message chora.content.v1.QueryContentsResponse.Content is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse.Content"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse.Content does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryContentsResponse_Content) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsResponse.Content.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.content.v1.QueryContentsResponse.Content.curator":
+		return protoreflect.ValueOfString("")
+	case "chora.content.v1.QueryContentsResponse.Content.metadata":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsResponse.Content"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsResponse.Content does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryContentsResponse_Content) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentsResponse.Content", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryContentsResponse_Content) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsResponse_Content) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryContentsResponse_Content) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryContentsResponse_Content) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryContentsResponse_Content)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		l = len(x.Curator)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Metadata)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryContentsResponse_Content)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Metadata) > 0 {
+			i -= len(x.Metadata)
+			copy(dAtA[i:], x.Metadata)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Metadata)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.Curator) > 0 {
+			i -= len(x.Curator)
+			copy(dAtA[i:], x.Curator)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Curator)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryContentsResponse_Content)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsResponse_Content: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsResponse_Content: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Curator", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Curator = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Metadata = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryContentsByCuratorRequest            protoreflect.MessageDescriptor
+	fd_QueryContentsByCuratorRequest_curator    protoreflect.FieldDescriptor
+	fd_QueryContentsByCuratorRequest_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_content_v1_query_proto_init()
+	md_QueryContentsByCuratorRequest = File_chora_content_v1_query_proto.Messages().ByName("QueryContentsByCuratorRequest")
+	fd_QueryContentsByCuratorRequest_curator = md_QueryContentsByCuratorRequest.Fields().ByName("curator")
+	fd_QueryContentsByCuratorRequest_pagination = md_QueryContentsByCuratorRequest.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryContentsByCuratorRequest)(nil)
+
+type fastReflection_QueryContentsByCuratorRequest QueryContentsByCuratorRequest
+
+func (x *QueryContentsByCuratorRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryContentsByCuratorRequest)(x)
+}
+
+func (x *QueryContentsByCuratorRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_content_v1_query_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryContentsByCuratorRequest_messageType fastReflection_QueryContentsByCuratorRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryContentsByCuratorRequest_messageType{}
+
+type fastReflection_QueryContentsByCuratorRequest_messageType struct{}
+
+func (x fastReflection_QueryContentsByCuratorRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryContentsByCuratorRequest)(nil)
+}
+func (x fastReflection_QueryContentsByCuratorRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsByCuratorRequest)
+}
+func (x fastReflection_QueryContentsByCuratorRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsByCuratorRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryContentsByCuratorRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsByCuratorRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryContentsByCuratorRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryContentsByCuratorRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryContentsByCuratorRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsByCuratorRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryContentsByCuratorRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryContentsByCuratorRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryContentsByCuratorRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Curator != "" {
+		value := protoreflect.ValueOfString(x.Curator)
+		if !f(fd_QueryContentsByCuratorRequest_curator, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryContentsByCuratorRequest_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryContentsByCuratorRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsByCuratorRequest.curator":
+		return x.Curator != ""
+	case "chora.content.v1.QueryContentsByCuratorRequest.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorRequest"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsByCuratorRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsByCuratorRequest.curator":
+		x.Curator = ""
+	case "chora.content.v1.QueryContentsByCuratorRequest.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorRequest"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryContentsByCuratorRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.content.v1.QueryContentsByCuratorRequest.curator":
+		value := x.Curator
+		return protoreflect.ValueOfString(value)
+	case "chora.content.v1.QueryContentsByCuratorRequest.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorRequest"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsByCuratorRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsByCuratorRequest.curator":
+		x.Curator = value.Interface().(string)
+	case "chora.content.v1.QueryContentsByCuratorRequest.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorRequest"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsByCuratorRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsByCuratorRequest.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageRequest)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	case "chora.content.v1.QueryContentsByCuratorRequest.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.QueryContentsByCuratorRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorRequest"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryContentsByCuratorRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.content.v1.QueryContentsByCuratorRequest.curator":
+		return protoreflect.ValueOfString("")
+	case "chora.content.v1.QueryContentsByCuratorRequest.pagination":
+		m := new(v1beta1.PageRequest)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorRequest"))
+		}
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryContentsByCuratorRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentsByCuratorRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryContentsByCuratorRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryContentsByCuratorRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryContentsByCuratorRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryContentsByCuratorRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryContentsByCuratorRequest)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1257,7 +2797,7 @@ func (x *fastReflection_QueryContentByCuratorRequest) ProtoMethods() *protoiface
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*QueryContentByCuratorRequest)
+		x := input.Message.Interface().(*QueryContentsByCuratorRequest)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1308,7 +2848,7 @@ func (x *fastReflection_QueryContentByCuratorRequest) ProtoMethods() *protoiface
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*QueryContentByCuratorRequest)
+		x := input.Message.Interface().(*QueryContentsByCuratorRequest)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1340,10 +2880,10 @@ func (x *fastReflection_QueryContentByCuratorRequest) ProtoMethods() *protoiface
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentByCuratorRequest: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsByCuratorRequest: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentByCuratorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsByCuratorRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1449,82 +2989,82 @@ func (x *fastReflection_QueryContentByCuratorRequest) ProtoMethods() *protoiface
 	}
 }
 
-var _ protoreflect.List = (*_QueryContentByCuratorResponse_2_list)(nil)
+var _ protoreflect.List = (*_QueryContentsByCuratorResponse_2_list)(nil)
 
-type _QueryContentByCuratorResponse_2_list struct {
-	list *[]*QueryContentByCuratorResponse_Content
+type _QueryContentsByCuratorResponse_2_list struct {
+	list *[]*QueryContentsByCuratorResponse_Content
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) Len() int {
+func (x *_QueryContentsByCuratorResponse_2_list) Len() int {
 	if x.list == nil {
 		return 0
 	}
 	return len(*x.list)
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) Get(i int) protoreflect.Value {
+func (x *_QueryContentsByCuratorResponse_2_list) Get(i int) protoreflect.Value {
 	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) Set(i int, value protoreflect.Value) {
+func (x *_QueryContentsByCuratorResponse_2_list) Set(i int, value protoreflect.Value) {
 	valueUnwrapped := value.Message()
-	concreteValue := valueUnwrapped.Interface().(*QueryContentByCuratorResponse_Content)
+	concreteValue := valueUnwrapped.Interface().(*QueryContentsByCuratorResponse_Content)
 	(*x.list)[i] = concreteValue
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) Append(value protoreflect.Value) {
+func (x *_QueryContentsByCuratorResponse_2_list) Append(value protoreflect.Value) {
 	valueUnwrapped := value.Message()
-	concreteValue := valueUnwrapped.Interface().(*QueryContentByCuratorResponse_Content)
+	concreteValue := valueUnwrapped.Interface().(*QueryContentsByCuratorResponse_Content)
 	*x.list = append(*x.list, concreteValue)
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) AppendMutable() protoreflect.Value {
-	v := new(QueryContentByCuratorResponse_Content)
+func (x *_QueryContentsByCuratorResponse_2_list) AppendMutable() protoreflect.Value {
+	v := new(QueryContentsByCuratorResponse_Content)
 	*x.list = append(*x.list, v)
 	return protoreflect.ValueOfMessage(v.ProtoReflect())
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) Truncate(n int) {
+func (x *_QueryContentsByCuratorResponse_2_list) Truncate(n int) {
 	for i := n; i < len(*x.list); i++ {
 		(*x.list)[i] = nil
 	}
 	*x.list = (*x.list)[:n]
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) NewElement() protoreflect.Value {
-	v := new(QueryContentByCuratorResponse_Content)
+func (x *_QueryContentsByCuratorResponse_2_list) NewElement() protoreflect.Value {
+	v := new(QueryContentsByCuratorResponse_Content)
 	return protoreflect.ValueOfMessage(v.ProtoReflect())
 }
 
-func (x *_QueryContentByCuratorResponse_2_list) IsValid() bool {
+func (x *_QueryContentsByCuratorResponse_2_list) IsValid() bool {
 	return x.list != nil
 }
 
 var (
-	md_QueryContentByCuratorResponse            protoreflect.MessageDescriptor
-	fd_QueryContentByCuratorResponse_curator    protoreflect.FieldDescriptor
-	fd_QueryContentByCuratorResponse_content    protoreflect.FieldDescriptor
-	fd_QueryContentByCuratorResponse_pagination protoreflect.FieldDescriptor
+	md_QueryContentsByCuratorResponse            protoreflect.MessageDescriptor
+	fd_QueryContentsByCuratorResponse_curator    protoreflect.FieldDescriptor
+	fd_QueryContentsByCuratorResponse_contents   protoreflect.FieldDescriptor
+	fd_QueryContentsByCuratorResponse_pagination protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_query_proto_init()
-	md_QueryContentByCuratorResponse = File_chora_content_v1_query_proto.Messages().ByName("QueryContentByCuratorResponse")
-	fd_QueryContentByCuratorResponse_curator = md_QueryContentByCuratorResponse.Fields().ByName("curator")
-	fd_QueryContentByCuratorResponse_content = md_QueryContentByCuratorResponse.Fields().ByName("content")
-	fd_QueryContentByCuratorResponse_pagination = md_QueryContentByCuratorResponse.Fields().ByName("pagination")
+	md_QueryContentsByCuratorResponse = File_chora_content_v1_query_proto.Messages().ByName("QueryContentsByCuratorResponse")
+	fd_QueryContentsByCuratorResponse_curator = md_QueryContentsByCuratorResponse.Fields().ByName("curator")
+	fd_QueryContentsByCuratorResponse_contents = md_QueryContentsByCuratorResponse.Fields().ByName("contents")
+	fd_QueryContentsByCuratorResponse_pagination = md_QueryContentsByCuratorResponse.Fields().ByName("pagination")
 }
 
-var _ protoreflect.Message = (*fastReflection_QueryContentByCuratorResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_QueryContentsByCuratorResponse)(nil)
 
-type fastReflection_QueryContentByCuratorResponse QueryContentByCuratorResponse
+type fastReflection_QueryContentsByCuratorResponse QueryContentsByCuratorResponse
 
-func (x *QueryContentByCuratorResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_QueryContentByCuratorResponse)(x)
+func (x *QueryContentsByCuratorResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryContentsByCuratorResponse)(x)
 }
 
-func (x *QueryContentByCuratorResponse) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_content_v1_query_proto_msgTypes[3]
+func (x *QueryContentsByCuratorResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_content_v1_query_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1535,43 +3075,43 @@ func (x *QueryContentByCuratorResponse) slowProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_QueryContentByCuratorResponse_messageType fastReflection_QueryContentByCuratorResponse_messageType
-var _ protoreflect.MessageType = fastReflection_QueryContentByCuratorResponse_messageType{}
+var _fastReflection_QueryContentsByCuratorResponse_messageType fastReflection_QueryContentsByCuratorResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryContentsByCuratorResponse_messageType{}
 
-type fastReflection_QueryContentByCuratorResponse_messageType struct{}
+type fastReflection_QueryContentsByCuratorResponse_messageType struct{}
 
-func (x fastReflection_QueryContentByCuratorResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_QueryContentByCuratorResponse)(nil)
+func (x fastReflection_QueryContentsByCuratorResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryContentsByCuratorResponse)(nil)
 }
-func (x fastReflection_QueryContentByCuratorResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_QueryContentByCuratorResponse)
+func (x fastReflection_QueryContentsByCuratorResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsByCuratorResponse)
 }
-func (x fastReflection_QueryContentByCuratorResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_QueryContentByCuratorResponse
+func (x fastReflection_QueryContentsByCuratorResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsByCuratorResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_QueryContentByCuratorResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_QueryContentByCuratorResponse
+func (x *fastReflection_QueryContentsByCuratorResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsByCuratorResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_QueryContentByCuratorResponse) Type() protoreflect.MessageType {
-	return _fastReflection_QueryContentByCuratorResponse_messageType
+func (x *fastReflection_QueryContentsByCuratorResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryContentsByCuratorResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_QueryContentByCuratorResponse) New() protoreflect.Message {
-	return new(fastReflection_QueryContentByCuratorResponse)
+func (x *fastReflection_QueryContentsByCuratorResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsByCuratorResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_QueryContentByCuratorResponse) Interface() protoreflect.ProtoMessage {
-	return (*QueryContentByCuratorResponse)(x)
+func (x *fastReflection_QueryContentsByCuratorResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryContentsByCuratorResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -1579,22 +3119,22 @@ func (x *fastReflection_QueryContentByCuratorResponse) Interface() protoreflect.
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_QueryContentByCuratorResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_QueryContentsByCuratorResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Curator != "" {
 		value := protoreflect.ValueOfString(x.Curator)
-		if !f(fd_QueryContentByCuratorResponse_curator, value) {
+		if !f(fd_QueryContentsByCuratorResponse_curator, value) {
 			return
 		}
 	}
-	if len(x.Content) != 0 {
-		value := protoreflect.ValueOfList(&_QueryContentByCuratorResponse_2_list{list: &x.Content})
-		if !f(fd_QueryContentByCuratorResponse_content, value) {
+	if len(x.Contents) != 0 {
+		value := protoreflect.ValueOfList(&_QueryContentsByCuratorResponse_2_list{list: &x.Contents})
+		if !f(fd_QueryContentsByCuratorResponse_contents, value) {
 			return
 		}
 	}
 	if x.Pagination != nil {
 		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
-		if !f(fd_QueryContentByCuratorResponse_pagination, value) {
+		if !f(fd_QueryContentsByCuratorResponse_pagination, value) {
 			return
 		}
 	}
@@ -1611,19 +3151,19 @@ func (x *fastReflection_QueryContentByCuratorResponse) Range(f func(protoreflect
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_QueryContentByCuratorResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_QueryContentsByCuratorResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.curator":
+	case "chora.content.v1.QueryContentsByCuratorResponse.curator":
 		return x.Curator != ""
-	case "chora.content.v1.QueryContentByCuratorResponse.content":
-		return len(x.Content) != 0
-	case "chora.content.v1.QueryContentByCuratorResponse.pagination":
+	case "chora.content.v1.QueryContentsByCuratorResponse.contents":
+		return len(x.Contents) != 0
+	case "chora.content.v1.QueryContentsByCuratorResponse.pagination":
 		return x.Pagination != nil
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1633,19 +3173,19 @@ func (x *fastReflection_QueryContentByCuratorResponse) Has(fd protoreflect.Field
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_QueryContentsByCuratorResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.curator":
+	case "chora.content.v1.QueryContentsByCuratorResponse.curator":
 		x.Curator = ""
-	case "chora.content.v1.QueryContentByCuratorResponse.content":
-		x.Content = nil
-	case "chora.content.v1.QueryContentByCuratorResponse.pagination":
+	case "chora.content.v1.QueryContentsByCuratorResponse.contents":
+		x.Contents = nil
+	case "chora.content.v1.QueryContentsByCuratorResponse.pagination":
 		x.Pagination = nil
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1655,25 +3195,25 @@ func (x *fastReflection_QueryContentByCuratorResponse) Clear(fd protoreflect.Fie
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_QueryContentByCuratorResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsByCuratorResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.curator":
+	case "chora.content.v1.QueryContentsByCuratorResponse.curator":
 		value := x.Curator
 		return protoreflect.ValueOfString(value)
-	case "chora.content.v1.QueryContentByCuratorResponse.content":
-		if len(x.Content) == 0 {
-			return protoreflect.ValueOfList(&_QueryContentByCuratorResponse_2_list{})
+	case "chora.content.v1.QueryContentsByCuratorResponse.contents":
+		if len(x.Contents) == 0 {
+			return protoreflect.ValueOfList(&_QueryContentsByCuratorResponse_2_list{})
 		}
-		listValue := &_QueryContentByCuratorResponse_2_list{list: &x.Content}
+		listValue := &_QueryContentsByCuratorResponse_2_list{list: &x.Contents}
 		return protoreflect.ValueOfList(listValue)
-	case "chora.content.v1.QueryContentByCuratorResponse.pagination":
+	case "chora.content.v1.QueryContentsByCuratorResponse.pagination":
 		value := x.Pagination
 		return protoreflect.ValueOfMessage(value.ProtoReflect())
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1687,21 +3227,21 @@ func (x *fastReflection_QueryContentByCuratorResponse) Get(descriptor protorefle
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_QueryContentsByCuratorResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.curator":
+	case "chora.content.v1.QueryContentsByCuratorResponse.curator":
 		x.Curator = value.Interface().(string)
-	case "chora.content.v1.QueryContentByCuratorResponse.content":
+	case "chora.content.v1.QueryContentsByCuratorResponse.contents":
 		lv := value.List()
-		clv := lv.(*_QueryContentByCuratorResponse_2_list)
-		x.Content = *clv.list
-	case "chora.content.v1.QueryContentByCuratorResponse.pagination":
+		clv := lv.(*_QueryContentsByCuratorResponse_2_list)
+		x.Contents = *clv.list
+	case "chora.content.v1.QueryContentsByCuratorResponse.pagination":
 		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1715,57 +3255,57 @@ func (x *fastReflection_QueryContentByCuratorResponse) Set(fd protoreflect.Field
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsByCuratorResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.content":
-		if x.Content == nil {
-			x.Content = []*QueryContentByCuratorResponse_Content{}
+	case "chora.content.v1.QueryContentsByCuratorResponse.contents":
+		if x.Contents == nil {
+			x.Contents = []*QueryContentsByCuratorResponse_Content{}
 		}
-		value := &_QueryContentByCuratorResponse_2_list{list: &x.Content}
+		value := &_QueryContentsByCuratorResponse_2_list{list: &x.Contents}
 		return protoreflect.ValueOfList(value)
-	case "chora.content.v1.QueryContentByCuratorResponse.pagination":
+	case "chora.content.v1.QueryContentsByCuratorResponse.pagination":
 		if x.Pagination == nil {
 			x.Pagination = new(v1beta1.PageResponse)
 		}
 		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
-	case "chora.content.v1.QueryContentByCuratorResponse.curator":
-		panic(fmt.Errorf("field curator of message chora.content.v1.QueryContentByCuratorResponse is not mutable"))
+	case "chora.content.v1.QueryContentsByCuratorResponse.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.QueryContentsByCuratorResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_QueryContentByCuratorResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsByCuratorResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.curator":
+	case "chora.content.v1.QueryContentsByCuratorResponse.curator":
 		return protoreflect.ValueOfString("")
-	case "chora.content.v1.QueryContentByCuratorResponse.content":
-		list := []*QueryContentByCuratorResponse_Content{}
-		return protoreflect.ValueOfList(&_QueryContentByCuratorResponse_2_list{list: &list})
-	case "chora.content.v1.QueryContentByCuratorResponse.pagination":
+	case "chora.content.v1.QueryContentsByCuratorResponse.contents":
+		list := []*QueryContentsByCuratorResponse_Content{}
+		return protoreflect.ValueOfList(&_QueryContentsByCuratorResponse_2_list{list: &list})
+	case "chora.content.v1.QueryContentsByCuratorResponse.pagination":
 		m := new(v1beta1.PageResponse)
 		return protoreflect.ValueOfMessage(m.ProtoReflect())
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_QueryContentByCuratorResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_QueryContentsByCuratorResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentByCuratorResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentsByCuratorResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1773,7 +3313,7 @@ func (x *fastReflection_QueryContentByCuratorResponse) WhichOneof(d protoreflect
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_QueryContentByCuratorResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_QueryContentsByCuratorResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1784,7 +3324,7 @@ func (x *fastReflection_QueryContentByCuratorResponse) GetUnknown() protoreflect
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_QueryContentsByCuratorResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1796,7 +3336,7 @@ func (x *fastReflection_QueryContentByCuratorResponse) SetUnknown(fields protore
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_QueryContentByCuratorResponse) IsValid() bool {
+func (x *fastReflection_QueryContentsByCuratorResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -1806,9 +3346,9 @@ func (x *fastReflection_QueryContentByCuratorResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_QueryContentsByCuratorResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*QueryContentByCuratorResponse)
+		x := input.Message.Interface().(*QueryContentsByCuratorResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1824,8 +3364,8 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
-		if len(x.Content) > 0 {
-			for _, e := range x.Content {
+		if len(x.Contents) > 0 {
+			for _, e := range x.Contents {
 				l = options.Size(e)
 				n += 1 + l + runtime.Sov(uint64(l))
 			}
@@ -1844,7 +3384,7 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*QueryContentByCuratorResponse)
+		x := input.Message.Interface().(*QueryContentsByCuratorResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1877,9 +3417,9 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 			i--
 			dAtA[i] = 0x1a
 		}
-		if len(x.Content) > 0 {
-			for iNdEx := len(x.Content) - 1; iNdEx >= 0; iNdEx-- {
-				encoded, err := options.Marshal(x.Content[iNdEx])
+		if len(x.Contents) > 0 {
+			for iNdEx := len(x.Contents) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.Contents[iNdEx])
 				if err != nil {
 					return protoiface.MarshalOutput{
 						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1911,7 +3451,7 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*QueryContentByCuratorResponse)
+		x := input.Message.Interface().(*QueryContentsByCuratorResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1943,10 +3483,10 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentByCuratorResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsByCuratorResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentByCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsByCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1983,7 +3523,7 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 				iNdEx = postIndex
 			case 2:
 				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Content", wireType)
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Contents", wireType)
 				}
 				var msglen int
 				for shift := uint(0); ; shift += 7 {
@@ -2010,8 +3550,8 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 				if postIndex > l {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
 				}
-				x.Content = append(x.Content, &QueryContentByCuratorResponse_Content{})
-				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Content[len(x.Content)-1]); err != nil {
+				x.Contents = append(x.Contents, &QueryContentsByCuratorResponse_Content{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Contents[len(x.Contents)-1]); err != nil {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
 				}
 				iNdEx = postIndex
@@ -2087,28 +3627,28 @@ func (x *fastReflection_QueryContentByCuratorResponse) ProtoMethods() *protoifac
 }
 
 var (
-	md_QueryContentByCuratorResponse_Content          protoreflect.MessageDescriptor
-	fd_QueryContentByCuratorResponse_Content_id       protoreflect.FieldDescriptor
-	fd_QueryContentByCuratorResponse_Content_metadata protoreflect.FieldDescriptor
+	md_QueryContentsByCuratorResponse_Content          protoreflect.MessageDescriptor
+	fd_QueryContentsByCuratorResponse_Content_id       protoreflect.FieldDescriptor
+	fd_QueryContentsByCuratorResponse_Content_metadata protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_query_proto_init()
-	md_QueryContentByCuratorResponse_Content = File_chora_content_v1_query_proto.Messages().ByName("QueryContentByCuratorResponse").Messages().ByName("Content")
-	fd_QueryContentByCuratorResponse_Content_id = md_QueryContentByCuratorResponse_Content.Fields().ByName("id")
-	fd_QueryContentByCuratorResponse_Content_metadata = md_QueryContentByCuratorResponse_Content.Fields().ByName("metadata")
+	md_QueryContentsByCuratorResponse_Content = File_chora_content_v1_query_proto.Messages().ByName("QueryContentsByCuratorResponse").Messages().ByName("Content")
+	fd_QueryContentsByCuratorResponse_Content_id = md_QueryContentsByCuratorResponse_Content.Fields().ByName("id")
+	fd_QueryContentsByCuratorResponse_Content_metadata = md_QueryContentsByCuratorResponse_Content.Fields().ByName("metadata")
 }
 
-var _ protoreflect.Message = (*fastReflection_QueryContentByCuratorResponse_Content)(nil)
+var _ protoreflect.Message = (*fastReflection_QueryContentsByCuratorResponse_Content)(nil)
 
-type fastReflection_QueryContentByCuratorResponse_Content QueryContentByCuratorResponse_Content
+type fastReflection_QueryContentsByCuratorResponse_Content QueryContentsByCuratorResponse_Content
 
-func (x *QueryContentByCuratorResponse_Content) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_QueryContentByCuratorResponse_Content)(x)
+func (x *QueryContentsByCuratorResponse_Content) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryContentsByCuratorResponse_Content)(x)
 }
 
-func (x *QueryContentByCuratorResponse_Content) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_content_v1_query_proto_msgTypes[4]
+func (x *QueryContentsByCuratorResponse_Content) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_content_v1_query_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2119,43 +3659,43 @@ func (x *QueryContentByCuratorResponse_Content) slowProtoReflect() protoreflect.
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_QueryContentByCuratorResponse_Content_messageType fastReflection_QueryContentByCuratorResponse_Content_messageType
-var _ protoreflect.MessageType = fastReflection_QueryContentByCuratorResponse_Content_messageType{}
+var _fastReflection_QueryContentsByCuratorResponse_Content_messageType fastReflection_QueryContentsByCuratorResponse_Content_messageType
+var _ protoreflect.MessageType = fastReflection_QueryContentsByCuratorResponse_Content_messageType{}
 
-type fastReflection_QueryContentByCuratorResponse_Content_messageType struct{}
+type fastReflection_QueryContentsByCuratorResponse_Content_messageType struct{}
 
-func (x fastReflection_QueryContentByCuratorResponse_Content_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_QueryContentByCuratorResponse_Content)(nil)
+func (x fastReflection_QueryContentsByCuratorResponse_Content_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryContentsByCuratorResponse_Content)(nil)
 }
-func (x fastReflection_QueryContentByCuratorResponse_Content_messageType) New() protoreflect.Message {
-	return new(fastReflection_QueryContentByCuratorResponse_Content)
+func (x fastReflection_QueryContentsByCuratorResponse_Content_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsByCuratorResponse_Content)
 }
-func (x fastReflection_QueryContentByCuratorResponse_Content_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_QueryContentByCuratorResponse_Content
+func (x fastReflection_QueryContentsByCuratorResponse_Content_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsByCuratorResponse_Content
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Descriptor() protoreflect.MessageDescriptor {
-	return md_QueryContentByCuratorResponse_Content
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryContentsByCuratorResponse_Content
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Type() protoreflect.MessageType {
-	return _fastReflection_QueryContentByCuratorResponse_Content_messageType
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Type() protoreflect.MessageType {
+	return _fastReflection_QueryContentsByCuratorResponse_Content_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) New() protoreflect.Message {
-	return new(fastReflection_QueryContentByCuratorResponse_Content)
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) New() protoreflect.Message {
+	return new(fastReflection_QueryContentsByCuratorResponse_Content)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Interface() protoreflect.ProtoMessage {
-	return (*QueryContentByCuratorResponse_Content)(x)
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Interface() protoreflect.ProtoMessage {
+	return (*QueryContentsByCuratorResponse_Content)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -2163,16 +3703,16 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) Interface() proto
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_QueryContentByCuratorResponse_Content_id, value) {
+		if !f(fd_QueryContentsByCuratorResponse_Content_id, value) {
 			return
 		}
 	}
 	if x.Metadata != "" {
 		value := protoreflect.ValueOfString(x.Metadata)
-		if !f(fd_QueryContentByCuratorResponse_Content_metadata, value) {
+		if !f(fd_QueryContentsByCuratorResponse_Content_metadata, value) {
 			return
 		}
 	}
@@ -2189,17 +3729,17 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) Range(f func(prot
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.id":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.id":
 		return x.Id != uint64(0)
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.metadata":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.metadata":
 		return x.Metadata != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse.Content"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse.Content"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse.Content does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse.Content does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2209,17 +3749,17 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) Has(fd protorefle
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.id":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.id":
 		x.Id = uint64(0)
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.metadata":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.metadata":
 		x.Metadata = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse.Content"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse.Content"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse.Content does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse.Content does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2229,19 +3769,19 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) Clear(fd protoref
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.id":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.metadata":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.metadata":
 		value := x.Metadata
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse.Content"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse.Content"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse.Content does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse.Content does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -2255,17 +3795,17 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) Get(descriptor pr
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.id":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.id":
 		x.Id = value.Uint()
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.metadata":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.metadata":
 		x.Metadata = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse.Content"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse.Content"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse.Content does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse.Content does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2279,44 +3819,44 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) Set(fd protorefle
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.QueryContentByCuratorResponse.Content is not mutable"))
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.metadata":
-		panic(fmt.Errorf("field metadata of message chora.content.v1.QueryContentByCuratorResponse.Content is not mutable"))
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.QueryContentsByCuratorResponse.Content is not mutable"))
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.metadata":
+		panic(fmt.Errorf("field metadata of message chora.content.v1.QueryContentsByCuratorResponse.Content is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse.Content"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse.Content"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse.Content does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse.Content does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.id":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.id":
 		return protoreflect.ValueOfUint64(uint64(0))
-	case "chora.content.v1.QueryContentByCuratorResponse.Content.metadata":
+	case "chora.content.v1.QueryContentsByCuratorResponse.Content.metadata":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentByCuratorResponse.Content"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.QueryContentsByCuratorResponse.Content"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.QueryContentByCuratorResponse.Content does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.QueryContentsByCuratorResponse.Content does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentByCuratorResponse.Content", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.QueryContentsByCuratorResponse.Content", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -2324,7 +3864,7 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) WhichOneof(d prot
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -2335,7 +3875,7 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) GetUnknown() prot
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -2347,7 +3887,7 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) SetUnknown(fields
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) IsValid() bool {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) IsValid() bool {
 	return x != nil
 }
 
@@ -2357,9 +3897,9 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_QueryContentByCuratorResponse_Content) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_QueryContentsByCuratorResponse_Content) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*QueryContentByCuratorResponse_Content)
+		x := input.Message.Interface().(*QueryContentsByCuratorResponse_Content)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2388,7 +3928,7 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) ProtoMethods() *p
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*QueryContentByCuratorResponse_Content)
+		x := input.Message.Interface().(*QueryContentsByCuratorResponse_Content)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2430,7 +3970,7 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) ProtoMethods() *p
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*QueryContentByCuratorResponse_Content)
+		x := input.Message.Interface().(*QueryContentsByCuratorResponse_Content)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2462,10 +4002,10 @@ func (x *fastReflection_QueryContentByCuratorResponse_Content) ProtoMethods() *p
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentByCuratorResponse_Content: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsByCuratorResponse_Content: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentByCuratorResponse_Content: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryContentsByCuratorResponse_Content: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -2612,7 +4152,7 @@ type QueryContentResponse struct {
 
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	// curator is the curator of the content.
+	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 	// metadata is the metadata of the content.
 	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
@@ -2659,20 +4199,18 @@ func (x *QueryContentResponse) GetMetadata() string {
 	return ""
 }
 
-// QueryContentByCuratorRequest is the Query/ContentByCurator request type.
-type QueryContentByCuratorRequest struct {
+// QueryContentsRequest is the Query/Contents request type.
+type QueryContentsRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// curator is the address of the content curator.
-	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
-	// pagination is the optional pagination in the request.
-	Pagination *v1beta1.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+	// pagination is the optional pagination of the request.
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (x *QueryContentByCuratorRequest) Reset() {
-	*x = QueryContentByCuratorRequest{}
+func (x *QueryContentsRequest) Reset() {
+	*x = QueryContentsRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_query_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2680,47 +4218,38 @@ func (x *QueryContentByCuratorRequest) Reset() {
 	}
 }
 
-func (x *QueryContentByCuratorRequest) String() string {
+func (x *QueryContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*QueryContentByCuratorRequest) ProtoMessage() {}
+func (*QueryContentsRequest) ProtoMessage() {}
 
-// Deprecated: Use QueryContentByCuratorRequest.ProtoReflect.Descriptor instead.
-func (*QueryContentByCuratorRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use QueryContentsRequest.ProtoReflect.Descriptor instead.
+func (*QueryContentsRequest) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *QueryContentByCuratorRequest) GetCurator() string {
-	if x != nil {
-		return x.Curator
-	}
-	return ""
-}
-
-func (x *QueryContentByCuratorRequest) GetPagination() *v1beta1.PageRequest {
+func (x *QueryContentsRequest) GetPagination() *v1beta1.PageRequest {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-// QueryContentByCuratorResponse is the Query/ContentByCurator response type.
-type QueryContentByCuratorResponse struct {
+// QueryContentsResponse is the Query/Contents response type.
+type QueryContentsResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// curator is the address of the content curator.
-	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
-	// content is the content created by the curator.
-	Content []*QueryContentByCuratorResponse_Content `protobuf:"bytes,2,rep,name=content,proto3" json:"content,omitempty"`
-	// pagination is the pagination in the response.
+	// contents is the list of contents.
+	Contents []*QueryContentsResponse_Content `protobuf:"bytes,1,rep,name=contents,proto3" json:"contents,omitempty"`
+	// pagination is the pagination of the response.
 	Pagination *v1beta1.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
-func (x *QueryContentByCuratorResponse) Reset() {
-	*x = QueryContentByCuratorResponse{}
+func (x *QueryContentsResponse) Reset() {
+	*x = QueryContentsResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_query_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2728,32 +4257,126 @@ func (x *QueryContentByCuratorResponse) Reset() {
 	}
 }
 
-func (x *QueryContentByCuratorResponse) String() string {
+func (x *QueryContentsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*QueryContentByCuratorResponse) ProtoMessage() {}
+func (*QueryContentsResponse) ProtoMessage() {}
 
-// Deprecated: Use QueryContentByCuratorResponse.ProtoReflect.Descriptor instead.
-func (*QueryContentByCuratorResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use QueryContentsResponse.ProtoReflect.Descriptor instead.
+func (*QueryContentsResponse) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *QueryContentByCuratorResponse) GetCurator() string {
+func (x *QueryContentsResponse) GetContents() []*QueryContentsResponse_Content {
+	if x != nil {
+		return x.Contents
+	}
+	return nil
+}
+
+func (x *QueryContentsResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+// QueryContentsByCuratorRequest is the Query/ContentsByCurator request type.
+type QueryContentsByCuratorRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// curator is the address of the content curator.
+	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+	// pagination is the optional pagination of the request.
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryContentsByCuratorRequest) Reset() {
+	*x = QueryContentsByCuratorRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_content_v1_query_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryContentsByCuratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryContentsByCuratorRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryContentsByCuratorRequest.ProtoReflect.Descriptor instead.
+func (*QueryContentsByCuratorRequest) Descriptor() ([]byte, []int) {
+	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *QueryContentsByCuratorRequest) GetCurator() string {
 	if x != nil {
 		return x.Curator
 	}
 	return ""
 }
 
-func (x *QueryContentByCuratorResponse) GetContent() []*QueryContentByCuratorResponse_Content {
+func (x *QueryContentsByCuratorRequest) GetPagination() *v1beta1.PageRequest {
 	if x != nil {
-		return x.Content
+		return x.Pagination
 	}
 	return nil
 }
 
-func (x *QueryContentByCuratorResponse) GetPagination() *v1beta1.PageResponse {
+// QueryContentsByCuratorResponse is the Query/ContentsByCurator response type.
+type QueryContentsByCuratorResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// curator is the address of the content curator.
+	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
+	// contents is the list of contents managed by the curator.
+	Contents []*QueryContentsByCuratorResponse_Content `protobuf:"bytes,2,rep,name=contents,proto3" json:"contents,omitempty"`
+	// pagination is the pagination of the response.
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryContentsByCuratorResponse) Reset() {
+	*x = QueryContentsByCuratorResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_content_v1_query_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryContentsByCuratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryContentsByCuratorResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryContentsByCuratorResponse.ProtoReflect.Descriptor instead.
+func (*QueryContentsByCuratorResponse) Descriptor() ([]byte, []int) {
+	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *QueryContentsByCuratorResponse) GetCurator() string {
+	if x != nil {
+		return x.Curator
+	}
+	return ""
+}
+
+func (x *QueryContentsByCuratorResponse) GetContents() []*QueryContentsByCuratorResponse_Content {
+	if x != nil {
+		return x.Contents
+	}
+	return nil
+}
+
+func (x *QueryContentsByCuratorResponse) GetPagination() *v1beta1.PageResponse {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2761,7 +4384,62 @@ func (x *QueryContentByCuratorResponse) GetPagination() *v1beta1.PageResponse {
 }
 
 // Content is the content properties.
-type QueryContentByCuratorResponse_Content struct {
+type QueryContentsResponse_Content struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the content.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// curator is the address of the content curator.
+	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
+	// metadata is the metadata of the content.
+	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
+}
+
+func (x *QueryContentsResponse_Content) Reset() {
+	*x = QueryContentsResponse_Content{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_content_v1_query_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryContentsResponse_Content) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryContentsResponse_Content) ProtoMessage() {}
+
+// Deprecated: Use QueryContentsResponse_Content.ProtoReflect.Descriptor instead.
+func (*QueryContentsResponse_Content) Descriptor() ([]byte, []int) {
+	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{3, 0}
+}
+
+func (x *QueryContentsResponse_Content) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *QueryContentsResponse_Content) GetCurator() string {
+	if x != nil {
+		return x.Curator
+	}
+	return ""
+}
+
+func (x *QueryContentsResponse_Content) GetMetadata() string {
+	if x != nil {
+		return x.Metadata
+	}
+	return ""
+}
+
+// Content is the content properties.
+type QueryContentsByCuratorResponse_Content struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -2772,34 +4450,34 @@ type QueryContentByCuratorResponse_Content struct {
 	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (x *QueryContentByCuratorResponse_Content) Reset() {
-	*x = QueryContentByCuratorResponse_Content{}
+func (x *QueryContentsByCuratorResponse_Content) Reset() {
+	*x = QueryContentsByCuratorResponse_Content{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_content_v1_query_proto_msgTypes[4]
+		mi := &file_chora_content_v1_query_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *QueryContentByCuratorResponse_Content) String() string {
+func (x *QueryContentsByCuratorResponse_Content) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*QueryContentByCuratorResponse_Content) ProtoMessage() {}
+func (*QueryContentsByCuratorResponse_Content) ProtoMessage() {}
 
-// Deprecated: Use QueryContentByCuratorResponse_Content.ProtoReflect.Descriptor instead.
-func (*QueryContentByCuratorResponse_Content) Descriptor() ([]byte, []int) {
-	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{3, 0}
+// Deprecated: Use QueryContentsByCuratorResponse_Content.ProtoReflect.Descriptor instead.
+func (*QueryContentsByCuratorResponse_Content) Descriptor() ([]byte, []int) {
+	return file_chora_content_v1_query_proto_rawDescGZIP(), []int{5, 0}
 }
 
-func (x *QueryContentByCuratorResponse_Content) GetId() uint64 {
+func (x *QueryContentsByCuratorResponse_Content) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *QueryContentByCuratorResponse_Content) GetMetadata() string {
+func (x *QueryContentsByCuratorResponse_Content) GetMetadata() string {
 	if x != nil {
 		return x.Metadata
 	}
@@ -2825,64 +4503,95 @@ var file_chora_content_v1_query_proto_rawDesc = []byte{
 	0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61,
 	0x74, 0x6f, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18,
 	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22,
-	0x80, 0x01, 0x0a, 0x1c, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
-	0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61,
-	0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26,
-	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65,
-	0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x22, 0x8c, 0x02, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74,
-	0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x51,
-	0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x37, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e,
-	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42,
-	0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62,
-	0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61,
-	0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a,
-	0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x35, 0x0a, 0x07, 0x43, 0x6f,
-	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x32, 0xb8, 0x02, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x80, 0x01, 0x0a, 0x07,
-	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x25, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
-	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26,
-	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76,
-	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e,
-	0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76,
-	0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x12, 0xab,
-	0x01, 0x0a, 0x10, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61,
-	0x74, 0x6f, 0x72, 0x12, 0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74,
+	0x5e, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f,
+	0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e,
+	0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22,
+	0xfe, 0x01, 0x0a, 0x15, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x08, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2f, 0x2e, 0x63, 0x68,
+	0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x08, 0x63, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73,
+	0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76,
+	0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a,
+	0x4f, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75,
+	0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72,
+	0x61, 0x74, 0x6f, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x22, 0x81, 0x01, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
+	0x74, 0x73, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x46, 0x0a, 0x0a,
+	0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71,
+	0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x22, 0x90, 0x02, 0x0a, 0x1e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74,
+	0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f,
+	0x72, 0x12, 0x54, 0x0a, 0x08, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x02, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x38, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74,
 	0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74,
-	0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74,
-	0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74,
-	0x65, 0x6e, 0x74, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x36, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x30, 0x12, 0x2e, 0x2f, 0x63,
-	0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x2f,
-	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2d, 0x62, 0x79, 0x2d, 0x63, 0x75, 0x72, 0x61, 0x74,
-	0x6f, 0x72, 0x2f, 0x7b, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x7d, 0x42, 0xbf, 0x01, 0x0a,
-	0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65,
-	0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74,
-	0x6f, 0x50, 0x01, 0x5a, 0x39, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f,
-	0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x2f, 0x76, 0x31, 0x3b, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02,
-	0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x43, 0x6f, 0x6e,
-	0x74, 0x65, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c,
-	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f,
-	0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50,
-	0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72,
-	0x61, 0x3a, 0x3a, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x08, 0x63,
+	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f,
+	0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e,
+	0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x1a, 0x35, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x6d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x32, 0xbd, 0x03, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x12, 0x80, 0x01, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x25, 0x2e,
+	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31,
+	0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3,
+	0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f,
+	0x7b, 0x69, 0x64, 0x7d, 0x12, 0x7f, 0x0a, 0x08, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73,
+	0x12, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x27, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
+	0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x22, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1c, 0x12, 0x1a, 0x2f, 0x63, 0x68, 0x6f, 0x72,
+	0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x73, 0x12, 0xaf, 0x01, 0x0a, 0x11, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
+	0x74, 0x73, 0x42, 0x79, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x2f, 0x2e, 0x63, 0x68,
+	0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x43, 0x75,
+	0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x30, 0x2e, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x42, 0x79, 0x43,
+	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x37,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x31, 0x12, 0x2f, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63,
+	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
+	0x74, 0x73, 0x2d, 0x62, 0x79, 0x2d, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x7b, 0x63,
+	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x7d, 0x42, 0xbf, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e,
+	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31,
+	0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x39,
+	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61,
+	0x69, 0x6f, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa,
+	0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e,
+	0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -2897,29 +4606,37 @@ func file_chora_content_v1_query_proto_rawDescGZIP() []byte {
 	return file_chora_content_v1_query_proto_rawDescData
 }
 
-var file_chora_content_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_chora_content_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_chora_content_v1_query_proto_goTypes = []interface{}{
-	(*QueryContentRequest)(nil),                   // 0: chora.content.v1.QueryContentRequest
-	(*QueryContentResponse)(nil),                  // 1: chora.content.v1.QueryContentResponse
-	(*QueryContentByCuratorRequest)(nil),          // 2: chora.content.v1.QueryContentByCuratorRequest
-	(*QueryContentByCuratorResponse)(nil),         // 3: chora.content.v1.QueryContentByCuratorResponse
-	(*QueryContentByCuratorResponse_Content)(nil), // 4: chora.content.v1.QueryContentByCuratorResponse.Content
-	(*v1beta1.PageRequest)(nil),                   // 5: cosmos.base.query.v1beta1.PageRequest
-	(*v1beta1.PageResponse)(nil),                  // 6: cosmos.base.query.v1beta1.PageResponse
+	(*QueryContentRequest)(nil),                    // 0: chora.content.v1.QueryContentRequest
+	(*QueryContentResponse)(nil),                   // 1: chora.content.v1.QueryContentResponse
+	(*QueryContentsRequest)(nil),                   // 2: chora.content.v1.QueryContentsRequest
+	(*QueryContentsResponse)(nil),                  // 3: chora.content.v1.QueryContentsResponse
+	(*QueryContentsByCuratorRequest)(nil),          // 4: chora.content.v1.QueryContentsByCuratorRequest
+	(*QueryContentsByCuratorResponse)(nil),         // 5: chora.content.v1.QueryContentsByCuratorResponse
+	(*QueryContentsResponse_Content)(nil),          // 6: chora.content.v1.QueryContentsResponse.Content
+	(*QueryContentsByCuratorResponse_Content)(nil), // 7: chora.content.v1.QueryContentsByCuratorResponse.Content
+	(*v1beta1.PageRequest)(nil),                    // 8: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil),                   // 9: cosmos.base.query.v1beta1.PageResponse
 }
 var file_chora_content_v1_query_proto_depIdxs = []int32{
-	5, // 0: chora.content.v1.QueryContentByCuratorRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	4, // 1: chora.content.v1.QueryContentByCuratorResponse.content:type_name -> chora.content.v1.QueryContentByCuratorResponse.Content
-	6, // 2: chora.content.v1.QueryContentByCuratorResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	0, // 3: chora.content.v1.Query.Content:input_type -> chora.content.v1.QueryContentRequest
-	2, // 4: chora.content.v1.Query.ContentByCurator:input_type -> chora.content.v1.QueryContentByCuratorRequest
-	1, // 5: chora.content.v1.Query.Content:output_type -> chora.content.v1.QueryContentResponse
-	3, // 6: chora.content.v1.Query.ContentByCurator:output_type -> chora.content.v1.QueryContentByCuratorResponse
-	5, // [5:7] is the sub-list for method output_type
-	3, // [3:5] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	8, // 0: chora.content.v1.QueryContentsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	6, // 1: chora.content.v1.QueryContentsResponse.contents:type_name -> chora.content.v1.QueryContentsResponse.Content
+	9, // 2: chora.content.v1.QueryContentsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	8, // 3: chora.content.v1.QueryContentsByCuratorRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	7, // 4: chora.content.v1.QueryContentsByCuratorResponse.contents:type_name -> chora.content.v1.QueryContentsByCuratorResponse.Content
+	9, // 5: chora.content.v1.QueryContentsByCuratorResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	0, // 6: chora.content.v1.Query.Content:input_type -> chora.content.v1.QueryContentRequest
+	2, // 7: chora.content.v1.Query.Contents:input_type -> chora.content.v1.QueryContentsRequest
+	4, // 8: chora.content.v1.Query.ContentsByCurator:input_type -> chora.content.v1.QueryContentsByCuratorRequest
+	1, // 9: chora.content.v1.Query.Content:output_type -> chora.content.v1.QueryContentResponse
+	3, // 10: chora.content.v1.Query.Contents:output_type -> chora.content.v1.QueryContentsResponse
+	5, // 11: chora.content.v1.Query.ContentsByCurator:output_type -> chora.content.v1.QueryContentsByCuratorResponse
+	9, // [9:12] is the sub-list for method output_type
+	6, // [6:9] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_chora_content_v1_query_proto_init() }
@@ -2953,7 +4670,7 @@ func file_chora_content_v1_query_proto_init() {
 			}
 		}
 		file_chora_content_v1_query_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryContentByCuratorRequest); i {
+			switch v := v.(*QueryContentsRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2965,7 +4682,7 @@ func file_chora_content_v1_query_proto_init() {
 			}
 		}
 		file_chora_content_v1_query_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryContentByCuratorResponse); i {
+			switch v := v.(*QueryContentsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2977,7 +4694,43 @@ func file_chora_content_v1_query_proto_init() {
 			}
 		}
 		file_chora_content_v1_query_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryContentByCuratorResponse_Content); i {
+			switch v := v.(*QueryContentsByCuratorRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_content_v1_query_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryContentsByCuratorResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_content_v1_query_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryContentsResponse_Content); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_content_v1_query_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryContentsByCuratorResponse_Content); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2995,7 +4748,7 @@ func file_chora_content_v1_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chora_content_v1_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

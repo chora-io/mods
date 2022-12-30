@@ -1,6 +1,0 @@
-lint:
-  rules_option:
-    # allow selected field names that are already plural
-    repeated_field_names_pluralized:
-      uncountable_rules:
-        - content

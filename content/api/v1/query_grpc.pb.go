@@ -22,10 +22,12 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QueryClient interface {
-	// Content queries content by the unique identifier of the content.
+	// Content queries a content by id.
 	Content(ctx context.Context, in *QueryContentRequest, opts ...grpc.CallOption) (*QueryContentResponse, error)
-	// ContentByCurator queries all content by the curator of the content.
-	ContentByCurator(ctx context.Context, in *QueryContentByCuratorRequest, opts ...grpc.CallOption) (*QueryContentByCuratorResponse, error)
+	// Contents queries all contents.
+	Contents(ctx context.Context, in *QueryContentsRequest, opts ...grpc.CallOption) (*QueryContentsResponse, error)
+	// ContentsByCurator queries contents by curator.
+	ContentsByCurator(ctx context.Context, in *QueryContentsByCuratorRequest, opts ...grpc.CallOption) (*QueryContentsByCuratorResponse, error)
 }
 
 type queryClient struct {
@@ -45,9 +47,18 @@ func (c *queryClient) Content(ctx context.Context, in *QueryContentRequest, opts
 	return out, nil
 }
 
-func (c *queryClient) ContentByCurator(ctx context.Context, in *QueryContentByCuratorRequest, opts ...grpc.CallOption) (*QueryContentByCuratorResponse, error) {
-	out := new(QueryContentByCuratorResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Query/ContentByCurator", in, out, opts...)
+func (c *queryClient) Contents(ctx context.Context, in *QueryContentsRequest, opts ...grpc.CallOption) (*QueryContentsResponse, error) {
+	out := new(QueryContentsResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Query/Contents", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) ContentsByCurator(ctx context.Context, in *QueryContentsByCuratorRequest, opts ...grpc.CallOption) (*QueryContentsByCuratorResponse, error) {
+	out := new(QueryContentsByCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Query/ContentsByCurator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,10 +69,12 @@ func (c *queryClient) ContentByCurator(ctx context.Context, in *QueryContentByCu
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
 type QueryServer interface {
-	// Content queries content by the unique identifier of the content.
+	// Content queries a content by id.
 	Content(context.Context, *QueryContentRequest) (*QueryContentResponse, error)
-	// ContentByCurator queries all content by the curator of the content.
-	ContentByCurator(context.Context, *QueryContentByCuratorRequest) (*QueryContentByCuratorResponse, error)
+	// Contents queries all contents.
+	Contents(context.Context, *QueryContentsRequest) (*QueryContentsResponse, error)
+	// ContentsByCurator queries contents by curator.
+	ContentsByCurator(context.Context, *QueryContentsByCuratorRequest) (*QueryContentsByCuratorResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -72,8 +85,11 @@ type UnimplementedQueryServer struct {
 func (UnimplementedQueryServer) Content(context.Context, *QueryContentRequest) (*QueryContentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Content not implemented")
 }
-func (UnimplementedQueryServer) ContentByCurator(context.Context, *QueryContentByCuratorRequest) (*QueryContentByCuratorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ContentByCurator not implemented")
+func (UnimplementedQueryServer) Contents(context.Context, *QueryContentsRequest) (*QueryContentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Contents not implemented")
+}
+func (UnimplementedQueryServer) ContentsByCurator(context.Context, *QueryContentsByCuratorRequest) (*QueryContentsByCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ContentsByCurator not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -106,20 +122,38 @@ func _Query_Content_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Query_ContentByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryContentByCuratorRequest)
+func _Query_Contents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).ContentByCurator(ctx, in)
+		return srv.(QueryServer).Contents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.content.v1.Query/ContentByCurator",
+		FullMethod: "/chora.content.v1.Query/Contents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).ContentByCurator(ctx, req.(*QueryContentByCuratorRequest))
+		return srv.(QueryServer).Contents(ctx, req.(*QueryContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_ContentsByCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryContentsByCuratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).ContentsByCurator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.content.v1.Query/ContentsByCurator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).ContentsByCurator(ctx, req.(*QueryContentsByCuratorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -136,8 +170,12 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Query_Content_Handler,
 		},
 		{
-			MethodName: "ContentByCurator",
-			Handler:    _Query_ContentByCurator_Handler,
+			MethodName: "Contents",
+			Handler:    _Query_Contents_Handler,
+		},
+		{
+			MethodName: "ContentsByCurator",
+			Handler:    _Query_ContentsByCurator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

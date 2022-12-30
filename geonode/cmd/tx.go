@@ -20,7 +20,8 @@ func TxCmd() *cobra.Command {
 
 	cmd.AddCommand(
 		TxCreateCmd(),
-		TxUpdateCmd(),
+		TxUpdateCuratorCmd(),
+		TxUpdateMetadataCmd(),
 	)
 
 	return cmd

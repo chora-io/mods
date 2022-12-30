@@ -14,8 +14,8 @@ import (
 func QueryContentCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "content [id]",
-		Short: "query content by the unique identifier of the content",
-		Long:  "query content by the unique identifier of the content",
+		Short: "query content by id",
+		Long:  "query content by id",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			c, ctx, err := getQueryClient(cmd)

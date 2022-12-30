@@ -7,10 +7,10 @@ import "google/api/annotations.proto";
 
 option go_package = "github.com/choraio/mods/geonode/types/v1";
 
-// Query is the geonode Query service.
+// Query is the Query service.
 service Query {
 
-  // Node queries a node by the unique identifier of the node.
+  // Node queries a node by id.
   rpc Node(QueryNodeRequest) returns (QueryNodeResponse) {
     option (google.api.http).get = "/chora/geonode/v1/node/{id}";
   }
@@ -41,7 +41,7 @@ message QueryNodeResponse {
   // id is the unique identifier of the node.
   uint64 id = 1;
 
-  // curator is the curator of the node.
+  // curator is the address of the node curator.
   string curator = 2;
 
   // metadata is the metadata of the node.
@@ -59,10 +59,10 @@ message QueryNodesRequest {
 message QueryNodesResponse {
 
   // nodes is the list of nodes.
-  repeated Node nodes = 2;
+  repeated Node nodes = 1;
 
   // pagination is the pagination of the response.
-  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
 
   // Node is the node properties.
   message Node {

@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QueryClient interface {
-	// Node queries a node by the unique identifier of the node.
+	// Node queries a node by id.
 	Node(ctx context.Context, in *QueryNodeRequest, opts ...grpc.CallOption) (*QueryNodeResponse, error)
 	// Nodes queries all nodes.
 	Nodes(ctx context.Context, in *QueryNodesRequest, opts ...grpc.CallOption) (*QueryNodesResponse, error)
@@ -69,7 +69,7 @@ func (c *queryClient) NodesByCurator(ctx context.Context, in *QueryNodesByCurato
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
 type QueryServer interface {
-	// Node queries a node by the unique identifier of the node.
+	// Node queries a node by id.
 	Node(context.Context, *QueryNodeRequest) (*QueryNodeResponse, error)
 	// Nodes queries all nodes.
 	Nodes(context.Context, *QueryNodesRequest) (*QueryNodesResponse, error)

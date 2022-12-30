@@ -10,6 +10,7 @@ import (
 	v1 "github.com/choraio/mods/content/types/v1"
 )
 
+// TxCreateCmd creates and returns the tx create command.
 func TxCreateCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "create [metadata]",

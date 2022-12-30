@@ -7,19 +7,24 @@ import "google/api/annotations.proto";
 
 option go_package = "github.com/choraio/mods/content/types/v1";
 
-// Query is the content Query service.
+// Query is the Query service.
 service Query {
 
-  // Content queries content by the unique identifier of the content.
+  // Content queries a content by id.
   rpc Content(QueryContentRequest) returns (QueryContentResponse) {
     option (google.api.http).get = "/chora/content/v1/content/{id}";
   }
 
-  // ContentByCurator queries all content by the curator of the content.
-  rpc ContentByCurator(QueryContentByCuratorRequest)
-      returns (QueryContentByCuratorResponse) {
+  // Contents queries all contents.
+  rpc Contents(QueryContentsRequest) returns (QueryContentsResponse) {
+    option (google.api.http).get = "/chora/content/v1/contents";
+  }
+
+  // ContentsByCurator queries contents by curator.
+  rpc ContentsByCurator(QueryContentsByCuratorRequest)
+      returns (QueryContentsByCuratorResponse) {
     option (google.api.http).get =
-        "/chora/content/v1/content-by-curator/{curator}";
+        "/chora/content/v1/contents-by-curator/{curator}";
   }
 }
 
@@ -36,33 +41,63 @@ message QueryContentResponse {
   // id is the unique identifier of the content.
   uint64 id = 1;
 
-  // curator is the curator of the content.
+  // curator is the address of the content curator.
   string curator = 2;
 
   // metadata is the metadata of the content.
   string metadata = 3;
 }
 
-// QueryContentByCuratorRequest is the Query/ContentByCurator request type.
-message QueryContentByCuratorRequest {
+// QueryContentsRequest is the Query/Contents request type.
+message QueryContentsRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryContentsResponse is the Query/Contents response type.
+message QueryContentsResponse {
+
+  // contents is the list of contents.
+  repeated Content contents = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Content is the content properties.
+  message Content {
+
+    // id is the unique identifier of the content.
+    uint64 id = 1;
+
+    // curator is the address of the content curator.
+    string curator = 2;
+
+    // metadata is the metadata of the content.
+    string metadata = 3;
+  }
+}
+
+// QueryContentsByCuratorRequest is the Query/ContentsByCurator request type.
+message QueryContentsByCuratorRequest {
 
   // curator is the address of the content curator.
   string curator = 1;
 
-  // pagination is the optional pagination in the request.
+  // pagination is the optional pagination of the request.
   cosmos.base.query.v1beta1.PageRequest pagination = 2;
 }
 
-// QueryContentByCuratorResponse is the Query/ContentByCurator response type.
-message QueryContentByCuratorResponse {
+// QueryContentsByCuratorResponse is the Query/ContentsByCurator response type.
+message QueryContentsByCuratorResponse {
 
   // curator is the address of the content curator.
   string curator = 1;
 
-  // content is the content created by the curator.
-  repeated Content content = 2;
+  // contents is the list of contents managed by the curator.
+  repeated Content contents = 2;
 
-  // pagination is the pagination in the response.
+  // pagination is the pagination of the response.
   cosmos.base.query.v1beta1.PageResponse pagination = 3;
 
   // Content is the content properties.

@@ -560,7 +560,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Content defines the table and properties of content stored in state.
+// Content defines the table and properties of a content.
 type Content struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

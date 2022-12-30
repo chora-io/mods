@@ -9,4 +9,5 @@ The queries are defined in the proto files available to view on [Buf Schema Regi
 <!-- listed alphabetically -->
 
 - [Content](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Query.Content)
-- [ContentByCurator](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Query.ContentByCurator)
+- [Contents](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Query.Contents)
+- [ContentsByCurator](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.Query.ContentsByCurator)

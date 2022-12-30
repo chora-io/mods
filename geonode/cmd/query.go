@@ -20,6 +20,7 @@ func QueryCmd() *cobra.Command {
 
 	cmd.AddCommand(
 		QueryNodeCmd(),
+		QueryNodesCmd(),
 		QueryNodesByCuratorCmd(),
 	)
 

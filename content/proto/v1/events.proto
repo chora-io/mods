@@ -11,8 +11,15 @@ message EventCreate {
   uint64 id = 1;
 }
 
-// EventUpdate is an event emitted when content is updated.
-message EventUpdate {
+// EventUpdateCurator is an event emitted when content curator is updated.
+message EventUpdateCurator {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// EventUpdateMetadata is an event emitted when content metadata is updated.
+message EventUpdateMetadata {
 
   // id is the unique identifier of the content.
   uint64 id = 1;

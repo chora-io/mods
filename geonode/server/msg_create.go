@@ -13,7 +13,7 @@ import (
 func (s Server) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	// get curator account from bech32
+	// get account from curator address
 	curator, err := sdk.AccAddressFromBech32(req.Curator)
 	if err != nil {
 		return nil, err // internal error
@@ -28,14 +28,14 @@ func (s Server) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateRes
 		return nil, err // internal error
 	}
 
-	// emit create event
+	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventCreate{
 		Id: id,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
-	// return create response
+	// return response
 	return &v1.MsgCreateResponse{
 		Id: id,
 	}, nil

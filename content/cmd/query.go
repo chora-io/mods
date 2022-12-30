@@ -19,7 +19,8 @@ func QueryCmd() *cobra.Command {
 
 	cmd.AddCommand(
 		QueryContentCmd(),
-		QueryContentByCuratorCmd(),
+		QueryContentsCmd(),
+		QueryContentsByCuratorCmd(),
 	)
 
 	return cmd

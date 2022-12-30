@@ -24,10 +24,12 @@ const _ = grpc.SupportPackageIsVersion7
 type MsgClient interface {
 	// Create creates content.
 	Create(ctx context.Context, in *MsgCreate, opts ...grpc.CallOption) (*MsgCreateResponse, error)
-	// Update updates content.
-	Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error)
 	// Delete deletes content.
 	Delete(ctx context.Context, in *MsgDelete, opts ...grpc.CallOption) (*MsgDeleteResponse, error)
+	// UpdateCurator updates the curator of content.
+	UpdateCurator(ctx context.Context, in *MsgUpdateCurator, opts ...grpc.CallOption) (*MsgUpdateCuratorResponse, error)
+	// UpdateMetadata updates the metadata of content.
+	UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error)
 }
 
 type msgClient struct {
@@ -47,18 +49,27 @@ func (c *msgClient) Create(ctx context.Context, in *MsgCreate, opts ...grpc.Call
 	return out, nil
 }
 
-func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error) {
-	out := new(MsgUpdateResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/Update", in, out, opts...)
+func (c *msgClient) Delete(ctx context.Context, in *MsgDelete, opts ...grpc.CallOption) (*MsgDeleteResponse, error) {
+	out := new(MsgDeleteResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Delete(ctx context.Context, in *MsgDelete, opts ...grpc.CallOption) (*MsgDeleteResponse, error) {
-	out := new(MsgDeleteResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/Delete", in, out, opts...)
+func (c *msgClient) UpdateCurator(ctx context.Context, in *MsgUpdateCurator, opts ...grpc.CallOption) (*MsgUpdateCuratorResponse, error) {
+	out := new(MsgUpdateCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/UpdateCurator", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error) {
+	out := new(MsgUpdateMetadataResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/UpdateMetadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,10 +82,12 @@ func (c *msgClient) Delete(ctx context.Context, in *MsgDelete, opts ...grpc.Call
 type MsgServer interface {
 	// Create creates content.
 	Create(context.Context, *MsgCreate) (*MsgCreateResponse, error)
-	// Update updates content.
-	Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error)
 	// Delete deletes content.
 	Delete(context.Context, *MsgDelete) (*MsgDeleteResponse, error)
+	// UpdateCurator updates the curator of content.
+	UpdateCurator(context.Context, *MsgUpdateCurator) (*MsgUpdateCuratorResponse, error)
+	// UpdateMetadata updates the metadata of content.
+	UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -85,11 +98,14 @@ type UnimplementedMsgServer struct {
 func (UnimplementedMsgServer) Create(context.Context, *MsgCreate) (*MsgCreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedMsgServer) Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
-}
 func (UnimplementedMsgServer) Delete(context.Context, *MsgDelete) (*MsgDeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedMsgServer) UpdateCurator(context.Context, *MsgUpdateCurator) (*MsgUpdateCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCurator not implemented")
+}
+func (UnimplementedMsgServer) UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMetadata not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -122,24 +138,6 @@ func _Msg_Create_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdate)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/chora.content.v1.Msg/Update",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Update(ctx, req.(*MsgUpdate))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Msg_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MsgDelete)
 	if err := dec(in); err != nil {
@@ -158,6 +156,42 @@ func _Msg_Delete_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_UpdateCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateCurator)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateCurator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.content.v1.Msg/UpdateCurator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateCurator(ctx, req.(*MsgUpdateCurator))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateMetadata)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.content.v1.Msg/UpdateMetadata",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateMetadata(ctx, req.(*MsgUpdateMetadata))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -170,12 +204,16 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Msg_Create_Handler,
 		},
 		{
-			MethodName: "Update",
-			Handler:    _Msg_Update_Handler,
-		},
-		{
 			MethodName: "Delete",
 			Handler:    _Msg_Delete_Handler,
+		},
+		{
+			MethodName: "UpdateCurator",
+			Handler:    _Msg_UpdateCurator_Handler,
+		},
+		{
+			MethodName: "UpdateMetadata",
+			Handler:    _Msg_UpdateMetadata_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

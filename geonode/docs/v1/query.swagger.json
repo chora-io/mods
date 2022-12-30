@@ -13,7 +13,7 @@
   "paths": {
     "/chora/geonode/v1/node/{id}": {
       "get": {
-        "summary": "Node queries a node by the unique identifier of the node.",
+        "summary": "Node queries a node by id.",
         "operationId": "Node",
         "responses": {
           "200": {
@@ -189,7 +189,7 @@
         },
         "curator": {
           "type": "string",
-          "description": "curator is the curator of the node."
+          "description": "curator is the address of the node curator."
         },
         "metadata": {
           "type": "string",

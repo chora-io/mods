@@ -11,15 +11,111 @@
     "application/json"
   ],
   "paths": {
-    "/chora/content/v1/content-by-curator/{curator}": {
+    "/chora/content/v1/content/{id}": {
       "get": {
-        "summary": "ContentByCurator queries all content by the curator of the content.",
-        "operationId": "ContentByCurator",
+        "summary": "Content queries a content by id.",
+        "operationId": "Content",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/chora.content.v1.QueryContentByCuratorResponse"
+              "$ref": "#/definitions/chora.content.v1.QueryContentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "id is the unique identifier of the content.",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          }
+        ],
+        "tags": [
+          "Query"
+        ]
+      }
+    },
+    "/chora/content/v1/contents": {
+      "get": {
+        "summary": "Contents queries all contents.",
+        "operationId": "Contents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chora.content.v1.QueryContentsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pagination.key",
+            "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "byte"
+          },
+          {
+            "name": "pagination.offset",
+            "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "pagination.limit",
+            "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "pagination.count_total",
+            "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "pagination.reverse",
+            "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Query"
+        ]
+      }
+    },
+    "/chora/content/v1/contents-by-curator/{curator}": {
+      "get": {
+        "summary": "ContentsByCurator queries contents by curator.",
+        "operationId": "ContentsByCurator",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chora.content.v1.QueryContentsByCuratorResponse"
             }
           },
           "default": {
@@ -80,64 +176,50 @@
           "Query"
         ]
       }
-    },
-    "/chora/content/v1/content/{id}": {
-      "get": {
-        "summary": "Content queries content by the unique identifier of the content.",
-        "operationId": "Content",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/chora.content.v1.QueryContentResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/grpc.gateway.runtime.Error"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "id is the unique identifier of the content.",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          }
-        ],
-        "tags": [
-          "Query"
-        ]
-      }
     }
   },
   "definitions": {
-    "chora.content.v1.QueryContentByCuratorResponse": {
+    "chora.content.v1.QueryContentResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uint64",
+          "description": "id is the unique identifier of the content."
+        },
+        "curator": {
+          "type": "string",
+          "description": "curator is the address of the content curator."
+        },
+        "metadata": {
+          "type": "string",
+          "description": "metadata is the metadata of the content."
+        }
+      },
+      "description": "QueryContentResponse is the Query/Content response type."
+    },
+    "chora.content.v1.QueryContentsByCuratorResponse": {
       "type": "object",
       "properties": {
         "curator": {
           "type": "string",
           "description": "curator is the address of the content curator."
         },
-        "content": {
+        "contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/chora.content.v1.QueryContentByCuratorResponse.Content"
+            "$ref": "#/definitions/chora.content.v1.QueryContentsByCuratorResponse.Content"
           },
-          "description": "content is the content created by the curator."
+          "description": "contents is the list of contents managed by the curator."
         },
         "pagination": {
           "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
-          "description": "pagination is the pagination in the response."
+          "description": "pagination is the pagination of the response."
         }
       },
-      "description": "QueryContentByCuratorResponse is the Query/ContentByCurator response type."
+      "description": "QueryContentsByCuratorResponse is the Query/ContentsByCurator response type."
     },
-    "chora.content.v1.QueryContentByCuratorResponse.Content": {
+    "chora.content.v1.QueryContentsByCuratorResponse.Content": {
       "type": "object",
       "properties": {
         "id": {
@@ -152,7 +234,24 @@
       },
       "description": "Content is the content properties."
     },
-    "chora.content.v1.QueryContentResponse": {
+    "chora.content.v1.QueryContentsResponse": {
+      "type": "object",
+      "properties": {
+        "contents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/chora.content.v1.QueryContentsResponse.Content"
+          },
+          "description": "contents is the list of contents."
+        },
+        "pagination": {
+          "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
+          "description": "pagination is the pagination of the response."
+        }
+      },
+      "description": "QueryContentsResponse is the Query/Contents response type."
+    },
+    "chora.content.v1.QueryContentsResponse.Content": {
       "type": "object",
       "properties": {
         "id": {
@@ -162,14 +261,14 @@
         },
         "curator": {
           "type": "string",
-          "description": "curator is the curator of the content."
+          "description": "curator is the address of the content curator."
         },
         "metadata": {
           "type": "string",
           "description": "metadata is the metadata of the content."
         }
       },
-      "description": "QueryContentResponse is the Query/Content response type."
+      "description": "Content is the content properties."
     },
     "cosmos.base.query.v1beta1.PageRequest": {
       "type": "object",

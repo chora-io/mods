@@ -24,8 +24,10 @@ const _ = grpc.SupportPackageIsVersion7
 type MsgClient interface {
 	// Create creates a node.
 	Create(ctx context.Context, in *MsgCreate, opts ...grpc.CallOption) (*MsgCreateResponse, error)
-	// Update updates a node.
-	Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error)
+	// UpdateCurator updates the curator of a node.
+	UpdateCurator(ctx context.Context, in *MsgUpdateCurator, opts ...grpc.CallOption) (*MsgUpdateCuratorResponse, error)
+	// UpdateMetadata updates the metadata of a node.
+	UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error)
 }
 
 type msgClient struct {
@@ -45,9 +47,18 @@ func (c *msgClient) Create(ctx context.Context, in *MsgCreate, opts ...grpc.Call
 	return out, nil
 }
 
-func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error) {
-	out := new(MsgUpdateResponse)
-	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Msg/Update", in, out, opts...)
+func (c *msgClient) UpdateCurator(ctx context.Context, in *MsgUpdateCurator, opts ...grpc.CallOption) (*MsgUpdateCuratorResponse, error) {
+	out := new(MsgUpdateCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Msg/UpdateCurator", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error) {
+	out := new(MsgUpdateMetadataResponse)
+	err := c.cc.Invoke(ctx, "/chora.geonode.v1.Msg/UpdateMetadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,8 +71,10 @@ func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.Call
 type MsgServer interface {
 	// Create creates a node.
 	Create(context.Context, *MsgCreate) (*MsgCreateResponse, error)
-	// Update updates a node.
-	Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error)
+	// UpdateCurator updates the curator of a node.
+	UpdateCurator(context.Context, *MsgUpdateCurator) (*MsgUpdateCuratorResponse, error)
+	// UpdateMetadata updates the metadata of a node.
+	UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -72,8 +85,11 @@ type UnimplementedMsgServer struct {
 func (UnimplementedMsgServer) Create(context.Context, *MsgCreate) (*MsgCreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedMsgServer) Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+func (UnimplementedMsgServer) UpdateCurator(context.Context, *MsgUpdateCurator) (*MsgUpdateCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCurator not implemented")
+}
+func (UnimplementedMsgServer) UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMetadata not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -106,20 +122,38 @@ func _Msg_Create_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdate)
+func _Msg_UpdateCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateCurator)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Update(ctx, in)
+		return srv.(MsgServer).UpdateCurator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.geonode.v1.Msg/Update",
+		FullMethod: "/chora.geonode.v1.Msg/UpdateCurator",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Update(ctx, req.(*MsgUpdate))
+		return srv.(MsgServer).UpdateCurator(ctx, req.(*MsgUpdateCurator))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateMetadata)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.geonode.v1.Msg/UpdateMetadata",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateMetadata(ctx, req.(*MsgUpdateMetadata))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -136,8 +170,12 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Msg_Create_Handler,
 		},
 		{
-			MethodName: "Update",
-			Handler:    _Msg_Update_Handler,
+			MethodName: "UpdateCurator",
+			Handler:    _Msg_UpdateCurator_Handler,
+		},
+		{
+			MethodName: "UpdateMetadata",
+			Handler:    _Msg_UpdateMetadata_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
