@@ -7,10 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/regen-network/regen-ledger/types/v2/ormutil"
-
 	geonodev1 "github.com/choraio/mods/geonode/api/v1"
 	v1 "github.com/choraio/mods/geonode/types/v1"
+	"github.com/choraio/mods/geonode/utils"
 )
 
 // NodesByCurator implements the Query/NodesByCurator method.
@@ -26,7 +25,7 @@ func (s Server) NodesByCurator(ctx context.Context, req *v1.QueryNodesByCuratorR
 	index := geonodev1.NodeCuratorIndexKey{}.WithCurator(curator)
 
 	// set pagination for table lookup
-	pg, err := ormutil.GogoPageReqToPulsarPageReq(req.Pagination)
+	pg, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -52,7 +51,7 @@ func (s Server) NodesByCurator(ctx context.Context, req *v1.QueryNodesByCuratorR
 	}
 
 	// set pagination for query response
-	pr, err := ormutil.PulsarPageResToGogoPageRes(it.PageResponse())
+	pr, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}

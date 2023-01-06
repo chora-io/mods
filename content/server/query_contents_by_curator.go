@@ -7,10 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/regen-network/regen-ledger/types/v2/ormutil"
-
 	contentv1 "github.com/choraio/mods/content/api/v1"
 	v1 "github.com/choraio/mods/content/types/v1"
+	"github.com/choraio/mods/content/utils"
 )
 
 // ContentsByCurator implements the Query/ContentsByCurator method.
@@ -26,7 +25,7 @@ func (s Server) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCu
 	index := contentv1.ContentCuratorIndexKey{}.WithCurator(curator)
 
 	// set pagination for table lookup
-	pg, err := ormutil.GogoPageReqToPulsarPageReq(req.Pagination)
+	pg, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -54,7 +53,7 @@ func (s Server) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCu
 	}
 
 	// set pagination for query response
-	pr, err := ormutil.PulsarPageResToGogoPageRes(it.PageResponse())
+	pr, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}

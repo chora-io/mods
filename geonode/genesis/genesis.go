@@ -8,11 +8,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
 	"github.com/cosmos/cosmos-sdk/orm/types/ormjson"
 
-	"github.com/regen-network/regen-ledger/types/v2/ormutil"
-
 	"github.com/choraio/mods/geonode"
 	geonodev1 "github.com/choraio/mods/geonode/api/v1"
 	v1 "github.com/choraio/mods/geonode/types/v1"
+	"github.com/choraio/mods/geonode/utils"
 )
 
 // ValidateGenesis validates genesis state.
@@ -51,7 +50,7 @@ func validateMsg(msg proto.Message) error {
 
 	case *geonodev1.Node:
 		m := &v1.Node{}
-		if err := ormutil.PulsarToGogoSlow(msg, m); err != nil {
+		if err := utils.PulsarToGogoSlow(msg, m); err != nil {
 			return err
 		}
 		return m.Validate()

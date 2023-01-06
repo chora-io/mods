@@ -7,10 +7,9 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	"github.com/regen-network/regen-ledger/types/v2/testutil"
-
 	contentv1 "github.com/choraio/mods/content/api/v1"
 	v1 "github.com/choraio/mods/content/types/v1"
+	"github.com/choraio/mods/content/utils"
 )
 
 type msgCreate struct {
@@ -67,9 +66,9 @@ func (s *msgCreate) ExpectEventCreate(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, found := testutil.GetEvent(&expected, s.sdkCtx.EventManager().Events())
+	actual, found := utils.GetEvent(&expected, s.sdkCtx.EventManager().Events())
 	require.True(s.t, found)
 
-	err = testutil.MatchEvent(&expected, actual)
+	err = utils.MatchEvent(&expected, actual)
 	require.NoError(s.t, err)
 }

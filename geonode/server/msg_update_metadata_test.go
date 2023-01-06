@@ -7,10 +7,9 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	"github.com/regen-network/regen-ledger/types/v2/testutil"
-
 	contentv1 "github.com/choraio/mods/geonode/api/v1"
 	v1 "github.com/choraio/mods/geonode/types/v1"
+	"github.com/choraio/mods/geonode/utils"
 )
 
 type msgUpdateMetadata struct {
@@ -84,9 +83,9 @@ func (s *msgUpdateMetadata) ExpectEventUpdateMetadata(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, found := testutil.GetEvent(&expected, s.sdkCtx.EventManager().Events())
+	actual, found := utils.GetEvent(&expected, s.sdkCtx.EventManager().Events())
 	require.True(s.t, found)
 
-	err = testutil.MatchEvent(&expected, actual)
+	err = utils.MatchEvent(&expected, actual)
 	require.NoError(s.t, err)
 }

@@ -2,7 +2,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/choraio/geonode/api
+    default: github.com/choraio/mods/geonode/api
     except:
       - buf.build/googleapis/googleapis
     override:

@@ -2,7 +2,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/choraio/content/api
+    default: github.com/choraio/mods/content/api
     except:
       - buf.build/googleapis/googleapis
     override:

@@ -9,10 +9,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
 	"github.com/cosmos/cosmos-sdk/orm/types/ormjson"
 
-	"github.com/regen-network/regen-ledger/types/v2/ormutil"
-
 	contentv1 "github.com/choraio/mods/content/api/v1"
 	v1 "github.com/choraio/mods/content/types/v1"
+	"github.com/choraio/mods/content/utils"
 )
 
 // ValidateGenesis validates genesis state.
@@ -51,7 +50,7 @@ func validateMsg(msg proto.Message) error {
 
 	case *contentv1.Content:
 		m := &v1.Content{}
-		if err := ormutil.PulsarToGogoSlow(msg, m); err != nil {
+		if err := utils.PulsarToGogoSlow(msg, m); err != nil {
 			return err
 		}
 		return m.Validate()

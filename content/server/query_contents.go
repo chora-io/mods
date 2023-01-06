@@ -6,10 +6,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/orm/model/ormlist"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/regen-network/regen-ledger/types/v2/ormutil"
-
 	contentv1 "github.com/choraio/mods/content/api/v1"
 	v1 "github.com/choraio/mods/content/types/v1"
+	"github.com/choraio/mods/content/utils"
 )
 
 // Contents implements the Query/Contents method.
@@ -19,7 +18,7 @@ func (s Server) Contents(ctx context.Context, req *v1.QueryContentsRequest) (*v1
 	index := contentv1.ContentIdIndexKey{}
 
 	// set the pagination for table lookup
-	pg, err := ormutil.GogoPageReqToPulsarPageReq(req.Pagination)
+	pg, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -50,7 +49,7 @@ func (s Server) Contents(ctx context.Context, req *v1.QueryContentsRequest) (*v1
 	}
 
 	// set the pagination for query response
-	pr, err := ormutil.PulsarPageResToGogoPageRes(it.PageResponse())
+	pr, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}

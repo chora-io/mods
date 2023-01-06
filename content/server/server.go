@@ -11,11 +11,10 @@ import (
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/regen-network/regen-ledger/types/v2/ormstore"
-
 	"github.com/choraio/mods/content"
 	contentv1 "github.com/choraio/mods/content/api/v1"
 	v1 "github.com/choraio/mods/content/types/v1"
+	"github.com/choraio/mods/content/utils"
 )
 
 var (
@@ -34,7 +33,7 @@ func NewServer(key storetypes.StoreKey) Server {
 	s := Server{}
 
 	var err error
-	s.db, err = ormstore.NewStoreKeyDB(&content.ModuleSchema, key, ormdb.ModuleDBOptions{})
+	s.db, err = utils.NewStoreKeyDB(&content.ModuleSchema, key, ormdb.ModuleDBOptions{})
 	if err != nil {
 		panic(err)
 	}
