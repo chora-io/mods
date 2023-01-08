@@ -1,0 +1,15 @@
+version: v1
+name: buf.build/chora/voucher
+deps:
+  - buf.build/cosmos/cosmos-sdk
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
+    - COMMENTS
+  except:
+    - SERVICE_SUFFIX
+    - RPC_REQUEST_STANDARD_NAME
+    - PACKAGE_DIRECTORY_MATCH

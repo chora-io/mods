@@ -1,0 +1,546 @@
+swagger: '2.0'
+info:
+  title: Chora Voucher Module - REST and gRPC Gateway Documentation
+  description: Documentation describing REST and gRPC endpoints for queries.
+  version: v0.0.0
+paths:
+  /chora/voucher/v1/voucher/{id}:
+    get:
+      summary: Voucher queries a voucher by id.
+      operationId: Voucher
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uint64
+                description: id is the unique identifier of the voucher.
+              issuer:
+                type: string
+                description: issuer is the address of the voucher issuer.
+              metadata:
+                type: string
+                description: metadata is the metadata of the voucher.
+            description: QueryVoucherResponse is the Query/Voucher response type.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type_url:
+                      type: string
+                    value:
+                      type: string
+                      format: byte
+      parameters:
+        - name: id
+          description: id is the unique identifier of the voucher.
+          in: path
+          required: true
+          type: string
+          format: uint64
+      tags:
+        - Query
+  /chora/voucher/v1/vouchers:
+    get:
+      summary: Vouchers queries all vouchers.
+      operationId: Vouchers
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              vouchers:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uint64
+                      description: id is the unique identifier of the voucher.
+                    issuer:
+                      type: string
+                      description: issuer is the address of the voucher issuer.
+                    metadata:
+                      type: string
+                      description: metadata is the metadata of the voucher.
+                  description: Voucher is the voucher properties.
+                description: vouchers is the list of vouchers.
+              pagination:
+                description: pagination is the pagination of the response.
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                    description: |-
+                      next_key is the key to be passed to PageRequest.key to
+                      query the next page most efficiently. It will be empty if
+                      there are no more results.
+                  total:
+                    type: string
+                    format: uint64
+                    title: >-
+                      total is total number of results available if
+                      PageRequest.count_total
+
+                      was set, its value is undefined otherwise
+            description: QueryVouchersResponse is the Query/Vouchers response type.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type_url:
+                      type: string
+                    value:
+                      type: string
+                      format: byte
+      parameters:
+        - name: pagination.key
+          description: |-
+            key is a value returned in PageResponse.next_key to begin
+            querying the next page most efficiently. Only one of offset or key
+            should be set.
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          description: >-
+            offset is a numeric offset that can be used when key is unavailable.
+
+            It is less efficient than using key. Only one of offset or key
+            should
+
+            be set.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          description: >-
+            limit is the total number of results to be returned in the result
+            page.
+
+            If left empty it will default to a value to be set by each app.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          description: >-
+            count_total is set to true  to indicate that the result set should
+            include
+
+            a count of the total number of items available for pagination in
+            UIs.
+
+            count_total is only respected when offset is used. It is ignored
+            when key
+
+            is set.
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          description: >-
+            reverse is set to true if results are to be returned in the
+            descending order.
+
+
+            Since: cosmos-sdk 0.43
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /chora/voucher/v1/vouchers-by-issuer/{issuer}:
+    get:
+      summary: VouchersByIssuer queries vouchers by issuer.
+      operationId: VouchersByIssuer
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              issuer:
+                type: string
+                description: issuer is the address of the voucher issuer.
+              vouchers:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uint64
+                      description: id is the unique identifier of the voucher.
+                    metadata:
+                      type: string
+                      description: metadata is the metadata of the voucher.
+                  description: Voucher is the voucher properties.
+                description: vouchers is the list of vouchers managed by the issuer.
+              pagination:
+                description: pagination is the pagination of the response.
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                    description: |-
+                      next_key is the key to be passed to PageRequest.key to
+                      query the next page most efficiently. It will be empty if
+                      there are no more results.
+                  total:
+                    type: string
+                    format: uint64
+                    title: >-
+                      total is total number of results available if
+                      PageRequest.count_total
+
+                      was set, its value is undefined otherwise
+            description: >-
+              QueryVouchersByIssuerResponse is the Query/VouchersByIssuer
+              response type.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type_url:
+                      type: string
+                    value:
+                      type: string
+                      format: byte
+      parameters:
+        - name: issuer
+          description: issuer is the address of the voucher issuer.
+          in: path
+          required: true
+          type: string
+        - name: pagination.key
+          description: |-
+            key is a value returned in PageResponse.next_key to begin
+            querying the next page most efficiently. Only one of offset or key
+            should be set.
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          description: >-
+            offset is a numeric offset that can be used when key is unavailable.
+
+            It is less efficient than using key. Only one of offset or key
+            should
+
+            be set.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          description: >-
+            limit is the total number of results to be returned in the result
+            page.
+
+            If left empty it will default to a value to be set by each app.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          description: >-
+            count_total is set to true  to indicate that the result set should
+            include
+
+            a count of the total number of items available for pagination in
+            UIs.
+
+            count_total is only respected when offset is used. It is ignored
+            when key
+
+            is set.
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          description: >-
+            reverse is set to true if results are to be returned in the
+            descending order.
+
+
+            Since: cosmos-sdk 0.43
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+definitions:
+  chora.voucher.v1.QueryVoucherResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+        description: id is the unique identifier of the voucher.
+      issuer:
+        type: string
+        description: issuer is the address of the voucher issuer.
+      metadata:
+        type: string
+        description: metadata is the metadata of the voucher.
+    description: QueryVoucherResponse is the Query/Voucher response type.
+  chora.voucher.v1.QueryVouchersByIssuerResponse:
+    type: object
+    properties:
+      issuer:
+        type: string
+        description: issuer is the address of the voucher issuer.
+      vouchers:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uint64
+              description: id is the unique identifier of the voucher.
+            metadata:
+              type: string
+              description: metadata is the metadata of the voucher.
+          description: Voucher is the voucher properties.
+        description: vouchers is the list of vouchers managed by the issuer.
+      pagination:
+        description: pagination is the pagination of the response.
+        type: object
+        properties:
+          next_key:
+            type: string
+            format: byte
+            description: |-
+              next_key is the key to be passed to PageRequest.key to
+              query the next page most efficiently. It will be empty if
+              there are no more results.
+          total:
+            type: string
+            format: uint64
+            title: >-
+              total is total number of results available if
+              PageRequest.count_total
+
+              was set, its value is undefined otherwise
+    description: QueryVouchersByIssuerResponse is the Query/VouchersByIssuer response type.
+  chora.voucher.v1.QueryVouchersByIssuerResponse.Voucher:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+        description: id is the unique identifier of the voucher.
+      metadata:
+        type: string
+        description: metadata is the metadata of the voucher.
+    description: Voucher is the voucher properties.
+  chora.voucher.v1.QueryVouchersResponse:
+    type: object
+    properties:
+      vouchers:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uint64
+              description: id is the unique identifier of the voucher.
+            issuer:
+              type: string
+              description: issuer is the address of the voucher issuer.
+            metadata:
+              type: string
+              description: metadata is the metadata of the voucher.
+          description: Voucher is the voucher properties.
+        description: vouchers is the list of vouchers.
+      pagination:
+        description: pagination is the pagination of the response.
+        type: object
+        properties:
+          next_key:
+            type: string
+            format: byte
+            description: |-
+              next_key is the key to be passed to PageRequest.key to
+              query the next page most efficiently. It will be empty if
+              there are no more results.
+          total:
+            type: string
+            format: uint64
+            title: >-
+              total is total number of results available if
+              PageRequest.count_total
+
+              was set, its value is undefined otherwise
+    description: QueryVouchersResponse is the Query/Vouchers response type.
+  chora.voucher.v1.QueryVouchersResponse.Voucher:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+        description: id is the unique identifier of the voucher.
+      issuer:
+        type: string
+        description: issuer is the address of the voucher issuer.
+      metadata:
+        type: string
+        description: metadata is the metadata of the voucher.
+    description: Voucher is the voucher properties.
+  cosmos.base.query.v1beta1.PageRequest:
+    type: object
+    properties:
+      key:
+        type: string
+        format: byte
+        description: |-
+          key is a value returned in PageResponse.next_key to begin
+          querying the next page most efficiently. Only one of offset or key
+          should be set.
+      offset:
+        type: string
+        format: uint64
+        description: |-
+          offset is a numeric offset that can be used when key is unavailable.
+          It is less efficient than using key. Only one of offset or key should
+          be set.
+      limit:
+        type: string
+        format: uint64
+        description: >-
+          limit is the total number of results to be returned in the result
+          page.
+
+          If left empty it will default to a value to be set by each app.
+      count_total:
+        type: boolean
+        description: >-
+          count_total is set to true  to indicate that the result set should
+          include
+
+          a count of the total number of items available for pagination in UIs.
+
+          count_total is only respected when offset is used. It is ignored when
+          key
+
+          is set.
+      reverse:
+        type: boolean
+        description: >-
+          reverse is set to true if results are to be returned in the descending
+          order.
+
+
+          Since: cosmos-sdk 0.43
+    description: |-
+      message SomeRequest {
+               Foo some_parameter = 1;
+               PageRequest pagination = 2;
+       }
+    title: |-
+      PageRequest is to be embedded in gRPC request messages for efficient
+      pagination. Ex:
+  cosmos.base.query.v1beta1.PageResponse:
+    type: object
+    properties:
+      next_key:
+        type: string
+        format: byte
+        description: |-
+          next_key is the key to be passed to PageRequest.key to
+          query the next page most efficiently. It will be empty if
+          there are no more results.
+      total:
+        type: string
+        format: uint64
+        title: |-
+          total is total number of results available if PageRequest.count_total
+          was set, its value is undefined otherwise
+    description: |-
+      PageResponse is to be embedded in gRPC response messages where the
+      corresponding request message has used PageRequest.
+
+       message SomeResponse {
+               repeated Bar results = 1;
+               PageResponse page = 2;
+       }
+  google.protobuf.Any:
+    type: object
+    properties:
+      type_url:
+        type: string
+      value:
+        type: string
+        format: byte
+  grpc.gateway.runtime.Error:
+    type: object
+    properties:
+      error:
+        type: string
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          properties:
+            type_url:
+              type: string
+            value:
+              type: string
+              format: byte

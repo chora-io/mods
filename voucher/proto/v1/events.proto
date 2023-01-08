@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package chora.voucher.v1;
+
+option go_package = "github.com/choraio/mods/voucher/types/v1";
+
+// EventCreate is an event emitted when a voucher is created.
+message EventCreate {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+}
+
+// EventUpdateIssuer is an event emitted when voucher issuer is updated.
+message EventUpdateIssuer {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+}
+
+// EventUpdateMetadata is an event emitted when voucher metadata is updated.
+message EventUpdateMetadata {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+}

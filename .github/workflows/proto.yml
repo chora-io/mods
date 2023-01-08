@@ -29,7 +29,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode"]
+        module: ["content", "geonode", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -48,10 +48,19 @@ jobs:
             geonode/go.mod
             geonode/go.sum
         if: matrix.module == 'geonode'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-voucher
+        with:
+          PATTERNS: |
+            voucher/**/**.go
+            voucher/go.mod
+            voucher/go.sum
+        if: matrix.module == 'voucher'
       - uses: bufbuild/buf-setup-action@v1
         if: |
           steps.git-diff-content.outputs.diff ||
-          steps.git-diff-geonode.outputs.diff
+          steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
           input: 'content/proto'
@@ -62,3 +71,8 @@ jobs:
           input: 'geonode/proto'
           against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=geonode/proto'
         if: steps.git-diff-geonode.outputs.diff
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          input: 'voucher/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=voucher/proto'
+        if: steps.git-diff-voucher.outputs.diff

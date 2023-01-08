@@ -28,7 +28,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode"]
+        module: ["content", "geonode", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -47,6 +47,14 @@ jobs:
             geonode/go.mod
             geonode/go.sum
         if: matrix.module == 'geonode'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-voucher
+        with:
+          PATTERNS: |
+            voucher/**/**.go
+            voucher/go.mod
+            voucher/go.sum
+        if: matrix.module == 'voucher'
       - uses: actions/setup-go@v3
         with:
           go-version-file: 'content/go.mod'
@@ -55,6 +63,10 @@ jobs:
         with:
           go-version-file: 'geonode/go.mod'
         if: steps.git-diff-geonode.outputs.diff
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'voucher/go.mod'
+        if: steps.git-diff-voucher.outputs.diff
       - uses: golangci/golangci-lint-action@v3
         with:
           working-directory: "content"
@@ -63,6 +75,10 @@ jobs:
         with:
           working-directory: "geonode"
         if: steps.git-diff-geonode.outputs.diff
+      - uses: golangci/golangci-lint-action@v3
+        with:
+          working-directory: "voucher"
+        if: steps.git-diff-voucher.outputs.diff
 
   buf-lint:
     runs-on: ubuntu-latest
@@ -70,7 +86,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode"]
+        module: ["content", "geonode", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -85,10 +101,17 @@ jobs:
           PATTERNS: |
             geonode/**/**.proto
         if: matrix.module == 'geonode'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-voucher
+        with:
+          PATTERNS: |
+            voucher/**/**.proto
+        if: matrix.module == 'voucher'
       - uses: bufbuild/buf-setup-action@v1
         if: |
           steps.git-diff-content.outputs.diff ||
-          steps.git-diff-geonode.outputs.diff
+          steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: 'content/proto'
@@ -97,6 +120,10 @@ jobs:
         with:
           input: 'geonode/proto'
         if: steps.git-diff-geonode.outputs.diff
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: 'voucher/proto'
+        if: steps.git-diff-voucher.outputs.diff
 
   protolint:
     runs-on: ubuntu-latest
@@ -104,7 +131,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode"]
+        module: ["content", "geonode", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -119,6 +146,12 @@ jobs:
           PATTERNS: |
             geonode/**/**.proto
         if: matrix.module == 'geonode'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-voucher
+        with:
+          PATTERNS: |
+            voucher/**/**.proto
+        if: matrix.module == 'voucher'
       - uses: actions/setup-go@v3
         with:
           go-version-file: 'content/go.mod'
@@ -127,14 +160,22 @@ jobs:
         with:
           go-version-file: 'geonode/go.mod'
         if: steps.git-diff-geonode.outputs.diff
+      - uses: actions/setup-go@v3
+        with:
+          go-version-file: 'voucher/go.mod'
+        if: steps.git-diff-voucher.outputs.diff
       - name: Install protolint
         run: go install github.com/yoheimuta/protolint/cmd/protolint@latest
         if: |
           steps.git-diff-content.outputs.diff ||
-          steps.git-diff-geonode.outputs.diff
+          steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-voucher.outputs.diff
       - name: Run protolint
         run: protolint ./content
         if: steps.git-diff-content.outputs.diff
       - name: Run protolint
         run: protolint ./geonode
         if: steps.git-diff-geonode.outputs.diff
+      - name: Run protolint
+        run: protolint ./voucher
+        if: steps.git-diff-voucher.outputs.diff

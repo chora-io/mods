@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package chora.voucher.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/choraio/mods/voucher/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Voucher queries a voucher by id.
+  rpc Voucher(QueryVoucherRequest) returns (QueryVoucherResponse) {
+    option (google.api.http).get = "/chora/voucher/v1/voucher/{id}";
+  }
+
+  // Vouchers queries all vouchers.
+  rpc Vouchers(QueryVouchersRequest) returns (QueryVouchersResponse) {
+    option (google.api.http).get = "/chora/voucher/v1/vouchers";
+  }
+
+  // VouchersByIssuer queries vouchers by issuer.
+  rpc VouchersByIssuer(QueryVouchersByIssuerRequest)
+      returns (QueryVouchersByIssuerResponse) {
+    option (google.api.http).get =
+        "/chora/voucher/v1/vouchers-by-issuer/{issuer}";
+  }
+}
+
+// QueryVoucherRequest is the Query/Voucher request type.
+message QueryVoucherRequest {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+}
+
+// QueryVoucherResponse is the Query/Voucher response type.
+message QueryVoucherResponse {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // issuer is the address of the voucher issuer.
+  string issuer = 2;
+
+  // metadata is the metadata of the voucher.
+  string metadata = 3;
+}
+
+// QueryVouchersRequest is the Query/Vouchers request type.
+message QueryVouchersRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryVouchersResponse is the Query/Vouchers response type.
+message QueryVouchersResponse {
+
+  // vouchers is the list of vouchers.
+  repeated Voucher vouchers = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+
+  // Voucher is the voucher properties.
+  message Voucher {
+
+    // id is the unique identifier of the voucher.
+    uint64 id = 1;
+
+    // issuer is the address of the voucher issuer.
+    string issuer = 2;
+
+    // metadata is the metadata of the voucher.
+    string metadata = 3;
+  }
+}
+
+// QueryVouchersByIssuerRequest is the Query/VouchersByIssuer request type.
+message QueryVouchersByIssuerRequest {
+
+  // issuer is the address of the voucher issuer.
+  string issuer = 1;
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QueryVouchersByIssuerResponse is the Query/VouchersByIssuer response type.
+message QueryVouchersByIssuerResponse {
+
+  // issuer is the address of the voucher issuer.
+  string issuer = 1;
+
+  // vouchers is the list of vouchers managed by the issuer.
+  repeated Voucher vouchers = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Voucher is the voucher properties.
+  message Voucher {
+
+    // id is the unique identifier of the voucher.
+    uint64 id = 1;
+
+    // metadata is the metadata of the voucher.
+    string metadata = 2;
+  }
+}

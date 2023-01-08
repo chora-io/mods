@@ -11,3 +11,15 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 5
+
+  - package-ecosystem: "gomod"
+    directory: "/geonode"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "gomod"
+    directory: "/voucher"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5

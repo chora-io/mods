@@ -16,6 +16,8 @@ coverage:
       content:
         paths:
           - "content/"
+          - "geonode/"
+          - "voucher/"
     changes: false
 
 comment:
