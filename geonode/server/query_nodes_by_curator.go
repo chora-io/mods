@@ -25,13 +25,13 @@ func (s Server) NodesByCurator(ctx context.Context, req *v1.QueryNodesByCuratorR
 	index := geonodev1.NodeCuratorIndexKey{}.WithCurator(curator)
 
 	// set pagination for table lookup
-	pg, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
+	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// get nodes by curator from node table
-	it, err := s.ss.NodeTable().List(ctx, index, ormlist.Paginate(pg))
+	it, err := s.ss.NodeTable().List(ctx, index, ormlist.Paginate(pgnReq))
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -43,15 +43,17 @@ func (s Server) NodesByCurator(ctx context.Context, req *v1.QueryNodesByCuratorR
 		if err != nil {
 			return nil, err // internal error
 		}
-		n := v1.QueryNodesByCuratorResponse_Node{
+
+		node := v1.QueryNodesByCuratorResponse_Node{
 			Id:       v.Id,
 			Metadata: v.Metadata,
 		}
-		nodes = append(nodes, &n)
+
+		nodes = append(nodes, &node)
 	}
 
 	// set pagination for query response
-	pr, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
+	pgnRes, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -60,6 +62,6 @@ func (s Server) NodesByCurator(ctx context.Context, req *v1.QueryNodesByCuratorR
 	return &v1.QueryNodesByCuratorResponse{
 		Curator:    curator.String(),
 		Nodes:      nodes,
-		Pagination: pr,
+		Pagination: pgnRes,
 	}, nil
 }

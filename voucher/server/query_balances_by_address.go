@@ -17,12 +17,6 @@ import (
 // BalancesByAddress implements the Query/BalancesByAddress method.
 func (s Server) BalancesByAddress(ctx context.Context, req *v1.QueryBalancesByAddressRequest) (*v1.QueryBalancesByAddressResponse, error) {
 
-	// set pagination for table lookup
-	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
-	if err != nil {
-		return nil, err // internal error
-	}
-
 	// get account from address
 	address, err := sdk.AccAddressFromBech32(req.Address)
 	if err != nil {
@@ -31,6 +25,12 @@ func (s Server) BalancesByAddress(ctx context.Context, req *v1.QueryBalancesByAd
 
 	// set index for table lookup
 	index := voucherv1.BalanceAddressIndexKey{}.WithAddress(address)
+
+	// set pagination for table lookup
+	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
+	if err != nil {
+		return nil, err // internal error
+	}
 
 	// get balance from balance table
 	it, err := s.ss.BalanceTable().List(ctx, index, ormlist.Paginate(pgnReq))
@@ -72,11 +72,12 @@ func (s Server) BalancesByAddress(ctx context.Context, req *v1.QueryBalancesByAd
 
 	// set total amounts for query response
 	for _, id := range ids {
-		ta := &v1.QueryBalancesByAddressResponse_TotalAmount{
+		totalAmount := &v1.QueryBalancesByAddressResponse_TotalAmount{
 			Id:          id,
 			TotalAmount: idToDec[id].String(),
 		}
-		totalAmounts = append(totalAmounts, ta)
+
+		totalAmounts = append(totalAmounts, totalAmount)
 	}
 
 	// set pagination for query response

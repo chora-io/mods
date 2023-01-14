@@ -75,7 +75,7 @@ paths:
           type: string
       tags:
         - Query
-  /chora/voucher/v1/balances/{address}:
+  /chora/voucher/v1/balances-by-address/{address}:
     get:
       summary: BalancesByAddress queries all balances of an address.
       operationId: BalancesByAddress
@@ -210,7 +210,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /chora/voucher/v1/balances/{id}:
+  /chora/voucher/v1/balances-by-voucher/{id}:
     get:
       summary: BalancesByVoucher queries all balances of a voucher.
       operationId: BalancesByVoucher

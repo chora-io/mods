@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
 	v1 "github.com/choraio/mods/geonode/types/v1"
@@ -21,7 +22,14 @@ func QueryNodesCmd() *cobra.Command {
 				return err
 			}
 
-			req := v1.QueryNodesRequest{}
+			pgn, err := client.ReadPageRequest(cmd.Flags())
+			if err != nil {
+				return err
+			}
+
+			req := v1.QueryNodesRequest{
+				Pagination: pgn,
+			}
 
 			res, err := c.Nodes(cmd.Context(), &req)
 			if err != nil {
@@ -33,6 +41,7 @@ func QueryNodesCmd() *cobra.Command {
 	}
 
 	flags.AddQueryFlagsToCmd(cmd)
+	flags.AddPaginationFlagsToCmd(cmd, "nodes")
 
 	return cmd
 }

@@ -25,13 +25,13 @@ func (s Server) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCu
 	index := contentv1.ContentCuratorIndexKey{}.WithCurator(curator)
 
 	// set pagination for table lookup
-	pg, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
+	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// get contents by curator from content table
-	it, err := s.ss.ContentTable().List(ctx, index, ormlist.Paginate(pg))
+	it, err := s.ss.ContentTable().List(ctx, index, ormlist.Paginate(pgnReq))
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -44,16 +44,16 @@ func (s Server) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCu
 			return nil, err // internal error
 		}
 
-		c := v1.QueryContentsByCuratorResponse_Content{
+		content := v1.QueryContentsByCuratorResponse_Content{
 			Id:       v.Id,
 			Metadata: v.Metadata,
 		}
 
-		contents = append(contents, &c)
+		contents = append(contents, &content)
 	}
 
 	// set pagination for query response
-	pr, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
+	pgnRes, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -62,6 +62,6 @@ func (s Server) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCu
 	return &v1.QueryContentsByCuratorResponse{
 		Curator:    curator.String(),
 		Contents:   contents,
-		Pagination: pr,
+		Pagination: pgnRes,
 	}, nil
 }

@@ -51,6 +51,7 @@ func (s Server) Balance(ctx context.Context, req *v1.QueryBalanceRequest) (*v1.Q
 			Amount:     v.Amount,
 			Expiration: &expiration,
 		}
+
 		amounts = append(amounts, &amount)
 
 		dec, err := math.NewDecFromString(v.Amount)

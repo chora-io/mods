@@ -18,13 +18,13 @@ func (s Server) Vouchers(ctx context.Context, req *v1.QueryVouchersRequest) (*v1
 	index := voucherv1.VoucherIdIndexKey{}
 
 	// set pagination for table lookup
-	pg, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
+	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// get vouchers from voucher table
-	it, err := s.ss.VoucherTable().List(ctx, index, ormlist.Paginate(pg))
+	it, err := s.ss.VoucherTable().List(ctx, index, ormlist.Paginate(pgnReq))
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -39,17 +39,17 @@ func (s Server) Vouchers(ctx context.Context, req *v1.QueryVouchersRequest) (*v1
 
 		issuer := sdk.AccAddress(v.Issuer).String()
 
-		n := v1.QueryVouchersResponse_Voucher{
+		voucher := v1.QueryVouchersResponse_Voucher{
 			Id:       v.Id,
 			Issuer:   issuer,
 			Metadata: v.Metadata,
 		}
 
-		vouchers = append(vouchers, &n)
+		vouchers = append(vouchers, &voucher)
 	}
 
 	// set pagination for query response
-	pr, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
+	pgnRes, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -57,6 +57,6 @@ func (s Server) Vouchers(ctx context.Context, req *v1.QueryVouchersRequest) (*v1
 	// return query response
 	return &v1.QueryVouchersResponse{
 		Vouchers:   vouchers,
-		Pagination: pr,
+		Pagination: pgnRes,
 	}, nil
 }

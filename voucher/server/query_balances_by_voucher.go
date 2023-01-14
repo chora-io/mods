@@ -16,14 +16,14 @@ import (
 // BalancesByVoucher implements the Query/BalancesByVoucher method.
 func (s Server) BalancesByVoucher(ctx context.Context, req *v1.QueryBalancesByVoucherRequest) (*v1.QueryBalancesByVoucherResponse, error) {
 
+	// set index for table lookup
+	index := voucherv1.BalanceIdAddressExpirationIndexKey{}.WithId(req.Id)
+
 	// set pagination for table lookup
 	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
 	if err != nil {
 		return nil, err // internal error
 	}
-
-	// set index for table lookup
-	index := voucherv1.BalanceIdAddressExpirationIndexKey{}.WithId(req.Id)
 
 	// get balance from balance table
 	it, err := s.ss.BalanceTable().List(ctx, index, ormlist.Paginate(pgnReq))
@@ -68,11 +68,12 @@ func (s Server) BalancesByVoucher(ctx context.Context, req *v1.QueryBalancesByVo
 
 	// set total amounts for query response
 	for _, addr := range addrs {
-		ta := &v1.QueryBalancesByVoucherResponse_TotalAmount{
+		totalAmount := &v1.QueryBalancesByVoucherResponse_TotalAmount{
 			Address:     addr,
 			TotalAmount: addrToDec[addr].String(),
 		}
-		totalAmounts = append(totalAmounts, ta)
+
+		totalAmounts = append(totalAmounts, totalAmount)
 	}
 
 	// set pagination for query response

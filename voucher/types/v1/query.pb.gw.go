@@ -732,9 +732,9 @@ var (
 
 	pattern_Query_Balance_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4, 1, 0, 4, 1, 5, 5}, []string{"chora", "voucher", "v1", "balance", "id", "address"}, "", runtime.AssumeColonVerbOpt(false)))
 
-	pattern_Query_BalancesByAddress_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"chora", "voucher", "v1", "balances", "address"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_BalancesByAddress_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"chora", "voucher", "v1", "balances-by-address", "address"}, "", runtime.AssumeColonVerbOpt(false)))
 
-	pattern_Query_BalancesByVoucher_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"chora", "voucher", "v1", "balances", "id"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_BalancesByVoucher_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"chora", "voucher", "v1", "balances-by-voucher", "id"}, "", runtime.AssumeColonVerbOpt(false)))
 )
 
 var (
