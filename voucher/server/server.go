@@ -2,8 +2,10 @@ package server
 
 import (
 	"encoding/json"
+	"time"
 
 	abci "github.com/tendermint/tendermint/abci/types"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
@@ -71,4 +73,36 @@ func (s Server) ExportGenesis(ctx sdk.Context, _ codec.JSONCodec) (json.RawMessa
 	}
 
 	return target.JSON()
+}
+
+// PruneVouchers removes expired vouchers from state.
+func (s Server) PruneVouchers(ctx sdk.Context) error {
+	sdkCtx := sdk.UnwrapSDKContext(ctx)
+
+	minTime := timestamppb.New(time.Time{})
+	blockTime := timestamppb.New(sdkCtx.BlockTime())
+
+	fromKey := voucherv1.BalanceExpirationIndexKey{}.WithExpiration(minTime)
+	toKey := voucherv1.BalanceExpirationIndexKey{}.WithExpiration(blockTime)
+
+	it, err := s.ss.BalanceTable().ListRange(ctx, fromKey, toKey)
+	if err != nil {
+		return err
+	}
+
+	for it.Next() {
+		balance, err := it.Value()
+		if err != nil {
+			return err
+		}
+
+		err = s.ss.BalanceTable().Delete(ctx, balance)
+		if err != nil {
+			return err
+		}
+	}
+
+	it.Close()
+
+	return nil
 }

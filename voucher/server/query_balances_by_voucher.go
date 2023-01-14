@@ -3,20 +3,30 @@ package server
 import (
 	"context"
 
+	"github.com/cosmos/cosmos-sdk/orm/model/ormlist"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+
+	"github.com/regen-network/regen-ledger/types/v2/math"
+
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	v1 "github.com/choraio/mods/voucher/types/v1"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/regen-network/regen-ledger/types/v2/math"
+	"github.com/choraio/mods/voucher/utils"
 )
 
 // BalancesByVoucher implements the Query/BalancesByVoucher method.
 func (s Server) BalancesByVoucher(ctx context.Context, req *v1.QueryBalancesByVoucherRequest) (*v1.QueryBalancesByVoucherResponse, error) {
 
+	// set pagination for table lookup
+	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// set index for table lookup
 	index := voucherv1.BalanceIdAddressExpirationIndexKey{}.WithId(req.Id)
 
 	// get balance from balance table
-	it, err := s.ss.BalanceTable().List(ctx, index)
+	it, err := s.ss.BalanceTable().List(ctx, index, ormlist.Paginate(pgnReq))
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -65,9 +75,16 @@ func (s Server) BalancesByVoucher(ctx context.Context, req *v1.QueryBalancesByVo
 		totalAmounts = append(totalAmounts, ta)
 	}
 
+	// set pagination for query response
+	pgnRes, err := utils.PulsarPageResToGogoPageRes(it.PageResponse())
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// return query response
 	return &v1.QueryBalancesByVoucherResponse{
 		Id:           req.Id,
 		TotalAmounts: totalAmounts,
+		Pagination:   pgnRes,
 	}, nil
 }

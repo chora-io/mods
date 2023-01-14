@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
 	v1 "github.com/choraio/mods/voucher/types/v1"
@@ -21,8 +22,14 @@ func QueryVouchersByIssuerCmd() *cobra.Command {
 				return err
 			}
 
+			pgn, err := client.ReadPageRequest(cmd.Flags())
+			if err != nil {
+				return err
+			}
+
 			req := v1.QueryVouchersByIssuerRequest{
-				Issuer: args[0],
+				Issuer:     args[0],
+				Pagination: pgn,
 			}
 
 			res, err := c.VouchersByIssuer(cmd.Context(), &req)
@@ -35,6 +42,7 @@ func QueryVouchersByIssuerCmd() *cobra.Command {
 	}
 
 	flags.AddQueryFlagsToCmd(cmd)
+	flags.AddPaginationFlagsToCmd(cmd, "vouchers-by-issuer")
 
 	return cmd
 }

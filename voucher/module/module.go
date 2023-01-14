@@ -118,6 +118,14 @@ func (m Module) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig,
 	return genesis.ValidateGenesis(bz)
 }
 
+// BeginBlock checks if there are any expired sell or buy orders and removes them from state.
+func (m Module) BeginBlock(ctx sdk.Context, _ abci.RequestBeginBlock) {
+	err := m.srv.PruneVouchers(ctx)
+	if err != nil {
+		panic(err)
+	}
+}
+
 // GetTxCmd implements AppModule/GetTxCmd.
 func (m Module) GetTxCmd() *cobra.Command {
 	return cmd.TxCmd()

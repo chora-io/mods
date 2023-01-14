@@ -37,13 +37,14 @@ service Query {
   // BalancesByAddress queries all balances of an address.
   rpc BalancesByAddress(QueryBalancesByAddressRequest)
       returns (QueryBalancesByAddressResponse) {
-    option (google.api.http).get = "/chora/voucher/v1/balances/{address}";
+    option (google.api.http).get =
+        "/chora/voucher/v1/balances-by-address/{address}";
   }
 
   // BalancesByVoucher queries all balances of a voucher.
   rpc BalancesByVoucher(QueryBalancesByVoucherRequest)
       returns (QueryBalancesByVoucherResponse) {
-    option (google.api.http).get = "/chora/voucher/v1/balances/{id}";
+    option (google.api.http).get = "/chora/voucher/v1/balances-by-voucher/{id}";
   }
 }
 

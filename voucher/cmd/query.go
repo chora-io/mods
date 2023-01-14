@@ -19,6 +19,9 @@ func QueryCmd() *cobra.Command {
 	}
 
 	cmd.AddCommand(
+		QueryBalanceCmd(),
+		QueryBalancesByAddressCmd(),
+		QueryBalancesByVoucherCmd(),
 		QueryVoucherCmd(),
 		QueryVouchersCmd(),
 		QueryVouchersByIssuerCmd(),

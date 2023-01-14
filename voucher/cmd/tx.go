@@ -20,6 +20,7 @@ func TxCmd() *cobra.Command {
 
 	cmd.AddCommand(
 		TxCreateCmd(),
+		TxIssueCmd(),
 		TxUpdateIssuerCmd(),
 		TxUpdateMetadataCmd(),
 	)

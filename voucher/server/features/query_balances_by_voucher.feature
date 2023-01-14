@@ -52,7 +52,8 @@ Feature: Query/BalancesByVoucher
       """
       {
         "id": 1,
-        "total_amounts": []
+        "total_amounts": [],
+        "pagination": {}
       }
       """
 
@@ -83,7 +84,10 @@ Feature: Query/BalancesByVoucher
             "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
             "total_amount": "1.25"
           }
-        ]
+        ],
+        "pagination": {
+          "total": 1
+        }
       }
       """
 
@@ -140,7 +144,10 @@ Feature: Query/BalancesByVoucher
             "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
             "total_amount": "1.25"
           }
-        ]
+        ],
+        "pagination": {
+          "total": 3
+        }
       }
       """
 

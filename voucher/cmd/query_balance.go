@@ -1,37 +1,39 @@
 package cmd
 
 import (
+	"strconv"
+
 	"github.com/spf13/cobra"
 
-	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
 	v1 "github.com/choraio/mods/voucher/types/v1"
 )
 
-// QueryVouchersCmd creates and returns the query vouchers command.
-func QueryVouchersCmd() *cobra.Command {
+// QueryBalanceCmd creates and returns the query balance command.
+func QueryBalanceCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "vouchers",
-		Short: "query all vouchers",
-		Long:  "query all vouchers",
-		Args:  cobra.ExactArgs(0),
+		Use:   "balance [id] [address]",
+		Short: "query balance by id and address",
+		Long:  "query balance by id and address",
+		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			c, ctx, err := getQueryClient(cmd)
 			if err != nil {
 				return err
 			}
 
-			pgn, err := client.ReadPageRequest(cmd.Flags())
+			id, err := strconv.ParseUint(args[0], 0, 64)
 			if err != nil {
 				return err
 			}
 
-			req := v1.QueryVouchersRequest{
-				Pagination: pgn,
+			req := v1.QueryBalanceRequest{
+				Id:      id,
+				Address: args[1],
 			}
 
-			res, err := c.Vouchers(cmd.Context(), &req)
+			res, err := c.Balance(cmd.Context(), &req)
 			if err != nil {
 				return err
 			}
@@ -41,7 +43,6 @@ func QueryVouchersCmd() *cobra.Command {
 	}
 
 	flags.AddQueryFlagsToCmd(cmd)
-	flags.AddPaginationFlagsToCmd(cmd, "vouchers")
 
 	return cmd
 }

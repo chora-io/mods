@@ -52,7 +52,8 @@ Feature: Query/BalancesByAddress
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "total_amounts": []
+        "total_amounts": [],
+        "pagination": {}
       }
       """
 
@@ -83,7 +84,10 @@ Feature: Query/BalancesByAddress
             "id": 1,
             "total_amount": "1.25"
           }
-        ]
+        ],
+        "pagination": {
+          "total": 1
+        }
       }
       """
 
@@ -140,7 +144,10 @@ Feature: Query/BalancesByAddress
             "id": 2,
             "total_amount": "1.25"
           }
-        ]
+        ],
+        "pagination": {
+          "total": 3
+        }
       }
       """
 

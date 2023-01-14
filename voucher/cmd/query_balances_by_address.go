@@ -9,13 +9,13 @@ import (
 	v1 "github.com/choraio/mods/voucher/types/v1"
 )
 
-// QueryVouchersCmd creates and returns the query vouchers command.
-func QueryVouchersCmd() *cobra.Command {
+// QueryBalancesByAddressCmd creates and returns the query balances-by-address command.
+func QueryBalancesByAddressCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "vouchers",
-		Short: "query all vouchers",
-		Long:  "query all vouchers",
-		Args:  cobra.ExactArgs(0),
+		Use:   "balances-by-address [address]",
+		Short: "query total balances by address",
+		Long:  "query total balances by address",
+		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			c, ctx, err := getQueryClient(cmd)
 			if err != nil {
@@ -27,11 +27,12 @@ func QueryVouchersCmd() *cobra.Command {
 				return err
 			}
 
-			req := v1.QueryVouchersRequest{
+			req := v1.QueryBalancesByAddressRequest{
+				Address:    args[0],
 				Pagination: pgn,
 			}
 
-			res, err := c.Vouchers(cmd.Context(), &req)
+			res, err := c.BalancesByAddress(cmd.Context(), &req)
 			if err != nil {
 				return err
 			}
@@ -41,7 +42,7 @@ func QueryVouchersCmd() *cobra.Command {
 	}
 
 	flags.AddQueryFlagsToCmd(cmd)
-	flags.AddPaginationFlagsToCmd(cmd, "vouchers")
+	flags.AddPaginationFlagsToCmd(cmd, "balances-by-address")
 
 	return cmd
 }
