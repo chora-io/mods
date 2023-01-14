@@ -31,6 +31,7 @@ func init() {
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreate{}, "voucher/MsgCreate", nil)
+	cdc.RegisterConcrete(&MsgIssue{}, "voucher/MsgIssue", nil)
 	cdc.RegisterConcrete(&MsgUpdateIssuer{}, "voucher/MsgUpdateIssuer", nil)
 	cdc.RegisterConcrete(&MsgUpdateMetadata{}, "voucher/MsgUpdateMetadata", nil)
 }
@@ -41,6 +42,7 @@ func RegisterTypes(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
 		&MsgCreate{},
+		&MsgIssue{},
 		&MsgUpdateIssuer{},
 		&MsgUpdateMetadata{},
 	)

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
 	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
 	"github.com/cosmos/cosmos-sdk/orm/model/ormtable"
@@ -30,6 +31,12 @@ func TestValidateGenesis(t *testing.T) {
 				require.NoError(t, ss.VoucherTable().Insert(ctx, &voucherv1.Voucher{
 					Issuer:   []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y="),
 					Metadata: "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
+				}))
+				require.NoError(t, ss.BalanceTable().Insert(ctx, &voucherv1.Balance{
+					Id:         1,
+					Address:    []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y="),
+					Amount:     "1.25",
+					Expiration: timestamppb.Now(),
 				}))
 			},
 		},

@@ -11,6 +11,16 @@ message EventCreate {
   uint64 id = 1;
 }
 
+// EventIssue is an event emitted when vouchers are issued.
+message EventIssue {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // metadata is the metadata of the issuance.
+  string metadata = 2;
+}
+
 // EventUpdateIssuer is an event emitted when voucher issuer is updated.
 message EventUpdateIssuer {
 

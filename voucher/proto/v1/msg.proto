@@ -3,6 +3,8 @@ syntax = "proto3";
 package chora.voucher.v1;
 
 import "cosmos/msg/v1/msg.proto";
+import "gogoproto/gogo.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/choraio/mods/voucher/types/v1";
 
@@ -11,6 +13,9 @@ service Msg {
 
   // Create creates a voucher.
   rpc Create(MsgCreate) returns (MsgCreateResponse);
+
+  // Issue issues vouchers to a recipient.
+  rpc Issue(MsgIssue) returns (MsgIssueResponse);
 
   // UpdateIssuer updates the issuer of a voucher.
   rpc UpdateIssuer(MsgUpdateIssuer) returns (MsgUpdateIssuerResponse);
@@ -32,6 +37,36 @@ message MsgCreate {
 
 // MsgCreateResponse is the Msg/Create response type.
 message MsgCreateResponse {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+}
+
+// MsgIssue is the Msg/Issue request type.
+message MsgIssue {
+  option (cosmos.msg.v1.signer) = "issuer";
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // issuer is the address of the voucher issuer.
+  string issuer = 2;
+
+  // recipient is the address of the recipient.
+  string recipient = 3;
+
+  // amount is the amount of vouchers to issue.
+  string amount = 4;
+
+  // expiration is the expiration of the vouchers.
+  google.protobuf.Timestamp expiration = 5 [ (gogoproto.stdtime) = true ];
+
+  // metadata is the metadata of the issuance.
+  string metadata = 6;
+}
+
+// MsgIssueResponse is the Msg/Issue response type.
+message MsgIssueResponse {
 
   // id is the unique identifier of the voucher.
   uint64 id = 1;

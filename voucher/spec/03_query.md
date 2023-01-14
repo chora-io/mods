@@ -8,6 +8,9 @@ The queries are defined in the proto files available to view on [Buf Schema Regi
 
 <!-- listed alphabetically -->
 
+- [Balance](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Query.Balance)
+- [BalancesByAddress](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Query.BalancesByAddress)
+- [BalancesByVoucher](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Query.BalancesByVoucher)
 - [Voucher](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Query.Voucher)
 - [Vouchers](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Query.Vouchers)
 - [VouchersByIssuer](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Query.VouchersByIssuer)

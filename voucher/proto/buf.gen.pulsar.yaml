@@ -5,6 +5,7 @@ managed:
     default: github.com/choraio/mods/voucher/api
     except:
       - buf.build/googleapis/googleapis
+      - buf.build/cosmos/gogo-proto
     override:
       buf.build/cosmos/cosmos-sdk: github.com/cosmos/cosmos-sdk/api
 plugins:

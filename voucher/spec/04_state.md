@@ -10,4 +10,5 @@ The state is defined in the proto files available to view on [Buf Schema Registr
 
 <!-- listed alphabetically -->
 
+- [Balance](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Balance)
 - [Voucher](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Voucher)

@@ -28,6 +28,12 @@ type QueryClient interface {
 	Vouchers(ctx context.Context, in *QueryVouchersRequest, opts ...grpc.CallOption) (*QueryVouchersResponse, error)
 	// VouchersByIssuer queries vouchers by issuer.
 	VouchersByIssuer(ctx context.Context, in *QueryVouchersByIssuerRequest, opts ...grpc.CallOption) (*QueryVouchersByIssuerResponse, error)
+	// Balance queries the balance of a voucher and address.
+	Balance(ctx context.Context, in *QueryBalanceRequest, opts ...grpc.CallOption) (*QueryBalanceResponse, error)
+	// BalancesByAddress queries all balances of an address.
+	BalancesByAddress(ctx context.Context, in *QueryBalancesByAddressRequest, opts ...grpc.CallOption) (*QueryBalancesByAddressResponse, error)
+	// BalancesByVoucher queries all balances of a voucher.
+	BalancesByVoucher(ctx context.Context, in *QueryBalancesByVoucherRequest, opts ...grpc.CallOption) (*QueryBalancesByVoucherResponse, error)
 }
 
 type queryClient struct {
@@ -65,6 +71,33 @@ func (c *queryClient) VouchersByIssuer(ctx context.Context, in *QueryVouchersByI
 	return out, nil
 }
 
+func (c *queryClient) Balance(ctx context.Context, in *QueryBalanceRequest, opts ...grpc.CallOption) (*QueryBalanceResponse, error) {
+	out := new(QueryBalanceResponse)
+	err := c.cc.Invoke(ctx, "/chora.voucher.v1.Query/Balance", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) BalancesByAddress(ctx context.Context, in *QueryBalancesByAddressRequest, opts ...grpc.CallOption) (*QueryBalancesByAddressResponse, error) {
+	out := new(QueryBalancesByAddressResponse)
+	err := c.cc.Invoke(ctx, "/chora.voucher.v1.Query/BalancesByAddress", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) BalancesByVoucher(ctx context.Context, in *QueryBalancesByVoucherRequest, opts ...grpc.CallOption) (*QueryBalancesByVoucherResponse, error) {
+	out := new(QueryBalancesByVoucherResponse)
+	err := c.cc.Invoke(ctx, "/chora.voucher.v1.Query/BalancesByVoucher", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -75,6 +108,12 @@ type QueryServer interface {
 	Vouchers(context.Context, *QueryVouchersRequest) (*QueryVouchersResponse, error)
 	// VouchersByIssuer queries vouchers by issuer.
 	VouchersByIssuer(context.Context, *QueryVouchersByIssuerRequest) (*QueryVouchersByIssuerResponse, error)
+	// Balance queries the balance of a voucher and address.
+	Balance(context.Context, *QueryBalanceRequest) (*QueryBalanceResponse, error)
+	// BalancesByAddress queries all balances of an address.
+	BalancesByAddress(context.Context, *QueryBalancesByAddressRequest) (*QueryBalancesByAddressResponse, error)
+	// BalancesByVoucher queries all balances of a voucher.
+	BalancesByVoucher(context.Context, *QueryBalancesByVoucherRequest) (*QueryBalancesByVoucherResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -90,6 +129,15 @@ func (UnimplementedQueryServer) Vouchers(context.Context, *QueryVouchersRequest)
 }
 func (UnimplementedQueryServer) VouchersByIssuer(context.Context, *QueryVouchersByIssuerRequest) (*QueryVouchersByIssuerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VouchersByIssuer not implemented")
+}
+func (UnimplementedQueryServer) Balance(context.Context, *QueryBalanceRequest) (*QueryBalanceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Balance not implemented")
+}
+func (UnimplementedQueryServer) BalancesByAddress(context.Context, *QueryBalancesByAddressRequest) (*QueryBalancesByAddressResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BalancesByAddress not implemented")
+}
+func (UnimplementedQueryServer) BalancesByVoucher(context.Context, *QueryBalancesByVoucherRequest) (*QueryBalancesByVoucherResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BalancesByVoucher not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -158,6 +206,60 @@ func _Query_VouchersByIssuer_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_Balance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).Balance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.voucher.v1.Query/Balance",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).Balance(ctx, req.(*QueryBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_BalancesByAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryBalancesByAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).BalancesByAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.voucher.v1.Query/BalancesByAddress",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).BalancesByAddress(ctx, req.(*QueryBalancesByAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_BalancesByVoucher_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryBalancesByVoucherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).BalancesByVoucher(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.voucher.v1.Query/BalancesByVoucher",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).BalancesByVoucher(ctx, req.(*QueryBalancesByVoucherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -176,6 +278,18 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VouchersByIssuer",
 			Handler:    _Query_VouchersByIssuer_Handler,
+		},
+		{
+			MethodName: "Balance",
+			Handler:    _Query_Balance_Handler,
+		},
+		{
+			MethodName: "BalancesByAddress",
+			Handler:    _Query_BalancesByAddress_Handler,
+		},
+		{
+			MethodName: "BalancesByVoucher",
+			Handler:    _Query_BalancesByVoucher_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

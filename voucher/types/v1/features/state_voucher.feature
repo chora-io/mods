@@ -1,4 +1,4 @@
-Feature: Content
+Feature: Voucher
 
   Scenario: valid voucher
     Given voucher

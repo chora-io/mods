@@ -7,6 +7,7 @@ import (
 	ormlist "github.com/cosmos/cosmos-sdk/orm/model/ormlist"
 	ormtable "github.com/cosmos/cosmos-sdk/orm/model/ormtable"
 	ormerrors "github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 )
 
 type VoucherTable interface {
@@ -141,18 +142,174 @@ func NewVoucherTable(db ormtable.Schema) (VoucherTable, error) {
 	return voucherTable{table.(ormtable.AutoIncrementTable)}, nil
 }
 
+type BalanceTable interface {
+	Insert(ctx context.Context, balance *Balance) error
+	Update(ctx context.Context, balance *Balance) error
+	Save(ctx context.Context, balance *Balance) error
+	Delete(ctx context.Context, balance *Balance) error
+	Has(ctx context.Context, id uint64, address []byte, expiration *timestamppb.Timestamp) (found bool, err error)
+	// Get returns nil and an error which responds true to ormerrors.IsNotFound() if the record was not found.
+	Get(ctx context.Context, id uint64, address []byte, expiration *timestamppb.Timestamp) (*Balance, error)
+	List(ctx context.Context, prefixKey BalanceIndexKey, opts ...ormlist.Option) (BalanceIterator, error)
+	ListRange(ctx context.Context, from, to BalanceIndexKey, opts ...ormlist.Option) (BalanceIterator, error)
+	DeleteBy(ctx context.Context, prefixKey BalanceIndexKey) error
+	DeleteRange(ctx context.Context, from, to BalanceIndexKey) error
+
+	doNotImplement()
+}
+
+type BalanceIterator struct {
+	ormtable.Iterator
+}
+
+func (i BalanceIterator) Value() (*Balance, error) {
+	var balance Balance
+	err := i.UnmarshalMessage(&balance)
+	return &balance, err
+}
+
+type BalanceIndexKey interface {
+	id() uint32
+	values() []interface{}
+	balanceIndexKey()
+}
+
+// primary key starting index..
+type BalancePrimaryKey = BalanceIdAddressExpirationIndexKey
+
+type BalanceIdAddressExpirationIndexKey struct {
+	vs []interface{}
+}
+
+func (x BalanceIdAddressExpirationIndexKey) id() uint32            { return 0 }
+func (x BalanceIdAddressExpirationIndexKey) values() []interface{} { return x.vs }
+func (x BalanceIdAddressExpirationIndexKey) balanceIndexKey()      {}
+
+func (this BalanceIdAddressExpirationIndexKey) WithId(id uint64) BalanceIdAddressExpirationIndexKey {
+	this.vs = []interface{}{id}
+	return this
+}
+
+func (this BalanceIdAddressExpirationIndexKey) WithIdAddress(id uint64, address []byte) BalanceIdAddressExpirationIndexKey {
+	this.vs = []interface{}{id, address}
+	return this
+}
+
+func (this BalanceIdAddressExpirationIndexKey) WithIdAddressExpiration(id uint64, address []byte, expiration *timestamppb.Timestamp) BalanceIdAddressExpirationIndexKey {
+	this.vs = []interface{}{id, address, expiration}
+	return this
+}
+
+type BalanceAddressIndexKey struct {
+	vs []interface{}
+}
+
+func (x BalanceAddressIndexKey) id() uint32            { return 1 }
+func (x BalanceAddressIndexKey) values() []interface{} { return x.vs }
+func (x BalanceAddressIndexKey) balanceIndexKey()      {}
+
+func (this BalanceAddressIndexKey) WithAddress(address []byte) BalanceAddressIndexKey {
+	this.vs = []interface{}{address}
+	return this
+}
+
+type BalanceExpirationIndexKey struct {
+	vs []interface{}
+}
+
+func (x BalanceExpirationIndexKey) id() uint32            { return 2 }
+func (x BalanceExpirationIndexKey) values() []interface{} { return x.vs }
+func (x BalanceExpirationIndexKey) balanceIndexKey()      {}
+
+func (this BalanceExpirationIndexKey) WithExpiration(expiration *timestamppb.Timestamp) BalanceExpirationIndexKey {
+	this.vs = []interface{}{expiration}
+	return this
+}
+
+type balanceTable struct {
+	table ormtable.Table
+}
+
+func (this balanceTable) Insert(ctx context.Context, balance *Balance) error {
+	return this.table.Insert(ctx, balance)
+}
+
+func (this balanceTable) Update(ctx context.Context, balance *Balance) error {
+	return this.table.Update(ctx, balance)
+}
+
+func (this balanceTable) Save(ctx context.Context, balance *Balance) error {
+	return this.table.Save(ctx, balance)
+}
+
+func (this balanceTable) Delete(ctx context.Context, balance *Balance) error {
+	return this.table.Delete(ctx, balance)
+}
+
+func (this balanceTable) Has(ctx context.Context, id uint64, address []byte, expiration *timestamppb.Timestamp) (found bool, err error) {
+	return this.table.PrimaryKey().Has(ctx, id, address, expiration)
+}
+
+func (this balanceTable) Get(ctx context.Context, id uint64, address []byte, expiration *timestamppb.Timestamp) (*Balance, error) {
+	var balance Balance
+	found, err := this.table.PrimaryKey().Get(ctx, &balance, id, address, expiration)
+	if err != nil {
+		return nil, err
+	}
+	if !found {
+		return nil, ormerrors.NotFound
+	}
+	return &balance, nil
+}
+
+func (this balanceTable) List(ctx context.Context, prefixKey BalanceIndexKey, opts ...ormlist.Option) (BalanceIterator, error) {
+	it, err := this.table.GetIndexByID(prefixKey.id()).List(ctx, prefixKey.values(), opts...)
+	return BalanceIterator{it}, err
+}
+
+func (this balanceTable) ListRange(ctx context.Context, from, to BalanceIndexKey, opts ...ormlist.Option) (BalanceIterator, error) {
+	it, err := this.table.GetIndexByID(from.id()).ListRange(ctx, from.values(), to.values(), opts...)
+	return BalanceIterator{it}, err
+}
+
+func (this balanceTable) DeleteBy(ctx context.Context, prefixKey BalanceIndexKey) error {
+	return this.table.GetIndexByID(prefixKey.id()).DeleteBy(ctx, prefixKey.values()...)
+}
+
+func (this balanceTable) DeleteRange(ctx context.Context, from, to BalanceIndexKey) error {
+	return this.table.GetIndexByID(from.id()).DeleteRange(ctx, from.values(), to.values())
+}
+
+func (this balanceTable) doNotImplement() {}
+
+var _ BalanceTable = balanceTable{}
+
+func NewBalanceTable(db ormtable.Schema) (BalanceTable, error) {
+	table := db.GetTable(&Balance{})
+	if table == nil {
+		return nil, ormerrors.TableNotFound.Wrap(string((&Balance{}).ProtoReflect().Descriptor().FullName()))
+	}
+	return balanceTable{table}, nil
+}
+
 type StateStore interface {
 	VoucherTable() VoucherTable
+	BalanceTable() BalanceTable
 
 	doNotImplement()
 }
 
 type stateStore struct {
 	voucher VoucherTable
+	balance BalanceTable
 }
 
 func (x stateStore) VoucherTable() VoucherTable {
 	return x.voucher
+}
+
+func (x stateStore) BalanceTable() BalanceTable {
+	return x.balance
 }
 
 func (stateStore) doNotImplement() {}
@@ -165,7 +322,13 @@ func NewStateStore(db ormtable.Schema) (StateStore, error) {
 		return nil, err
 	}
 
+	balanceTable, err := NewBalanceTable(db)
+	if err != nil {
+		return nil, err
+	}
+
 	return stateStore{
 		voucherTable,
+		balanceTable,
 	}, nil
 }

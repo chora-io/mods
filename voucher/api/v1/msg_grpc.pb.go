@@ -24,6 +24,8 @@ const _ = grpc.SupportPackageIsVersion7
 type MsgClient interface {
 	// Create creates a voucher.
 	Create(ctx context.Context, in *MsgCreate, opts ...grpc.CallOption) (*MsgCreateResponse, error)
+	// Issue issues vouchers to a recipient.
+	Issue(ctx context.Context, in *MsgIssue, opts ...grpc.CallOption) (*MsgIssueResponse, error)
 	// UpdateIssuer updates the issuer of a voucher.
 	UpdateIssuer(ctx context.Context, in *MsgUpdateIssuer, opts ...grpc.CallOption) (*MsgUpdateIssuerResponse, error)
 	// UpdateMetadata updates the metadata of a voucher.
@@ -41,6 +43,15 @@ func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 func (c *msgClient) Create(ctx context.Context, in *MsgCreate, opts ...grpc.CallOption) (*MsgCreateResponse, error) {
 	out := new(MsgCreateResponse)
 	err := c.cc.Invoke(ctx, "/chora.voucher.v1.Msg/Create", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) Issue(ctx context.Context, in *MsgIssue, opts ...grpc.CallOption) (*MsgIssueResponse, error) {
+	out := new(MsgIssueResponse)
+	err := c.cc.Invoke(ctx, "/chora.voucher.v1.Msg/Issue", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,6 +82,8 @@ func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, o
 type MsgServer interface {
 	// Create creates a voucher.
 	Create(context.Context, *MsgCreate) (*MsgCreateResponse, error)
+	// Issue issues vouchers to a recipient.
+	Issue(context.Context, *MsgIssue) (*MsgIssueResponse, error)
 	// UpdateIssuer updates the issuer of a voucher.
 	UpdateIssuer(context.Context, *MsgUpdateIssuer) (*MsgUpdateIssuerResponse, error)
 	// UpdateMetadata updates the metadata of a voucher.
@@ -84,6 +97,9 @@ type UnimplementedMsgServer struct {
 
 func (UnimplementedMsgServer) Create(context.Context, *MsgCreate) (*MsgCreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedMsgServer) Issue(context.Context, *MsgIssue) (*MsgIssueResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Issue not implemented")
 }
 func (UnimplementedMsgServer) UpdateIssuer(context.Context, *MsgUpdateIssuer) (*MsgUpdateIssuerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateIssuer not implemented")
@@ -118,6 +134,24 @@ func _Msg_Create_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MsgServer).Create(ctx, req.(*MsgCreate))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_Issue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgIssue)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).Issue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chora.voucher.v1.Msg/Issue",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).Issue(ctx, req.(*MsgIssue))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -168,6 +202,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Create",
 			Handler:    _Msg_Create_Handler,
+		},
+		{
+			MethodName: "Issue",
+			Handler:    _Msg_Issue_Handler,
 		},
 		{
 			MethodName: "UpdateIssuer",

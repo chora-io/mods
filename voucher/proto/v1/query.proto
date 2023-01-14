@@ -3,7 +3,9 @@ syntax = "proto3";
 package chora.voucher.v1;
 
 import "cosmos/base/query/v1beta1/pagination.proto";
+import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/choraio/mods/voucher/types/v1";
 
@@ -25,6 +27,23 @@ service Query {
       returns (QueryVouchersByIssuerResponse) {
     option (google.api.http).get =
         "/chora/voucher/v1/vouchers-by-issuer/{issuer}";
+  }
+
+  // Balance queries the balance of a voucher and address.
+  rpc Balance(QueryBalanceRequest) returns (QueryBalanceResponse) {
+    option (google.api.http).get = "/chora/voucher/v1/balance/{id}/{address}";
+  }
+
+  // BalancesByAddress queries all balances of an address.
+  rpc BalancesByAddress(QueryBalancesByAddressRequest)
+      returns (QueryBalancesByAddressResponse) {
+    option (google.api.http).get = "/chora/voucher/v1/balances/{address}";
+  }
+
+  // BalancesByVoucher queries all balances of a voucher.
+  rpc BalancesByVoucher(QueryBalancesByVoucherRequest)
+      returns (QueryBalancesByVoucherResponse) {
+    option (google.api.http).get = "/chora/voucher/v1/balances/{id}";
   }
 }
 
@@ -108,5 +127,107 @@ message QueryVouchersByIssuerResponse {
 
     // metadata is the metadata of the voucher.
     string metadata = 2;
+  }
+}
+
+// QueryBalanceRequest is the Query/Balance request type.
+message QueryBalanceRequest {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // address is the address of the voucher owner.
+  string address = 2;
+}
+
+// QueryBalanceResponse is the Query/Balance response type.
+message QueryBalanceResponse {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // address is the address of the voucher owner.
+  string address = 2;
+
+  // total_amount is the total amount the address owns.
+  string total_amount = 3;
+
+  // amounts is the list of amounts with expiration.
+  repeated Amount amounts = 4;
+
+  // Amount is the amount with expiration.
+  message Amount {
+
+    // amount is the amount of vouchers.
+    string amount = 1;
+
+    // expiration is the expiration of the voucher.
+    google.protobuf.Timestamp expiration = 2 [ (gogoproto.stdtime) = true ];
+  }
+}
+
+// QueryBalancesByAddressRequest is the Query/BalancesByAddress request type.
+message QueryBalancesByAddressRequest {
+
+  // address is the address of the voucher owner.
+  string address = 1;
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QueryBalancesByAddressResponse is the Query/BalancesByAddress response type.
+message QueryBalancesByAddressResponse {
+
+  // address is the address of the voucher owner.
+  string address = 1;
+
+  // total_amounts is the list of total amounts.
+  repeated TotalAmount total_amounts = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // TotalAmount is the total amount.
+  message TotalAmount {
+
+    // id is the unique identifier of the voucher.
+    uint64 id = 1;
+
+    // total_amount is the total amount the address owns.
+    string total_amount = 2;
+  }
+}
+
+// QueryBalancesByVoucherRequest is the Query/BalancesByVoucher request type.
+message QueryBalancesByVoucherRequest {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QueryBalancesByVoucherResponse is the Query/BalancesByVoucher response type.
+message QueryBalancesByVoucherResponse {
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // total_amounts is the list of total amounts.
+  repeated TotalAmount total_amounts = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // TotalAmount is the total amount.
+  message TotalAmount {
+
+    // address is the address of the voucher owner.
+    string address = 1;
+
+    // total_amount is the total amount the address owns.
+    string total_amount = 2;
   }
 }

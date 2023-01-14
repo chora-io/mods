@@ -7,7 +7,7 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	contentv1 "github.com/choraio/mods/voucher/api/v1"
+	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	v1 "github.com/choraio/mods/voucher/types/v1"
 	"github.com/choraio/mods/voucher/utils"
 )
@@ -29,11 +29,11 @@ func (s *msgUpdateIssuer) Before(t gocuke.TestingT) {
 }
 
 func (s *msgUpdateIssuer) Voucher(a gocuke.DocString) {
-	var voucher contentv1.Voucher
+	var voucher voucherv1.Voucher
 	err := jsonpb.UnmarshalString(a.Content, &voucher)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.VoucherTable().InsertReturningID(s.ctx, &contentv1.Voucher{
+	id, err := s.srv.ss.VoucherTable().InsertReturningID(s.ctx, &voucherv1.Voucher{
 		Issuer:   voucher.Issuer,
 		Metadata: voucher.Metadata,
 	})
@@ -66,7 +66,7 @@ func (s *msgUpdateIssuer) ExpectResponse(a gocuke.DocString) {
 }
 
 func (s *msgUpdateIssuer) ExpectStateVoucher(a gocuke.DocString) {
-	var expected contentv1.Voucher
+	var expected voucherv1.Voucher
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

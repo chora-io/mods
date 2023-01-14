@@ -9,5 +9,6 @@ The events are defined in the proto files available to view on [Buf Schema Regis
 <!-- listed alphabetically -->
 
 - [EventCreate](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.EventCreate)
+- [EventIssue](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.EventIssue)
 - [EventUpdateIssuer](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.EventUpdateIssuer)
 - [EventUpdateMetadata](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.EventUpdateMetadata)

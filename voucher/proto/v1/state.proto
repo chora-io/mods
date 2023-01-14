@@ -3,6 +3,7 @@ syntax = "proto3";
 package chora.voucher.v1;
 
 import "cosmos/orm/v1/orm.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/choraio/mods/voucher/types/v1";
 
@@ -22,4 +23,26 @@ message Voucher {
 
   // metadata is the metadata of the voucher.
   string metadata = 3;
+}
+
+// Balance defines the table and properties of a voucher balance.
+message Balance {
+  option (cosmos.orm.v1.table) = {
+    id : 2,
+    primary_key : {fields : "id,address,expiration"}
+    index : {id : 1, fields : "address"}
+    index : {id : 2, fields : "expiration"}
+  };
+
+  // id is the unique identifier of the voucher.
+  uint64 id = 1;
+
+  // address is the address of the voucher owner.
+  bytes address = 2;
+
+  // amount is the amount of vouchers the address owns.
+  string amount = 3;
+
+  // expiration is the expiration of the vouchers.
+  google.protobuf.Timestamp expiration = 4;
 }

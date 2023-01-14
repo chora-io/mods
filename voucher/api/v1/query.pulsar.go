@@ -5,10 +5,12 @@ import (
 	fmt "fmt"
 	runtime "github.com/cosmos/cosmos-proto/runtime"
 	v1beta1 "github.com/cosmos/cosmos-sdk/api/cosmos/base/query/v1beta1"
+	_ "github.com/cosmos/gogoproto/gogoproto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoiface "google.golang.org/protobuf/runtime/protoiface"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	io "io"
 	reflect "reflect"
 	sync "sync"
@@ -1982,7 +1984,7 @@ func (x *QueryVouchersResponse_Voucher) ProtoReflect() protoreflect.Message {
 }
 
 func (x *QueryVouchersResponse_Voucher) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_voucher_v1_query_proto_msgTypes[6]
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3648,7 +3650,7 @@ func (x *QueryVouchersByIssuerResponse_Voucher) ProtoReflect() protoreflect.Mess
 }
 
 func (x *QueryVouchersByIssuerResponse_Voucher) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_voucher_v1_query_proto_msgTypes[7]
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4094,6 +4096,4835 @@ func (x *fastReflection_QueryVouchersByIssuerResponse_Voucher) ProtoMethods() *p
 	}
 }
 
+var (
+	md_QueryBalanceRequest         protoreflect.MessageDescriptor
+	fd_QueryBalanceRequest_id      protoreflect.FieldDescriptor
+	fd_QueryBalanceRequest_address protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalanceRequest = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalanceRequest")
+	fd_QueryBalanceRequest_id = md_QueryBalanceRequest.Fields().ByName("id")
+	fd_QueryBalanceRequest_address = md_QueryBalanceRequest.Fields().ByName("address")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalanceRequest)(nil)
+
+type fastReflection_QueryBalanceRequest QueryBalanceRequest
+
+func (x *QueryBalanceRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalanceRequest)(x)
+}
+
+func (x *QueryBalanceRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalanceRequest_messageType fastReflection_QueryBalanceRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalanceRequest_messageType{}
+
+type fastReflection_QueryBalanceRequest_messageType struct{}
+
+func (x fastReflection_QueryBalanceRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalanceRequest)(nil)
+}
+func (x fastReflection_QueryBalanceRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalanceRequest)
+}
+func (x fastReflection_QueryBalanceRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalanceRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalanceRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalanceRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalanceRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalanceRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalanceRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryBalanceRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalanceRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalanceRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalanceRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryBalanceRequest_id, value) {
+			return
+		}
+	}
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryBalanceRequest_address, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalanceRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceRequest.id":
+		return x.Id != uint64(0)
+	case "chora.voucher.v1.QueryBalanceRequest.address":
+		return x.Address != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceRequest.id":
+		x.Id = uint64(0)
+	case "chora.voucher.v1.QueryBalanceRequest.address":
+		x.Address = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalanceRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalanceRequest.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	case "chora.voucher.v1.QueryBalanceRequest.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceRequest.id":
+		x.Id = value.Uint()
+	case "chora.voucher.v1.QueryBalanceRequest.address":
+		x.Address = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceRequest.id":
+		panic(fmt.Errorf("field id of message chora.voucher.v1.QueryBalanceRequest is not mutable"))
+	case "chora.voucher.v1.QueryBalanceRequest.address":
+		panic(fmt.Errorf("field address of message chora.voucher.v1.QueryBalanceRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalanceRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceRequest.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.voucher.v1.QueryBalanceRequest.address":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalanceRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalanceRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalanceRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalanceRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalanceRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalanceRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalanceRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalanceRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalanceRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalanceRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryBalanceResponse_4_list)(nil)
+
+type _QueryBalanceResponse_4_list struct {
+	list *[]*QueryBalanceResponse_Amount
+}
+
+func (x *_QueryBalanceResponse_4_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryBalanceResponse_4_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_QueryBalanceResponse_4_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryBalanceResponse_Amount)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryBalanceResponse_4_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryBalanceResponse_Amount)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryBalanceResponse_4_list) AppendMutable() protoreflect.Value {
+	v := new(QueryBalanceResponse_Amount)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryBalanceResponse_4_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryBalanceResponse_4_list) NewElement() protoreflect.Value {
+	v := new(QueryBalanceResponse_Amount)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryBalanceResponse_4_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryBalanceResponse              protoreflect.MessageDescriptor
+	fd_QueryBalanceResponse_id           protoreflect.FieldDescriptor
+	fd_QueryBalanceResponse_address      protoreflect.FieldDescriptor
+	fd_QueryBalanceResponse_total_amount protoreflect.FieldDescriptor
+	fd_QueryBalanceResponse_amounts      protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalanceResponse = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalanceResponse")
+	fd_QueryBalanceResponse_id = md_QueryBalanceResponse.Fields().ByName("id")
+	fd_QueryBalanceResponse_address = md_QueryBalanceResponse.Fields().ByName("address")
+	fd_QueryBalanceResponse_total_amount = md_QueryBalanceResponse.Fields().ByName("total_amount")
+	fd_QueryBalanceResponse_amounts = md_QueryBalanceResponse.Fields().ByName("amounts")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalanceResponse)(nil)
+
+type fastReflection_QueryBalanceResponse QueryBalanceResponse
+
+func (x *QueryBalanceResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalanceResponse)(x)
+}
+
+func (x *QueryBalanceResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalanceResponse_messageType fastReflection_QueryBalanceResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalanceResponse_messageType{}
+
+type fastReflection_QueryBalanceResponse_messageType struct{}
+
+func (x fastReflection_QueryBalanceResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalanceResponse)(nil)
+}
+func (x fastReflection_QueryBalanceResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalanceResponse)
+}
+func (x fastReflection_QueryBalanceResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalanceResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalanceResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalanceResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalanceResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalanceResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalanceResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryBalanceResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalanceResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalanceResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalanceResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryBalanceResponse_id, value) {
+			return
+		}
+	}
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryBalanceResponse_address, value) {
+			return
+		}
+	}
+	if x.TotalAmount != "" {
+		value := protoreflect.ValueOfString(x.TotalAmount)
+		if !f(fd_QueryBalanceResponse_total_amount, value) {
+			return
+		}
+	}
+	if len(x.Amounts) != 0 {
+		value := protoreflect.ValueOfList(&_QueryBalanceResponse_4_list{list: &x.Amounts})
+		if !f(fd_QueryBalanceResponse_amounts, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalanceResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.id":
+		return x.Id != uint64(0)
+	case "chora.voucher.v1.QueryBalanceResponse.address":
+		return x.Address != ""
+	case "chora.voucher.v1.QueryBalanceResponse.total_amount":
+		return x.TotalAmount != ""
+	case "chora.voucher.v1.QueryBalanceResponse.amounts":
+		return len(x.Amounts) != 0
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.id":
+		x.Id = uint64(0)
+	case "chora.voucher.v1.QueryBalanceResponse.address":
+		x.Address = ""
+	case "chora.voucher.v1.QueryBalanceResponse.total_amount":
+		x.TotalAmount = ""
+	case "chora.voucher.v1.QueryBalanceResponse.amounts":
+		x.Amounts = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalanceResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	case "chora.voucher.v1.QueryBalanceResponse.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	case "chora.voucher.v1.QueryBalanceResponse.total_amount":
+		value := x.TotalAmount
+		return protoreflect.ValueOfString(value)
+	case "chora.voucher.v1.QueryBalanceResponse.amounts":
+		if len(x.Amounts) == 0 {
+			return protoreflect.ValueOfList(&_QueryBalanceResponse_4_list{})
+		}
+		listValue := &_QueryBalanceResponse_4_list{list: &x.Amounts}
+		return protoreflect.ValueOfList(listValue)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.id":
+		x.Id = value.Uint()
+	case "chora.voucher.v1.QueryBalanceResponse.address":
+		x.Address = value.Interface().(string)
+	case "chora.voucher.v1.QueryBalanceResponse.total_amount":
+		x.TotalAmount = value.Interface().(string)
+	case "chora.voucher.v1.QueryBalanceResponse.amounts":
+		lv := value.List()
+		clv := lv.(*_QueryBalanceResponse_4_list)
+		x.Amounts = *clv.list
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.amounts":
+		if x.Amounts == nil {
+			x.Amounts = []*QueryBalanceResponse_Amount{}
+		}
+		value := &_QueryBalanceResponse_4_list{list: &x.Amounts}
+		return protoreflect.ValueOfList(value)
+	case "chora.voucher.v1.QueryBalanceResponse.id":
+		panic(fmt.Errorf("field id of message chora.voucher.v1.QueryBalanceResponse is not mutable"))
+	case "chora.voucher.v1.QueryBalanceResponse.address":
+		panic(fmt.Errorf("field address of message chora.voucher.v1.QueryBalanceResponse is not mutable"))
+	case "chora.voucher.v1.QueryBalanceResponse.total_amount":
+		panic(fmt.Errorf("field total_amount of message chora.voucher.v1.QueryBalanceResponse is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalanceResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.voucher.v1.QueryBalanceResponse.address":
+		return protoreflect.ValueOfString("")
+	case "chora.voucher.v1.QueryBalanceResponse.total_amount":
+		return protoreflect.ValueOfString("")
+	case "chora.voucher.v1.QueryBalanceResponse.amounts":
+		list := []*QueryBalanceResponse_Amount{}
+		return protoreflect.ValueOfList(&_QueryBalanceResponse_4_list{list: &list})
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalanceResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalanceResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalanceResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalanceResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalanceResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalanceResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.TotalAmount)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if len(x.Amounts) > 0 {
+			for _, e := range x.Amounts {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalanceResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Amounts) > 0 {
+			for iNdEx := len(x.Amounts) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.Amounts[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x22
+			}
+		}
+		if len(x.TotalAmount) > 0 {
+			i -= len(x.TotalAmount)
+			copy(dAtA[i:], x.TotalAmount)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.TotalAmount)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalanceResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalanceResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalanceResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field TotalAmount", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.TotalAmount = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 4:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Amounts", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Amounts = append(x.Amounts, &QueryBalanceResponse_Amount{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Amounts[len(x.Amounts)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryBalanceResponse_Amount            protoreflect.MessageDescriptor
+	fd_QueryBalanceResponse_Amount_amount     protoreflect.FieldDescriptor
+	fd_QueryBalanceResponse_Amount_expiration protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalanceResponse_Amount = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalanceResponse").Messages().ByName("Amount")
+	fd_QueryBalanceResponse_Amount_amount = md_QueryBalanceResponse_Amount.Fields().ByName("amount")
+	fd_QueryBalanceResponse_Amount_expiration = md_QueryBalanceResponse_Amount.Fields().ByName("expiration")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalanceResponse_Amount)(nil)
+
+type fastReflection_QueryBalanceResponse_Amount QueryBalanceResponse_Amount
+
+func (x *QueryBalanceResponse_Amount) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalanceResponse_Amount)(x)
+}
+
+func (x *QueryBalanceResponse_Amount) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalanceResponse_Amount_messageType fastReflection_QueryBalanceResponse_Amount_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalanceResponse_Amount_messageType{}
+
+type fastReflection_QueryBalanceResponse_Amount_messageType struct{}
+
+func (x fastReflection_QueryBalanceResponse_Amount_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalanceResponse_Amount)(nil)
+}
+func (x fastReflection_QueryBalanceResponse_Amount_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalanceResponse_Amount)
+}
+func (x fastReflection_QueryBalanceResponse_Amount_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalanceResponse_Amount
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalanceResponse_Amount) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalanceResponse_Amount
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalanceResponse_Amount) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalanceResponse_Amount_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalanceResponse_Amount) New() protoreflect.Message {
+	return new(fastReflection_QueryBalanceResponse_Amount)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalanceResponse_Amount) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalanceResponse_Amount)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalanceResponse_Amount) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Amount != "" {
+		value := protoreflect.ValueOfString(x.Amount)
+		if !f(fd_QueryBalanceResponse_Amount_amount, value) {
+			return
+		}
+	}
+	if x.Expiration != nil {
+		value := protoreflect.ValueOfMessage(x.Expiration.ProtoReflect())
+		if !f(fd_QueryBalanceResponse_Amount_expiration, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalanceResponse_Amount) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.amount":
+		return x.Amount != ""
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.expiration":
+		return x.Expiration != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse.Amount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse.Amount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse_Amount) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.amount":
+		x.Amount = ""
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.expiration":
+		x.Expiration = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse.Amount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse.Amount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalanceResponse_Amount) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.amount":
+		value := x.Amount
+		return protoreflect.ValueOfString(value)
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.expiration":
+		value := x.Expiration
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse.Amount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse.Amount does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse_Amount) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.amount":
+		x.Amount = value.Interface().(string)
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.expiration":
+		x.Expiration = value.Message().Interface().(*timestamppb.Timestamp)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse.Amount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse.Amount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse_Amount) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.expiration":
+		if x.Expiration == nil {
+			x.Expiration = new(timestamppb.Timestamp)
+		}
+		return protoreflect.ValueOfMessage(x.Expiration.ProtoReflect())
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.amount":
+		panic(fmt.Errorf("field amount of message chora.voucher.v1.QueryBalanceResponse.Amount is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse.Amount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse.Amount does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalanceResponse_Amount) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.amount":
+		return protoreflect.ValueOfString("")
+	case "chora.voucher.v1.QueryBalanceResponse.Amount.expiration":
+		m := new(timestamppb.Timestamp)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalanceResponse.Amount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalanceResponse.Amount does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalanceResponse_Amount) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalanceResponse.Amount", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalanceResponse_Amount) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalanceResponse_Amount) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalanceResponse_Amount) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalanceResponse_Amount) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalanceResponse_Amount)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Amount)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.Expiration != nil {
+			l = options.Size(x.Expiration)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalanceResponse_Amount)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Expiration != nil {
+			encoded, err := options.Marshal(x.Expiration)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Amount) > 0 {
+			i -= len(x.Amount)
+			copy(dAtA[i:], x.Amount)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Amount)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalanceResponse_Amount)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalanceResponse_Amount: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalanceResponse_Amount: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Amount", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Amount = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Expiration", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Expiration == nil {
+					x.Expiration = &timestamppb.Timestamp{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Expiration); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryBalancesByAddressRequest            protoreflect.MessageDescriptor
+	fd_QueryBalancesByAddressRequest_address    protoreflect.FieldDescriptor
+	fd_QueryBalancesByAddressRequest_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalancesByAddressRequest = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalancesByAddressRequest")
+	fd_QueryBalancesByAddressRequest_address = md_QueryBalancesByAddressRequest.Fields().ByName("address")
+	fd_QueryBalancesByAddressRequest_pagination = md_QueryBalancesByAddressRequest.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalancesByAddressRequest)(nil)
+
+type fastReflection_QueryBalancesByAddressRequest QueryBalancesByAddressRequest
+
+func (x *QueryBalancesByAddressRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByAddressRequest)(x)
+}
+
+func (x *QueryBalancesByAddressRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalancesByAddressRequest_messageType fastReflection_QueryBalancesByAddressRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalancesByAddressRequest_messageType{}
+
+type fastReflection_QueryBalancesByAddressRequest_messageType struct{}
+
+func (x fastReflection_QueryBalancesByAddressRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByAddressRequest)(nil)
+}
+func (x fastReflection_QueryBalancesByAddressRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByAddressRequest)
+}
+func (x fastReflection_QueryBalancesByAddressRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByAddressRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalancesByAddressRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByAddressRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalancesByAddressRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalancesByAddressRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalancesByAddressRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByAddressRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalancesByAddressRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalancesByAddressRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalancesByAddressRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryBalancesByAddressRequest_address, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryBalancesByAddressRequest_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalancesByAddressRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.address":
+		return x.Address != ""
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.address":
+		x.Address = ""
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalancesByAddressRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.address":
+		x.Address = value.Interface().(string)
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageRequest)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.address":
+		panic(fmt.Errorf("field address of message chora.voucher.v1.QueryBalancesByAddressRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalancesByAddressRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.address":
+		return protoreflect.ValueOfString("")
+	case "chora.voucher.v1.QueryBalancesByAddressRequest.pagination":
+		m := new(v1beta1.PageRequest)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalancesByAddressRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalancesByAddressRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalancesByAddressRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalancesByAddressRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalancesByAddressRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalancesByAddressRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByAddressRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByAddressRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByAddressRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByAddressRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageRequest{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryBalancesByAddressResponse_2_list)(nil)
+
+type _QueryBalancesByAddressResponse_2_list struct {
+	list *[]*QueryBalancesByAddressResponse_TotalAmount
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryBalancesByAddressResponse_TotalAmount)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryBalancesByAddressResponse_TotalAmount)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) AppendMutable() protoreflect.Value {
+	v := new(QueryBalancesByAddressResponse_TotalAmount)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) NewElement() protoreflect.Value {
+	v := new(QueryBalancesByAddressResponse_TotalAmount)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryBalancesByAddressResponse_2_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryBalancesByAddressResponse               protoreflect.MessageDescriptor
+	fd_QueryBalancesByAddressResponse_address       protoreflect.FieldDescriptor
+	fd_QueryBalancesByAddressResponse_total_amounts protoreflect.FieldDescriptor
+	fd_QueryBalancesByAddressResponse_pagination    protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalancesByAddressResponse = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalancesByAddressResponse")
+	fd_QueryBalancesByAddressResponse_address = md_QueryBalancesByAddressResponse.Fields().ByName("address")
+	fd_QueryBalancesByAddressResponse_total_amounts = md_QueryBalancesByAddressResponse.Fields().ByName("total_amounts")
+	fd_QueryBalancesByAddressResponse_pagination = md_QueryBalancesByAddressResponse.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalancesByAddressResponse)(nil)
+
+type fastReflection_QueryBalancesByAddressResponse QueryBalancesByAddressResponse
+
+func (x *QueryBalancesByAddressResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByAddressResponse)(x)
+}
+
+func (x *QueryBalancesByAddressResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalancesByAddressResponse_messageType fastReflection_QueryBalancesByAddressResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalancesByAddressResponse_messageType{}
+
+type fastReflection_QueryBalancesByAddressResponse_messageType struct{}
+
+func (x fastReflection_QueryBalancesByAddressResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByAddressResponse)(nil)
+}
+func (x fastReflection_QueryBalancesByAddressResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByAddressResponse)
+}
+func (x fastReflection_QueryBalancesByAddressResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByAddressResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalancesByAddressResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByAddressResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalancesByAddressResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalancesByAddressResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalancesByAddressResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByAddressResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalancesByAddressResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalancesByAddressResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalancesByAddressResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryBalancesByAddressResponse_address, value) {
+			return
+		}
+	}
+	if len(x.TotalAmounts) != 0 {
+		value := protoreflect.ValueOfList(&_QueryBalancesByAddressResponse_2_list{list: &x.TotalAmounts})
+		if !f(fd_QueryBalancesByAddressResponse_total_amounts, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryBalancesByAddressResponse_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalancesByAddressResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.address":
+		return x.Address != ""
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts":
+		return len(x.TotalAmounts) != 0
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.address":
+		x.Address = ""
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts":
+		x.TotalAmounts = nil
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalancesByAddressResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts":
+		if len(x.TotalAmounts) == 0 {
+			return protoreflect.ValueOfList(&_QueryBalancesByAddressResponse_2_list{})
+		}
+		listValue := &_QueryBalancesByAddressResponse_2_list{list: &x.TotalAmounts}
+		return protoreflect.ValueOfList(listValue)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.address":
+		x.Address = value.Interface().(string)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts":
+		lv := value.List()
+		clv := lv.(*_QueryBalancesByAddressResponse_2_list)
+		x.TotalAmounts = *clv.list
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts":
+		if x.TotalAmounts == nil {
+			x.TotalAmounts = []*QueryBalancesByAddressResponse_TotalAmount{}
+		}
+		value := &_QueryBalancesByAddressResponse_2_list{list: &x.TotalAmounts}
+		return protoreflect.ValueOfList(value)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.address":
+		panic(fmt.Errorf("field address of message chora.voucher.v1.QueryBalancesByAddressResponse is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalancesByAddressResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.address":
+		return protoreflect.ValueOfString("")
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts":
+		list := []*QueryBalancesByAddressResponse_TotalAmount{}
+		return protoreflect.ValueOfList(&_QueryBalancesByAddressResponse_2_list{list: &list})
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalancesByAddressResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalancesByAddressResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalancesByAddressResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalancesByAddressResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalancesByAddressResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalancesByAddressResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if len(x.TotalAmounts) > 0 {
+			for _, e := range x.TotalAmounts {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByAddressResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.TotalAmounts) > 0 {
+			for iNdEx := len(x.TotalAmounts) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.TotalAmounts[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x12
+			}
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByAddressResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByAddressResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByAddressResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field TotalAmounts", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.TotalAmounts = append(x.TotalAmounts, &QueryBalancesByAddressResponse_TotalAmount{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.TotalAmounts[len(x.TotalAmounts)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryBalancesByAddressResponse_TotalAmount              protoreflect.MessageDescriptor
+	fd_QueryBalancesByAddressResponse_TotalAmount_id           protoreflect.FieldDescriptor
+	fd_QueryBalancesByAddressResponse_TotalAmount_total_amount protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalancesByAddressResponse_TotalAmount = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalancesByAddressResponse").Messages().ByName("TotalAmount")
+	fd_QueryBalancesByAddressResponse_TotalAmount_id = md_QueryBalancesByAddressResponse_TotalAmount.Fields().ByName("id")
+	fd_QueryBalancesByAddressResponse_TotalAmount_total_amount = md_QueryBalancesByAddressResponse_TotalAmount.Fields().ByName("total_amount")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalancesByAddressResponse_TotalAmount)(nil)
+
+type fastReflection_QueryBalancesByAddressResponse_TotalAmount QueryBalancesByAddressResponse_TotalAmount
+
+func (x *QueryBalancesByAddressResponse_TotalAmount) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByAddressResponse_TotalAmount)(x)
+}
+
+func (x *QueryBalancesByAddressResponse_TotalAmount) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType{}
+
+type fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType struct{}
+
+func (x fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByAddressResponse_TotalAmount)(nil)
+}
+func (x fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByAddressResponse_TotalAmount)
+}
+func (x fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByAddressResponse_TotalAmount
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByAddressResponse_TotalAmount
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalancesByAddressResponse_TotalAmount_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByAddressResponse_TotalAmount)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalancesByAddressResponse_TotalAmount)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryBalancesByAddressResponse_TotalAmount_id, value) {
+			return
+		}
+	}
+	if x.TotalAmount != "" {
+		value := protoreflect.ValueOfString(x.TotalAmount)
+		if !f(fd_QueryBalancesByAddressResponse_TotalAmount_total_amount, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.id":
+		return x.Id != uint64(0)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.total_amount":
+		return x.TotalAmount != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.id":
+		x.Id = uint64(0)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.total_amount":
+		x.TotalAmount = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.total_amount":
+		value := x.TotalAmount
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.id":
+		x.Id = value.Uint()
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.total_amount":
+		x.TotalAmount = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.id":
+		panic(fmt.Errorf("field id of message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount is not mutable"))
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.total_amount":
+		panic(fmt.Errorf("field total_amount of message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount.total_amount":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalancesByAddressResponse_TotalAmount) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalancesByAddressResponse_TotalAmount)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		l = len(x.TotalAmount)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByAddressResponse_TotalAmount)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.TotalAmount) > 0 {
+			i -= len(x.TotalAmount)
+			copy(dAtA[i:], x.TotalAmount)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.TotalAmount)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByAddressResponse_TotalAmount)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByAddressResponse_TotalAmount: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByAddressResponse_TotalAmount: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field TotalAmount", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.TotalAmount = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryBalancesByVoucherRequest            protoreflect.MessageDescriptor
+	fd_QueryBalancesByVoucherRequest_id         protoreflect.FieldDescriptor
+	fd_QueryBalancesByVoucherRequest_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalancesByVoucherRequest = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalancesByVoucherRequest")
+	fd_QueryBalancesByVoucherRequest_id = md_QueryBalancesByVoucherRequest.Fields().ByName("id")
+	fd_QueryBalancesByVoucherRequest_pagination = md_QueryBalancesByVoucherRequest.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalancesByVoucherRequest)(nil)
+
+type fastReflection_QueryBalancesByVoucherRequest QueryBalancesByVoucherRequest
+
+func (x *QueryBalancesByVoucherRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByVoucherRequest)(x)
+}
+
+func (x *QueryBalancesByVoucherRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalancesByVoucherRequest_messageType fastReflection_QueryBalancesByVoucherRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalancesByVoucherRequest_messageType{}
+
+type fastReflection_QueryBalancesByVoucherRequest_messageType struct{}
+
+func (x fastReflection_QueryBalancesByVoucherRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByVoucherRequest)(nil)
+}
+func (x fastReflection_QueryBalancesByVoucherRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByVoucherRequest)
+}
+func (x fastReflection_QueryBalancesByVoucherRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByVoucherRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByVoucherRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalancesByVoucherRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalancesByVoucherRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByVoucherRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalancesByVoucherRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryBalancesByVoucherRequest_id, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryBalancesByVoucherRequest_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.id":
+		return x.Id != uint64(0)
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.id":
+		x.Id = uint64(0)
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.id":
+		x.Id = value.Uint()
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageRequest)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.id":
+		panic(fmt.Errorf("field id of message chora.voucher.v1.QueryBalancesByVoucherRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalancesByVoucherRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.voucher.v1.QueryBalancesByVoucherRequest.pagination":
+		m := new(v1beta1.PageRequest)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherRequest"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalancesByVoucherRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalancesByVoucherRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalancesByVoucherRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalancesByVoucherRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalancesByVoucherRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalancesByVoucherRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByVoucherRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByVoucherRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByVoucherRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByVoucherRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageRequest{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryBalancesByVoucherResponse_2_list)(nil)
+
+type _QueryBalancesByVoucherResponse_2_list struct {
+	list *[]*QueryBalancesByVoucherResponse_TotalAmount
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryBalancesByVoucherResponse_TotalAmount)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*QueryBalancesByVoucherResponse_TotalAmount)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) AppendMutable() protoreflect.Value {
+	v := new(QueryBalancesByVoucherResponse_TotalAmount)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) NewElement() protoreflect.Value {
+	v := new(QueryBalancesByVoucherResponse_TotalAmount)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryBalancesByVoucherResponse_2_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryBalancesByVoucherResponse               protoreflect.MessageDescriptor
+	fd_QueryBalancesByVoucherResponse_id            protoreflect.FieldDescriptor
+	fd_QueryBalancesByVoucherResponse_total_amounts protoreflect.FieldDescriptor
+	fd_QueryBalancesByVoucherResponse_pagination    protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalancesByVoucherResponse = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalancesByVoucherResponse")
+	fd_QueryBalancesByVoucherResponse_id = md_QueryBalancesByVoucherResponse.Fields().ByName("id")
+	fd_QueryBalancesByVoucherResponse_total_amounts = md_QueryBalancesByVoucherResponse.Fields().ByName("total_amounts")
+	fd_QueryBalancesByVoucherResponse_pagination = md_QueryBalancesByVoucherResponse.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalancesByVoucherResponse)(nil)
+
+type fastReflection_QueryBalancesByVoucherResponse QueryBalancesByVoucherResponse
+
+func (x *QueryBalancesByVoucherResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByVoucherResponse)(x)
+}
+
+func (x *QueryBalancesByVoucherResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalancesByVoucherResponse_messageType fastReflection_QueryBalancesByVoucherResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalancesByVoucherResponse_messageType{}
+
+type fastReflection_QueryBalancesByVoucherResponse_messageType struct{}
+
+func (x fastReflection_QueryBalancesByVoucherResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByVoucherResponse)(nil)
+}
+func (x fastReflection_QueryBalancesByVoucherResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByVoucherResponse)
+}
+func (x fastReflection_QueryBalancesByVoucherResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByVoucherResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByVoucherResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalancesByVoucherResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalancesByVoucherResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByVoucherResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalancesByVoucherResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryBalancesByVoucherResponse_id, value) {
+			return
+		}
+	}
+	if len(x.TotalAmounts) != 0 {
+		value := protoreflect.ValueOfList(&_QueryBalancesByVoucherResponse_2_list{list: &x.TotalAmounts})
+		if !f(fd_QueryBalancesByVoucherResponse_total_amounts, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryBalancesByVoucherResponse_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.id":
+		return x.Id != uint64(0)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts":
+		return len(x.TotalAmounts) != 0
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.id":
+		x.Id = uint64(0)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts":
+		x.TotalAmounts = nil
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts":
+		if len(x.TotalAmounts) == 0 {
+			return protoreflect.ValueOfList(&_QueryBalancesByVoucherResponse_2_list{})
+		}
+		listValue := &_QueryBalancesByVoucherResponse_2_list{list: &x.TotalAmounts}
+		return protoreflect.ValueOfList(listValue)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.id":
+		x.Id = value.Uint()
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts":
+		lv := value.List()
+		clv := lv.(*_QueryBalancesByVoucherResponse_2_list)
+		x.TotalAmounts = *clv.list
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts":
+		if x.TotalAmounts == nil {
+			x.TotalAmounts = []*QueryBalancesByVoucherResponse_TotalAmount{}
+		}
+		value := &_QueryBalancesByVoucherResponse_2_list{list: &x.TotalAmounts}
+		return protoreflect.ValueOfList(value)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.id":
+		panic(fmt.Errorf("field id of message chora.voucher.v1.QueryBalancesByVoucherResponse is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalancesByVoucherResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts":
+		list := []*QueryBalancesByVoucherResponse_TotalAmount{}
+		return protoreflect.ValueOfList(&_QueryBalancesByVoucherResponse_2_list{list: &list})
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalancesByVoucherResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalancesByVoucherResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalancesByVoucherResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalancesByVoucherResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalancesByVoucherResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalancesByVoucherResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		if len(x.TotalAmounts) > 0 {
+			for _, e := range x.TotalAmounts {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByVoucherResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.TotalAmounts) > 0 {
+			for iNdEx := len(x.TotalAmounts) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.TotalAmounts[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x12
+			}
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByVoucherResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByVoucherResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByVoucherResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field TotalAmounts", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.TotalAmounts = append(x.TotalAmounts, &QueryBalancesByVoucherResponse_TotalAmount{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.TotalAmounts[len(x.TotalAmounts)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryBalancesByVoucherResponse_TotalAmount              protoreflect.MessageDescriptor
+	fd_QueryBalancesByVoucherResponse_TotalAmount_address      protoreflect.FieldDescriptor
+	fd_QueryBalancesByVoucherResponse_TotalAmount_total_amount protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_voucher_v1_query_proto_init()
+	md_QueryBalancesByVoucherResponse_TotalAmount = File_chora_voucher_v1_query_proto.Messages().ByName("QueryBalancesByVoucherResponse").Messages().ByName("TotalAmount")
+	fd_QueryBalancesByVoucherResponse_TotalAmount_address = md_QueryBalancesByVoucherResponse_TotalAmount.Fields().ByName("address")
+	fd_QueryBalancesByVoucherResponse_TotalAmount_total_amount = md_QueryBalancesByVoucherResponse_TotalAmount.Fields().ByName("total_amount")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryBalancesByVoucherResponse_TotalAmount)(nil)
+
+type fastReflection_QueryBalancesByVoucherResponse_TotalAmount QueryBalancesByVoucherResponse_TotalAmount
+
+func (x *QueryBalancesByVoucherResponse_TotalAmount) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByVoucherResponse_TotalAmount)(x)
+}
+
+func (x *QueryBalancesByVoucherResponse_TotalAmount) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_voucher_v1_query_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType
+var _ protoreflect.MessageType = fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType{}
+
+type fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType struct{}
+
+func (x fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryBalancesByVoucherResponse_TotalAmount)(nil)
+}
+func (x fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByVoucherResponse_TotalAmount)
+}
+func (x fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByVoucherResponse_TotalAmount
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryBalancesByVoucherResponse_TotalAmount
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Type() protoreflect.MessageType {
+	return _fastReflection_QueryBalancesByVoucherResponse_TotalAmount_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) New() protoreflect.Message {
+	return new(fastReflection_QueryBalancesByVoucherResponse_TotalAmount)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Interface() protoreflect.ProtoMessage {
+	return (*QueryBalancesByVoucherResponse_TotalAmount)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryBalancesByVoucherResponse_TotalAmount_address, value) {
+			return
+		}
+	}
+	if x.TotalAmount != "" {
+		value := protoreflect.ValueOfString(x.TotalAmount)
+		if !f(fd_QueryBalancesByVoucherResponse_TotalAmount_total_amount, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.address":
+		return x.Address != ""
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.total_amount":
+		return x.TotalAmount != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.address":
+		x.Address = ""
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.total_amount":
+		x.TotalAmount = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.total_amount":
+		value := x.TotalAmount
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.address":
+		x.Address = value.Interface().(string)
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.total_amount":
+		x.TotalAmount = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.address":
+		panic(fmt.Errorf("field address of message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount is not mutable"))
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.total_amount":
+		panic(fmt.Errorf("field total_amount of message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.address":
+		return protoreflect.ValueOfString("")
+	case "chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount.total_amount":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount"))
+		}
+		panic(fmt.Errorf("message chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryBalancesByVoucherResponse_TotalAmount) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryBalancesByVoucherResponse_TotalAmount)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.TotalAmount)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByVoucherResponse_TotalAmount)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.TotalAmount) > 0 {
+			i -= len(x.TotalAmount)
+			copy(dAtA[i:], x.TotalAmount)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.TotalAmount)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryBalancesByVoucherResponse_TotalAmount)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByVoucherResponse_TotalAmount: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryBalancesByVoucherResponse_TotalAmount: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field TotalAmount", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.TotalAmount = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -4383,6 +9214,318 @@ func (x *QueryVouchersByIssuerResponse) GetPagination() *v1beta1.PageResponse {
 	return nil
 }
 
+// QueryBalanceRequest is the Query/Balance request type.
+type QueryBalanceRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the voucher.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// address is the address of the voucher owner.
+	Address string `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (x *QueryBalanceRequest) Reset() {
+	*x = QueryBalanceRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalanceRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryBalanceRequest.ProtoReflect.Descriptor instead.
+func (*QueryBalanceRequest) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *QueryBalanceRequest) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *QueryBalanceRequest) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+// QueryBalanceResponse is the Query/Balance response type.
+type QueryBalanceResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the voucher.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// address is the address of the voucher owner.
+	Address string `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
+	// total_amount is the total amount the address owns.
+	TotalAmount string `protobuf:"bytes,3,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
+	// amounts is the list of amounts with expiration.
+	Amounts []*QueryBalanceResponse_Amount `protobuf:"bytes,4,rep,name=amounts,proto3" json:"amounts,omitempty"`
+}
+
+func (x *QueryBalanceResponse) Reset() {
+	*x = QueryBalanceResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalanceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalanceResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryBalanceResponse.ProtoReflect.Descriptor instead.
+func (*QueryBalanceResponse) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *QueryBalanceResponse) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *QueryBalanceResponse) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+func (x *QueryBalanceResponse) GetTotalAmount() string {
+	if x != nil {
+		return x.TotalAmount
+	}
+	return ""
+}
+
+func (x *QueryBalanceResponse) GetAmounts() []*QueryBalanceResponse_Amount {
+	if x != nil {
+		return x.Amounts
+	}
+	return nil
+}
+
+// QueryBalancesByAddressRequest is the Query/BalancesByAddress request type.
+type QueryBalancesByAddressRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// address is the address of the voucher owner.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	// pagination is the optional pagination of the request.
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryBalancesByAddressRequest) Reset() {
+	*x = QueryBalancesByAddressRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalancesByAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalancesByAddressRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryBalancesByAddressRequest.ProtoReflect.Descriptor instead.
+func (*QueryBalancesByAddressRequest) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *QueryBalancesByAddressRequest) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+func (x *QueryBalancesByAddressRequest) GetPagination() *v1beta1.PageRequest {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+// QueryBalancesByAddressResponse is the Query/BalancesByAddress response type.
+type QueryBalancesByAddressResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// address is the address of the voucher owner.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	// total_amounts is the list of total amounts.
+	TotalAmounts []*QueryBalancesByAddressResponse_TotalAmount `protobuf:"bytes,2,rep,name=total_amounts,json=totalAmounts,proto3" json:"total_amounts,omitempty"`
+	// pagination is the pagination of the response.
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryBalancesByAddressResponse) Reset() {
+	*x = QueryBalancesByAddressResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalancesByAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalancesByAddressResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryBalancesByAddressResponse.ProtoReflect.Descriptor instead.
+func (*QueryBalancesByAddressResponse) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *QueryBalancesByAddressResponse) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+func (x *QueryBalancesByAddressResponse) GetTotalAmounts() []*QueryBalancesByAddressResponse_TotalAmount {
+	if x != nil {
+		return x.TotalAmounts
+	}
+	return nil
+}
+
+func (x *QueryBalancesByAddressResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+// QueryBalancesByVoucherRequest is the Query/BalancesByVoucher request type.
+type QueryBalancesByVoucherRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the voucher.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// pagination is the optional pagination of the request.
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryBalancesByVoucherRequest) Reset() {
+	*x = QueryBalancesByVoucherRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalancesByVoucherRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalancesByVoucherRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryBalancesByVoucherRequest.ProtoReflect.Descriptor instead.
+func (*QueryBalancesByVoucherRequest) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *QueryBalancesByVoucherRequest) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *QueryBalancesByVoucherRequest) GetPagination() *v1beta1.PageRequest {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+// QueryBalancesByVoucherResponse is the Query/BalancesByVoucher response type.
+type QueryBalancesByVoucherResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the voucher.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// total_amounts is the list of total amounts.
+	TotalAmounts []*QueryBalancesByVoucherResponse_TotalAmount `protobuf:"bytes,2,rep,name=total_amounts,json=totalAmounts,proto3" json:"total_amounts,omitempty"`
+	// pagination is the pagination of the response.
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryBalancesByVoucherResponse) Reset() {
+	*x = QueryBalancesByVoucherResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalancesByVoucherResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalancesByVoucherResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryBalancesByVoucherResponse.ProtoReflect.Descriptor instead.
+func (*QueryBalancesByVoucherResponse) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *QueryBalancesByVoucherResponse) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *QueryBalancesByVoucherResponse) GetTotalAmounts() []*QueryBalancesByVoucherResponse_TotalAmount {
+	if x != nil {
+		return x.TotalAmounts
+	}
+	return nil
+}
+
+func (x *QueryBalancesByVoucherResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
 // Voucher is the voucher properties.
 type QueryVouchersResponse_Voucher struct {
 	state         protoimpl.MessageState
@@ -4400,7 +9543,7 @@ type QueryVouchersResponse_Voucher struct {
 func (x *QueryVouchersResponse_Voucher) Reset() {
 	*x = QueryVouchersResponse_Voucher{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_voucher_v1_query_proto_msgTypes[6]
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4453,7 +9596,7 @@ type QueryVouchersByIssuerResponse_Voucher struct {
 func (x *QueryVouchersByIssuerResponse_Voucher) Reset() {
 	*x = QueryVouchersByIssuerResponse_Voucher{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_voucher_v1_query_proto_msgTypes[7]
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4484,6 +9627,144 @@ func (x *QueryVouchersByIssuerResponse_Voucher) GetMetadata() string {
 	return ""
 }
 
+// Amount is the amount with expiration.
+type QueryBalanceResponse_Amount struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// amount is the amount of vouchers.
+	Amount string `protobuf:"bytes,1,opt,name=amount,proto3" json:"amount,omitempty"`
+	// expiration is the expiration of the voucher.
+	Expiration *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expiration,proto3" json:"expiration,omitempty"`
+}
+
+func (x *QueryBalanceResponse_Amount) Reset() {
+	*x = QueryBalanceResponse_Amount{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalanceResponse_Amount) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalanceResponse_Amount) ProtoMessage() {}
+
+// Deprecated: Use QueryBalanceResponse_Amount.ProtoReflect.Descriptor instead.
+func (*QueryBalanceResponse_Amount) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{7, 0}
+}
+
+func (x *QueryBalanceResponse_Amount) GetAmount() string {
+	if x != nil {
+		return x.Amount
+	}
+	return ""
+}
+
+func (x *QueryBalanceResponse_Amount) GetExpiration() *timestamppb.Timestamp {
+	if x != nil {
+		return x.Expiration
+	}
+	return nil
+}
+
+// TotalAmount is the total amount.
+type QueryBalancesByAddressResponse_TotalAmount struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// id is the unique identifier of the voucher.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// total_amount is the total amount the address owns.
+	TotalAmount string `protobuf:"bytes,2,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
+}
+
+func (x *QueryBalancesByAddressResponse_TotalAmount) Reset() {
+	*x = QueryBalancesByAddressResponse_TotalAmount{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalancesByAddressResponse_TotalAmount) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalancesByAddressResponse_TotalAmount) ProtoMessage() {}
+
+// Deprecated: Use QueryBalancesByAddressResponse_TotalAmount.ProtoReflect.Descriptor instead.
+func (*QueryBalancesByAddressResponse_TotalAmount) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{9, 0}
+}
+
+func (x *QueryBalancesByAddressResponse_TotalAmount) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *QueryBalancesByAddressResponse_TotalAmount) GetTotalAmount() string {
+	if x != nil {
+		return x.TotalAmount
+	}
+	return ""
+}
+
+// TotalAmount is the total amount.
+type QueryBalancesByVoucherResponse_TotalAmount struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// address is the address of the voucher owner.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	// total_amount is the total amount the address owns.
+	TotalAmount string `protobuf:"bytes,2,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
+}
+
+func (x *QueryBalancesByVoucherResponse_TotalAmount) Reset() {
+	*x = QueryBalancesByVoucherResponse_TotalAmount{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_voucher_v1_query_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryBalancesByVoucherResponse_TotalAmount) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryBalancesByVoucherResponse_TotalAmount) ProtoMessage() {}
+
+// Deprecated: Use QueryBalancesByVoucherResponse_TotalAmount.ProtoReflect.Descriptor instead.
+func (*QueryBalancesByVoucherResponse_TotalAmount) Descriptor() ([]byte, []int) {
+	return file_chora_voucher_v1_query_proto_rawDescGZIP(), []int{11, 0}
+}
+
+func (x *QueryBalancesByVoucherResponse_TotalAmount) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+func (x *QueryBalancesByVoucherResponse_TotalAmount) GetTotalAmount() string {
+	if x != nil {
+		return x.TotalAmount
+	}
+	return ""
+}
+
 var File_chora_voucher_v1_query_proto protoreflect.FileDescriptor
 
 var file_chora_voucher_v1_query_proto_rawDesc = []byte{
@@ -4492,105 +9773,212 @@ var file_chora_voucher_v1_query_proto_rawDesc = []byte{
 	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31,
 	0x1a, 0x2a, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x62, 0x61, 0x73, 0x65, 0x2f, 0x71, 0x75,
 	0x65, 0x72, 0x79, 0x2f, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2f, 0x70, 0x61, 0x67, 0x69,
-	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c, 0x67, 0x6f,
-	0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x25, 0x0a, 0x13, 0x51, 0x75,
-	0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69,
-	0x64, 0x22, 0x5a, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
-	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x69, 0x73, 0x73,
-	0x75, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65,
-	0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0x5e, 0x0a,
-	0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d,
-	0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31,
-	0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0xfc, 0x01,
-	0x0a, 0x15, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x08, 0x76, 0x6f, 0x75, 0x63, 0x68,
-	0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72,
-	0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65,
-	0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x2e, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x08, 0x76, 0x6f, 0x75, 0x63,
-	0x68, 0x65, 0x72, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
-	0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62,
-	0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x4d, 0x0a,
-	0x07, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x69, 0x73, 0x73, 0x75,
-	0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72,
-	0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0x7e, 0x0a, 0x1c,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49,
-	0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06,
-	0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x73,
-	0x73, 0x75, 0x65, 0x72, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
-	0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62,
-	0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x8c, 0x02, 0x0a,
-	0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79,
-	0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
-	0x0a, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x53, 0x0a, 0x08, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65,
-	0x72, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72,
-	0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49, 0x73, 0x73, 0x75, 0x65,
-	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
+	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x14, 0x67, 0x6f,
+	0x67, 0x6f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x67, 0x6f, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61,
+	0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x1a, 0x1f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
+	0x66, 0x2f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x22, 0x25, 0x0a, 0x13, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
+	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x5a, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
+	0x12, 0x16, 0x0a, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x22, 0x5e, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75,
+	0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x46, 0x0a, 0x0a,
+	0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71,
+	0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x22, 0xfc, 0x01, 0x0a, 0x15, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f,
+	0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b,
+	0x0a, 0x08, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
 	0x72, 0x52, 0x08, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70,
-	0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75,
 	0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x35, 0x0a, 0x07, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x12,
+	0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x4d, 0x0a, 0x07, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x12,
 	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12,
-	0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x32, 0xb8, 0x03, 0x0a, 0x05,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x80, 0x01, 0x0a, 0x07, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
-	0x72, 0x12, 0x25, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65,
-	0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
-	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
+	0x16, 0x0a, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x22, 0x7e, 0x0a, 0x1c, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63,
+	0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x46, 0x0a, 0x0a, 0x70,
+	0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75,
+	0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x22, 0x8c, 0x02, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75,
+	0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x53, 0x0a,
+	0x08, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32,
+	0x37, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73,
+	0x42, 0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x2e, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x08, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65,
+	0x72, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e,
+	0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74,
+	0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52,
+	0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x35, 0x0a, 0x07, 0x56,
+	0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0x22, 0x3f, 0x0a, 0x13, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e,
+	0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64,
+	0x72, 0x65, 0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72,
+	0x65, 0x73, 0x73, 0x22, 0x90, 0x02, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c,
+	0x61, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61,
+	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x21, 0x0a, 0x0c, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x5f,
+	0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x74, 0x6f,
+	0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x47, 0x0a, 0x07, 0x61, 0x6d, 0x6f,
+	0x75, 0x6e, 0x74, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2d, 0x2e, 0x63, 0x68, 0x6f,
+	0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x2e, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x07, 0x61, 0x6d, 0x6f, 0x75, 0x6e,
+	0x74, 0x73, 0x1a, 0x62, 0x0a, 0x06, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x16, 0x0a, 0x06,
+	0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x6d,
+	0x6f, 0x75, 0x6e, 0x74, 0x12, 0x40, 0x0a, 0x0a, 0x65, 0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
+	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73,
+	0x74, 0x61, 0x6d, 0x70, 0x42, 0x04, 0x90, 0xdf, 0x1f, 0x01, 0x52, 0x0a, 0x65, 0x78, 0x70, 0x69,
+	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x81, 0x01, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72,
+	0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e,
+	0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74,
+	0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a,
+	0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0xa8, 0x02, 0x0a, 0x1e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x41, 0x64,
+	0x64, 0x72, 0x65, 0x73, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x61, 0x0a, 0x0d, 0x74, 0x6f, 0x74, 0x61, 0x6c,
+	0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x3c,
+	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76,
+	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42,
+	0x79, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x2e, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0c, 0x74, 0x6f,
+	0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61,
+	0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27,
+	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65,
+	0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x1a, 0x40, 0x0a, 0x0b, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75,
+	0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02,
+	0x69, 0x64, 0x12, 0x21, 0x0a, 0x0c, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x5f, 0x61, 0x6d, 0x6f, 0x75,
+	0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x41,
+	0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x77, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61,
+	0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x63, 0x6f, 0x73,
+	0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76,
+	0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0xa8,
+	0x02, 0x0a, 0x1e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73,
+	0x42, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69,
+	0x64, 0x12, 0x61, 0x0a, 0x0d, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e,
+	0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x3c, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
 	0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72,
-	0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x6f, 0x75, 0x63,
-	0x68, 0x65, 0x72, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x12, 0x7f, 0x0a, 0x08, 0x56, 0x6f, 0x75, 0x63,
-	0x68, 0x65, 0x72, 0x73, 0x12, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75,
-	0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75,
-	0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x27, 0x2e, 0x63,
+	0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68,
+	0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x54, 0x6f, 0x74, 0x61, 0x6c,
+	0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0c, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f,
+	0x75, 0x6e, 0x74, 0x73, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62,
+	0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x4a, 0x0a,
+	0x0b, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x18, 0x0a, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61,
+	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x21, 0x0a, 0x0c, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x5f,
+	0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x74, 0x6f,
+	0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x32, 0x8e, 0x07, 0x0a, 0x05, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x12, 0x80, 0x01, 0x0a, 0x07, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x12,
+	0x25, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76,
+	0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56,
+	0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76,
+	0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65,
+	0x72, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x12, 0x7f, 0x0a, 0x08, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65,
+	0x72, 0x73, 0x12, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68,
+	0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68,
+	0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x27, 0x2e, 0x63, 0x68, 0x6f,
+	0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x22, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1c, 0x12, 0x1a, 0x2f, 0x63, 0x68,
+	0x6f, 0x72, 0x61, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76,
+	0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x12, 0xaa, 0x01, 0x0a, 0x10, 0x56, 0x6f, 0x75, 0x63,
+	0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x2e, 0x2e, 0x63,
 	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x22, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1c, 0x12, 0x1a, 0x2f,
-	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31,
-	0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x12, 0xaa, 0x01, 0x0a, 0x10, 0x56, 0x6f,
-	0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x12, 0x2e,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49,
+	0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42, 0x79, 0x49,
+	0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x35, 0x82,
+	0xd3, 0xe4, 0x93, 0x02, 0x2f, 0x12, 0x2d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x6f,
+	0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72,
+	0x73, 0x2d, 0x62, 0x79, 0x2d, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x2f, 0x7b, 0x69, 0x73, 0x73,
+	0x75, 0x65, 0x72, 0x7d, 0x12, 0x8a, 0x01, 0x0a, 0x07, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65,
+	0x12, 0x25, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x30, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2a, 0x12, 0x28, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f,
+	0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x61, 0x6c, 0x61, 0x6e,
+	0x63, 0x65, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x2f, 0x7b, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x7d, 0x12, 0xa4, 0x01, 0x0a, 0x11, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79,
+	0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x30, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
+	0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x41, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2c, 0x82, 0xd3, 0xe4, 0x93,
+	0x02, 0x26, 0x12, 0x24, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68,
+	0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x2f, 0x7b,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x7d, 0x12, 0x9f, 0x01, 0x0a, 0x11, 0x42, 0x61, 0x6c,
+	0x61, 0x6e, 0x63, 0x65, 0x73, 0x42, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x12, 0x2f,
 	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76,
-	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42,
-	0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f,
-	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76,
-	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x73, 0x42,
-	0x79, 0x49, 0x73, 0x73, 0x75, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x35, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2f, 0x12, 0x2d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f,
-	0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68,
-	0x65, 0x72, 0x73, 0x2d, 0x62, 0x79, 0x2d, 0x69, 0x73, 0x73, 0x75, 0x65, 0x72, 0x2f, 0x7b, 0x69,
-	0x73, 0x73, 0x75, 0x65, 0x72, 0x7d, 0x42, 0xc4, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63,
-	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x42,
-	0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x3e, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69,
-	0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x61,
-	0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72,
-	0x2f, 0x76, 0x31, 0x3b, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03,
-	0x43, 0x56, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x56, 0x6f, 0x75, 0x63,
-	0x68, 0x65, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56,
-	0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72,
-	0x61, 0x5c, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42,
-	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61,
-	0x3a, 0x3a, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73, 0x42,
+	0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x30, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x73,
+	0x42, 0x79, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x27, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x21, 0x12, 0x1f, 0x2f, 0x63, 0x68, 0x6f, 0x72,
+	0x61, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x61, 0x6c,
+	0x61, 0x6e, 0x63, 0x65, 0x73, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x42, 0xc4, 0x01, 0x0a, 0x14, 0x63,
+	0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72,
+	0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50,
+	0x01, 0x5a, 0x3e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68,
+	0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x6f, 0x75, 0x63, 0x68,
+	0x65, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x6f, 0x75,
+	0x63, 0x68, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x76,
+	0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f,
+	0x72, 0x61, 0x5c, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c,
+	0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x5c, 0x56, 0x31,
+	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43,
+	0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x3a, 0x3a, 0x56,
+	0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -4605,37 +9993,61 @@ func file_chora_voucher_v1_query_proto_rawDescGZIP() []byte {
 	return file_chora_voucher_v1_query_proto_rawDescData
 }
 
-var file_chora_voucher_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_chora_voucher_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_chora_voucher_v1_query_proto_goTypes = []interface{}{
-	(*QueryVoucherRequest)(nil),                   // 0: chora.voucher.v1.QueryVoucherRequest
-	(*QueryVoucherResponse)(nil),                  // 1: chora.voucher.v1.QueryVoucherResponse
-	(*QueryVouchersRequest)(nil),                  // 2: chora.voucher.v1.QueryVouchersRequest
-	(*QueryVouchersResponse)(nil),                 // 3: chora.voucher.v1.QueryVouchersResponse
-	(*QueryVouchersByIssuerRequest)(nil),          // 4: chora.voucher.v1.QueryVouchersByIssuerRequest
-	(*QueryVouchersByIssuerResponse)(nil),         // 5: chora.voucher.v1.QueryVouchersByIssuerResponse
-	(*QueryVouchersResponse_Voucher)(nil),         // 6: chora.voucher.v1.QueryVouchersResponse.Voucher
-	(*QueryVouchersByIssuerResponse_Voucher)(nil), // 7: chora.voucher.v1.QueryVouchersByIssuerResponse.Voucher
-	(*v1beta1.PageRequest)(nil),                   // 8: cosmos.base.query.v1beta1.PageRequest
-	(*v1beta1.PageResponse)(nil),                  // 9: cosmos.base.query.v1beta1.PageResponse
+	(*QueryVoucherRequest)(nil),                        // 0: chora.voucher.v1.QueryVoucherRequest
+	(*QueryVoucherResponse)(nil),                       // 1: chora.voucher.v1.QueryVoucherResponse
+	(*QueryVouchersRequest)(nil),                       // 2: chora.voucher.v1.QueryVouchersRequest
+	(*QueryVouchersResponse)(nil),                      // 3: chora.voucher.v1.QueryVouchersResponse
+	(*QueryVouchersByIssuerRequest)(nil),               // 4: chora.voucher.v1.QueryVouchersByIssuerRequest
+	(*QueryVouchersByIssuerResponse)(nil),              // 5: chora.voucher.v1.QueryVouchersByIssuerResponse
+	(*QueryBalanceRequest)(nil),                        // 6: chora.voucher.v1.QueryBalanceRequest
+	(*QueryBalanceResponse)(nil),                       // 7: chora.voucher.v1.QueryBalanceResponse
+	(*QueryBalancesByAddressRequest)(nil),              // 8: chora.voucher.v1.QueryBalancesByAddressRequest
+	(*QueryBalancesByAddressResponse)(nil),             // 9: chora.voucher.v1.QueryBalancesByAddressResponse
+	(*QueryBalancesByVoucherRequest)(nil),              // 10: chora.voucher.v1.QueryBalancesByVoucherRequest
+	(*QueryBalancesByVoucherResponse)(nil),             // 11: chora.voucher.v1.QueryBalancesByVoucherResponse
+	(*QueryVouchersResponse_Voucher)(nil),              // 12: chora.voucher.v1.QueryVouchersResponse.Voucher
+	(*QueryVouchersByIssuerResponse_Voucher)(nil),      // 13: chora.voucher.v1.QueryVouchersByIssuerResponse.Voucher
+	(*QueryBalanceResponse_Amount)(nil),                // 14: chora.voucher.v1.QueryBalanceResponse.Amount
+	(*QueryBalancesByAddressResponse_TotalAmount)(nil), // 15: chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount
+	(*QueryBalancesByVoucherResponse_TotalAmount)(nil), // 16: chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount
+	(*v1beta1.PageRequest)(nil),                        // 17: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil),                       // 18: cosmos.base.query.v1beta1.PageResponse
+	(*timestamppb.Timestamp)(nil),                      // 19: google.protobuf.Timestamp
 }
 var file_chora_voucher_v1_query_proto_depIdxs = []int32{
-	8, // 0: chora.voucher.v1.QueryVouchersRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	6, // 1: chora.voucher.v1.QueryVouchersResponse.vouchers:type_name -> chora.voucher.v1.QueryVouchersResponse.Voucher
-	9, // 2: chora.voucher.v1.QueryVouchersResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	8, // 3: chora.voucher.v1.QueryVouchersByIssuerRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	7, // 4: chora.voucher.v1.QueryVouchersByIssuerResponse.vouchers:type_name -> chora.voucher.v1.QueryVouchersByIssuerResponse.Voucher
-	9, // 5: chora.voucher.v1.QueryVouchersByIssuerResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	0, // 6: chora.voucher.v1.Query.Voucher:input_type -> chora.voucher.v1.QueryVoucherRequest
-	2, // 7: chora.voucher.v1.Query.Vouchers:input_type -> chora.voucher.v1.QueryVouchersRequest
-	4, // 8: chora.voucher.v1.Query.VouchersByIssuer:input_type -> chora.voucher.v1.QueryVouchersByIssuerRequest
-	1, // 9: chora.voucher.v1.Query.Voucher:output_type -> chora.voucher.v1.QueryVoucherResponse
-	3, // 10: chora.voucher.v1.Query.Vouchers:output_type -> chora.voucher.v1.QueryVouchersResponse
-	5, // 11: chora.voucher.v1.Query.VouchersByIssuer:output_type -> chora.voucher.v1.QueryVouchersByIssuerResponse
-	9, // [9:12] is the sub-list for method output_type
-	6, // [6:9] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	17, // 0: chora.voucher.v1.QueryVouchersRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	12, // 1: chora.voucher.v1.QueryVouchersResponse.vouchers:type_name -> chora.voucher.v1.QueryVouchersResponse.Voucher
+	18, // 2: chora.voucher.v1.QueryVouchersResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	17, // 3: chora.voucher.v1.QueryVouchersByIssuerRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	13, // 4: chora.voucher.v1.QueryVouchersByIssuerResponse.vouchers:type_name -> chora.voucher.v1.QueryVouchersByIssuerResponse.Voucher
+	18, // 5: chora.voucher.v1.QueryVouchersByIssuerResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	14, // 6: chora.voucher.v1.QueryBalanceResponse.amounts:type_name -> chora.voucher.v1.QueryBalanceResponse.Amount
+	17, // 7: chora.voucher.v1.QueryBalancesByAddressRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	15, // 8: chora.voucher.v1.QueryBalancesByAddressResponse.total_amounts:type_name -> chora.voucher.v1.QueryBalancesByAddressResponse.TotalAmount
+	18, // 9: chora.voucher.v1.QueryBalancesByAddressResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	17, // 10: chora.voucher.v1.QueryBalancesByVoucherRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	16, // 11: chora.voucher.v1.QueryBalancesByVoucherResponse.total_amounts:type_name -> chora.voucher.v1.QueryBalancesByVoucherResponse.TotalAmount
+	18, // 12: chora.voucher.v1.QueryBalancesByVoucherResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	19, // 13: chora.voucher.v1.QueryBalanceResponse.Amount.expiration:type_name -> google.protobuf.Timestamp
+	0,  // 14: chora.voucher.v1.Query.Voucher:input_type -> chora.voucher.v1.QueryVoucherRequest
+	2,  // 15: chora.voucher.v1.Query.Vouchers:input_type -> chora.voucher.v1.QueryVouchersRequest
+	4,  // 16: chora.voucher.v1.Query.VouchersByIssuer:input_type -> chora.voucher.v1.QueryVouchersByIssuerRequest
+	6,  // 17: chora.voucher.v1.Query.Balance:input_type -> chora.voucher.v1.QueryBalanceRequest
+	8,  // 18: chora.voucher.v1.Query.BalancesByAddress:input_type -> chora.voucher.v1.QueryBalancesByAddressRequest
+	10, // 19: chora.voucher.v1.Query.BalancesByVoucher:input_type -> chora.voucher.v1.QueryBalancesByVoucherRequest
+	1,  // 20: chora.voucher.v1.Query.Voucher:output_type -> chora.voucher.v1.QueryVoucherResponse
+	3,  // 21: chora.voucher.v1.Query.Vouchers:output_type -> chora.voucher.v1.QueryVouchersResponse
+	5,  // 22: chora.voucher.v1.Query.VouchersByIssuer:output_type -> chora.voucher.v1.QueryVouchersByIssuerResponse
+	7,  // 23: chora.voucher.v1.Query.Balance:output_type -> chora.voucher.v1.QueryBalanceResponse
+	9,  // 24: chora.voucher.v1.Query.BalancesByAddress:output_type -> chora.voucher.v1.QueryBalancesByAddressResponse
+	11, // 25: chora.voucher.v1.Query.BalancesByVoucher:output_type -> chora.voucher.v1.QueryBalancesByVoucherResponse
+	20, // [20:26] is the sub-list for method output_type
+	14, // [14:20] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_chora_voucher_v1_query_proto_init() }
@@ -4717,7 +10129,7 @@ func file_chora_voucher_v1_query_proto_init() {
 			}
 		}
 		file_chora_voucher_v1_query_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryVouchersResponse_Voucher); i {
+			switch v := v.(*QueryBalanceRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4729,7 +10141,115 @@ func file_chora_voucher_v1_query_proto_init() {
 			}
 		}
 		file_chora_voucher_v1_query_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalanceResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalancesByAddressRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalancesByAddressResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalancesByVoucherRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalancesByVoucherResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryVouchersResponse_Voucher); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*QueryVouchersByIssuerResponse_Voucher); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalanceResponse_Amount); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalancesByAddressResponse_TotalAmount); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_voucher_v1_query_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryBalancesByVoucherResponse_TotalAmount); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4747,7 +10267,7 @@ func file_chora_voucher_v1_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chora_voucher_v1_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

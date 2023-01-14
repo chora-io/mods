@@ -54,6 +54,13 @@ func validateMsg(msg proto.Message) error {
 			return err
 		}
 		return m.Validate()
+
+	case *voucherv1.Balance:
+		m := &v1.Balance{}
+		if err := utils.PulsarToGogoSlow(msg, m); err != nil {
+			return err
+		}
+		return m.Validate()
 	}
 
 	return nil

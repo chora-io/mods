@@ -9,5 +9,6 @@ The messages are defined in proto files available to view on [Buf Schema Registr
 <!-- listed alphabetically -->
 
 - [Create](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Msg.Create)
+- [Issue](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Msg.Issue)
 - [UpdateIssuer](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Msg.UpdateIssuer)
 - [UpdateMetadata](https://buf.build/chora/voucher/docs/main:chora.voucher.v1#chora.voucher.v1.Msg.UpdateMetadata)
