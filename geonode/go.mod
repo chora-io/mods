@@ -17,7 +17,7 @@ require (
 	github.com/tendermint/tendermint v0.34.24
 	github.com/tendermint/tm-db v0.6.7
 	google.golang.org/genproto v0.0.0-20221118155620-16455021b5e6
-	google.golang.org/grpc v1.52.0
+	google.golang.org/grpc v1.52.1
 	google.golang.org/protobuf v1.28.2-0.20220831092852-f930b1dc76e8
 )
 
