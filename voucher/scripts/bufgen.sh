@@ -2,7 +2,7 @@
 
 set -e
 
-if ! grep "github.com/choraio/mods/voucher" go.mod &>/dev/null ; then
+if ! grep -q "github.com/choraio/mods/voucher" go.mod ; then
   echo -e "ERROR: This command must be run from inside the voucher module."
   return 1
 fi

@@ -2,7 +2,7 @@
 
 set -e
 
-if ! grep "github.com/choraio/mods/content" go.mod &>/dev/null ; then
+if ! grep -q "github.com/choraio/mods/content" go.mod ; then
   echo -e "ERROR: This command must be run from inside the content module."
   return 1
 fi
