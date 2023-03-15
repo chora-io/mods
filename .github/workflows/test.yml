@@ -36,7 +36,7 @@ jobs:
             **/**.go
             **/go.mod
             **/go.sum
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version: 'stable'
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
