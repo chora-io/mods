@@ -55,15 +55,15 @@ jobs:
             voucher/go.mod
             voucher/go.sum
         if: matrix.module == 'voucher'
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: 'content/go.mod'
         if: steps.git-diff-content.outputs.diff
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: 'geonode/go.mod'
         if: steps.git-diff-geonode.outputs.diff
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: 'voucher/go.mod'
         if: steps.git-diff-voucher.outputs.diff
@@ -152,15 +152,15 @@ jobs:
           PATTERNS: |
             voucher/**/**.proto
         if: matrix.module == 'voucher'
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: 'content/go.mod'
         if: steps.git-diff-content.outputs.diff
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: 'geonode/go.mod'
         if: steps.git-diff-geonode.outputs.diff
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: 'voucher/go.mod'
         if: steps.git-diff-voucher.outputs.diff
