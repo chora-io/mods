@@ -4,6 +4,7 @@ modules for [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) applications
 
 - [content](content)
 - [geonode](geonode)
+- [validator](validator)
 - [voucher](voucher)
 
 ## Prerequisites

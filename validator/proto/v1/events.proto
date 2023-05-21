@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package chora.validator.v1;
+
+option go_package = "github.com/choraio/mods/validator/types/v1";
+
+// EventAdd is an event emitted when a validator is added.
+message EventAdd {
+
+  // address is the address of the validator.
+  string address = 1;
+}
+
+// EventRemove is an event emitted when a validator is removed.
+message EventRemove {
+
+  // address is the address of the validator.
+  string address = 1;
+}
+
+// EventUpdateMetadata is an event emitted when validator metadata is updated.
+message EventUpdateMetadata {
+
+  // address is the address of the validator.
+  string address = 1;
+}

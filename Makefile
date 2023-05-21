@@ -109,6 +109,11 @@ proto-gen-geonode:
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-geonode$$"; then docker start -a $(containerProtoGen)-geonode; else docker run --name $(containerProtoGen)-geonode -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
 		sh -c 'cd geonode; ./scripts/bufgen.sh'; fi
 
+proto-gen-validator:
+	@echo "Generating protobuf files"
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-validator$$"; then docker start -a $(containerProtoGen)-validator; else docker run --name $(containerProtoGen)-validator -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd validator; ./scripts/bufgen.sh'; fi
+
 proto-gen-voucher:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-voucher$$"; then docker start -a $(containerProtoGen)-voucher; else docker run --name $(containerProtoGen)-voucher -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
@@ -117,7 +122,7 @@ proto-gen-voucher:
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-gen-geonode proto-gen-voucher proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-gen-geonode proto-gen-validator proto-gen-voucher proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -145,6 +150,11 @@ test-geonode:
 	@cd geonode && go test ./... \
 		-coverprofile=../coverage-geonode.out -covermode=atomic
 
+test-validator:
+	@echo "Testing Module validator"
+	@cd validator && go test ./... \
+		-coverprofile=../coverage-validator.out -covermode=atomic
+
 test-voucher:
 	@echo "Testing Module voucher"
 	@cd voucher && go test ./... \
@@ -158,7 +168,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-content test-geonode test-voucher test-coverage test-clean
+.PHONY: test test-all test-content test-geonode test-validator test-voucher test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

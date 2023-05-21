@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package chora.validator.v1;
+
+import "cosmos/orm/v1/orm.proto";
+
+option go_package = "github.com/choraio/mods/validator/types/v1";
+
+// Validator defines the table and properties of a validator.
+message Validator {
+  option (cosmos.orm.v1.table) = {
+    id : 1,
+    primary_key : {fields : "address"}
+  };
+
+  // address is the address of the validator.
+  string address = 1;
+
+  // metadata is the metadata of the validator.
+  string metadata = 2;
+}

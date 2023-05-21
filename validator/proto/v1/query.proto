@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package chora.validator.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/choraio/mods/validator/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Validator queries a validator by address.
+  rpc Validator(QueryValidatorRequest) returns (QueryValidatorResponse) {
+    option (google.api.http).get = "/chora/validator/v1/validator/{address}";
+  }
+
+  // Validators queries all validators.
+  rpc Validators(QueryValidatorsRequest) returns (QueryValidatorsResponse) {
+    option (google.api.http).get = "/chora/validator/v1/validators";
+  }
+}
+
+// QueryValidatorRequest is the Query/Validator request type.
+message QueryValidatorRequest {
+
+  // address is the address of the validator.
+  string address = 1;
+}
+
+// QueryValidatorResponse is the Query/Validator response type.
+message QueryValidatorResponse {
+
+  // address is the address of the validator.
+  string address = 1;
+
+  // metadata is the metadata of the validator.
+  string metadata = 2;
+}
+
+// QueryValidatorsRequest is the Query/Validators request type.
+message QueryValidatorsRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryValidatorsResponse is the Query/Validators response type.
+message QueryValidatorsResponse {
+
+  // validators is the list of validators.
+  repeated Validator validators = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Validator is the validator properties.
+  message Validator {
+
+    // address is the address of the validator.
+    string address = 1;
+
+    // metadata is the metadata of the validator.
+    string metadata = 2;
+  }
+}

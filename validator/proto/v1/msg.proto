@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package chora.validator.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/choraio/mods/validator/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // Add adds a validator (restricted to authority).
+  rpc Add(MsgAdd) returns (MsgAddResponse);
+
+  // Remove removes a validator (restricted to authority).
+  rpc Remove(MsgRemove) returns (MsgRemoveResponse);
+
+  // UpdateMetadata updates validator metadata (restricted to validator).
+  rpc UpdateMetadata(MsgUpdateMetadata) returns (MsgUpdateMetadataResponse);
+}
+
+// MsgAdd is the Msg/Add request type.
+message MsgAdd {
+  option (cosmos.msg.v1.signer) = "authority";
+
+  // authority is the address of the authority.
+  string authority = 1;
+
+  // address is the address of the validator.
+  string address = 2;
+
+  // metadata is the metadata of the validator.
+  string metadata = 3;
+}
+
+// MsgAddResponse is the Msg/Add response type.
+message MsgAddResponse {
+
+  // address is the address of the validator.
+  string address = 1;
+}
+
+// MsgRemove is the Msg/Remove request type.
+message MsgRemove {
+  option (cosmos.msg.v1.signer) = "authority";
+
+  // authority is the address of the authority.
+  string authority = 1;
+
+  // address is the address of the validator.
+  string address = 2;
+}
+
+// MsgRemoveResponse is the Msg/Remove response type.
+message MsgRemoveResponse {
+
+  // address is the address of the validator.
+  string address = 1;
+}
+
+// MsgUpdateMetadata is the Msg/Update request type.
+message MsgUpdateMetadata {
+  option (cosmos.msg.v1.signer) = "address";
+
+  // address is the address of the validator.
+  string address = 1;
+
+  // new_metadata is the new metadata of the validator.
+  string new_metadata = 2;
+}
+
+// MsgUpdateMetadataResponse is the Msg/Update response type.
+message MsgUpdateMetadataResponse {
+
+  // address is the address of the validator.
+  string address = 1;
+}
