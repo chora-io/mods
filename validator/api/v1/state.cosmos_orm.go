@@ -9,6 +9,36 @@ import (
 	ormerrors "github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
 )
 
+// singleton store
+type MaxMissedBlocksTable interface {
+	Get(ctx context.Context) (*MaxMissedBlocks, error)
+	Save(ctx context.Context, maxMissedBlocks *MaxMissedBlocks) error
+}
+
+type maxMissedBlocksTable struct {
+	table ormtable.Table
+}
+
+var _ MaxMissedBlocksTable = maxMissedBlocksTable{}
+
+func (x maxMissedBlocksTable) Get(ctx context.Context) (*MaxMissedBlocks, error) {
+	maxMissedBlocks := &MaxMissedBlocks{}
+	_, err := x.table.Get(ctx, maxMissedBlocks)
+	return maxMissedBlocks, err
+}
+
+func (x maxMissedBlocksTable) Save(ctx context.Context, maxMissedBlocks *MaxMissedBlocks) error {
+	return x.table.Save(ctx, maxMissedBlocks)
+}
+
+func NewMaxMissedBlocksTable(db ormtable.Schema) (MaxMissedBlocksTable, error) {
+	table := db.GetTable(&MaxMissedBlocks{})
+	if table == nil {
+		return nil, ormerrors.TableNotFound.Wrap(string((&MaxMissedBlocks{}).ProtoReflect().Descriptor().FullName()))
+	}
+	return &maxMissedBlocksTable{table}, nil
+}
+
 type ValidatorTable interface {
 	Insert(ctx context.Context, validator *Validator) error
 	Update(ctx context.Context, validator *Validator) error
@@ -123,18 +153,144 @@ func NewValidatorTable(db ormtable.Schema) (ValidatorTable, error) {
 	return validatorTable{table}, nil
 }
 
+type ValidatorMissedBlocksTable interface {
+	Insert(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
+	Update(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
+	Save(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
+	Delete(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
+	Has(ctx context.Context, address string) (found bool, err error)
+	// Get returns nil and an error which responds true to ormerrors.IsNotFound() if the record was not found.
+	Get(ctx context.Context, address string) (*ValidatorMissedBlocks, error)
+	List(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error)
+	ListRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error)
+	DeleteBy(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey) error
+	DeleteRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey) error
+
+	doNotImplement()
+}
+
+type ValidatorMissedBlocksIterator struct {
+	ormtable.Iterator
+}
+
+func (i ValidatorMissedBlocksIterator) Value() (*ValidatorMissedBlocks, error) {
+	var validatorMissedBlocks ValidatorMissedBlocks
+	err := i.UnmarshalMessage(&validatorMissedBlocks)
+	return &validatorMissedBlocks, err
+}
+
+type ValidatorMissedBlocksIndexKey interface {
+	id() uint32
+	values() []interface{}
+	validatorMissedBlocksIndexKey()
+}
+
+// primary key starting index..
+type ValidatorMissedBlocksPrimaryKey = ValidatorMissedBlocksAddressIndexKey
+
+type ValidatorMissedBlocksAddressIndexKey struct {
+	vs []interface{}
+}
+
+func (x ValidatorMissedBlocksAddressIndexKey) id() uint32                     { return 0 }
+func (x ValidatorMissedBlocksAddressIndexKey) values() []interface{}          { return x.vs }
+func (x ValidatorMissedBlocksAddressIndexKey) validatorMissedBlocksIndexKey() {}
+
+func (this ValidatorMissedBlocksAddressIndexKey) WithAddress(address string) ValidatorMissedBlocksAddressIndexKey {
+	this.vs = []interface{}{address}
+	return this
+}
+
+type validatorMissedBlocksTable struct {
+	table ormtable.Table
+}
+
+func (this validatorMissedBlocksTable) Insert(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
+	return this.table.Insert(ctx, validatorMissedBlocks)
+}
+
+func (this validatorMissedBlocksTable) Update(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
+	return this.table.Update(ctx, validatorMissedBlocks)
+}
+
+func (this validatorMissedBlocksTable) Save(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
+	return this.table.Save(ctx, validatorMissedBlocks)
+}
+
+func (this validatorMissedBlocksTable) Delete(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
+	return this.table.Delete(ctx, validatorMissedBlocks)
+}
+
+func (this validatorMissedBlocksTable) Has(ctx context.Context, address string) (found bool, err error) {
+	return this.table.PrimaryKey().Has(ctx, address)
+}
+
+func (this validatorMissedBlocksTable) Get(ctx context.Context, address string) (*ValidatorMissedBlocks, error) {
+	var validatorMissedBlocks ValidatorMissedBlocks
+	found, err := this.table.PrimaryKey().Get(ctx, &validatorMissedBlocks, address)
+	if err != nil {
+		return nil, err
+	}
+	if !found {
+		return nil, ormerrors.NotFound
+	}
+	return &validatorMissedBlocks, nil
+}
+
+func (this validatorMissedBlocksTable) List(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error) {
+	it, err := this.table.GetIndexByID(prefixKey.id()).List(ctx, prefixKey.values(), opts...)
+	return ValidatorMissedBlocksIterator{it}, err
+}
+
+func (this validatorMissedBlocksTable) ListRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error) {
+	it, err := this.table.GetIndexByID(from.id()).ListRange(ctx, from.values(), to.values(), opts...)
+	return ValidatorMissedBlocksIterator{it}, err
+}
+
+func (this validatorMissedBlocksTable) DeleteBy(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey) error {
+	return this.table.GetIndexByID(prefixKey.id()).DeleteBy(ctx, prefixKey.values()...)
+}
+
+func (this validatorMissedBlocksTable) DeleteRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey) error {
+	return this.table.GetIndexByID(from.id()).DeleteRange(ctx, from.values(), to.values())
+}
+
+func (this validatorMissedBlocksTable) doNotImplement() {}
+
+var _ ValidatorMissedBlocksTable = validatorMissedBlocksTable{}
+
+func NewValidatorMissedBlocksTable(db ormtable.Schema) (ValidatorMissedBlocksTable, error) {
+	table := db.GetTable(&ValidatorMissedBlocks{})
+	if table == nil {
+		return nil, ormerrors.TableNotFound.Wrap(string((&ValidatorMissedBlocks{}).ProtoReflect().Descriptor().FullName()))
+	}
+	return validatorMissedBlocksTable{table}, nil
+}
+
 type StateStore interface {
+	MaxMissedBlocksTable() MaxMissedBlocksTable
 	ValidatorTable() ValidatorTable
+	ValidatorMissedBlocksTable() ValidatorMissedBlocksTable
 
 	doNotImplement()
 }
 
 type stateStore struct {
-	validator ValidatorTable
+	maxMissedBlocks       MaxMissedBlocksTable
+	validator             ValidatorTable
+	validatorMissedBlocks ValidatorMissedBlocksTable
+}
+
+func (x stateStore) MaxMissedBlocksTable() MaxMissedBlocksTable {
+	return x.maxMissedBlocks
 }
 
 func (x stateStore) ValidatorTable() ValidatorTable {
 	return x.validator
+}
+
+func (x stateStore) ValidatorMissedBlocksTable() ValidatorMissedBlocksTable {
+	return x.validatorMissedBlocks
 }
 
 func (stateStore) doNotImplement() {}
@@ -142,12 +298,24 @@ func (stateStore) doNotImplement() {}
 var _ StateStore = stateStore{}
 
 func NewStateStore(db ormtable.Schema) (StateStore, error) {
+	maxMissedBlocksTable, err := NewMaxMissedBlocksTable(db)
+	if err != nil {
+		return nil, err
+	}
+
 	validatorTable, err := NewValidatorTable(db)
 	if err != nil {
 		return nil, err
 	}
 
+	validatorMissedBlocksTable, err := NewValidatorMissedBlocksTable(db)
+	if err != nil {
+		return nil, err
+	}
+
 	return stateStore{
+		maxMissedBlocksTable,
 		validatorTable,
+		validatorMissedBlocksTable,
 	}, nil
 }

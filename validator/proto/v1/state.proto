@@ -6,10 +6,22 @@ import "cosmos/orm/v1/orm.proto";
 
 option go_package = "github.com/choraio/mods/validator/types/v1";
 
+// MaxMissedBlocks defines the singleton table for the maximum number of missed
+// blocks before a validator is removed from the validator set.
+message MaxMissedBlocks {
+  option (cosmos.orm.v1.singleton) = {
+    id : 1
+  };
+
+  // max_missed_blocks is the maximum number of missed blocks before a validator
+  // is removed from the validator set. A zero-value indicates no maximum.
+  int64 max_missed_blocks = 1;
+}
+
 // Validator defines the table and properties of a validator.
 message Validator {
   option (cosmos.orm.v1.table) = {
-    id : 1,
+    id : 2,
     primary_key : {fields : "address"}
   };
 
@@ -18,4 +30,18 @@ message Validator {
 
   // metadata is the metadata of the validator.
   string metadata = 2;
+}
+
+// ValidatorMissedBlocks extends the table and properties of a validator.
+message ValidatorMissedBlocks {
+  option (cosmos.orm.v1.table) = {
+    id : 3,
+    primary_key : {fields : "address"}
+  };
+
+  // address is the address of the validator.
+  string address = 1;
+
+  // missed_blocks is the number of missed blocks.
+  int64 missed_blocks = 2;
 }

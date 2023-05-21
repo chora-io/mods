@@ -30,9 +30,10 @@ func init() {
 
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgAdd{}, "validator/MsgAdd", nil)
-	cdc.RegisterConcrete(&MsgRemove{}, "validator/MsgRemove", nil)
-	cdc.RegisterConcrete(&MsgUpdateMetadata{}, "validator/MsgUpdateMetadata", nil)
+	cdc.RegisterConcrete(&MsgAddValidator{}, "validator/MsgAddValidator", nil)
+	cdc.RegisterConcrete(&MsgRemoveValidator{}, "validator/MsgRemoveValidator", nil)
+	cdc.RegisterConcrete(&MsgUpdateMaxMissedBlocks{}, "validator/MsgUpdateMaxMissedBlocks", nil)
+	cdc.RegisterConcrete(&MsgUpdateValidator{}, "validator/MsgUpdateValidator", nil)
 }
 
 // RegisterTypes registers types.
@@ -40,8 +41,9 @@ func RegisterTypes(registry types.InterfaceRegistry) {
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
-		&MsgAdd{},
-		&MsgRemove{},
-		&MsgUpdateMetadata{},
+		&MsgAddValidator{},
+		&MsgRemoveValidator{},
+		&MsgUpdateMaxMissedBlocks{},
+		&MsgUpdateValidator{},
 	)
 }

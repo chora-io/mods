@@ -12,51 +12,58 @@ import (
 	"github.com/choraio/mods/validator/utils"
 )
 
-type msgAdd struct {
+type msgUpdateValidator struct {
 	*baseSuite
-	res *v1.MsgAddResponse
+	res *v1.MsgUpdateValidatorResponse
 	err error
 }
 
-func TestMsgAdd(t *testing.T) {
-	gocuke.NewRunner(t, &msgAdd{}).
-		Path("./features/msg_add.feature").
+func TestMsgUpdateValidator(t *testing.T) {
+	gocuke.NewRunner(t, &msgUpdateValidator{}).
+		Path("./features/msg_update_validator.feature").
 		Run()
 }
 
-func (s *msgAdd) Before(t gocuke.TestingT) {
+func (s *msgUpdateValidator) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgAdd) Authority(a string) {
-	require.Equal(s.t, s.authority.String(), a)
+func (s *msgUpdateValidator) Validator(a gocuke.DocString) {
+	var validator validatorv1.Validator
+	err := jsonpb.UnmarshalString(a.Content, &validator)
+	require.NoError(s.t, err)
+
+	err = s.srv.ss.ValidatorTable().Insert(s.ctx, &validatorv1.Validator{
+		Address: validator.Address,
+	})
+	require.NoError(s.t, err)
 }
 
-func (s *msgAdd) MsgAdd(a gocuke.DocString) {
-	var msg v1.MsgAdd
+func (s *msgUpdateValidator) MsgUpdateValidator(a gocuke.DocString) {
+	var msg v1.MsgUpdateValidator
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Add(s.ctx, &msg)
+	s.res, s.err = s.srv.UpdateValidator(s.ctx, &msg)
 }
 
-func (s *msgAdd) ExpectNoError() {
+func (s *msgUpdateValidator) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgAdd) ExpectTheError(a gocuke.DocString) {
+func (s *msgUpdateValidator) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }
 
-func (s *msgAdd) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgAddResponse
+func (s *msgUpdateValidator) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgUpdateValidatorResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgAdd) ExpectStateValidator(a gocuke.DocString) {
+func (s *msgUpdateValidator) ExpectStateValidator(a gocuke.DocString) {
 	var expected validatorv1.Validator
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
@@ -68,8 +75,8 @@ func (s *msgAdd) ExpectStateValidator(a gocuke.DocString) {
 	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
-func (s *msgAdd) ExpectEventAdd(a gocuke.DocString) {
-	var expected v1.EventAdd
+func (s *msgUpdateValidator) ExpectEventUpdateValidator(a gocuke.DocString) {
+	var expected v1.EventUpdateValidator
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

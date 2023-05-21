@@ -11,6 +11,29 @@
     "application/json"
   ],
   "paths": {
+    "/chora/validator/v1/max-missed-blocks": {
+      "get": {
+        "summary": "MaxMissedBlocks queries the maximum number of missed blocks before a\nvalidator is removed from the validator set.",
+        "operationId": "MaxMissedBlocks",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chora.validator.v1.QueryMaxMissedBlocksResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/grpc.gateway.runtime.Error"
+            }
+          }
+        },
+        "tags": [
+          "Query"
+        ]
+      }
+    },
     "/chora/validator/v1/validator/{address}": {
       "get": {
         "summary": "Validator queries a validator by address.",
@@ -108,6 +131,17 @@
     }
   },
   "definitions": {
+    "chora.validator.v1.QueryMaxMissedBlocksResponse": {
+      "type": "object",
+      "properties": {
+        "max_missed_blocks": {
+          "type": "string",
+          "format": "int64",
+          "description": "max_missed_blocks is the maximum number of missed blocks before a validator\nis removed from the validator set. A zero-value indicates no maximum."
+        }
+      },
+      "description": "QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response type."
+    },
     "chora.validator.v1.QueryValidatorResponse": {
       "type": "object",
       "properties": {
@@ -118,6 +152,11 @@
         "metadata": {
           "type": "string",
           "description": "metadata is the metadata of the validator."
+        },
+        "missed_blocks": {
+          "type": "string",
+          "format": "int64",
+          "description": "missed_blocks is the number of missed blocks."
         }
       },
       "description": "QueryValidatorResponse is the Query/Validator response type."
@@ -149,6 +188,11 @@
         "metadata": {
           "type": "string",
           "description": "metadata is the metadata of the validator."
+        },
+        "missed_blocks": {
+          "type": "string",
+          "format": "int64",
+          "description": "missed_blocks is the number of missed blocks."
         }
       },
       "description": "Validator is the validator properties."

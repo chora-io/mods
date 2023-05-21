@@ -4,22 +4,30 @@ package chora.validator.v1;
 
 option go_package = "github.com/choraio/mods/validator/types/v1";
 
-// EventAdd is an event emitted when a validator is added.
-message EventAdd {
+// EventAddValidator is an event emitted when a validator is added.
+message EventAddValidator {
 
   // address is the address of the validator.
   string address = 1;
 }
 
-// EventRemove is an event emitted when a validator is removed.
-message EventRemove {
+// EventRemoveValidator is an event emitted when a validator is removed.
+message EventRemoveValidator {
 
   // address is the address of the validator.
   string address = 1;
 }
 
-// EventUpdateMetadata is an event emitted when validator metadata is updated.
-message EventUpdateMetadata {
+// EventUpdateMaxMissedBlocks is an event emitted when max missed blocks is
+// updated.
+message EventUpdateMaxMissedBlocks {
+
+  // max_missed_blocks is the value of max missed blocks.
+  int64 max_missed_blocks = 1;
+}
+
+// EventUpdateValidator is an event emitted when a validator is updated.
+message EventUpdateValidator {
 
   // address is the address of the validator.
   string address = 1;

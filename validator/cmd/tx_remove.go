@@ -10,10 +10,10 @@ import (
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
-// TxRemoveCmd creates and returns the tx remove command.
-func TxRemoveCmd() *cobra.Command {
+// TxRemoveValidatorCmd creates and returns the tx remove command.
+func TxRemoveValidatorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "remove [address]",
+		Use:   "remove-validator [address]",
 		Short: "submit a transaction to remove a validator",
 		Long:  "submit a transaction to remove a validator",
 		Args:  cobra.ExactArgs(1),
@@ -23,7 +23,7 @@ func TxRemoveCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgRemove{
+			msg := v1.MsgRemoveValidator{
 				Authority: clientCtx.GetFromAddress().String(),
 				Address:   args[0],
 			}

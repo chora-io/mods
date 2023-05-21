@@ -4,6 +4,54 @@ info:
   description: Documentation describing REST and gRPC endpoints for queries.
   version: v0.0.0
 paths:
+  /chora/validator/v1/max-missed-blocks:
+    get:
+      summary: |-
+        MaxMissedBlocks queries the maximum number of missed blocks before a
+        validator is removed from the validator set.
+      operationId: MaxMissedBlocks
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              max_missed_blocks:
+                type: string
+                format: int64
+                description: >-
+                  max_missed_blocks is the maximum number of missed blocks
+                  before a validator
+
+                  is removed from the validator set. A zero-value indicates no
+                  maximum.
+            description: >-
+              QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response
+              type.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type_url:
+                      type: string
+                    value:
+                      type: string
+                      format: byte
+      tags:
+        - Query
   /chora/validator/v1/validator/{address}:
     get:
       summary: Validator queries a validator by address.
@@ -20,6 +68,10 @@ paths:
               metadata:
                 type: string
                 description: metadata is the metadata of the validator.
+              missed_blocks:
+                type: string
+                format: int64
+                description: missed_blocks is the number of missed blocks.
             description: QueryValidatorResponse is the Query/Validator response type.
         default:
           description: An unexpected error response.
@@ -72,6 +124,10 @@ paths:
                     metadata:
                       type: string
                       description: metadata is the metadata of the validator.
+                    missed_blocks:
+                      type: string
+                      format: int64
+                      description: missed_blocks is the number of missed blocks.
                   description: Validator is the validator properties.
                 description: validators is the list of validators.
               pagination:
@@ -176,6 +232,18 @@ paths:
       tags:
         - Query
 definitions:
+  chora.validator.v1.QueryMaxMissedBlocksResponse:
+    type: object
+    properties:
+      max_missed_blocks:
+        type: string
+        format: int64
+        description: >-
+          max_missed_blocks is the maximum number of missed blocks before a
+          validator
+
+          is removed from the validator set. A zero-value indicates no maximum.
+    description: QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response type.
   chora.validator.v1.QueryValidatorResponse:
     type: object
     properties:
@@ -185,6 +253,10 @@ definitions:
       metadata:
         type: string
         description: metadata is the metadata of the validator.
+      missed_blocks:
+        type: string
+        format: int64
+        description: missed_blocks is the number of missed blocks.
     description: QueryValidatorResponse is the Query/Validator response type.
   chora.validator.v1.QueryValidatorsResponse:
     type: object
@@ -200,6 +272,10 @@ definitions:
             metadata:
               type: string
               description: metadata is the metadata of the validator.
+            missed_blocks:
+              type: string
+              format: int64
+              description: missed_blocks is the number of missed blocks.
           description: Validator is the validator properties.
         description: validators is the list of validators.
       pagination:
@@ -231,6 +307,10 @@ definitions:
       metadata:
         type: string
         description: metadata is the metadata of the validator.
+      missed_blocks:
+        type: string
+        format: int64
+        description: missed_blocks is the number of missed blocks.
     description: Validator is the validator properties.
   cosmos.base.query.v1beta1.PageRequest:
     type: object

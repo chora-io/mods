@@ -13,25 +13,25 @@ import (
 )
 
 var (
-	md_EventAdd         protoreflect.MessageDescriptor
-	fd_EventAdd_address protoreflect.FieldDescriptor
+	md_EventAddValidator         protoreflect.MessageDescriptor
+	fd_EventAddValidator_address protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_events_proto_init()
-	md_EventAdd = File_chora_validator_v1_events_proto.Messages().ByName("EventAdd")
-	fd_EventAdd_address = md_EventAdd.Fields().ByName("address")
+	md_EventAddValidator = File_chora_validator_v1_events_proto.Messages().ByName("EventAddValidator")
+	fd_EventAddValidator_address = md_EventAddValidator.Fields().ByName("address")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventAdd)(nil)
+var _ protoreflect.Message = (*fastReflection_EventAddValidator)(nil)
 
-type fastReflection_EventAdd EventAdd
+type fastReflection_EventAddValidator EventAddValidator
 
-func (x *EventAdd) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventAdd)(x)
+func (x *EventAddValidator) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventAddValidator)(x)
 }
 
-func (x *EventAdd) slowProtoReflect() protoreflect.Message {
+func (x *EventAddValidator) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_events_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -43,43 +43,43 @@ func (x *EventAdd) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventAdd_messageType fastReflection_EventAdd_messageType
-var _ protoreflect.MessageType = fastReflection_EventAdd_messageType{}
+var _fastReflection_EventAddValidator_messageType fastReflection_EventAddValidator_messageType
+var _ protoreflect.MessageType = fastReflection_EventAddValidator_messageType{}
 
-type fastReflection_EventAdd_messageType struct{}
+type fastReflection_EventAddValidator_messageType struct{}
 
-func (x fastReflection_EventAdd_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventAdd)(nil)
+func (x fastReflection_EventAddValidator_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventAddValidator)(nil)
 }
-func (x fastReflection_EventAdd_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventAdd)
+func (x fastReflection_EventAddValidator_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventAddValidator)
 }
-func (x fastReflection_EventAdd_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventAdd
+func (x fastReflection_EventAddValidator_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventAddValidator
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventAdd) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventAdd
+func (x *fastReflection_EventAddValidator) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventAddValidator
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventAdd) Type() protoreflect.MessageType {
-	return _fastReflection_EventAdd_messageType
+func (x *fastReflection_EventAddValidator) Type() protoreflect.MessageType {
+	return _fastReflection_EventAddValidator_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventAdd) New() protoreflect.Message {
-	return new(fastReflection_EventAdd)
+func (x *fastReflection_EventAddValidator) New() protoreflect.Message {
+	return new(fastReflection_EventAddValidator)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventAdd) Interface() protoreflect.ProtoMessage {
-	return (*EventAdd)(x)
+func (x *fastReflection_EventAddValidator) Interface() protoreflect.ProtoMessage {
+	return (*EventAddValidator)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -87,10 +87,10 @@ func (x *fastReflection_EventAdd) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventAdd) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventAddValidator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventAdd_address, value) {
+		if !f(fd_EventAddValidator_address, value) {
 			return
 		}
 	}
@@ -107,15 +107,15 @@ func (x *fastReflection_EventAdd) Range(f func(protoreflect.FieldDescriptor, pro
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventAdd) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventAddValidator) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventAdd.address":
+	case "chora.validator.v1.EventAddValidator.address":
 		return x.Address != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAdd"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAddValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventAdd does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventAddValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -125,15 +125,15 @@ func (x *fastReflection_EventAdd) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventAdd) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventAddValidator) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventAdd.address":
+	case "chora.validator.v1.EventAddValidator.address":
 		x.Address = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAdd"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAddValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventAdd does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventAddValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -143,16 +143,16 @@ func (x *fastReflection_EventAdd) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventAdd) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventAddValidator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.EventAdd.address":
+	case "chora.validator.v1.EventAddValidator.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAdd"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAddValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventAdd does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventAddValidator does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -166,15 +166,15 @@ func (x *fastReflection_EventAdd) Get(descriptor protoreflect.FieldDescriptor) p
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventAdd) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventAddValidator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventAdd.address":
+	case "chora.validator.v1.EventAddValidator.address":
 		x.Address = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAdd"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAddValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventAdd does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventAddValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -188,40 +188,40 @@ func (x *fastReflection_EventAdd) Set(fd protoreflect.FieldDescriptor, value pro
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventAdd) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventAddValidator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventAdd.address":
-		panic(fmt.Errorf("field address of message chora.validator.v1.EventAdd is not mutable"))
+	case "chora.validator.v1.EventAddValidator.address":
+		panic(fmt.Errorf("field address of message chora.validator.v1.EventAddValidator is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAdd"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAddValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventAdd does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventAddValidator does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventAdd) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventAddValidator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventAdd.address":
+	case "chora.validator.v1.EventAddValidator.address":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAdd"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventAddValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventAdd does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventAddValidator does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventAdd) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventAddValidator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventAdd", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventAddValidator", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -229,7 +229,7 @@ func (x *fastReflection_EventAdd) WhichOneof(d protoreflect.OneofDescriptor) pro
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventAdd) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventAddValidator) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -240,7 +240,7 @@ func (x *fastReflection_EventAdd) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventAdd) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventAddValidator) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -252,7 +252,7 @@ func (x *fastReflection_EventAdd) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventAdd) IsValid() bool {
+func (x *fastReflection_EventAddValidator) IsValid() bool {
 	return x != nil
 }
 
@@ -262,9 +262,9 @@ func (x *fastReflection_EventAdd) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventAdd) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventAddValidator) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventAdd)
+		x := input.Message.Interface().(*EventAddValidator)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -290,7 +290,7 @@ func (x *fastReflection_EventAdd) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventAdd)
+		x := input.Message.Interface().(*EventAddValidator)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -327,7 +327,7 @@ func (x *fastReflection_EventAdd) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventAdd)
+		x := input.Message.Interface().(*EventAddValidator)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -359,10 +359,10 @@ func (x *fastReflection_EventAdd) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventAdd: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventAddValidator: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventAdd: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventAddValidator: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -433,25 +433,25 @@ func (x *fastReflection_EventAdd) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_EventRemove         protoreflect.MessageDescriptor
-	fd_EventRemove_address protoreflect.FieldDescriptor
+	md_EventRemoveValidator         protoreflect.MessageDescriptor
+	fd_EventRemoveValidator_address protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_events_proto_init()
-	md_EventRemove = File_chora_validator_v1_events_proto.Messages().ByName("EventRemove")
-	fd_EventRemove_address = md_EventRemove.Fields().ByName("address")
+	md_EventRemoveValidator = File_chora_validator_v1_events_proto.Messages().ByName("EventRemoveValidator")
+	fd_EventRemoveValidator_address = md_EventRemoveValidator.Fields().ByName("address")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventRemove)(nil)
+var _ protoreflect.Message = (*fastReflection_EventRemoveValidator)(nil)
 
-type fastReflection_EventRemove EventRemove
+type fastReflection_EventRemoveValidator EventRemoveValidator
 
-func (x *EventRemove) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventRemove)(x)
+func (x *EventRemoveValidator) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventRemoveValidator)(x)
 }
 
-func (x *EventRemove) slowProtoReflect() protoreflect.Message {
+func (x *EventRemoveValidator) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_events_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -463,43 +463,43 @@ func (x *EventRemove) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventRemove_messageType fastReflection_EventRemove_messageType
-var _ protoreflect.MessageType = fastReflection_EventRemove_messageType{}
+var _fastReflection_EventRemoveValidator_messageType fastReflection_EventRemoveValidator_messageType
+var _ protoreflect.MessageType = fastReflection_EventRemoveValidator_messageType{}
 
-type fastReflection_EventRemove_messageType struct{}
+type fastReflection_EventRemoveValidator_messageType struct{}
 
-func (x fastReflection_EventRemove_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventRemove)(nil)
+func (x fastReflection_EventRemoveValidator_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventRemoveValidator)(nil)
 }
-func (x fastReflection_EventRemove_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventRemove)
+func (x fastReflection_EventRemoveValidator_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventRemoveValidator)
 }
-func (x fastReflection_EventRemove_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventRemove
+func (x fastReflection_EventRemoveValidator_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventRemoveValidator
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventRemove) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventRemove
+func (x *fastReflection_EventRemoveValidator) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventRemoveValidator
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventRemove) Type() protoreflect.MessageType {
-	return _fastReflection_EventRemove_messageType
+func (x *fastReflection_EventRemoveValidator) Type() protoreflect.MessageType {
+	return _fastReflection_EventRemoveValidator_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventRemove) New() protoreflect.Message {
-	return new(fastReflection_EventRemove)
+func (x *fastReflection_EventRemoveValidator) New() protoreflect.Message {
+	return new(fastReflection_EventRemoveValidator)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventRemove) Interface() protoreflect.ProtoMessage {
-	return (*EventRemove)(x)
+func (x *fastReflection_EventRemoveValidator) Interface() protoreflect.ProtoMessage {
+	return (*EventRemoveValidator)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -507,10 +507,10 @@ func (x *fastReflection_EventRemove) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventRemove) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventRemoveValidator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventRemove_address, value) {
+		if !f(fd_EventRemoveValidator_address, value) {
 			return
 		}
 	}
@@ -527,15 +527,15 @@ func (x *fastReflection_EventRemove) Range(f func(protoreflect.FieldDescriptor, 
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventRemove) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventRemoveValidator) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventRemove.address":
+	case "chora.validator.v1.EventRemoveValidator.address":
 		return x.Address != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemoveValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventRemoveValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -545,15 +545,15 @@ func (x *fastReflection_EventRemove) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventRemoveValidator) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventRemove.address":
+	case "chora.validator.v1.EventRemoveValidator.address":
 		x.Address = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemoveValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventRemoveValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -563,16 +563,16 @@ func (x *fastReflection_EventRemove) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventRemove) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveValidator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.EventRemove.address":
+	case "chora.validator.v1.EventRemoveValidator.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemoveValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventRemove does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventRemoveValidator does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -586,15 +586,15 @@ func (x *fastReflection_EventRemove) Get(descriptor protoreflect.FieldDescriptor
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventRemoveValidator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventRemove.address":
+	case "chora.validator.v1.EventRemoveValidator.address":
 		x.Address = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemoveValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventRemoveValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -608,40 +608,40 @@ func (x *fastReflection_EventRemove) Set(fd protoreflect.FieldDescriptor, value 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveValidator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventRemove.address":
-		panic(fmt.Errorf("field address of message chora.validator.v1.EventRemove is not mutable"))
+	case "chora.validator.v1.EventRemoveValidator.address":
+		panic(fmt.Errorf("field address of message chora.validator.v1.EventRemoveValidator is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemoveValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventRemoveValidator does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventRemove) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveValidator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventRemove.address":
+	case "chora.validator.v1.EventRemoveValidator.address":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventRemoveValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventRemoveValidator does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventRemove) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventRemoveValidator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventRemove", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventRemoveValidator", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -649,7 +649,7 @@ func (x *fastReflection_EventRemove) WhichOneof(d protoreflect.OneofDescriptor) 
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventRemove) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventRemoveValidator) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -660,7 +660,7 @@ func (x *fastReflection_EventRemove) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventRemoveValidator) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -672,7 +672,7 @@ func (x *fastReflection_EventRemove) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventRemove) IsValid() bool {
+func (x *fastReflection_EventRemoveValidator) IsValid() bool {
 	return x != nil
 }
 
@@ -682,9 +682,9 @@ func (x *fastReflection_EventRemove) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventRemoveValidator) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventRemove)
+		x := input.Message.Interface().(*EventRemoveValidator)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -710,7 +710,7 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventRemove)
+		x := input.Message.Interface().(*EventRemoveValidator)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -747,7 +747,7 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventRemove)
+		x := input.Message.Interface().(*EventRemoveValidator)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -779,10 +779,10 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemove: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemoveValidator: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemove: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemoveValidator: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -853,25 +853,25 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_EventUpdateMetadata         protoreflect.MessageDescriptor
-	fd_EventUpdateMetadata_address protoreflect.FieldDescriptor
+	md_EventUpdateMaxMissedBlocks                   protoreflect.MessageDescriptor
+	fd_EventUpdateMaxMissedBlocks_max_missed_blocks protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_events_proto_init()
-	md_EventUpdateMetadata = File_chora_validator_v1_events_proto.Messages().ByName("EventUpdateMetadata")
-	fd_EventUpdateMetadata_address = md_EventUpdateMetadata.Fields().ByName("address")
+	md_EventUpdateMaxMissedBlocks = File_chora_validator_v1_events_proto.Messages().ByName("EventUpdateMaxMissedBlocks")
+	fd_EventUpdateMaxMissedBlocks_max_missed_blocks = md_EventUpdateMaxMissedBlocks.Fields().ByName("max_missed_blocks")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventUpdateMetadata)(nil)
+var _ protoreflect.Message = (*fastReflection_EventUpdateMaxMissedBlocks)(nil)
 
-type fastReflection_EventUpdateMetadata EventUpdateMetadata
+type fastReflection_EventUpdateMaxMissedBlocks EventUpdateMaxMissedBlocks
 
-func (x *EventUpdateMetadata) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventUpdateMetadata)(x)
+func (x *EventUpdateMaxMissedBlocks) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventUpdateMaxMissedBlocks)(x)
 }
 
-func (x *EventUpdateMetadata) slowProtoReflect() protoreflect.Message {
+func (x *EventUpdateMaxMissedBlocks) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_events_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -883,43 +883,43 @@ func (x *EventUpdateMetadata) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventUpdateMetadata_messageType fastReflection_EventUpdateMetadata_messageType
-var _ protoreflect.MessageType = fastReflection_EventUpdateMetadata_messageType{}
+var _fastReflection_EventUpdateMaxMissedBlocks_messageType fastReflection_EventUpdateMaxMissedBlocks_messageType
+var _ protoreflect.MessageType = fastReflection_EventUpdateMaxMissedBlocks_messageType{}
 
-type fastReflection_EventUpdateMetadata_messageType struct{}
+type fastReflection_EventUpdateMaxMissedBlocks_messageType struct{}
 
-func (x fastReflection_EventUpdateMetadata_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventUpdateMetadata)(nil)
+func (x fastReflection_EventUpdateMaxMissedBlocks_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventUpdateMaxMissedBlocks)(nil)
 }
-func (x fastReflection_EventUpdateMetadata_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventUpdateMetadata)
+func (x fastReflection_EventUpdateMaxMissedBlocks_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateMaxMissedBlocks)
 }
-func (x fastReflection_EventUpdateMetadata_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdateMetadata
+func (x fastReflection_EventUpdateMaxMissedBlocks_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateMaxMissedBlocks
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventUpdateMetadata) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdateMetadata
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateMaxMissedBlocks
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventUpdateMetadata) Type() protoreflect.MessageType {
-	return _fastReflection_EventUpdateMetadata_messageType
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Type() protoreflect.MessageType {
+	return _fastReflection_EventUpdateMaxMissedBlocks_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventUpdateMetadata) New() protoreflect.Message {
-	return new(fastReflection_EventUpdateMetadata)
+func (x *fastReflection_EventUpdateMaxMissedBlocks) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateMaxMissedBlocks)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventUpdateMetadata) Interface() protoreflect.ProtoMessage {
-	return (*EventUpdateMetadata)(x)
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Interface() protoreflect.ProtoMessage {
+	return (*EventUpdateMaxMissedBlocks)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -927,10 +927,10 @@ func (x *fastReflection_EventUpdateMetadata) Interface() protoreflect.ProtoMessa
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventUpdateMetadata) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Address != "" {
-		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventUpdateMetadata_address, value) {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.MaxMissedBlocks != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MaxMissedBlocks)
+		if !f(fd_EventUpdateMaxMissedBlocks_max_missed_blocks, value) {
 			return
 		}
 	}
@@ -947,15 +947,15 @@ func (x *fastReflection_EventUpdateMetadata) Range(f func(protoreflect.FieldDesc
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventUpdateMetadata) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventUpdateMetadata.address":
-		return x.Address != ""
+	case "chora.validator.v1.EventUpdateMaxMissedBlocks.max_missed_blocks":
+		return x.MaxMissedBlocks != int64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMaxMissedBlocks"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMaxMissedBlocks does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -965,15 +965,15 @@ func (x *fastReflection_EventUpdateMetadata) Has(fd protoreflect.FieldDescriptor
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventUpdateMetadata.address":
-		x.Address = ""
+	case "chora.validator.v1.EventUpdateMaxMissedBlocks.max_missed_blocks":
+		x.MaxMissedBlocks = int64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMaxMissedBlocks"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMaxMissedBlocks does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -983,16 +983,16 @@ func (x *fastReflection_EventUpdateMetadata) Clear(fd protoreflect.FieldDescript
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventUpdateMetadata) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.EventUpdateMetadata.address":
-		value := x.Address
-		return protoreflect.ValueOfString(value)
+	case "chora.validator.v1.EventUpdateMaxMissedBlocks.max_missed_blocks":
+		value := x.MaxMissedBlocks
+		return protoreflect.ValueOfInt64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMaxMissedBlocks"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMetadata does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMaxMissedBlocks does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1006,15 +1006,15 @@ func (x *fastReflection_EventUpdateMetadata) Get(descriptor protoreflect.FieldDe
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventUpdateMetadata.address":
-		x.Address = value.Interface().(string)
+	case "chora.validator.v1.EventUpdateMaxMissedBlocks.max_missed_blocks":
+		x.MaxMissedBlocks = value.Int()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMaxMissedBlocks"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMaxMissedBlocks does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1028,40 +1028,40 @@ func (x *fastReflection_EventUpdateMetadata) Set(fd protoreflect.FieldDescriptor
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventUpdateMetadata.address":
-		panic(fmt.Errorf("field address of message chora.validator.v1.EventUpdateMetadata is not mutable"))
+	case "chora.validator.v1.EventUpdateMaxMissedBlocks.max_missed_blocks":
+		panic(fmt.Errorf("field max_missed_blocks of message chora.validator.v1.EventUpdateMaxMissedBlocks is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMaxMissedBlocks"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMaxMissedBlocks does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventUpdateMetadata) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.EventUpdateMetadata.address":
-		return protoreflect.ValueOfString("")
+	case "chora.validator.v1.EventUpdateMaxMissedBlocks.max_missed_blocks":
+		return protoreflect.ValueOfInt64(int64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateMaxMissedBlocks"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateMaxMissedBlocks does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventUpdateMetadata) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventUpdateMetadata", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventUpdateMaxMissedBlocks", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1069,7 +1069,7 @@ func (x *fastReflection_EventUpdateMetadata) WhichOneof(d protoreflect.OneofDesc
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventUpdateMetadata) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1080,7 +1080,7 @@ func (x *fastReflection_EventUpdateMetadata) GetUnknown() protoreflect.RawFields
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1092,7 +1092,7 @@ func (x *fastReflection_EventUpdateMetadata) SetUnknown(fields protoreflect.RawF
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventUpdateMetadata) IsValid() bool {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) IsValid() bool {
 	return x != nil
 }
 
@@ -1102,9 +1102,413 @@ func (x *fastReflection_EventUpdateMetadata) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventUpdateMaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventUpdateMetadata)
+		x := input.Message.Interface().(*EventUpdateMaxMissedBlocks)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.MaxMissedBlocks != 0 {
+			n += 1 + runtime.Sov(uint64(x.MaxMissedBlocks))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*EventUpdateMaxMissedBlocks)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.MaxMissedBlocks != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MaxMissedBlocks))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*EventUpdateMaxMissedBlocks)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateMaxMissedBlocks: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateMaxMissedBlocks: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MaxMissedBlocks", wireType)
+				}
+				x.MaxMissedBlocks = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MaxMissedBlocks |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_EventUpdateValidator         protoreflect.MessageDescriptor
+	fd_EventUpdateValidator_address protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_validator_v1_events_proto_init()
+	md_EventUpdateValidator = File_chora_validator_v1_events_proto.Messages().ByName("EventUpdateValidator")
+	fd_EventUpdateValidator_address = md_EventUpdateValidator.Fields().ByName("address")
+}
+
+var _ protoreflect.Message = (*fastReflection_EventUpdateValidator)(nil)
+
+type fastReflection_EventUpdateValidator EventUpdateValidator
+
+func (x *EventUpdateValidator) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventUpdateValidator)(x)
+}
+
+func (x *EventUpdateValidator) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_validator_v1_events_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_EventUpdateValidator_messageType fastReflection_EventUpdateValidator_messageType
+var _ protoreflect.MessageType = fastReflection_EventUpdateValidator_messageType{}
+
+type fastReflection_EventUpdateValidator_messageType struct{}
+
+func (x fastReflection_EventUpdateValidator_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventUpdateValidator)(nil)
+}
+func (x fastReflection_EventUpdateValidator_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateValidator)
+}
+func (x fastReflection_EventUpdateValidator_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateValidator
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_EventUpdateValidator) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateValidator
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_EventUpdateValidator) Type() protoreflect.MessageType {
+	return _fastReflection_EventUpdateValidator_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_EventUpdateValidator) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateValidator)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_EventUpdateValidator) Interface() protoreflect.ProtoMessage {
+	return (*EventUpdateValidator)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_EventUpdateValidator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_EventUpdateValidator_address, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_EventUpdateValidator) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.validator.v1.EventUpdateValidator.address":
+		return x.Address != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateValidator"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateValidator does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_EventUpdateValidator) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.validator.v1.EventUpdateValidator.address":
+		x.Address = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateValidator"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateValidator does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_EventUpdateValidator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.validator.v1.EventUpdateValidator.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateValidator"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateValidator does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_EventUpdateValidator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.validator.v1.EventUpdateValidator.address":
+		x.Address = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateValidator"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateValidator does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_EventUpdateValidator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.validator.v1.EventUpdateValidator.address":
+		panic(fmt.Errorf("field address of message chora.validator.v1.EventUpdateValidator is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateValidator"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateValidator does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_EventUpdateValidator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.validator.v1.EventUpdateValidator.address":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.EventUpdateValidator"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.EventUpdateValidator does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_EventUpdateValidator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.EventUpdateValidator", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_EventUpdateValidator) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_EventUpdateValidator) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_EventUpdateValidator) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_EventUpdateValidator) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*EventUpdateValidator)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1130,7 +1534,7 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdateMetadata)
+		x := input.Message.Interface().(*EventUpdateValidator)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1167,7 +1571,7 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdateMetadata)
+		x := input.Message.Interface().(*EventUpdateValidator)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1199,10 +1603,10 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateMetadata: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateValidator: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateValidator: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1285,8 +1689,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// EventAdd is an event emitted when a validator is added.
-type EventAdd struct {
+// EventAddValidator is an event emitted when a validator is added.
+type EventAddValidator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1295,8 +1699,8 @@ type EventAdd struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *EventAdd) Reset() {
-	*x = EventAdd{}
+func (x *EventAddValidator) Reset() {
+	*x = EventAddValidator{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_validator_v1_events_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1304,26 +1708,26 @@ func (x *EventAdd) Reset() {
 	}
 }
 
-func (x *EventAdd) String() string {
+func (x *EventAddValidator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventAdd) ProtoMessage() {}
+func (*EventAddValidator) ProtoMessage() {}
 
-// Deprecated: Use EventAdd.ProtoReflect.Descriptor instead.
-func (*EventAdd) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventAddValidator.ProtoReflect.Descriptor instead.
+func (*EventAddValidator) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_events_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EventAdd) GetAddress() string {
+func (x *EventAddValidator) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-// EventRemove is an event emitted when a validator is removed.
-type EventRemove struct {
+// EventRemoveValidator is an event emitted when a validator is removed.
+type EventRemoveValidator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1332,8 +1736,8 @@ type EventRemove struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *EventRemove) Reset() {
-	*x = EventRemove{}
+func (x *EventRemoveValidator) Reset() {
+	*x = EventRemoveValidator{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_validator_v1_events_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1341,26 +1745,64 @@ func (x *EventRemove) Reset() {
 	}
 }
 
-func (x *EventRemove) String() string {
+func (x *EventRemoveValidator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventRemove) ProtoMessage() {}
+func (*EventRemoveValidator) ProtoMessage() {}
 
-// Deprecated: Use EventRemove.ProtoReflect.Descriptor instead.
-func (*EventRemove) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventRemoveValidator.ProtoReflect.Descriptor instead.
+func (*EventRemoveValidator) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_events_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *EventRemove) GetAddress() string {
+func (x *EventRemoveValidator) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-// EventUpdateMetadata is an event emitted when validator metadata is updated.
-type EventUpdateMetadata struct {
+// EventUpdateMaxMissedBlocks is an event emitted when max missed blocks is
+// updated.
+type EventUpdateMaxMissedBlocks struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// max_missed_blocks is the value of max missed blocks.
+	MaxMissedBlocks int64 `protobuf:"varint,1,opt,name=max_missed_blocks,json=maxMissedBlocks,proto3" json:"max_missed_blocks,omitempty"`
+}
+
+func (x *EventUpdateMaxMissedBlocks) Reset() {
+	*x = EventUpdateMaxMissedBlocks{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_validator_v1_events_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EventUpdateMaxMissedBlocks) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EventUpdateMaxMissedBlocks) ProtoMessage() {}
+
+// Deprecated: Use EventUpdateMaxMissedBlocks.ProtoReflect.Descriptor instead.
+func (*EventUpdateMaxMissedBlocks) Descriptor() ([]byte, []int) {
+	return file_chora_validator_v1_events_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EventUpdateMaxMissedBlocks) GetMaxMissedBlocks() int64 {
+	if x != nil {
+		return x.MaxMissedBlocks
+	}
+	return 0
+}
+
+// EventUpdateValidator is an event emitted when a validator is updated.
+type EventUpdateValidator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1369,27 +1811,27 @@ type EventUpdateMetadata struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *EventUpdateMetadata) Reset() {
-	*x = EventUpdateMetadata{}
+func (x *EventUpdateValidator) Reset() {
+	*x = EventUpdateValidator{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_validator_v1_events_proto_msgTypes[2]
+		mi := &file_chora_validator_v1_events_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *EventUpdateMetadata) String() string {
+func (x *EventUpdateValidator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventUpdateMetadata) ProtoMessage() {}
+func (*EventUpdateValidator) ProtoMessage() {}
 
-// Deprecated: Use EventUpdateMetadata.ProtoReflect.Descriptor instead.
-func (*EventUpdateMetadata) Descriptor() ([]byte, []int) {
-	return file_chora_validator_v1_events_proto_rawDescGZIP(), []int{2}
+// Deprecated: Use EventUpdateValidator.ProtoReflect.Descriptor instead.
+func (*EventUpdateValidator) Descriptor() ([]byte, []int) {
+	return file_chora_validator_v1_events_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *EventUpdateMetadata) GetAddress() string {
+func (x *EventUpdateValidator) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
@@ -1402,29 +1844,35 @@ var file_chora_validator_v1_events_proto_rawDesc = []byte{
 	0x0a, 0x1f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
 	0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x12, 0x12, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x2e, 0x76, 0x31, 0x22, 0x24, 0x0a, 0x08, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x41, 0x64,
-	0x64, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x27, 0x0a, 0x0b, 0x45,
-	0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64,
+	0x6f, 0x72, 0x2e, 0x76, 0x31, 0x22, 0x2d, 0x0a, 0x11, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x41, 0x64,
+	0x64, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64,
 	0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64,
-	0x72, 0x65, 0x73, 0x73, 0x22, 0x2f, 0x0a, 0x13, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x18, 0x0a, 0x07, 0x61,
-	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64,
-	0x64, 0x72, 0x65, 0x73, 0x73, 0x42, 0xd5, 0x01, 0x0a, 0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68,
-	0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31,
-	0x42, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a,
-	0x44, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72,
-	0x61, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c,
-	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58, 0xaa, 0x02, 0x12, 0x43, 0x68,
-	0x6f, 0x72, 0x61, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x56, 0x31,
-	0xca, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61,
-	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65,
-	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x14, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a,
-	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x65, 0x73, 0x73, 0x22, 0x30, 0x0a, 0x14, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6d,
+	0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61,
+	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x48, 0x0a, 0x1a, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c,
+	0x6f, 0x63, 0x6b, 0x73, 0x12, 0x2a, 0x0a, 0x11, 0x6d, 0x61, 0x78, 0x5f, 0x6d, 0x69, 0x73, 0x73,
+	0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x0f, 0x6d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73,
+	0x22, 0x30, 0x0a, 0x14, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72,
+	0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x42, 0xd5, 0x01, 0x0a, 0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
+	0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x0b, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x44, 0x67, 0x69,
+	0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f,
+	0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f,
+	0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61,
+	0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
+	0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58, 0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61,
+	0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x12,
+	0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c,
+	0x56, 0x31, 0xe2, 0x02, 0x1e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0xea, 0x02, 0x14, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61, 0x6c,
+	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -1439,11 +1887,12 @@ func file_chora_validator_v1_events_proto_rawDescGZIP() []byte {
 	return file_chora_validator_v1_events_proto_rawDescData
 }
 
-var file_chora_validator_v1_events_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_chora_validator_v1_events_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_chora_validator_v1_events_proto_goTypes = []interface{}{
-	(*EventAdd)(nil),            // 0: chora.validator.v1.EventAdd
-	(*EventRemove)(nil),         // 1: chora.validator.v1.EventRemove
-	(*EventUpdateMetadata)(nil), // 2: chora.validator.v1.EventUpdateMetadata
+	(*EventAddValidator)(nil),          // 0: chora.validator.v1.EventAddValidator
+	(*EventRemoveValidator)(nil),       // 1: chora.validator.v1.EventRemoveValidator
+	(*EventUpdateMaxMissedBlocks)(nil), // 2: chora.validator.v1.EventUpdateMaxMissedBlocks
+	(*EventUpdateValidator)(nil),       // 3: chora.validator.v1.EventUpdateValidator
 }
 var file_chora_validator_v1_events_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -1460,7 +1909,7 @@ func file_chora_validator_v1_events_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_validator_v1_events_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventAdd); i {
+			switch v := v.(*EventAddValidator); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1472,7 +1921,7 @@ func file_chora_validator_v1_events_proto_init() {
 			}
 		}
 		file_chora_validator_v1_events_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventRemove); i {
+			switch v := v.(*EventRemoveValidator); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1484,7 +1933,19 @@ func file_chora_validator_v1_events_proto_init() {
 			}
 		}
 		file_chora_validator_v1_events_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventUpdateMetadata); i {
+			switch v := v.(*EventUpdateMaxMissedBlocks); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_validator_v1_events_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EventUpdateValidator); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1502,7 +1963,7 @@ func file_chora_validator_v1_events_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chora_validator_v1_events_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

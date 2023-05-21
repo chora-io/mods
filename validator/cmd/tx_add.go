@@ -10,22 +10,23 @@ import (
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
-// TxAddCmd creates and returns the tx add command.
-func TxAddCmd() *cobra.Command {
+// TxAddValidatorCmd creates and returns the tx add command.
+func TxAddValidatorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "add [address]",
+		Use:   "add-validator [address] [metadata]",
 		Short: "submit a transaction to add a validator",
 		Long:  "submit a transaction to add a validator",
-		Args:  cobra.ExactArgs(1),
+		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := v1.MsgAdd{
+			msg := v1.MsgAddValidator{
 				Authority: clientCtx.GetFromAddress().String(),
 				Address:   args[0],
+				Metadata:  args[1],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

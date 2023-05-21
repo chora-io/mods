@@ -19,21 +19,25 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_Add_FullMethodName            = "/chora.validator.v1.Msg/Add"
-	Msg_Remove_FullMethodName         = "/chora.validator.v1.Msg/Remove"
-	Msg_UpdateMetadata_FullMethodName = "/chora.validator.v1.Msg/UpdateMetadata"
+	Msg_AddValidator_FullMethodName          = "/chora.validator.v1.Msg/AddValidator"
+	Msg_RemoveValidator_FullMethodName       = "/chora.validator.v1.Msg/RemoveValidator"
+	Msg_UpdateMaxMissedBlocks_FullMethodName = "/chora.validator.v1.Msg/UpdateMaxMissedBlocks"
+	Msg_UpdateValidator_FullMethodName       = "/chora.validator.v1.Msg/UpdateValidator"
 )
 
 // MsgClient is the client API for Msg service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MsgClient interface {
-	// Add adds a validator (restricted to authority).
-	Add(ctx context.Context, in *MsgAdd, opts ...grpc.CallOption) (*MsgAddResponse, error)
-	// Remove removes a validator (restricted to authority).
-	Remove(ctx context.Context, in *MsgRemove, opts ...grpc.CallOption) (*MsgRemoveResponse, error)
-	// UpdateMetadata updates validator metadata (restricted to validator).
-	UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error)
+	// AddValidator adds a validator (restricted to authority).
+	AddValidator(ctx context.Context, in *MsgAddValidator, opts ...grpc.CallOption) (*MsgAddValidatorResponse, error)
+	// RemoveValidator removes a validator (restricted to authority).
+	RemoveValidator(ctx context.Context, in *MsgRemoveValidator, opts ...grpc.CallOption) (*MsgRemoveValidatorResponse, error)
+	// UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
+	// validator is removed from the validator set. (restricted to authority).
+	UpdateMaxMissedBlocks(ctx context.Context, in *MsgUpdateMaxMissedBlocks, opts ...grpc.CallOption) (*MsgUpdateMaxMissedBlocksResponse, error)
+	// UpdateValidator updates a validator (restricted to validator).
+	UpdateValidator(ctx context.Context, in *MsgUpdateValidator, opts ...grpc.CallOption) (*MsgUpdateValidatorResponse, error)
 }
 
 type msgClient struct {
@@ -44,27 +48,36 @@ func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) Add(ctx context.Context, in *MsgAdd, opts ...grpc.CallOption) (*MsgAddResponse, error) {
-	out := new(MsgAddResponse)
-	err := c.cc.Invoke(ctx, Msg_Add_FullMethodName, in, out, opts...)
+func (c *msgClient) AddValidator(ctx context.Context, in *MsgAddValidator, opts ...grpc.CallOption) (*MsgAddValidatorResponse, error) {
+	out := new(MsgAddValidatorResponse)
+	err := c.cc.Invoke(ctx, Msg_AddValidator_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Remove(ctx context.Context, in *MsgRemove, opts ...grpc.CallOption) (*MsgRemoveResponse, error) {
-	out := new(MsgRemoveResponse)
-	err := c.cc.Invoke(ctx, Msg_Remove_FullMethodName, in, out, opts...)
+func (c *msgClient) RemoveValidator(ctx context.Context, in *MsgRemoveValidator, opts ...grpc.CallOption) (*MsgRemoveValidatorResponse, error) {
+	out := new(MsgRemoveValidatorResponse)
+	err := c.cc.Invoke(ctx, Msg_RemoveValidator_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error) {
-	out := new(MsgUpdateMetadataResponse)
-	err := c.cc.Invoke(ctx, Msg_UpdateMetadata_FullMethodName, in, out, opts...)
+func (c *msgClient) UpdateMaxMissedBlocks(ctx context.Context, in *MsgUpdateMaxMissedBlocks, opts ...grpc.CallOption) (*MsgUpdateMaxMissedBlocksResponse, error) {
+	out := new(MsgUpdateMaxMissedBlocksResponse)
+	err := c.cc.Invoke(ctx, Msg_UpdateMaxMissedBlocks_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateValidator(ctx context.Context, in *MsgUpdateValidator, opts ...grpc.CallOption) (*MsgUpdateValidatorResponse, error) {
+	out := new(MsgUpdateValidatorResponse)
+	err := c.cc.Invoke(ctx, Msg_UpdateValidator_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,12 +88,15 @@ func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, o
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
 type MsgServer interface {
-	// Add adds a validator (restricted to authority).
-	Add(context.Context, *MsgAdd) (*MsgAddResponse, error)
-	// Remove removes a validator (restricted to authority).
-	Remove(context.Context, *MsgRemove) (*MsgRemoveResponse, error)
-	// UpdateMetadata updates validator metadata (restricted to validator).
-	UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error)
+	// AddValidator adds a validator (restricted to authority).
+	AddValidator(context.Context, *MsgAddValidator) (*MsgAddValidatorResponse, error)
+	// RemoveValidator removes a validator (restricted to authority).
+	RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error)
+	// UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
+	// validator is removed from the validator set. (restricted to authority).
+	UpdateMaxMissedBlocks(context.Context, *MsgUpdateMaxMissedBlocks) (*MsgUpdateMaxMissedBlocksResponse, error)
+	// UpdateValidator updates a validator (restricted to validator).
+	UpdateValidator(context.Context, *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -88,14 +104,17 @@ type MsgServer interface {
 type UnimplementedMsgServer struct {
 }
 
-func (UnimplementedMsgServer) Add(context.Context, *MsgAdd) (*MsgAddResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+func (UnimplementedMsgServer) AddValidator(context.Context, *MsgAddValidator) (*MsgAddValidatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddValidator not implemented")
 }
-func (UnimplementedMsgServer) Remove(context.Context, *MsgRemove) (*MsgRemoveResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Remove not implemented")
+func (UnimplementedMsgServer) RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveValidator not implemented")
 }
-func (UnimplementedMsgServer) UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateMetadata not implemented")
+func (UnimplementedMsgServer) UpdateMaxMissedBlocks(context.Context, *MsgUpdateMaxMissedBlocks) (*MsgUpdateMaxMissedBlocksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMaxMissedBlocks not implemented")
+}
+func (UnimplementedMsgServer) UpdateValidator(context.Context, *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateValidator not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -110,56 +129,74 @@ func RegisterMsgServer(s grpc.ServiceRegistrar, srv MsgServer) {
 	s.RegisterService(&Msg_ServiceDesc, srv)
 }
 
-func _Msg_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgAdd)
+func _Msg_AddValidator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgAddValidator)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Add(ctx, in)
+		return srv.(MsgServer).AddValidator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_Add_FullMethodName,
+		FullMethod: Msg_AddValidator_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Add(ctx, req.(*MsgAdd))
+		return srv.(MsgServer).AddValidator(ctx, req.(*MsgAddValidator))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgRemove)
+func _Msg_RemoveValidator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveValidator)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Remove(ctx, in)
+		return srv.(MsgServer).RemoveValidator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_Remove_FullMethodName,
+		FullMethod: Msg_RemoveValidator_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Remove(ctx, req.(*MsgRemove))
+		return srv.(MsgServer).RemoveValidator(ctx, req.(*MsgRemoveValidator))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateMetadata)
+func _Msg_UpdateMaxMissedBlocks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateMaxMissedBlocks)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).UpdateMetadata(ctx, in)
+		return srv.(MsgServer).UpdateMaxMissedBlocks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_UpdateMetadata_FullMethodName,
+		FullMethod: Msg_UpdateMaxMissedBlocks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateMetadata(ctx, req.(*MsgUpdateMetadata))
+		return srv.(MsgServer).UpdateMaxMissedBlocks(ctx, req.(*MsgUpdateMaxMissedBlocks))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateValidator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateValidator)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateValidator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_UpdateValidator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateValidator(ctx, req.(*MsgUpdateValidator))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -172,16 +209,20 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Add",
-			Handler:    _Msg_Add_Handler,
+			MethodName: "AddValidator",
+			Handler:    _Msg_AddValidator_Handler,
 		},
 		{
-			MethodName: "Remove",
-			Handler:    _Msg_Remove_Handler,
+			MethodName: "RemoveValidator",
+			Handler:    _Msg_RemoveValidator_Handler,
 		},
 		{
-			MethodName: "UpdateMetadata",
-			Handler:    _Msg_UpdateMetadata_Handler,
+			MethodName: "UpdateMaxMissedBlocks",
+			Handler:    _Msg_UpdateMaxMissedBlocks_Handler,
+		},
+		{
+			MethodName: "UpdateValidator",
+			Handler:    _Msg_UpdateValidator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

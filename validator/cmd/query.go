@@ -19,6 +19,7 @@ func QueryCmd() *cobra.Command {
 	}
 
 	cmd.AddCommand(
+		QueryMaxMissedBlocksCmd(),
 		QueryValidatorCmd(),
 		QueryValidatorsCmd(),
 	)

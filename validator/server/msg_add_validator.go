@@ -10,13 +10,14 @@ import (
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
-// Add implements Msg/Add.
-func (s Server) Add(ctx context.Context, req *v1.MsgAdd) (*v1.MsgAddResponse, error) {
+// AddValidator implements Msg/AddValidator.
+func (s Server) AddValidator(ctx context.Context, req *v1.MsgAddValidator) (*v1.MsgAddValidatorResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	if s.authority.String() != req.Authority {
+	authorityAddress := s.authority.String()
+	if authorityAddress != req.Authority {
 		return nil, sdkerrors.ErrUnauthorized.Wrapf(
-			"authority: expected %s: received %s", s.authority.String(), req.Authority,
+			"authority: expected %s: received %s", authorityAddress, req.Authority,
 		)
 	}
 
@@ -29,15 +30,23 @@ func (s Server) Add(ctx context.Context, req *v1.MsgAdd) (*v1.MsgAddResponse, er
 		return nil, err // internal error
 	}
 
+	// insert validator into validator missed blocks table
+	err = s.ss.ValidatorMissedBlocksTable().Insert(ctx, &validatorv1.ValidatorMissedBlocks{
+		Address: req.Address,
+	})
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventAdd{
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventAddValidator{
 		Address: req.Address,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgAddResponse{
+	return &v1.MsgAddValidatorResponse{
 		Address: req.Address,
 	}, nil
 }

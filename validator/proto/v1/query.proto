@@ -10,6 +10,13 @@ option go_package = "github.com/choraio/mods/validator/types/v1";
 // Query is the Query service.
 service Query {
 
+  // MaxMissedBlocks queries the maximum number of missed blocks before a
+  // validator is removed from the validator set.
+  rpc MaxMissedBlocks(QueryMaxMissedBlocksRequest)
+      returns (QueryMaxMissedBlocksResponse) {
+    option (google.api.http).get = "/chora/validator/v1/max-missed-blocks";
+  }
+
   // Validator queries a validator by address.
   rpc Validator(QueryValidatorRequest) returns (QueryValidatorResponse) {
     option (google.api.http).get = "/chora/validator/v1/validator/{address}";
@@ -19,6 +26,17 @@ service Query {
   rpc Validators(QueryValidatorsRequest) returns (QueryValidatorsResponse) {
     option (google.api.http).get = "/chora/validator/v1/validators";
   }
+}
+
+// QueryMaxMissedBlocksRequest is the Query/MaxMissedBlocks request type.
+message QueryMaxMissedBlocksRequest {}
+
+// QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response type.
+message QueryMaxMissedBlocksResponse {
+
+  // max_missed_blocks is the maximum number of missed blocks before a validator
+  // is removed from the validator set. A zero-value indicates no maximum.
+  int64 max_missed_blocks = 1;
 }
 
 // QueryValidatorRequest is the Query/Validator request type.
@@ -36,6 +54,9 @@ message QueryValidatorResponse {
 
   // metadata is the metadata of the validator.
   string metadata = 2;
+
+  // missed_blocks is the number of missed blocks.
+  int64 missed_blocks = 3;
 }
 
 // QueryValidatorsRequest is the Query/Validators request type.
@@ -62,5 +83,8 @@ message QueryValidatorsResponse {
 
     // metadata is the metadata of the validator.
     string metadata = 2;
+
+    // missed_blocks is the number of missed blocks.
+    int64 missed_blocks = 3;
   }
 }

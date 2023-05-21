@@ -6,10 +6,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 )
 
-var _ legacytx.LegacyMsg = &MsgAdd{}
+var _ legacytx.LegacyMsg = &MsgRemoveValidator{}
 
-// ValidateBasic performs stateless validation on MsgAdd.
-func (m MsgAdd) ValidateBasic() error {
+// ValidateBasic performs stateless validation on MsgRemoveValidator.
+func (m MsgRemoveValidator) ValidateBasic() error {
 	if _, err := sdk.AccAddressFromBech32(m.Authority); err != nil {
 		return sdkerrors.ErrInvalidAddress.Wrapf("authority: %s", err)
 	}
@@ -18,34 +18,26 @@ func (m MsgAdd) ValidateBasic() error {
 		return sdkerrors.ErrInvalidAddress.Wrapf("address: %s", err)
 	}
 
-	if m.Metadata == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("metadata: empty string is not allowed")
-	}
-
-	if len(m.Metadata) > MetadataMaxLength {
-		return sdkerrors.ErrInvalidRequest.Wrapf("metadata: exceeds max length %d", MetadataMaxLength)
-	}
-
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgAdd.
-func (m MsgAdd) GetSigners() []sdk.AccAddress {
+// GetSigners returns the expected signers for MsgRemoveValidator.
+func (m MsgRemoveValidator) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Authority)
 	return []sdk.AccAddress{addr}
 }
 
 // GetSignBytes implements the LegacyMsg interface.
-func (m MsgAdd) GetSignBytes() []byte {
+func (m MsgRemoveValidator) GetSignBytes() []byte {
 	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgAdd) Route() string {
+func (m MsgRemoveValidator) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgAdd) Type() string {
+func (m MsgRemoveValidator) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

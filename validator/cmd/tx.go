@@ -19,9 +19,9 @@ func TxCmd() *cobra.Command {
 	}
 
 	cmd.AddCommand(
-		TxAddCmd(),
-		TxRemoveCmd(),
-		TxUpdateMetadataCmd(),
+		TxAddValidatorCmd(),
+		TxRemoveValidatorCmd(),
+		TxUpdateValidatorCmd(),
 	)
 
 	return cmd

@@ -10,8 +10,8 @@ import (
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
-// UpdateMetadata implements the Msg/UpdateMetadata method.
-func (s Server) UpdateMetadata(ctx context.Context, req *v1.MsgUpdateMetadata) (*v1.MsgUpdateMetadataResponse, error) {
+// UpdateValidator implements the Msg/UpdateValidator method.
+func (s Server) UpdateValidator(ctx context.Context, req *v1.MsgUpdateValidator) (*v1.MsgUpdateValidatorResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
 	// get validator from validator table
@@ -33,14 +33,14 @@ func (s Server) UpdateMetadata(ctx context.Context, req *v1.MsgUpdateMetadata) (
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateMetadata{
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateValidator{
 		Address: req.Address,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgUpdateMetadataResponse{
+	return &v1.MsgUpdateValidatorResponse{
 		Address: req.Address,
 	}, nil
 }

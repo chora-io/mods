@@ -10,43 +10,43 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-type msgAdd struct {
+type msgAddValidator struct {
 	t   gocuke.TestingT
-	msg *MsgAdd
+	msg *MsgAddValidator
 	err error
 }
 
-func TestMsgAdd(t *testing.T) {
-	gocuke.NewRunner(t, &msgAdd{}).
-		Path("./features/msg_add.feature").
+func TestMsgAddValidator(t *testing.T) {
+	gocuke.NewRunner(t, &msgAddValidator{}).
+		Path("./features/msg_add_validator.feature").
 		Run()
 }
 
-func (s *msgAdd) Before(t gocuke.TestingT) {
+func (s *msgAddValidator) Before(t gocuke.TestingT) {
 	s.t = t
 }
 
-func (s *msgAdd) Message(a gocuke.DocString) {
-	s.msg = &MsgAdd{}
+func (s *msgAddValidator) Message(a gocuke.DocString) {
+	s.msg = &MsgAddValidator{}
 	err := jsonpb.UnmarshalString(a.Content, s.msg)
 	require.NoError(s.t, err)
 }
 
-func (s *msgAdd) MetadataWithLength(a string) {
+func (s *msgAddValidator) MetadataWithLength(a string) {
 	length, err := strconv.ParseInt(a, 10, 64)
 	require.NoError(s.t, err)
 
 	s.msg.Metadata = strings.Repeat("x", int(length))
 }
 
-func (s *msgAdd) ValidateMessage() {
+func (s *msgAddValidator) ValidateMessage() {
 	s.err = s.msg.ValidateBasic()
 }
 
-func (s *msgAdd) ExpectNoError() {
+func (s *msgAddValidator) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgAdd) ExpectTheError(a gocuke.DocString) {
+func (s *msgAddValidator) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }

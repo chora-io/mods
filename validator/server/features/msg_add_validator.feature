@@ -1,12 +1,12 @@
-Feature: Msg/Add
+Feature: Msg/AddValidator
 
-  Msg/Add is successful when:
+  Msg/AddValidator is successful when:
   - authority is the authority address
 
-  Msg/Add has the following outcomes:
-  - message response returned
+  Msg/AddValidator has the following outcomes:
   - Validator is added to state
-  - EventAdd is emitted
+  - EventAddValidator is emitted
+  - MsgAddValidatorResponse is returned
 
   Rule: The authority must be the authority address
 
@@ -14,7 +14,7 @@ Feature: Msg/Add
       Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
 
     Scenario: authority is authority address
-      When msg add
+      When msg add validator
       """
       {
         "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -25,7 +25,7 @@ Feature: Msg/Add
       Then expect no error
 
     Scenario: authority is not authority address
-      When msg add
+      When msg add validator
       """
       {
         "authority": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
@@ -38,36 +38,13 @@ Feature: Msg/Add
       authority: expected chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38: received chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: unauthorized
       """
 
-  Rule: The message response is returned
-
-    Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-
-    Scenario: message response returned
-      When msg add
-      """
-      {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
-      }
-      """
-      Then expect response
-      """
-      {
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
-      }
-      """
-
-    # No failing scenario - response is never returned when message fails
-
   Rule: Validator is added to state
 
     Background:
       Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
 
     Scenario: state validator added
-      When msg add
+      When msg add validator
       """
       {
         "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -85,10 +62,10 @@ Feature: Msg/Add
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventAdd is emitted
+  Rule: EventAddValidator is emitted
 
     Scenario: event add emitted
-      When msg add
+      When msg add validator
       """
       {
         "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -104,3 +81,26 @@ Feature: Msg/Add
       """
 
     # No failing scenario - event is never emitted when message fails
+
+  Rule: MsgAddValidatorResponse is returned
+
+    Background:
+      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+
+    Scenario: message response returned
+      When msg add validator
+      """
+      {
+        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
+        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+      }
+      """
+      Then expect response
+      """
+      {
+        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
+      }
+      """
+
+    # No failing scenario - response is never returned when message fails

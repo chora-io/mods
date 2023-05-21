@@ -15,6 +15,766 @@ import (
 )
 
 var (
+	md_QueryMaxMissedBlocksRequest protoreflect.MessageDescriptor
+)
+
+func init() {
+	file_chora_validator_v1_query_proto_init()
+	md_QueryMaxMissedBlocksRequest = File_chora_validator_v1_query_proto.Messages().ByName("QueryMaxMissedBlocksRequest")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryMaxMissedBlocksRequest)(nil)
+
+type fastReflection_QueryMaxMissedBlocksRequest QueryMaxMissedBlocksRequest
+
+func (x *QueryMaxMissedBlocksRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryMaxMissedBlocksRequest)(x)
+}
+
+func (x *QueryMaxMissedBlocksRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_validator_v1_query_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryMaxMissedBlocksRequest_messageType fastReflection_QueryMaxMissedBlocksRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryMaxMissedBlocksRequest_messageType{}
+
+type fastReflection_QueryMaxMissedBlocksRequest_messageType struct{}
+
+func (x fastReflection_QueryMaxMissedBlocksRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryMaxMissedBlocksRequest)(nil)
+}
+func (x fastReflection_QueryMaxMissedBlocksRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryMaxMissedBlocksRequest)
+}
+func (x fastReflection_QueryMaxMissedBlocksRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryMaxMissedBlocksRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryMaxMissedBlocksRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryMaxMissedBlocksRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryMaxMissedBlocksRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryMaxMissedBlocksRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksRequest"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksRequest"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksRequest"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksRequest"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksRequest"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksRequest"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.QueryMaxMissedBlocksRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryMaxMissedBlocksRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryMaxMissedBlocksRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryMaxMissedBlocksRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryMaxMissedBlocksRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryMaxMissedBlocksRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryMaxMissedBlocksRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryMaxMissedBlocksResponse                   protoreflect.MessageDescriptor
+	fd_QueryMaxMissedBlocksResponse_max_missed_blocks protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_validator_v1_query_proto_init()
+	md_QueryMaxMissedBlocksResponse = File_chora_validator_v1_query_proto.Messages().ByName("QueryMaxMissedBlocksResponse")
+	fd_QueryMaxMissedBlocksResponse_max_missed_blocks = md_QueryMaxMissedBlocksResponse.Fields().ByName("max_missed_blocks")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryMaxMissedBlocksResponse)(nil)
+
+type fastReflection_QueryMaxMissedBlocksResponse QueryMaxMissedBlocksResponse
+
+func (x *QueryMaxMissedBlocksResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryMaxMissedBlocksResponse)(x)
+}
+
+func (x *QueryMaxMissedBlocksResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_validator_v1_query_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryMaxMissedBlocksResponse_messageType fastReflection_QueryMaxMissedBlocksResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryMaxMissedBlocksResponse_messageType{}
+
+type fastReflection_QueryMaxMissedBlocksResponse_messageType struct{}
+
+func (x fastReflection_QueryMaxMissedBlocksResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryMaxMissedBlocksResponse)(nil)
+}
+func (x fastReflection_QueryMaxMissedBlocksResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryMaxMissedBlocksResponse)
+}
+func (x fastReflection_QueryMaxMissedBlocksResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryMaxMissedBlocksResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryMaxMissedBlocksResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryMaxMissedBlocksResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryMaxMissedBlocksResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryMaxMissedBlocksResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.MaxMissedBlocks != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MaxMissedBlocks)
+		if !f(fd_QueryMaxMissedBlocksResponse_max_missed_blocks, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.validator.v1.QueryMaxMissedBlocksResponse.max_missed_blocks":
+		return x.MaxMissedBlocks != int64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksResponse"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.validator.v1.QueryMaxMissedBlocksResponse.max_missed_blocks":
+		x.MaxMissedBlocks = int64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksResponse"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.validator.v1.QueryMaxMissedBlocksResponse.max_missed_blocks":
+		value := x.MaxMissedBlocks
+		return protoreflect.ValueOfInt64(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksResponse"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.validator.v1.QueryMaxMissedBlocksResponse.max_missed_blocks":
+		x.MaxMissedBlocks = value.Int()
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksResponse"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.validator.v1.QueryMaxMissedBlocksResponse.max_missed_blocks":
+		panic(fmt.Errorf("field max_missed_blocks of message chora.validator.v1.QueryMaxMissedBlocksResponse is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksResponse"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.validator.v1.QueryMaxMissedBlocksResponse.max_missed_blocks":
+		return protoreflect.ValueOfInt64(int64(0))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryMaxMissedBlocksResponse"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.QueryMaxMissedBlocksResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.QueryMaxMissedBlocksResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryMaxMissedBlocksResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryMaxMissedBlocksResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.MaxMissedBlocks != 0 {
+			n += 1 + runtime.Sov(uint64(x.MaxMissedBlocks))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryMaxMissedBlocksResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.MaxMissedBlocks != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MaxMissedBlocks))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryMaxMissedBlocksResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryMaxMissedBlocksResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryMaxMissedBlocksResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MaxMissedBlocks", wireType)
+				}
+				x.MaxMissedBlocks = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MaxMissedBlocks |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
 	md_QueryValidatorRequest         protoreflect.MessageDescriptor
 	fd_QueryValidatorRequest_address protoreflect.FieldDescriptor
 )
@@ -34,7 +794,7 @@ func (x *QueryValidatorRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *QueryValidatorRequest) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_validator_v1_query_proto_msgTypes[0]
+	mi := &file_chora_validator_v1_query_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -435,9 +1195,10 @@ func (x *fastReflection_QueryValidatorRequest) ProtoMethods() *protoiface.Method
 }
 
 var (
-	md_QueryValidatorResponse          protoreflect.MessageDescriptor
-	fd_QueryValidatorResponse_address  protoreflect.FieldDescriptor
-	fd_QueryValidatorResponse_metadata protoreflect.FieldDescriptor
+	md_QueryValidatorResponse               protoreflect.MessageDescriptor
+	fd_QueryValidatorResponse_address       protoreflect.FieldDescriptor
+	fd_QueryValidatorResponse_metadata      protoreflect.FieldDescriptor
+	fd_QueryValidatorResponse_missed_blocks protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -445,6 +1206,7 @@ func init() {
 	md_QueryValidatorResponse = File_chora_validator_v1_query_proto.Messages().ByName("QueryValidatorResponse")
 	fd_QueryValidatorResponse_address = md_QueryValidatorResponse.Fields().ByName("address")
 	fd_QueryValidatorResponse_metadata = md_QueryValidatorResponse.Fields().ByName("metadata")
+	fd_QueryValidatorResponse_missed_blocks = md_QueryValidatorResponse.Fields().ByName("missed_blocks")
 }
 
 var _ protoreflect.Message = (*fastReflection_QueryValidatorResponse)(nil)
@@ -456,7 +1218,7 @@ func (x *QueryValidatorResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *QueryValidatorResponse) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_validator_v1_query_proto_msgTypes[1]
+	mi := &file_chora_validator_v1_query_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -524,6 +1286,12 @@ func (x *fastReflection_QueryValidatorResponse) Range(f func(protoreflect.FieldD
 			return
 		}
 	}
+	if x.MissedBlocks != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MissedBlocks)
+		if !f(fd_QueryValidatorResponse_missed_blocks, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -543,6 +1311,8 @@ func (x *fastReflection_QueryValidatorResponse) Has(fd protoreflect.FieldDescrip
 		return x.Address != ""
 	case "chora.validator.v1.QueryValidatorResponse.metadata":
 		return x.Metadata != ""
+	case "chora.validator.v1.QueryValidatorResponse.missed_blocks":
+		return x.MissedBlocks != int64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorResponse"))
@@ -563,6 +1333,8 @@ func (x *fastReflection_QueryValidatorResponse) Clear(fd protoreflect.FieldDescr
 		x.Address = ""
 	case "chora.validator.v1.QueryValidatorResponse.metadata":
 		x.Metadata = ""
+	case "chora.validator.v1.QueryValidatorResponse.missed_blocks":
+		x.MissedBlocks = int64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorResponse"))
@@ -585,6 +1357,9 @@ func (x *fastReflection_QueryValidatorResponse) Get(descriptor protoreflect.Fiel
 	case "chora.validator.v1.QueryValidatorResponse.metadata":
 		value := x.Metadata
 		return protoreflect.ValueOfString(value)
+	case "chora.validator.v1.QueryValidatorResponse.missed_blocks":
+		value := x.MissedBlocks
+		return protoreflect.ValueOfInt64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorResponse"))
@@ -609,6 +1384,8 @@ func (x *fastReflection_QueryValidatorResponse) Set(fd protoreflect.FieldDescrip
 		x.Address = value.Interface().(string)
 	case "chora.validator.v1.QueryValidatorResponse.metadata":
 		x.Metadata = value.Interface().(string)
+	case "chora.validator.v1.QueryValidatorResponse.missed_blocks":
+		x.MissedBlocks = value.Int()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorResponse"))
@@ -633,6 +1410,8 @@ func (x *fastReflection_QueryValidatorResponse) Mutable(fd protoreflect.FieldDes
 		panic(fmt.Errorf("field address of message chora.validator.v1.QueryValidatorResponse is not mutable"))
 	case "chora.validator.v1.QueryValidatorResponse.metadata":
 		panic(fmt.Errorf("field metadata of message chora.validator.v1.QueryValidatorResponse is not mutable"))
+	case "chora.validator.v1.QueryValidatorResponse.missed_blocks":
+		panic(fmt.Errorf("field missed_blocks of message chora.validator.v1.QueryValidatorResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorResponse"))
@@ -650,6 +1429,8 @@ func (x *fastReflection_QueryValidatorResponse) NewField(fd protoreflect.FieldDe
 		return protoreflect.ValueOfString("")
 	case "chora.validator.v1.QueryValidatorResponse.metadata":
 		return protoreflect.ValueOfString("")
+	case "chora.validator.v1.QueryValidatorResponse.missed_blocks":
+		return protoreflect.ValueOfInt64(int64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorResponse"))
@@ -727,6 +1508,9 @@ func (x *fastReflection_QueryValidatorResponse) ProtoMethods() *protoiface.Metho
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
+		if x.MissedBlocks != 0 {
+			n += 1 + runtime.Sov(uint64(x.MissedBlocks))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -755,6 +1539,11 @@ func (x *fastReflection_QueryValidatorResponse) ProtoMethods() *protoiface.Metho
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.MissedBlocks != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MissedBlocks))
+			i--
+			dAtA[i] = 0x18
 		}
 		if len(x.Metadata) > 0 {
 			i -= len(x.Metadata)
@@ -883,6 +1672,25 @@ func (x *fastReflection_QueryValidatorResponse) ProtoMethods() *protoiface.Metho
 				}
 				x.Metadata = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
+			case 3:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MissedBlocks", wireType)
+				}
+				x.MissedBlocks = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MissedBlocks |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -938,7 +1746,7 @@ func (x *QueryValidatorsRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *QueryValidatorsRequest) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_validator_v1_query_proto_msgTypes[2]
+	mi := &file_chora_validator_v1_query_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1426,7 +2234,7 @@ func (x *QueryValidatorsResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *QueryValidatorsResponse) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_validator_v1_query_proto_msgTypes[3]
+	mi := &file_chora_validator_v1_query_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1927,9 +2735,10 @@ func (x *fastReflection_QueryValidatorsResponse) ProtoMethods() *protoiface.Meth
 }
 
 var (
-	md_QueryValidatorsResponse_Validator          protoreflect.MessageDescriptor
-	fd_QueryValidatorsResponse_Validator_address  protoreflect.FieldDescriptor
-	fd_QueryValidatorsResponse_Validator_metadata protoreflect.FieldDescriptor
+	md_QueryValidatorsResponse_Validator               protoreflect.MessageDescriptor
+	fd_QueryValidatorsResponse_Validator_address       protoreflect.FieldDescriptor
+	fd_QueryValidatorsResponse_Validator_metadata      protoreflect.FieldDescriptor
+	fd_QueryValidatorsResponse_Validator_missed_blocks protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -1937,6 +2746,7 @@ func init() {
 	md_QueryValidatorsResponse_Validator = File_chora_validator_v1_query_proto.Messages().ByName("QueryValidatorsResponse").Messages().ByName("Validator")
 	fd_QueryValidatorsResponse_Validator_address = md_QueryValidatorsResponse_Validator.Fields().ByName("address")
 	fd_QueryValidatorsResponse_Validator_metadata = md_QueryValidatorsResponse_Validator.Fields().ByName("metadata")
+	fd_QueryValidatorsResponse_Validator_missed_blocks = md_QueryValidatorsResponse_Validator.Fields().ByName("missed_blocks")
 }
 
 var _ protoreflect.Message = (*fastReflection_QueryValidatorsResponse_Validator)(nil)
@@ -1948,7 +2758,7 @@ func (x *QueryValidatorsResponse_Validator) ProtoReflect() protoreflect.Message 
 }
 
 func (x *QueryValidatorsResponse_Validator) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_validator_v1_query_proto_msgTypes[4]
+	mi := &file_chora_validator_v1_query_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2016,6 +2826,12 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) Range(f func(protoref
 			return
 		}
 	}
+	if x.MissedBlocks != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MissedBlocks)
+		if !f(fd_QueryValidatorsResponse_Validator_missed_blocks, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -2035,6 +2851,8 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) Has(fd protoreflect.F
 		return x.Address != ""
 	case "chora.validator.v1.QueryValidatorsResponse.Validator.metadata":
 		return x.Metadata != ""
+	case "chora.validator.v1.QueryValidatorsResponse.Validator.missed_blocks":
+		return x.MissedBlocks != int64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorsResponse.Validator"))
@@ -2055,6 +2873,8 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) Clear(fd protoreflect
 		x.Address = ""
 	case "chora.validator.v1.QueryValidatorsResponse.Validator.metadata":
 		x.Metadata = ""
+	case "chora.validator.v1.QueryValidatorsResponse.Validator.missed_blocks":
+		x.MissedBlocks = int64(0)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorsResponse.Validator"))
@@ -2077,6 +2897,9 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) Get(descriptor protor
 	case "chora.validator.v1.QueryValidatorsResponse.Validator.metadata":
 		value := x.Metadata
 		return protoreflect.ValueOfString(value)
+	case "chora.validator.v1.QueryValidatorsResponse.Validator.missed_blocks":
+		value := x.MissedBlocks
+		return protoreflect.ValueOfInt64(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorsResponse.Validator"))
@@ -2101,6 +2924,8 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) Set(fd protoreflect.F
 		x.Address = value.Interface().(string)
 	case "chora.validator.v1.QueryValidatorsResponse.Validator.metadata":
 		x.Metadata = value.Interface().(string)
+	case "chora.validator.v1.QueryValidatorsResponse.Validator.missed_blocks":
+		x.MissedBlocks = value.Int()
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorsResponse.Validator"))
@@ -2125,6 +2950,8 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) Mutable(fd protorefle
 		panic(fmt.Errorf("field address of message chora.validator.v1.QueryValidatorsResponse.Validator is not mutable"))
 	case "chora.validator.v1.QueryValidatorsResponse.Validator.metadata":
 		panic(fmt.Errorf("field metadata of message chora.validator.v1.QueryValidatorsResponse.Validator is not mutable"))
+	case "chora.validator.v1.QueryValidatorsResponse.Validator.missed_blocks":
+		panic(fmt.Errorf("field missed_blocks of message chora.validator.v1.QueryValidatorsResponse.Validator is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorsResponse.Validator"))
@@ -2142,6 +2969,8 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) NewField(fd protorefl
 		return protoreflect.ValueOfString("")
 	case "chora.validator.v1.QueryValidatorsResponse.Validator.metadata":
 		return protoreflect.ValueOfString("")
+	case "chora.validator.v1.QueryValidatorsResponse.Validator.missed_blocks":
+		return protoreflect.ValueOfInt64(int64(0))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.QueryValidatorsResponse.Validator"))
@@ -2219,6 +3048,9 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) ProtoMethods() *proto
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
+		if x.MissedBlocks != 0 {
+			n += 1 + runtime.Sov(uint64(x.MissedBlocks))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -2247,6 +3079,11 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) ProtoMethods() *proto
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.MissedBlocks != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MissedBlocks))
+			i--
+			dAtA[i] = 0x18
 		}
 		if len(x.Metadata) > 0 {
 			i -= len(x.Metadata)
@@ -2375,6 +3212,25 @@ func (x *fastReflection_QueryValidatorsResponse_Validator) ProtoMethods() *proto
 				}
 				x.Metadata = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
+			case 3:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MissedBlocks", wireType)
+				}
+				x.MissedBlocks = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MissedBlocks |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -2423,6 +3279,71 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// QueryMaxMissedBlocksRequest is the Query/MaxMissedBlocks request type.
+type QueryMaxMissedBlocksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *QueryMaxMissedBlocksRequest) Reset() {
+	*x = QueryMaxMissedBlocksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_validator_v1_query_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryMaxMissedBlocksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryMaxMissedBlocksRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryMaxMissedBlocksRequest.ProtoReflect.Descriptor instead.
+func (*QueryMaxMissedBlocksRequest) Descriptor() ([]byte, []int) {
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{0}
+}
+
+// QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response type.
+type QueryMaxMissedBlocksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// max_missed_blocks is the maximum number of missed blocks before a validator
+	// is removed from the validator set. A zero-value indicates no maximum.
+	MaxMissedBlocks int64 `protobuf:"varint,1,opt,name=max_missed_blocks,json=maxMissedBlocks,proto3" json:"max_missed_blocks,omitempty"`
+}
+
+func (x *QueryMaxMissedBlocksResponse) Reset() {
+	*x = QueryMaxMissedBlocksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_validator_v1_query_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryMaxMissedBlocksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryMaxMissedBlocksResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryMaxMissedBlocksResponse.ProtoReflect.Descriptor instead.
+func (*QueryMaxMissedBlocksResponse) Descriptor() ([]byte, []int) {
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *QueryMaxMissedBlocksResponse) GetMaxMissedBlocks() int64 {
+	if x != nil {
+		return x.MaxMissedBlocks
+	}
+	return 0
+}
+
 // QueryValidatorRequest is the Query/Validator request type.
 type QueryValidatorRequest struct {
 	state         protoimpl.MessageState
@@ -2436,7 +3357,7 @@ type QueryValidatorRequest struct {
 func (x *QueryValidatorRequest) Reset() {
 	*x = QueryValidatorRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_validator_v1_query_proto_msgTypes[0]
+		mi := &file_chora_validator_v1_query_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2450,7 +3371,7 @@ func (*QueryValidatorRequest) ProtoMessage() {}
 
 // Deprecated: Use QueryValidatorRequest.ProtoReflect.Descriptor instead.
 func (*QueryValidatorRequest) Descriptor() ([]byte, []int) {
-	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{0}
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *QueryValidatorRequest) GetAddress() string {
@@ -2470,12 +3391,14 @@ type QueryValidatorResponse struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 	// metadata is the metadata of the validator.
 	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	// missed_blocks is the number of missed blocks.
+	MissedBlocks int64 `protobuf:"varint,3,opt,name=missed_blocks,json=missedBlocks,proto3" json:"missed_blocks,omitempty"`
 }
 
 func (x *QueryValidatorResponse) Reset() {
 	*x = QueryValidatorResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_validator_v1_query_proto_msgTypes[1]
+		mi := &file_chora_validator_v1_query_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2489,7 +3412,7 @@ func (*QueryValidatorResponse) ProtoMessage() {}
 
 // Deprecated: Use QueryValidatorResponse.ProtoReflect.Descriptor instead.
 func (*QueryValidatorResponse) Descriptor() ([]byte, []int) {
-	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{1}
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *QueryValidatorResponse) GetAddress() string {
@@ -2506,6 +3429,13 @@ func (x *QueryValidatorResponse) GetMetadata() string {
 	return ""
 }
 
+func (x *QueryValidatorResponse) GetMissedBlocks() int64 {
+	if x != nil {
+		return x.MissedBlocks
+	}
+	return 0
+}
+
 // QueryValidatorsRequest is the Query/Validators request type.
 type QueryValidatorsRequest struct {
 	state         protoimpl.MessageState
@@ -2519,7 +3449,7 @@ type QueryValidatorsRequest struct {
 func (x *QueryValidatorsRequest) Reset() {
 	*x = QueryValidatorsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_validator_v1_query_proto_msgTypes[2]
+		mi := &file_chora_validator_v1_query_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2533,7 +3463,7 @@ func (*QueryValidatorsRequest) ProtoMessage() {}
 
 // Deprecated: Use QueryValidatorsRequest.ProtoReflect.Descriptor instead.
 func (*QueryValidatorsRequest) Descriptor() ([]byte, []int) {
-	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{2}
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *QueryValidatorsRequest) GetPagination() *v1beta1.PageRequest {
@@ -2558,7 +3488,7 @@ type QueryValidatorsResponse struct {
 func (x *QueryValidatorsResponse) Reset() {
 	*x = QueryValidatorsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_validator_v1_query_proto_msgTypes[3]
+		mi := &file_chora_validator_v1_query_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2572,7 +3502,7 @@ func (*QueryValidatorsResponse) ProtoMessage() {}
 
 // Deprecated: Use QueryValidatorsResponse.ProtoReflect.Descriptor instead.
 func (*QueryValidatorsResponse) Descriptor() ([]byte, []int) {
-	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{3}
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *QueryValidatorsResponse) GetValidators() []*QueryValidatorsResponse_Validator {
@@ -2599,12 +3529,14 @@ type QueryValidatorsResponse_Validator struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 	// metadata is the metadata of the validator.
 	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	// missed_blocks is the number of missed blocks.
+	MissedBlocks int64 `protobuf:"varint,3,opt,name=missed_blocks,json=missedBlocks,proto3" json:"missed_blocks,omitempty"`
 }
 
 func (x *QueryValidatorsResponse_Validator) Reset() {
 	*x = QueryValidatorsResponse_Validator{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_validator_v1_query_proto_msgTypes[4]
+		mi := &file_chora_validator_v1_query_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2618,7 +3550,7 @@ func (*QueryValidatorsResponse_Validator) ProtoMessage() {}
 
 // Deprecated: Use QueryValidatorsResponse_Validator.ProtoReflect.Descriptor instead.
 func (*QueryValidatorsResponse_Validator) Descriptor() ([]byte, []int) {
-	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{3, 0}
+	return file_chora_validator_v1_query_proto_rawDescGZIP(), []int{5, 0}
 }
 
 func (x *QueryValidatorsResponse_Validator) GetAddress() string {
@@ -2635,6 +3567,13 @@ func (x *QueryValidatorsResponse_Validator) GetMetadata() string {
 	return ""
 }
 
+func (x *QueryValidatorsResponse_Validator) GetMissedBlocks() int64 {
+	if x != nil {
+		return x.MissedBlocks
+	}
+	return 0
+}
+
 var File_chora_validator_v1_query_proto protoreflect.FileDescriptor
 
 var file_chora_validator_v1_query_proto_rawDesc = []byte{
@@ -2645,22 +3584,31 @@ var file_chora_validator_v1_query_proto_rawDesc = []byte{
 	0x65, 0x2f, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2f, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2f,
 	0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e,
-	0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x31,
-	0x0a, 0x15, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
-	0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
-	0x73, 0x22, 0x4e, 0x0a, 0x16, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61,
-	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64,
-	0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x22, 0x60, 0x0a, 0x16, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
+	0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x1d,
+	0x0a, 0x1b, 0x51, 0x75, 0x65, 0x72, 0x79, 0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64,
+	0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x4a, 0x0a,
+	0x1c, 0x51, 0x75, 0x65, 0x72, 0x79, 0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42,
+	0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2a, 0x0a,
+	0x11, 0x6d, 0x61, 0x78, 0x5f, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63,
+	0x6b, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0f, 0x6d, 0x61, 0x78, 0x4d, 0x69, 0x73,
+	0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x22, 0x31, 0x0a, 0x15, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x73, 0x0a, 0x16,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x23, 0x0a, 0x0d,
+	0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x03, 0x52, 0x0c, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b,
+	0x73, 0x22, 0x60, 0x0a, 0x16, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
 	0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x46, 0x0a, 0x0a, 0x70,
 	0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75,
 	0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x22, 0xfc, 0x01, 0x0a, 0x17, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c,
+	0x69, 0x6f, 0x6e, 0x22, 0xa1, 0x02, 0x0a, 0x17, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c,
 	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
 	0x55, 0x0a, 0x0a, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x18, 0x01, 0x20,
 	0x03, 0x28, 0x0b, 0x32, 0x35, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69,
@@ -2672,44 +3620,56 @@ var file_chora_validator_v1_query_proto_rawDesc = []byte{
 	0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76,
 	0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
 	0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a,
-	0x41, 0x0a, 0x09, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07,
+	0x66, 0x0a, 0x09, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07,
 	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61,
 	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
 	0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x32, 0xad, 0x02, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x93, 0x01, 0x0a,
-	0x09, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x29, 0x2e, 0x63, 0x68, 0x6f,
-	0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61,
+	0x74, 0x61, 0x12, 0x23, 0x0a, 0x0d, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f,
+	0x63, 0x6b, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x6d, 0x69, 0x73, 0x73, 0x65,
+	0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x32, 0xd3, 0x03, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x12, 0xa3, 0x01, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42,
+	0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x12, 0x2f, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61,
 	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x2f, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x29, 0x12, 0x27, 0x2f, 0x63, 0x68, 0x6f, 0x72,
-	0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76,
-	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x7b, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
-	0x73, 0x7d, 0x12, 0x8d, 0x01, 0x0a, 0x0a, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x73, 0x12, 0x2a, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e,
-	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e,
-	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
-	0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93,
-	0x02, 0x20, 0x12, 0x1e, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
-	0x72, 0x73, 0x42, 0xd4, 0x01, 0x0a, 0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51,
-	0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x44, 0x67, 0x69, 0x74,
-	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f,
-	0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x61,
-	0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x76,
-	0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58, 0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e,
-	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x12, 0x43,
+	0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x30, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2d, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x27,
+	0x12, 0x25, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x6f, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x61, 0x78, 0x2d, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64,
+	0x2d, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x12, 0x93, 0x01, 0x0a, 0x09, 0x56, 0x61, 0x6c, 0x69,
+	0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x29, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x2a, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2f, 0x82, 0xd3,
+	0xe4, 0x93, 0x02, 0x29, 0x12, 0x27, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c,
+	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61,
+	0x74, 0x6f, 0x72, 0x2f, 0x7b, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x7d, 0x12, 0x8d, 0x01,
+	0x0a, 0x0a, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x12, 0x2a, 0x2e, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76,
+	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
+	0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e, 0x2f,
+	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f,
+	0x76, 0x31, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x73, 0x42, 0xd4, 0x01,
+	0x0a, 0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69,
+	0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50,
+	0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x44, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
+	0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f,
+	0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68,
+	0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31,
+	0x3b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43,
+	0x56, 0x58, 0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c,
+	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1e, 0x43,
 	0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56,
-	0x31, 0xe2, 0x02, 0x1e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0xea, 0x02, 0x14, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x14,
+	0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
+	0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2724,26 +3684,30 @@ func file_chora_validator_v1_query_proto_rawDescGZIP() []byte {
 	return file_chora_validator_v1_query_proto_rawDescData
 }
 
-var file_chora_validator_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_chora_validator_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_chora_validator_v1_query_proto_goTypes = []interface{}{
-	(*QueryValidatorRequest)(nil),             // 0: chora.validator.v1.QueryValidatorRequest
-	(*QueryValidatorResponse)(nil),            // 1: chora.validator.v1.QueryValidatorResponse
-	(*QueryValidatorsRequest)(nil),            // 2: chora.validator.v1.QueryValidatorsRequest
-	(*QueryValidatorsResponse)(nil),           // 3: chora.validator.v1.QueryValidatorsResponse
-	(*QueryValidatorsResponse_Validator)(nil), // 4: chora.validator.v1.QueryValidatorsResponse.Validator
-	(*v1beta1.PageRequest)(nil),               // 5: cosmos.base.query.v1beta1.PageRequest
-	(*v1beta1.PageResponse)(nil),              // 6: cosmos.base.query.v1beta1.PageResponse
+	(*QueryMaxMissedBlocksRequest)(nil),       // 0: chora.validator.v1.QueryMaxMissedBlocksRequest
+	(*QueryMaxMissedBlocksResponse)(nil),      // 1: chora.validator.v1.QueryMaxMissedBlocksResponse
+	(*QueryValidatorRequest)(nil),             // 2: chora.validator.v1.QueryValidatorRequest
+	(*QueryValidatorResponse)(nil),            // 3: chora.validator.v1.QueryValidatorResponse
+	(*QueryValidatorsRequest)(nil),            // 4: chora.validator.v1.QueryValidatorsRequest
+	(*QueryValidatorsResponse)(nil),           // 5: chora.validator.v1.QueryValidatorsResponse
+	(*QueryValidatorsResponse_Validator)(nil), // 6: chora.validator.v1.QueryValidatorsResponse.Validator
+	(*v1beta1.PageRequest)(nil),               // 7: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil),              // 8: cosmos.base.query.v1beta1.PageResponse
 }
 var file_chora_validator_v1_query_proto_depIdxs = []int32{
-	5, // 0: chora.validator.v1.QueryValidatorsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	4, // 1: chora.validator.v1.QueryValidatorsResponse.validators:type_name -> chora.validator.v1.QueryValidatorsResponse.Validator
-	6, // 2: chora.validator.v1.QueryValidatorsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	0, // 3: chora.validator.v1.Query.Validator:input_type -> chora.validator.v1.QueryValidatorRequest
-	2, // 4: chora.validator.v1.Query.Validators:input_type -> chora.validator.v1.QueryValidatorsRequest
-	1, // 5: chora.validator.v1.Query.Validator:output_type -> chora.validator.v1.QueryValidatorResponse
-	3, // 6: chora.validator.v1.Query.Validators:output_type -> chora.validator.v1.QueryValidatorsResponse
-	5, // [5:7] is the sub-list for method output_type
-	3, // [3:5] is the sub-list for method input_type
+	7, // 0: chora.validator.v1.QueryValidatorsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	6, // 1: chora.validator.v1.QueryValidatorsResponse.validators:type_name -> chora.validator.v1.QueryValidatorsResponse.Validator
+	8, // 2: chora.validator.v1.QueryValidatorsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	0, // 3: chora.validator.v1.Query.MaxMissedBlocks:input_type -> chora.validator.v1.QueryMaxMissedBlocksRequest
+	2, // 4: chora.validator.v1.Query.Validator:input_type -> chora.validator.v1.QueryValidatorRequest
+	4, // 5: chora.validator.v1.Query.Validators:input_type -> chora.validator.v1.QueryValidatorsRequest
+	1, // 6: chora.validator.v1.Query.MaxMissedBlocks:output_type -> chora.validator.v1.QueryMaxMissedBlocksResponse
+	3, // 7: chora.validator.v1.Query.Validator:output_type -> chora.validator.v1.QueryValidatorResponse
+	5, // 8: chora.validator.v1.Query.Validators:output_type -> chora.validator.v1.QueryValidatorsResponse
+	6, // [6:9] is the sub-list for method output_type
+	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name
@@ -2756,7 +3720,7 @@ func file_chora_validator_v1_query_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_validator_v1_query_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryValidatorRequest); i {
+			switch v := v.(*QueryMaxMissedBlocksRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2768,7 +3732,7 @@ func file_chora_validator_v1_query_proto_init() {
 			}
 		}
 		file_chora_validator_v1_query_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryValidatorResponse); i {
+			switch v := v.(*QueryMaxMissedBlocksResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2780,7 +3744,7 @@ func file_chora_validator_v1_query_proto_init() {
 			}
 		}
 		file_chora_validator_v1_query_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryValidatorsRequest); i {
+			switch v := v.(*QueryValidatorRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2792,7 +3756,7 @@ func file_chora_validator_v1_query_proto_init() {
 			}
 		}
 		file_chora_validator_v1_query_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryValidatorsResponse); i {
+			switch v := v.(*QueryValidatorResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2804,6 +3768,30 @@ func file_chora_validator_v1_query_proto_init() {
 			}
 		}
 		file_chora_validator_v1_query_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryValidatorsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_validator_v1_query_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryValidatorsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_validator_v1_query_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*QueryValidatorsResponse_Validator); i {
 			case 0:
 				return &v.state
@@ -2822,7 +3810,7 @@ func file_chora_validator_v1_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chora_validator_v1_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

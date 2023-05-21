@@ -10,10 +10,10 @@ import (
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
-// TxUpdateMetadataCmd creates and returns the tx update command.
-func TxUpdateMetadataCmd() *cobra.Command {
+// TxUpdateValidatorCmd creates and returns the tx update command.
+func TxUpdateValidatorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update [new-metadata]",
+		Use:   "update-validator [new-metadata]",
 		Short: "submit a transaction to update validator metadata",
 		Long:  "submit a transaction to update validator metadata",
 		Args:  cobra.ExactArgs(1),
@@ -23,7 +23,7 @@ func TxUpdateMetadataCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgUpdateMetadata{
+			msg := v1.MsgUpdateValidator{
 				Address:     clientCtx.GetFromAddress().String(),
 				NewMetadata: args[0],
 			}

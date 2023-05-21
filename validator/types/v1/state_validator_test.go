@@ -10,43 +10,43 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-type content struct {
-	t       gocuke.TestingT
-	content *Validator
-	err     error
+type validator struct {
+	t         gocuke.TestingT
+	validator *Validator
+	err       error
 }
 
 func TestValidator(t *testing.T) {
-	gocuke.NewRunner(t, &content{}).
+	gocuke.NewRunner(t, &validator{}).
 		Path("./features/state_validator.feature").
 		Run()
 }
 
-func (s *content) Before(t gocuke.TestingT) {
+func (s *validator) Before(t gocuke.TestingT) {
 	s.t = t
 }
 
-func (s *content) Validator(a gocuke.DocString) {
-	s.content = &Validator{}
-	err := jsonpb.UnmarshalString(a.Content, s.content)
+func (s *validator) Validator(a gocuke.DocString) {
+	s.validator = &Validator{}
+	err := jsonpb.UnmarshalString(a.Content, s.validator)
 	require.NoError(s.t, err)
 }
 
-func (s *content) MetadataWithLength(a string) {
+func (s *validator) MetadataWithLength(a string) {
 	length, err := strconv.ParseInt(a, 10, 64)
 	require.NoError(s.t, err)
 
-	s.content.Metadata = strings.Repeat("x", int(length))
+	s.validator.Metadata = strings.Repeat("x", int(length))
 }
 
-func (s *content) ValidateValidator() {
-	s.err = s.content.Validate()
+func (s *validator) ValidateValidator() {
+	s.err = s.validator.Validate()
 }
 
-func (s *content) ExpectNoError() {
+func (s *validator) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *content) ExpectTheError(a gocuke.DocString) {
+func (s *validator) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }

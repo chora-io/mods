@@ -9,18 +9,23 @@ option go_package = "github.com/choraio/mods/validator/types/v1";
 // Msg is the Msg service.
 service Msg {
 
-  // Add adds a validator (restricted to authority).
-  rpc Add(MsgAdd) returns (MsgAddResponse);
+  // AddValidator adds a validator (restricted to authority).
+  rpc AddValidator(MsgAddValidator) returns (MsgAddValidatorResponse);
 
-  // Remove removes a validator (restricted to authority).
-  rpc Remove(MsgRemove) returns (MsgRemoveResponse);
+  // RemoveValidator removes a validator (restricted to authority).
+  rpc RemoveValidator(MsgRemoveValidator) returns (MsgRemoveValidatorResponse);
 
-  // UpdateMetadata updates validator metadata (restricted to validator).
-  rpc UpdateMetadata(MsgUpdateMetadata) returns (MsgUpdateMetadataResponse);
+  // UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
+  // validator is removed from the validator set. (restricted to authority).
+  rpc UpdateMaxMissedBlocks(MsgUpdateMaxMissedBlocks)
+      returns (MsgUpdateMaxMissedBlocksResponse);
+
+  // UpdateValidator updates a validator (restricted to validator).
+  rpc UpdateValidator(MsgUpdateValidator) returns (MsgUpdateValidatorResponse);
 }
 
-// MsgAdd is the Msg/Add request type.
-message MsgAdd {
+// MsgAddValidator is the Msg/AddValidator request type.
+message MsgAddValidator {
   option (cosmos.msg.v1.signer) = "authority";
 
   // authority is the address of the authority.
@@ -33,15 +38,15 @@ message MsgAdd {
   string metadata = 3;
 }
 
-// MsgAddResponse is the Msg/Add response type.
-message MsgAddResponse {
+// MsgAddValidatorResponse is the Msg/AddValidator response type.
+message MsgAddValidatorResponse {
 
   // address is the address of the validator.
   string address = 1;
 }
 
-// MsgRemove is the Msg/Remove request type.
-message MsgRemove {
+// MsgRemoveValidator is the Msg/RemoveValidator request type.
+message MsgRemoveValidator {
   option (cosmos.msg.v1.signer) = "authority";
 
   // authority is the address of the authority.
@@ -51,15 +56,36 @@ message MsgRemove {
   string address = 2;
 }
 
-// MsgRemoveResponse is the Msg/Remove response type.
-message MsgRemoveResponse {
+// MsgRemoveValidatorResponse is the Msg/RemoveValidator response type.
+message MsgRemoveValidatorResponse {
 
   // address is the address of the validator.
   string address = 1;
 }
 
-// MsgUpdateMetadata is the Msg/Update request type.
-message MsgUpdateMetadata {
+// MsgUpdateMaxMissedBlocks is the Msg/UpdateMaxMissedBlocks request type.
+message MsgUpdateMaxMissedBlocks {
+  option (cosmos.msg.v1.signer) = "authority";
+
+  // authority is the address of the authority.
+  string authority = 1;
+
+  // max_missed_blocks is the maximum number of missed blocks before a validator
+  // is removed from the validator set. A zero-value indicates no maximum.
+  int64 max_missed_blocks = 2;
+}
+
+// MsgUpdateMaxMissedBlocksResponse is the Msg/UpdateMaxMissedBlocks response
+// type.
+message MsgUpdateMaxMissedBlocksResponse {
+
+  // max_missed_blocks is the maximum number of missed blocks before a validator
+  // is removed from the validator set. A zero-value indicates no maximum.
+  int64 max_missed_blocks = 1;
+}
+
+// MsgUpdateValidator is the Msg/UpdateValidator request type.
+message MsgUpdateValidator {
   option (cosmos.msg.v1.signer) = "address";
 
   // address is the address of the validator.
@@ -69,8 +95,8 @@ message MsgUpdateMetadata {
   string new_metadata = 2;
 }
 
-// MsgUpdateMetadataResponse is the Msg/Update response type.
-message MsgUpdateMetadataResponse {
+// MsgUpdateValidatorResponse is the Msg/UpdateValidator response type.
+message MsgUpdateValidatorResponse {
 
   // address is the address of the validator.
   string address = 1;
