@@ -19,6 +19,12 @@ updates:
     open-pull-requests-limit: 5
 
   - package-ecosystem: "gomod"
+    directory: "/validator"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "gomod"
     directory: "/voucher"
     schedule:
       interval: daily
