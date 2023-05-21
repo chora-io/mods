@@ -28,7 +28,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "voucher"]
+        module: ["content", "geonode", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -55,6 +55,14 @@ jobs:
             voucher/go.mod
             voucher/go.sum
         if: matrix.module == 'voucher'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-validator
+        with:
+          PATTERNS: |
+            validator/**/**.go
+            validator/go.mod
+            validator/go.sum
+        if: matrix.module == 'validator'
       - uses: actions/setup-go@v4
         with:
           go-version-file: 'content/go.mod'
@@ -63,6 +71,10 @@ jobs:
         with:
           go-version-file: 'geonode/go.mod'
         if: steps.git-diff-geonode.outputs.diff
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: 'validator/go.mod'
+        if: steps.git-diff-validator.outputs.diff
       - uses: actions/setup-go@v4
         with:
           go-version-file: 'voucher/go.mod'
@@ -77,6 +89,10 @@ jobs:
         if: steps.git-diff-geonode.outputs.diff
       - uses: golangci/golangci-lint-action@v3
         with:
+          working-directory: "validator"
+        if: steps.git-diff-validator.outputs.diff
+      - uses: golangci/golangci-lint-action@v3
+        with:
           working-directory: "voucher"
         if: steps.git-diff-voucher.outputs.diff
 
@@ -86,7 +102,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "voucher"]
+        module: ["content", "geonode", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -102,6 +118,12 @@ jobs:
             geonode/**/**.proto
         if: matrix.module == 'geonode'
       - uses: technote-space/get-diff-action@v6
+        id: git-diff-validator
+        with:
+          PATTERNS: |
+            validator/**/**.proto
+        if: matrix.module == 'validator'
+      - uses: technote-space/get-diff-action@v6
         id: git-diff-voucher
         with:
           PATTERNS: |
@@ -111,6 +133,7 @@ jobs:
         if: |
           steps.git-diff-content.outputs.diff ||
           steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
@@ -122,6 +145,10 @@ jobs:
         if: steps.git-diff-geonode.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
+          input: 'validator/proto'
+        if: steps.git-diff-validator.outputs.diff
+      - uses: bufbuild/buf-lint-action@v1
+        with:
           input: 'voucher/proto'
         if: steps.git-diff-voucher.outputs.diff
 
@@ -131,7 +158,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "voucher"]
+        module: ["content", "geonode", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -146,6 +173,12 @@ jobs:
           PATTERNS: |
             geonode/**/**.proto
         if: matrix.module == 'geonode'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-validator
+        with:
+          PATTERNS: |
+            validator/**/**.proto
+        if: matrix.module == 'validator'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-voucher
         with:
@@ -162,6 +195,10 @@ jobs:
         if: steps.git-diff-geonode.outputs.diff
       - uses: actions/setup-go@v4
         with:
+          go-version-file: 'validator/go.mod'
+        if: steps.git-diff-validator.outputs.diff
+      - uses: actions/setup-go@v4
+        with:
           go-version-file: 'voucher/go.mod'
         if: steps.git-diff-voucher.outputs.diff
       - name: Install protolint
@@ -169,6 +206,7 @@ jobs:
         if: |
           steps.git-diff-content.outputs.diff ||
           steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - name: Run protolint
         run: protolint ./content
@@ -176,6 +214,9 @@ jobs:
       - name: Run protolint
         run: protolint ./geonode
         if: steps.git-diff-geonode.outputs.diff
+      - name: Run protolint
+        run: protolint ./validator
+        if: steps.git-diff-validator.outputs.diff
       - name: Run protolint
         run: protolint ./voucher
         if: steps.git-diff-voucher.outputs.diff

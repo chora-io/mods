@@ -29,7 +29,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "voucher"]
+        module: ["content", "geonode", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v3
       - uses: technote-space/get-diff-action@v6
@@ -44,6 +44,12 @@ jobs:
           PATTERNS: |
             geonode/**/**.proto
         if: matrix.module == 'geonode'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-validator
+        with:
+          PATTERNS: |
+            validator/**/**.proto
+        if: matrix.module == 'validator'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-voucher
         with:
@@ -61,6 +67,11 @@ jobs:
           input: 'geonode/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
         if: steps.git-diff-geonode.outputs.diff
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          input: 'validator/proto'
+          buf_token: ${{ secrets.BUF_TOKEN }}
+        if: steps.git-diff-validator.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
           input: 'voucher/proto'
