@@ -8,6 +8,7 @@ The messages are defined in proto files available to view on [Buf Schema Registr
 
 <!-- listed alphabetically -->
 
-- [Add](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.Add)
-- [Remove](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.Remove)
-- [Update](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.Update)
+- [AddValidator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.AddValidator)
+- [RemoveValidator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.RemoveValidator)
+- [UpdatePolicy](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.UpdatePolicy)
+- [UpdateValidator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Msg.UpdateValidator)

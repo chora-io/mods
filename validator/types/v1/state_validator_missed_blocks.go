@@ -5,8 +5,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
-// Validate validates ValidatorMissedBlocks.
-func (m *ValidatorMissedBlocks) Validate() error {
+// Validate validates ValidatorSigningInfo.
+func (m *ValidatorSigningInfo) Validate() error {
 	if _, err := sdk.AccAddressFromBech32(m.Address); err != nil {
 		return errors.ErrParse.Wrapf("address: %s", err)
 	}

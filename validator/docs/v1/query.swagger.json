@@ -11,15 +11,15 @@
     "application/json"
   ],
   "paths": {
-    "/chora/validator/v1/max-missed-blocks": {
+    "/chora/validator/v1/policy": {
       "get": {
-        "summary": "MaxMissedBlocks queries the maximum number of missed blocks before a\nvalidator is removed from the validator set.",
-        "operationId": "MaxMissedBlocks",
+        "summary": "Policy queries the maximum number of missed blocks before a validator is removed from the validator set.",
+        "operationId": "Policy",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/chora.validator.v1.QueryMaxMissedBlocksResponse"
+              "$ref": "#/definitions/chora.validator.v1.QueryPolicyResponse"
             }
           },
           "default": {
@@ -131,16 +131,21 @@
     }
   },
   "definitions": {
-    "chora.validator.v1.QueryMaxMissedBlocksResponse": {
+    "chora.validator.v1.QueryPolicyResponse": {
       "type": "object",
       "properties": {
-        "max_missed_blocks": {
+        "signed_blocks_window": {
           "type": "string",
           "format": "int64",
-          "description": "max_missed_blocks is the maximum number of missed blocks before a validator\nis removed from the validator set. A zero-value indicates no maximum."
+          "description": "signed_blocks_window is the window within which a validator is expected to sign a block."
+        },
+        "min_signed_per_window": {
+          "type": "string",
+          "format": "int64",
+          "description": "min_signed_per_window is the minimum number of signed blocks per signed blocks window."
         }
       },
-      "description": "QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response type."
+      "description": "QueryPolicyResponse is the Query/Policy response type."
     },
     "chora.validator.v1.QueryValidatorResponse": {
       "type": "object",

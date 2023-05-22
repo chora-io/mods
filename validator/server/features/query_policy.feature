@@ -1,25 +1,25 @@
-Feature: Query/MaxMissedBlocks
+Feature: Query/Policy
 
-  Query/MaxMissedBlocks is successful when:
+  Query/Policy is successful when:
   - always (an error is never returned)
 
-  Query/MaxMissedBlocks has the following outcomes:
+  Query/Policy has the following outcomes:
   - query response returned
 
   Rule: An error is never returned
 
     Scenario: never error
-      Given max missed blocks
+      Given policy
       """
       {
-        "max_missed_blocks": 100
+        "signedBlocksWindow": 100
       }
       """
-      When query max missed blocks
+      When query policy
       Then expect no error
 
     Scenario: never error with zero value
-      When query max missed blocks
+      When query policy
       Then expect no error
 
     # No failing scenario - only internal errors can occur
@@ -27,32 +27,32 @@ Feature: Query/MaxMissedBlocks
   Rule: The query response is returned
 
     Scenario: query response returned
-      Given max missed blocks
+      Given policy
       """
       {
-        "max_missed_blocks": 100
+        "signedBlocksWindow": 100
       }
       """
-      When query max missed blocks
+      When query policy
       Then expect response
       """
       {
-        "max_missed_blocks": 100
+        "signedBlocksWindow": 100
       }
       """
 
     Scenario: query response returned with zero value
-      Given max missed blocks
+      Given policy
       """
       {
-        "max_missed_blocks": 0
+        "signedBlocksWindow": 0
       }
       """
-      When query max missed blocks
+      When query policy
       Then expect response
       """
       {
-        "max_missed_blocks": 0
+        "signedBlocksWindow": 0
       }
       """
 

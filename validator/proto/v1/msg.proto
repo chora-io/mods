@@ -15,10 +15,8 @@ service Msg {
   // RemoveValidator removes a validator (restricted to authority).
   rpc RemoveValidator(MsgRemoveValidator) returns (MsgRemoveValidatorResponse);
 
-  // UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
-  // validator is removed from the validator set. (restricted to authority).
-  rpc UpdateMaxMissedBlocks(MsgUpdateMaxMissedBlocks)
-      returns (MsgUpdateMaxMissedBlocksResponse);
+  // UpdatePolicy updates the policy (restricted to authority).
+  rpc UpdatePolicy(MsgUpdatePolicy) returns (MsgUpdatePolicyResponse);
 
   // UpdateValidator updates a validator (restricted to validator).
   rpc UpdateValidator(MsgUpdateValidator) returns (MsgUpdateValidatorResponse);
@@ -63,25 +61,32 @@ message MsgRemoveValidatorResponse {
   string address = 1;
 }
 
-// MsgUpdateMaxMissedBlocks is the Msg/UpdateMaxMissedBlocks request type.
-message MsgUpdateMaxMissedBlocks {
+// MsgUpdatePolicy is the Msg/UpdatePolicy request type.
+message MsgUpdatePolicy {
   option (cosmos.msg.v1.signer) = "authority";
 
   // authority is the address of the authority.
   string authority = 1;
 
-  // max_missed_blocks is the maximum number of missed blocks before a validator
-  // is removed from the validator set. A zero-value indicates no maximum.
-  int64 max_missed_blocks = 2;
+  // signed_blocks_window is the window within which a validator is expected to
+  // sign a block.
+  int64 signed_blocks_window = 2;
+
+  // min_signed_per_window is the minimum number of signed blocks per signed
+  // blocks window.
+  int64 min_signed_per_window = 3;
 }
 
-// MsgUpdateMaxMissedBlocksResponse is the Msg/UpdateMaxMissedBlocks response
-// type.
-message MsgUpdateMaxMissedBlocksResponse {
+// MsgUpdatePolicyResponse is the Msg/UpdatePolicy response type.
+message MsgUpdatePolicyResponse {
 
-  // max_missed_blocks is the maximum number of missed blocks before a validator
-  // is removed from the validator set. A zero-value indicates no maximum.
-  int64 max_missed_blocks = 1;
+  // signed_blocks_window is the window within which a validator is expected to
+  // sign a block.
+  int64 signed_blocks_window = 1;
+
+  // min_signed_per_window is the minimum number of signed blocks per signed
+  // blocks window.
+  int64 min_signed_per_window = 2;
 }
 
 // MsgUpdateValidator is the Msg/UpdateValidator request type.

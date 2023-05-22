@@ -32,7 +32,7 @@ func init() {
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgAddValidator{}, "validator/MsgAddValidator", nil)
 	cdc.RegisterConcrete(&MsgRemoveValidator{}, "validator/MsgRemoveValidator", nil)
-	cdc.RegisterConcrete(&MsgUpdateMaxMissedBlocks{}, "validator/MsgUpdateMaxMissedBlocks", nil)
+	cdc.RegisterConcrete(&MsgUpdatePolicy{}, "validator/MsgUpdatePolicy", nil)
 	cdc.RegisterConcrete(&MsgUpdateValidator{}, "validator/MsgUpdateValidator", nil)
 }
 
@@ -43,7 +43,7 @@ func RegisterTypes(registry types.InterfaceRegistry) {
 		(*sdk.Msg)(nil),
 		&MsgAddValidator{},
 		&MsgRemoveValidator{},
-		&MsgUpdateMaxMissedBlocks{},
+		&MsgUpdatePolicy{},
 		&MsgUpdateValidator{},
 	)
 }

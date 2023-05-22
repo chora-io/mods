@@ -1,17 +1,18 @@
-Feature: MsgUpdateMaxMissedBlocks
+Feature: MsgUpdatePolicy
 
   Scenario: valid message
     Given message
     """
     {
       "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-      "maxMissedBlocks": 100
+      "signedBlocksWindow": 100,
+      "minSignedPerWindow": 100
     }
     """
     When validate message
     Then expect no error
 
-  Scenario: valid message with zero value
+  Scenario: valid message with zero values
     Given message
     """
     {

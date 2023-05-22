@@ -31,12 +31,12 @@ func (s Server) RemoveValidator(ctx context.Context, req *v1.MsgRemoveValidator)
 		return nil, err // internal error
 	}
 
-	// get missed blocks from validator missed blocks table
-	missedBlocks, err := s.ss.ValidatorMissedBlocksTable().Get(ctx, req.Address)
+	// get signing info from validator signing info table
+	signingInfo, err := s.ss.ValidatorSigningInfoTable().Get(ctx, req.Address)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"validator missed blocks with address %s", req.Address,
+				"validator signing info with address %s", req.Address,
 			)
 		}
 		return nil, err // internal error
@@ -48,8 +48,8 @@ func (s Server) RemoveValidator(ctx context.Context, req *v1.MsgRemoveValidator)
 		return nil, err // internal error
 	}
 
-	// delete validator from validator missed blocks table
-	err = s.ss.ValidatorMissedBlocksTable().Delete(ctx, missedBlocks)
+	// delete validator from validator signing info table
+	err = s.ss.ValidatorSigningInfoTable().Delete(ctx, signingInfo)
 	if err != nil {
 		return nil, err // internal error
 	}

@@ -19,10 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_AddValidator_FullMethodName          = "/chora.validator.v1.Msg/AddValidator"
-	Msg_RemoveValidator_FullMethodName       = "/chora.validator.v1.Msg/RemoveValidator"
-	Msg_UpdateMaxMissedBlocks_FullMethodName = "/chora.validator.v1.Msg/UpdateMaxMissedBlocks"
-	Msg_UpdateValidator_FullMethodName       = "/chora.validator.v1.Msg/UpdateValidator"
+	Msg_AddValidator_FullMethodName    = "/chora.validator.v1.Msg/AddValidator"
+	Msg_RemoveValidator_FullMethodName = "/chora.validator.v1.Msg/RemoveValidator"
+	Msg_UpdatePolicy_FullMethodName    = "/chora.validator.v1.Msg/UpdatePolicy"
+	Msg_UpdateValidator_FullMethodName = "/chora.validator.v1.Msg/UpdateValidator"
 )
 
 // MsgClient is the client API for Msg service.
@@ -33,9 +33,8 @@ type MsgClient interface {
 	AddValidator(ctx context.Context, in *MsgAddValidator, opts ...grpc.CallOption) (*MsgAddValidatorResponse, error)
 	// RemoveValidator removes a validator (restricted to authority).
 	RemoveValidator(ctx context.Context, in *MsgRemoveValidator, opts ...grpc.CallOption) (*MsgRemoveValidatorResponse, error)
-	// UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
-	// validator is removed from the validator set. (restricted to authority).
-	UpdateMaxMissedBlocks(ctx context.Context, in *MsgUpdateMaxMissedBlocks, opts ...grpc.CallOption) (*MsgUpdateMaxMissedBlocksResponse, error)
+	// UpdatePolicy updates the policy (restricted to authority).
+	UpdatePolicy(ctx context.Context, in *MsgUpdatePolicy, opts ...grpc.CallOption) (*MsgUpdatePolicyResponse, error)
 	// UpdateValidator updates a validator (restricted to validator).
 	UpdateValidator(ctx context.Context, in *MsgUpdateValidator, opts ...grpc.CallOption) (*MsgUpdateValidatorResponse, error)
 }
@@ -66,9 +65,9 @@ func (c *msgClient) RemoveValidator(ctx context.Context, in *MsgRemoveValidator,
 	return out, nil
 }
 
-func (c *msgClient) UpdateMaxMissedBlocks(ctx context.Context, in *MsgUpdateMaxMissedBlocks, opts ...grpc.CallOption) (*MsgUpdateMaxMissedBlocksResponse, error) {
-	out := new(MsgUpdateMaxMissedBlocksResponse)
-	err := c.cc.Invoke(ctx, Msg_UpdateMaxMissedBlocks_FullMethodName, in, out, opts...)
+func (c *msgClient) UpdatePolicy(ctx context.Context, in *MsgUpdatePolicy, opts ...grpc.CallOption) (*MsgUpdatePolicyResponse, error) {
+	out := new(MsgUpdatePolicyResponse)
+	err := c.cc.Invoke(ctx, Msg_UpdatePolicy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,9 +91,8 @@ type MsgServer interface {
 	AddValidator(context.Context, *MsgAddValidator) (*MsgAddValidatorResponse, error)
 	// RemoveValidator removes a validator (restricted to authority).
 	RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error)
-	// UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
-	// validator is removed from the validator set. (restricted to authority).
-	UpdateMaxMissedBlocks(context.Context, *MsgUpdateMaxMissedBlocks) (*MsgUpdateMaxMissedBlocksResponse, error)
+	// UpdatePolicy updates the policy (restricted to authority).
+	UpdatePolicy(context.Context, *MsgUpdatePolicy) (*MsgUpdatePolicyResponse, error)
 	// UpdateValidator updates a validator (restricted to validator).
 	UpdateValidator(context.Context, *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error)
 	mustEmbedUnimplementedMsgServer()
@@ -110,8 +108,8 @@ func (UnimplementedMsgServer) AddValidator(context.Context, *MsgAddValidator) (*
 func (UnimplementedMsgServer) RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveValidator not implemented")
 }
-func (UnimplementedMsgServer) UpdateMaxMissedBlocks(context.Context, *MsgUpdateMaxMissedBlocks) (*MsgUpdateMaxMissedBlocksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateMaxMissedBlocks not implemented")
+func (UnimplementedMsgServer) UpdatePolicy(context.Context, *MsgUpdatePolicy) (*MsgUpdatePolicyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePolicy not implemented")
 }
 func (UnimplementedMsgServer) UpdateValidator(context.Context, *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateValidator not implemented")
@@ -165,20 +163,20 @@ func _Msg_RemoveValidator_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateMaxMissedBlocks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateMaxMissedBlocks)
+func _Msg_UpdatePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdatePolicy)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).UpdateMaxMissedBlocks(ctx, in)
+		return srv.(MsgServer).UpdatePolicy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_UpdateMaxMissedBlocks_FullMethodName,
+		FullMethod: Msg_UpdatePolicy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateMaxMissedBlocks(ctx, req.(*MsgUpdateMaxMissedBlocks))
+		return srv.(MsgServer).UpdatePolicy(ctx, req.(*MsgUpdatePolicy))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -217,8 +215,8 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Msg_RemoveValidator_Handler,
 		},
 		{
-			MethodName: "UpdateMaxMissedBlocks",
-			Handler:    _Msg_UpdateMaxMissedBlocks_Handler,
+			MethodName: "UpdatePolicy",
+			Handler:    _Msg_UpdatePolicy_Handler,
 		},
 		{
 			MethodName: "UpdateValidator",

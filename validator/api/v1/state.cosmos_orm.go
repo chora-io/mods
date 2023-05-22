@@ -10,33 +10,33 @@ import (
 )
 
 // singleton store
-type MaxMissedBlocksTable interface {
-	Get(ctx context.Context) (*MaxMissedBlocks, error)
-	Save(ctx context.Context, maxMissedBlocks *MaxMissedBlocks) error
+type PolicyTable interface {
+	Get(ctx context.Context) (*Policy, error)
+	Save(ctx context.Context, policy *Policy) error
 }
 
-type maxMissedBlocksTable struct {
+type policyTable struct {
 	table ormtable.Table
 }
 
-var _ MaxMissedBlocksTable = maxMissedBlocksTable{}
+var _ PolicyTable = policyTable{}
 
-func (x maxMissedBlocksTable) Get(ctx context.Context) (*MaxMissedBlocks, error) {
-	maxMissedBlocks := &MaxMissedBlocks{}
-	_, err := x.table.Get(ctx, maxMissedBlocks)
-	return maxMissedBlocks, err
+func (x policyTable) Get(ctx context.Context) (*Policy, error) {
+	policy := &Policy{}
+	_, err := x.table.Get(ctx, policy)
+	return policy, err
 }
 
-func (x maxMissedBlocksTable) Save(ctx context.Context, maxMissedBlocks *MaxMissedBlocks) error {
-	return x.table.Save(ctx, maxMissedBlocks)
+func (x policyTable) Save(ctx context.Context, policy *Policy) error {
+	return x.table.Save(ctx, policy)
 }
 
-func NewMaxMissedBlocksTable(db ormtable.Schema) (MaxMissedBlocksTable, error) {
-	table := db.GetTable(&MaxMissedBlocks{})
+func NewPolicyTable(db ormtable.Schema) (PolicyTable, error) {
+	table := db.GetTable(&Policy{})
 	if table == nil {
-		return nil, ormerrors.TableNotFound.Wrap(string((&MaxMissedBlocks{}).ProtoReflect().Descriptor().FullName()))
+		return nil, ormerrors.TableNotFound.Wrap(string((&Policy{}).ProtoReflect().Descriptor().FullName()))
 	}
-	return &maxMissedBlocksTable{table}, nil
+	return &policyTable{table}, nil
 }
 
 type ValidatorTable interface {
@@ -153,144 +153,144 @@ func NewValidatorTable(db ormtable.Schema) (ValidatorTable, error) {
 	return validatorTable{table}, nil
 }
 
-type ValidatorMissedBlocksTable interface {
-	Insert(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
-	Update(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
-	Save(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
-	Delete(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error
+type ValidatorSigningInfoTable interface {
+	Insert(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error
+	Update(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error
+	Save(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error
+	Delete(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error
 	Has(ctx context.Context, address string) (found bool, err error)
 	// Get returns nil and an error which responds true to ormerrors.IsNotFound() if the record was not found.
-	Get(ctx context.Context, address string) (*ValidatorMissedBlocks, error)
-	List(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error)
-	ListRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error)
-	DeleteBy(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey) error
-	DeleteRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey) error
+	Get(ctx context.Context, address string) (*ValidatorSigningInfo, error)
+	List(ctx context.Context, prefixKey ValidatorSigningInfoIndexKey, opts ...ormlist.Option) (ValidatorSigningInfoIterator, error)
+	ListRange(ctx context.Context, from, to ValidatorSigningInfoIndexKey, opts ...ormlist.Option) (ValidatorSigningInfoIterator, error)
+	DeleteBy(ctx context.Context, prefixKey ValidatorSigningInfoIndexKey) error
+	DeleteRange(ctx context.Context, from, to ValidatorSigningInfoIndexKey) error
 
 	doNotImplement()
 }
 
-type ValidatorMissedBlocksIterator struct {
+type ValidatorSigningInfoIterator struct {
 	ormtable.Iterator
 }
 
-func (i ValidatorMissedBlocksIterator) Value() (*ValidatorMissedBlocks, error) {
-	var validatorMissedBlocks ValidatorMissedBlocks
-	err := i.UnmarshalMessage(&validatorMissedBlocks)
-	return &validatorMissedBlocks, err
+func (i ValidatorSigningInfoIterator) Value() (*ValidatorSigningInfo, error) {
+	var validatorSigningInfo ValidatorSigningInfo
+	err := i.UnmarshalMessage(&validatorSigningInfo)
+	return &validatorSigningInfo, err
 }
 
-type ValidatorMissedBlocksIndexKey interface {
+type ValidatorSigningInfoIndexKey interface {
 	id() uint32
 	values() []interface{}
-	validatorMissedBlocksIndexKey()
+	validatorSigningInfoIndexKey()
 }
 
 // primary key starting index..
-type ValidatorMissedBlocksPrimaryKey = ValidatorMissedBlocksAddressIndexKey
+type ValidatorSigningInfoPrimaryKey = ValidatorSigningInfoAddressIndexKey
 
-type ValidatorMissedBlocksAddressIndexKey struct {
+type ValidatorSigningInfoAddressIndexKey struct {
 	vs []interface{}
 }
 
-func (x ValidatorMissedBlocksAddressIndexKey) id() uint32                     { return 0 }
-func (x ValidatorMissedBlocksAddressIndexKey) values() []interface{}          { return x.vs }
-func (x ValidatorMissedBlocksAddressIndexKey) validatorMissedBlocksIndexKey() {}
+func (x ValidatorSigningInfoAddressIndexKey) id() uint32                    { return 0 }
+func (x ValidatorSigningInfoAddressIndexKey) values() []interface{}         { return x.vs }
+func (x ValidatorSigningInfoAddressIndexKey) validatorSigningInfoIndexKey() {}
 
-func (this ValidatorMissedBlocksAddressIndexKey) WithAddress(address string) ValidatorMissedBlocksAddressIndexKey {
+func (this ValidatorSigningInfoAddressIndexKey) WithAddress(address string) ValidatorSigningInfoAddressIndexKey {
 	this.vs = []interface{}{address}
 	return this
 }
 
-type validatorMissedBlocksTable struct {
+type validatorSigningInfoTable struct {
 	table ormtable.Table
 }
 
-func (this validatorMissedBlocksTable) Insert(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
-	return this.table.Insert(ctx, validatorMissedBlocks)
+func (this validatorSigningInfoTable) Insert(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error {
+	return this.table.Insert(ctx, validatorSigningInfo)
 }
 
-func (this validatorMissedBlocksTable) Update(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
-	return this.table.Update(ctx, validatorMissedBlocks)
+func (this validatorSigningInfoTable) Update(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error {
+	return this.table.Update(ctx, validatorSigningInfo)
 }
 
-func (this validatorMissedBlocksTable) Save(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
-	return this.table.Save(ctx, validatorMissedBlocks)
+func (this validatorSigningInfoTable) Save(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error {
+	return this.table.Save(ctx, validatorSigningInfo)
 }
 
-func (this validatorMissedBlocksTable) Delete(ctx context.Context, validatorMissedBlocks *ValidatorMissedBlocks) error {
-	return this.table.Delete(ctx, validatorMissedBlocks)
+func (this validatorSigningInfoTable) Delete(ctx context.Context, validatorSigningInfo *ValidatorSigningInfo) error {
+	return this.table.Delete(ctx, validatorSigningInfo)
 }
 
-func (this validatorMissedBlocksTable) Has(ctx context.Context, address string) (found bool, err error) {
+func (this validatorSigningInfoTable) Has(ctx context.Context, address string) (found bool, err error) {
 	return this.table.PrimaryKey().Has(ctx, address)
 }
 
-func (this validatorMissedBlocksTable) Get(ctx context.Context, address string) (*ValidatorMissedBlocks, error) {
-	var validatorMissedBlocks ValidatorMissedBlocks
-	found, err := this.table.PrimaryKey().Get(ctx, &validatorMissedBlocks, address)
+func (this validatorSigningInfoTable) Get(ctx context.Context, address string) (*ValidatorSigningInfo, error) {
+	var validatorSigningInfo ValidatorSigningInfo
+	found, err := this.table.PrimaryKey().Get(ctx, &validatorSigningInfo, address)
 	if err != nil {
 		return nil, err
 	}
 	if !found {
 		return nil, ormerrors.NotFound
 	}
-	return &validatorMissedBlocks, nil
+	return &validatorSigningInfo, nil
 }
 
-func (this validatorMissedBlocksTable) List(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error) {
+func (this validatorSigningInfoTable) List(ctx context.Context, prefixKey ValidatorSigningInfoIndexKey, opts ...ormlist.Option) (ValidatorSigningInfoIterator, error) {
 	it, err := this.table.GetIndexByID(prefixKey.id()).List(ctx, prefixKey.values(), opts...)
-	return ValidatorMissedBlocksIterator{it}, err
+	return ValidatorSigningInfoIterator{it}, err
 }
 
-func (this validatorMissedBlocksTable) ListRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey, opts ...ormlist.Option) (ValidatorMissedBlocksIterator, error) {
+func (this validatorSigningInfoTable) ListRange(ctx context.Context, from, to ValidatorSigningInfoIndexKey, opts ...ormlist.Option) (ValidatorSigningInfoIterator, error) {
 	it, err := this.table.GetIndexByID(from.id()).ListRange(ctx, from.values(), to.values(), opts...)
-	return ValidatorMissedBlocksIterator{it}, err
+	return ValidatorSigningInfoIterator{it}, err
 }
 
-func (this validatorMissedBlocksTable) DeleteBy(ctx context.Context, prefixKey ValidatorMissedBlocksIndexKey) error {
+func (this validatorSigningInfoTable) DeleteBy(ctx context.Context, prefixKey ValidatorSigningInfoIndexKey) error {
 	return this.table.GetIndexByID(prefixKey.id()).DeleteBy(ctx, prefixKey.values()...)
 }
 
-func (this validatorMissedBlocksTable) DeleteRange(ctx context.Context, from, to ValidatorMissedBlocksIndexKey) error {
+func (this validatorSigningInfoTable) DeleteRange(ctx context.Context, from, to ValidatorSigningInfoIndexKey) error {
 	return this.table.GetIndexByID(from.id()).DeleteRange(ctx, from.values(), to.values())
 }
 
-func (this validatorMissedBlocksTable) doNotImplement() {}
+func (this validatorSigningInfoTable) doNotImplement() {}
 
-var _ ValidatorMissedBlocksTable = validatorMissedBlocksTable{}
+var _ ValidatorSigningInfoTable = validatorSigningInfoTable{}
 
-func NewValidatorMissedBlocksTable(db ormtable.Schema) (ValidatorMissedBlocksTable, error) {
-	table := db.GetTable(&ValidatorMissedBlocks{})
+func NewValidatorSigningInfoTable(db ormtable.Schema) (ValidatorSigningInfoTable, error) {
+	table := db.GetTable(&ValidatorSigningInfo{})
 	if table == nil {
-		return nil, ormerrors.TableNotFound.Wrap(string((&ValidatorMissedBlocks{}).ProtoReflect().Descriptor().FullName()))
+		return nil, ormerrors.TableNotFound.Wrap(string((&ValidatorSigningInfo{}).ProtoReflect().Descriptor().FullName()))
 	}
-	return validatorMissedBlocksTable{table}, nil
+	return validatorSigningInfoTable{table}, nil
 }
 
 type StateStore interface {
-	MaxMissedBlocksTable() MaxMissedBlocksTable
+	PolicyTable() PolicyTable
 	ValidatorTable() ValidatorTable
-	ValidatorMissedBlocksTable() ValidatorMissedBlocksTable
+	ValidatorSigningInfoTable() ValidatorSigningInfoTable
 
 	doNotImplement()
 }
 
 type stateStore struct {
-	maxMissedBlocks       MaxMissedBlocksTable
-	validator             ValidatorTable
-	validatorMissedBlocks ValidatorMissedBlocksTable
+	policy               PolicyTable
+	validator            ValidatorTable
+	validatorSigningInfo ValidatorSigningInfoTable
 }
 
-func (x stateStore) MaxMissedBlocksTable() MaxMissedBlocksTable {
-	return x.maxMissedBlocks
+func (x stateStore) PolicyTable() PolicyTable {
+	return x.policy
 }
 
 func (x stateStore) ValidatorTable() ValidatorTable {
 	return x.validator
 }
 
-func (x stateStore) ValidatorMissedBlocksTable() ValidatorMissedBlocksTable {
-	return x.validatorMissedBlocks
+func (x stateStore) ValidatorSigningInfoTable() ValidatorSigningInfoTable {
+	return x.validatorSigningInfo
 }
 
 func (stateStore) doNotImplement() {}
@@ -298,7 +298,7 @@ func (stateStore) doNotImplement() {}
 var _ StateStore = stateStore{}
 
 func NewStateStore(db ormtable.Schema) (StateStore, error) {
-	maxMissedBlocksTable, err := NewMaxMissedBlocksTable(db)
+	policyTable, err := NewPolicyTable(db)
 	if err != nil {
 		return nil, err
 	}
@@ -308,14 +308,14 @@ func NewStateStore(db ormtable.Schema) (StateStore, error) {
 		return nil, err
 	}
 
-	validatorMissedBlocksTable, err := NewValidatorMissedBlocksTable(db)
+	validatorSigningInfoTable, err := NewValidatorSigningInfoTable(db)
 	if err != nil {
 		return nil, err
 	}
 
 	return stateStore{
-		maxMissedBlocksTable,
+		policyTable,
 		validatorTable,
-		validatorMissedBlocksTable,
+		validatorSigningInfoTable,
 	}, nil
 }

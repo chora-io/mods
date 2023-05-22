@@ -30,8 +30,8 @@ func (s Server) AddValidator(ctx context.Context, req *v1.MsgAddValidator) (*v1.
 		return nil, err // internal error
 	}
 
-	// insert validator into validator missed blocks table
-	err = s.ss.ValidatorMissedBlocksTable().Insert(ctx, &validatorv1.ValidatorMissedBlocks{
+	// insert validator into validator signing info table
+	err = s.ss.ValidatorSigningInfoTable().Insert(ctx, &validatorv1.ValidatorSigningInfo{
 		Address: req.Address,
 	})
 	if err != nil {

@@ -19,18 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_MaxMissedBlocks_FullMethodName = "/chora.validator.v1.Query/MaxMissedBlocks"
-	Query_Validator_FullMethodName       = "/chora.validator.v1.Query/Validator"
-	Query_Validators_FullMethodName      = "/chora.validator.v1.Query/Validators"
+	Query_Policy_FullMethodName     = "/chora.validator.v1.Query/Policy"
+	Query_Validator_FullMethodName  = "/chora.validator.v1.Query/Validator"
+	Query_Validators_FullMethodName = "/chora.validator.v1.Query/Validators"
 )
 
 // QueryClient is the client API for Query service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QueryClient interface {
-	// MaxMissedBlocks queries the maximum number of missed blocks before a
-	// validator is removed from the validator set.
-	MaxMissedBlocks(ctx context.Context, in *QueryMaxMissedBlocksRequest, opts ...grpc.CallOption) (*QueryMaxMissedBlocksResponse, error)
+	// Policy queries the maximum number of missed blocks before a validator is removed from the validator set.
+	Policy(ctx context.Context, in *QueryPolicyRequest, opts ...grpc.CallOption) (*QueryPolicyResponse, error)
 	// Validator queries a validator by address.
 	Validator(ctx context.Context, in *QueryValidatorRequest, opts ...grpc.CallOption) (*QueryValidatorResponse, error)
 	// Validators queries all validators.
@@ -45,9 +44,9 @@ func NewQueryClient(cc grpc.ClientConnInterface) QueryClient {
 	return &queryClient{cc}
 }
 
-func (c *queryClient) MaxMissedBlocks(ctx context.Context, in *QueryMaxMissedBlocksRequest, opts ...grpc.CallOption) (*QueryMaxMissedBlocksResponse, error) {
-	out := new(QueryMaxMissedBlocksResponse)
-	err := c.cc.Invoke(ctx, Query_MaxMissedBlocks_FullMethodName, in, out, opts...)
+func (c *queryClient) Policy(ctx context.Context, in *QueryPolicyRequest, opts ...grpc.CallOption) (*QueryPolicyResponse, error) {
+	out := new(QueryPolicyResponse)
+	err := c.cc.Invoke(ctx, Query_Policy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,9 +75,8 @@ func (c *queryClient) Validators(ctx context.Context, in *QueryValidatorsRequest
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
 type QueryServer interface {
-	// MaxMissedBlocks queries the maximum number of missed blocks before a
-	// validator is removed from the validator set.
-	MaxMissedBlocks(context.Context, *QueryMaxMissedBlocksRequest) (*QueryMaxMissedBlocksResponse, error)
+	// Policy queries the maximum number of missed blocks before a validator is removed from the validator set.
+	Policy(context.Context, *QueryPolicyRequest) (*QueryPolicyResponse, error)
 	// Validator queries a validator by address.
 	Validator(context.Context, *QueryValidatorRequest) (*QueryValidatorResponse, error)
 	// Validators queries all validators.
@@ -90,8 +88,8 @@ type QueryServer interface {
 type UnimplementedQueryServer struct {
 }
 
-func (UnimplementedQueryServer) MaxMissedBlocks(context.Context, *QueryMaxMissedBlocksRequest) (*QueryMaxMissedBlocksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method MaxMissedBlocks not implemented")
+func (UnimplementedQueryServer) Policy(context.Context, *QueryPolicyRequest) (*QueryPolicyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Policy not implemented")
 }
 func (UnimplementedQueryServer) Validator(context.Context, *QueryValidatorRequest) (*QueryValidatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Validator not implemented")
@@ -112,20 +110,20 @@ func RegisterQueryServer(s grpc.ServiceRegistrar, srv QueryServer) {
 	s.RegisterService(&Query_ServiceDesc, srv)
 }
 
-func _Query_MaxMissedBlocks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryMaxMissedBlocksRequest)
+func _Query_Policy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryPolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).MaxMissedBlocks(ctx, in)
+		return srv.(QueryServer).Policy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Query_MaxMissedBlocks_FullMethodName,
+		FullMethod: Query_Policy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).MaxMissedBlocks(ctx, req.(*QueryMaxMissedBlocksRequest))
+		return srv.(QueryServer).Policy(ctx, req.(*QueryPolicyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -174,8 +172,8 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "MaxMissedBlocks",
-			Handler:    _Query_MaxMissedBlocks_Handler,
+			MethodName: "Policy",
+			Handler:    _Query_Policy_Handler,
 		},
 		{
 			MethodName: "Validator",

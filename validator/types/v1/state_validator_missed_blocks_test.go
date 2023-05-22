@@ -8,36 +8,36 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-type validatorMissedBlocks struct {
-	t                     gocuke.TestingT
-	validatorMissedBlocks *ValidatorMissedBlocks
-	err                   error
+type validatorSigningInfo struct {
+	t                    gocuke.TestingT
+	validatorSigningInfo *ValidatorSigningInfo
+	err                  error
 }
 
-func TestValidatorMissedBlocks(t *testing.T) {
-	gocuke.NewRunner(t, &validatorMissedBlocks{}).
-		Path("./features/state_validator_missed_blocks.feature").
+func TestValidatorSigningInfo(t *testing.T) {
+	gocuke.NewRunner(t, &validatorSigningInfo{}).
+		Path("./features/state_validator_signing_info.feature").
 		Run()
 }
 
-func (s *validatorMissedBlocks) Before(t gocuke.TestingT) {
+func (s *validatorSigningInfo) Before(t gocuke.TestingT) {
 	s.t = t
 }
 
-func (s *validatorMissedBlocks) ValidatorMissedBlocks(a gocuke.DocString) {
-	s.validatorMissedBlocks = &ValidatorMissedBlocks{}
-	err := jsonpb.UnmarshalString(a.Content, s.validatorMissedBlocks)
+func (s *validatorSigningInfo) ValidatorSigningInfo(a gocuke.DocString) {
+	s.validatorSigningInfo = &ValidatorSigningInfo{}
+	err := jsonpb.UnmarshalString(a.Content, s.validatorSigningInfo)
 	require.NoError(s.t, err)
 }
 
-func (s *validatorMissedBlocks) ValidateValidatorMissedBlocks() {
-	s.err = s.validatorMissedBlocks.Validate()
+func (s *validatorSigningInfo) ValidateValidatorSigningInfo() {
+	s.err = s.validatorSigningInfo.Validate()
 }
 
-func (s *validatorMissedBlocks) ExpectNoError() {
+func (s *validatorSigningInfo) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *validatorMissedBlocks) ExpectTheError(a gocuke.DocString) {
+func (s *validatorSigningInfo) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }

@@ -11,6 +11,13 @@ message EventAddValidator {
   string address = 1;
 }
 
+// EventMissedBlock is an event emitted when a validator missed a block.
+message EventMissedBlock {
+
+  // address is the address of the validator.
+  string address = 1;
+}
+
 // EventRemoveValidator is an event emitted when a validator is removed.
 message EventRemoveValidator {
 
@@ -18,12 +25,16 @@ message EventRemoveValidator {
   string address = 1;
 }
 
-// EventUpdateMaxMissedBlocks is an event emitted when max missed blocks is
-// updated.
-message EventUpdateMaxMissedBlocks {
+// EventUpdatePolicy is an event emitted when the policy is updated.
+message EventUpdatePolicy {
 
-  // max_missed_blocks is the value of max missed blocks.
-  int64 max_missed_blocks = 1;
+  // signed_blocks_window is the window within which a validator is expected to
+  // sign a block.
+  int64 signed_blocks_window = 1;
+
+  // min_signed_per_window is the minimum number of signed blocks per signed
+  // blocks window.
+  int64 min_signed_per_window = 2;
 }
 
 // EventUpdateValidator is an event emitted when a validator is updated.

@@ -8,31 +8,34 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoiface "google.golang.org/protobuf/runtime/protoiface"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	_ "google.golang.org/protobuf/types/known/anypb"
 	io "io"
 	reflect "reflect"
 	sync "sync"
 )
 
 var (
-	md_MaxMissedBlocks                   protoreflect.MessageDescriptor
-	fd_MaxMissedBlocks_max_missed_blocks protoreflect.FieldDescriptor
+	md_Policy                       protoreflect.MessageDescriptor
+	fd_Policy_signed_blocks_window  protoreflect.FieldDescriptor
+	fd_Policy_min_signed_per_window protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_state_proto_init()
-	md_MaxMissedBlocks = File_chora_validator_v1_state_proto.Messages().ByName("MaxMissedBlocks")
-	fd_MaxMissedBlocks_max_missed_blocks = md_MaxMissedBlocks.Fields().ByName("max_missed_blocks")
+	md_Policy = File_chora_validator_v1_state_proto.Messages().ByName("Policy")
+	fd_Policy_signed_blocks_window = md_Policy.Fields().ByName("signed_blocks_window")
+	fd_Policy_min_signed_per_window = md_Policy.Fields().ByName("min_signed_per_window")
 }
 
-var _ protoreflect.Message = (*fastReflection_MaxMissedBlocks)(nil)
+var _ protoreflect.Message = (*fastReflection_Policy)(nil)
 
-type fastReflection_MaxMissedBlocks MaxMissedBlocks
+type fastReflection_Policy Policy
 
-func (x *MaxMissedBlocks) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MaxMissedBlocks)(x)
+func (x *Policy) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_Policy)(x)
 }
 
-func (x *MaxMissedBlocks) slowProtoReflect() protoreflect.Message {
+func (x *Policy) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_state_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -44,43 +47,43 @@ func (x *MaxMissedBlocks) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MaxMissedBlocks_messageType fastReflection_MaxMissedBlocks_messageType
-var _ protoreflect.MessageType = fastReflection_MaxMissedBlocks_messageType{}
+var _fastReflection_Policy_messageType fastReflection_Policy_messageType
+var _ protoreflect.MessageType = fastReflection_Policy_messageType{}
 
-type fastReflection_MaxMissedBlocks_messageType struct{}
+type fastReflection_Policy_messageType struct{}
 
-func (x fastReflection_MaxMissedBlocks_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MaxMissedBlocks)(nil)
+func (x fastReflection_Policy_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_Policy)(nil)
 }
-func (x fastReflection_MaxMissedBlocks_messageType) New() protoreflect.Message {
-	return new(fastReflection_MaxMissedBlocks)
+func (x fastReflection_Policy_messageType) New() protoreflect.Message {
+	return new(fastReflection_Policy)
 }
-func (x fastReflection_MaxMissedBlocks_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MaxMissedBlocks
+func (x fastReflection_Policy_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_Policy
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MaxMissedBlocks) Descriptor() protoreflect.MessageDescriptor {
-	return md_MaxMissedBlocks
+func (x *fastReflection_Policy) Descriptor() protoreflect.MessageDescriptor {
+	return md_Policy
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MaxMissedBlocks) Type() protoreflect.MessageType {
-	return _fastReflection_MaxMissedBlocks_messageType
+func (x *fastReflection_Policy) Type() protoreflect.MessageType {
+	return _fastReflection_Policy_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MaxMissedBlocks) New() protoreflect.Message {
-	return new(fastReflection_MaxMissedBlocks)
+func (x *fastReflection_Policy) New() protoreflect.Message {
+	return new(fastReflection_Policy)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MaxMissedBlocks) Interface() protoreflect.ProtoMessage {
-	return (*MaxMissedBlocks)(x)
+func (x *fastReflection_Policy) Interface() protoreflect.ProtoMessage {
+	return (*Policy)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -88,10 +91,16 @@ func (x *fastReflection_MaxMissedBlocks) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MaxMissedBlocks) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.MaxMissedBlocks != int64(0) {
-		value := protoreflect.ValueOfInt64(x.MaxMissedBlocks)
-		if !f(fd_MaxMissedBlocks_max_missed_blocks, value) {
+func (x *fastReflection_Policy) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.SignedBlocksWindow != int64(0) {
+		value := protoreflect.ValueOfInt64(x.SignedBlocksWindow)
+		if !f(fd_Policy_signed_blocks_window, value) {
+			return
+		}
+	}
+	if x.MinSignedPerWindow != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MinSignedPerWindow)
+		if !f(fd_Policy_min_signed_per_window, value) {
 			return
 		}
 	}
@@ -108,15 +117,17 @@ func (x *fastReflection_MaxMissedBlocks) Range(f func(protoreflect.FieldDescript
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MaxMissedBlocks) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_Policy) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.MaxMissedBlocks.max_missed_blocks":
-		return x.MaxMissedBlocks != int64(0)
+	case "chora.validator.v1.Policy.signed_blocks_window":
+		return x.SignedBlocksWindow != int64(0)
+	case "chora.validator.v1.Policy.min_signed_per_window":
+		return x.MinSignedPerWindow != int64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MaxMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.Policy"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MaxMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.Policy does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -126,15 +137,17 @@ func (x *fastReflection_MaxMissedBlocks) Has(fd protoreflect.FieldDescriptor) bo
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MaxMissedBlocks) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_Policy) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MaxMissedBlocks.max_missed_blocks":
-		x.MaxMissedBlocks = int64(0)
+	case "chora.validator.v1.Policy.signed_blocks_window":
+		x.SignedBlocksWindow = int64(0)
+	case "chora.validator.v1.Policy.min_signed_per_window":
+		x.MinSignedPerWindow = int64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MaxMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.Policy"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MaxMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.Policy does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -144,16 +157,19 @@ func (x *fastReflection_MaxMissedBlocks) Clear(fd protoreflect.FieldDescriptor) 
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MaxMissedBlocks) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_Policy) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.MaxMissedBlocks.max_missed_blocks":
-		value := x.MaxMissedBlocks
+	case "chora.validator.v1.Policy.signed_blocks_window":
+		value := x.SignedBlocksWindow
+		return protoreflect.ValueOfInt64(value)
+	case "chora.validator.v1.Policy.min_signed_per_window":
+		value := x.MinSignedPerWindow
 		return protoreflect.ValueOfInt64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MaxMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.Policy"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MaxMissedBlocks does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.Policy does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -167,15 +183,17 @@ func (x *fastReflection_MaxMissedBlocks) Get(descriptor protoreflect.FieldDescri
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MaxMissedBlocks) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_Policy) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MaxMissedBlocks.max_missed_blocks":
-		x.MaxMissedBlocks = value.Int()
+	case "chora.validator.v1.Policy.signed_blocks_window":
+		x.SignedBlocksWindow = value.Int()
+	case "chora.validator.v1.Policy.min_signed_per_window":
+		x.MinSignedPerWindow = value.Int()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MaxMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.Policy"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MaxMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.Policy does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -189,40 +207,44 @@ func (x *fastReflection_MaxMissedBlocks) Set(fd protoreflect.FieldDescriptor, va
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MaxMissedBlocks) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_Policy) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MaxMissedBlocks.max_missed_blocks":
-		panic(fmt.Errorf("field max_missed_blocks of message chora.validator.v1.MaxMissedBlocks is not mutable"))
+	case "chora.validator.v1.Policy.signed_blocks_window":
+		panic(fmt.Errorf("field signed_blocks_window of message chora.validator.v1.Policy is not mutable"))
+	case "chora.validator.v1.Policy.min_signed_per_window":
+		panic(fmt.Errorf("field min_signed_per_window of message chora.validator.v1.Policy is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MaxMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.Policy"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MaxMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.Policy does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MaxMissedBlocks) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_Policy) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MaxMissedBlocks.max_missed_blocks":
+	case "chora.validator.v1.Policy.signed_blocks_window":
+		return protoreflect.ValueOfInt64(int64(0))
+	case "chora.validator.v1.Policy.min_signed_per_window":
 		return protoreflect.ValueOfInt64(int64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MaxMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.Policy"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MaxMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.Policy does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MaxMissedBlocks) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_Policy) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.MaxMissedBlocks", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.Policy", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -230,7 +252,7 @@ func (x *fastReflection_MaxMissedBlocks) WhichOneof(d protoreflect.OneofDescript
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MaxMissedBlocks) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_Policy) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -241,7 +263,7 @@ func (x *fastReflection_MaxMissedBlocks) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MaxMissedBlocks) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_Policy) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -253,7 +275,7 @@ func (x *fastReflection_MaxMissedBlocks) SetUnknown(fields protoreflect.RawField
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MaxMissedBlocks) IsValid() bool {
+func (x *fastReflection_Policy) IsValid() bool {
 	return x != nil
 }
 
@@ -263,9 +285,9 @@ func (x *fastReflection_MaxMissedBlocks) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_Policy) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MaxMissedBlocks)
+		x := input.Message.Interface().(*Policy)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -277,8 +299,11 @@ func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		if x.MaxMissedBlocks != 0 {
-			n += 1 + runtime.Sov(uint64(x.MaxMissedBlocks))
+		if x.SignedBlocksWindow != 0 {
+			n += 1 + runtime.Sov(uint64(x.SignedBlocksWindow))
+		}
+		if x.MinSignedPerWindow != 0 {
+			n += 1 + runtime.Sov(uint64(x.MinSignedPerWindow))
 		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
@@ -290,7 +315,7 @@ func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MaxMissedBlocks)
+		x := input.Message.Interface().(*Policy)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -309,8 +334,13 @@ func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if x.MaxMissedBlocks != 0 {
-			i = runtime.EncodeVarint(dAtA, i, uint64(x.MaxMissedBlocks))
+		if x.MinSignedPerWindow != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MinSignedPerWindow))
+			i--
+			dAtA[i] = 0x10
+		}
+		if x.SignedBlocksWindow != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.SignedBlocksWindow))
 			i--
 			dAtA[i] = 0x8
 		}
@@ -325,7 +355,7 @@ func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MaxMissedBlocks)
+		x := input.Message.Interface().(*Policy)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -357,17 +387,17 @@ func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MaxMissedBlocks: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: Policy: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MaxMissedBlocks: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: Policy: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
 				if wireType != 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MaxMissedBlocks", wireType)
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field SignedBlocksWindow", wireType)
 				}
-				x.MaxMissedBlocks = 0
+				x.SignedBlocksWindow = 0
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -377,7 +407,26 @@ func (x *fastReflection_MaxMissedBlocks) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.MaxMissedBlocks |= int64(b&0x7F) << shift
+					x.SignedBlocksWindow |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MinSignedPerWindow", wireType)
+				}
+				x.MinSignedPerWindow = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MinSignedPerWindow |= int64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -901,28 +950,85 @@ func (x *fastReflection_Validator) ProtoMethods() *protoiface.Methods {
 	}
 }
 
+var _ protoreflect.List = (*_ValidatorSigningInfo_4_list)(nil)
+
+type _ValidatorSigningInfo_4_list struct {
+	list *[]*ValidatorSigningInfo_MissedBlock
+}
+
+func (x *_ValidatorSigningInfo_4_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_ValidatorSigningInfo_4_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_ValidatorSigningInfo_4_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*ValidatorSigningInfo_MissedBlock)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_ValidatorSigningInfo_4_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*ValidatorSigningInfo_MissedBlock)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_ValidatorSigningInfo_4_list) AppendMutable() protoreflect.Value {
+	v := new(ValidatorSigningInfo_MissedBlock)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_ValidatorSigningInfo_4_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_ValidatorSigningInfo_4_list) NewElement() protoreflect.Value {
+	v := new(ValidatorSigningInfo_MissedBlock)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_ValidatorSigningInfo_4_list) IsValid() bool {
+	return x.list != nil
+}
+
 var (
-	md_ValidatorMissedBlocks               protoreflect.MessageDescriptor
-	fd_ValidatorMissedBlocks_address       protoreflect.FieldDescriptor
-	fd_ValidatorMissedBlocks_missed_blocks protoreflect.FieldDescriptor
+	md_ValidatorSigningInfo                     protoreflect.MessageDescriptor
+	fd_ValidatorSigningInfo_address             protoreflect.FieldDescriptor
+	fd_ValidatorSigningInfo_start_height        protoreflect.FieldDescriptor
+	fd_ValidatorSigningInfo_index_offset        protoreflect.FieldDescriptor
+	fd_ValidatorSigningInfo_missed_blocks       protoreflect.FieldDescriptor
+	fd_ValidatorSigningInfo_missed_blocks_count protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_state_proto_init()
-	md_ValidatorMissedBlocks = File_chora_validator_v1_state_proto.Messages().ByName("ValidatorMissedBlocks")
-	fd_ValidatorMissedBlocks_address = md_ValidatorMissedBlocks.Fields().ByName("address")
-	fd_ValidatorMissedBlocks_missed_blocks = md_ValidatorMissedBlocks.Fields().ByName("missed_blocks")
+	md_ValidatorSigningInfo = File_chora_validator_v1_state_proto.Messages().ByName("ValidatorSigningInfo")
+	fd_ValidatorSigningInfo_address = md_ValidatorSigningInfo.Fields().ByName("address")
+	fd_ValidatorSigningInfo_start_height = md_ValidatorSigningInfo.Fields().ByName("start_height")
+	fd_ValidatorSigningInfo_index_offset = md_ValidatorSigningInfo.Fields().ByName("index_offset")
+	fd_ValidatorSigningInfo_missed_blocks = md_ValidatorSigningInfo.Fields().ByName("missed_blocks")
+	fd_ValidatorSigningInfo_missed_blocks_count = md_ValidatorSigningInfo.Fields().ByName("missed_blocks_count")
 }
 
-var _ protoreflect.Message = (*fastReflection_ValidatorMissedBlocks)(nil)
+var _ protoreflect.Message = (*fastReflection_ValidatorSigningInfo)(nil)
 
-type fastReflection_ValidatorMissedBlocks ValidatorMissedBlocks
+type fastReflection_ValidatorSigningInfo ValidatorSigningInfo
 
-func (x *ValidatorMissedBlocks) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_ValidatorMissedBlocks)(x)
+func (x *ValidatorSigningInfo) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_ValidatorSigningInfo)(x)
 }
 
-func (x *ValidatorMissedBlocks) slowProtoReflect() protoreflect.Message {
+func (x *ValidatorSigningInfo) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_state_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -934,43 +1040,43 @@ func (x *ValidatorMissedBlocks) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_ValidatorMissedBlocks_messageType fastReflection_ValidatorMissedBlocks_messageType
-var _ protoreflect.MessageType = fastReflection_ValidatorMissedBlocks_messageType{}
+var _fastReflection_ValidatorSigningInfo_messageType fastReflection_ValidatorSigningInfo_messageType
+var _ protoreflect.MessageType = fastReflection_ValidatorSigningInfo_messageType{}
 
-type fastReflection_ValidatorMissedBlocks_messageType struct{}
+type fastReflection_ValidatorSigningInfo_messageType struct{}
 
-func (x fastReflection_ValidatorMissedBlocks_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_ValidatorMissedBlocks)(nil)
+func (x fastReflection_ValidatorSigningInfo_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_ValidatorSigningInfo)(nil)
 }
-func (x fastReflection_ValidatorMissedBlocks_messageType) New() protoreflect.Message {
-	return new(fastReflection_ValidatorMissedBlocks)
+func (x fastReflection_ValidatorSigningInfo_messageType) New() protoreflect.Message {
+	return new(fastReflection_ValidatorSigningInfo)
 }
-func (x fastReflection_ValidatorMissedBlocks_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_ValidatorMissedBlocks
+func (x fastReflection_ValidatorSigningInfo_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_ValidatorSigningInfo
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_ValidatorMissedBlocks) Descriptor() protoreflect.MessageDescriptor {
-	return md_ValidatorMissedBlocks
+func (x *fastReflection_ValidatorSigningInfo) Descriptor() protoreflect.MessageDescriptor {
+	return md_ValidatorSigningInfo
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_ValidatorMissedBlocks) Type() protoreflect.MessageType {
-	return _fastReflection_ValidatorMissedBlocks_messageType
+func (x *fastReflection_ValidatorSigningInfo) Type() protoreflect.MessageType {
+	return _fastReflection_ValidatorSigningInfo_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_ValidatorMissedBlocks) New() protoreflect.Message {
-	return new(fastReflection_ValidatorMissedBlocks)
+func (x *fastReflection_ValidatorSigningInfo) New() protoreflect.Message {
+	return new(fastReflection_ValidatorSigningInfo)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_ValidatorMissedBlocks) Interface() protoreflect.ProtoMessage {
-	return (*ValidatorMissedBlocks)(x)
+func (x *fastReflection_ValidatorSigningInfo) Interface() protoreflect.ProtoMessage {
+	return (*ValidatorSigningInfo)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -978,16 +1084,34 @@ func (x *fastReflection_ValidatorMissedBlocks) Interface() protoreflect.ProtoMes
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_ValidatorMissedBlocks) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_ValidatorSigningInfo) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_ValidatorMissedBlocks_address, value) {
+		if !f(fd_ValidatorSigningInfo_address, value) {
 			return
 		}
 	}
-	if x.MissedBlocks != int64(0) {
-		value := protoreflect.ValueOfInt64(x.MissedBlocks)
-		if !f(fd_ValidatorMissedBlocks_missed_blocks, value) {
+	if x.StartHeight != int64(0) {
+		value := protoreflect.ValueOfInt64(x.StartHeight)
+		if !f(fd_ValidatorSigningInfo_start_height, value) {
+			return
+		}
+	}
+	if x.IndexOffset != int64(0) {
+		value := protoreflect.ValueOfInt64(x.IndexOffset)
+		if !f(fd_ValidatorSigningInfo_index_offset, value) {
+			return
+		}
+	}
+	if len(x.MissedBlocks) != 0 {
+		value := protoreflect.ValueOfList(&_ValidatorSigningInfo_4_list{list: &x.MissedBlocks})
+		if !f(fd_ValidatorSigningInfo_missed_blocks, value) {
+			return
+		}
+	}
+	if x.MissedBlocksCount != int64(0) {
+		value := protoreflect.ValueOfInt64(x.MissedBlocksCount)
+		if !f(fd_ValidatorSigningInfo_missed_blocks_count, value) {
 			return
 		}
 	}
@@ -1004,17 +1128,23 @@ func (x *fastReflection_ValidatorMissedBlocks) Range(f func(protoreflect.FieldDe
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_ValidatorMissedBlocks) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_ValidatorSigningInfo) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.ValidatorMissedBlocks.address":
+	case "chora.validator.v1.ValidatorSigningInfo.address":
 		return x.Address != ""
-	case "chora.validator.v1.ValidatorMissedBlocks.missed_blocks":
-		return x.MissedBlocks != int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.start_height":
+		return x.StartHeight != int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.index_offset":
+		return x.IndexOffset != int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks":
+		return len(x.MissedBlocks) != 0
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks_count":
+		return x.MissedBlocksCount != int64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.ValidatorMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1024,17 +1154,23 @@ func (x *fastReflection_ValidatorMissedBlocks) Has(fd protoreflect.FieldDescript
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_ValidatorMissedBlocks) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_ValidatorSigningInfo) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.ValidatorMissedBlocks.address":
+	case "chora.validator.v1.ValidatorSigningInfo.address":
 		x.Address = ""
-	case "chora.validator.v1.ValidatorMissedBlocks.missed_blocks":
-		x.MissedBlocks = int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.start_height":
+		x.StartHeight = int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.index_offset":
+		x.IndexOffset = int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks":
+		x.MissedBlocks = nil
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks_count":
+		x.MissedBlocksCount = int64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.ValidatorMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1044,19 +1180,31 @@ func (x *fastReflection_ValidatorMissedBlocks) Clear(fd protoreflect.FieldDescri
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_ValidatorMissedBlocks) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_ValidatorSigningInfo) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.ValidatorMissedBlocks.address":
+	case "chora.validator.v1.ValidatorSigningInfo.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
-	case "chora.validator.v1.ValidatorMissedBlocks.missed_blocks":
-		value := x.MissedBlocks
+	case "chora.validator.v1.ValidatorSigningInfo.start_height":
+		value := x.StartHeight
+		return protoreflect.ValueOfInt64(value)
+	case "chora.validator.v1.ValidatorSigningInfo.index_offset":
+		value := x.IndexOffset
+		return protoreflect.ValueOfInt64(value)
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks":
+		if len(x.MissedBlocks) == 0 {
+			return protoreflect.ValueOfList(&_ValidatorSigningInfo_4_list{})
+		}
+		listValue := &_ValidatorSigningInfo_4_list{list: &x.MissedBlocks}
+		return protoreflect.ValueOfList(listValue)
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks_count":
+		value := x.MissedBlocksCount
 		return protoreflect.ValueOfInt64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.ValidatorMissedBlocks does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1070,17 +1218,25 @@ func (x *fastReflection_ValidatorMissedBlocks) Get(descriptor protoreflect.Field
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_ValidatorMissedBlocks) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_ValidatorSigningInfo) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.ValidatorMissedBlocks.address":
+	case "chora.validator.v1.ValidatorSigningInfo.address":
 		x.Address = value.Interface().(string)
-	case "chora.validator.v1.ValidatorMissedBlocks.missed_blocks":
-		x.MissedBlocks = value.Int()
+	case "chora.validator.v1.ValidatorSigningInfo.start_height":
+		x.StartHeight = value.Int()
+	case "chora.validator.v1.ValidatorSigningInfo.index_offset":
+		x.IndexOffset = value.Int()
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks":
+		lv := value.List()
+		clv := lv.(*_ValidatorSigningInfo_4_list)
+		x.MissedBlocks = *clv.list
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks_count":
+		x.MissedBlocksCount = value.Int()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.ValidatorMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1094,44 +1250,61 @@ func (x *fastReflection_ValidatorMissedBlocks) Set(fd protoreflect.FieldDescript
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_ValidatorMissedBlocks) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_ValidatorSigningInfo) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.ValidatorMissedBlocks.address":
-		panic(fmt.Errorf("field address of message chora.validator.v1.ValidatorMissedBlocks is not mutable"))
-	case "chora.validator.v1.ValidatorMissedBlocks.missed_blocks":
-		panic(fmt.Errorf("field missed_blocks of message chora.validator.v1.ValidatorMissedBlocks is not mutable"))
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks":
+		if x.MissedBlocks == nil {
+			x.MissedBlocks = []*ValidatorSigningInfo_MissedBlock{}
+		}
+		value := &_ValidatorSigningInfo_4_list{list: &x.MissedBlocks}
+		return protoreflect.ValueOfList(value)
+	case "chora.validator.v1.ValidatorSigningInfo.address":
+		panic(fmt.Errorf("field address of message chora.validator.v1.ValidatorSigningInfo is not mutable"))
+	case "chora.validator.v1.ValidatorSigningInfo.start_height":
+		panic(fmt.Errorf("field start_height of message chora.validator.v1.ValidatorSigningInfo is not mutable"))
+	case "chora.validator.v1.ValidatorSigningInfo.index_offset":
+		panic(fmt.Errorf("field index_offset of message chora.validator.v1.ValidatorSigningInfo is not mutable"))
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks_count":
+		panic(fmt.Errorf("field missed_blocks_count of message chora.validator.v1.ValidatorSigningInfo is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.ValidatorMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_ValidatorMissedBlocks) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_ValidatorSigningInfo) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.ValidatorMissedBlocks.address":
+	case "chora.validator.v1.ValidatorSigningInfo.address":
 		return protoreflect.ValueOfString("")
-	case "chora.validator.v1.ValidatorMissedBlocks.missed_blocks":
+	case "chora.validator.v1.ValidatorSigningInfo.start_height":
+		return protoreflect.ValueOfInt64(int64(0))
+	case "chora.validator.v1.ValidatorSigningInfo.index_offset":
+		return protoreflect.ValueOfInt64(int64(0))
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks":
+		list := []*ValidatorSigningInfo_MissedBlock{}
+		return protoreflect.ValueOfList(&_ValidatorSigningInfo_4_list{list: &list})
+	case "chora.validator.v1.ValidatorSigningInfo.missed_blocks_count":
 		return protoreflect.ValueOfInt64(int64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorMissedBlocks"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.ValidatorMissedBlocks does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_ValidatorMissedBlocks) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_ValidatorSigningInfo) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.ValidatorMissedBlocks", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.ValidatorSigningInfo", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1139,7 +1312,7 @@ func (x *fastReflection_ValidatorMissedBlocks) WhichOneof(d protoreflect.OneofDe
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_ValidatorMissedBlocks) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_ValidatorSigningInfo) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1150,7 +1323,7 @@ func (x *fastReflection_ValidatorMissedBlocks) GetUnknown() protoreflect.RawFiel
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_ValidatorMissedBlocks) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_ValidatorSigningInfo) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1162,7 +1335,7 @@ func (x *fastReflection_ValidatorMissedBlocks) SetUnknown(fields protoreflect.Ra
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_ValidatorMissedBlocks) IsValid() bool {
+func (x *fastReflection_ValidatorSigningInfo) IsValid() bool {
 	return x != nil
 }
 
@@ -1172,9 +1345,9 @@ func (x *fastReflection_ValidatorMissedBlocks) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_ValidatorSigningInfo) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*ValidatorMissedBlocks)
+		x := input.Message.Interface().(*ValidatorSigningInfo)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1190,8 +1363,20 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
-		if x.MissedBlocks != 0 {
-			n += 1 + runtime.Sov(uint64(x.MissedBlocks))
+		if x.StartHeight != 0 {
+			n += 1 + runtime.Sov(uint64(x.StartHeight))
+		}
+		if x.IndexOffset != 0 {
+			n += 1 + runtime.Sov(uint64(x.IndexOffset))
+		}
+		if len(x.MissedBlocks) > 0 {
+			for _, e := range x.MissedBlocks {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.MissedBlocksCount != 0 {
+			n += 1 + runtime.Sov(uint64(x.MissedBlocksCount))
 		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
@@ -1203,7 +1388,7 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*ValidatorMissedBlocks)
+		x := input.Message.Interface().(*ValidatorSigningInfo)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1222,8 +1407,34 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if x.MissedBlocks != 0 {
-			i = runtime.EncodeVarint(dAtA, i, uint64(x.MissedBlocks))
+		if x.MissedBlocksCount != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.MissedBlocksCount))
+			i--
+			dAtA[i] = 0x28
+		}
+		if len(x.MissedBlocks) > 0 {
+			for iNdEx := len(x.MissedBlocks) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.MissedBlocks[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x22
+			}
+		}
+		if x.IndexOffset != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.IndexOffset))
+			i--
+			dAtA[i] = 0x18
+		}
+		if x.StartHeight != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.StartHeight))
 			i--
 			dAtA[i] = 0x10
 		}
@@ -1245,7 +1456,7 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*ValidatorMissedBlocks)
+		x := input.Message.Interface().(*ValidatorSigningInfo)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1277,10 +1488,10 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: ValidatorMissedBlocks: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: ValidatorSigningInfo: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: ValidatorMissedBlocks: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: ValidatorSigningInfo: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1317,9 +1528,9 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 				iNdEx = postIndex
 			case 2:
 				if wireType != 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MissedBlocks", wireType)
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field StartHeight", wireType)
 				}
-				x.MissedBlocks = 0
+				x.StartHeight = 0
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -1329,11 +1540,541 @@ func (x *fastReflection_ValidatorMissedBlocks) ProtoMethods() *protoiface.Method
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.MissedBlocks |= int64(b&0x7F) << shift
+					x.StartHeight |= int64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
+			case 3:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field IndexOffset", wireType)
+				}
+				x.IndexOffset = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.IndexOffset |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 4:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MissedBlocks", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.MissedBlocks = append(x.MissedBlocks, &ValidatorSigningInfo_MissedBlock{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.MissedBlocks[len(x.MissedBlocks)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 5:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field MissedBlocksCount", wireType)
+				}
+				x.MissedBlocksCount = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.MissedBlocksCount |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_ValidatorSigningInfo_MissedBlock        protoreflect.MessageDescriptor
+	fd_ValidatorSigningInfo_MissedBlock_index  protoreflect.FieldDescriptor
+	fd_ValidatorSigningInfo_MissedBlock_missed protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_chora_validator_v1_state_proto_init()
+	md_ValidatorSigningInfo_MissedBlock = File_chora_validator_v1_state_proto.Messages().ByName("ValidatorSigningInfo").Messages().ByName("MissedBlock")
+	fd_ValidatorSigningInfo_MissedBlock_index = md_ValidatorSigningInfo_MissedBlock.Fields().ByName("index")
+	fd_ValidatorSigningInfo_MissedBlock_missed = md_ValidatorSigningInfo_MissedBlock.Fields().ByName("missed")
+}
+
+var _ protoreflect.Message = (*fastReflection_ValidatorSigningInfo_MissedBlock)(nil)
+
+type fastReflection_ValidatorSigningInfo_MissedBlock ValidatorSigningInfo_MissedBlock
+
+func (x *ValidatorSigningInfo_MissedBlock) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_ValidatorSigningInfo_MissedBlock)(x)
+}
+
+func (x *ValidatorSigningInfo_MissedBlock) slowProtoReflect() protoreflect.Message {
+	mi := &file_chora_validator_v1_state_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_ValidatorSigningInfo_MissedBlock_messageType fastReflection_ValidatorSigningInfo_MissedBlock_messageType
+var _ protoreflect.MessageType = fastReflection_ValidatorSigningInfo_MissedBlock_messageType{}
+
+type fastReflection_ValidatorSigningInfo_MissedBlock_messageType struct{}
+
+func (x fastReflection_ValidatorSigningInfo_MissedBlock_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_ValidatorSigningInfo_MissedBlock)(nil)
+}
+func (x fastReflection_ValidatorSigningInfo_MissedBlock_messageType) New() protoreflect.Message {
+	return new(fastReflection_ValidatorSigningInfo_MissedBlock)
+}
+func (x fastReflection_ValidatorSigningInfo_MissedBlock_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_ValidatorSigningInfo_MissedBlock
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Descriptor() protoreflect.MessageDescriptor {
+	return md_ValidatorSigningInfo_MissedBlock
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Type() protoreflect.MessageType {
+	return _fastReflection_ValidatorSigningInfo_MissedBlock_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) New() protoreflect.Message {
+	return new(fastReflection_ValidatorSigningInfo_MissedBlock)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Interface() protoreflect.ProtoMessage {
+	return (*ValidatorSigningInfo_MissedBlock)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Index != int64(0) {
+		value := protoreflect.ValueOfInt64(x.Index)
+		if !f(fd_ValidatorSigningInfo_MissedBlock_index, value) {
+			return
+		}
+	}
+	if x.Missed != false {
+		value := protoreflect.ValueOfBool(x.Missed)
+		if !f(fd_ValidatorSigningInfo_MissedBlock_missed, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.index":
+		return x.Index != int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.missed":
+		return x.Missed != false
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo.MissedBlock"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo.MissedBlock does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.index":
+		x.Index = int64(0)
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.missed":
+		x.Missed = false
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo.MissedBlock"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo.MissedBlock does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.index":
+		value := x.Index
+		return protoreflect.ValueOfInt64(value)
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.missed":
+		value := x.Missed
+		return protoreflect.ValueOfBool(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo.MissedBlock"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo.MissedBlock does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.index":
+		x.Index = value.Int()
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.missed":
+		x.Missed = value.Bool()
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo.MissedBlock"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo.MissedBlock does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.index":
+		panic(fmt.Errorf("field index of message chora.validator.v1.ValidatorSigningInfo.MissedBlock is not mutable"))
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.missed":
+		panic(fmt.Errorf("field missed of message chora.validator.v1.ValidatorSigningInfo.MissedBlock is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo.MissedBlock"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo.MissedBlock does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.index":
+		return protoreflect.ValueOfInt64(int64(0))
+	case "chora.validator.v1.ValidatorSigningInfo.MissedBlock.missed":
+		return protoreflect.ValueOfBool(false)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.ValidatorSigningInfo.MissedBlock"))
+		}
+		panic(fmt.Errorf("message chora.validator.v1.ValidatorSigningInfo.MissedBlock does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.ValidatorSigningInfo.MissedBlock", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_ValidatorSigningInfo_MissedBlock) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*ValidatorSigningInfo_MissedBlock)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Index != 0 {
+			n += 1 + runtime.Sov(uint64(x.Index))
+		}
+		if x.Missed {
+			n += 2
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*ValidatorSigningInfo_MissedBlock)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Missed {
+			i--
+			if x.Missed {
+				dAtA[i] = 1
+			} else {
+				dAtA[i] = 0
+			}
+			i--
+			dAtA[i] = 0x10
+		}
+		if x.Index != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Index))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*ValidatorSigningInfo_MissedBlock)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: ValidatorSigningInfo_MissedBlock: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: ValidatorSigningInfo_MissedBlock: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
+				}
+				x.Index = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Index |= int64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Missed", wireType)
+				}
+				var v int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					v |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				x.Missed = bool(v != 0)
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -1382,20 +2123,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// MaxMissedBlocks defines the singleton table for the maximum number of missed
-// blocks before a validator is removed from the validator set.
-type MaxMissedBlocks struct {
+// Policy defines a singleton table for the signing policy.
+type Policy struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// max_missed_blocks is the maximum number of missed blocks before a validator
-	// is removed from the validator set. A zero-value indicates no maximum.
-	MaxMissedBlocks int64 `protobuf:"varint,1,opt,name=max_missed_blocks,json=maxMissedBlocks,proto3" json:"max_missed_blocks,omitempty"`
+	// signed_blocks_window is the window within which a validator is expected to sign a block.
+	SignedBlocksWindow int64 `protobuf:"varint,1,opt,name=signed_blocks_window,json=signedBlocksWindow,proto3" json:"signed_blocks_window,omitempty"`
+	// min_signed_per_window is the minimum number of signed blocks per signed blocks window.
+	MinSignedPerWindow int64 `protobuf:"varint,2,opt,name=min_signed_per_window,json=minSignedPerWindow,proto3" json:"min_signed_per_window,omitempty"`
 }
 
-func (x *MaxMissedBlocks) Reset() {
-	*x = MaxMissedBlocks{}
+func (x *Policy) Reset() {
+	*x = Policy{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_validator_v1_state_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1403,20 +2144,27 @@ func (x *MaxMissedBlocks) Reset() {
 	}
 }
 
-func (x *MaxMissedBlocks) String() string {
+func (x *Policy) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MaxMissedBlocks) ProtoMessage() {}
+func (*Policy) ProtoMessage() {}
 
-// Deprecated: Use MaxMissedBlocks.ProtoReflect.Descriptor instead.
-func (*MaxMissedBlocks) Descriptor() ([]byte, []int) {
+// Deprecated: Use Policy.ProtoReflect.Descriptor instead.
+func (*Policy) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_state_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MaxMissedBlocks) GetMaxMissedBlocks() int64 {
+func (x *Policy) GetSignedBlocksWindow() int64 {
 	if x != nil {
-		return x.MaxMissedBlocks
+		return x.SignedBlocksWindow
+	}
+	return 0
+}
+
+func (x *Policy) GetMinSignedPerWindow() int64 {
+	if x != nil {
+		return x.MinSignedPerWindow
 	}
 	return 0
 }
@@ -1467,20 +2215,27 @@ func (x *Validator) GetMetadata() string {
 	return ""
 }
 
-// ValidatorMissedBlocks extends the table and properties of a validator.
-type ValidatorMissedBlocks struct {
+// ValidatorSigningInfo extends the table and properties of a validator.
+type ValidatorSigningInfo struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// address is the address of the validator.
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	// start_height is the validator start height.
+	StartHeight int64 `protobuf:"varint,2,opt,name=start_height,json=startHeight,proto3" json:"start_height,omitempty"`
+	// index_offset is incremented every time a validator is bonded in a block. This in conjunction with the
+	// signed_blocks_window param determines the index in the missed block bitmap.
+	IndexOffset int64 `protobuf:"varint,3,opt,name=index_offset,json=indexOffset,proto3" json:"index_offset,omitempty"`
+	// missed_blocks contains missed blocks.
+	MissedBlocks []*ValidatorSigningInfo_MissedBlock `protobuf:"bytes,4,rep,name=missed_blocks,json=missedBlocks,proto3" json:"missed_blocks,omitempty"`
 	// missed_blocks is the number of missed blocks.
-	MissedBlocks int64 `protobuf:"varint,2,opt,name=missed_blocks,json=missedBlocks,proto3" json:"missed_blocks,omitempty"`
+	MissedBlocksCount int64 `protobuf:"varint,5,opt,name=missed_blocks_count,json=missedBlocksCount,proto3" json:"missed_blocks_count,omitempty"`
 }
 
-func (x *ValidatorMissedBlocks) Reset() {
-	*x = ValidatorMissedBlocks{}
+func (x *ValidatorSigningInfo) Reset() {
+	*x = ValidatorSigningInfo{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_validator_v1_state_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1488,29 +2243,96 @@ func (x *ValidatorMissedBlocks) Reset() {
 	}
 }
 
-func (x *ValidatorMissedBlocks) String() string {
+func (x *ValidatorSigningInfo) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ValidatorMissedBlocks) ProtoMessage() {}
+func (*ValidatorSigningInfo) ProtoMessage() {}
 
-// Deprecated: Use ValidatorMissedBlocks.ProtoReflect.Descriptor instead.
-func (*ValidatorMissedBlocks) Descriptor() ([]byte, []int) {
+// Deprecated: Use ValidatorSigningInfo.ProtoReflect.Descriptor instead.
+func (*ValidatorSigningInfo) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_state_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *ValidatorMissedBlocks) GetAddress() string {
+func (x *ValidatorSigningInfo) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-func (x *ValidatorMissedBlocks) GetMissedBlocks() int64 {
+func (x *ValidatorSigningInfo) GetStartHeight() int64 {
+	if x != nil {
+		return x.StartHeight
+	}
+	return 0
+}
+
+func (x *ValidatorSigningInfo) GetIndexOffset() int64 {
+	if x != nil {
+		return x.IndexOffset
+	}
+	return 0
+}
+
+func (x *ValidatorSigningInfo) GetMissedBlocks() []*ValidatorSigningInfo_MissedBlock {
 	if x != nil {
 		return x.MissedBlocks
 	}
+	return nil
+}
+
+func (x *ValidatorSigningInfo) GetMissedBlocksCount() int64 {
+	if x != nil {
+		return x.MissedBlocksCount
+	}
 	return 0
+}
+
+// MissedBlock represents a missed block.
+type ValidatorSigningInfo_MissedBlock struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// index is the height at which the block was missed.
+	Index int64 `protobuf:"varint,1,opt,name=index,proto3" json:"index,omitempty"`
+	// missed is a boolean representing the missed block.
+	Missed bool `protobuf:"varint,2,opt,name=missed,proto3" json:"missed,omitempty"`
+}
+
+func (x *ValidatorSigningInfo_MissedBlock) Reset() {
+	*x = ValidatorSigningInfo_MissedBlock{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chora_validator_v1_state_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ValidatorSigningInfo_MissedBlock) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidatorSigningInfo_MissedBlock) ProtoMessage() {}
+
+// Deprecated: Use ValidatorSigningInfo_MissedBlock.ProtoReflect.Descriptor instead.
+func (*ValidatorSigningInfo_MissedBlock) Descriptor() ([]byte, []int) {
+	return file_chora_validator_v1_state_proto_rawDescGZIP(), []int{2, 0}
+}
+
+func (x *ValidatorSigningInfo_MissedBlock) GetIndex() int64 {
+	if x != nil {
+		return x.Index
+	}
+	return 0
+}
+
+func (x *ValidatorSigningInfo_MissedBlock) GetMissed() bool {
+	if x != nil {
+		return x.Missed
+	}
+	return false
 }
 
 var File_chora_validator_v1_state_proto protoreflect.FileDescriptor
@@ -1520,38 +2342,57 @@ var file_chora_validator_v1_state_proto_rawDesc = []byte{
 	0x72, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x12, 0x12, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
 	0x72, 0x2e, 0x76, 0x31, 0x1a, 0x17, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x6f, 0x72, 0x6d,
-	0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x6d, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x47, 0x0a,
-	0x0f, 0x4d, 0x61, 0x78, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73,
-	0x12, 0x2a, 0x0a, 0x11, 0x6d, 0x61, 0x78, 0x5f, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62,
-	0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0f, 0x6d, 0x61, 0x78,
-	0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x3a, 0x08, 0xfa, 0x9e,
-	0xd3, 0x8e, 0x03, 0x02, 0x08, 0x01, 0x22, 0x56, 0x0a, 0x09, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x1a, 0x0a,
-	0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x13, 0xf2, 0x9e, 0xd3, 0x8e, 0x03,
-	0x0d, 0x0a, 0x09, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x02, 0x22, 0x6b,
-	0x0a, 0x15, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x4d, 0x69, 0x73, 0x73, 0x65,
-	0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
-	0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
-	0x73, 0x12, 0x23, 0x0a, 0x0d, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63,
-	0x6b, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64,
-	0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x3a, 0x13, 0xf2, 0x9e, 0xd3, 0x8e, 0x03, 0x0d, 0x0a, 0x09,
-	0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x03, 0x42, 0xd4, 0x01, 0x0a, 0x16,
-	0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x53, 0x74, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f,
-	0x74, 0x6f, 0x50, 0x01, 0x5a, 0x44, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x61,
-	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72,
-	0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76,
-	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58,
-	0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61,
-	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1e, 0x43, 0x68, 0x6f,
-	0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c,
-	0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x14, 0x43, 0x68,
-	0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x3a,
-	0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x6d, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x19, 0x67,
+	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x61,
+	0x6e, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x77, 0x0a, 0x06, 0x50, 0x6f, 0x6c, 0x69,
+	0x63, 0x79, 0x12, 0x30, 0x0a, 0x14, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f,
+	0x63, 0x6b, 0x73, 0x5f, 0x77, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x12, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x57, 0x69,
+	0x6e, 0x64, 0x6f, 0x77, 0x12, 0x31, 0x0a, 0x15, 0x6d, 0x69, 0x6e, 0x5f, 0x73, 0x69, 0x67, 0x6e,
+	0x65, 0x64, 0x5f, 0x70, 0x65, 0x72, 0x5f, 0x77, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x03, 0x52, 0x12, 0x6d, 0x69, 0x6e, 0x53, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x50, 0x65,
+	0x72, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x3a, 0x08, 0xfa, 0x9e, 0xd3, 0x8e, 0x03, 0x02, 0x08,
+	0x01, 0x22, 0x56, 0x0a, 0x09, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18,
+	0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x3a, 0x13, 0xf2, 0x9e, 0xd3, 0x8e, 0x03, 0x0d, 0x0a, 0x09, 0x0a, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x02, 0x22, 0xd3, 0x02, 0x0a, 0x14, 0x56, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x53, 0x69, 0x67, 0x6e, 0x69, 0x6e, 0x67, 0x49, 0x6e,
+	0x66, 0x6f, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x21, 0x0a, 0x0c,
+	0x73, 0x74, 0x61, 0x72, 0x74, 0x5f, 0x68, 0x65, 0x69, 0x67, 0x68, 0x74, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x03, 0x52, 0x0b, 0x73, 0x74, 0x61, 0x72, 0x74, 0x48, 0x65, 0x69, 0x67, 0x68, 0x74, 0x12,
+	0x21, 0x0a, 0x0c, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x5f, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x4f, 0x66, 0x66, 0x73,
+	0x65, 0x74, 0x12, 0x59, 0x0a, 0x0d, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f,
+	0x63, 0x6b, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x34, 0x2e, 0x63, 0x68, 0x6f, 0x72,
+	0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x56,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x53, 0x69, 0x67, 0x6e, 0x69, 0x6e, 0x67, 0x49,
+	0x6e, 0x66, 0x6f, 0x2e, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x52,
+	0x0c, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x12, 0x2e, 0x0a,
+	0x13, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x5f, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x03, 0x52, 0x11, 0x6d, 0x69, 0x73, 0x73,
+	0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x1a, 0x3b, 0x0a,
+	0x0b, 0x4d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x12, 0x14, 0x0a, 0x05,
+	0x69, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x69, 0x6e, 0x64,
+	0x65, 0x78, 0x12, 0x16, 0x0a, 0x06, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x06, 0x6d, 0x69, 0x73, 0x73, 0x65, 0x64, 0x3a, 0x13, 0xf2, 0x9e, 0xd3, 0x8e,
+	0x03, 0x0d, 0x0a, 0x09, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x03, 0x42,
+	0xd4, 0x01, 0x0a, 0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x53, 0x74, 0x61, 0x74,
+	0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x44, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
+	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64,
+	0x73, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f,
+	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f,
+	0x76, 0x31, 0x3b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02,
+	0x03, 0x43, 0x56, 0x58, 0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x56, 0x61, 0x6c,
+	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72,
+	0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02,
+	0x1e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
+	0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea,
+	0x02, 0x14, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1566,18 +2407,20 @@ func file_chora_validator_v1_state_proto_rawDescGZIP() []byte {
 	return file_chora_validator_v1_state_proto_rawDescData
 }
 
-var file_chora_validator_v1_state_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_chora_validator_v1_state_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_chora_validator_v1_state_proto_goTypes = []interface{}{
-	(*MaxMissedBlocks)(nil),       // 0: chora.validator.v1.MaxMissedBlocks
-	(*Validator)(nil),             // 1: chora.validator.v1.Validator
-	(*ValidatorMissedBlocks)(nil), // 2: chora.validator.v1.ValidatorMissedBlocks
+	(*Policy)(nil),                           // 0: chora.validator.v1.Policy
+	(*Validator)(nil),                        // 1: chora.validator.v1.Validator
+	(*ValidatorSigningInfo)(nil),             // 2: chora.validator.v1.ValidatorSigningInfo
+	(*ValidatorSigningInfo_MissedBlock)(nil), // 3: chora.validator.v1.ValidatorSigningInfo.MissedBlock
 }
 var file_chora_validator_v1_state_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	3, // 0: chora.validator.v1.ValidatorSigningInfo.missed_blocks:type_name -> chora.validator.v1.ValidatorSigningInfo.MissedBlock
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_chora_validator_v1_state_proto_init() }
@@ -1587,7 +2430,7 @@ func file_chora_validator_v1_state_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_validator_v1_state_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MaxMissedBlocks); i {
+			switch v := v.(*Policy); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1611,7 +2454,19 @@ func file_chora_validator_v1_state_proto_init() {
 			}
 		}
 		file_chora_validator_v1_state_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidatorMissedBlocks); i {
+			switch v := v.(*ValidatorSigningInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chora_validator_v1_state_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ValidatorSigningInfo_MissedBlock); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1629,7 +2484,7 @@ func file_chora_validator_v1_state_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chora_validator_v1_state_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

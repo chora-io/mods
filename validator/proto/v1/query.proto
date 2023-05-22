@@ -10,11 +10,10 @@ option go_package = "github.com/choraio/mods/validator/types/v1";
 // Query is the Query service.
 service Query {
 
-  // MaxMissedBlocks queries the maximum number of missed blocks before a
-  // validator is removed from the validator set.
-  rpc MaxMissedBlocks(QueryMaxMissedBlocksRequest)
-      returns (QueryMaxMissedBlocksResponse) {
-    option (google.api.http).get = "/chora/validator/v1/max-missed-blocks";
+  // Policy queries the maximum number of missed blocks before a validator is
+  // removed from the validator set.
+  rpc Policy(QueryPolicyRequest) returns (QueryPolicyResponse) {
+    option (google.api.http).get = "/chora/validator/v1/policy";
   }
 
   // Validator queries a validator by address.
@@ -28,15 +27,19 @@ service Query {
   }
 }
 
-// QueryMaxMissedBlocksRequest is the Query/MaxMissedBlocks request type.
-message QueryMaxMissedBlocksRequest {}
+// QueryPolicyRequest is the Query/Policy request type.
+message QueryPolicyRequest {}
 
-// QueryMaxMissedBlocksResponse is the Query/MaxMissedBlocks response type.
-message QueryMaxMissedBlocksResponse {
+// QueryPolicyResponse is the Query/Policy response type.
+message QueryPolicyResponse {
 
-  // max_missed_blocks is the maximum number of missed blocks before a validator
-  // is removed from the validator set. A zero-value indicates no maximum.
-  int64 max_missed_blocks = 1;
+  // signed_blocks_window is the window within which a validator is expected to
+  // sign a block.
+  int64 signed_blocks_window = 1;
+
+  // min_signed_per_window is the minimum number of signed blocks per signed
+  // blocks window.
+  int64 min_signed_per_window = 2;
 }
 
 // QueryValidatorRequest is the Query/Validator request type.

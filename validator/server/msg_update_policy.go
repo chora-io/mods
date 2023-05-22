@@ -8,8 +8,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-// UpdateMaxMissedBlocks implements Msg/UpdateMaxMissedBlocks.
-func (s Server) UpdateMaxMissedBlocks(ctx context.Context, req *v1.MsgUpdateMaxMissedBlocks) (*v1.MsgUpdateMaxMissedBlocksResponse, error) {
+// UpdatePolicy implements Msg/UpdatePolicy.
+func (s Server) UpdatePolicy(ctx context.Context, req *v1.MsgUpdatePolicy) (*v1.MsgUpdatePolicyResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
 	authorityAddress := s.authority.String()
@@ -20,29 +20,34 @@ func (s Server) UpdateMaxMissedBlocks(ctx context.Context, req *v1.MsgUpdateMaxM
 	}
 
 	// get max missed blocks from max missed blocks table
-	maxMissedBlocks, err := s.ss.MaxMissedBlocksTable().Get(ctx)
+	policy, err := s.ss.PolicyTable().Get(ctx)
 	if err != nil {
 		return nil, err // internal error
 	}
 
-	// set max missed blocks to requested max missed blocks
-	maxMissedBlocks.MaxMissedBlocks = req.MaxMissedBlocks
+	// set signed blocks window
+	policy.SignedBlocksWindow = req.SignedBlocksWindow
+
+	// set min signed per window
+	policy.MinSignedPerWindow = req.MinSignedPerWindow
 
 	// update max missed blocks in max missed blocks table
-	err = s.ss.MaxMissedBlocksTable().Save(ctx, maxMissedBlocks)
+	err = s.ss.PolicyTable().Save(ctx, policy)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateMaxMissedBlocks{
-		MaxMissedBlocks: req.MaxMissedBlocks,
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdatePolicy{
+		SignedBlocksWindow: req.SignedBlocksWindow,
+		MinSignedPerWindow: req.MinSignedPerWindow,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgUpdateMaxMissedBlocksResponse{
-		MaxMissedBlocks: req.MaxMissedBlocks,
+	return &v1.MsgUpdatePolicyResponse{
+		SignedBlocksWindow: req.SignedBlocksWindow,
+		MinSignedPerWindow: req.MinSignedPerWindow,
 	}, nil
 }

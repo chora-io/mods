@@ -8,8 +8,8 @@ import (
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
-// QueryMaxMissedBlocksCmd creates and returns the query validator command.
-func QueryMaxMissedBlocksCmd() *cobra.Command {
+// QueryPolicyCmd creates and returns the query validator command.
+func QueryPolicyCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "max-missed-blocks",
 		Short: "query the maximum number of missed blocks",
@@ -21,7 +21,7 @@ func QueryMaxMissedBlocksCmd() *cobra.Command {
 				return err
 			}
 
-			res, err := c.MaxMissedBlocks(cmd.Context(), &v1.QueryMaxMissedBlocksRequest{})
+			res, err := c.Policy(cmd.Context(), &v1.QueryPolicyRequest{})
 			if err != nil {
 				return err
 			}

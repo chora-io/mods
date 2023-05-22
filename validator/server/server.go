@@ -75,3 +75,100 @@ func (s Server) ExportGenesis(ctx sdk.Context, _ codec.JSONCodec) (json.RawMessa
 
 	return target.JSON()
 }
+
+// GetPolicy gets the validator signing policy.
+func (s Server) GetPolicy(ctx sdk.Context) (*validatorv1.Policy, error) {
+	policy, err := s.ss.PolicyTable().Get(ctx)
+	if err != nil {
+		return nil, err
+	}
+	return policy, nil
+}
+
+// HandleSigningInfo tracks validator signing info and enforces the policy.
+func (s Server) HandleSigningInfo(ctx sdk.Context, voteInfo abci.VoteInfo, policy *validatorv1.Policy) error {
+	height := ctx.BlockHeight()
+
+	// set validator address
+	address := sdk.ConsAddress(voteInfo.Validator.Address)
+
+	// get validator signing info
+	signingInfo, err := s.ss.ValidatorSigningInfoTable().Get(ctx, address.String())
+	if err != nil {
+		return err // internal error
+	}
+
+	// Compute the relative index, so we count the blocks the validator *should*
+	// have signed. We will use the 0-value default signing info if not present,
+	// except for start height. The index is in the range [0, SignedBlocksWindow)
+	// and is used to see if a validator signed a block at the given height
+	index := signingInfo.IndexOffset % policy.SignedBlocksWindow
+
+	// increment index offset
+	signingInfo.IndexOffset++
+
+	// missed and previous missed
+	missed := !voteInfo.SignedLastBlock
+	missedPrevious := signingInfo.MissedBlocks[index].Missed
+
+	switch {
+	case missed && !missedPrevious:
+		signingInfo.MissedBlocks[index].Missed = true
+		signingInfo.MissedBlocksCount++
+	case !missed && missedPrevious:
+		signingInfo.MissedBlocks[index].Missed = false
+		signingInfo.MissedBlocksCount--
+	default:
+		// bitmap value at this index has not changed
+	}
+
+	minSignedPerWindow := policy.MinSignedPerWindow
+
+	if missed {
+		// emit missed block event
+		if err = ctx.EventManager().EmitTypedEvent(&v1.EventMissedBlock{
+			Address: address.String(),
+		}); err != nil {
+			return err // internal error
+		}
+	}
+
+	minHeight := signingInfo.StartHeight + policy.SignedBlocksWindow
+	maxMissed := policy.SignedBlocksWindow - minSignedPerWindow
+
+	// remove validator if validator missed blocks exceeds max missed blocks
+	if height > minHeight && signingInfo.MissedBlocksCount > maxMissed {
+		// get validator
+		validator, err := s.ss.ValidatorTable().Get(ctx, address.String())
+		if err != nil {
+			return err // internal error
+		}
+
+		// delete validator
+		err = s.ss.ValidatorTable().Delete(ctx, validator)
+		if err != nil {
+			return err // internal error
+		}
+
+		// delete validator signing info
+		err = s.ss.ValidatorSigningInfoTable().Delete(ctx, signingInfo)
+		if err != nil {
+			return err // internal error
+		}
+
+		// emit remove validator event
+		if err = ctx.EventManager().EmitTypedEvent(&v1.EventRemoveValidator{
+			Address: address.String(),
+		}); err != nil {
+			return err // internal error
+		}
+	} else {
+		// update validator signing info
+		err = s.ss.ValidatorSigningInfoTable().Update(ctx, signingInfo)
+		if err != nil {
+			return err // internal error
+		}
+	}
+
+	return nil
+}

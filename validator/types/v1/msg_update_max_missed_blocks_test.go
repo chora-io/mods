@@ -8,36 +8,36 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-type msgUpdateMaxMissedBlocks struct {
+type msgUpdatePolicy struct {
 	t   gocuke.TestingT
-	msg *MsgUpdateMaxMissedBlocks
+	msg *MsgUpdatePolicy
 	err error
 }
 
-func TestMsgUpdateMaxMissedBlocks(t *testing.T) {
-	gocuke.NewRunner(t, &msgUpdateMaxMissedBlocks{}).
-		Path("./features/msg_update_max_missed_blocks.feature").
+func TestMsgUpdatePolicy(t *testing.T) {
+	gocuke.NewRunner(t, &msgUpdatePolicy{}).
+		Path("./features/msg_update_policy.feature").
 		Run()
 }
 
-func (s *msgUpdateMaxMissedBlocks) Before(t gocuke.TestingT) {
+func (s *msgUpdatePolicy) Before(t gocuke.TestingT) {
 	s.t = t
 }
 
-func (s *msgUpdateMaxMissedBlocks) Message(a gocuke.DocString) {
-	s.msg = &MsgUpdateMaxMissedBlocks{}
+func (s *msgUpdatePolicy) Message(a gocuke.DocString) {
+	s.msg = &MsgUpdatePolicy{}
 	err := jsonpb.UnmarshalString(a.Content, s.msg)
 	require.NoError(s.t, err)
 }
 
-func (s *msgUpdateMaxMissedBlocks) ValidateMessage() {
+func (s *msgUpdatePolicy) ValidateMessage() {
 	s.err = s.msg.ValidateBasic()
 }
 
-func (s *msgUpdateMaxMissedBlocks) ExpectNoError() {
+func (s *msgUpdatePolicy) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgUpdateMaxMissedBlocks) ExpectTheError(a gocuke.DocString) {
+func (s *msgUpdatePolicy) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }

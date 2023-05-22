@@ -6,7 +6,7 @@ Feature: Msg/RemoveValidator
 
   RemoveValidator has the following outcomes:
   - Validator is removed from state
-  - ValidatorMissedBlocks is removed from state
+  - ValidatorSigningInfo is removed from state
   - EventRemoveValidator is emitted
   - MsgRemoveValidatorResponse is returned
 
@@ -21,11 +21,12 @@ Feature: Msg/RemoveValidator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      And validator missed blocks
+      And validator signing info
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": 0
+        "missed_blocks": [],
+        "missed_blocks_count": 0
       }
       """
 
@@ -63,11 +64,12 @@ Feature: Msg/RemoveValidator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      And validator missed blocks
+      And validator signing info
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": 0
+        "missed_blocks": [],
+        "missed_blocks_count": 0
       }
       """
 
@@ -105,11 +107,12 @@ Feature: Msg/RemoveValidator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      And validator missed blocks
+      And validator signing info
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": 0
+        "missed_blocks": [],
+        "missed_blocks_count": 0
       }
       """
 
@@ -125,7 +128,7 @@ Feature: Msg/RemoveValidator
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: ValidatorMissedBlocks is removed from state
+  Rule: ValidatorSigningInfo is removed from state
 
     Background:
       Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -136,11 +139,12 @@ Feature: Msg/RemoveValidator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      And validator missed blocks
+      And validator signing info
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": 0
+        "missed_blocks": [],
+        "missed_blocks_count": 0
       }
       """
 
@@ -152,7 +156,7 @@ Feature: Msg/RemoveValidator
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
-      Then expect no validator missed blocks with address "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
+      Then expect no validator signing info with address "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
 
     # No failing scenario - state is never updated when message fails
 
@@ -167,11 +171,12 @@ Feature: Msg/RemoveValidator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      And validator missed blocks
+      And validator signing info
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": 0
+        "missed_blocks": [],
+        "missed_blocks_count": 0
       }
       """
 
@@ -203,11 +208,12 @@ Feature: Msg/RemoveValidator
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      And validator missed blocks
+      And validator signing info
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": 0
+        "missed_blocks": [],
+        "missed_blocks_count": 0
       }
       """
 

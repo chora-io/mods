@@ -8,6 +8,7 @@ The events are defined in the proto files available to view on [Buf Schema Regis
 
 <!-- listed alphabetically -->
 
-- [EventAdd](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventAdd)
-- [EventRemove](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventRemove)
-- [EventUpdate](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventUpdate)
+- [EventAddValidator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventAddValidator)
+- [EventRemoveValidator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventRemoveValidator)
+- [EventUpdatePolicy](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventUpdatePolicy)
+- [EventUpdateValidator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.EventUpdateValidator)

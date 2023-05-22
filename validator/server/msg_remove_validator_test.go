@@ -43,12 +43,12 @@ func (s *msgRemoveValidator) Validator(a gocuke.DocString) {
 	require.NoError(s.t, err)
 }
 
-func (s *msgRemoveValidator) ValidatorMissedBlocks(a gocuke.DocString) {
-	var missedBlocks validatorv1.ValidatorMissedBlocks
+func (s *msgRemoveValidator) ValidatorSigningInfo(a gocuke.DocString) {
+	var missedBlocks validatorv1.ValidatorSigningInfo
 	err := jsonpb.UnmarshalString(a.Content, &missedBlocks)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.ValidatorMissedBlocksTable().Insert(s.ctx, &validatorv1.ValidatorMissedBlocks{
+	err = s.srv.ss.ValidatorSigningInfoTable().Insert(s.ctx, &validatorv1.ValidatorSigningInfo{
 		Address:      missedBlocks.Address,
 		MissedBlocks: missedBlocks.MissedBlocks,
 	})
@@ -85,8 +85,8 @@ func (s *msgRemoveValidator) ExpectNoValidatorWithAddress(a string) {
 	require.False(s.t, found)
 }
 
-func (s *msgRemoveValidator) ExpectNoValidatorMissedBlocksWithAddress(a string) {
-	found, err := s.srv.ss.ValidatorMissedBlocksTable().Has(s.ctx, a)
+func (s *msgRemoveValidator) ExpectNoValidatorSigningInfoWithAddress(a string) {
+	found, err := s.srv.ss.ValidatorSigningInfoTable().Has(s.ctx, a)
 	require.NoError(s.t, err)
 	require.False(s.t, found)
 }

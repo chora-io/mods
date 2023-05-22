@@ -6,10 +6,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 )
 
-var _ legacytx.LegacyMsg = &MsgUpdateMaxMissedBlocks{}
+var _ legacytx.LegacyMsg = &MsgUpdatePolicy{}
 
-// ValidateBasic performs stateless validation on MsgUpdateMaxMissedBlocks.
-func (m MsgUpdateMaxMissedBlocks) ValidateBasic() error {
+// ValidateBasic performs stateless validation on MsgUpdatePolicy.
+func (m MsgUpdatePolicy) ValidateBasic() error {
 	if _, err := sdk.AccAddressFromBech32(m.Authority); err != nil {
 		return sdkerrors.ErrInvalidAddress.Wrapf("authority: %s", err)
 	}
@@ -17,23 +17,23 @@ func (m MsgUpdateMaxMissedBlocks) ValidateBasic() error {
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgUpdateMaxMissedBlocks.
-func (m MsgUpdateMaxMissedBlocks) GetSigners() []sdk.AccAddress {
+// GetSigners returns the expected signers for MsgUpdatePolicy.
+func (m MsgUpdatePolicy) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Authority)
 	return []sdk.AccAddress{addr}
 }
 
 // GetSignBytes implements the LegacyMsg interface.
-func (m MsgUpdateMaxMissedBlocks) GetSignBytes() []byte {
+func (m MsgUpdatePolicy) GetSignBytes() []byte {
 	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgUpdateMaxMissedBlocks) Route() string {
+func (m MsgUpdatePolicy) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgUpdateMaxMissedBlocks) Type() string {
+func (m MsgUpdatePolicy) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

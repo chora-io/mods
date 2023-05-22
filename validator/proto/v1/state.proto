@@ -3,19 +3,23 @@ syntax = "proto3";
 package chora.validator.v1;
 
 import "cosmos/orm/v1/orm.proto";
+import "google/protobuf/any.proto";
 
 option go_package = "github.com/choraio/mods/validator/types/v1";
 
-// MaxMissedBlocks defines the singleton table for the maximum number of missed
-// blocks before a validator is removed from the validator set.
-message MaxMissedBlocks {
+// Policy defines a singleton table for the signing policy.
+message Policy {
   option (cosmos.orm.v1.singleton) = {
     id : 1
   };
 
-  // max_missed_blocks is the maximum number of missed blocks before a validator
-  // is removed from the validator set. A zero-value indicates no maximum.
-  int64 max_missed_blocks = 1;
+  // signed_blocks_window is the window within which a validator is expected to
+  // sign a block.
+  int64 signed_blocks_window = 1;
+
+  // min_signed_per_window is the minimum number of signed blocks per signed
+  // blocks window.
+  int64 min_signed_per_window = 2;
 }
 
 // Validator defines the table and properties of a validator.
@@ -32,8 +36,8 @@ message Validator {
   string metadata = 2;
 }
 
-// ValidatorMissedBlocks extends the table and properties of a validator.
-message ValidatorMissedBlocks {
+// ValidatorSigningInfo extends the table and properties of a validator.
+message ValidatorSigningInfo {
   option (cosmos.orm.v1.table) = {
     id : 3,
     primary_key : {fields : "address"}
@@ -42,6 +46,27 @@ message ValidatorMissedBlocks {
   // address is the address of the validator.
   string address = 1;
 
+  // start_height is the validator start height.
+  int64 start_height = 2;
+
+  // index_offset is incremented every time a validator is bonded in a block.
+  // This in conjunction with the signed_blocks_window param determines the
+  // index in the missed block bitmap.
+  int64 index_offset = 3;
+
+  // missed_blocks contains missed blocks.
+  repeated MissedBlock missed_blocks = 4;
+
   // missed_blocks is the number of missed blocks.
-  int64 missed_blocks = 2;
+  int64 missed_blocks_count = 5;
+
+  // MissedBlock represents a missed block.
+  message MissedBlock {
+
+    // index is the height at which the block was missed.
+    int64 index = 1;
+
+    // missed is a boolean representing the missed block.
+    bool missed = 2;
+  }
 }

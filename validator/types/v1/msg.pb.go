@@ -239,27 +239,28 @@ func (m *MsgRemoveValidatorResponse) GetAddress() string {
 	return ""
 }
 
-// MsgUpdateMaxMissedBlocks is the Msg/UpdateMaxMissedBlocks request type.
-type MsgUpdateMaxMissedBlocks struct {
+// MsgUpdatePolicy is the Msg/UpdatePolicy request type.
+type MsgUpdatePolicy struct {
 	// authority is the address of the authority.
 	Authority string `protobuf:"bytes,1,opt,name=authority,proto3" json:"authority,omitempty"`
-	// max_missed_blocks is the maximum number of missed blocks before a validator
-	// is removed from the validator set. A zero-value indicates no maximum.
-	MaxMissedBlocks int64 `protobuf:"varint,2,opt,name=max_missed_blocks,json=maxMissedBlocks,proto3" json:"max_missed_blocks,omitempty"`
+	// signed_blocks_window is the window within which a validator is expected to sign a block.
+	SignedBlocksWindow int64 `protobuf:"varint,2,opt,name=signed_blocks_window,json=signedBlocksWindow,proto3" json:"signed_blocks_window,omitempty"`
+	// min_signed_per_window is the minimum number of signed blocks per signed blocks window.
+	MinSignedPerWindow int64 `protobuf:"varint,3,opt,name=min_signed_per_window,json=minSignedPerWindow,proto3" json:"min_signed_per_window,omitempty"`
 }
 
-func (m *MsgUpdateMaxMissedBlocks) Reset()         { *m = MsgUpdateMaxMissedBlocks{} }
-func (m *MsgUpdateMaxMissedBlocks) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateMaxMissedBlocks) ProtoMessage()    {}
-func (*MsgUpdateMaxMissedBlocks) Descriptor() ([]byte, []int) {
+func (m *MsgUpdatePolicy) Reset()         { *m = MsgUpdatePolicy{} }
+func (m *MsgUpdatePolicy) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdatePolicy) ProtoMessage()    {}
+func (*MsgUpdatePolicy) Descriptor() ([]byte, []int) {
 	return fileDescriptor_8adf79de14971b1d, []int{4}
 }
-func (m *MsgUpdateMaxMissedBlocks) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdatePolicy) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateMaxMissedBlocks) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdatePolicy) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateMaxMissedBlocks.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdatePolicy.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -269,52 +270,60 @@ func (m *MsgUpdateMaxMissedBlocks) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateMaxMissedBlocks) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateMaxMissedBlocks.Merge(m, src)
+func (m *MsgUpdatePolicy) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdatePolicy.Merge(m, src)
 }
-func (m *MsgUpdateMaxMissedBlocks) XXX_Size() int {
+func (m *MsgUpdatePolicy) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateMaxMissedBlocks) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateMaxMissedBlocks.DiscardUnknown(m)
+func (m *MsgUpdatePolicy) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdatePolicy.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateMaxMissedBlocks proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdatePolicy proto.InternalMessageInfo
 
-func (m *MsgUpdateMaxMissedBlocks) GetAuthority() string {
+func (m *MsgUpdatePolicy) GetAuthority() string {
 	if m != nil {
 		return m.Authority
 	}
 	return ""
 }
 
-func (m *MsgUpdateMaxMissedBlocks) GetMaxMissedBlocks() int64 {
+func (m *MsgUpdatePolicy) GetSignedBlocksWindow() int64 {
 	if m != nil {
-		return m.MaxMissedBlocks
+		return m.SignedBlocksWindow
 	}
 	return 0
 }
 
-// MsgUpdateMaxMissedBlocksResponse is the Msg/UpdateMaxMissedBlocks response
-// type.
-type MsgUpdateMaxMissedBlocksResponse struct {
-	// max_missed_blocks is the maximum number of missed blocks before a validator
-	// is removed from the validator set. A zero-value indicates no maximum.
-	MaxMissedBlocks int64 `protobuf:"varint,1,opt,name=max_missed_blocks,json=maxMissedBlocks,proto3" json:"max_missed_blocks,omitempty"`
+func (m *MsgUpdatePolicy) GetMinSignedPerWindow() int64 {
+	if m != nil {
+		return m.MinSignedPerWindow
+	}
+	return 0
 }
 
-func (m *MsgUpdateMaxMissedBlocksResponse) Reset()         { *m = MsgUpdateMaxMissedBlocksResponse{} }
-func (m *MsgUpdateMaxMissedBlocksResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateMaxMissedBlocksResponse) ProtoMessage()    {}
-func (*MsgUpdateMaxMissedBlocksResponse) Descriptor() ([]byte, []int) {
+// MsgUpdatePolicyResponse is the Msg/UpdatePolicy response
+// type.
+type MsgUpdatePolicyResponse struct {
+	// signed_blocks_window is the window within which a validator is expected to sign a block.
+	SignedBlocksWindow int64 `protobuf:"varint,1,opt,name=signed_blocks_window,json=signedBlocksWindow,proto3" json:"signed_blocks_window,omitempty"`
+	// min_signed_per_window is the minimum number of signed blocks per signed blocks window.
+	MinSignedPerWindow int64 `protobuf:"varint,2,opt,name=min_signed_per_window,json=minSignedPerWindow,proto3" json:"min_signed_per_window,omitempty"`
+}
+
+func (m *MsgUpdatePolicyResponse) Reset()         { *m = MsgUpdatePolicyResponse{} }
+func (m *MsgUpdatePolicyResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdatePolicyResponse) ProtoMessage()    {}
+func (*MsgUpdatePolicyResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_8adf79de14971b1d, []int{5}
 }
-func (m *MsgUpdateMaxMissedBlocksResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdatePolicyResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateMaxMissedBlocksResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdatePolicyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateMaxMissedBlocksResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdatePolicyResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -324,21 +333,28 @@ func (m *MsgUpdateMaxMissedBlocksResponse) XXX_Marshal(b []byte, deterministic b
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateMaxMissedBlocksResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateMaxMissedBlocksResponse.Merge(m, src)
+func (m *MsgUpdatePolicyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdatePolicyResponse.Merge(m, src)
 }
-func (m *MsgUpdateMaxMissedBlocksResponse) XXX_Size() int {
+func (m *MsgUpdatePolicyResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateMaxMissedBlocksResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateMaxMissedBlocksResponse.DiscardUnknown(m)
+func (m *MsgUpdatePolicyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdatePolicyResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateMaxMissedBlocksResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdatePolicyResponse proto.InternalMessageInfo
 
-func (m *MsgUpdateMaxMissedBlocksResponse) GetMaxMissedBlocks() int64 {
+func (m *MsgUpdatePolicyResponse) GetSignedBlocksWindow() int64 {
 	if m != nil {
-		return m.MaxMissedBlocks
+		return m.SignedBlocksWindow
+	}
+	return 0
+}
+
+func (m *MsgUpdatePolicyResponse) GetMinSignedPerWindow() int64 {
+	if m != nil {
+		return m.MinSignedPerWindow
 	}
 	return 0
 }
@@ -449,8 +465,8 @@ func init() {
 	proto.RegisterType((*MsgAddValidatorResponse)(nil), "chora.validator.v1.MsgAddValidatorResponse")
 	proto.RegisterType((*MsgRemoveValidator)(nil), "chora.validator.v1.MsgRemoveValidator")
 	proto.RegisterType((*MsgRemoveValidatorResponse)(nil), "chora.validator.v1.MsgRemoveValidatorResponse")
-	proto.RegisterType((*MsgUpdateMaxMissedBlocks)(nil), "chora.validator.v1.MsgUpdateMaxMissedBlocks")
-	proto.RegisterType((*MsgUpdateMaxMissedBlocksResponse)(nil), "chora.validator.v1.MsgUpdateMaxMissedBlocksResponse")
+	proto.RegisterType((*MsgUpdatePolicy)(nil), "chora.validator.v1.MsgUpdatePolicy")
+	proto.RegisterType((*MsgUpdatePolicyResponse)(nil), "chora.validator.v1.MsgUpdatePolicyResponse")
 	proto.RegisterType((*MsgUpdateValidator)(nil), "chora.validator.v1.MsgUpdateValidator")
 	proto.RegisterType((*MsgUpdateValidatorResponse)(nil), "chora.validator.v1.MsgUpdateValidatorResponse")
 }
@@ -458,35 +474,38 @@ func init() {
 func init() { proto.RegisterFile("chora/validator/v1/msg.proto", fileDescriptor_8adf79de14971b1d) }
 
 var fileDescriptor_8adf79de14971b1d = []byte{
-	// 447 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x4d, 0x8b, 0xd3, 0x50,
-	0x14, 0x6d, 0x0c, 0xa8, 0x73, 0x2d, 0x16, 0x1f, 0xc8, 0x84, 0x30, 0x84, 0x31, 0xc2, 0x20, 0x55,
-	0x12, 0xea, 0x88, 0x0b, 0x77, 0x0e, 0x6e, 0xe3, 0x22, 0xa0, 0x0b, 0x11, 0xe2, 0x6b, 0xde, 0x23,
-	0x0d, 0xce, 0xeb, 0x0b, 0xb9, 0xaf, 0x99, 0x19, 0xdc, 0xf9, 0x0b, 0xfc, 0x29, 0xae, 0xfd, 0x05,
-	0x2e, 0x67, 0xe9, 0x52, 0xda, 0x85, 0x7f, 0x43, 0xfa, 0x4a, 0xd3, 0xe6, 0xcb, 0x56, 0x66, 0x99,
-	0xdc, 0x73, 0xcf, 0x39, 0xf7, 0xdc, 0xcb, 0x83, 0xa3, 0x78, 0x22, 0x73, 0xea, 0x17, 0xf4, 0x3c,
-	0x65, 0x54, 0xc9, 0xdc, 0x2f, 0x46, 0xbe, 0xc0, 0xc4, 0xcb, 0x72, 0xa9, 0x24, 0x21, 0xba, 0xea,
-	0x95, 0x55, 0xaf, 0x18, 0xd9, 0x87, 0xb1, 0x44, 0x21, 0x71, 0x89, 0xaa, 0x80, 0xdd, 0x19, 0x0c,
-	0x02, 0x4c, 0x5e, 0x33, 0xf6, 0x7e, 0x0d, 0x27, 0x47, 0x70, 0x40, 0x67, 0x6a, 0x22, 0xf3, 0x54,
-	0x5d, 0x59, 0xc6, 0xb1, 0xf1, 0xe4, 0x20, 0xdc, 0xfc, 0x20, 0x16, 0xdc, 0xa1, 0x8c, 0xe5, 0x1c,
-	0xd1, 0xba, 0xa5, 0x6b, 0xeb, 0x4f, 0x62, 0xc3, 0x5d, 0xc1, 0x15, 0x65, 0x54, 0x51, 0xcb, 0xd4,
-	0xa5, 0xf2, 0xfb, 0xd5, 0xfd, 0xaf, 0x7f, 0xbe, 0x0f, 0x37, 0x2c, 0xee, 0x29, 0x1c, 0xd6, 0x64,
-	0x43, 0x8e, 0x99, 0x9c, 0x22, 0xdf, 0x16, 0x30, 0x2a, 0x02, 0xee, 0x47, 0x20, 0x01, 0x26, 0x21,
-	0x17, 0xb2, 0xe0, 0x37, 0xb6, 0xdb, 0xb0, 0xf4, 0x12, 0xec, 0x26, 0xfb, 0x1e, 0xae, 0x14, 0x58,
-	0x01, 0x26, 0xef, 0x32, 0x46, 0x15, 0x0f, 0xe8, 0x65, 0x90, 0x22, 0x72, 0x76, 0x76, 0x2e, 0xe3,
-	0xcf, 0xb8, 0xc3, 0xdb, 0x10, 0x1e, 0x08, 0x7a, 0x19, 0x09, 0xdd, 0x11, 0x8d, 0x75, 0x8b, 0x76,
-	0x69, 0x86, 0x03, 0x51, 0x65, 0x6a, 0xb8, 0x7d, 0x0b, 0xc7, 0x5d, 0xaa, 0xa5, 0xe7, 0x56, 0x7e,
-	0xa3, 0x95, 0xdf, 0x8d, 0x74, 0xb6, 0x2b, 0xbe, 0x4d, 0xb6, 0x9d, 0x53, 0x93, 0x47, 0xd0, 0x9f,
-	0xf2, 0x8b, 0xa8, 0x5c, 0xf8, 0x2a, 0xdc, 0x7b, 0x53, 0x7e, 0x11, 0xac, 0x77, 0xde, 0x5f, 0x5a,
-	0x2e, 0x63, 0x5a, 0xc5, 0x5b, 0x13, 0xd8, 0x1d, 0xef, 0xf3, 0x1f, 0x26, 0x98, 0x01, 0x26, 0xe4,
-	0x13, 0xf4, 0x2b, 0x57, 0xfa, 0xd8, 0x6b, 0x9e, 0xb9, 0x57, 0xbb, 0x29, 0xfb, 0xe9, 0x1e, 0xa0,
-	0xd2, 0x43, 0x0a, 0x83, 0xfa, 0x6d, 0x9d, 0x74, 0xf4, 0xd7, 0x70, 0xb6, 0xb7, 0x1f, 0xae, 0x94,
-	0xfa, 0x02, 0x0f, 0xdb, 0x0f, 0xe6, 0x59, 0x07, 0x51, 0x2b, 0xda, 0x7e, 0xf1, 0x3f, 0xe8, 0xed,
-	0x39, 0xeb, 0x7b, 0x3e, 0xf9, 0x27, 0xd1, 0xee, 0x39, 0x3b, 0xd6, 0x7a, 0xf6, 0xe6, 0xe7, 0xdc,
-	0x31, 0xae, 0xe7, 0x8e, 0xf1, 0x7b, 0xee, 0x18, 0xdf, 0x16, 0x4e, 0xef, 0x7a, 0xe1, 0xf4, 0x7e,
-	0x2d, 0x9c, 0xde, 0x87, 0x61, 0x92, 0xaa, 0xc9, 0x6c, 0xec, 0xc5, 0x52, 0xf8, 0x9a, 0x33, 0x95,
-	0xbe, 0x90, 0x0c, 0xb7, 0x1e, 0x35, 0x75, 0x95, 0x71, 0xf4, 0x8b, 0xd1, 0xf8, 0xb6, 0x7e, 0xaa,
-	0x4e, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0x6d, 0x61, 0x95, 0x7d, 0xf7, 0x04, 0x00, 0x00,
+	// 481 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x4d, 0x8b, 0xd3, 0x40,
+	0x18, 0xee, 0x6c, 0x40, 0xdd, 0xd7, 0x62, 0x61, 0x50, 0xb6, 0x84, 0x25, 0x68, 0x85, 0x45, 0x56,
+	0x48, 0xac, 0x0b, 0x1e, 0xbc, 0xb9, 0x78, 0x2d, 0x2c, 0x15, 0x15, 0x44, 0xc8, 0x4e, 0x33, 0x43,
+	0x3a, 0xd8, 0xc9, 0x84, 0xcc, 0x34, 0xa5, 0x17, 0x0f, 0xfe, 0x02, 0xff, 0x81, 0x17, 0x7f, 0x80,
+	0x3f, 0xc3, 0xe3, 0x1e, 0x3d, 0x4a, 0x7b, 0xf0, 0x6f, 0x48, 0x27, 0x26, 0xcd, 0x87, 0xb1, 0x95,
+	0x3d, 0x26, 0xcf, 0xf3, 0xce, 0xfb, 0xbc, 0xef, 0xf3, 0xcc, 0xc0, 0x71, 0x30, 0x95, 0x09, 0xf1,
+	0x52, 0x32, 0xe3, 0x94, 0x68, 0x99, 0x78, 0xe9, 0xd0, 0x13, 0x2a, 0x74, 0xe3, 0x44, 0x6a, 0x89,
+	0xb1, 0x41, 0xdd, 0x02, 0x75, 0xd3, 0xa1, 0x7d, 0x14, 0x48, 0x25, 0xa4, 0xda, 0xb0, 0x2a, 0xe4,
+	0xc1, 0x1c, 0x7a, 0x23, 0x15, 0xbe, 0xa0, 0xf4, 0x4d, 0x4e, 0xc7, 0xc7, 0x70, 0x48, 0xe6, 0x7a,
+	0x2a, 0x13, 0xae, 0x97, 0x7d, 0x74, 0x1f, 0x3d, 0x3a, 0x1c, 0x6f, 0x7f, 0xe0, 0x3e, 0xdc, 0x24,
+	0x94, 0x26, 0x4c, 0xa9, 0xfe, 0x81, 0xc1, 0xf2, 0x4f, 0x6c, 0xc3, 0x2d, 0xc1, 0x34, 0xa1, 0x44,
+	0x93, 0xbe, 0x65, 0xa0, 0xe2, 0xfb, 0xf9, 0x9d, 0x4f, 0xbf, 0xbe, 0x9d, 0x6e, 0x4f, 0x19, 0x9c,
+	0xc1, 0x51, 0xad, 0xed, 0x98, 0xa9, 0x58, 0x46, 0x8a, 0x95, 0x1b, 0xa0, 0x4a, 0x83, 0xc1, 0x7b,
+	0xc0, 0x23, 0x15, 0x8e, 0x99, 0x90, 0x29, 0xbb, 0xb6, 0xdc, 0x86, 0xa4, 0x67, 0x60, 0x37, 0x4f,
+	0xdf, 0x43, 0xd5, 0x57, 0x64, 0x56, 0xf8, 0x3a, 0xa6, 0x44, 0xb3, 0x0b, 0x39, 0xe3, 0xc1, 0x72,
+	0x87, 0xa6, 0x27, 0x70, 0x57, 0xf1, 0x30, 0x62, 0xd4, 0x9f, 0xcc, 0x64, 0xf0, 0x41, 0xf9, 0x0b,
+	0x1e, 0x51, 0xb9, 0x30, 0x02, 0xad, 0x31, 0xce, 0xb0, 0x73, 0x03, 0xbd, 0x35, 0x08, 0x1e, 0xc2,
+	0x3d, 0xc1, 0x23, 0xff, 0x4f, 0x55, 0xcc, 0x92, 0xbc, 0xc4, 0xca, 0x4a, 0x04, 0x8f, 0x5e, 0x19,
+	0xec, 0x82, 0x25, 0x59, 0x49, 0x63, 0xbc, 0x8f, 0x66, 0xe3, 0x65, 0x95, 0xc5, 0x6c, 0x6d, 0x7a,
+	0xd0, 0xff, 0xeb, 0x39, 0x68, 0xd3, 0x33, 0xf0, 0x8d, 0x79, 0x59, 0xff, 0xad, 0x79, 0xad, 0x6b,
+	0xc5, 0x0f, 0xa0, 0x1b, 0xb1, 0x85, 0x5f, 0x24, 0x2a, 0x73, 0xef, 0x76, 0xc4, 0x16, 0xa3, 0x3c,
+	0x54, 0xdd, 0xcd, 0x88, 0x85, 0x0f, 0x99, 0x7f, 0xb5, 0x06, 0xbb, 0xfd, 0x7b, 0xfa, 0xc5, 0x02,
+	0x6b, 0xa4, 0x42, 0x7c, 0x09, 0xdd, 0xca, 0x35, 0x78, 0xe8, 0x36, 0xef, 0x91, 0x5b, 0x0b, 0xad,
+	0xfd, 0x78, 0x0f, 0x52, 0xa1, 0x81, 0x43, 0xaf, 0x1e, 0xde, 0x93, 0x96, 0xfa, 0x1a, 0xcf, 0x76,
+	0xf7, 0xe3, 0x15, 0xad, 0x2e, 0xa1, 0x5b, 0x09, 0x64, 0xdb, 0x30, 0x65, 0x52, 0xeb, 0x30, 0x7f,
+	0x0d, 0x0d, 0x87, 0x5e, 0xdd, 0xcc, 0x93, 0x7f, 0xd6, 0xef, 0x1e, 0xa6, 0xc5, 0xbb, 0xf3, 0x97,
+	0xdf, 0x57, 0x0e, 0xba, 0x5a, 0x39, 0xe8, 0xe7, 0xca, 0x41, 0x9f, 0xd7, 0x4e, 0xe7, 0x6a, 0xed,
+	0x74, 0x7e, 0xac, 0x9d, 0xce, 0xbb, 0xd3, 0x90, 0xeb, 0xe9, 0x7c, 0xe2, 0x06, 0x52, 0x78, 0xe6,
+	0x4c, 0x2e, 0x3d, 0x21, 0xa9, 0x2a, 0x3d, 0x8d, 0x7a, 0x19, 0x33, 0xe5, 0xa5, 0xc3, 0xc9, 0x0d,
+	0xf3, 0xe0, 0x9d, 0xfd, 0x0e, 0x00, 0x00, 0xff, 0xff, 0x5c, 0x50, 0x4e, 0x68, 0x3d, 0x05, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -505,9 +524,8 @@ type MsgClient interface {
 	AddValidator(ctx context.Context, in *MsgAddValidator, opts ...grpc.CallOption) (*MsgAddValidatorResponse, error)
 	// RemoveValidator removes a validator (restricted to authority).
 	RemoveValidator(ctx context.Context, in *MsgRemoveValidator, opts ...grpc.CallOption) (*MsgRemoveValidatorResponse, error)
-	// UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
-	// validator is removed from the validator set. (restricted to authority).
-	UpdateMaxMissedBlocks(ctx context.Context, in *MsgUpdateMaxMissedBlocks, opts ...grpc.CallOption) (*MsgUpdateMaxMissedBlocksResponse, error)
+	// UpdatePolicy updates the policy (restricted to authority).
+	UpdatePolicy(ctx context.Context, in *MsgUpdatePolicy, opts ...grpc.CallOption) (*MsgUpdatePolicyResponse, error)
 	// UpdateValidator updates a validator (restricted to validator).
 	UpdateValidator(ctx context.Context, in *MsgUpdateValidator, opts ...grpc.CallOption) (*MsgUpdateValidatorResponse, error)
 }
@@ -538,9 +556,9 @@ func (c *msgClient) RemoveValidator(ctx context.Context, in *MsgRemoveValidator,
 	return out, nil
 }
 
-func (c *msgClient) UpdateMaxMissedBlocks(ctx context.Context, in *MsgUpdateMaxMissedBlocks, opts ...grpc.CallOption) (*MsgUpdateMaxMissedBlocksResponse, error) {
-	out := new(MsgUpdateMaxMissedBlocksResponse)
-	err := c.cc.Invoke(ctx, "/chora.validator.v1.Msg/UpdateMaxMissedBlocks", in, out, opts...)
+func (c *msgClient) UpdatePolicy(ctx context.Context, in *MsgUpdatePolicy, opts ...grpc.CallOption) (*MsgUpdatePolicyResponse, error) {
+	out := new(MsgUpdatePolicyResponse)
+	err := c.cc.Invoke(ctx, "/chora.validator.v1.Msg/UpdatePolicy", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -562,9 +580,8 @@ type MsgServer interface {
 	AddValidator(context.Context, *MsgAddValidator) (*MsgAddValidatorResponse, error)
 	// RemoveValidator removes a validator (restricted to authority).
 	RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error)
-	// UpdateMaxMissedBlocks updates the maximum number of missed blocks before a
-	// validator is removed from the validator set. (restricted to authority).
-	UpdateMaxMissedBlocks(context.Context, *MsgUpdateMaxMissedBlocks) (*MsgUpdateMaxMissedBlocksResponse, error)
+	// UpdatePolicy updates the policy (restricted to authority).
+	UpdatePolicy(context.Context, *MsgUpdatePolicy) (*MsgUpdatePolicyResponse, error)
 	// UpdateValidator updates a validator (restricted to validator).
 	UpdateValidator(context.Context, *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error)
 }
@@ -579,8 +596,8 @@ func (*UnimplementedMsgServer) AddValidator(ctx context.Context, req *MsgAddVali
 func (*UnimplementedMsgServer) RemoveValidator(ctx context.Context, req *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveValidator not implemented")
 }
-func (*UnimplementedMsgServer) UpdateMaxMissedBlocks(ctx context.Context, req *MsgUpdateMaxMissedBlocks) (*MsgUpdateMaxMissedBlocksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateMaxMissedBlocks not implemented")
+func (*UnimplementedMsgServer) UpdatePolicy(ctx context.Context, req *MsgUpdatePolicy) (*MsgUpdatePolicyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePolicy not implemented")
 }
 func (*UnimplementedMsgServer) UpdateValidator(ctx context.Context, req *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateValidator not implemented")
@@ -626,20 +643,20 @@ func _Msg_RemoveValidator_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateMaxMissedBlocks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateMaxMissedBlocks)
+func _Msg_UpdatePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdatePolicy)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).UpdateMaxMissedBlocks(ctx, in)
+		return srv.(MsgServer).UpdatePolicy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.validator.v1.Msg/UpdateMaxMissedBlocks",
+		FullMethod: "/chora.validator.v1.Msg/UpdatePolicy",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateMaxMissedBlocks(ctx, req.(*MsgUpdateMaxMissedBlocks))
+		return srv.(MsgServer).UpdatePolicy(ctx, req.(*MsgUpdatePolicy))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -675,8 +692,8 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Msg_RemoveValidator_Handler,
 		},
 		{
-			MethodName: "UpdateMaxMissedBlocks",
-			Handler:    _Msg_UpdateMaxMissedBlocks_Handler,
+			MethodName: "UpdatePolicy",
+			Handler:    _Msg_UpdatePolicy_Handler,
 		},
 		{
 			MethodName: "UpdateValidator",
@@ -828,7 +845,7 @@ func (m *MsgRemoveValidatorResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateMaxMissedBlocks) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdatePolicy) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -838,18 +855,23 @@ func (m *MsgUpdateMaxMissedBlocks) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateMaxMissedBlocks) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdatePolicy) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateMaxMissedBlocks) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdatePolicy) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.MaxMissedBlocks != 0 {
-		i = encodeVarintMsg(dAtA, i, uint64(m.MaxMissedBlocks))
+	if m.MinSignedPerWindow != 0 {
+		i = encodeVarintMsg(dAtA, i, uint64(m.MinSignedPerWindow))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.SignedBlocksWindow != 0 {
+		i = encodeVarintMsg(dAtA, i, uint64(m.SignedBlocksWindow))
 		i--
 		dAtA[i] = 0x10
 	}
@@ -863,7 +885,7 @@ func (m *MsgUpdateMaxMissedBlocks) MarshalToSizedBuffer(dAtA []byte) (int, error
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateMaxMissedBlocksResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdatePolicyResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -873,18 +895,23 @@ func (m *MsgUpdateMaxMissedBlocksResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateMaxMissedBlocksResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdatePolicyResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateMaxMissedBlocksResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdatePolicyResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.MaxMissedBlocks != 0 {
-		i = encodeVarintMsg(dAtA, i, uint64(m.MaxMissedBlocks))
+	if m.MinSignedPerWindow != 0 {
+		i = encodeVarintMsg(dAtA, i, uint64(m.MinSignedPerWindow))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.SignedBlocksWindow != 0 {
+		i = encodeVarintMsg(dAtA, i, uint64(m.SignedBlocksWindow))
 		i--
 		dAtA[i] = 0x8
 	}
@@ -1033,7 +1060,7 @@ func (m *MsgRemoveValidatorResponse) Size() (n int) {
 	return n
 }
 
-func (m *MsgUpdateMaxMissedBlocks) Size() (n int) {
+func (m *MsgUpdatePolicy) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1043,20 +1070,26 @@ func (m *MsgUpdateMaxMissedBlocks) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
-	if m.MaxMissedBlocks != 0 {
-		n += 1 + sovMsg(uint64(m.MaxMissedBlocks))
+	if m.SignedBlocksWindow != 0 {
+		n += 1 + sovMsg(uint64(m.SignedBlocksWindow))
+	}
+	if m.MinSignedPerWindow != 0 {
+		n += 1 + sovMsg(uint64(m.MinSignedPerWindow))
 	}
 	return n
 }
 
-func (m *MsgUpdateMaxMissedBlocksResponse) Size() (n int) {
+func (m *MsgUpdatePolicyResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	if m.MaxMissedBlocks != 0 {
-		n += 1 + sovMsg(uint64(m.MaxMissedBlocks))
+	if m.SignedBlocksWindow != 0 {
+		n += 1 + sovMsg(uint64(m.SignedBlocksWindow))
+	}
+	if m.MinSignedPerWindow != 0 {
+		n += 1 + sovMsg(uint64(m.MinSignedPerWindow))
 	}
 	return n
 }
@@ -1521,7 +1554,7 @@ func (m *MsgRemoveValidatorResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateMaxMissedBlocks) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdatePolicy) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1544,10 +1577,10 @@ func (m *MsgUpdateMaxMissedBlocks) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateMaxMissedBlocks: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdatePolicy: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateMaxMissedBlocks: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdatePolicy: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1584,9 +1617,9 @@ func (m *MsgUpdateMaxMissedBlocks) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 2:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field MaxMissedBlocks", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field SignedBlocksWindow", wireType)
 			}
-			m.MaxMissedBlocks = 0
+			m.SignedBlocksWindow = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowMsg
@@ -1596,7 +1629,26 @@ func (m *MsgUpdateMaxMissedBlocks) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.MaxMissedBlocks |= int64(b&0x7F) << shift
+				m.SignedBlocksWindow |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MinSignedPerWindow", wireType)
+			}
+			m.MinSignedPerWindow = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMsg
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MinSignedPerWindow |= int64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1622,7 +1674,7 @@ func (m *MsgUpdateMaxMissedBlocks) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateMaxMissedBlocksResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdatePolicyResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1645,17 +1697,17 @@ func (m *MsgUpdateMaxMissedBlocksResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateMaxMissedBlocksResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdatePolicyResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateMaxMissedBlocksResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdatePolicyResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field MaxMissedBlocks", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field SignedBlocksWindow", wireType)
 			}
-			m.MaxMissedBlocks = 0
+			m.SignedBlocksWindow = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowMsg
@@ -1665,7 +1717,26 @@ func (m *MsgUpdateMaxMissedBlocksResponse) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.MaxMissedBlocks |= int64(b&0x7F) << shift
+				m.SignedBlocksWindow |= int64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MinSignedPerWindow", wireType)
+			}
+			m.MinSignedPerWindow = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMsg
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MinSignedPerWindow |= int64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}

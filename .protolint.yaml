@@ -1,0 +1,5 @@
+lint:
+  rules_option:
+    # allow messages with empty struct and no newline
+    indent:
+      not_insert_newline: true
