@@ -13,7 +13,7 @@
   "paths": {
     "/chora/validator/v1/policy": {
       "get": {
-        "summary": "Policy queries the maximum number of missed blocks before a validator is removed from the validator set.",
+        "summary": "Policy queries the maximum number of missed blocks before a validator is\nremoved from the validator set.",
         "operationId": "Policy",
         "responses": {
           "200": {
@@ -137,12 +137,12 @@
         "signed_blocks_window": {
           "type": "string",
           "format": "int64",
-          "description": "signed_blocks_window is the window within which a validator is expected to sign a block."
+          "description": "signed_blocks_window is the window within which a validator is expected to\nsign a block."
         },
         "min_signed_per_window": {
           "type": "string",
           "format": "int64",
-          "description": "min_signed_per_window is the minimum number of signed blocks per signed blocks window."
+          "description": "min_signed_per_window is the minimum number of signed blocks per signed\nblocks window."
         }
       },
       "description": "QueryPolicyResponse is the Query/Policy response type."

@@ -28,7 +28,8 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QueryClient interface {
-	// Policy queries the maximum number of missed blocks before a validator is removed from the validator set.
+	// Policy queries the maximum number of missed blocks before a validator is
+	// removed from the validator set.
 	Policy(ctx context.Context, in *QueryPolicyRequest, opts ...grpc.CallOption) (*QueryPolicyResponse, error)
 	// Validator queries a validator by address.
 	Validator(ctx context.Context, in *QueryValidatorRequest, opts ...grpc.CallOption) (*QueryValidatorResponse, error)
@@ -75,7 +76,8 @@ func (c *queryClient) Validators(ctx context.Context, in *QueryValidatorsRequest
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
 type QueryServer interface {
-	// Policy queries the maximum number of missed blocks before a validator is removed from the validator set.
+	// Policy queries the maximum number of missed blocks before a validator is
+	// removed from the validator set.
 	Policy(context.Context, *QueryPolicyRequest) (*QueryPolicyResponse, error)
 	// Validator queries a validator by address.
 	Validator(context.Context, *QueryValidatorRequest) (*QueryValidatorResponse, error)

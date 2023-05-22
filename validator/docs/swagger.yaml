@@ -6,7 +6,7 @@ info:
 paths:
   /chora/validator/v1/policy:
     get:
-      summary: >-
+      summary: |-
         Policy queries the maximum number of missed blocks before a validator is
         removed from the validator set.
       operationId: Policy
@@ -21,13 +21,17 @@ paths:
                 format: int64
                 description: >-
                   signed_blocks_window is the window within which a validator is
-                  expected to sign a block.
+                  expected to
+
+                  sign a block.
               min_signed_per_window:
                 type: string
                 format: int64
                 description: >-
                   min_signed_per_window is the minimum number of signed blocks
-                  per signed blocks window.
+                  per signed
+
+                  blocks window.
             description: QueryPolicyResponse is the Query/Policy response type.
         default:
           description: An unexpected error response.
@@ -241,13 +245,17 @@ definitions:
         format: int64
         description: >-
           signed_blocks_window is the window within which a validator is
-          expected to sign a block.
+          expected to
+
+          sign a block.
       min_signed_per_window:
         type: string
         format: int64
         description: >-
           min_signed_per_window is the minimum number of signed blocks per
-          signed blocks window.
+          signed
+
+          blocks window.
     description: QueryPolicyResponse is the Query/Policy response type.
   chora.validator.v1.QueryValidatorResponse:
     type: object

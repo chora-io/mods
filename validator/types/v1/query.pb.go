@@ -68,9 +68,11 @@ var xxx_messageInfo_QueryPolicyRequest proto.InternalMessageInfo
 
 // QueryPolicyResponse is the Query/Policy response type.
 type QueryPolicyResponse struct {
-	// signed_blocks_window is the window within which a validator is expected to sign a block.
+	// signed_blocks_window is the window within which a validator is expected to
+	// sign a block.
 	SignedBlocksWindow int64 `protobuf:"varint,1,opt,name=signed_blocks_window,json=signedBlocksWindow,proto3" json:"signed_blocks_window,omitempty"`
-	// min_signed_per_window is the minimum number of signed blocks per signed blocks window.
+	// min_signed_per_window is the minimum number of signed blocks per signed
+	// blocks window.
 	MinSignedPerWindow int64 `protobuf:"varint,2,opt,name=min_signed_per_window,json=minSignedPerWindow,proto3" json:"min_signed_per_window,omitempty"`
 }
 
@@ -458,7 +460,8 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
-	// Policy queries the maximum number of missed blocks before a validator is removed from the validator set.
+	// Policy queries the maximum number of missed blocks before a validator is
+	// removed from the validator set.
 	Policy(ctx context.Context, in *QueryPolicyRequest, opts ...grpc.CallOption) (*QueryPolicyResponse, error)
 	// Validator queries a validator by address.
 	Validator(ctx context.Context, in *QueryValidatorRequest, opts ...grpc.CallOption) (*QueryValidatorResponse, error)
@@ -503,7 +506,8 @@ func (c *queryClient) Validators(ctx context.Context, in *QueryValidatorsRequest
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
-	// Policy queries the maximum number of missed blocks before a validator is removed from the validator set.
+	// Policy queries the maximum number of missed blocks before a validator is
+	// removed from the validator set.
 	Policy(context.Context, *QueryPolicyRequest) (*QueryPolicyResponse, error)
 	// Validator queries a validator by address.
 	Validator(context.Context, *QueryValidatorRequest) (*QueryValidatorResponse, error)

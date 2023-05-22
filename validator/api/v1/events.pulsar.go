@@ -2274,9 +2274,11 @@ type EventUpdatePolicy struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// signed_blocks_window is the window within which a validator is expected to sign a block.
+	// signed_blocks_window is the window within which a validator is expected to
+	// sign a block.
 	SignedBlocksWindow int64 `protobuf:"varint,1,opt,name=signed_blocks_window,json=signedBlocksWindow,proto3" json:"signed_blocks_window,omitempty"`
-	// min_signed_per_window is the minimum number of signed blocks per signed blocks window.
+	// min_signed_per_window is the minimum number of signed blocks per signed
+	// blocks window.
 	MinSignedPerWindow int64 `protobuf:"varint,2,opt,name=min_signed_per_window,json=minSignedPerWindow,proto3" json:"min_signed_per_window,omitempty"`
 }
 
