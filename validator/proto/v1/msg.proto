@@ -18,7 +18,7 @@ service Msg {
   // UpdatePolicy updates the policy (restricted to authority).
   rpc UpdatePolicy(MsgUpdatePolicy) returns (MsgUpdatePolicyResponse);
 
-  // UpdateValidator updates a validator (restricted to validator).
+  // UpdateValidator updates a validator (restricted to operator).
   rpc UpdateValidator(MsgUpdateValidator) returns (MsgUpdateValidatorResponse);
 }
 
@@ -32,8 +32,11 @@ message MsgAddValidator {
   // address is the address of the validator.
   string address = 2;
 
+  // operator is the address of the operator.
+  string operator = 3;
+
   // metadata is the metadata of the validator.
-  string metadata = 3;
+  string metadata = 4;
 }
 
 // MsgAddValidatorResponse is the Msg/AddValidator response type.
@@ -91,13 +94,16 @@ message MsgUpdatePolicyResponse {
 
 // MsgUpdateValidator is the Msg/UpdateValidator request type.
 message MsgUpdateValidator {
-  option (cosmos.msg.v1.signer) = "address";
+  option (cosmos.msg.v1.signer) = "operator";
+
+  // operator is the address of the operator.
+  string operator = 1;
 
   // address is the address of the validator.
-  string address = 1;
+  string address = 2;
 
   // new_metadata is the new metadata of the validator.
-  string new_metadata = 2;
+  string new_metadata = 3;
 }
 
 // MsgUpdateValidatorResponse is the Msg/UpdateValidator response type.

@@ -26,13 +26,17 @@ message Validator {
   option (cosmos.orm.v1.table) = {
     id : 2,
     primary_key : {fields : "address"}
+    index : {id : 1, fields : "operator"}
   };
 
   // address is the address of the validator.
   string address = 1;
 
+  // operator is the address of the operator.
+  string operator = 2;
+
   // metadata is the metadata of the validator.
-  string metadata = 2;
+  string metadata = 3;
 }
 
 // ValidatorSigningInfo extends the table and properties of a validator.

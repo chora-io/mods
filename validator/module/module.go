@@ -122,14 +122,14 @@ func (m Module) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig,
 func (m Module) BeginBlock(ctx sdk.Context, _ abci.RequestBeginBlock) {
 
 	// get validator signing policy
-	signingPolicy, err := m.srv.GetPolicy(ctx)
+	policy, err := m.srv.GetPolicy(ctx)
 	if err != nil {
 		panic(err)
 	}
 
 	// handle validator signing info
 	for _, voteInfo := range ctx.VoteInfos() {
-		err := m.srv.HandleSigningInfo(ctx, voteInfo, signingPolicy)
+		err := m.srv.HandleSigningInfo(ctx, voteInfo, policy)
 		if err != nil {
 			panic(err)
 		}
