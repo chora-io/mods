@@ -16,7 +16,7 @@ type msgUpdatePolicy struct {
 
 func TestMsgUpdatePolicy(t *testing.T) {
 	gocuke.NewRunner(t, &msgUpdatePolicy{}).
-		Path("./features/msg_update_policy.feature").
+		Path("./features/msg_update_max_missed_blocks.feature").
 		Run()
 }
 
