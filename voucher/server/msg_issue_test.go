@@ -4,12 +4,13 @@ import (
 	"testing"
 	"time"
 
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
-	v1 "github.com/choraio/mods/voucher/types/v1"
-	"github.com/choraio/mods/voucher/utils"
 	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
+
+	voucherv1 "github.com/choraio/mods/voucher/api/v1"
+	v1 "github.com/choraio/mods/voucher/types/v1"
+	"github.com/choraio/mods/voucher/utils"
 )
 
 type msgIssue struct {

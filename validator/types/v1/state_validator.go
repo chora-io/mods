@@ -1,8 +1,9 @@
 package v1
 
 import (
-	"github.com/choraio/mods/validator/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+
+	"github.com/choraio/mods/validator/errors"
 )
 
 // Validate validates Validator.

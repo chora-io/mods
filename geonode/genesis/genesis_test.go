@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-
 	"cosmossdk.io/orm/model/ormdb"
 	"cosmossdk.io/orm/model/ormtable"
 	"cosmossdk.io/orm/testing/ormtest"
+	"github.com/stretchr/testify/require"
+
 	"github.com/choraio/mods/geonode"
 	geonodev1 "github.com/choraio/mods/geonode/api/v1"
 )

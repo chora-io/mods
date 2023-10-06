@@ -3,10 +3,9 @@ package server
 import (
 	"encoding/json"
 
-	abci "github.com/cometbft/cometbft/abci/types"
-
 	"cosmossdk.io/orm/model/ormdb"
 	storetypes "cosmossdk.io/store/types"
+	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 

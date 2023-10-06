@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/stretchr/testify/require"
-	"google.golang.org/protobuf/types/known/timestamppb"
-
 	"cosmossdk.io/orm/model/ormdb"
 	"cosmossdk.io/orm/model/ormtable"
 	"cosmossdk.io/orm/testing/ormtest"
+	"github.com/stretchr/testify/require"
+	"google.golang.org/protobuf/types/known/timestamppb"
+
 	"github.com/choraio/mods/voucher"
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 )

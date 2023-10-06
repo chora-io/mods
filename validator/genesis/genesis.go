@@ -3,9 +3,9 @@ package genesis
 import (
 	"encoding/json"
 
+	"cosmossdk.io/orm/model/ormdb"
 	"google.golang.org/protobuf/proto"
 
-	"cosmossdk.io/orm/model/ormdb"
 	"github.com/choraio/mods/validator"
 	validatorv1 "github.com/choraio/mods/validator/api/v1"
 	v1 "github.com/choraio/mods/validator/types/v1"

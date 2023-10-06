@@ -1,11 +1,10 @@
 package utils
 
 import (
-	gogoproto "github.com/cosmos/gogoproto/proto"
-	"google.golang.org/protobuf/proto"
-
 	queryv1beta1 "cosmossdk.io/api/cosmos/base/query/v1beta1"
 	"github.com/cosmos/cosmos-sdk/types/query"
+	gogoproto "github.com/cosmos/gogoproto/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 func GogoPageReqToPulsarPageReq(from *query.PageRequest) (*queryv1beta1.PageRequest, error) {

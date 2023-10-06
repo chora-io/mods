@@ -29,7 +29,7 @@ jobs:
       matrix:
         module: ["content", "geonode", "validator", "voucher"]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
@@ -38,7 +38,7 @@ jobs:
             **/go.sum
       - uses: actions/setup-go@v4
         with:
-          go-version: 'stable'
+          go-version: '1.20'
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - run: make test-content
         if: |
@@ -91,7 +91,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     needs: [unit]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
@@ -116,7 +116,7 @@ jobs:
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - run: make test-coverage
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         with:
           file: coverage.txt
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'

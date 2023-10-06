@@ -3,13 +3,14 @@ package genesis
 import (
 	"encoding/json"
 
-	"github.com/choraio/mods/content"
+	"cosmossdk.io/orm/model/ormdb"
 	"google.golang.org/protobuf/proto"
 
-	"cosmossdk.io/orm/model/ormdb"
 	contentv1 "github.com/choraio/mods/content/api/v1"
 	v1 "github.com/choraio/mods/content/types/v1"
 	"github.com/choraio/mods/content/utils"
+
+	"github.com/choraio/mods/content"
 )
 
 // ValidateGenesis validates genesis state.

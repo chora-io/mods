@@ -26,18 +26,20 @@ lint-fix: format
 	@echo "Attempting to fix lint errors in all go modules..."
 	@find . -name 'go.mod' -type f -execdir golangci-lint run --fix --out-format=tab --issues-exit-code=0 \;
 
-format_filter = -name '*.go' -type f
-
-format_local = \
-	cosmossdk.io \
-	github.com/cometbft/cometbft \
-	github.com/cosmos/cosmos-sdk \
-	github.com/choraio/mods
+format_filter = \
+	-type f \
+	-name '*.go' \
+	! -path '*/mocks/*' \
+	! -name '*.cosmos_orm.go' \
+	! -name '*.pb.go' \
+	! -name '*.pb.gw.go' \
+	! -name '*.pulsar.go' \
+	! -name 'statik.go'
 
 format:
 	@echo "Formatting all go modules..."
 	@find . $(format_filter) | xargs gofmt -s -w
-	@find . $(format_filter) | xargs goimports -w -local $(subst $(whitespace),$(comma),$(format_local))
+	@find . $(format_filter) | xargs goimports -w -local github.com/choraio/mods
 	@find . $(format_filter) | xargs misspell -w
 
 .PHONY: lint lint-fix format
@@ -49,7 +51,7 @@ format:
 GO_MAJOR_VERSION = $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f1)
 GO_MINOR_VERSION = $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f2)
 MIN_GO_MAJOR_VERSION = 1
-MIN_GO_MINOR_VERSION = 19
+MIN_GO_MINOR_VERSION = 20
 GO_VERSION_ERROR = Golang version $(GO_MAJOR_VERSION).$(GO_MINOR_VERSION) is not supported, \
 please update to at least $(MIN_GO_MAJOR_VERSION).$(MIN_GO_MINOR_VERSION)
 

@@ -4,11 +4,10 @@ import (
 	"context"
 
 	"cosmossdk.io/math"
-	"google.golang.org/protobuf/types/known/timestamppb"
-
 	"cosmossdk.io/orm/types/ormerrors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	v1 "github.com/choraio/mods/voucher/types/v1"

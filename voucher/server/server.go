@@ -4,12 +4,11 @@ import (
 	"encoding/json"
 	"time"
 
-	"google.golang.org/protobuf/types/known/timestamppb"
-
 	"cosmossdk.io/orm/model/ormdb"
 	storetypes "cosmossdk.io/store/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
 	"github.com/choraio/mods/voucher"
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"

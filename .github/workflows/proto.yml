@@ -31,7 +31,7 @@ jobs:
       matrix:
         module: ["content", "geonode", "validator", "voucher"]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
         id: git-diff-content
         with:

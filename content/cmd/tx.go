@@ -1,10 +1,10 @@
 package cmd
 
 import (
-	"github.com/choraio/mods/content"
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/spf13/cobra"
 
-	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/choraio/mods/content"
 )
 
 // TxCmd creates and returns the tx command.

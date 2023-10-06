@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	cosmossdk.io/api v0.7.1
-	cosmossdk.io/core v0.11.0
+	cosmossdk.io/core v0.12.0
 	cosmossdk.io/errors v1.0.0
 	cosmossdk.io/log v1.2.1
 	cosmossdk.io/orm v1.0.0-beta.3
@@ -20,7 +20,7 @@ require (
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.8.4
 	google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e
-	google.golang.org/grpc v1.58.1
+	google.golang.org/grpc v1.58.2
 	google.golang.org/protobuf v1.31.0
 )
 
@@ -157,7 +157,10 @@ require (
 )
 
 // TODO: https://github.com/cosmos/cosmos-sdk/issues/10409
-replace github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.8.1
+replace github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.9.1
 
-// TODO: https://github.com/cosmos/cosmos-sdk/issues/10220
+// NOTE: cosmos fork of keyring
 replace github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
+
+// NOTE: for compatibility with cosmos-sdk v0.50-rc1
+replace cosmossdk.io/core => cosmossdk.io/core v0.11.0

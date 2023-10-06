@@ -3,9 +3,10 @@ package server
 import (
 	"context"
 
-	v1 "github.com/choraio/mods/validator/types/v1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+
+	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
 // UpdatePolicy implements Msg/UpdatePolicy.

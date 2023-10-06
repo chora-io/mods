@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/choraio/mods/content"
-	"github.com/stretchr/testify/require"
-
 	"cosmossdk.io/orm/model/ormdb"
 	"cosmossdk.io/orm/model/ormtable"
 	"cosmossdk.io/orm/testing/ormtest"
+	"github.com/stretchr/testify/require"
+
+	"github.com/choraio/mods/content"
 	contentv1 "github.com/choraio/mods/content/api/v1"
 )
 

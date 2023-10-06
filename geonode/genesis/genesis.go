@@ -3,9 +3,9 @@ package genesis
 import (
 	"encoding/json"
 
+	"cosmossdk.io/orm/model/ormdb"
 	"google.golang.org/protobuf/proto"
 
-	"cosmossdk.io/orm/model/ormdb"
 	"github.com/choraio/mods/geonode"
 	geonodev1 "github.com/choraio/mods/geonode/api/v1"
 	v1 "github.com/choraio/mods/geonode/types/v1"
