@@ -20,7 +20,7 @@ func (s Server) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateRes
 	}
 
 	// insert content into content table
-	id, err := s.ss.ContentTable().InsertReturningID(ctx, &contentv1.Content{
+	id, err := s.ss.ContentTable().InsertReturningId(ctx, &contentv1.Content{
 		Curator:  curator,
 		Metadata: req.Metadata,
 	})

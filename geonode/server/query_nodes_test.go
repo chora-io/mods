@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -32,7 +32,7 @@ func (s *queryNodes) Node(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &node)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.NodeTable().InsertReturningID(s.ctx, &geonodev1.Node{
+	id, err := s.srv.ss.NodeTable().InsertReturningId(s.sdkCtx, &geonodev1.Node{
 		Curator:  node.Curator,
 		Metadata: node.Metadata,
 	})
@@ -45,7 +45,7 @@ func (s *queryNodes) QueryNodes(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &req)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Nodes(s.ctx, &req)
+	s.res, s.err = s.srv.Nodes(s.sdkCtx, &req)
 }
 
 func (s *queryNodes) ExpectNoError() {

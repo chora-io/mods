@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -33,7 +33,7 @@ func (s *msgUpdateValidator) Validator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &validator)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.ValidatorTable().Insert(s.ctx, &validatorv1.Validator{
+	err = s.srv.ss.ValidatorTable().Insert(s.sdkCtx, &validatorv1.Validator{
 		Address: validator.Address,
 	})
 	require.NoError(s.t, err)
@@ -44,7 +44,7 @@ func (s *msgUpdateValidator) MsgUpdateValidator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.UpdateValidator(s.ctx, &msg)
+	s.res, s.err = s.srv.UpdateValidator(s.sdkCtx, &msg)
 }
 
 func (s *msgUpdateValidator) ExpectNoError() {
@@ -68,7 +68,7 @@ func (s *msgUpdateValidator) ExpectStateValidator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.srv.ss.ValidatorTable().Get(s.ctx, expected.Address)
+	actual, err := s.srv.ss.ValidatorTable().Get(s.sdkCtx, expected.Address)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, expected.Address, actual.Address)

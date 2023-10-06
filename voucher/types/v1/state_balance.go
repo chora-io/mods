@@ -1,8 +1,8 @@
 package v1
 
 import (
+	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/regen-network/regen-ledger/types/v2/math"
 
 	"github.com/choraio/mods/voucher/errors"
 )
@@ -21,8 +21,12 @@ func (m *Balance) Validate() error {
 		return errors.ErrParse.Wrapf("amount: empty string is not allowed")
 	}
 
-	if _, err := math.NewPositiveDecFromString(m.Amount); err != nil {
+	dec, err := math.LegacyNewDecFromStr(m.Amount)
+	if err != nil {
 		return errors.ErrParse.Wrapf("amount: %s", err)
+	}
+	if !dec.IsPositive() {
+		return errors.ErrParse.Wrapf("amount: expected a positive decimal, got %s: invalid decimal string", dec.String())
 	}
 
 	if m.Expiration == nil {

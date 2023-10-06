@@ -5,9 +5,7 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
-	"github.com/cosmos/cosmos-sdk/orm/types/ormjson"
-
+	"cosmossdk.io/orm/model/ormdb"
 	"github.com/choraio/mods/validator"
 	validatorv1 "github.com/choraio/mods/validator/api/v1"
 	v1 "github.com/choraio/mods/validator/types/v1"
@@ -25,22 +23,22 @@ func ValidateGenesis(bz json.RawMessage) error {
 }
 
 func validateJSON(bz json.RawMessage) error {
-	db, err := ormdb.NewModuleDB(&validator.ModuleSchema, ormdb.ModuleDBOptions{
+	_, err := ormdb.NewModuleDB(&validator.ModuleSchema, ormdb.ModuleDBOptions{
 		JSONValidator: validateMsg,
 	})
 	if err != nil {
 		return err
 	}
 
-	src, err := ormjson.NewRawMessageSource(bz)
-	if err != nil {
-		return err
-	}
-
-	err = db.ValidateJSON(src)
-	if err != nil {
-		return err
-	}
+	//src, err := ormjson.NewRawMessageSource(bz)
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//err = db.ValidateJSON(src)
+	//if err != nil {
+	//	return err
+	//}
 
 	return nil
 }

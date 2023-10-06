@@ -4,14 +4,15 @@ package geonodev1
 
 import (
 	context "context"
-	ormlist "github.com/cosmos/cosmos-sdk/orm/model/ormlist"
-	ormtable "github.com/cosmos/cosmos-sdk/orm/model/ormtable"
-	ormerrors "github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
+	ormlist "cosmossdk.io/orm/model/ormlist"
+	ormtable "cosmossdk.io/orm/model/ormtable"
+	ormerrors "cosmossdk.io/orm/types/ormerrors"
 )
 
 type NodeTable interface {
 	Insert(ctx context.Context, node *Node) error
-	InsertReturningID(ctx context.Context, node *Node) (uint64, error)
+	InsertReturningId(ctx context.Context, node *Node) (uint64, error)
+	LastInsertedSequence(ctx context.Context) (uint64, error)
 	Update(ctx context.Context, node *Node) error
 	Save(ctx context.Context, node *Node) error
 	Delete(ctx context.Context, node *Node) error
@@ -91,8 +92,12 @@ func (this nodeTable) Delete(ctx context.Context, node *Node) error {
 	return this.table.Delete(ctx, node)
 }
 
-func (this nodeTable) InsertReturningID(ctx context.Context, node *Node) (uint64, error) {
-	return this.table.InsertReturningID(ctx, node)
+func (this nodeTable) InsertReturningId(ctx context.Context, node *Node) (uint64, error) {
+	return this.table.InsertReturningPKey(ctx, node)
+}
+
+func (this nodeTable) LastInsertedSequence(ctx context.Context) (uint64, error) {
+	return this.table.LastInsertedSequence(ctx)
 }
 
 func (this nodeTable) Has(ctx context.Context, id uint64) (found bool, err error) {

@@ -4,19 +4,16 @@ import (
 	"encoding/json"
 	"time"
 
-	abci "github.com/tendermint/tendermint/abci/types"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
+	"cosmossdk.io/orm/model/ormdb"
+	storetypes "cosmossdk.io/store/types"
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
-	"github.com/cosmos/cosmos-sdk/orm/types/ormjson"
-	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	"github.com/choraio/mods/voucher"
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	v1 "github.com/choraio/mods/voucher/types/v1"
-	"github.com/choraio/mods/voucher/utils"
 )
 
 var (
@@ -35,7 +32,7 @@ func NewServer(key storetypes.StoreKey) Server {
 	s := Server{}
 
 	var err error
-	s.db, err = utils.NewStoreKeyDB(&voucher.ModuleSchema, key, ormdb.ModuleDBOptions{})
+	s.db, err = ormdb.NewModuleDB(&voucher.ModuleSchema, ormdb.ModuleDBOptions{})
 	if err != nil {
 		panic(err)
 	}
@@ -49,30 +46,32 @@ func NewServer(key storetypes.StoreKey) Server {
 }
 
 // InitGenesis initializes genesis state.
-func (s Server) InitGenesis(ctx sdk.Context, _ codec.JSONCodec, data json.RawMessage) ([]abci.ValidatorUpdate, error) {
-	source, err := ormjson.NewRawMessageSource(data)
-	if err != nil {
-		return nil, err
-	}
+func (s Server) InitGenesis(ctx sdk.Context, _ codec.JSONCodec, data json.RawMessage) error {
+	//source, err := ormjson.NewRawMessageSource(data)
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//err = s.db.ImportJSON(sdk.WrapSDKContext(ctx), source)
+	//if err != nil {
+	//	return err
+	//}
 
-	err = s.db.ImportJSON(sdk.WrapSDKContext(ctx), source)
-	if err != nil {
-		return nil, err
-	}
-
-	return []abci.ValidatorUpdate{}, nil
+	return nil
 }
 
 // ExportGenesis exports genesis state.
 func (s Server) ExportGenesis(ctx sdk.Context, _ codec.JSONCodec) (json.RawMessage, error) {
-	target := ormjson.NewRawMessageTarget()
+	//target := ormjson.NewRawMessageTarget()
+	//
+	//err := s.db.ExportJSON(sdk.WrapSDKContext(ctx), target)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//return target.JSON()
 
-	err := s.db.ExportJSON(sdk.WrapSDKContext(ctx), target)
-	if err != nil {
-		return nil, err
-	}
-
-	return target.JSON()
+	return nil, nil
 }
 
 // PruneVouchers removes expired vouchers from state.

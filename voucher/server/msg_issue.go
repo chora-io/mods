@@ -3,10 +3,10 @@ package server
 import (
 	"context"
 
-	"github.com/regen-network/regen-ledger/types/v2/math"
+	"cosmossdk.io/math"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
+	"cosmossdk.io/orm/types/ormerrors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
@@ -74,22 +74,19 @@ func (s Server) Issue(ctx context.Context, req *v1.MsgIssue) (*v1.MsgIssueRespon
 	}
 
 	// convert balance amount to decimal
-	balanceAmount, err := math.NewDecFromString(balance.Amount)
+	balanceAmount, err := math.LegacyNewDecFromStr(balance.Amount)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// convert request amount to decimal
-	requestAmount, err := math.NewDecFromString(req.Amount)
+	requestAmount, err := math.LegacyNewDecFromStr(req.Amount)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// add request amount to balance amount
-	newBalance, err := math.Add(balanceAmount, requestAmount)
-	if err != nil {
-		return nil, err // internal error
-	}
+	newBalance := balanceAmount.Add(requestAmount)
 
 	// set new balance
 	balance.Amount = newBalance.String()

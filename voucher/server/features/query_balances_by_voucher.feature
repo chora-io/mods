@@ -82,7 +82,7 @@ Feature: Query/BalancesByVoucher
         "total_amounts": [
           {
             "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-            "total_amount": "1.25"
+            "total_amount": "1.250000000000000000"
           }
         ],
         "pagination": {
@@ -138,11 +138,11 @@ Feature: Query/BalancesByVoucher
         "total_amounts": [
           {
             "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-            "total_amount": "2.50"
+            "total_amount": "2.500000000000000000"
           },
           {
             "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-            "total_amount": "1.25"
+            "total_amount": "1.250000000000000000"
           }
         ],
         "pagination": {

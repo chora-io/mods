@@ -4,15 +4,16 @@ package voucherv1
 
 import (
 	context "context"
-	ormlist "github.com/cosmos/cosmos-sdk/orm/model/ormlist"
-	ormtable "github.com/cosmos/cosmos-sdk/orm/model/ormtable"
-	ormerrors "github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
+	ormlist "cosmossdk.io/orm/model/ormlist"
+	ormtable "cosmossdk.io/orm/model/ormtable"
+	ormerrors "cosmossdk.io/orm/types/ormerrors"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 )
 
 type VoucherTable interface {
 	Insert(ctx context.Context, voucher *Voucher) error
-	InsertReturningID(ctx context.Context, voucher *Voucher) (uint64, error)
+	InsertReturningId(ctx context.Context, voucher *Voucher) (uint64, error)
+	LastInsertedSequence(ctx context.Context) (uint64, error)
 	Update(ctx context.Context, voucher *Voucher) error
 	Save(ctx context.Context, voucher *Voucher) error
 	Delete(ctx context.Context, voucher *Voucher) error
@@ -92,8 +93,12 @@ func (this voucherTable) Delete(ctx context.Context, voucher *Voucher) error {
 	return this.table.Delete(ctx, voucher)
 }
 
-func (this voucherTable) InsertReturningID(ctx context.Context, voucher *Voucher) (uint64, error) {
-	return this.table.InsertReturningID(ctx, voucher)
+func (this voucherTable) InsertReturningId(ctx context.Context, voucher *Voucher) (uint64, error) {
+	return this.table.InsertReturningPKey(ctx, voucher)
+}
+
+func (this voucherTable) LastInsertedSequence(ctx context.Context) (uint64, error) {
+	return this.table.LastInsertedSequence(ctx)
 }
 
 func (this voucherTable) Has(ctx context.Context, id uint64) (found bool, err error) {

@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -32,7 +32,7 @@ func (s *queryValidators) Validator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &validator)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.ValidatorTable().Insert(s.ctx, &validatorv1.Validator{
+	err = s.srv.ss.ValidatorTable().Insert(s.sdkCtx, &validatorv1.Validator{
 		Address:  validator.Address,
 		Metadata: validator.Metadata,
 	})
@@ -44,7 +44,7 @@ func (s *queryValidators) QueryValidators(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &req)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Validators(s.ctx, &req)
+	s.res, s.err = s.srv.Validators(s.sdkCtx, &req)
 }
 
 func (s *queryValidators) ExpectNoError() {

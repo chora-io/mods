@@ -3,7 +3,7 @@ package server
 import (
 	"context"
 
-	"github.com/cosmos/cosmos-sdk/orm/model/ormlist"
+	"cosmossdk.io/orm/model/ormlist"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	geonodev1 "github.com/choraio/mods/geonode/api/v1"

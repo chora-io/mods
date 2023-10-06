@@ -4,10 +4,11 @@ managed:
   go_package_prefix:
     default: github.com/choraio/mods/voucher/api
     except:
-      - buf.build/googleapis/googleapis
+      - buf.build/cosmos/cosmos-proto
       - buf.build/cosmos/gogo-proto
+      - buf.build/googleapis/googleapis
     override:
-      buf.build/cosmos/cosmos-sdk: github.com/cosmos/cosmos-sdk/api
+      buf.build/cosmos/cosmos-sdk: cosmossdk.io/api
 plugins:
   - name: go-pulsar
     out: ../api

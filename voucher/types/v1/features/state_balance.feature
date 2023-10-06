@@ -63,7 +63,7 @@ Feature: Balance
     When validate balance
     Then expect the error
     """
-    amount: expected a positive decimal, got 0: invalid decimal string: parse error
+    amount: expected a positive decimal, got 0.000000000000000000: invalid decimal string: parse error
     """
 
   Scenario: an error is returned if amount is negative
@@ -78,7 +78,7 @@ Feature: Balance
     When validate balance
     Then expect the error
     """
-    amount: expected a positive decimal, got -1.25: invalid decimal string: parse error
+    amount: expected a positive decimal, got -1.250000000000000000: invalid decimal string: parse error
     """
 
   Scenario: an error is returned if expiration is empty

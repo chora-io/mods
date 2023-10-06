@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -34,7 +34,7 @@ func (s *msgDelete) Content(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.ContentTable().InsertReturningID(s.ctx, &contentv1.Content{
+	id, err := s.srv.ss.ContentTable().InsertReturningId(s.sdkCtx, &contentv1.Content{
 		Curator:  content.Curator,
 		Metadata: content.Metadata,
 	})
@@ -47,7 +47,7 @@ func (s *msgDelete) MsgDelete(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Delete(s.ctx, &msg)
+	s.res, s.err = s.srv.Delete(s.sdkCtx, &msg)
 }
 
 func (s *msgDelete) ExpectNoError() {
@@ -70,7 +70,7 @@ func (s *msgDelete) ExpectNoStateContentWithId(a string) {
 	id, err := strconv.ParseUint(a, 10, 32)
 	require.NoError(s.t, err)
 
-	found, err := s.srv.ss.ContentTable().Has(s.ctx, id)
+	found, err := s.srv.ss.ContentTable().Has(s.sdkCtx, id)
 	require.NoError(s.t, err)
 	require.False(s.t, found)
 }

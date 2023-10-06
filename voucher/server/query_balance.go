@@ -3,10 +3,10 @@ package server
 import (
 	"context"
 
+	"cosmossdk.io/math"
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/regen-network/regen-ledger/types/v2/math"
 
 	v1 "github.com/choraio/mods/voucher/types/v1"
 )
@@ -33,7 +33,7 @@ func (s Server) Balance(ctx context.Context, req *v1.QueryBalanceRequest) (*v1.Q
 	amounts := make([]*v1.QueryBalanceResponse_Amount, 0, 10)
 
 	// set initial total amount for query response
-	totalAmount, err := math.NewDecFromString("0")
+	totalAmount, err := math.LegacyNewDecFromStr("0")
 	if err != nil {
 		return nil, err // internal error
 	}
@@ -54,15 +54,12 @@ func (s Server) Balance(ctx context.Context, req *v1.QueryBalanceRequest) (*v1.Q
 
 		amounts = append(amounts, &amount)
 
-		dec, err := math.NewDecFromString(v.Amount)
+		dec, err := math.LegacyNewDecFromStr(v.Amount)
 		if err != nil {
 			return nil, err // internal error
 		}
 
-		totalAmount, err = totalAmount.Add(dec)
-		if err != nil {
-			return nil, err // internal error
-		}
+		totalAmount = totalAmount.Add(dec)
 	}
 
 	// return query response

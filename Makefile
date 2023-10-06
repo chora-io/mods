@@ -29,7 +29,8 @@ lint-fix: format
 format_filter = -name '*.go' -type f
 
 format_local = \
-	github.com/tendermint/tendermint \
+	cosmossdk.io \
+	github.com/cometbft/cometbft \
 	github.com/cosmos/cosmos-sdk \
 	github.com/choraio/mods
 
@@ -81,8 +82,8 @@ tools: go-version
 ###                                Protobuf                                 ###
 ###############################################################################
 
-protoVersion=v0.7
-protoImage=tendermintdev/sdk-proto-gen:$(protoVersion)
+protoVersion=0.14.0
+protoImage=ghcr.io/cosmos/proto-builder:$(protoVersion)
 containerProtoFmt=chora-mods-proto-fmt-$(protoVersion)
 containerProtoGen=chora-mods-proto-gen-$(protoVersion)
 
@@ -102,22 +103,22 @@ proto-format:
 proto-gen-content:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-content$$"; then docker start -a $(containerProtoGen)-content; else docker run --name $(containerProtoGen)-content -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd content; ./scripts/bufgen.sh'; fi
+		sh -c 'cd content; ./scripts/protocgen.sh'; fi
 
 proto-gen-geonode:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-geonode$$"; then docker start -a $(containerProtoGen)-geonode; else docker run --name $(containerProtoGen)-geonode -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd geonode; ./scripts/bufgen.sh'; fi
+		sh -c 'cd geonode; ./scripts/protocgen.sh'; fi
 
 proto-gen-validator:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-validator$$"; then docker start -a $(containerProtoGen)-validator; else docker run --name $(containerProtoGen)-validator -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd validator; ./scripts/bufgen.sh'; fi
+		sh -c 'cd validator; ./scripts/protocgen.sh'; fi
 
 proto-gen-voucher:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-voucher$$"; then docker start -a $(containerProtoGen)-voucher; else docker run --name $(containerProtoGen)-voucher -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd voucher; ./scripts/bufgen.sh'; fi
+		sh -c 'cd voucher; ./scripts/protocgen.sh'; fi
 
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main

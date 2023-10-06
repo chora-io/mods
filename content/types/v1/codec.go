@@ -2,43 +2,14 @@ package v1
 
 import (
 	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/cosmos/cosmos-sdk/codec/legacy"
 	"github.com/cosmos/cosmos-sdk/codec/types"
-	cryptocodec "github.com/cosmos/cosmos-sdk/crypto/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/msgservice"
-	authzcodec "github.com/cosmos/cosmos-sdk/x/authz/codec"
-	govcodec "github.com/cosmos/cosmos-sdk/x/gov/codec"
-	groupcodec "github.com/cosmos/cosmos-sdk/x/group/codec"
 )
 
-var (
-	amino      = codec.NewLegacyAmino()
-	AminoCodec = codec.NewAminoCodec(amino)
-)
-
-func init() {
-	RegisterLegacyAminoCodec(amino)
-	cryptocodec.RegisterCrypto(amino)
-	sdk.RegisterLegacyAminoCodec(amino)
-
-	// Register all Amino interfaces and concrete types on the authz, gov, and group Amino codec so that
-	// they can later be used to properly serialize MsgGrant, MsgExec and MsgSubmitProposal instances.
-	RegisterLegacyAminoCodec(authzcodec.Amino)
-	RegisterLegacyAminoCodec(govcodec.Amino)
-	RegisterLegacyAminoCodec(groupcodec.Amino)
-}
-
-// RegisterLegacyAminoCodec registers legacy amino codec.
-func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgCreate{}, "content/MsgCreate", nil)
-	cdc.RegisterConcrete(&MsgDelete{}, "content/MsgDelete", nil)
-	cdc.RegisterConcrete(&MsgUpdateCurator{}, "content/MsgUpdateCurator", nil)
-	cdc.RegisterConcrete(&MsgUpdateMetadata{}, "content/MsgUpdateMetadata", nil)
-}
-
-// RegisterTypes registers types.
-func RegisterTypes(registry types.InterfaceRegistry) {
-	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
+// RegisterInterfaces registers interfaces with the interface registry.
+func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
 		&MsgCreate{},
@@ -46,4 +17,14 @@ func RegisterTypes(registry types.InterfaceRegistry) {
 		&MsgUpdateCurator{},
 		&MsgUpdateMetadata{},
 	)
+
+	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
+}
+
+// RegisterLegacyAminoCodec registers legacy amino codec.
+func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
+	legacy.RegisterAminoMsg(cdc, &MsgCreate{}, "content/v1/MsgCreate")
+	legacy.RegisterAminoMsg(cdc, &MsgDelete{}, "content/v1/MsgDelete")
+	legacy.RegisterAminoMsg(cdc, &MsgUpdateCurator{}, "content/v1/MsgUpdateCurator")
+	legacy.RegisterAminoMsg(cdc, &MsgUpdateMetadata{}, "content/v1/MsgUpdateMetadata")
 }

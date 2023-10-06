@@ -82,7 +82,7 @@ Feature: Query/BalancesByAddress
         "total_amounts": [
           {
             "id": 1,
-            "total_amount": "1.25"
+            "total_amount": "1.250000000000000000"
           }
         ],
         "pagination": {
@@ -138,11 +138,11 @@ Feature: Query/BalancesByAddress
         "total_amounts": [
           {
             "id": 1,
-            "total_amount": "2.50"
+            "total_amount": "2.500000000000000000"
           },
           {
             "id": 2,
-            "total_amount": "1.25"
+            "total_amount": "1.250000000000000000"
           }
         ],
         "pagination": {

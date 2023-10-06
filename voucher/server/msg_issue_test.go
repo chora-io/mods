@@ -7,8 +7,7 @@ import (
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	v1 "github.com/choraio/mods/voucher/types/v1"
 	"github.com/choraio/mods/voucher/utils"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 )
@@ -34,7 +33,6 @@ func (s *msgIssue) BlockTime(a string) {
 	require.NoError(s.t, err)
 
 	s.sdkCtx = s.sdkCtx.WithBlockTime(blockTime)
-	s.ctx = sdk.WrapSDKContext(s.sdkCtx)
 }
 
 func (s *msgIssue) Voucher(a gocuke.DocString) {
@@ -42,7 +40,7 @@ func (s *msgIssue) Voucher(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &voucher)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.VoucherTable().InsertReturningID(s.ctx, &voucherv1.Voucher{
+	id, err := s.srv.ss.VoucherTable().InsertReturningId(s.sdkCtx, &voucherv1.Voucher{
 		Issuer:   voucher.Issuer,
 		Metadata: voucher.Metadata,
 	})
@@ -55,7 +53,7 @@ func (s *msgIssue) Balance(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &balance)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.BalanceTable().Insert(s.ctx, &voucherv1.Balance{
+	err = s.srv.ss.BalanceTable().Insert(s.sdkCtx, &voucherv1.Balance{
 		Id:         balance.Id,
 		Address:    balance.Address,
 		Amount:     balance.Amount,
@@ -69,7 +67,7 @@ func (s *msgIssue) MsgIssue(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Issue(s.ctx, &msg)
+	s.res, s.err = s.srv.Issue(s.sdkCtx, &msg)
 }
 
 func (s *msgIssue) ExpectNoError() {
@@ -93,7 +91,7 @@ func (s *msgIssue) ExpectStateBalance(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.srv.ss.BalanceTable().Get(s.ctx, expected.Id, expected.Address, expected.Expiration)
+	actual, err := s.srv.ss.BalanceTable().Get(s.sdkCtx, expected.Id, expected.Address, expected.Expiration)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, expected.Id, actual.Id)

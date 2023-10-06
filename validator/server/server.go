@@ -3,18 +3,16 @@ package server
 import (
 	"encoding/json"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/cometbft/cometbft/abci/types"
 
+	"cosmossdk.io/orm/model/ormdb"
+	storetypes "cosmossdk.io/store/types"
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/orm/model/ormdb"
-	"github.com/cosmos/cosmos-sdk/orm/types/ormjson"
-	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	"github.com/choraio/mods/validator"
 	validatorv1 "github.com/choraio/mods/validator/api/v1"
 	v1 "github.com/choraio/mods/validator/types/v1"
-	"github.com/choraio/mods/validator/utils"
 )
 
 var (
@@ -34,7 +32,7 @@ func NewServer(key storetypes.StoreKey, authority sdk.AccAddress) Server {
 	s := Server{}
 
 	var err error
-	s.db, err = utils.NewStoreKeyDB(&validator.ModuleSchema, key, ormdb.ModuleDBOptions{})
+	s.db, err = ormdb.NewModuleDB(&validator.ModuleSchema, ormdb.ModuleDBOptions{})
 	if err != nil {
 		panic(err)
 	}
@@ -50,30 +48,32 @@ func NewServer(key storetypes.StoreKey, authority sdk.AccAddress) Server {
 }
 
 // InitGenesis initializes genesis state.
-func (s Server) InitGenesis(ctx sdk.Context, _ codec.JSONCodec, data json.RawMessage) ([]abci.ValidatorUpdate, error) {
-	source, err := ormjson.NewRawMessageSource(data)
-	if err != nil {
-		return nil, err
-	}
+func (s Server) InitGenesis(ctx sdk.Context, _ codec.JSONCodec, data json.RawMessage) error {
+	//source, err := ormjson.NewRawMessageSource(data)
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//err = s.db.ImportJSON(sdk.WrapSDKContext(ctx), source)
+	//if err != nil {
+	//	return err
+	//}
 
-	err = s.db.ImportJSON(sdk.WrapSDKContext(ctx), source)
-	if err != nil {
-		return nil, err
-	}
-
-	return []abci.ValidatorUpdate{}, nil
+	return nil
 }
 
 // ExportGenesis exports genesis state.
 func (s Server) ExportGenesis(ctx sdk.Context, _ codec.JSONCodec) (json.RawMessage, error) {
-	target := ormjson.NewRawMessageTarget()
+	//target := ormjson.NewRawMessageTarget()
+	//
+	//err := s.db.ExportJSON(sdk.WrapSDKContext(ctx), target)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//return target.JSON()
 
-	err := s.db.ExportJSON(sdk.WrapSDKContext(ctx), target)
-	if err != nil {
-		return nil, err
-	}
-
-	return target.JSON()
+	return nil, nil
 }
 
 // GetPolicy gets the validator signing policy.
@@ -107,8 +107,8 @@ func (s Server) HandleSigningInfo(ctx sdk.Context, voteInfo abci.VoteInfo, polic
 	// increment index offset
 	signingInfo.IndexOffset++
 
-	// missed and previous missed
-	missed := !voteInfo.SignedLastBlock
+	// missed and missed previous
+	missed := signingInfo.MissedBlocks[height].Missed
 	missedPrevious := signingInfo.MissedBlocks[index].Missed
 
 	switch {

@@ -2,8 +2,8 @@
 
 set -e
 
-if ! grep -q "github.com/choraio/mods/content" go.mod ; then
-  echo -e "ERROR: This command must be run from inside the content module."
+if ! grep -q "github.com/choraio/mods/validator" go.mod ; then
+  echo -e "ERROR: This command must be run from inside the validator module."
   return 1
 fi
 
@@ -15,10 +15,10 @@ cd ..
 
 echo "Creating tmp directory"
 
-mkdir -p proto-tmp/chora/content
+mkdir -p proto-tmp/chora/validator
 cd proto
 find . -maxdepth 1 -mindepth 1 -type f -exec cp '{}' ../proto-tmp/ \;
-find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../proto-tmp/chora/content/ \;
+find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../proto-tmp/chora/validator/ \;
 cd ..
 
 echo "Generating gogo files"
@@ -36,14 +36,14 @@ done
 
 cd ..
 
-cp -r github.com/choraio/mods/content/* ./
+cp -r github.com/choraio/mods/validator/* ./
 rm -rf github.com
 
 echo "Generating pulsar files"
 
 go install github.com/cosmos/cosmos-proto/cmd/protoc-gen-go-pulsar@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-go install github.com/cosmos/cosmos-sdk/orm/cmd/protoc-gen-go-cosmos-orm@v1.0.0-alpha.12
+go install cosmossdk.io/orm/cmd/protoc-gen-go-cosmos-orm@latest
 
 cd api
 
@@ -54,7 +54,7 @@ cd ../proto-tmp
 
 buf generate --template buf.gen.pulsar.yaml
 
-cd ../api/chora/content
+cd ../api/chora/validator
 find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
 cd ../..
 rm -rf chora
@@ -73,7 +73,7 @@ for dir in $proto_dirs; do
   fi
 done
 
-cd ../docs/chora/content
+cd ../docs/chora/validator
 find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
 cd ../..
 rm -rf chora

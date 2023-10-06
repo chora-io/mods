@@ -35,7 +35,7 @@ type MsgClient interface {
 	RemoveValidator(ctx context.Context, in *MsgRemoveValidator, opts ...grpc.CallOption) (*MsgRemoveValidatorResponse, error)
 	// UpdatePolicy updates the policy (restricted to authority).
 	UpdatePolicy(ctx context.Context, in *MsgUpdatePolicy, opts ...grpc.CallOption) (*MsgUpdatePolicyResponse, error)
-	// UpdateValidator updates a validator (restricted to validator).
+	// UpdateValidator updates a validator (restricted to operator).
 	UpdateValidator(ctx context.Context, in *MsgUpdateValidator, opts ...grpc.CallOption) (*MsgUpdateValidatorResponse, error)
 }
 
@@ -93,7 +93,7 @@ type MsgServer interface {
 	RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error)
 	// UpdatePolicy updates the policy (restricted to authority).
 	UpdatePolicy(context.Context, *MsgUpdatePolicy) (*MsgUpdatePolicyResponse, error)
-	// UpdateValidator updates a validator (restricted to validator).
+	// UpdateValidator updates a validator (restricted to operator).
 	UpdateValidator(context.Context, *MsgUpdateValidator) (*MsgUpdateValidatorResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }

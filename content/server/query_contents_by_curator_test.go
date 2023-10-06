@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -32,7 +32,7 @@ func (s *queryContentsByCurator) Content(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.ContentTable().InsertReturningID(s.ctx, &contentv1.Content{
+	id, err := s.srv.ss.ContentTable().InsertReturningId(s.sdkCtx, &contentv1.Content{
 		Curator:  content.Curator,
 		Metadata: content.Metadata,
 	})
@@ -45,7 +45,7 @@ func (s *queryContentsByCurator) QueryContentsByCurator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &req)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.ContentsByCurator(s.ctx, &req)
+	s.res, s.err = s.srv.ContentsByCurator(s.sdkCtx, &req)
 }
 
 func (s *queryContentsByCurator) ExpectNoError() {

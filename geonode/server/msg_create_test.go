@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -33,7 +33,7 @@ func (s *msgCreate) MsgCreate(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Create(s.ctx, &msg)
+	s.res, s.err = s.srv.Create(s.sdkCtx, &msg)
 }
 
 func (s *msgCreate) ExpectNoError() {
@@ -53,7 +53,7 @@ func (s *msgCreate) ExpectStateNode(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.srv.ss.NodeTable().Get(s.ctx, expected.Id)
+	actual, err := s.srv.ss.NodeTable().Get(s.sdkCtx, expected.Id)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, expected.Id, actual.Id)

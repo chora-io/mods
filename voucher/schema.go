@@ -1,7 +1,7 @@
 package voucher
 
 import (
-	ormv1alpha1 "github.com/cosmos/cosmos-sdk/api/cosmos/orm/v1alpha1"
+	ormv1alpha1 "cosmossdk.io/api/cosmos/orm/v1alpha1"
 
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 )

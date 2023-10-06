@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -37,7 +37,7 @@ func (s *msgRemoveValidator) Validator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &validator)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.ValidatorTable().Insert(s.ctx, &validatorv1.Validator{
+	err = s.srv.ss.ValidatorTable().Insert(s.sdkCtx, &validatorv1.Validator{
 		Address: validator.Address,
 	})
 	require.NoError(s.t, err)
@@ -48,7 +48,7 @@ func (s *msgRemoveValidator) ValidatorSigningInfo(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &missedBlocks)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.ValidatorSigningInfoTable().Insert(s.ctx, &validatorv1.ValidatorSigningInfo{
+	err = s.srv.ss.ValidatorSigningInfoTable().Insert(s.sdkCtx, &validatorv1.ValidatorSigningInfo{
 		Address:      missedBlocks.Address,
 		MissedBlocks: missedBlocks.MissedBlocks,
 	})
@@ -60,7 +60,7 @@ func (s *msgRemoveValidator) MsgRemoveValidator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.RemoveValidator(s.ctx, &msg)
+	s.res, s.err = s.srv.RemoveValidator(s.sdkCtx, &msg)
 }
 
 func (s *msgRemoveValidator) ExpectNoError() {
@@ -80,13 +80,13 @@ func (s *msgRemoveValidator) ExpectResponse(a gocuke.DocString) {
 }
 
 func (s *msgRemoveValidator) ExpectNoValidatorWithAddress(a string) {
-	found, err := s.srv.ss.ValidatorTable().Has(s.ctx, a)
+	found, err := s.srv.ss.ValidatorTable().Has(s.sdkCtx, a)
 	require.NoError(s.t, err)
 	require.False(s.t, found)
 }
 
 func (s *msgRemoveValidator) ExpectNoValidatorSigningInfoWithAddress(a string) {
-	found, err := s.srv.ss.ValidatorSigningInfoTable().Has(s.ctx, a)
+	found, err := s.srv.ss.ValidatorSigningInfoTable().Has(s.sdkCtx, a)
 	require.NoError(s.t, err)
 	require.False(s.t, found)
 }

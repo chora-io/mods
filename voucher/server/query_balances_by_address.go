@@ -3,11 +3,11 @@ package server
 import (
 	"context"
 
-	"github.com/cosmos/cosmos-sdk/orm/model/ormlist"
+	"cosmossdk.io/orm/model/ormlist"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/regen-network/regen-ledger/types/v2/math"
+	"cosmossdk.io/math"
 
 	voucherv1 "github.com/choraio/mods/voucher/api/v1"
 	v1 "github.com/choraio/mods/voucher/types/v1"
@@ -42,7 +42,7 @@ func (s Server) BalancesByAddress(ctx context.Context, req *v1.QueryBalancesByAd
 	ids := make([]uint64, 0, 10)
 
 	// set initial id to decimal map
-	idToDec := make(map[uint64]math.Dec)
+	idToDec := make(map[uint64]math.LegacyDec)
 
 	// set amounts and total amount for query response
 	for it.Next() {
@@ -51,19 +51,16 @@ func (s Server) BalancesByAddress(ctx context.Context, req *v1.QueryBalancesByAd
 			return nil, err // internal error
 		}
 
-		dec, err := math.NewDecFromString(v.Amount)
+		dec, err := math.LegacyNewDecFromStr(v.Amount)
 		if err != nil {
 			return nil, err // internal error
 		}
 
-		if idToDec[v.Id].Equal(math.Dec{}) {
+		if idToDec[v.Id].IsNil() {
 			ids = append(ids, v.Id)
 			idToDec[v.Id] = dec
 		} else {
-			idToDec[v.Id], err = idToDec[v.Id].Add(dec)
-			if err != nil {
-				return nil, err // internal error
-			}
+			idToDec[v.Id] = idToDec[v.Id].Add(dec)
 		}
 	}
 

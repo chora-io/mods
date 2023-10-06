@@ -4,9 +4,9 @@ package validatorv1
 
 import (
 	context "context"
-	ormlist "github.com/cosmos/cosmos-sdk/orm/model/ormlist"
-	ormtable "github.com/cosmos/cosmos-sdk/orm/model/ormtable"
-	ormerrors "github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
+	ormlist "cosmossdk.io/orm/model/ormlist"
+	ormtable "cosmossdk.io/orm/model/ormtable"
+	ormerrors "cosmossdk.io/orm/types/ormerrors"
 )
 
 // singleton store
@@ -84,6 +84,19 @@ func (x ValidatorAddressIndexKey) validatorIndexKey()    {}
 
 func (this ValidatorAddressIndexKey) WithAddress(address string) ValidatorAddressIndexKey {
 	this.vs = []interface{}{address}
+	return this
+}
+
+type ValidatorOperatorIndexKey struct {
+	vs []interface{}
+}
+
+func (x ValidatorOperatorIndexKey) id() uint32            { return 1 }
+func (x ValidatorOperatorIndexKey) values() []interface{} { return x.vs }
+func (x ValidatorOperatorIndexKey) validatorIndexKey()    {}
+
+func (this ValidatorOperatorIndexKey) WithOperator(operator string) ValidatorOperatorIndexKey {
+	this.vs = []interface{}{operator}
 	return this
 }
 

@@ -20,7 +20,7 @@ func (s Server) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateRes
 	}
 
 	// insert voucher into voucher table
-	id, err := s.ss.VoucherTable().InsertReturningID(ctx, &voucherv1.Voucher{
+	id, err := s.ss.VoucherTable().InsertReturningId(ctx, &voucherv1.Voucher{
 		Issuer:   issuer,
 		Metadata: req.Metadata,
 	})

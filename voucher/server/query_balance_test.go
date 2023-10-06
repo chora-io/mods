@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -32,7 +32,7 @@ func (s *queryBalance) Balance(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &balance)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.BalanceTable().Insert(s.ctx, &voucherv1.Balance{
+	err = s.srv.ss.BalanceTable().Insert(s.sdkCtx, &voucherv1.Balance{
 		Id:         balance.Id,
 		Address:    balance.Address,
 		Amount:     balance.Amount,
@@ -46,7 +46,7 @@ func (s *queryBalance) QueryBalance(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &req)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.Balance(s.ctx, &req)
+	s.res, s.err = s.srv.Balance(s.sdkCtx, &req)
 }
 
 func (s *queryBalance) ExpectNoError() {

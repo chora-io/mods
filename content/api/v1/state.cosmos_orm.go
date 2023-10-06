@@ -4,14 +4,15 @@ package contentv1
 
 import (
 	context "context"
-	ormlist "github.com/cosmos/cosmos-sdk/orm/model/ormlist"
-	ormtable "github.com/cosmos/cosmos-sdk/orm/model/ormtable"
-	ormerrors "github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
+	ormlist "cosmossdk.io/orm/model/ormlist"
+	ormtable "cosmossdk.io/orm/model/ormtable"
+	ormerrors "cosmossdk.io/orm/types/ormerrors"
 )
 
 type ContentTable interface {
 	Insert(ctx context.Context, content *Content) error
-	InsertReturningID(ctx context.Context, content *Content) (uint64, error)
+	InsertReturningId(ctx context.Context, content *Content) (uint64, error)
+	LastInsertedSequence(ctx context.Context) (uint64, error)
 	Update(ctx context.Context, content *Content) error
 	Save(ctx context.Context, content *Content) error
 	Delete(ctx context.Context, content *Content) error
@@ -91,8 +92,12 @@ func (this contentTable) Delete(ctx context.Context, content *Content) error {
 	return this.table.Delete(ctx, content)
 }
 
-func (this contentTable) InsertReturningID(ctx context.Context, content *Content) (uint64, error) {
-	return this.table.InsertReturningID(ctx, content)
+func (this contentTable) InsertReturningId(ctx context.Context, content *Content) (uint64, error) {
+	return this.table.InsertReturningPKey(ctx, content)
+}
+
+func (this contentTable) LastInsertedSequence(ctx context.Context) (uint64, error) {
+	return this.table.LastInsertedSequence(ctx)
 }
 
 func (this contentTable) Has(ctx context.Context, id uint64) (found bool, err error) {

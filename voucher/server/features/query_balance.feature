@@ -56,7 +56,7 @@ Feature: Query/Balance
       {
         "id": 1,
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "total_amount": "0",
+        "total_amount": "0.000000000000000000",
         "amounts": []
       }
       """
@@ -67,7 +67,7 @@ Feature: Query/Balance
       {
         "id": 1,
         "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "amount": "1.25",
+        "amount": "1.250000000000000000",
         "expiration": {
           "seconds": 1609459200
         }
@@ -85,10 +85,10 @@ Feature: Query/Balance
       {
         "id": 1,
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "total_amount": "1.25",
+        "total_amount": "1.250000000000000000",
         "amounts": [
           {
-            "amount": "1.25",
+            "amount": "1.250000000000000000",
             "expiration": "2021-01-01T00:00:00Z"
           }
         ]
@@ -130,7 +130,7 @@ Feature: Query/Balance
       {
         "id": 1,
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "total_amount": "2.50",
+        "total_amount": "2.500000000000000000",
         "amounts": [
           {
             "amount": "1.25",

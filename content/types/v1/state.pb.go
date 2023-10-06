@@ -4,9 +4,9 @@
 package v1
 
 import (
+	_ "cosmossdk.io/orm"
 	fmt "fmt"
-	_ "github.com/cosmos/cosmos-sdk/api/cosmos/orm/v1"
-	proto "github.com/gogo/protobuf/proto"
+	proto "github.com/cosmos/gogoproto/proto"
 	io "io"
 	math "math"
 	math_bits "math/bits"

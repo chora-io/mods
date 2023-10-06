@@ -3,8 +3,8 @@ package server
 import (
 	"context"
 
+	"cosmossdk.io/orm/types/ormerrors"
 	v1 "github.com/choraio/mods/validator/types/v1"
-	"github.com/cosmos/cosmos-sdk/orm/types/ormerrors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )

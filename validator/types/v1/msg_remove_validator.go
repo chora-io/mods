@@ -3,10 +3,9 @@ package v1
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 )
 
-var _ legacytx.LegacyMsg = &MsgRemoveValidator{}
+var _ sdk.Msg = &MsgRemoveValidator{}
 
 // ValidateBasic performs stateless validation on MsgRemoveValidator.
 func (m MsgRemoveValidator) ValidateBasic() error {
@@ -25,11 +24,6 @@ func (m MsgRemoveValidator) ValidateBasic() error {
 func (m MsgRemoveValidator) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Authority)
 	return []sdk.AccAddress{addr}
-}
-
-// GetSignBytes implements the LegacyMsg interface.
-func (m MsgRemoveValidator) GetSignBytes() []byte {
-	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.

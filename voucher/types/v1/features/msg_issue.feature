@@ -110,7 +110,7 @@ Feature: MsgIssue
     When validate message
     Then expect the error
     """
-    amount: expected a positive decimal, got 0: invalid decimal string: invalid request
+    amount: expected a positive decimal, got 0.000000000000000000: invalid decimal string: invalid request
     """
 
   Scenario: an error is returned if amount is negative
@@ -126,7 +126,7 @@ Feature: MsgIssue
     When validate message
     Then expect the error
     """
-    amount: expected a positive decimal, got -1.25: invalid decimal string: invalid request
+    amount: expected a positive decimal, got -1.250000000000000000: invalid decimal string: invalid request
     """
 
   Scenario: an error is returned if expiration is empty

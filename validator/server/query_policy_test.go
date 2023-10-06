@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -32,7 +32,7 @@ func (s *queryPolicy) Policy(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &policy)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.PolicyTable().Save(s.ctx, &validatorv1.Policy{
+	err = s.srv.ss.PolicyTable().Save(s.sdkCtx, &validatorv1.Policy{
 		SignedBlocksWindow: policy.SignedBlocksWindow,
 		MinSignedPerWindow: policy.MinSignedPerWindow,
 	})
@@ -41,7 +41,7 @@ func (s *queryPolicy) Policy(a gocuke.DocString) {
 
 func (s *queryPolicy) QueryPolicy() {
 	var req v1.QueryPolicyRequest
-	s.res, s.err = s.srv.Policy(s.ctx, &req)
+	s.res, s.err = s.srv.Policy(s.sdkCtx, &req)
 }
 
 func (s *queryPolicy) ExpectNoError() {

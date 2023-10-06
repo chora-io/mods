@@ -4,7 +4,8 @@ plugins:
     out: ..
     opt:
       - plugins=grpc
-      - Mcosmos/orm/v1/orm.proto=github.com/cosmos/cosmos-sdk/api/cosmos/orm/v1
+      - Mcosmos/orm/v1/orm.proto=cosmossdk.io/orm
+      - Mgoogle/protobuf/any.proto=github.com/cosmos/cosmos-sdk/codec/types
   - name: grpc-gateway
     out: ..
     opt:

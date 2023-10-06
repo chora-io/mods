@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -37,7 +37,7 @@ func (s *msgUpdatePolicy) Policy(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &policy)
 	require.NoError(s.t, err)
 
-	err = s.srv.ss.PolicyTable().Save(s.ctx, &policy)
+	err = s.srv.ss.PolicyTable().Save(s.sdkCtx, &policy)
 	require.NoError(s.t, err)
 }
 
@@ -46,7 +46,7 @@ func (s *msgUpdatePolicy) MsgUpdatePolicy(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.UpdatePolicy(s.ctx, &msg)
+	s.res, s.err = s.srv.UpdatePolicy(s.sdkCtx, &msg)
 }
 
 func (s *msgUpdatePolicy) ExpectNoError() {
@@ -62,7 +62,7 @@ func (s *msgUpdatePolicy) ExpectPolicy(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	policy, err := s.srv.ss.PolicyTable().Get(s.ctx)
+	policy, err := s.srv.ss.PolicyTable().Get(s.sdkCtx)
 	require.NoError(s.t, err)
 	require.Equal(s.t, expected.SignedBlocksWindow, policy.SignedBlocksWindow)
 	require.Equal(s.t, expected.MinSignedPerWindow, policy.MinSignedPerWindow)

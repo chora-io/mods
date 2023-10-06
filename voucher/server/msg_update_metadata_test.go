@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -33,7 +33,7 @@ func (s *msgUpdateMetadata) Voucher(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &voucher)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.VoucherTable().InsertReturningID(s.ctx, &voucherv1.Voucher{
+	id, err := s.srv.ss.VoucherTable().InsertReturningId(s.sdkCtx, &voucherv1.Voucher{
 		Issuer:   voucher.Issuer,
 		Metadata: voucher.Metadata,
 	})
@@ -46,7 +46,7 @@ func (s *msgUpdateMetadata) MsgUpdateMetadata(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.UpdateMetadata(s.ctx, &msg)
+	s.res, s.err = s.srv.UpdateMetadata(s.sdkCtx, &msg)
 }
 
 func (s *msgUpdateMetadata) ExpectNoError() {
@@ -70,7 +70,7 @@ func (s *msgUpdateMetadata) ExpectStateVoucher(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.srv.ss.VoucherTable().Get(s.ctx, expected.Id)
+	actual, err := s.srv.ss.VoucherTable().Get(s.sdkCtx, expected.Id)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, expected.Id, actual.Id)

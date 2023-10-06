@@ -60,7 +60,7 @@ message ValidatorSigningInfo {
   // missed_blocks contains missed blocks.
   repeated MissedBlock missed_blocks = 4;
 
-  // missed_blocks is the number of missed blocks.
+  // missed_blocks_count is the number of missed blocks.
   int64 missed_blocks_count = 5;
 
   // MissedBlock represents a missed block.

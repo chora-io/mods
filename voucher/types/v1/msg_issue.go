@@ -1,14 +1,12 @@
 package v1
 
 import (
+	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
-
-	"github.com/regen-network/regen-ledger/types/v2/math"
 )
 
-var _ legacytx.LegacyMsg = &MsgIssue{}
+var _ sdk.Msg = &MsgIssue{}
 
 // ValidateBasic performs stateless validation on MsgIssue.
 func (m MsgIssue) ValidateBasic() error {
@@ -28,8 +26,12 @@ func (m MsgIssue) ValidateBasic() error {
 		return sdkerrors.ErrInvalidRequest.Wrapf("amount: empty string is not allowed")
 	}
 
-	if _, err := math.NewPositiveDecFromString(m.Amount); err != nil {
+	dec, err := math.LegacyNewDecFromStr(m.Amount)
+	if err != nil {
 		return sdkerrors.ErrInvalidRequest.Wrapf("amount: %s", err)
+	}
+	if !dec.IsPositive() {
+		return sdkerrors.ErrInvalidRequest.Wrapf("amount: expected a positive decimal, got %s: invalid decimal string", dec.String())
 	}
 
 	if m.Expiration == nil {
@@ -51,11 +53,6 @@ func (m MsgIssue) ValidateBasic() error {
 func (m MsgIssue) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Issuer)
 	return []sdk.AccAddress{addr}
-}
-
-// GetSignBytes implements the LegacyMsg interface.
-func (m MsgIssue) GetSignBytes() []byte {
-	return sdk.MustSortJSON(AminoCodec.MustMarshalJSON(&m))
 }
 
 // Route implements the LegacyMsg interface.

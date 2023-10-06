@@ -20,7 +20,7 @@ func (s Server) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateRes
 	}
 
 	// insert node into node table
-	id, err := s.ss.NodeTable().InsertReturningID(ctx, &geonodev1.Node{
+	id, err := s.ss.NodeTable().InsertReturningId(ctx, &geonodev1.Node{
 		Curator:  curator,
 		Metadata: req.Metadata,
 	})

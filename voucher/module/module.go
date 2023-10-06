@@ -5,138 +5,110 @@ import (
 	"encoding/json"
 
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/spf13/cobra"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	"cosmossdk.io/core/appmodule"
+	storetypes "cosmossdk.io/store/types"
 
 	sdkclient "github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
-	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
 	"github.com/choraio/mods/voucher"
-	"github.com/choraio/mods/voucher/cmd"
 	"github.com/choraio/mods/voucher/genesis"
 	"github.com/choraio/mods/voucher/server"
 	v1 "github.com/choraio/mods/voucher/types/v1"
 )
 
-var _ module.AppModule = &Module{}
-
 // ConsensusVersion is the module consensus version.
 const ConsensusVersion = 1
 
-// Module implements the AppModule interface.
-type Module struct {
+var (
+	_ appmodule.AppModule   = AppModule{}
+	_ module.AppModuleBasic = AppModule{}
+	_ module.HasGenesis     = AppModule{}
+	_ module.HasServices    = AppModule{}
+)
+
+// AppModule implements the AppModule interface.
+type AppModule struct {
 	key storetypes.StoreKey
 	srv server.Server
 }
 
-// NewModule returns a new module.
-func NewModule(key storetypes.StoreKey) Module {
+// NewAppModule returns a new module.
+func NewAppModule(key storetypes.StoreKey) AppModule {
 	srv := server.NewServer(key)
-	return Module{
+	return AppModule{
 		key: key,
 		srv: srv,
 	}
 }
 
-// ConsensusVersion implements AppModule/ConsensusVersion.
-func (m Module) ConsensusVersion() uint64 {
+// ConsensusVersion returns ConsensusVersion.
+func (am AppModule) ConsensusVersion() uint64 {
 	return ConsensusVersion
 }
 
-// Name implements AppModule/Name.
-func (m Module) Name() string {
+// IsAppModule implements the appmodule.AppModule/IsAppModule.
+func (am AppModule) IsAppModule() {}
+
+// IsOnePerModuleType implements appmodule.AppModule/IsOnePerModuleType.
+func (am AppModule) IsOnePerModuleType() {}
+
+// Name implements module.AppModuleBasic/Name.
+func (am AppModule) Name() string {
 	return voucher.ModuleName
 }
 
-// Route implements AppModule/Route.
-func (m Module) Route() sdk.Route {
-	return sdk.Route{}
+// RegisterInterfaces implements module.AppModuleBasic/RegisterInterfaces.
+func (am AppModule) RegisterInterfaces(registry codectypes.InterfaceRegistry) {
+	v1.RegisterInterfaces(registry)
 }
 
-// QuerierRoute implements AppModule/QuerierRoute.
-func (m Module) QuerierRoute() string {
-	return voucher.ModuleName
-}
-
-// RegisterInvariants implements AppModule/RegisterInvariants.
-func (m Module) RegisterInvariants(_ sdk.InvariantRegistry) {}
-
-// RegisterInterfaces implements AppModule/RegisterTypes.
-func (m Module) RegisterInterfaces(registry codectypes.InterfaceRegistry) {
-	v1.RegisterTypes(registry)
-}
-
-// RegisterServices implements AppModule/RegisterServices.
-func (m Module) RegisterServices(cfg module.Configurator) {
-	v1.RegisterMsgServer(cfg.MsgServer(), m.srv)
-	v1.RegisterQueryServer(cfg.QueryServer(), m.srv)
-}
-
-// RegisterGRPCGatewayRoutes implements AppModule/RegisterGRPCGatewayRoutes.
-func (m Module) RegisterGRPCGatewayRoutes(clientCtx sdkclient.Context, mux *runtime.ServeMux) {
+// RegisterGRPCGatewayRoutes implements module.AppModuleBasic/RegisterGRPCGatewayRoutes.
+func (am AppModule) RegisterGRPCGatewayRoutes(clientCtx sdkclient.Context, mux *runtime.ServeMux) {
 	err := v1.RegisterQueryHandlerClient(context.Background(), mux, v1.NewQueryClient(clientCtx))
 	if err != nil {
 		panic(err)
 	}
 }
 
-// RegisterLegacyAminoCodec implements AppModule/RegisterLegacyAminoCodec.
-func (m Module) RegisterLegacyAminoCodec(amino *codec.LegacyAmino) {
+// RegisterLegacyAminoCodec implements module.AppModuleBasic/RegisterLegacyAminoCodec.
+func (am AppModule) RegisterLegacyAminoCodec(amino *codec.LegacyAmino) {
 	v1.RegisterLegacyAminoCodec(amino)
 }
 
-// InitGenesis implements AppModule/InitGenesis.
-func (m Module) InitGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec, message json.RawMessage) []abci.ValidatorUpdate {
-	update, err := m.srv.InitGenesis(ctx, jsonCodec, message)
+// InitGenesis implements module.HasGenesis/InitGenesis.
+func (am AppModule) InitGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec, message json.RawMessage) {
+	err := am.srv.InitGenesis(ctx, jsonCodec, message)
 	if err != nil {
 		panic(err)
 	}
-	return update
 }
 
-// ExportGenesis implements AppModule/ExportGenesis.
-func (m Module) ExportGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec) json.RawMessage {
-	export, err := m.srv.ExportGenesis(ctx, jsonCodec)
+// ExportGenesis implements module.HasGenesis/ExportGenesis.
+func (am AppModule) ExportGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec) json.RawMessage {
+	export, err := am.srv.ExportGenesis(ctx, jsonCodec)
 	if err != nil {
 		panic(err)
 	}
 	return export
 }
 
-// DefaultGenesis implements AppModule/DefaultGenesis.
-func (m Module) DefaultGenesis(_ codec.JSONCodec) json.RawMessage {
+// DefaultGenesis implements module.HasGenesis/DefaultGenesis.
+func (am AppModule) DefaultGenesis(_ codec.JSONCodec) json.RawMessage {
 	return nil
 }
 
-// ValidateGenesis implements AppModule/ValidateGenesis.
-func (m Module) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig, bz json.RawMessage) error {
+// ValidateGenesis implements module.HasGenesis/ValidateGenesis.
+func (am AppModule) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingConfig, bz json.RawMessage) error {
 	return genesis.ValidateGenesis(bz)
 }
 
-// BeginBlock checks if there are any expired sell or buy orders and removes them from state.
-func (m Module) BeginBlock(ctx sdk.Context, _ abci.RequestBeginBlock) {
-	err := m.srv.PruneVouchers(ctx)
-	if err != nil {
-		panic(err)
-	}
-}
-
-// GetTxCmd implements AppModule/GetTxCmd.
-func (m Module) GetTxCmd() *cobra.Command {
-	return cmd.TxCmd()
-}
-
-// GetQueryCmd implements AppModule/GetQueryCmd.
-func (m Module) GetQueryCmd() *cobra.Command {
-	return cmd.QueryCmd()
-}
-
-// LegacyQuerierHandler implements AppModule/LegacyQuerierHandler.
-func (m Module) LegacyQuerierHandler(_ *codec.LegacyAmino) sdk.Querier {
-	return nil
+// RegisterServices implements module.HasServices/RegisterServices.
+func (am AppModule) RegisterServices(cfg module.Configurator) {
+	v1.RegisterMsgServer(cfg.MsgServer(), am.srv)
+	v1.RegisterQueryServer(cfg.QueryServer(), am.srv)
 }

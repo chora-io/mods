@@ -3,7 +3,7 @@ package server
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
@@ -33,7 +33,7 @@ func (s *msgUpdateCurator) Content(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
 
-	id, err := s.srv.ss.ContentTable().InsertReturningID(s.ctx, &contentv1.Content{
+	id, err := s.srv.ss.ContentTable().InsertReturningId(s.sdkCtx, &contentv1.Content{
 		Curator:  content.Curator,
 		Metadata: content.Metadata,
 	})
@@ -46,7 +46,7 @@ func (s *msgUpdateCurator) MsgUpdateCurator(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.srv.UpdateCurator(s.ctx, &msg)
+	s.res, s.err = s.srv.UpdateCurator(s.sdkCtx, &msg)
 }
 
 func (s *msgUpdateCurator) ExpectNoError() {
@@ -70,7 +70,7 @@ func (s *msgUpdateCurator) ExpectStateContent(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.srv.ss.ContentTable().Get(s.ctx, expected.Id)
+	actual, err := s.srv.ss.ContentTable().Get(s.sdkCtx, expected.Id)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, expected.Id, actual.Id)

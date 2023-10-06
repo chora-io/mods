@@ -2,6 +2,8 @@ version: v1
 name: buf.build/chora/voucher
 deps:
   - buf.build/cosmos/cosmos-sdk
+  - buf.build/cosmos/gogo-proto
+  - buf.build/googleapis/googleapis
 breaking:
   use:
     - FILE
@@ -9,6 +11,7 @@ lint:
   use:
     - DEFAULT
     - COMMENTS
+    - FILE_LOWER_SNAKE_CASE
   except:
     - SERVICE_SUFFIX
     - RPC_REQUEST_STANDARD_NAME

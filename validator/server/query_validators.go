@@ -3,7 +3,7 @@ package server
 import (
 	"context"
 
-	"github.com/cosmos/cosmos-sdk/orm/model/ormlist"
+	"cosmossdk.io/orm/model/ormlist"
 
 	validatorv1 "github.com/choraio/mods/validator/api/v1"
 	v1 "github.com/choraio/mods/validator/types/v1"

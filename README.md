@@ -9,7 +9,7 @@ modules for [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) applications
 
 ## Prerequisites
 
-- [Go >= 1.19](https://golang.org/doc/install)
+- [Go >= 1.20](https://golang.org/doc/install)
 
 ## Documentation
 

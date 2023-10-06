@@ -2,8 +2,8 @@
 
 set -e
 
-if ! grep -q "github.com/choraio/mods/geonode" go.mod ; then
-  echo -e "ERROR: This command must be run from inside the geonode module."
+if ! grep -q "github.com/choraio/mods/voucher" go.mod ; then
+  echo -e "ERROR: This command must be run from inside the voucher module."
   return 1
 fi
 
@@ -15,10 +15,10 @@ cd ..
 
 echo "Creating tmp directory"
 
-mkdir -p proto-tmp/chora/geonode
+mkdir -p proto-tmp/chora/voucher
 cd proto
 find . -maxdepth 1 -mindepth 1 -type f -exec cp '{}' ../proto-tmp/ \;
-find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../proto-tmp/chora/geonode/ \;
+find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../proto-tmp/chora/voucher/ \;
 cd ..
 
 echo "Generating gogo files"
@@ -36,14 +36,14 @@ done
 
 cd ..
 
-cp -r github.com/choraio/mods/geonode/* ./
+cp -r github.com/choraio/mods/voucher/* ./
 rm -rf github.com
 
 echo "Generating pulsar files"
 
 go install github.com/cosmos/cosmos-proto/cmd/protoc-gen-go-pulsar@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-go install github.com/cosmos/cosmos-sdk/orm/cmd/protoc-gen-go-cosmos-orm@v1.0.0-alpha.12
+go install cosmossdk.io/orm/cmd/protoc-gen-go-cosmos-orm@latest
 
 cd api
 
@@ -54,7 +54,7 @@ cd ../proto-tmp
 
 buf generate --template buf.gen.pulsar.yaml
 
-cd ../api/chora/geonode
+cd ../api/chora/voucher
 find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
 cd ../..
 rm -rf chora
@@ -73,7 +73,7 @@ for dir in $proto_dirs; do
   fi
 done
 
-cd ../docs/chora/geonode
+cd ../docs/chora/voucher
 find . -maxdepth 1 -mindepth 1 -type d -exec cp -r '{}' ../../ \;
 cd ../..
 rm -rf chora

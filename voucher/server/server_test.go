@@ -1,19 +1,18 @@
 package server
 
 import (
-	"context"
-
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
-	tmdb "github.com/tendermint/tm-db"
 
-	"github.com/tendermint/tendermint/libs/log"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
+	"cosmossdk.io/log"
+	"cosmossdk.io/store"
+	"cosmossdk.io/store/metrics"
+	storetypes "cosmossdk.io/store/types"
+	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
+	db "github.com/cosmos/cosmos-db"
 
-	"github.com/cosmos/cosmos-sdk/orm/model/ormtable"
-	"github.com/cosmos/cosmos-sdk/orm/testing/ormtest"
-	"github.com/cosmos/cosmos-sdk/store"
-	storetypes "github.com/cosmos/cosmos-sdk/store/types"
+	"cosmossdk.io/orm/model/ormtable"
+	"cosmossdk.io/orm/testing/ormtest"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	"github.com/choraio/mods/voucher"
@@ -21,7 +20,6 @@ import (
 
 type baseSuite struct {
 	t      gocuke.TestingT
-	ctx    context.Context
 	sdkCtx sdk.Context
 	srv    Server
 }
@@ -30,13 +28,13 @@ func setupBase(t gocuke.TestingT) *baseSuite {
 	s := &baseSuite{t: t}
 
 	// create in-memory database
-	mdb := tmdb.NewMemDB()
+	mdb := db.NewMemDB()
 
 	// create commit multi-store
-	cms := store.NewCommitMultiStore(mdb)
+	cms := store.NewCommitMultiStore(mdb, log.NewNopLogger(), metrics.NewNoOpMetrics())
 
 	// create store key
-	key := sdk.NewKVStoreKey(voucher.ModuleName)
+	key := storetypes.NewKVStoreKey(voucher.ModuleName)
 
 	// mount store with key and in-memory database
 	cms.MountStoreWithDB(key, storetypes.StoreTypeIAVL, mdb)
@@ -49,9 +47,6 @@ func setupBase(t gocuke.TestingT) *baseSuite {
 
 	// create and set sdk context from commit multi-store with orm context
 	s.sdkCtx = sdk.NewContext(cms, tmproto.Header{}, false, log.NewNopLogger()).WithContext(ormCtx)
-
-	// create and set context with sdk context
-	s.ctx = sdk.WrapSDKContext(s.sdkCtx)
 
 	// create and set server
 	s.srv = NewServer(key)

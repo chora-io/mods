@@ -8,10 +8,10 @@ import (
 	fmt "fmt"
 	query "github.com/cosmos/cosmos-sdk/types/query"
 	_ "github.com/cosmos/gogoproto/gogoproto"
-	grpc1 "github.com/gogo/protobuf/grpc"
-	proto "github.com/gogo/protobuf/proto"
-	_ "github.com/gogo/protobuf/types"
-	github_com_gogo_protobuf_types "github.com/gogo/protobuf/types"
+	grpc1 "github.com/cosmos/gogoproto/grpc"
+	proto "github.com/cosmos/gogoproto/proto"
+	_ "github.com/cosmos/gogoproto/types"
+	github_com_cosmos_gogoproto_types "github.com/cosmos/gogoproto/types"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -1817,7 +1817,7 @@ func (m *QueryBalanceResponse_Amount) MarshalToSizedBuffer(dAtA []byte) (int, er
 	var l int
 	_ = l
 	if m.Expiration != nil {
-		n5, err5 := github_com_gogo_protobuf_types.StdTimeMarshalTo(*m.Expiration, dAtA[i-github_com_gogo_protobuf_types.SizeOfStdTime(*m.Expiration):])
+		n5, err5 := github_com_cosmos_gogoproto_types.StdTimeMarshalTo(*m.Expiration, dAtA[i-github_com_cosmos_gogoproto_types.SizeOfStdTime(*m.Expiration):])
 		if err5 != nil {
 			return 0, err5
 		}
@@ -2304,7 +2304,7 @@ func (m *QueryBalanceResponse_Amount) Size() (n int) {
 		n += 1 + l + sovQuery(uint64(l))
 	}
 	if m.Expiration != nil {
-		l = github_com_gogo_protobuf_types.SizeOfStdTime(*m.Expiration)
+		l = github_com_cosmos_gogoproto_types.SizeOfStdTime(*m.Expiration)
 		n += 1 + l + sovQuery(uint64(l))
 	}
 	return n
@@ -3700,7 +3700,7 @@ func (m *QueryBalanceResponse_Amount) Unmarshal(dAtA []byte) error {
 			if m.Expiration == nil {
 				m.Expiration = new(time.Time)
 			}
-			if err := github_com_gogo_protobuf_types.StdTimeUnmarshal(m.Expiration, dAtA[iNdEx:postIndex]); err != nil {
+			if err := github_com_cosmos_gogoproto_types.StdTimeUnmarshal(m.Expiration, dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
