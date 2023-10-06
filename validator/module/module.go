@@ -7,8 +7,6 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 
 	"cosmossdk.io/core/appmodule"
-	storetypes "cosmossdk.io/store/types"
-
 	sdkclient "github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
@@ -17,7 +15,7 @@ import (
 
 	"github.com/choraio/mods/validator"
 	"github.com/choraio/mods/validator/genesis"
-	"github.com/choraio/mods/validator/server"
+	"github.com/choraio/mods/validator/keeper"
 	v1 "github.com/choraio/mods/validator/types/v1"
 )
 
@@ -25,30 +23,27 @@ import (
 const ConsensusVersion = 1
 
 var (
-	_ appmodule.AppModule   = AppModule{}
-	_ module.AppModuleBasic = AppModule{}
-	_ module.HasGenesis     = AppModule{}
-	_ module.HasServices    = AppModule{}
+	_ appmodule.AppModule = AppModule{}
+
+	_ module.AppModuleBasic      = AppModule{}
+	_ module.HasConsensusVersion = AppModule{}
+	_ module.HasGenesis          = AppModule{}
+	_ module.HasInvariants       = AppModule{}
+	_ module.HasServices         = AppModule{}
 )
 
 // AppModule implements the AppModule interface.
 type AppModule struct {
-	key storetypes.StoreKey
-	srv server.Server
+	cdc codec.BinaryCodec
+	k   keeper.Keeper
 }
 
-// NewAppModule returns a new module.
-func NewAppModule(key storetypes.StoreKey, authority sdk.AccAddress) AppModule {
-	srv := server.NewServer(key, authority)
+// NewAppModule returns a new AppModule instance.
+func NewAppModule(cdc codec.BinaryCodec, k keeper.Keeper) AppModule {
 	return AppModule{
-		key: key,
-		srv: srv,
+		cdc: cdc,
+		k:   k,
 	}
-}
-
-// ConsensusVersion returns ConsensusVersion.
-func (am AppModule) ConsensusVersion() uint64 {
-	return ConsensusVersion
 }
 
 // IsAppModule implements the appmodule.AppModule/IsAppModule.
@@ -62,11 +57,6 @@ func (am AppModule) Name() string {
 	return validator.ModuleName
 }
 
-// RegisterInterfaces implements module.AppModuleBasic/RegisterInterfaces.
-func (am AppModule) RegisterInterfaces(registry codectypes.InterfaceRegistry) {
-	v1.RegisterInterfaces(registry)
-}
-
 // RegisterGRPCGatewayRoutes implements module.AppModuleBasic/RegisterGRPCGatewayRoutes.
 func (am AppModule) RegisterGRPCGatewayRoutes(clientCtx sdkclient.Context, mux *runtime.ServeMux) {
 	err := v1.RegisterQueryHandlerClient(context.Background(), mux, v1.NewQueryClient(clientCtx))
@@ -75,14 +65,24 @@ func (am AppModule) RegisterGRPCGatewayRoutes(clientCtx sdkclient.Context, mux *
 	}
 }
 
+// RegisterInterfaces implements module.AppModuleBasic/RegisterInterfaces.
+func (am AppModule) RegisterInterfaces(registry codectypes.InterfaceRegistry) {
+	v1.RegisterInterfaces(registry)
+}
+
 // RegisterLegacyAminoCodec implements module.AppModuleBasic/RegisterLegacyAminoCodec.
 func (am AppModule) RegisterLegacyAminoCodec(amino *codec.LegacyAmino) {
 	v1.RegisterLegacyAminoCodec(amino)
 }
 
+// ConsensusVersion implements module.HasConsensusVersion/ConsensusVersion.
+func (am AppModule) ConsensusVersion() uint64 {
+	return ConsensusVersion
+}
+
 // InitGenesis implements module.HasGenesis/InitGenesis.
 func (am AppModule) InitGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec, message json.RawMessage) {
-	err := am.srv.InitGenesis(ctx, jsonCodec, message)
+	err := am.k.InitGenesis(ctx, jsonCodec, message)
 	if err != nil {
 		panic(err)
 	}
@@ -90,7 +90,7 @@ func (am AppModule) InitGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec, mess
 
 // ExportGenesis implements module.HasGenesis/ExportGenesis.
 func (am AppModule) ExportGenesis(ctx sdk.Context, jsonCodec codec.JSONCodec) json.RawMessage {
-	export, err := am.srv.ExportGenesis(ctx, jsonCodec)
+	export, err := am.k.ExportGenesis(ctx, jsonCodec)
 	if err != nil {
 		panic(err)
 	}
@@ -107,8 +107,11 @@ func (am AppModule) ValidateGenesis(_ codec.JSONCodec, _ sdkclient.TxEncodingCon
 	return genesis.ValidateGenesis(bz)
 }
 
+// RegisterInvariants implements module.HasInvariants/RegisterInvariants.
+func (am AppModule) RegisterInvariants(_ sdk.InvariantRegistry) {}
+
 // RegisterServices implements module.HasServices/RegisterServices.
 func (am AppModule) RegisterServices(cfg module.Configurator) {
-	v1.RegisterMsgServer(cfg.MsgServer(), am.srv)
-	v1.RegisterQueryServer(cfg.QueryServer(), am.srv)
+	v1.RegisterMsgServer(cfg.MsgServer(), am.k)
+	v1.RegisterQueryServer(cfg.QueryServer(), am.k)
 }
