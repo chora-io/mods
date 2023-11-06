@@ -13,10 +13,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/choraio/mods/geonode"
-	"github.com/choraio/mods/geonode/genesis"
-	"github.com/choraio/mods/geonode/keeper"
-	v1 "github.com/choraio/mods/geonode/types/v1"
+	"github.com/chora-io/mods/geonode"
+	"github.com/chora-io/mods/geonode/genesis"
+	"github.com/chora-io/mods/geonode/keeper"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
 )
 
 // ConsensusVersion is the module consensus version.

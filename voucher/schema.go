@@ -3,7 +3,7 @@ package voucher
 import (
 	ormv1alpha1 "cosmossdk.io/api/cosmos/orm/v1alpha1"
 
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
+	voucherv1 "github.com/chora-io/mods/voucher/api/v1"
 )
 
 // ModuleSchema is the schema of the module.

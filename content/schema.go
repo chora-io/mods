@@ -3,7 +3,7 @@ package content
 import (
 	ormv1alpha1 "cosmossdk.io/api/cosmos/orm/v1alpha1"
 
-	contentv1 "github.com/choraio/mods/content/api/v1"
+	contentv1 "github.com/chora-io/mods/content/api/v1"
 )
 
 // ModuleSchema is the schema of the module.

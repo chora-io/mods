@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chora.validator.v1;
 
-option go_package = "github.com/choraio/mods/validator/types/v1";
+option go_package = "github.com/chora-io/mods/validator/types/v1";
 
 // EventAddValidator is an event emitted when a validator is added.
 message EventAddValidator {

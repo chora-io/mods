@@ -1,4 +1,4 @@
-module github.com/choraio/mods/voucher
+module github.com/chora-io/mods/voucher
 
 go 1.20
 

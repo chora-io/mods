@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	v1 "github.com/choraio/mods/content/types/v1"
+	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
 func getQueryClient(cmd *cobra.Command) (v1.QueryClient, client.Context, error) {

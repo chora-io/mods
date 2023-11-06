@@ -1,4 +1,4 @@
-module github.com/choraio/mods/validator
+module github.com/chora-io/mods/validator
 
 go 1.20
 

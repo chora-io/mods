@@ -3,7 +3,7 @@ package v1
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/choraio/mods/validator/errors"
+	"github.com/chora-io/mods/validator/errors"
 )
 
 // Validate validates ValidatorSigningInfo.

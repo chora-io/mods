@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	v1 "github.com/choraio/mods/content/types/v1"
+	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
 // Delete implements Msg/Delete.

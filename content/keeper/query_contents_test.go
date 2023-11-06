@@ -7,8 +7,8 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	contentv1 "github.com/choraio/mods/content/api/v1"
-	v1 "github.com/choraio/mods/content/types/v1"
+	contentv1 "github.com/chora-io/mods/content/api/v1"
+	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
 type queryContents struct {

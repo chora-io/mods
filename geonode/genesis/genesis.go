@@ -6,10 +6,10 @@ import (
 	"cosmossdk.io/orm/model/ormdb"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/choraio/mods/geonode"
-	geonodev1 "github.com/choraio/mods/geonode/api/v1"
-	v1 "github.com/choraio/mods/geonode/types/v1"
-	"github.com/choraio/mods/geonode/utils"
+	"github.com/chora-io/mods/geonode"
+	geonodev1 "github.com/chora-io/mods/geonode/api/v1"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
+	"github.com/chora-io/mods/geonode/utils"
 )
 
 // ValidateGenesis validates genesis state.

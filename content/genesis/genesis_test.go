@@ -10,8 +10,8 @@ import (
 	"cosmossdk.io/orm/testing/ormtest"
 	"github.com/stretchr/testify/require"
 
-	"github.com/choraio/mods/content"
-	contentv1 "github.com/choraio/mods/content/api/v1"
+	"github.com/chora-io/mods/content"
+	contentv1 "github.com/chora-io/mods/content/api/v1"
 )
 
 func TestValidateGenesis(t *testing.T) {

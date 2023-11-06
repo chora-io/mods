@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	v1 "github.com/choraio/mods/geonode/types/v1"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
 )
 
 // QueryNodesByCuratorCmd creates and returns the query nodes-by-curator command.

@@ -13,7 +13,7 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	"github.com/choraio/mods/voucher"
+	"github.com/chora-io/mods/voucher"
 )
 
 type baseSuite struct {

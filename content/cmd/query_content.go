@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	v1 "github.com/choraio/mods/content/types/v1"
+	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
 // QueryContentCmd creates and returns the query content command.

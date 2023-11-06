@@ -6,11 +6,11 @@ import (
 	"cosmossdk.io/orm/model/ormdb"
 	"google.golang.org/protobuf/proto"
 
-	contentv1 "github.com/choraio/mods/content/api/v1"
-	v1 "github.com/choraio/mods/content/types/v1"
-	"github.com/choraio/mods/content/utils"
+	contentv1 "github.com/chora-io/mods/content/api/v1"
+	v1 "github.com/chora-io/mods/content/types/v1"
+	"github.com/chora-io/mods/content/utils"
 
-	"github.com/choraio/mods/content"
+	"github.com/chora-io/mods/content"
 )
 
 // ValidateGenesis validates genesis state.

@@ -13,10 +13,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/choraio/mods/voucher"
-	"github.com/choraio/mods/voucher/genesis"
-	"github.com/choraio/mods/voucher/keeper"
-	v1 "github.com/choraio/mods/voucher/types/v1"
+	"github.com/chora-io/mods/voucher"
+	"github.com/chora-io/mods/voucher/genesis"
+	"github.com/chora-io/mods/voucher/keeper"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
 )
 
 // ConsensusVersion is the module consensus version.

@@ -2,7 +2,7 @@
 
 set -e
 
-if ! grep -q "github.com/choraio/mods/voucher" go.mod ; then
+if ! grep -q "github.com/chora-io/mods/voucher" go.mod ; then
   echo -e "ERROR: This command must be run from inside the voucher module."
   return 1
 fi
@@ -36,7 +36,7 @@ done
 
 cd ..
 
-cp -r github.com/choraio/mods/voucher/* ./
+cp -r github.com/chora-io/mods/voucher/* ./
 rm -rf github.com
 
 echo "Generating pulsar files"

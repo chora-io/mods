@@ -7,7 +7,7 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/choraio/mods/voucher/types/v1";
+option go_package = "github.com/chora-io/mods/voucher/types/v1";
 
 // Query is the Query service.
 service Query {

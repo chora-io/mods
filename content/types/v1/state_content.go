@@ -3,7 +3,7 @@ package v1
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/choraio/mods/content/errors"
+	"github.com/chora-io/mods/content/errors"
 )
 
 // Validate validates Content.

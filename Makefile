@@ -39,7 +39,7 @@ format_filter = \
 format:
 	@echo "Formatting all go modules..."
 	@find . $(format_filter) | xargs gofmt -s -w
-	@find . $(format_filter) | xargs goimports -w -local github.com/choraio/mods
+	@find . $(format_filter) | xargs goimports -w -local github.com/chora-io/mods
 	@find . $(format_filter) | xargs misspell -w
 
 .PHONY: lint lint-fix format
@@ -123,7 +123,7 @@ proto-gen-voucher:
 		sh -c 'cd voucher; ./scripts/protocgen.sh'; fi
 
 proto-check-breaking:
-	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/choraio/mods.git#branch=main
+	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/chora-io/mods.git#branch=main
 
 .PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-gen-geonode proto-gen-validator proto-gen-voucher proto-check-breaking
 
@@ -178,7 +178,7 @@ test-clean:
 ###############################################################################
 
 docs:
-	@echo "Wait a few seconds and then visit http://localhost:6060/pkg/github.com/choraio/mods/"
+	@echo "Wait a few seconds and then visit http://localhost:6060/pkg/github.com/chora-io/mods/"
 	godoc -http=:6060
 
 .PHONY: docs

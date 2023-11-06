@@ -4,7 +4,7 @@ package chora.content.v1;
 
 import "cosmos/orm/v1/orm.proto";
 
-option go_package = "github.com/choraio/mods/content/types/v1";
+option go_package = "github.com/chora-io/mods/content/types/v1";
 
 // Content defines the table and properties of a content.
 message Content {

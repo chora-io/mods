@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	v1 "github.com/choraio/mods/voucher/types/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
 )
 
 // UpdateMetadata implements the Msg/UpdateMetadata method.

@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 
-	v1 "github.com/choraio/mods/voucher/types/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
 )
 
 // TxIssueCmd creates and returns the tx issue command.

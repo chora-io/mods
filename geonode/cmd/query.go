@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	"github.com/choraio/mods/geonode"
+	"github.com/chora-io/mods/geonode"
 )
 
 // QueryCmd creates and returns the query command.

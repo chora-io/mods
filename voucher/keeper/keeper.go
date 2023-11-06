@@ -9,9 +9,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/choraio/mods/voucher"
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
-	v1 "github.com/choraio/mods/voucher/types/v1"
+	"github.com/chora-io/mods/voucher"
+	voucherv1 "github.com/chora-io/mods/voucher/api/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
 )
 
 var (

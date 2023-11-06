@@ -7,9 +7,9 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
-	v1 "github.com/choraio/mods/voucher/types/v1"
-	"github.com/choraio/mods/voucher/utils"
+	voucherv1 "github.com/chora-io/mods/voucher/api/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
+	"github.com/chora-io/mods/voucher/utils"
 )
 
 type msgCreate struct {

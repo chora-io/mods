@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	geonodev1 "github.com/choraio/mods/geonode/api/v1"
-	v1 "github.com/choraio/mods/geonode/types/v1"
-	"github.com/choraio/mods/geonode/utils"
+	geonodev1 "github.com/chora-io/mods/geonode/api/v1"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
+	"github.com/chora-io/mods/geonode/utils"
 )
 
 // NodesByCurator implements the Query/NodesByCurator method.

@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	"github.com/choraio/mods/geonode"
+	"github.com/chora-io/mods/geonode"
 )
 
 // TxCmd creates and returns the tx command.

@@ -13,7 +13,7 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	"github.com/choraio/mods/geonode"
+	"github.com/chora-io/mods/geonode"
 )
 
 type baseSuite struct {

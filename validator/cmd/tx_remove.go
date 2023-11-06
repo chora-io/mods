@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 
-	v1 "github.com/choraio/mods/validator/types/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 // TxRemoveValidatorCmd creates and returns the tx remove command.

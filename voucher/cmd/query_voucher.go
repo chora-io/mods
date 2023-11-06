@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	v1 "github.com/choraio/mods/voucher/types/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
 )
 
 // QueryVoucherCmd creates and returns the query voucher command.

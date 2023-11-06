@@ -16,7 +16,7 @@ import (
 // chora.geonode.v1 describes the API for the geonode module.
 //
 // The following outlines revisions and tagged versions of the compiled code in
-// relation to tagged releases in https://github.com/choraio/mods:
+// relation to tagged releases in https://github.com/chora-io/mods:
 //
 // - Revision 0: (in progress)
 //

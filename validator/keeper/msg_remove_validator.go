@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	v1 "github.com/choraio/mods/validator/types/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 // RemoveValidator implements Msg/RemoveValidator.

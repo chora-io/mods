@@ -2,7 +2,7 @@
 
 set -e
 
-if ! grep -q "github.com/choraio/mods/content" go.mod ; then
+if ! grep -q "github.com/chora-io/mods/content" go.mod ; then
   echo -e "ERROR: This command must be run from inside the content module."
   return 1
 fi
@@ -36,7 +36,7 @@ done
 
 cd ..
 
-cp -r github.com/choraio/mods/content/* ./
+cp -r github.com/chora-io/mods/content/* ./
 rm -rf github.com
 
 echo "Generating pulsar files"

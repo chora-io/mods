@@ -1,4 +1,4 @@
-module github.com/choraio/mods/content
+module github.com/chora-io/mods/content
 
 go 1.20
 
@@ -159,7 +159,7 @@ require (
 // TODO: https://github.com/cosmos/cosmos-sdk/issues/10409
 replace github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.9.1
 
-// NOTE: cosmos fork of keyring
+// NOTE: use cosmos fork of keyring
 replace github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
 
 // NOTE: for compatibility with cosmos-sdk v0.50-rc1

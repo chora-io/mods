@@ -6,9 +6,9 @@ import (
 	"cosmossdk.io/orm/model/ormlist"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
-	v1 "github.com/choraio/mods/voucher/types/v1"
-	"github.com/choraio/mods/voucher/utils"
+	voucherv1 "github.com/chora-io/mods/voucher/api/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
+	"github.com/chora-io/mods/voucher/utils"
 )
 
 // Vouchers implements the Query/Vouchers method.

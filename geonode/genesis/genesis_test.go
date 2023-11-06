@@ -10,8 +10,8 @@ import (
 	"cosmossdk.io/orm/testing/ormtest"
 	"github.com/stretchr/testify/require"
 
-	"github.com/choraio/mods/geonode"
-	geonodev1 "github.com/choraio/mods/geonode/api/v1"
+	"github.com/chora-io/mods/geonode"
+	geonodev1 "github.com/chora-io/mods/geonode/api/v1"
 )
 
 func TestValidateGenesis(t *testing.T) {

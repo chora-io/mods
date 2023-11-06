@@ -6,7 +6,7 @@ import "cosmos/msg/v1/msg.proto";
 import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/choraio/mods/voucher/types/v1";
+option go_package = "github.com/chora-io/mods/voucher/types/v1";
 
 // Msg is the Msg service.
 service Msg {

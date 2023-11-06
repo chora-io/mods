@@ -1,4 +1,4 @@
-module github.com/choraio/mods/geonode
+module github.com/chora-io/mods/geonode
 
 go 1.20
 

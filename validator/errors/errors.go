@@ -3,7 +3,7 @@ package errors
 import (
 	"cosmossdk.io/errors"
 
-	"github.com/choraio/mods/validator"
+	"github.com/chora-io/mods/validator"
 )
 
 var (

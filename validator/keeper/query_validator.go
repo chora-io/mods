@@ -6,7 +6,7 @@ import (
 	"cosmossdk.io/orm/types/ormerrors"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	v1 "github.com/choraio/mods/validator/types/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 // Validator implements the Query/Validator method.

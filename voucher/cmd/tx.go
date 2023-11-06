@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	"github.com/choraio/mods/voucher"
+	"github.com/chora-io/mods/voucher"
 )
 
 // TxCmd creates and returns the tx command.

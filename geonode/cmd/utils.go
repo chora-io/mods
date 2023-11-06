@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	v1 "github.com/choraio/mods/geonode/types/v1"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
 )
 
 func getQueryClient(cmd *cobra.Command) (v1.QueryClient, client.Context, error) {

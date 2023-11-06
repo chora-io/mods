@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/choraio/mods/voucher"
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
+	"github.com/chora-io/mods/voucher"
+	voucherv1 "github.com/chora-io/mods/voucher/api/v1"
 )
 
 func TestValidateGenesis(t *testing.T) {

@@ -3,7 +3,7 @@ package errors
 import (
 	"cosmossdk.io/errors"
 
-	"github.com/choraio/mods/geonode"
+	"github.com/chora-io/mods/geonode"
 )
 
 var (

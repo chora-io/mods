@@ -2,7 +2,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/choraio/mods/content/api
+    default: github.com/chora-io/mods/content/api
     except:
       - buf.build/cosmos/cosmos-proto
       - buf.build/cosmos/gogo-proto

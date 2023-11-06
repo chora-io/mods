@@ -4,7 +4,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/spf13/cobra"
 
-	"github.com/choraio/mods/content"
+	"github.com/chora-io/mods/content"
 )
 
 // QueryCmd creates and returns the query command.

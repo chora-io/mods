@@ -13,10 +13,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/choraio/mods/content"
-	"github.com/choraio/mods/content/genesis"
-	"github.com/choraio/mods/content/keeper"
-	v1 "github.com/choraio/mods/content/types/v1"
+	"github.com/chora-io/mods/content"
+	"github.com/chora-io/mods/content/genesis"
+	"github.com/chora-io/mods/content/keeper"
+	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
 // ConsensusVersion is the module consensus version.

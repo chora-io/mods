@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	geonodev1 "github.com/choraio/mods/geonode/api/v1"
-	v1 "github.com/choraio/mods/geonode/types/v1"
+	geonodev1 "github.com/chora-io/mods/geonode/api/v1"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
 )
 
 // Create implements Msg/Create.

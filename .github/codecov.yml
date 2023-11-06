@@ -3,7 +3,7 @@
 # https://docs.codecov.com/docs
 #
 # Codecov Reports:
-# https://app.codecov.io/gh/choraio/mods
+# https://app.codecov.io/gh/chora-io/mods
 #
 coverage:
   precision: 2

@@ -6,9 +6,9 @@ import (
 	"cosmossdk.io/orm/model/ormlist"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	contentv1 "github.com/choraio/mods/content/api/v1"
-	v1 "github.com/choraio/mods/content/types/v1"
-	"github.com/choraio/mods/content/utils"
+	contentv1 "github.com/chora-io/mods/content/api/v1"
+	v1 "github.com/chora-io/mods/content/types/v1"
+	"github.com/chora-io/mods/content/utils"
 )
 
 // Contents implements the Query/Contents method.

@@ -8,9 +8,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/choraio/mods/validator"
-	validatorv1 "github.com/choraio/mods/validator/api/v1"
-	v1 "github.com/choraio/mods/validator/types/v1"
+	"github.com/chora-io/mods/validator"
+	validatorv1 "github.com/chora-io/mods/validator/api/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 var (

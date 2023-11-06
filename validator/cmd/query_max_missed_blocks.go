@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	v1 "github.com/choraio/mods/validator/types/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 // QueryPolicyCmd creates and returns the query validator command.

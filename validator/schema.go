@@ -3,7 +3,7 @@ package validator
 import (
 	ormv1alpha1 "cosmossdk.io/api/cosmos/orm/v1alpha1"
 
-	validatorv1 "github.com/choraio/mods/validator/api/v1"
+	validatorv1 "github.com/chora-io/mods/validator/api/v1"
 )
 
 // ModuleSchema is the schema of the module.

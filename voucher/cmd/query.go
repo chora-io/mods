@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	"github.com/choraio/mods/voucher"
+	"github.com/chora-io/mods/voucher"
 )
 
 // QueryCmd creates and returns the query command.

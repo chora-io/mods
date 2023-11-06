@@ -4,7 +4,7 @@ package chora.validator.v1;
 
 import "cosmos/msg/v1/msg.proto";
 
-option go_package = "github.com/choraio/mods/validator/types/v1";
+option go_package = "github.com/chora-io/mods/validator/types/v1";
 
 // Msg is the Msg service.
 service Msg {

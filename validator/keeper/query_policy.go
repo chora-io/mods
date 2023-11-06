@@ -3,7 +3,7 @@ package keeper
 import (
 	"context"
 
-	v1 "github.com/choraio/mods/validator/types/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 // Policy implements the Query/Policy method.

@@ -2,7 +2,7 @@
 
 set -e
 
-if ! grep -q "github.com/choraio/mods/geonode" go.mod ; then
+if ! grep -q "github.com/chora-io/mods/geonode" go.mod ; then
   echo -e "ERROR: This command must be run from inside the geonode module."
   return 1
 fi
@@ -36,7 +36,7 @@ done
 
 cd ..
 
-cp -r github.com/choraio/mods/geonode/* ./
+cp -r github.com/chora-io/mods/geonode/* ./
 rm -rf github.com
 
 echo "Generating pulsar files"

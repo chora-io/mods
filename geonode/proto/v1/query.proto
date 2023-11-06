@@ -5,7 +5,7 @@ package chora.geonode.v1;
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "google/api/annotations.proto";
 
-option go_package = "github.com/choraio/mods/geonode/types/v1";
+option go_package = "github.com/chora-io/mods/geonode/types/v1";
 
 // Query is the Query service.
 service Query {

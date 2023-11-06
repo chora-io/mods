@@ -3,7 +3,7 @@ package geonode
 import (
 	ormv1alpha1 "cosmossdk.io/api/cosmos/orm/v1alpha1"
 
-	geonodev1 "github.com/choraio/mods/geonode/api/v1"
+	geonodev1 "github.com/chora-io/mods/geonode/api/v1"
 )
 
 // ModuleSchema is the schema of the module.

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chora.content.v1;
 
-option go_package = "github.com/choraio/mods/content/types/v1";
+option go_package = "github.com/chora-io/mods/content/types/v1";
 
 // EventCreate is an event emitted when content is created.
 message EventCreate {

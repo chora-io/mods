@@ -4,7 +4,7 @@ package chora.validator.v1;
 
 import "cosmos/orm/v1/orm.proto";
 
-option go_package = "github.com/choraio/mods/validator/types/v1";
+option go_package = "github.com/chora-io/mods/validator/types/v1";
 
 // Policy defines a singleton table for the signing policy.
 message Policy {

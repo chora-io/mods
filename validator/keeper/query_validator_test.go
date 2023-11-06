@@ -7,8 +7,8 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	validatorv1 "github.com/choraio/mods/validator/api/v1"
-	v1 "github.com/choraio/mods/validator/types/v1"
+	validatorv1 "github.com/chora-io/mods/validator/api/v1"
+	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
 type queryValidator struct {

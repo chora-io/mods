@@ -7,9 +7,9 @@ import (
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
 
-	geonodev1 "github.com/choraio/mods/geonode/api/v1"
-	v1 "github.com/choraio/mods/geonode/types/v1"
-	"github.com/choraio/mods/geonode/utils"
+	geonodev1 "github.com/chora-io/mods/geonode/api/v1"
+	v1 "github.com/chora-io/mods/geonode/types/v1"
+	"github.com/chora-io/mods/geonode/utils"
 )
 
 type msgCreate struct {

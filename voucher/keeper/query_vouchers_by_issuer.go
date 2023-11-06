@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	voucherv1 "github.com/choraio/mods/voucher/api/v1"
-	v1 "github.com/choraio/mods/voucher/types/v1"
-	"github.com/choraio/mods/voucher/utils"
+	voucherv1 "github.com/chora-io/mods/voucher/api/v1"
+	v1 "github.com/chora-io/mods/voucher/types/v1"
+	"github.com/chora-io/mods/voucher/utils"
 )
 
 // VouchersByIssuer implements the Query/VouchersByIssuer method.
