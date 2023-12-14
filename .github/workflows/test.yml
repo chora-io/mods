@@ -98,19 +98,19 @@ jobs:
             **/**.go
             **/go.mod
             **/go.sum
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: coverage-content
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: coverage-geonode
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: coverage-validator
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: coverage-voucher
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
