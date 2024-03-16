@@ -10,8 +10,7 @@ import (
 func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 	return &autocliv1.ModuleOptions{
 		Query: &autocliv1.ServiceCommandDescriptor{
-			Service:              voucherv1.Query_ServiceDesc.ServiceName,
-			EnhanceCustomCommand: false, // use custom commands until v0.51
+			Service: voucherv1.Query_ServiceDesc.ServiceName,
 			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
 				{
 					RpcMethod: "Balance",
@@ -64,45 +63,45 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 		Tx: &autocliv1.ServiceCommandDescriptor{
 			Service:              voucherv1.Msg_ServiceDesc.ServiceName,
 			EnhanceCustomCommand: false, // use custom commands until v0.51
-			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
-				{
-					RpcMethod: "Create",
-					Use:       "create [metadata]",
-					Short:     "submit a transaction to create voucher",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "metadata"},
-					},
-				},
-				{
-					RpcMethod: "Issue",
-					Use:       "issue [id] [recipient] [amount] [expiration] [metadata]",
-					Short:     "submit a transaction to issue vouchers",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "id"},
-						{ProtoField: "recipient"},
-						{ProtoField: "amount"},
-						{ProtoField: "expiration"},
-						{ProtoField: "metadata"},
-					},
-				},
-				{
-					RpcMethod: "UpdateIssuer",
-					Use:       "update-issuer [id] [new-issuer]",
-					Short:     "submit a transaction to update voucher issuer",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "id"},
-						{ProtoField: "new_issuer"},
-					},
-				},
-				{
-					RpcMethod: "UpdateMetadata",
-					Use:       "update-issuer [id] [new-metadata]",
-					Short:     "submit a transaction to update voucher metadata",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "id"},
-						{ProtoField: "new_metadata"},
-					},
-				},
+			RpcCommandOptions:    []*autocliv1.RpcCommandOptions{
+				//{
+				//	RpcMethod: "Create",
+				//	Use:       "create [metadata]",
+				//	Short:     "submit a transaction to create voucher",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "metadata"},
+				//	},
+				//},
+				//{
+				//	RpcMethod: "Issue",
+				//	Use:       "issue [id] [recipient] [amount] [expiration] [metadata]",
+				//	Short:     "submit a transaction to issue vouchers",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "id"},
+				//		{ProtoField: "recipient"},
+				//		{ProtoField: "amount"},
+				//		{ProtoField: "expiration"},
+				//		{ProtoField: "metadata"},
+				//	},
+				//},
+				//{
+				//	RpcMethod: "UpdateIssuer",
+				//	Use:       "update-issuer [id] [new-issuer]",
+				//	Short:     "submit a transaction to update voucher issuer",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "id"},
+				//		{ProtoField: "new_issuer"},
+				//	},
+				//},
+				//{
+				//	RpcMethod: "UpdateMetadata",
+				//	Use:       "update-issuer [id] [new-metadata]",
+				//	Short:     "submit a transaction to update voucher metadata",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "id"},
+				//		{ProtoField: "new_metadata"},
+				//	},
+				//},
 			},
 		},
 	}

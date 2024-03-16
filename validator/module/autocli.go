@@ -10,8 +10,7 @@ import (
 func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 	return &autocliv1.ModuleOptions{
 		Query: &autocliv1.ServiceCommandDescriptor{
-			Service:              validatorv1.Query_ServiceDesc.ServiceName,
-			EnhanceCustomCommand: false, // use custom commands until v0.51
+			Service: validatorv1.Query_ServiceDesc.ServiceName,
 			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
 				{
 					RpcMethod: "Policy",
@@ -37,23 +36,23 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 			Service:              validatorv1.Msg_ServiceDesc.ServiceName,
 			EnhanceCustomCommand: false, // use custom commands until v0.51
 			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
-				{
-					RpcMethod: "AddValidator",
-					Use:       "add-validator [address] [metadata]",
-					Short:     "submit a transaction to add a validator",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "address"},
-						{ProtoField: "metadata"},
-					},
-				},
-				{
-					RpcMethod: "RemoveValidator",
-					Use:       "remove-validator [address]",
-					Short:     "submit a transaction to remove a validator",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "address"},
-					},
-				},
+				//{
+				//	RpcMethod: "AddValidator",
+				//	Use:       "add-validator [address] [metadata]",
+				//	Short:     "submit a transaction to add a validator",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "address"},
+				//		{ProtoField: "metadata"},
+				//	},
+				//},
+				//{
+				//	RpcMethod: "RemoveValidator",
+				//	Use:       "remove-validator [address]",
+				//	Short:     "submit a transaction to remove a validator",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "address"},
+				//	},
+				//},
 				{
 					RpcMethod: "UpdatePolicy",
 					Use:       "update-policy [authority] [signed-blocks-window] [min-signed-per-window]",
@@ -64,15 +63,15 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 						{ProtoField: "min_signed_per_window"},
 					},
 				},
-				{
-					RpcMethod: "UpdateValidator",
-					Use:       "update-validator [address] [metadata]",
-					Short:     "submit a transaction to update a validator",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "address"},
-						{ProtoField: "metadata"},
-					},
-				},
+				//{
+				//	RpcMethod: "UpdateValidator",
+				//	Use:       "update-validator [address] [metadata]",
+				//	Short:     "submit a transaction to update a validator",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "address"},
+				//		{ProtoField: "metadata"},
+				//	},
+				//},
 			},
 		},
 	}

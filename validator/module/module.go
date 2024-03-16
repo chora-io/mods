@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/spf13/cobra"
 
 	"cosmossdk.io/core/appmodule"
 	sdkclient "github.com/cosmos/cosmos-sdk/client"
@@ -14,6 +15,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 
 	"github.com/chora-io/mods/validator"
+	"github.com/chora-io/mods/validator/cmd"
 	"github.com/chora-io/mods/validator/genesis"
 	"github.com/chora-io/mods/validator/keeper"
 	v1 "github.com/chora-io/mods/validator/types/v1"
@@ -114,4 +116,9 @@ func (am AppModule) RegisterInvariants(_ sdk.InvariantRegistry) {}
 func (am AppModule) RegisterServices(cfg module.Configurator) {
 	v1.RegisterMsgServer(cfg.MsgServer(), am.k)
 	v1.RegisterQueryServer(cfg.QueryServer(), am.k)
+}
+
+// GetTxCmd returns the transaction commands for the module
+func (am AppModule) GetTxCmd() *cobra.Command {
+	return cmd.TxCmd()
 }
