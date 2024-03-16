@@ -3,6 +3,7 @@ package keeper
 import (
 	"encoding/json"
 
+	"cosmossdk.io/core/store"
 	"cosmossdk.io/orm/model/ormdb"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -24,11 +25,13 @@ type Keeper struct {
 }
 
 // NewKeeper creates a new keeper.
-func NewKeeper() Keeper {
+func NewKeeper(storeService store.KVStoreService) Keeper {
 	k := Keeper{}
 
 	var err error
-	k.db, err = ormdb.NewModuleDB(&geonode.ModuleSchema, ormdb.ModuleDBOptions{})
+	k.db, err = ormdb.NewModuleDB(&geonode.ModuleSchema, ormdb.ModuleDBOptions{
+		KVStoreService: storeService,
+	})
 	if err != nil {
 		panic(err)
 	}

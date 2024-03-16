@@ -1,17 +1,20 @@
 package keeper
 
 import (
+	db "github.com/cosmos/cosmos-db"
+	"github.com/regen-network/gocuke"
+	"github.com/stretchr/testify/require"
+
+	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
+
 	"cosmossdk.io/log"
 	"cosmossdk.io/orm/model/ormtable"
 	"cosmossdk.io/orm/testing/ormtest"
 	"cosmossdk.io/store"
 	"cosmossdk.io/store/metrics"
 	storetypes "cosmossdk.io/store/types"
-	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
-	db "github.com/cosmos/cosmos-db"
+	"github.com/cosmos/cosmos-sdk/runtime"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/regen-network/gocuke"
-	"github.com/stretchr/testify/require"
 
 	"github.com/chora-io/mods/geonode"
 )
@@ -46,8 +49,11 @@ func setupBase(t gocuke.TestingT) *baseSuite {
 	// create and set sdk context from commit multi-store with orm context
 	s.sdkCtx = sdk.NewContext(cms, tmproto.Header{}, false, log.NewNopLogger()).WithContext(ormCtx)
 
+	// create store service
+	service := runtime.NewKVStoreService(key)
+
 	// create and set keeper
-	s.k = NewKeeper()
+	s.k = NewKeeper(service)
 
 	return s
 }

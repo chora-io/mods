@@ -52,7 +52,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Short:     "query all vouchers",
 				},
 				{
-					RpcMethod: "VouchersByCurator",
+					RpcMethod: "VouchersByIssuer",
 					Use:       "vouchers-by-issuer [issuer]",
 					Short:     "query vouchers by issuer",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{

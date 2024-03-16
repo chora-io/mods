@@ -14,9 +14,9 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 			EnhanceCustomCommand: false, // use custom commands until v0.51
 			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
 				{
-					RpcMethod: "MaxMissedBlocks",
-					Use:       "max-missed-blocks",
-					Short:     "query the maximum number of missed blocks",
+					RpcMethod: "Policy",
+					Use:       "policy",
+					Short:     "query policy",
 				},
 				{
 					RpcMethod: "Validator",
@@ -55,9 +55,19 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					},
 				},
 				{
-					RpcMethod: "UpdateMetadata",
-					Use:       "update-metadata [address] [metadata]",
-					Short:     "submit a transaction to update validator metadata",
+					RpcMethod: "UpdatePolicy",
+					Use:       "update-policy [authority] [signed-blocks-window] [min-signed-per-window]",
+					Short:     "submit a transaction to update a validator",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "authority"},
+						{ProtoField: "signed_blocks_window"},
+						{ProtoField: "min_signed_per_window"},
+					},
+				},
+				{
+					RpcMethod: "UpdateValidator",
+					Use:       "update-validator [address] [metadata]",
+					Short:     "submit a transaction to update a validator",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 						{ProtoField: "address"},
 						{ProtoField: "metadata"},

@@ -20,7 +20,7 @@ func (k Keeper) UpdatePolicy(ctx context.Context, req *v1.MsgUpdatePolicy) (*v1.
 		)
 	}
 
-	// get max missed blocks from max missed blocks table
+	// get validator policy from policy table
 	policy, err := k.ss.PolicyTable().Get(ctx)
 	if err != nil {
 		return nil, err // internal error
@@ -32,7 +32,7 @@ func (k Keeper) UpdatePolicy(ctx context.Context, req *v1.MsgUpdatePolicy) (*v1.
 	// set min signed per window
 	policy.MinSignedPerWindow = req.MinSignedPerWindow
 
-	// update max missed blocks in max missed blocks table
+	// update validator policy in policy table
 	err = k.ss.PolicyTable().Save(ctx, policy)
 	if err != nil {
 		return nil, err // internal error

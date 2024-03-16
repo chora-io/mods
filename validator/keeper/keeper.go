@@ -3,6 +3,7 @@ package keeper
 import (
 	"encoding/json"
 
+	"cosmossdk.io/core/store"
 	"cosmossdk.io/orm/model/ormdb"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/codec"
@@ -27,12 +28,14 @@ type Keeper struct {
 }
 
 // NewKeeper creates a new keeper.
-func NewKeeper(authority sdk.AccAddress) Keeper {
+func NewKeeper(storeService store.KVStoreService, authority sdk.AccAddress) Keeper {
 	k := Keeper{authority: authority}
 
 	var err error
 
-	k.db, err = ormdb.NewModuleDB(&validator.ModuleSchema, ormdb.ModuleDBOptions{})
+	k.db, err = ormdb.NewModuleDB(&validator.ModuleSchema, ormdb.ModuleDBOptions{
+		KVStoreService: storeService,
+	})
 	if err != nil {
 		panic(err)
 	}
