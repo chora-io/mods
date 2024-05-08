@@ -79,19 +79,19 @@ jobs:
         with:
           go-version-file: 'voucher/go.mod'
         if: steps.git-diff-voucher.outputs.diff
-      - uses: golangci/golangci-lint-action@v3
+      - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "content"
         if: steps.git-diff-content.outputs.diff
-      - uses: golangci/golangci-lint-action@v3
+      - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "geonode"
         if: steps.git-diff-geonode.outputs.diff
-      - uses: golangci/golangci-lint-action@v3
+      - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "validator"
         if: steps.git-diff-validator.outputs.diff
-      - uses: golangci/golangci-lint-action@v3
+      - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "voucher"
         if: steps.git-diff-voucher.outputs.diff
