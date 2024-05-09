@@ -60,6 +60,7 @@ jobs:
         with:
           name: coverage-content
           path: coverage-content.out
+          overwrite: true
         if: |
           (env.GIT_DIFF && matrix.module == 'content') ||
           github.ref == 'refs/heads/main'
@@ -67,6 +68,7 @@ jobs:
         with:
           name: coverage-geonode
           path: coverage-geonode.out
+          overwrite: true
         if: |
           (env.GIT_DIFF && matrix.module == 'geonode') ||
           github.ref == 'refs/heads/main'
@@ -74,6 +76,7 @@ jobs:
         with:
           name: coverage-validator
           path: coverage-validator.out
+          overwrite: true
         if: |
           (env.GIT_DIFF && matrix.module == 'validator') ||
           github.ref == 'refs/heads/main'
@@ -81,6 +84,7 @@ jobs:
         with:
           name: coverage-voucher
           path: coverage-voucher.out
+          overwrite: true
         if: |
           (env.GIT_DIFF && matrix.module == 'voucher') ||
           github.ref == 'refs/heads/main'
