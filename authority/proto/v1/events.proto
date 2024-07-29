@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package chora.authority.v1;
+
+option go_package = "github.com/chora-io/mods/authority/types/v1";
+
+// EventUpdate is an event emitted when the authority is updated.
+message EventUpdate {
+
+  // authority is the address of the authority account.
+  string authority = 1;
+
+  // new_authority is the address of the new authority account.
+  string new_authority = 2;
+}

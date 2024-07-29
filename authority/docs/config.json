@@ -1,0 +1,13 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Chora Authority Module - REST and gRPC Gateway Documentation",
+    "description": "Documentation describing REST and gRPC endpoints for queries.",
+    "version": "v0.0.0"
+  },
+  "apis": [
+    {
+      "url": "./v1/query.swagger.json"
+    }
+  ]
+}

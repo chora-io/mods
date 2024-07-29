@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package chora.authority.v1;
+
+import "cosmos/orm/v1/orm.proto";
+
+option go_package = "github.com/chora-io/mods/authority/types/v1";
+
+// Authority defines the table and properties of the authority.
+message Authority {
+  option (cosmos.orm.v1.singleton) = {
+    id : 1,
+  };
+
+  // address is the address of the authority.
+  bytes address = 1;
+}

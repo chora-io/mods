@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package chora.authority.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/chora-io/mods/authority/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // Update updates the authority account.
+  rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+}
+
+// MsgUpdate is the Msg/Update request type.
+message MsgUpdate {
+  option (cosmos.msg.v1.signer) = "authority";
+
+  // authority is the address of the authority account.
+  string authority = 1;
+
+  // new_authority is the address of the new authority account.
+  string new_authority = 2;
+}
+
+// MsgUpdateResponse is the Msg/Update response type.
+message MsgUpdateResponse {
+
+  // authority is the address of the authority account.
+  string authority = 1;
+
+  // new_authority is the address of the new authority account.
+  string new_authority = 2;
+}
