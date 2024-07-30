@@ -1,6 +1,8 @@
 # Overview
 
-The `content` module enables a user to create, update, and delete content.
+The `authority` module enables a network to have a dynamic authority account. The authority of the network is an account that has permission to update module parameters.
+
+Depending on how each module is configured in a blockchain application, the authority account can have full control over module parameters (i.e. all modules are configured to use authority) or partial control over module parameters (i.e. only some modules are configured to use authority).
 
 ## Contents
 
