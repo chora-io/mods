@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package chora.admin.v1;
+
+import "cosmos/orm/v1/orm.proto";
+
+option go_package = "github.com/chora-io/mods/admin/types/v1";
+
+// Admin defines the table and properties of the admin.
+message Admin {
+  option (cosmos.orm.v1.singleton) = {
+    id : 1,
+  };
+
+  // address is the address of the admin.
+  bytes address = 1;
+}

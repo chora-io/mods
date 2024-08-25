@@ -1,0 +1,80 @@
+swagger: '2.0'
+info:
+  title: Chora Admin Module - REST and gRPC Gateway Documentation
+  description: Documentation describing REST and gRPC endpoints for queries.
+  version: v0.0.0
+paths:
+  /chora/admin/v1/admin:
+    get:
+      summary: Admin queries the admin account.
+      operationId: Admin
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              admin:
+                type: string
+                description: admin is the address of the admin account.
+            description: QueryAdminResponse is the Query/Admin response type.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type_url:
+                      type: string
+                    value:
+                      type: string
+                      format: byte
+      tags:
+        - Query
+definitions:
+  chora.admin.v1.QueryAdminResponse:
+    type: object
+    properties:
+      admin:
+        type: string
+        description: admin is the address of the admin account.
+    description: QueryAdminResponse is the Query/Admin response type.
+  google.protobuf.Any:
+    type: object
+    properties:
+      type_url:
+        type: string
+      value:
+        type: string
+        format: byte
+  grpc.gateway.runtime.Error:
+    type: object
+    properties:
+      error:
+        type: string
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          properties:
+            type_url:
+              type: string
+            value:
+              type: string
+              format: byte

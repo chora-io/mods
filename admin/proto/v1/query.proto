@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package chora.admin.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/chora-io/mods/admin/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Admin queries the admin account.
+  rpc Admin(QueryAdminRequest) returns (QueryAdminResponse) {
+    option (google.api.http).get = "/chora/admin/v1/admin";
+  }
+}
+
+// QueryAdminRequest is the Query/Admin request type.
+message QueryAdminRequest {}
+
+// QueryAdminResponse is the Query/Admin response type.
+message QueryAdminResponse {
+
+  // admin is the address of the admin account.
+  string admin = 1;
+}

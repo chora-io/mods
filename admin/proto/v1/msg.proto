@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package chora.admin.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/chora-io/mods/admin/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // Update updates the admin account.
+  rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+}
+
+// MsgUpdate is the Msg/Update request type.
+message MsgUpdate {
+  option (cosmos.msg.v1.signer) = "admin";
+
+  // admin is the address of the admin account.
+  string admin = 1;
+
+  // new_admin is the address of the new admin account.
+  string new_admin = 2;
+}
+
+// MsgUpdateResponse is the Msg/Update response type.
+message MsgUpdateResponse {
+
+  // admin is the address of the admin account.
+  string admin = 1;
+
+  // new_admin is the address of the new admin account.
+  string new_admin = 2;
+}
