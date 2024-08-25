@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package chora.ecosystem.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/chora-io/mods/ecosystem/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Node queries a node by id.
+  rpc Node(QueryNodeRequest) returns (QueryNodeResponse) {
+    option (google.api.http).get = "/chora/ecosystem/v1/node/{id}";
+  }
+
+  // Nodes queries all nodes.
+  rpc Nodes(QueryNodesRequest) returns (QueryNodesResponse) {
+    option (google.api.http).get = "/chora/ecosystem/v1/nodes";
+  }
+
+  // NodesByCurator queries nodes by curator.
+  rpc NodesByCurator(QueryNodesByCuratorRequest)
+      returns (QueryNodesByCuratorResponse) {
+    option (google.api.http).get =
+        "/chora/ecosystem/v1/nodes-by-curator/{curator}";
+  }
+}
+
+// QueryNodeRequest is the Query/Node request type.
+message QueryNodeRequest {
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+}
+
+// QueryNodeResponse is the Query/Node response type.
+message QueryNodeResponse {
+
+  // id is the unique identifier of the node.
+  uint64 id = 1;
+
+  // curator is the address of the node curator.
+  string curator = 2;
+
+  // metadata is the metadata of the node.
+  string metadata = 3;
+}
+
+// QueryNodesRequest is the Query/Nodes request type.
+message QueryNodesRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryNodesResponse is the Query/Nodes response type.
+message QueryNodesResponse {
+
+  // nodes is the list of nodes.
+  repeated Node nodes = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+
+  // Node is the node properties.
+  message Node {
+
+    // id is the unique identifier of the node.
+    uint64 id = 1;
+
+    // curator is the address of the node curator.
+    string curator = 2;
+
+    // metadata is the metadata of the node.
+    string metadata = 3;
+  }
+}
+
+// QueryNodesByCuratorRequest is the Query/NodesByCurator request type.
+message QueryNodesByCuratorRequest {
+
+  // curator is the address of the node curator.
+  string curator = 1;
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QueryNodesByCuratorResponse is the Query/NodesByCurator response type.
+message QueryNodesByCuratorResponse {
+
+  // curator is the address of the node curator.
+  string curator = 1;
+
+  // nodes is the list of nodes managed by the curator.
+  repeated Node nodes = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Node is the node properties.
+  message Node {
+
+    // id is the unique identifier of the node.
+    uint64 id = 1;
+
+    // metadata is the metadata of the node.
+    string metadata = 2;
+  }
+}
