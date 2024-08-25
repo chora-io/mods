@@ -24,9 +24,9 @@ func TxAddValidatorCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgAddValidator{
-				Authority: clientCtx.GetFromAddress().String(),
-				Address:   args[0],
-				Metadata:  args[1],
+				Admin:    clientCtx.GetFromAddress().String(),
+				Address:  args[0],
+				Metadata: args[1],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

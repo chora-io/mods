@@ -1,6 +1,6 @@
 # Overview
 
-The `voucher` module enables a user to create, update, and issue vouchers.
+The `voucher` module enables the creation, issuance, and management of vouchers.
 
 ## Contents
 

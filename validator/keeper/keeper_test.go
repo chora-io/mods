@@ -20,10 +20,10 @@ import (
 )
 
 type baseSuite struct {
-	t         gocuke.TestingT
-	sdkCtx    sdk.Context
-	k         Keeper
-	authority sdk.AccAddress
+	t      gocuke.TestingT
+	sdkCtx sdk.Context
+	k      Keeper
+	admin  sdk.AccAddress
 }
 
 func setupBase(t gocuke.TestingT) *baseSuite {
@@ -52,15 +52,15 @@ func setupBase(t gocuke.TestingT) *baseSuite {
 
 	var err error
 
-	// authority test account
-	s.authority, err = sdk.AccAddressFromBech32("chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38")
+	// admin test account
+	s.admin, err = sdk.AccAddressFromBech32("chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38")
 	require.NoError(t, err)
 
 	// create store service
 	service := runtime.NewKVStoreService(key)
 
 	// create and set keeper
-	s.k = NewKeeper(service, s.authority)
+	s.k = NewKeeper(service, s.admin)
 
 	return s
 }

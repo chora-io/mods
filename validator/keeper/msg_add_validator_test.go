@@ -28,8 +28,8 @@ func (s *msgAddValidator) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgAddValidator) Authority(a string) {
-	require.Equal(s.t, s.authority.String(), a)
+func (s *msgAddValidator) Admin(a string) {
+	require.Equal(s.t, s.admin.String(), a)
 }
 
 func (s *msgAddValidator) MsgAddValidator(a gocuke.DocString) {

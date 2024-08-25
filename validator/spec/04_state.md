@@ -10,6 +10,6 @@ The state is defined in the proto files available to view on [Buf Schema Registr
 
 <!-- listed alphabetically -->
 
-- [Policy](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Policy)
+- [SigningPolicy](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.SigningPolicy)
 - [Validator](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.Validator)
 - [ValidatorSigningInfo](https://buf.build/chora/validator/docs/main:chora.validator.v1#chora.validator.v1.ValidatorSigningInfo)

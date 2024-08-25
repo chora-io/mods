@@ -9,8 +9,8 @@ var _ sdk.Msg = &MsgAddValidator{}
 
 // ValidateBasic performs stateless validation on MsgAddValidator.
 func (m MsgAddValidator) ValidateBasic() error {
-	if _, err := sdk.AccAddressFromBech32(m.Authority); err != nil {
-		return sdkerrors.ErrInvalidAddress.Wrapf("authority: %s", err)
+	if _, err := sdk.AccAddressFromBech32(m.Admin); err != nil {
+		return sdkerrors.ErrInvalidAddress.Wrapf("admin: %s", err)
 	}
 
 	if _, err := sdk.AccAddressFromBech32(m.Address); err != nil {
@@ -30,7 +30,7 @@ func (m MsgAddValidator) ValidateBasic() error {
 
 // GetSigners returns the expected signers for MsgAddValidator.
 func (m MsgAddValidator) GetSigners() []sdk.AccAddress {
-	addr, _ := sdk.AccAddressFromBech32(m.Authority)
+	addr, _ := sdk.AccAddressFromBech32(m.Admin)
 	return []sdk.AccAddress{addr}
 }
 

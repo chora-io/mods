@@ -28,8 +28,8 @@ func (s *msgUpdatePolicy) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgUpdatePolicy) Authority(a string) {
-	require.Equal(s.t, s.authority.String(), a)
+func (s *msgUpdatePolicy) Admin(a string) {
+	require.Equal(s.t, s.admin.String(), a)
 }
 
 func (s *msgUpdatePolicy) Policy(a gocuke.DocString) {

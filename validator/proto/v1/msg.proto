@@ -9,13 +9,13 @@ option go_package = "github.com/chora-io/mods/validator/types/v1";
 // Msg is the Msg service.
 service Msg {
 
-  // AddValidator adds a validator (restricted to authority).
+  // AddValidator adds a validator (restricted to admin).
   rpc AddValidator(MsgAddValidator) returns (MsgAddValidatorResponse);
 
-  // RemoveValidator removes a validator (restricted to authority).
+  // RemoveValidator removes a validator (restricted to admin).
   rpc RemoveValidator(MsgRemoveValidator) returns (MsgRemoveValidatorResponse);
 
-  // UpdatePolicy updates the policy (restricted to authority).
+  // UpdatePolicy updates the policy (restricted to admin).
   rpc UpdatePolicy(MsgUpdatePolicy) returns (MsgUpdatePolicyResponse);
 
   // UpdateValidator updates a validator (restricted to operator).
@@ -24,10 +24,10 @@ service Msg {
 
 // MsgAddValidator is the Msg/AddValidator request type.
 message MsgAddValidator {
-  option (cosmos.msg.v1.signer) = "authority";
+  option (cosmos.msg.v1.signer) = "admin";
 
-  // authority is the address of the authority.
-  string authority = 1;
+  // admin is the address of the admin.
+  string admin = 1;
 
   // address is the address of the validator.
   string address = 2;
@@ -48,10 +48,10 @@ message MsgAddValidatorResponse {
 
 // MsgRemoveValidator is the Msg/RemoveValidator request type.
 message MsgRemoveValidator {
-  option (cosmos.msg.v1.signer) = "authority";
+  option (cosmos.msg.v1.signer) = "admin";
 
-  // authority is the address of the authority.
-  string authority = 1;
+  // admin is the address of the admin.
+  string admin = 1;
 
   // address is the address of the validator.
   string address = 2;
@@ -66,10 +66,10 @@ message MsgRemoveValidatorResponse {
 
 // MsgUpdatePolicy is the Msg/UpdatePolicy request type.
 message MsgUpdatePolicy {
-  option (cosmos.msg.v1.signer) = "authority";
+  option (cosmos.msg.v1.signer) = "admin";
 
-  // authority is the address of the authority.
-  string authority = 1;
+  // admin is the address of the admin.
+  string admin = 1;
 
   // signed_blocks_window is the window within which a validator is expected to
   // sign a block.

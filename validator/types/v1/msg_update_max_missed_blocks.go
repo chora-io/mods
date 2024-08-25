@@ -9,8 +9,8 @@ var _ sdk.Msg = &MsgUpdatePolicy{}
 
 // ValidateBasic performs stateless validation on MsgUpdatePolicy.
 func (m MsgUpdatePolicy) ValidateBasic() error {
-	if _, err := sdk.AccAddressFromBech32(m.Authority); err != nil {
-		return sdkerrors.ErrInvalidAddress.Wrapf("authority: %s", err)
+	if _, err := sdk.AccAddressFromBech32(m.Admin); err != nil {
+		return sdkerrors.ErrInvalidAddress.Wrapf("admin: %s", err)
 	}
 
 	return nil
@@ -18,7 +18,7 @@ func (m MsgUpdatePolicy) ValidateBasic() error {
 
 // GetSigners returns the expected signers for MsgUpdatePolicy.
 func (m MsgUpdatePolicy) GetSigners() []sdk.AccAddress {
-	addr, _ := sdk.AccAddressFromBech32(m.Authority)
+	addr, _ := sdk.AccAddressFromBech32(m.Admin)
 	return []sdk.AccAddress{addr}
 }
 

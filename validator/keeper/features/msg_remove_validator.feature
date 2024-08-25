@@ -1,7 +1,7 @@
 Feature: Msg/RemoveValidator
 
   RemoveValidator is successful when:
-  - authority is the authority address
+  - admin is the admin address
   - validator with address exists
 
   RemoveValidator has the following outcomes:
@@ -10,10 +10,10 @@ Feature: Msg/RemoveValidator
   - EventRemoveValidator is emitted
   - MsgRemoveValidatorResponse is returned
 
-  Rule: The authority must be the authority address
+  Rule: The admin must be the admin address
 
     Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       And validator
       """
       {
@@ -30,33 +30,33 @@ Feature: Msg/RemoveValidator
       }
       """
 
-    Scenario: authority is authority address
+    Scenario: admin is admin address
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
       Then expect no error
 
-    Scenario: authority is not authority address
+    Scenario: admin is not admin address
       When msg remove validator
       """
       {
-        "authority": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
+        "admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
       Then expect the error
       """
-      authority: expected chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38: received chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: unauthorized
+      admin: expected chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38: received chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: unauthorized
       """
 
   Rule: The validator must exist
 
     Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       And validator
       """
       {
@@ -77,7 +77,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -87,7 +87,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       }
       """
@@ -99,7 +99,7 @@ Feature: Msg/RemoveValidator
   Rule: Validator is removed from state
 
     Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       And validator
       """
       {
@@ -120,7 +120,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -131,7 +131,7 @@ Feature: Msg/RemoveValidator
   Rule: ValidatorSigningInfo is removed from state
 
     Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       And validator
       """
       {
@@ -152,7 +152,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -163,7 +163,7 @@ Feature: Msg/RemoveValidator
   Rule: EventRemoveValidator emitted
 
     Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       And validator
       """
       {
@@ -184,7 +184,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -200,7 +200,7 @@ Feature: Msg/RemoveValidator
   Rule: MsgRemoveValidatorResponse is returned
 
     Background:
-      Given authority "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       And validator
       """
       {
@@ -221,7 +221,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "authority": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """

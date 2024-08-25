@@ -55,10 +55,10 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//},
 				{
 					RpcMethod: "UpdatePolicy",
-					Use:       "update-policy [authority] [signed-blocks-window] [min-signed-per-window]",
+					Use:       "update-policy [admin] [signed-blocks-window] [min-signed-per-window]",
 					Short:     "submit a transaction to update a validator",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "authority"},
+						{ProtoField: "admin"},
 						{ProtoField: "signed_blocks_window"},
 						{ProtoField: "min_signed_per_window"},
 					},

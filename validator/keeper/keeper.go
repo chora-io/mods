@@ -21,15 +21,15 @@ var (
 
 // Keeper is the keeper.
 type Keeper struct {
-	authority sdk.AccAddress // authority account address
+	admin sdk.AccAddress // admin account address
 
 	db ormdb.ModuleDB         // module database
 	ss validatorv1.StateStore // module state store
 }
 
 // NewKeeper creates a new keeper.
-func NewKeeper(storeService store.KVStoreService, authority sdk.AccAddress) Keeper {
-	k := Keeper{authority: authority}
+func NewKeeper(storeService store.KVStoreService, admin sdk.AccAddress) Keeper {
+	k := Keeper{admin: admin}
 
 	var err error
 

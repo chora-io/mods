@@ -1,3 +1,3 @@
 # validator
 
-The `validator` module enables proof-of-authority consensus.
+The `validator` module enables a framework for validators.

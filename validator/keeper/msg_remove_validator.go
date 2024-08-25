@@ -14,10 +14,10 @@ import (
 func (k Keeper) RemoveValidator(ctx context.Context, req *v1.MsgRemoveValidator) (*v1.MsgRemoveValidatorResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	authorityAddress := k.authority.String()
-	if authorityAddress != req.Authority {
+	adminAddress := k.admin.String()
+	if adminAddress != req.Admin {
 		return nil, sdkerrors.ErrUnauthorized.Wrapf(
-			"authority: expected %s: received %s", authorityAddress, req.Authority,
+			"admin: expected %s: received %s", adminAddress, req.Admin,
 		)
 	}
 
