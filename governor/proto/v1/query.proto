@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package chora.governor.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/chora-io/mods/governor/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Governor queries a governor by address.
+  rpc Governor(QueryGovernorRequest) returns (QueryGovernorResponse) {
+    option (google.api.http).get = "/chora/governor/v1/governor/{address}";
+  }
+
+  // Governors queries all governors.
+  rpc Governors(QueryGovernorsRequest) returns (QueryGovernorsResponse) {
+    option (google.api.http).get = "/chora/governor/v1/governors";
+  }
+}
+
+// QueryGovernorRequest is the Query/Governor request type.
+message QueryGovernorRequest {
+
+  // address is the address of the governor.
+  string address = 1;
+}
+
+// QueryGovernorResponse is the Query/Governor response type.
+message QueryGovernorResponse {
+
+  // address is the address of the governor.
+  string address = 1;
+
+  // metadata is the metadata of the governor.
+  string metadata = 2;
+}
+
+// QueryGovernorsRequest is the Query/Governors request type.
+message QueryGovernorsRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryGovernorsResponse is the Query/Governors response type.
+message QueryGovernorsResponse {
+
+  // governors is the list of governors.
+  repeated Governor governors = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Governor is the governor properties.
+  message Governor {
+
+    // address is the address of the governor.
+    string address = 1;
+
+    // metadata is the metadata of the governor.
+    string metadata = 2;
+  }
+}

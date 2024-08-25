@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+package chora.governor.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/chora-io/mods/governor/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // Register registers a governor (any account).
+  rpc Register(MsgRegister) returns (MsgRegisterResponse);
+
+  // Remove removes a governor (only admin account).
+  rpc Remove(MsgRemove) returns (MsgRemoveResponse);
+
+  // Resign resigns a governor (only governor account).
+  rpc Resign(MsgResign) returns (MsgResignResponse);
+
+  // Update updates a governor (only governor account).
+  rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+}
+
+// MsgRegister is the Msg/Register request type.
+message MsgRegister {
+  option (cosmos.msg.v1.signer) = "governor";
+
+  // governor is the address of the governor.
+  string governor = 1;
+
+  // metadata is the metadata of the governor.
+  string metadata = 2;
+}
+
+// MsgRegisterResponse is the Msg/Register response type.
+message MsgRegisterResponse {
+
+  // governor is the address of the governor.
+  string governor = 1;
+}
+
+// MsgRemove is the Msg/Remove request type.
+message MsgRemove {
+  option (cosmos.msg.v1.signer) = "governor";
+
+  // governor is the address of the governor.
+  string governor = 1;
+}
+
+// MsgRemoveResponse is the Msg/Remove response type.
+message MsgRemoveResponse {
+
+  // governor is the address of the governor.
+  string governor = 1;
+}
+
+// MsgResign is the Msg/Resign request type.
+message MsgResign {
+  option (cosmos.msg.v1.signer) = "governor";
+
+  // governor is the address of the governor.
+  string governor = 1;
+}
+
+// MsgResignResponse is the Msg/Resign response type.
+message MsgResignResponse {
+
+  // governor is the address of the governor.
+  string governor = 1;
+}
+
+// MsgUpdate is the Msg/Update request type.
+message MsgUpdate {
+  option (cosmos.msg.v1.signer) = "governor";
+
+  // governor is the address of the governor.
+  string governor = 1;
+
+  // new_metadata is the new metadata of the governor.
+  string new_metadata = 2;
+}
+
+// MsgUpdateResponse is the Msg/Update response type.
+message MsgUpdateResponse {
+
+  // governor is the address of the governor.
+  string governor = 1;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package chora.governor.v1;
+
+import "cosmos/orm/v1/orm.proto";
+
+option go_package = "github.com/chora-io/mods/governor/types/v1";
+
+// Governor defines the table and properties of a governor.
+message Governor {
+  option (cosmos.orm.v1.table) = {
+    id : 2,
+    primary_key : {fields : "governor"}
+  };
+
+  // governor is the address of the governor.
+  string governor = 1;
+
+  // metadata is the metadata of the governor.
+  string metadata = 2;
+}

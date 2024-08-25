@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package chora.governor.v1;
+
+option go_package = "github.com/chora-io/mods/governor/types/v1";
+
+// EventRegister is an event emitted when a governor has registered.
+message EventRegister {
+
+  // address is the address of the governor.
+  string address = 1;
+}
+
+// EventRemove is an event emitted when a governor has been removed.
+message EventRemove {
+
+  // address is the address of the governor.
+  string address = 1;
+}
+
+// EventResign is an event emitted when a governor has resigned.
+message EventResign {
+
+  // address is the address of the governor.
+  string address = 1;
+}
+
+// EventUpdate is an event emitted when a governor has updated.
+message EventUpdate {
+
+  // address is the address of the governor.
+  string address = 1;
+}
