@@ -29,25 +29,41 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "validator", "voucher"]
+        module: ["admin", "ecosystem", "example", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-content
+        id: git-diff-admin
         with:
           PATTERNS: |
-            content/**/**.go
-            content/go.mod
-            content/go.sum
-        if: matrix.module == 'content'
+            admin/**/**.go
+            admin/go.mod
+            admin/go.sum
+        if: matrix.module == 'admin'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-geonode
+        id: git-diff-ecosystem
         with:
           PATTERNS: |
-            geonode/**/**.go
-            geonode/go.mod
-            geonode/go.sum
-        if: matrix.module == 'geonode'
+            ecosystem/**/**.go
+            ecosystem/go.mod
+            ecosystem/go.sum
+        if: matrix.module == 'ecosystem'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-example
+        with:
+          PATTERNS: |
+            example/**/**.go
+            example/go.mod
+            example/go.sum
+        if: matrix.module == 'example'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-governor
+        with:
+          PATTERNS: |
+            governor/**/**.go
+            governor/go.mod
+            governor/go.sum
+        if: matrix.module == 'governor'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -66,20 +82,32 @@ jobs:
         if: matrix.module == 'voucher'
       - uses: bufbuild/buf-setup-action@v1
         if: |
-          steps.git-diff-content.outputs.diff ||
-          steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-admin.outputs.diff ||
+          steps.git-diff-ecosystem.outputs.diff ||
+          steps.git-diff-example.outputs.diff ||
+          steps.git-diff-governor.outputs.diff ||
           steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
-          input: 'content/proto'
-          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=content/proto'
-        if: steps.git-diff-content.outputs.diff
+          input: 'admin/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=admin/proto'
+        if: steps.git-diff-example.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
-          input: 'geonode/proto'
-          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=geonode/proto'
-        if: steps.git-diff-geonode.outputs.diff
+          input: 'ecosystem/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=ecosystem/proto'
+        if: steps.git-diff-ecosystem.outputs.diff
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          input: 'example/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=example/proto'
+        if: steps.git-diff-example.outputs.diff
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          input: 'governor/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=governor/proto'
+        if: steps.git-diff-ecosystem.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
           input: 'validator/proto'

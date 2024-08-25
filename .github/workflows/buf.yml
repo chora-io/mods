@@ -29,21 +29,33 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "validator", "voucher"]
+        module: ["admin", "ecosystem", "example", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-content
+        id: git-diff-admin
         with:
           PATTERNS: |
-            content/**/**.proto
-        if: matrix.module == 'content'
+            admin/**/**.proto
+        if: matrix.module == 'admin'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-geonode
+        id: git-diff-ecosystem
         with:
           PATTERNS: |
-            geonode/**/**.proto
-        if: matrix.module == 'geonode'
+            ecosystem/**/**.proto
+        if: matrix.module == 'ecosystem'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-example
+        with:
+          PATTERNS: |
+            example/**/**.proto
+        if: matrix.module == 'example'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-governor
+        with:
+          PATTERNS: |
+            governor/**/**.proto
+        if: matrix.module == 'governor'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -59,14 +71,24 @@ jobs:
       - uses: bufbuild/buf-setup-action@v1
       - uses: bufbuild/buf-push-action@v1
         with:
-          input: 'content/proto'
+          input: 'admin/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
-        if: steps.git-diff-content.outputs.diff
+        if: steps.git-diff-admin.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
-          input: 'geonode/proto'
+          input: 'ecosystem/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
-        if: steps.git-diff-geonode.outputs.diff
+        if: steps.git-diff-ecosystem.outputs.diff
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          input: 'example/proto'
+          buf_token: ${{ secrets.BUF_TOKEN }}
+        if: steps.git-diff-example.outputs.diff
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          input: 'governor/proto'
+          buf_token: ${{ secrets.BUF_TOKEN }}
+        if: steps.git-diff-governor.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
           input: 'validator/proto'

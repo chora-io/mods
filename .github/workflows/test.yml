@@ -27,7 +27,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "validator", "voucher"]
+        module: ["admin", "ecosystem", "example", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -40,13 +40,21 @@ jobs:
         with:
           go-version: '1.22'
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
-      - run: make test-content
+      - run: make test-admin
         if: |
-          (env.GIT_DIFF && matrix.module == 'content') ||
+          (env.GIT_DIFF && matrix.module == 'admin') ||
           github.ref == 'refs/heads/main'
-      - run: make test-geonode
+      - run: make test-ecosystem
         if: |
-          (env.GIT_DIFF && matrix.module == 'geonode') ||
+          (env.GIT_DIFF && matrix.module == 'ecosystem') ||
+          github.ref == 'refs/heads/main'
+      - run: make test-example
+        if: |
+          (env.GIT_DIFF && matrix.module == 'example') ||
+          github.ref == 'refs/heads/main'
+      - run: make test-governor
+        if: |
+          (env.GIT_DIFF && matrix.module == 'governor') ||
           github.ref == 'refs/heads/main'
       - run: make test-validator
         if: |
@@ -58,19 +66,35 @@ jobs:
           github.ref == 'refs/heads/main'
       - uses: actions/upload-artifact@v4
         with:
-          name: coverage-content
-          path: coverage-content.out
+          name: coverage-admin
+          path: coverage-admin.out
           overwrite: true
         if: |
-          (env.GIT_DIFF && matrix.module == 'content') ||
+          (env.GIT_DIFF && matrix.module == 'admin') ||
           github.ref == 'refs/heads/main'
       - uses: actions/upload-artifact@v4
         with:
-          name: coverage-geonode
-          path: coverage-geonode.out
+          name: coverage-ecosystem
+          path: coverage-ecosystem.out
           overwrite: true
         if: |
-          (env.GIT_DIFF && matrix.module == 'geonode') ||
+          (env.GIT_DIFF && matrix.module == 'ecosystem') ||
+          github.ref == 'refs/heads/main'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-example
+          path: coverage-example.out
+          overwrite: true
+        if: |
+          (env.GIT_DIFF && matrix.module == 'example') ||
+          github.ref == 'refs/heads/main'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-governor
+          path: coverage-governor.out
+          overwrite: true
+        if: |
+          (env.GIT_DIFF && matrix.module == 'governor') ||
           github.ref == 'refs/heads/main'
       - uses: actions/upload-artifact@v4
         with:
@@ -104,11 +128,19 @@ jobs:
             **/go.sum
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-content
+          name: coverage-admin
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-geonode
+          name: coverage-example
+        if: env.GIT_DIFF || github.ref == 'refs/heads/main'
+      - uses: actions/download-artifact@v4
+        with:
+          name: coverage-ecosystem
+        if: env.GIT_DIFF || github.ref == 'refs/heads/main'
+      - uses: actions/download-artifact@v4
+        with:
+          name: coverage-governor
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:

@@ -28,25 +28,41 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "validator", "voucher"]
+        module: ["admin", "ecosystem", "example", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-content
+        id: git-diff-admin
         with:
           PATTERNS: |
-            content/**/**.go
-            content/go.mod
-            content/go.sum
-        if: matrix.module == 'content'
+            admin/**/**.go
+            admin/go.mod
+            admin/go.sum
+        if: matrix.module == 'admin'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-geonode
+        id: git-diff-example
         with:
           PATTERNS: |
-            geonode/**/**.go
-            geonode/go.mod
-            geonode/go.sum
-        if: matrix.module == 'geonode'
+            example/**/**.go
+            example/go.mod
+            example/go.sum
+        if: matrix.module == 'example'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-ecosystem
+        with:
+          PATTERNS: |
+            ecosystem/**/**.go
+            ecosystem/go.mod
+            ecosystem/go.sum
+        if: matrix.module == 'ecosystem'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-governor
+        with:
+          PATTERNS: |
+            governor/**/**.go
+            governor/go.mod
+            governor/go.sum
+        if: matrix.module == 'governor'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-voucher
         with:
@@ -65,12 +81,20 @@ jobs:
         if: matrix.module == 'validator'
       - uses: actions/setup-go@v5
         with:
-          go-version-file: 'content/go.mod'
-        if: steps.git-diff-content.outputs.diff
+          go-version-file: 'admin/go.mod'
+        if: steps.git-diff-admin.outputs.diff
       - uses: actions/setup-go@v5
         with:
-          go-version-file: 'geonode/go.mod'
-        if: steps.git-diff-geonode.outputs.diff
+          go-version-file: 'example/go.mod'
+        if: steps.git-diff-example.outputs.diff
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'ecosystem/go.mod'
+        if: steps.git-diff-ecosystem.outputs.diff
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'governor/go.mod'
+        if: steps.git-diff-governor.outputs.diff
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'validator/go.mod'
@@ -81,12 +105,20 @@ jobs:
         if: steps.git-diff-voucher.outputs.diff
       - uses: golangci/golangci-lint-action@v6
         with:
-          working-directory: "content"
-        if: steps.git-diff-content.outputs.diff
+          working-directory: "admin"
+        if: steps.git-diff-admin.outputs.diff
       - uses: golangci/golangci-lint-action@v6
         with:
-          working-directory: "geonode"
-        if: steps.git-diff-geonode.outputs.diff
+          working-directory: "example"
+        if: steps.git-diff-example.outputs.diff
+      - uses: golangci/golangci-lint-action@v6
+        with:
+          working-directory: "ecosystem"
+        if: steps.git-diff-ecosystem.outputs.diff
+      - uses: golangci/golangci-lint-action@v6
+        with:
+          working-directory: "governor"
+        if: steps.git-diff-governor.outputs.diff
       - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "validator"
@@ -102,21 +134,33 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "validator", "voucher"]
+        module: ["admin", "example", "ecosystem", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-content
+        id: git-diff-admin
         with:
           PATTERNS: |
-            content/**/**.proto
-        if: matrix.module == 'content'
+            admin/**/**.proto
+        if: matrix.module == 'admin'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-geonode
+        id: git-diff-example
         with:
           PATTERNS: |
-            geonode/**/**.proto
-        if: matrix.module == 'geonode'
+            example/**/**.proto
+        if: matrix.module == 'example'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-ecosystem
+        with:
+          PATTERNS: |
+            ecosystem/**/**.proto
+        if: matrix.module == 'ecosystem'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-governor
+        with:
+          PATTERNS: |
+            governor/**/**.proto
+        if: matrix.module == 'governor'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -131,18 +175,28 @@ jobs:
         if: matrix.module == 'voucher'
       - uses: bufbuild/buf-setup-action@v1
         if: |
-          steps.git-diff-content.outputs.diff ||
-          steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-admin.outputs.diff ||
+          steps.git-diff-example.outputs.diff ||
+          steps.git-diff-ecosystem.outputs.diff ||
+          steps.git-diff-governor.outputs.diff ||
           steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
-          input: 'content/proto'
-        if: steps.git-diff-content.outputs.diff
+          input: 'admin/proto'
+        if: steps.git-diff-admin.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
-          input: 'geonode/proto'
-        if: steps.git-diff-geonode.outputs.diff
+          input: 'example/proto'
+        if: steps.git-diff-example.outputs.diff
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: 'ecosystem/proto'
+        if: steps.git-diff-ecosystem.outputs.diff
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: 'governor/proto'
+        if: steps.git-diff-governor.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: 'validator/proto'
@@ -158,21 +212,33 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["content", "geonode", "validator", "voucher"]
+        module: ["admin", "example", "ecosystem", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-content
+        id: git-diff-admin
         with:
           PATTERNS: |
-            content/**/**.proto
-        if: matrix.module == 'content'
+            admin/**/**.proto
+        if: matrix.module == 'admin'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-geonode
+        id: git-diff-example
         with:
           PATTERNS: |
-            geonode/**/**.proto
-        if: matrix.module == 'geonode'
+            example/**/**.proto
+        if: matrix.module == 'example'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-ecosystem
+        with:
+          PATTERNS: |
+            ecosystem/**/**.proto
+        if: matrix.module == 'ecosystem'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-governor
+        with:
+          PATTERNS: |
+            governor/**/**.proto
+        if: matrix.module == 'governor'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -187,12 +253,20 @@ jobs:
         if: matrix.module == 'voucher'
       - uses: actions/setup-go@v5
         with:
-          go-version-file: 'content/go.mod'
-        if: steps.git-diff-content.outputs.diff
+          go-version-file: 'admin/go.mod'
+        if: steps.git-diff-admin.outputs.diff
       - uses: actions/setup-go@v5
         with:
-          go-version-file: 'geonode/go.mod'
-        if: steps.git-diff-geonode.outputs.diff
+          go-version-file: 'example/go.mod'
+        if: steps.git-diff-example.outputs.diff
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'ecosystem/go.mod'
+        if: steps.git-diff-ecosystem.outputs.diff
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'governor/go.mod'
+        if: steps.git-diff-governor.outputs.diff
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'validator/go.mod'
@@ -204,16 +278,24 @@ jobs:
       - name: Install protolint
         run: go install github.com/yoheimuta/protolint/cmd/protolint@latest
         if: |
-          steps.git-diff-content.outputs.diff ||
-          steps.git-diff-geonode.outputs.diff ||
+          steps.git-diff-admin.outputs.diff ||
+          steps.git-diff-example.outputs.diff ||
+          steps.git-diff-ecosystem.outputs.diff ||
+          steps.git-diff-governor.outputs.diff ||
           steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - name: Run protolint
-        run: protolint ./content
-        if: steps.git-diff-content.outputs.diff
+        run: protolint ./admin
+        if: steps.git-diff-admin.outputs.diff
       - name: Run protolint
-        run: protolint ./geonode
-        if: steps.git-diff-geonode.outputs.diff
+        run: protolint ./example
+        if: steps.git-diff-example.outputs.diff
+      - name: Run protolint
+        run: protolint ./ecosystem
+        if: steps.git-diff-ecosystem.outputs.diff
+      - name: Run protolint
+        run: protolint ./governor
+        if: steps.git-diff-governor.outputs.diff
       - name: Run protolint
         run: protolint ./validator
         if: steps.git-diff-validator.outputs.diff

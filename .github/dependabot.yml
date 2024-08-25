@@ -7,13 +7,25 @@ updates:
     open-pull-requests-limit: 5
 
   - package-ecosystem: "gomod"
-    directory: "/content"
+    directory: "/admin"
     schedule:
       interval: daily
     open-pull-requests-limit: 5
 
   - package-ecosystem: "gomod"
-    directory: "/geonode"
+    directory: "/ecosystem"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "gomod"
+    directory: "/example"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "gomod"
+    directory: "/governor"
     schedule:
       interval: daily
     open-pull-requests-limit: 5

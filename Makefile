@@ -89,7 +89,7 @@ protoImage=ghcr.io/cosmos/proto-builder:$(protoVersion)
 containerProtoFmt=chora-mods-proto-fmt-$(protoVersion)
 containerProtoGen=chora-mods-proto-gen-$(protoVersion)
 
-proto-all: proto-lint-fix proto-format proto-gen-content proto-gen-geonode proto-gen-voucher proto-check-breaking
+proto-all: proto-lint-fix proto-format proto-gen-admin proto-gen-ecosystem proto-gen-example proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
 
 proto-lint:
 	@protolint .
@@ -102,15 +102,25 @@ proto-format:
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoFmt}$$"; then docker start -a $(containerProtoFmt); else docker run --name $(containerProtoFmt) -v $(CURDIR):/workspace --workdir /workspace tendermintdev/docker-build-proto \
 		find .  -name "*.proto" -exec clang-format -i {} \; ; fi
 
-proto-gen-content:
+proto-gen-admin:
 	@echo "Generating protobuf files"
-	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-content$$"; then docker start -a $(containerProtoGen)-content; else docker run --name $(containerProtoGen)-content -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd content; ./scripts/protocgen.sh'; fi
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-admin$$"; then docker start -a $(containerProtoGen)-admin; else docker run --name $(containerProtoGen)-admin -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd admin; ./scripts/protocgen.sh'; fi
 
-proto-gen-geonode:
+proto-gen-ecosystem:
 	@echo "Generating protobuf files"
-	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-geonode$$"; then docker start -a $(containerProtoGen)-geonode; else docker run --name $(containerProtoGen)-geonode -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd geonode; ./scripts/protocgen.sh'; fi
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-ecosystem$$"; then docker start -a $(containerProtoGen)-ecosystem; else docker run --name $(containerProtoGen)-ecosystem -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd ecosystem; ./scripts/protocgen.sh'; fi
+
+proto-gen-example:
+	@echo "Generating protobuf files"
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-example$$"; then docker start -a $(containerProtoGen)-example; else docker run --name $(containerProtoGen)-example -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd example; ./scripts/protocgen.sh'; fi
+
+proto-gen-governor:
+	@echo "Generating protobuf files"
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-governor$$"; then docker start -a $(containerProtoGen)-governor; else docker run --name $(containerProtoGen)-governor -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd governor; ./scripts/protocgen.sh'; fi
 
 proto-gen-validator:
 	@echo "Generating protobuf files"
@@ -125,7 +135,7 @@ proto-gen-voucher:
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/chora-io/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-content proto-gen-geonode proto-gen-validator proto-gen-voucher proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-admin proto-gen-ecosystem proto-gen-example proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -143,15 +153,25 @@ test-all:
 		go test ./...; \
 	done
 
-test-content:
-	@echo "Testing Module content"
-	@cd content && go test ./... \
-		-coverprofile=../coverage-content.out -covermode=atomic
+test-admin:
+	@echo "Testing Module admin"
+	@cd admin && go test ./... \
+		-coverprofile=../coverage-admin.out -covermode=atomic
 
-test-geonode:
-	@echo "Testing Module geonode"
-	@cd geonode && go test ./... \
-		-coverprofile=../coverage-geonode.out -covermode=atomic
+test-ecosystem:
+	@echo "Testing Module ecosystem"
+	@cd ecosystem && go test ./... \
+		-coverprofile=../coverage-ecosystem.out -covermode=atomic
+
+test-example:
+	@echo "Testing Module example"
+	@cd example && go test ./... \
+		-coverprofile=../coverage-example.out -covermode=atomic
+
+test-governor:
+	@echo "Testing Module governor"
+	@cd governor && go test ./... \
+		-coverprofile=../coverage-governor.out -covermode=atomic
 
 test-validator:
 	@echo "Testing Module validator"
@@ -171,7 +191,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-content test-geonode test-validator test-voucher test-coverage test-clean
+.PHONY: test test-all test-admin test-ecosystem test-example test-governor test-validator test-voucher test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

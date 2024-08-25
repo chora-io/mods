@@ -13,12 +13,18 @@ coverage:
     project:
       default:
         threshold: 1%
-      content:
+      admin:
         paths:
-          - "content/"
-      geonode:
+          - "admin/"
+      ecosystem:
         paths:
-          - "geonode/"
+          - "ecosystem/"
+      example:
+        paths:
+          - "example/"
+      governor:
+        paths:
+          - "governor/"
       validator:
         paths:
           - "validator/"
