@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package chora.example.v1;
+
+option go_package = "github.com/chora-io/mods/example/types/v1";
+
+// EventCreate is an event emitted when content is created.
+message EventCreate {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// EventUpdateCurator is an event emitted when content curator is updated.
+message EventUpdateCurator {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// EventUpdateMetadata is an event emitted when content metadata is updated.
+message EventUpdateMetadata {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// EventDelete is an event emitted when content is deleted.
+message EventDelete {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}

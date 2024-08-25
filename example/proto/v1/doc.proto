@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// chora.example.v1 describes the API for the example module.
+//
+// The following outlines revisions and tagged versions of the compiled code in
+// relation to tagged releases in https://github.com/chora-io/mods:
+//
+// - Revision 0: (in progress)
+//
+package chora.example.v1;
+
+option go_package = "github.com/chora-io/mods/example/types/v1";
