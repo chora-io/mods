@@ -6,6 +6,7 @@ modules for [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) applications
 - [agent](agent)
 - [content](content)
 - [governor](governor)
+- [proposal](proposal)
 - [validator](validator)
 - [voucher](voucher)
 

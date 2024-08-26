@@ -1,3 +1,3 @@
-# content
+# admin
 
-The `content` module enables a user to create, update, and delete content.
+See [admin module specification](./spec/README.md)

@@ -1,3 +1,3 @@
 # governor
 
-The `governor` module enables a framework for governors.
+See [governor module specification](./spec/README.md)

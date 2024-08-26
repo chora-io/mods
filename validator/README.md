@@ -1,3 +1,3 @@
 # validator
 
-The `validator` module enables a framework for validators.
+See [validator module specification](./spec/README.md)

@@ -1,3 +1,3 @@
 # content
 
-The `content` module enables the creation and management of content. 
+See [content module specification](./spec/README.md)
