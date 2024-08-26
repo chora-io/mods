@@ -10,10 +10,10 @@ import (
 	v1 "github.com/chora-io/mods/admin/types/v1"
 )
 
-// TxUpdateCmd creates and returns the tx update-curator command.
-func TxUpdateCmd() *cobra.Command {
+// TxUpdateAdminCmd creates and returns the tx update-admin command.
+func TxUpdateAdminCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update [new-admin]",
+		Use:   "update-admin [new-admin]",
 		Short: "submit a transaction to update the admin account",
 		Long:  "submit a transaction to update the admin account",
 		Args:  cobra.ExactArgs(1),
@@ -23,7 +23,7 @@ func TxUpdateCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgUpdate{
+			msg := v1.MsgUpdateAdmin{
 				Admin:    clientCtx.GetFromAddress().String(),
 				NewAdmin: args[0],
 			}

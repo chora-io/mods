@@ -10,8 +10,8 @@ import (
 	v1 "github.com/chora-io/mods/admin/types/v1"
 )
 
-// Update implements the Msg/Update method.
-func (k Keeper) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateResponse, error) {
+// UpdateAdmin implements the Msg/UpdateAdmin method.
+func (k Keeper) UpdateAdmin(ctx context.Context, req *v1.MsgUpdateAdmin) (*v1.MsgUpdateAdminResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
 	// get account from admin address
@@ -55,7 +55,7 @@ func (k Keeper) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateRes
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdate{
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateAdmin{
 		Admin:    msgSigner.String(),
 		NewAdmin: newAdmin.String(),
 	}); err != nil {
@@ -63,7 +63,7 @@ func (k Keeper) Update(ctx context.Context, req *v1.MsgUpdate) (*v1.MsgUpdateRes
 	}
 
 	// return response
-	return &v1.MsgUpdateResponse{
+	return &v1.MsgUpdateAdminResponse{
 		Admin:    msgSigner.String(),
 		NewAdmin: newAdmin.String(),
 	}, nil

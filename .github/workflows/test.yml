@@ -132,11 +132,11 @@ jobs:
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-content
+          name: coverage-agent
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-agent
+          name: coverage-content
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:

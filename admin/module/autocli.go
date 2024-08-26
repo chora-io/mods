@@ -25,11 +25,10 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 			EnhanceCustomCommand: false, // use custom commands until v0.51
 			RpcCommandOptions:    []*autocliv1.RpcCommandOptions{
 				//{
-				//	RpcMethod: "Update",
-				//	Use:       "update [new-admin]",
+				//	RpcMethod: "UpdateAdmin",
+				//	Use:       "update-admin [new-admin]",
 				//	Short:     "submit a transaction to update the admin account",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-				//		{ProtoField: "id"},
 				//		{ProtoField: "new_admin"},
 				//	},
 				//},

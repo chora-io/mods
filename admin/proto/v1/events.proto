@@ -4,8 +4,8 @@ package chora.admin.v1;
 
 option go_package = "github.com/chora-io/mods/admin/types/v1";
 
-// EventUpdate is an event emitted when the admin is updated.
-message EventUpdate {
+// EventUpdateAdmin is an event emitted when the admin is updated.
+message EventUpdateAdmin {
 
   // admin is the address of the admin account.
   string admin = 1;

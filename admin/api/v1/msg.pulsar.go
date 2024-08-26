@@ -14,27 +14,27 @@ import (
 )
 
 var (
-	md_MsgUpdate           protoreflect.MessageDescriptor
-	fd_MsgUpdate_admin     protoreflect.FieldDescriptor
-	fd_MsgUpdate_new_admin protoreflect.FieldDescriptor
+	md_MsgUpdateAdmin           protoreflect.MessageDescriptor
+	fd_MsgUpdateAdmin_admin     protoreflect.FieldDescriptor
+	fd_MsgUpdateAdmin_new_admin protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_admin_v1_msg_proto_init()
-	md_MsgUpdate = File_chora_admin_v1_msg_proto.Messages().ByName("MsgUpdate")
-	fd_MsgUpdate_admin = md_MsgUpdate.Fields().ByName("admin")
-	fd_MsgUpdate_new_admin = md_MsgUpdate.Fields().ByName("new_admin")
+	md_MsgUpdateAdmin = File_chora_admin_v1_msg_proto.Messages().ByName("MsgUpdateAdmin")
+	fd_MsgUpdateAdmin_admin = md_MsgUpdateAdmin.Fields().ByName("admin")
+	fd_MsgUpdateAdmin_new_admin = md_MsgUpdateAdmin.Fields().ByName("new_admin")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgUpdate)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgUpdateAdmin)(nil)
 
-type fastReflection_MsgUpdate MsgUpdate
+type fastReflection_MsgUpdateAdmin MsgUpdateAdmin
 
-func (x *MsgUpdate) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgUpdate)(x)
+func (x *MsgUpdateAdmin) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateAdmin)(x)
 }
 
-func (x *MsgUpdate) slowProtoReflect() protoreflect.Message {
+func (x *MsgUpdateAdmin) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_admin_v1_msg_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -46,43 +46,43 @@ func (x *MsgUpdate) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgUpdate_messageType fastReflection_MsgUpdate_messageType
-var _ protoreflect.MessageType = fastReflection_MsgUpdate_messageType{}
+var _fastReflection_MsgUpdateAdmin_messageType fastReflection_MsgUpdateAdmin_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateAdmin_messageType{}
 
-type fastReflection_MsgUpdate_messageType struct{}
+type fastReflection_MsgUpdateAdmin_messageType struct{}
 
-func (x fastReflection_MsgUpdate_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgUpdate)(nil)
+func (x fastReflection_MsgUpdateAdmin_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateAdmin)(nil)
 }
-func (x fastReflection_MsgUpdate_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdate)
+func (x fastReflection_MsgUpdateAdmin_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateAdmin)
 }
-func (x fastReflection_MsgUpdate_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdate
+func (x fastReflection_MsgUpdateAdmin_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateAdmin
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgUpdate) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdate
+func (x *fastReflection_MsgUpdateAdmin) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateAdmin
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgUpdate) Type() protoreflect.MessageType {
-	return _fastReflection_MsgUpdate_messageType
+func (x *fastReflection_MsgUpdateAdmin) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateAdmin_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgUpdate) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdate)
+func (x *fastReflection_MsgUpdateAdmin) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateAdmin)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgUpdate) Interface() protoreflect.ProtoMessage {
-	return (*MsgUpdate)(x)
+func (x *fastReflection_MsgUpdateAdmin) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateAdmin)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -90,16 +90,16 @@ func (x *fastReflection_MsgUpdate) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgUpdate) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgUpdateAdmin) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Admin != "" {
 		value := protoreflect.ValueOfString(x.Admin)
-		if !f(fd_MsgUpdate_admin, value) {
+		if !f(fd_MsgUpdateAdmin_admin, value) {
 			return
 		}
 	}
 	if x.NewAdmin != "" {
 		value := protoreflect.ValueOfString(x.NewAdmin)
-		if !f(fd_MsgUpdate_new_admin, value) {
+		if !f(fd_MsgUpdateAdmin_new_admin, value) {
 			return
 		}
 	}
@@ -116,17 +116,17 @@ func (x *fastReflection_MsgUpdate) Range(f func(protoreflect.FieldDescriptor, pr
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgUpdate) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgUpdateAdmin) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdate.admin":
+	case "chora.admin.v1.MsgUpdateAdmin.admin":
 		return x.Admin != ""
-	case "chora.admin.v1.MsgUpdate.new_admin":
+	case "chora.admin.v1.MsgUpdateAdmin.new_admin":
 		return x.NewAdmin != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdmin"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdmin does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -136,17 +136,17 @@ func (x *fastReflection_MsgUpdate) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdate) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgUpdateAdmin) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdate.admin":
+	case "chora.admin.v1.MsgUpdateAdmin.admin":
 		x.Admin = ""
-	case "chora.admin.v1.MsgUpdate.new_admin":
+	case "chora.admin.v1.MsgUpdateAdmin.new_admin":
 		x.NewAdmin = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdmin"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdmin does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -156,19 +156,19 @@ func (x *fastReflection_MsgUpdate) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgUpdate) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateAdmin) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.admin.v1.MsgUpdate.admin":
+	case "chora.admin.v1.MsgUpdateAdmin.admin":
 		value := x.Admin
 		return protoreflect.ValueOfString(value)
-	case "chora.admin.v1.MsgUpdate.new_admin":
+	case "chora.admin.v1.MsgUpdateAdmin.new_admin":
 		value := x.NewAdmin
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdmin"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdate does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdmin does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -182,17 +182,17 @@ func (x *fastReflection_MsgUpdate) Get(descriptor protoreflect.FieldDescriptor) 
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdate) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgUpdateAdmin) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdate.admin":
+	case "chora.admin.v1.MsgUpdateAdmin.admin":
 		x.Admin = value.Interface().(string)
-	case "chora.admin.v1.MsgUpdate.new_admin":
+	case "chora.admin.v1.MsgUpdateAdmin.new_admin":
 		x.NewAdmin = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdmin"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdmin does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -206,44 +206,44 @@ func (x *fastReflection_MsgUpdate) Set(fd protoreflect.FieldDescriptor, value pr
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdate) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateAdmin) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdate.admin":
-		panic(fmt.Errorf("field admin of message chora.admin.v1.MsgUpdate is not mutable"))
-	case "chora.admin.v1.MsgUpdate.new_admin":
-		panic(fmt.Errorf("field new_admin of message chora.admin.v1.MsgUpdate is not mutable"))
+	case "chora.admin.v1.MsgUpdateAdmin.admin":
+		panic(fmt.Errorf("field admin of message chora.admin.v1.MsgUpdateAdmin is not mutable"))
+	case "chora.admin.v1.MsgUpdateAdmin.new_admin":
+		panic(fmt.Errorf("field new_admin of message chora.admin.v1.MsgUpdateAdmin is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdmin"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdmin does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgUpdate) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateAdmin) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdate.admin":
+	case "chora.admin.v1.MsgUpdateAdmin.admin":
 		return protoreflect.ValueOfString("")
-	case "chora.admin.v1.MsgUpdate.new_admin":
+	case "chora.admin.v1.MsgUpdateAdmin.new_admin":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdmin"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdmin does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgUpdate) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgUpdateAdmin) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.admin.v1.MsgUpdate", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.admin.v1.MsgUpdateAdmin", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -251,7 +251,7 @@ func (x *fastReflection_MsgUpdate) WhichOneof(d protoreflect.OneofDescriptor) pr
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgUpdate) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgUpdateAdmin) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -262,7 +262,7 @@ func (x *fastReflection_MsgUpdate) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdate) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgUpdateAdmin) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -274,7 +274,7 @@ func (x *fastReflection_MsgUpdate) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgUpdate) IsValid() bool {
+func (x *fastReflection_MsgUpdateAdmin) IsValid() bool {
 	return x != nil
 }
 
@@ -284,9 +284,9 @@ func (x *fastReflection_MsgUpdate) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgUpdate) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgUpdateAdmin) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgUpdate)
+		x := input.Message.Interface().(*MsgUpdateAdmin)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -316,7 +316,7 @@ func (x *fastReflection_MsgUpdate) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdate)
+		x := input.Message.Interface().(*MsgUpdateAdmin)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -360,7 +360,7 @@ func (x *fastReflection_MsgUpdate) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdate)
+		x := input.Message.Interface().(*MsgUpdateAdmin)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -392,10 +392,10 @@ func (x *fastReflection_MsgUpdate) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdate: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateAdmin: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdate: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateAdmin: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -498,27 +498,27 @@ func (x *fastReflection_MsgUpdate) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgUpdateResponse           protoreflect.MessageDescriptor
-	fd_MsgUpdateResponse_admin     protoreflect.FieldDescriptor
-	fd_MsgUpdateResponse_new_admin protoreflect.FieldDescriptor
+	md_MsgUpdateAdminResponse           protoreflect.MessageDescriptor
+	fd_MsgUpdateAdminResponse_admin     protoreflect.FieldDescriptor
+	fd_MsgUpdateAdminResponse_new_admin protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_admin_v1_msg_proto_init()
-	md_MsgUpdateResponse = File_chora_admin_v1_msg_proto.Messages().ByName("MsgUpdateResponse")
-	fd_MsgUpdateResponse_admin = md_MsgUpdateResponse.Fields().ByName("admin")
-	fd_MsgUpdateResponse_new_admin = md_MsgUpdateResponse.Fields().ByName("new_admin")
+	md_MsgUpdateAdminResponse = File_chora_admin_v1_msg_proto.Messages().ByName("MsgUpdateAdminResponse")
+	fd_MsgUpdateAdminResponse_admin = md_MsgUpdateAdminResponse.Fields().ByName("admin")
+	fd_MsgUpdateAdminResponse_new_admin = md_MsgUpdateAdminResponse.Fields().ByName("new_admin")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgUpdateResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgUpdateAdminResponse)(nil)
 
-type fastReflection_MsgUpdateResponse MsgUpdateResponse
+type fastReflection_MsgUpdateAdminResponse MsgUpdateAdminResponse
 
-func (x *MsgUpdateResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgUpdateResponse)(x)
+func (x *MsgUpdateAdminResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateAdminResponse)(x)
 }
 
-func (x *MsgUpdateResponse) slowProtoReflect() protoreflect.Message {
+func (x *MsgUpdateAdminResponse) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_admin_v1_msg_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -530,43 +530,43 @@ func (x *MsgUpdateResponse) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgUpdateResponse_messageType fastReflection_MsgUpdateResponse_messageType
-var _ protoreflect.MessageType = fastReflection_MsgUpdateResponse_messageType{}
+var _fastReflection_MsgUpdateAdminResponse_messageType fastReflection_MsgUpdateAdminResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateAdminResponse_messageType{}
 
-type fastReflection_MsgUpdateResponse_messageType struct{}
+type fastReflection_MsgUpdateAdminResponse_messageType struct{}
 
-func (x fastReflection_MsgUpdateResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgUpdateResponse)(nil)
+func (x fastReflection_MsgUpdateAdminResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateAdminResponse)(nil)
 }
-func (x fastReflection_MsgUpdateResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateResponse)
+func (x fastReflection_MsgUpdateAdminResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateAdminResponse)
 }
-func (x fastReflection_MsgUpdateResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateResponse
+func (x fastReflection_MsgUpdateAdminResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateAdminResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgUpdateResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateResponse
+func (x *fastReflection_MsgUpdateAdminResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateAdminResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgUpdateResponse) Type() protoreflect.MessageType {
-	return _fastReflection_MsgUpdateResponse_messageType
+func (x *fastReflection_MsgUpdateAdminResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateAdminResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgUpdateResponse) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateResponse)
+func (x *fastReflection_MsgUpdateAdminResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateAdminResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgUpdateResponse) Interface() protoreflect.ProtoMessage {
-	return (*MsgUpdateResponse)(x)
+func (x *fastReflection_MsgUpdateAdminResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateAdminResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -574,16 +574,16 @@ func (x *fastReflection_MsgUpdateResponse) Interface() protoreflect.ProtoMessage
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgUpdateResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgUpdateAdminResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Admin != "" {
 		value := protoreflect.ValueOfString(x.Admin)
-		if !f(fd_MsgUpdateResponse_admin, value) {
+		if !f(fd_MsgUpdateAdminResponse_admin, value) {
 			return
 		}
 	}
 	if x.NewAdmin != "" {
 		value := protoreflect.ValueOfString(x.NewAdmin)
-		if !f(fd_MsgUpdateResponse_new_admin, value) {
+		if !f(fd_MsgUpdateAdminResponse_new_admin, value) {
 			return
 		}
 	}
@@ -600,17 +600,17 @@ func (x *fastReflection_MsgUpdateResponse) Range(f func(protoreflect.FieldDescri
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgUpdateResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgUpdateAdminResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdateResponse.admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.admin":
 		return x.Admin != ""
-	case "chora.admin.v1.MsgUpdateResponse.new_admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.new_admin":
 		return x.NewAdmin != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdminResponse"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdminResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -620,17 +620,17 @@ func (x *fastReflection_MsgUpdateResponse) Has(fd protoreflect.FieldDescriptor) 
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgUpdateAdminResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdateResponse.admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.admin":
 		x.Admin = ""
-	case "chora.admin.v1.MsgUpdateResponse.new_admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.new_admin":
 		x.NewAdmin = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdminResponse"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdminResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -640,19 +640,19 @@ func (x *fastReflection_MsgUpdateResponse) Clear(fd protoreflect.FieldDescriptor
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgUpdateResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateAdminResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.admin.v1.MsgUpdateResponse.admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.admin":
 		value := x.Admin
 		return protoreflect.ValueOfString(value)
-	case "chora.admin.v1.MsgUpdateResponse.new_admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.new_admin":
 		value := x.NewAdmin
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdminResponse"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdminResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -666,17 +666,17 @@ func (x *fastReflection_MsgUpdateResponse) Get(descriptor protoreflect.FieldDesc
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgUpdateAdminResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdateResponse.admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.admin":
 		x.Admin = value.Interface().(string)
-	case "chora.admin.v1.MsgUpdateResponse.new_admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.new_admin":
 		x.NewAdmin = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdminResponse"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdminResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -690,44 +690,44 @@ func (x *fastReflection_MsgUpdateResponse) Set(fd protoreflect.FieldDescriptor, 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateAdminResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdateResponse.admin":
-		panic(fmt.Errorf("field admin of message chora.admin.v1.MsgUpdateResponse is not mutable"))
-	case "chora.admin.v1.MsgUpdateResponse.new_admin":
-		panic(fmt.Errorf("field new_admin of message chora.admin.v1.MsgUpdateResponse is not mutable"))
+	case "chora.admin.v1.MsgUpdateAdminResponse.admin":
+		panic(fmt.Errorf("field admin of message chora.admin.v1.MsgUpdateAdminResponse is not mutable"))
+	case "chora.admin.v1.MsgUpdateAdminResponse.new_admin":
+		panic(fmt.Errorf("field new_admin of message chora.admin.v1.MsgUpdateAdminResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdminResponse"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdminResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgUpdateResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateAdminResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.admin.v1.MsgUpdateResponse.admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.admin":
 		return protoreflect.ValueOfString("")
-	case "chora.admin.v1.MsgUpdateResponse.new_admin":
+	case "chora.admin.v1.MsgUpdateAdminResponse.new_admin":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.admin.v1.MsgUpdateAdminResponse"))
 		}
-		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.admin.v1.MsgUpdateAdminResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgUpdateResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgUpdateAdminResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.admin.v1.MsgUpdateResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.admin.v1.MsgUpdateAdminResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -735,7 +735,7 @@ func (x *fastReflection_MsgUpdateResponse) WhichOneof(d protoreflect.OneofDescri
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgUpdateResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgUpdateAdminResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -746,7 +746,7 @@ func (x *fastReflection_MsgUpdateResponse) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgUpdateAdminResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -758,7 +758,7 @@ func (x *fastReflection_MsgUpdateResponse) SetUnknown(fields protoreflect.RawFie
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgUpdateResponse) IsValid() bool {
+func (x *fastReflection_MsgUpdateAdminResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -768,9 +768,9 @@ func (x *fastReflection_MsgUpdateResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgUpdateResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgUpdateAdminResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgUpdateResponse)
+		x := input.Message.Interface().(*MsgUpdateAdminResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -800,7 +800,7 @@ func (x *fastReflection_MsgUpdateResponse) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateResponse)
+		x := input.Message.Interface().(*MsgUpdateAdminResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -844,7 +844,7 @@ func (x *fastReflection_MsgUpdateResponse) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateResponse)
+		x := input.Message.Interface().(*MsgUpdateAdminResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -876,10 +876,10 @@ func (x *fastReflection_MsgUpdateResponse) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateAdminResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateAdminResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -994,8 +994,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// MsgUpdate is the Msg/Update request type.
-type MsgUpdate struct {
+// MsgUpdateAdmin is the Msg/UpdateAdmin request type.
+type MsgUpdateAdmin struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1006,8 +1006,8 @@ type MsgUpdate struct {
 	NewAdmin string `protobuf:"bytes,2,opt,name=new_admin,json=newAdmin,proto3" json:"new_admin,omitempty"`
 }
 
-func (x *MsgUpdate) Reset() {
-	*x = MsgUpdate{}
+func (x *MsgUpdateAdmin) Reset() {
+	*x = MsgUpdateAdmin{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_admin_v1_msg_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1015,33 +1015,33 @@ func (x *MsgUpdate) Reset() {
 	}
 }
 
-func (x *MsgUpdate) String() string {
+func (x *MsgUpdateAdmin) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgUpdate) ProtoMessage() {}
+func (*MsgUpdateAdmin) ProtoMessage() {}
 
-// Deprecated: Use MsgUpdate.ProtoReflect.Descriptor instead.
-func (*MsgUpdate) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgUpdateAdmin.ProtoReflect.Descriptor instead.
+func (*MsgUpdateAdmin) Descriptor() ([]byte, []int) {
 	return file_chora_admin_v1_msg_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MsgUpdate) GetAdmin() string {
+func (x *MsgUpdateAdmin) GetAdmin() string {
 	if x != nil {
 		return x.Admin
 	}
 	return ""
 }
 
-func (x *MsgUpdate) GetNewAdmin() string {
+func (x *MsgUpdateAdmin) GetNewAdmin() string {
 	if x != nil {
 		return x.NewAdmin
 	}
 	return ""
 }
 
-// MsgUpdateResponse is the Msg/Update response type.
-type MsgUpdateResponse struct {
+// MsgUpdateAdminResponse is the Msg/UpdateAdmin response type.
+type MsgUpdateAdminResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1052,8 +1052,8 @@ type MsgUpdateResponse struct {
 	NewAdmin string `protobuf:"bytes,2,opt,name=new_admin,json=newAdmin,proto3" json:"new_admin,omitempty"`
 }
 
-func (x *MsgUpdateResponse) Reset() {
-	*x = MsgUpdateResponse{}
+func (x *MsgUpdateAdminResponse) Reset() {
+	*x = MsgUpdateAdminResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_admin_v1_msg_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1061,25 +1061,25 @@ func (x *MsgUpdateResponse) Reset() {
 	}
 }
 
-func (x *MsgUpdateResponse) String() string {
+func (x *MsgUpdateAdminResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgUpdateResponse) ProtoMessage() {}
+func (*MsgUpdateAdminResponse) ProtoMessage() {}
 
-// Deprecated: Use MsgUpdateResponse.ProtoReflect.Descriptor instead.
-func (*MsgUpdateResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgUpdateAdminResponse.ProtoReflect.Descriptor instead.
+func (*MsgUpdateAdminResponse) Descriptor() ([]byte, []int) {
 	return file_chora_admin_v1_msg_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MsgUpdateResponse) GetAdmin() string {
+func (x *MsgUpdateAdminResponse) GetAdmin() string {
 	if x != nil {
 		return x.Admin
 	}
 	return ""
 }
 
-func (x *MsgUpdateResponse) GetNewAdmin() string {
+func (x *MsgUpdateAdminResponse) GetNewAdmin() string {
 	if x != nil {
 		return x.NewAdmin
 	}
@@ -1093,33 +1093,34 @@ var file_chora_admin_v1_msg_proto_rawDesc = []byte{
 	0x2f, 0x6d, 0x73, 0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0e, 0x63, 0x68, 0x6f, 0x72,
 	0x61, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x76, 0x31, 0x1a, 0x17, 0x63, 0x6f, 0x73, 0x6d,
 	0x6f, 0x73, 0x2f, 0x6d, 0x73, 0x67, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x73, 0x67, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x22, 0x4a, 0x0a, 0x09, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x12, 0x14, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x6e, 0x65, 0x77, 0x5f, 0x61, 0x64,
-	0x6d, 0x69, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6e, 0x65, 0x77, 0x41, 0x64,
-	0x6d, 0x69, 0x6e, 0x3a, 0x0a, 0x82, 0xe7, 0xb0, 0x2a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x22,
-	0x46, 0x0a, 0x11, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x6e, 0x65,
-	0x77, 0x5f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6e,
-	0x65, 0x77, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x32, 0x4d, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x46,
-	0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x19, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x1a, 0x21, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x61, 0x64, 0x6d, 0x69,
-	0x6e, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0xb3, 0x01, 0x0a, 0x12, 0x63, 0x6f, 0x6d, 0x2e, 0x63,
-	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x76, 0x31, 0x42, 0x08, 0x4d,
-	0x73, 0x67, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x39, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d,
-	0x6f, 0x64, 0x73, 0x2f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68,
-	0x6f, 0x72, 0x61, 0x2f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x64, 0x6d,
-	0x69, 0x6e, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x41, 0x58, 0xaa, 0x02, 0x0e, 0x43, 0x68, 0x6f,
-	0x72, 0x61, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0e, 0x43, 0x68,
-	0x6f, 0x72, 0x61, 0x5c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1a, 0x43,
-	0x68, 0x6f, 0x72, 0x61, 0x5c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50,
-	0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72,
-	0x61, 0x3a, 0x3a, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x74, 0x6f, 0x22, 0x4f, 0x0a, 0x0e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x41, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x6e,
+	0x65, 0x77, 0x5f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08,
+	0x6e, 0x65, 0x77, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x3a, 0x0a, 0x82, 0xe7, 0xb0, 0x2a, 0x05, 0x61,
+	0x64, 0x6d, 0x69, 0x6e, 0x22, 0x4b, 0x0a, 0x16, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14,
+	0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61,
+	0x64, 0x6d, 0x69, 0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x6e, 0x65, 0x77, 0x5f, 0x61, 0x64, 0x6d, 0x69,
+	0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6e, 0x65, 0x77, 0x41, 0x64, 0x6d, 0x69,
+	0x6e, 0x32, 0x5c, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x55, 0x0a, 0x0b, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x1e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x1a, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42,
+	0xb3, 0x01, 0x0a, 0x12, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x61, 0x64,
+	0x6d, 0x69, 0x6e, 0x2e, 0x76, 0x31, 0x42, 0x08, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f, 0x74, 0x6f,
+	0x50, 0x01, 0x5a, 0x39, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x61, 0x64, 0x6d,
+	0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x61, 0x64, 0x6d,
+	0x69, 0x6e, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x76, 0x31, 0xa2, 0x02, 0x03,
+	0x43, 0x41, 0x58, 0xaa, 0x02, 0x0e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x41, 0x64, 0x6d, 0x69,
+	0x6e, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x41, 0x64, 0x6d,
+	0x69, 0x6e, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1a, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x41, 0x64,
+	0x6d, 0x69, 0x6e, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0xea, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x41, 0x64, 0x6d, 0x69,
+	0x6e, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1136,12 +1137,12 @@ func file_chora_admin_v1_msg_proto_rawDescGZIP() []byte {
 
 var file_chora_admin_v1_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_chora_admin_v1_msg_proto_goTypes = []interface{}{
-	(*MsgUpdate)(nil),         // 0: chora.admin.v1.MsgUpdate
-	(*MsgUpdateResponse)(nil), // 1: chora.admin.v1.MsgUpdateResponse
+	(*MsgUpdateAdmin)(nil),         // 0: chora.admin.v1.MsgUpdateAdmin
+	(*MsgUpdateAdminResponse)(nil), // 1: chora.admin.v1.MsgUpdateAdminResponse
 }
 var file_chora_admin_v1_msg_proto_depIdxs = []int32{
-	0, // 0: chora.admin.v1.Msg.Update:input_type -> chora.admin.v1.MsgUpdate
-	1, // 1: chora.admin.v1.Msg.Update:output_type -> chora.admin.v1.MsgUpdateResponse
+	0, // 0: chora.admin.v1.Msg.UpdateAdmin:input_type -> chora.admin.v1.MsgUpdateAdmin
+	1, // 1: chora.admin.v1.Msg.UpdateAdmin:output_type -> chora.admin.v1.MsgUpdateAdminResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -1156,7 +1157,7 @@ func file_chora_admin_v1_msg_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_admin_v1_msg_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgUpdate); i {
+			switch v := v.(*MsgUpdateAdmin); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1168,7 +1169,7 @@ func file_chora_admin_v1_msg_proto_init() {
 			}
 		}
 		file_chora_admin_v1_msg_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgUpdateResponse); i {
+			switch v := v.(*MsgUpdateAdminResponse); i {
 			case 0:
 				return &v.state
 			case 1:

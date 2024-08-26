@@ -19,7 +19,7 @@ type queryAdmin struct {
 
 func TestQueryAdmin(t *testing.T) {
 	gocuke.NewRunner(t, &queryAdmin{}).
-		Path("./features/query_admin.feature").
+		Path("./query_admin.feature").
 		Run()
 }
 

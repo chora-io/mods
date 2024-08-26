@@ -18,7 +18,7 @@ func TxCmd() *cobra.Command {
 	}
 
 	cmd.AddCommand(
-		TxUpdateCmd(),
+		TxUpdateAdminCmd(),
 	)
 
 	return cmd

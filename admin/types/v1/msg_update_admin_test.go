@@ -10,13 +10,13 @@ import (
 
 type msgUpdate struct {
 	t   gocuke.TestingT
-	msg *MsgUpdate
+	msg *MsgUpdateAdmin
 	err error
 }
 
-func TestMsgUpdate(t *testing.T) {
+func TestMsgUpdateAdmin(t *testing.T) {
 	gocuke.NewRunner(t, &msgUpdate{}).
-		Path("./features/msg_update.feature").
+		Path("./msg_update_admin.feature").
 		Run()
 }
 
@@ -25,7 +25,7 @@ func (s *msgUpdate) Before(t gocuke.TestingT) {
 }
 
 func (s *msgUpdate) Message(a gocuke.DocString) {
-	s.msg = &MsgUpdate{}
+	s.msg = &MsgUpdateAdmin{}
 	err := jsonpb.UnmarshalString(a.Content, s.msg)
 	require.NoError(s.t, err)
 }

@@ -12,7 +12,7 @@ import (
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
-		&MsgUpdate{},
+		&MsgUpdateAdmin{},
 	)
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
@@ -20,5 +20,5 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	legacy.RegisterAminoMsg(cdc, &MsgUpdate{}, "content/v1/MsgUpdate")
+	legacy.RegisterAminoMsg(cdc, &MsgUpdateAdmin{}, "admin/v1/MsgUpdateAdmin")
 }

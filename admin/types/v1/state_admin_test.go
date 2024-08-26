@@ -16,7 +16,7 @@ type admin struct {
 
 func TestAdmin(t *testing.T) {
 	gocuke.NewRunner(t, &admin{}).
-		Path("./features/state_admin.feature").
+		Path("./state_admin.feature").
 		Run()
 }
 

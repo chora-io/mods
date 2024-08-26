@@ -22,26 +22,26 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// EventUpdate is an event emitted when the admin is updated.
-type EventUpdate struct {
+// EventUpdateAdmin is an event emitted when the admin is updated.
+type EventUpdateAdmin struct {
 	// admin is the address of the admin account.
 	Admin string `protobuf:"bytes,1,opt,name=admin,proto3" json:"admin,omitempty"`
 	// new_admin is the address of the new admin account.
 	NewAdmin string `protobuf:"bytes,2,opt,name=new_admin,json=newAdmin,proto3" json:"new_admin,omitempty"`
 }
 
-func (m *EventUpdate) Reset()         { *m = EventUpdate{} }
-func (m *EventUpdate) String() string { return proto.CompactTextString(m) }
-func (*EventUpdate) ProtoMessage()    {}
-func (*EventUpdate) Descriptor() ([]byte, []int) {
+func (m *EventUpdateAdmin) Reset()         { *m = EventUpdateAdmin{} }
+func (m *EventUpdateAdmin) String() string { return proto.CompactTextString(m) }
+func (*EventUpdateAdmin) ProtoMessage()    {}
+func (*EventUpdateAdmin) Descriptor() ([]byte, []int) {
 	return fileDescriptor_301213e639e316b9, []int{0}
 }
-func (m *EventUpdate) XXX_Unmarshal(b []byte) error {
+func (m *EventUpdateAdmin) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventUpdateAdmin) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventUpdate.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventUpdateAdmin.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -51,26 +51,26 @@ func (m *EventUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *EventUpdate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventUpdate.Merge(m, src)
+func (m *EventUpdateAdmin) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventUpdateAdmin.Merge(m, src)
 }
-func (m *EventUpdate) XXX_Size() int {
+func (m *EventUpdateAdmin) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventUpdate) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventUpdate.DiscardUnknown(m)
+func (m *EventUpdateAdmin) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventUpdateAdmin.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventUpdate proto.InternalMessageInfo
+var xxx_messageInfo_EventUpdateAdmin proto.InternalMessageInfo
 
-func (m *EventUpdate) GetAdmin() string {
+func (m *EventUpdateAdmin) GetAdmin() string {
 	if m != nil {
 		return m.Admin
 	}
 	return ""
 }
 
-func (m *EventUpdate) GetNewAdmin() string {
+func (m *EventUpdateAdmin) GetNewAdmin() string {
 	if m != nil {
 		return m.NewAdmin
 	}
@@ -78,27 +78,28 @@ func (m *EventUpdate) GetNewAdmin() string {
 }
 
 func init() {
-	proto.RegisterType((*EventUpdate)(nil), "chora.admin.v1.EventUpdate")
+	proto.RegisterType((*EventUpdateAdmin)(nil), "chora.admin.v1.EventUpdateAdmin")
 }
 
 func init() { proto.RegisterFile("chora/admin/v1/events.proto", fileDescriptor_301213e639e316b9) }
 
 var fileDescriptor_301213e639e316b9 = []byte{
-	// 176 bytes of a gzipped FileDescriptorProto
+	// 178 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4e, 0xce, 0xc8, 0x2f,
 	0x4a, 0xd4, 0x4f, 0x4c, 0xc9, 0xcd, 0xcc, 0xd3, 0x2f, 0x33, 0xd4, 0x4f, 0x2d, 0x4b, 0xcd, 0x2b,
 	0x29, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x03, 0x4b, 0xea, 0x81, 0x25, 0xf5, 0xca,
-	0x0c, 0x95, 0x1c, 0xb8, 0xb8, 0x5d, 0x41, 0xf2, 0xa1, 0x05, 0x29, 0x89, 0x25, 0xa9, 0x42, 0x22,
-	0x5c, 0xac, 0x60, 0x29, 0x09, 0x46, 0x05, 0x46, 0x0d, 0xce, 0x20, 0x08, 0x47, 0x48, 0x9a, 0x8b,
-	0x33, 0x2f, 0xb5, 0x3c, 0x1e, 0x22, 0xc3, 0x04, 0x96, 0xe1, 0xc8, 0x4b, 0x2d, 0x77, 0x04, 0xf1,
-	0x9d, 0x1c, 0x4f, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09,
-	0x8f, 0xe5, 0x18, 0x2e, 0x3c, 0x96, 0x63, 0xb8, 0xf1, 0x58, 0x8e, 0x21, 0x4a, 0x3d, 0x3d, 0xb3,
-	0x24, 0xa3, 0x34, 0x49, 0x2f, 0x39, 0x3f, 0x57, 0x1f, 0x6c, 0xad, 0x6e, 0x66, 0xbe, 0x7e, 0x6e,
-	0x7e, 0x4a, 0x31, 0xd4, 0x6d, 0x25, 0x95, 0x05, 0xa9, 0xc5, 0xfa, 0x65, 0x86, 0x49, 0x6c, 0x60,
-	0xb7, 0x19, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x63, 0xca, 0x69, 0xb4, 0xba, 0x00, 0x00, 0x00,
+	0x0c, 0x95, 0x5c, 0xb9, 0x04, 0x5c, 0x41, 0xf2, 0xa1, 0x05, 0x29, 0x89, 0x25, 0xa9, 0x8e, 0x20,
+	0x61, 0x21, 0x11, 0x2e, 0x56, 0xb0, 0xbc, 0x04, 0xa3, 0x02, 0xa3, 0x06, 0x67, 0x10, 0x84, 0x23,
+	0x24, 0xcd, 0xc5, 0x99, 0x97, 0x5a, 0x1e, 0x0f, 0x91, 0x61, 0x02, 0xcb, 0x70, 0xe4, 0xa5, 0x96,
+	0x83, 0xb5, 0x38, 0x39, 0x9e, 0x78, 0x24, 0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72,
+	0x8c, 0x13, 0x1e, 0xcb, 0x31, 0x5c, 0x78, 0x2c, 0xc7, 0x70, 0xe3, 0xb1, 0x1c, 0x43, 0x94, 0x7a,
+	0x7a, 0x66, 0x49, 0x46, 0x69, 0x92, 0x5e, 0x72, 0x7e, 0xae, 0x3e, 0xd8, 0x6e, 0xdd, 0xcc, 0x7c,
+	0xfd, 0xdc, 0xfc, 0x94, 0x62, 0xa8, 0x03, 0x4b, 0x2a, 0x0b, 0x52, 0x8b, 0xf5, 0xcb, 0x0c, 0x93,
+	0xd8, 0xc0, 0x0e, 0x34, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0xb6, 0xd2, 0xb3, 0x4d, 0xbf, 0x00,
+	0x00, 0x00,
 }
 
-func (m *EventUpdate) Marshal() (dAtA []byte, err error) {
+func (m *EventUpdateAdmin) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -108,12 +109,12 @@ func (m *EventUpdate) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventUpdate) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventUpdateAdmin) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventUpdate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventUpdateAdmin) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -146,7 +147,7 @@ func encodeVarintEvents(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *EventUpdate) Size() (n int) {
+func (m *EventUpdateAdmin) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -169,7 +170,7 @@ func sovEvents(x uint64) (n int) {
 func sozEvents(x uint64) (n int) {
 	return sovEvents(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *EventUpdate) Unmarshal(dAtA []byte) error {
+func (m *EventUpdateAdmin) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -192,10 +193,10 @@ func (m *EventUpdate) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventUpdate: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventUpdateAdmin: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventUpdate: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventUpdateAdmin: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

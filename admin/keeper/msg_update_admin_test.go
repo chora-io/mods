@@ -12,23 +12,23 @@ import (
 	"github.com/chora-io/mods/admin/utils"
 )
 
-type msgUpdate struct {
+type msgUpdateAdmin struct {
 	*baseSuite
-	res *v1.MsgUpdateResponse
+	res *v1.MsgUpdateAdminResponse
 	err error
 }
 
-func TestMsgUpdate(t *testing.T) {
-	gocuke.NewRunner(t, &msgUpdate{}).
-		Path("./features/msg_update.feature").
+func TestMsgUpdateAdmin(t *testing.T) {
+	gocuke.NewRunner(t, &msgUpdateAdmin{}).
+		Path("./msg_update_admin.feature").
 		Run()
 }
 
-func (s *msgUpdate) Before(t gocuke.TestingT) {
+func (s *msgUpdateAdmin) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgUpdate) Admin(a gocuke.DocString) {
+func (s *msgUpdateAdmin) Admin(a gocuke.DocString) {
 	var admin adminv1.Admin
 	err := jsonpb.UnmarshalString(a.Content, &admin)
 	require.NoError(s.t, err)
@@ -39,31 +39,31 @@ func (s *msgUpdate) Admin(a gocuke.DocString) {
 	require.NoError(s.t, err)
 }
 
-func (s *msgUpdate) MsgUpdate(a gocuke.DocString) {
-	var msg v1.MsgUpdate
+func (s *msgUpdateAdmin) MsgUpdateAdmin(a gocuke.DocString) {
+	var msg v1.MsgUpdateAdmin
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.k.Update(s.sdkCtx, &msg)
+	s.res, s.err = s.k.UpdateAdmin(s.sdkCtx, &msg)
 }
 
-func (s *msgUpdate) ExpectNoError() {
+func (s *msgUpdateAdmin) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgUpdate) ExpectTheError(a gocuke.DocString) {
+func (s *msgUpdateAdmin) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }
 
-func (s *msgUpdate) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgUpdateResponse
+func (s *msgUpdateAdmin) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgUpdateAdminResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgUpdate) ExpectStateAdmin(a gocuke.DocString) {
+func (s *msgUpdateAdmin) ExpectStateAdmin(a gocuke.DocString) {
 	var expected adminv1.Admin
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
@@ -74,8 +74,8 @@ func (s *msgUpdate) ExpectStateAdmin(a gocuke.DocString) {
 	require.Equal(s.t, expected.Address, actual.Address)
 }
 
-func (s *msgUpdate) ExpectEventUpdate(a gocuke.DocString) {
-	var expected v1.EventUpdate
+func (s *msgUpdateAdmin) ExpectEventUpdate(a gocuke.DocString) {
+	var expected v1.EventUpdateAdmin
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

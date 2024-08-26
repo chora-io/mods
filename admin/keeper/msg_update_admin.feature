@@ -19,7 +19,7 @@ Feature: Msg/Update
       """
 
     Scenario: admin is admin account
-      When msg update
+      When msg update admin
       """
       {
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -29,7 +29,7 @@ Feature: Msg/Update
       Then expect no error
 
     Scenario: admin is not admin account
-      When msg update
+      When msg update admin
       """
       {
         "admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
@@ -52,7 +52,7 @@ Feature: Msg/Update
       """
 
     Scenario: message response returned
-      When msg update
+      When msg update admin
       """
       {
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -80,7 +80,7 @@ Feature: Msg/Update
       """
 
     Scenario: state admin updated
-      When msg update
+      When msg update admin
       """
       {
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -107,7 +107,7 @@ Feature: Msg/Update
       """
 
     Scenario: event update admin emitted
-      When msg update
+      When msg update admin
       """
       {
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
