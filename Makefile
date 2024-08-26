@@ -89,7 +89,7 @@ protoImage=ghcr.io/cosmos/proto-builder:$(protoVersion)
 containerProtoFmt=chora-mods-proto-fmt-$(protoVersion)
 containerProtoGen=chora-mods-proto-gen-$(protoVersion)
 
-proto-all: proto-lint-fix proto-format proto-gen-admin proto-gen-agent proto-gen-example proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
+proto-all: proto-lint-fix proto-format proto-gen-admin proto-gen-agent proto-gen-content proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
 
 proto-lint:
 	@protolint .
@@ -112,10 +112,10 @@ proto-gen-agent:
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-agent$$"; then docker start -a $(containerProtoGen)-agent; else docker run --name $(containerProtoGen)-agent -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
 		sh -c 'cd agent; ./scripts/protocgen.sh'; fi
 
-proto-gen-example:
+proto-gen-content:
 	@echo "Generating protobuf files"
-	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-example$$"; then docker start -a $(containerProtoGen)-example; else docker run --name $(containerProtoGen)-example -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd example; ./scripts/protocgen.sh'; fi
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-content$$"; then docker start -a $(containerProtoGen)-content; else docker run --name $(containerProtoGen)-content -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd content; ./scripts/protocgen.sh'; fi
 
 proto-gen-governor:
 	@echo "Generating protobuf files"
@@ -135,7 +135,7 @@ proto-gen-voucher:
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/chora-io/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-admin proto-gen-agent proto-gen-example proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-admin proto-gen-agent proto-gen-content proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -163,10 +163,10 @@ test-agent:
 	@cd agent && go test ./... \
 		-coverprofile=../coverage-agent.out -covermode=atomic
 
-test-example:
-	@echo "Testing Module example"
-	@cd example && go test ./... \
-		-coverprofile=../coverage-example.out -covermode=atomic
+test-content:
+	@echo "Testing Module content"
+	@cd content && go test ./... \
+		-coverprofile=../coverage-content.out -covermode=atomic
 
 test-governor:
 	@echo "Testing Module governor"
@@ -191,7 +191,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-admin test-agent test-example test-governor test-validator test-voucher test-coverage test-clean
+.PHONY: test test-all test-admin test-agent test-content test-governor test-validator test-voucher test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

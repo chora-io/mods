@@ -16,12 +16,12 @@ coverage:
       admin:
         paths:
           - "admin/"
-      ecosystem:
+      agent:
         paths:
-          - "ecosystem/"
-      example:
+          - "agent/"
+      content:
         paths:
-          - "example/"
+          - "content/"
       governor:
         paths:
           - "governor/"

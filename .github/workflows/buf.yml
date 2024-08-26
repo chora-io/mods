@@ -29,7 +29,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "ecosystem", "example", "governor", "validator", "voucher"]
+        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -39,17 +39,17 @@ jobs:
             admin/**/**.proto
         if: matrix.module == 'admin'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-ecosystem
+        id: git-diff-agent
         with:
           PATTERNS: |
-            ecosystem/**/**.proto
-        if: matrix.module == 'ecosystem'
+            agent/**/**.proto
+        if: matrix.module == 'agent'
       - uses: technote-space/get-diff-action@v6
-        id: git-diff-example
+        id: git-diff-content
         with:
           PATTERNS: |
-            example/**/**.proto
-        if: matrix.module == 'example'
+            content/**/**.proto
+        if: matrix.module == 'content'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-governor
         with:
@@ -76,14 +76,14 @@ jobs:
         if: steps.git-diff-admin.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
-          input: 'ecosystem/proto'
+          input: 'agent/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
-        if: steps.git-diff-ecosystem.outputs.diff
+        if: steps.git-diff-agent.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
-          input: 'example/proto'
+          input: 'content/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
-        if: steps.git-diff-example.outputs.diff
+        if: steps.git-diff-content.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
           input: 'governor/proto'

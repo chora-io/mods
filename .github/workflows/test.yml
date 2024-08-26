@@ -27,7 +27,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "ecosystem", "example", "governor", "validator", "voucher"]
+        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -44,13 +44,13 @@ jobs:
         if: |
           (env.GIT_DIFF && matrix.module == 'admin') ||
           github.ref == 'refs/heads/main'
-      - run: make test-ecosystem
+      - run: make test-agent
         if: |
-          (env.GIT_DIFF && matrix.module == 'ecosystem') ||
+          (env.GIT_DIFF && matrix.module == 'agent') ||
           github.ref == 'refs/heads/main'
-      - run: make test-example
+      - run: make test-content
         if: |
-          (env.GIT_DIFF && matrix.module == 'example') ||
+          (env.GIT_DIFF && matrix.module == 'content') ||
           github.ref == 'refs/heads/main'
       - run: make test-governor
         if: |
@@ -74,19 +74,19 @@ jobs:
           github.ref == 'refs/heads/main'
       - uses: actions/upload-artifact@v4
         with:
-          name: coverage-ecosystem
-          path: coverage-ecosystem.out
+          name: coverage-agent
+          path: coverage-agent.out
           overwrite: true
         if: |
-          (env.GIT_DIFF && matrix.module == 'ecosystem') ||
+          (env.GIT_DIFF && matrix.module == 'agent') ||
           github.ref == 'refs/heads/main'
       - uses: actions/upload-artifact@v4
         with:
-          name: coverage-example
-          path: coverage-example.out
+          name: coverage-content
+          path: coverage-content.out
           overwrite: true
         if: |
-          (env.GIT_DIFF && matrix.module == 'example') ||
+          (env.GIT_DIFF && matrix.module == 'content') ||
           github.ref == 'refs/heads/main'
       - uses: actions/upload-artifact@v4
         with:
@@ -132,11 +132,11 @@ jobs:
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-example
+          name: coverage-content
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-ecosystem
+          name: coverage-agent
         if: env.GIT_DIFF || github.ref == 'refs/heads/main'
       - uses: actions/download-artifact@v4
         with:

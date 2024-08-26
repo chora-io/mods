@@ -3,8 +3,8 @@
 modules for [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) applications
 
 - [admin](admin)
-- [ecosystem](ecosystem)
-- [example](example)
+- [agent](agent)
+- [content](content)
 - [governor](governor)
 - [validator](validator)
 - [voucher](voucher)

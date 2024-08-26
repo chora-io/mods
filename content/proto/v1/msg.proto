@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package chora.content.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/chora-io/mods/content/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // Create creates content.
+  rpc Create(MsgCreate) returns (MsgCreateResponse);
+
+  // Delete deletes content.
+  rpc Delete(MsgDelete) returns (MsgDeleteResponse);
+
+  // UpdateCurator updates the curator of content.
+  rpc UpdateCurator(MsgUpdateCurator) returns (MsgUpdateCuratorResponse);
+
+  // UpdateMetadata updates the metadata of content.
+  rpc UpdateMetadata(MsgUpdateMetadata) returns (MsgUpdateMetadataResponse);
+}
+
+// MsgCreate is the Msg/Create request type.
+message MsgCreate {
+  option (cosmos.msg.v1.signer) = "curator";
+
+  // curator is the address of the content curator.
+  string curator = 1;
+
+  // metadata is the metadata of the content.
+  string metadata = 2;
+}
+
+// MsgCreateResponse is the Msg/Create response type.
+message MsgCreateResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// MsgDelete is the Msg/Delete request type.
+message MsgDelete {
+  option (cosmos.msg.v1.signer) = "curator";
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // curator is the address of the content curator.
+  string curator = 2;
+}
+
+// MsgDeleteResponse is the Msg/Delete response type.
+message MsgDeleteResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// MsgUpdateCurator is the Msg/UpdateCurator request type.
+message MsgUpdateCurator {
+  option (cosmos.msg.v1.signer) = "curator";
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // curator is the address of the content curator.
+  string curator = 2;
+
+  // new_curator is the address of the new curator.
+  string new_curator = 3;
+}
+
+// MsgUpdateCuratorResponse is the Msg/UpdateCurator response type.
+message MsgUpdateCuratorResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
+
+// MsgUpdateMetadata is the Msg/UpdateMetadata request type.
+message MsgUpdateMetadata {
+  option (cosmos.msg.v1.signer) = "curator";
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+
+  // curator is the address of the content curator.
+  string curator = 2;
+
+  // new_metadata is the new metadata of the content.
+  string new_metadata = 3;
+}
+
+// MsgUpdateMetadataResponse is the Msg/UpdateMetadata response type.
+message MsgUpdateMetadataResponse {
+
+  // id is the unique identifier of the content.
+  uint64 id = 1;
+}
