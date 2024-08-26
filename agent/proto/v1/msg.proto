@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package chora.agent.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/chora-io/mods/agent/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // CreateAgent creates an agent.
+  rpc CreateAgent(MsgCreateAgent) returns (MsgCreateAgentResponse);
+
+  // UpdateAgentAdmin updates the agent admin.
+  rpc UpdateAgentAdmin(MsgUpdateAgentAdmin) returns (MsgUpdateAgentAdminResponse);
+
+  // UpdateAgentMetadata updates the agent metadata.
+  rpc UpdateAgentMetadata(MsgUpdateAgentMetadata) returns (MsgUpdateAgentMetadataResponse);
+}
+
+// MsgCreateAgent is the Msg/CreateAgent request type.
+message MsgCreateAgent {
+  option (cosmos.msg.v1.signer) = "admin";
+
+  // admin is the address of the agent admin.
+  string admin = 1;
+
+  // metadata is the metadata of the agent.
+  string metadata = 2;
+}
+
+// MsgCreateAgentResponse is the Msg/CreateAgent response type.
+message MsgCreateAgentResponse {
+
+  // address is the address of the agent.
+  string address = 1;
+}
+
+// MsgUpdateAgentAdmin is the Msg/UpdateAgentAdmin request type.
+message MsgUpdateAgentAdmin {
+  option (cosmos.msg.v1.signer) = "admin";
+
+  // address is the address of the agent.
+  string address = 1;
+
+  // admin is the address of the agent admin.
+  string admin = 2;
+
+  // new_admin is the address of the new admin.
+  string new_admin = 3;
+}
+
+// MsgUpdateAgentAdminResponse is the Msg/UpdateAgentAdmin response type.
+message MsgUpdateAgentAdminResponse {
+
+  // address is the address of the agent.
+  string address = 1;
+}
+
+// MsgUpdateAgentMetadata is the Msg/UpdateAgentMetadata request type.
+message MsgUpdateAgentMetadata {
+  option (cosmos.msg.v1.signer) = "admin";
+
+  // address is the address of the agent.
+  string address = 1;
+
+  // admin is the address of the agent admin.
+  string admin = 2;
+
+  // new_metadata is the new metadata of the agent.
+  string new_metadata = 3;
+}
+
+// MsgUpdateAgentMetadataResponse is the Msg/UpdateAgentMetadata response type.
+message MsgUpdateAgentMetadataResponse {
+
+  // address is the address of the agent.
+  string address = 1;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// chora.agent.v1 describes the API for the agent module.
+//
+// The following outlines revisions and tagged versions of the compiled code in
+// relation to tagged releases in https://github.com/chora-io/mods:
+//
+// - Revision 0: (in progress)
+//
+package chora.agent.v1;
+
+option go_package = "github.com/chora-io/mods/agent/types/v1";

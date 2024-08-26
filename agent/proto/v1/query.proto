@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package chora.agent.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/chora-io/mods/agent/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Agent queries a agent by address.
+  rpc Agent(QueryAgentRequest) returns (QueryAgentResponse) {
+    option (google.api.http).get = "/chora/agent/v1/agent/{address}";
+  }
+
+  // Agents queries all agents.
+  rpc Agents(QueryAgentsRequest) returns (QueryAgentsResponse) {
+    option (google.api.http).get = "/chora/agent/v1/agents";
+  }
+
+  // AgentsByAdmin queries agents by admin.
+  rpc AgentsByAdmin(QueryAgentsByAdminRequest)
+      returns (QueryAgentsByAdminResponse) {
+    option (google.api.http).get =
+        "/chora/agent/v1/agents-by-admin/{admin}";
+  }
+}
+
+// QueryAgentRequest is the Query/Agent request type.
+message QueryAgentRequest {
+
+  // address is the address of the agent.
+  string address = 1;
+}
+
+// QueryAgentResponse is the Query/Agent response type.
+message QueryAgentResponse {
+
+  // address is the address of the agent.
+  string address = 1;
+
+  // admin is the address of the agent admin.
+  string admin = 2;
+
+  // metadata is the metadata of the agent.
+  string metadata = 3;
+}
+
+// QueryAgentsRequest is the Query/Agents request type.
+message QueryAgentsRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryAgentsResponse is the Query/Agents response type.
+message QueryAgentsResponse {
+
+  // agents is the list of agents.
+  repeated Agent agents = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+
+  // Agent is the agent properties.
+  message Agent {
+
+    // address is the address of the agent.
+    string address = 1;
+
+    // admin is the address of the agent admin.
+    string admin = 2;
+
+    // metadata is the metadata of the agent.
+    string metadata = 3;
+  }
+}
+
+// QueryAgentsByAdminRequest is the Query/AgentsByAdmin request type.
+message QueryAgentsByAdminRequest {
+
+  // admin is the address of the agent admin.
+  string admin = 1;
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QueryAgentsByAdminResponse is the Query/AgentsByAdmin response type.
+message QueryAgentsByAdminResponse {
+
+  // admin is the address of the agent admin.
+  string admin = 1;
+
+  // agents is the list of agents managed by the admin.
+  repeated Agent agents = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Agent is the agent properties.
+  message Agent {
+
+    // address is the address of the agent.
+    string address = 1;
+
+    // metadata is the metadata of the agent.
+    string metadata = 2;
+  }
+}
