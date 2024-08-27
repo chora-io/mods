@@ -4,15 +4,15 @@ The `proposal` module provides a message service for interacting with the state 
 
 ## Draft Definitions
 
-`MsgSubmitProposal` - Any account can submit a governor proposal. A governor proposal will either be executed by the module admin or pending approval to be executed by the module admin.
+`MsgSubmitProposal` - Any account can submit a proposal. A proposal will execute a message on behalf the admin or a module account depending on how the module is configured.
 
-`MsgSubmitProposalDeposit` - Any account can submit a governor proposal deposit. The deposit will be returned once the voting period has ended (unless the result of the proposal was "no with veto").
+`MsgSubmitProposalDeposit` - Any account can submit a proposal deposit. The deposit will be returned to the account after the voting period has ended (unless the result is "no with veto").
 
-`MsgWithdrawProposal` - Only the account that submitted the proposal (the "proposer") or the module admin can withdraw a proposal.
+`MsgWithdrawProposal` - Only the account that submitted the proposal (the "proposer") or the admin can withdraw a proposal. Any deposits will be returned to the accounts that made the deposits.
 
 ...
 
-`MsgSubmitVote` - Any account with voting power can vote on a proposal. Voting power is determined by the module parameters (e.g. voting power can be based on amount staked in which any account with tokens staked on the network has voting power based on the amount staked, or voting can be restricted to governors, validators, an allowlist, etc).
+`MsgSubmitVote` - Any account with voting power can vote on a proposal. Voting power is determined by the set module parameters (e.g. quantity of tokens locked in the network, accounts defined by another module - e.g. governor or validator, or an allowlist managed by the proposal module itself).
 
 `MsgUpdateVote` - The voter account can update their vote before the voting period has ended.
 
