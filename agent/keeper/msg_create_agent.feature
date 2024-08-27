@@ -11,6 +11,12 @@ Feature: Msg/CreateAgent
   Rule: An error is never returned
 
     Scenario: never error
+      Given agent sequence
+      """
+      {
+        "sequence": "0"
+      }
+      """
       When msg create agent
       """
       {
@@ -25,6 +31,12 @@ Feature: Msg/CreateAgent
   Rule: The message response is returned
 
     Scenario: message response returned
+      Given agent sequence
+      """
+      {
+        "sequence": "0"
+      }
+      """
       When msg create agent
       """
       {
@@ -35,7 +47,7 @@ Feature: Msg/CreateAgent
       Then expect response
       """
       {
-        "address": "address"
+        "address": "chora140dhknrxj0vjsn4serghtw7wydm2a6mykxmkl3lmecegk4pp32dqf6sw5n"
       }
       """
 
@@ -44,6 +56,12 @@ Feature: Msg/CreateAgent
   Rule: Agent is added to state
 
     Scenario: state agent added
+      Given agent sequence
+      """
+      {
+        "sequence": "0"
+      }
+      """
       When msg create agent
       """
       {
@@ -54,7 +72,7 @@ Feature: Msg/CreateAgent
       Then expect state agent
       """
       {
-        "address": "address",
+        "address": "q9t7TGaT2ShOsMjRdbvOI3au62Sxt2/H+84yi1Qhipo=",
         "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -65,6 +83,12 @@ Feature: Msg/CreateAgent
   Rule: EventCreate is emitted
 
     Scenario: event create emitted
+      Given agent sequence
+      """
+      {
+        "sequence": "0"
+      }
+      """
       When msg create agent
       """
       {
@@ -75,7 +99,7 @@ Feature: Msg/CreateAgent
       Then expect event create agent
       """
       {
-        "address": "address"
+        "address": "chora140dhknrxj0vjsn4serghtw7wydm2a6mykxmkl3lmecegk4pp32dqf6sw5n"
       }
       """
 

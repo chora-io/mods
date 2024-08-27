@@ -26,11 +26,11 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 // Agent defines the table and properties of a agent.
 type Agent struct {
 	// address is the address of the agent.
-	Address string `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
+	Address []byte `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 	// admin is the address of the agent admin.
-	Admin []byte `protobuf:"bytes,3,opt,name=admin,proto3" json:"admin,omitempty"`
+	Admin []byte `protobuf:"bytes,2,opt,name=admin,proto3" json:"admin,omitempty"`
 	// metadata is the metadata of the agent.
-	Metadata string `protobuf:"bytes,4,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
 func (m *Agent) Reset()         { *m = Agent{} }
@@ -66,11 +66,11 @@ func (m *Agent) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Agent proto.InternalMessageInfo
 
-func (m *Agent) GetAddress() string {
+func (m *Agent) GetAddress() []byte {
 	if m != nil {
 		return m.Address
 	}
-	return ""
+	return nil
 }
 
 func (m *Agent) GetAdmin() []byte {
@@ -87,29 +87,77 @@ func (m *Agent) GetMetadata() string {
 	return ""
 }
 
+type AgentSequence struct {
+	// sequence is the sequence of the agents.
+	Sequence uint64 `protobuf:"varint,1,opt,name=sequence,proto3" json:"sequence,omitempty"`
+}
+
+func (m *AgentSequence) Reset()         { *m = AgentSequence{} }
+func (m *AgentSequence) String() string { return proto.CompactTextString(m) }
+func (*AgentSequence) ProtoMessage()    {}
+func (*AgentSequence) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1485c998ed228319, []int{1}
+}
+func (m *AgentSequence) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *AgentSequence) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_AgentSequence.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *AgentSequence) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AgentSequence.Merge(m, src)
+}
+func (m *AgentSequence) XXX_Size() int {
+	return m.Size()
+}
+func (m *AgentSequence) XXX_DiscardUnknown() {
+	xxx_messageInfo_AgentSequence.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AgentSequence proto.InternalMessageInfo
+
+func (m *AgentSequence) GetSequence() uint64 {
+	if m != nil {
+		return m.Sequence
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Agent)(nil), "chora.agent.v1.Agent")
+	proto.RegisterType((*AgentSequence)(nil), "chora.agent.v1.AgentSequence")
 }
 
 func init() { proto.RegisterFile("chora/agent/v1/state.proto", fileDescriptor_1485c998ed228319) }
 
 var fileDescriptor_1485c998ed228319 = []byte{
-	// 230 bytes of a gzipped FileDescriptorProto
+	// 263 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4a, 0xce, 0xc8, 0x2f,
 	0x4a, 0xd4, 0x4f, 0x4c, 0x4f, 0xcd, 0x2b, 0xd1, 0x2f, 0x33, 0xd4, 0x2f, 0x2e, 0x49, 0x2c, 0x49,
 	0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x03, 0xcb, 0xe9, 0x81, 0xe5, 0xf4, 0xca, 0x0c,
 	0xa5, 0xc4, 0x93, 0xf3, 0x8b, 0x73, 0xf3, 0x8b, 0xf5, 0xf3, 0x8b, 0x72, 0x41, 0x4a, 0xf3, 0x8b,
 	0x72, 0x21, 0x0a, 0x95, 0x8a, 0xb9, 0x58, 0x1d, 0x41, 0x8a, 0x84, 0x24, 0xb8, 0xd8, 0x13, 0x53,
-	0x52, 0x8a, 0x52, 0x8b, 0x8b, 0x25, 0x98, 0x14, 0x18, 0x35, 0x38, 0x83, 0x60, 0x5c, 0x21, 0x11,
-	0x2e, 0xd6, 0xc4, 0x94, 0xdc, 0xcc, 0x3c, 0x09, 0x66, 0x05, 0x46, 0x0d, 0x9e, 0x20, 0x08, 0x47,
-	0x48, 0x8a, 0x8b, 0x23, 0x37, 0xb5, 0x24, 0x31, 0x25, 0xb1, 0x24, 0x51, 0x82, 0x05, 0xac, 0x01,
-	0xce, 0xb7, 0x92, 0xfb, 0x34, 0xef, 0x72, 0x1f, 0xb3, 0x04, 0x17, 0x27, 0xdc, 0x4c, 0x21, 0x4e,
-	0xa8, 0x21, 0x02, 0x8c, 0x12, 0x8c, 0x4e, 0x8e, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7,
-	0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7, 0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c,
-	0xc7, 0x10, 0xa5, 0x9e, 0x9e, 0x59, 0x92, 0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab, 0x0f, 0xf6,
-	0x82, 0x6e, 0x66, 0xbe, 0x7e, 0x6e, 0x7e, 0x4a, 0x31, 0xd4, 0x9b, 0x25, 0x95, 0x05, 0xa9, 0xc5,
-	0xfa, 0x65, 0x86, 0x49, 0x6c, 0x60, 0xe7, 0x1b, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0xcf, 0xe6,
-	0xc1, 0x9f, 0x05, 0x01, 0x00, 0x00,
+	0x52, 0x8a, 0x52, 0x8b, 0x8b, 0x25, 0x18, 0x15, 0x18, 0x35, 0x78, 0x82, 0x60, 0x5c, 0x21, 0x11,
+	0x2e, 0xd6, 0xc4, 0x94, 0xdc, 0xcc, 0x3c, 0x09, 0x26, 0xb0, 0x38, 0x84, 0x23, 0x24, 0xc5, 0xc5,
+	0x91, 0x9b, 0x5a, 0x92, 0x98, 0x92, 0x58, 0x92, 0x28, 0xc1, 0xac, 0xc0, 0xa8, 0xc1, 0x19, 0x04,
+	0xe7, 0x5b, 0xc9, 0x7d, 0x9a, 0x77, 0xb9, 0x8f, 0x59, 0x82, 0x8b, 0x13, 0x6e, 0xa6, 0x10, 0x27,
+	0xd4, 0x10, 0x01, 0x46, 0x09, 0x46, 0x25, 0x53, 0x2e, 0x5e, 0xb0, 0xa5, 0xc1, 0xa9, 0x85, 0xa5,
+	0xa9, 0x79, 0xc9, 0xa9, 0x20, 0xc3, 0x8a, 0xa1, 0x6c, 0xb0, 0xed, 0x2c, 0x41, 0x70, 0xbe, 0x15,
+	0xc7, 0x2f, 0x90, 0x61, 0x4c, 0x1c, 0x4c, 0x4e, 0x8e, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24,
+	0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7, 0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78,
+	0x2c, 0xc7, 0x10, 0xa5, 0x9e, 0x9e, 0x59, 0x92, 0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab, 0x0f,
+	0xf6, 0xb9, 0x6e, 0x66, 0xbe, 0x7e, 0x6e, 0x7e, 0x4a, 0x31, 0x34, 0x74, 0x4a, 0x2a, 0x0b, 0x52,
+	0x8b, 0xf5, 0xcb, 0x0c, 0x93, 0xd8, 0xc0, 0xbe, 0x36, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x7a,
+	0x8a, 0xb2, 0x22, 0x3c, 0x01, 0x00, 0x00,
 }
 
 func (m *Agent) Marshal() (dAtA []byte, err error) {
@@ -137,21 +185,49 @@ func (m *Agent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.Metadata)
 		i = encodeVarintState(dAtA, i, uint64(len(m.Metadata)))
 		i--
-		dAtA[i] = 0x22
+		dAtA[i] = 0x1a
 	}
 	if len(m.Admin) > 0 {
 		i -= len(m.Admin)
 		copy(dAtA[i:], m.Admin)
 		i = encodeVarintState(dAtA, i, uint64(len(m.Admin)))
 		i--
-		dAtA[i] = 0x1a
+		dAtA[i] = 0x12
 	}
 	if len(m.Address) > 0 {
 		i -= len(m.Address)
 		copy(dAtA[i:], m.Address)
 		i = encodeVarintState(dAtA, i, uint64(len(m.Address)))
 		i--
-		dAtA[i] = 0x12
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *AgentSequence) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *AgentSequence) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *AgentSequence) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Sequence != 0 {
+		i = encodeVarintState(dAtA, i, uint64(m.Sequence))
+		i--
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -184,6 +260,18 @@ func (m *Agent) Size() (n int) {
 	l = len(m.Metadata)
 	if l > 0 {
 		n += 1 + l + sovState(uint64(l))
+	}
+	return n
+}
+
+func (m *AgentSequence) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Sequence != 0 {
+		n += 1 + sovState(uint64(m.Sequence))
 	}
 	return n
 }
@@ -223,11 +311,11 @@ func (m *Agent) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: Agent: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
-		case 2:
+		case 1:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
-			var stringLen uint64
+			var byteLen int
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowState
@@ -237,25 +325,27 @@ func (m *Agent) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				byteLen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
+			if byteLen < 0 {
 				return ErrInvalidLengthState
 			}
-			postIndex := iNdEx + intStringLen
+			postIndex := iNdEx + byteLen
 			if postIndex < 0 {
 				return ErrInvalidLengthState
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Address = string(dAtA[iNdEx:postIndex])
+			m.Address = append(m.Address[:0], dAtA[iNdEx:postIndex]...)
+			if m.Address == nil {
+				m.Address = []byte{}
+			}
 			iNdEx = postIndex
-		case 3:
+		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Admin", wireType)
 			}
@@ -289,7 +379,7 @@ func (m *Agent) Unmarshal(dAtA []byte) error {
 				m.Admin = []byte{}
 			}
 			iNdEx = postIndex
-		case 4:
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
 			}
@@ -321,6 +411,75 @@ func (m *Agent) Unmarshal(dAtA []byte) error {
 			}
 			m.Metadata = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipState(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthState
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *AgentSequence) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowState
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: AgentSequence: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: AgentSequence: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Sequence", wireType)
+			}
+			m.Sequence = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowState
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Sequence |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
 		default:
 			iNdEx = preIndex
 			skippy, err := skipState(dAtA[iNdEx:])

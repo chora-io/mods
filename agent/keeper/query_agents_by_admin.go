@@ -44,8 +44,10 @@ func (k Keeper) AgentsByAdmin(ctx context.Context, req *v1.QueryAgentsByAdminReq
 			return nil, err // internal error
 		}
 
+		address := sdk.AccAddress(v.Address).String()
+
 		agent := v1.QueryAgentsByAdminResponse_Agent{
-			Address:  v.Address,
+			Address:  address,
 			Metadata: v.Metadata,
 		}
 

@@ -14,7 +14,7 @@ Feature: Msg/UpdateAgentAdmin
       Given agent
       """
       {
-        "address": "address",
+        "address": "G+ksLYTNBuzyqdTij+Xkx1ztGDzOMACTUcjF6iEkiH0=",
         "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -24,7 +24,7 @@ Feature: Msg/UpdateAgentAdmin
       When msg update agent admin
       """
       {
-        "address": "address",
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "new_admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
@@ -35,7 +35,7 @@ Feature: Msg/UpdateAgentAdmin
       When msg update agent admin
       """
       {
-        "address": "address",
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
         "admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "new_admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
@@ -51,7 +51,7 @@ Feature: Msg/UpdateAgentAdmin
       Given agent
       """
       {
-        "address": "address",
+        "address": "G+ksLYTNBuzyqdTij+Xkx1ztGDzOMACTUcjF6iEkiH0=",
         "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -61,7 +61,7 @@ Feature: Msg/UpdateAgentAdmin
       When msg update agent admin
       """
       {
-        "address": "address",
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "new_admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
@@ -69,7 +69,7 @@ Feature: Msg/UpdateAgentAdmin
       Then expect response
       """
       {
-        "address": "address"
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4"
       }
       """
 
@@ -81,7 +81,7 @@ Feature: Msg/UpdateAgentAdmin
       Given agent
       """
       {
-        "address": "address",
+        "address": "G+ksLYTNBuzyqdTij+Xkx1ztGDzOMACTUcjF6iEkiH0=",
         "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -91,7 +91,7 @@ Feature: Msg/UpdateAgentAdmin
       When msg update agent admin
       """
       {
-        "address": "address",
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "new_admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
@@ -99,7 +99,7 @@ Feature: Msg/UpdateAgentAdmin
       Then expect state agent
       """
       {
-        "address": "address",
+        "address": "G+ksLYTNBuzyqdTij+Xkx1ztGDzOMACTUcjF6iEkiH0=",
         "admin": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -113,7 +113,7 @@ Feature: Msg/UpdateAgentAdmin
       Given agent
       """
       {
-        "address": "address",
+        "address": "G+ksLYTNBuzyqdTij+Xkx1ztGDzOMACTUcjF6iEkiH0=",
         "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -123,7 +123,7 @@ Feature: Msg/UpdateAgentAdmin
       When msg update agent admin
       """
       {
-        "address": "address",
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
         "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "new_admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
@@ -131,7 +131,7 @@ Feature: Msg/UpdateAgentAdmin
       Then expect event update agent admin
       """
       {
-        "address": "address"
+        "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4"
       }
       """
 

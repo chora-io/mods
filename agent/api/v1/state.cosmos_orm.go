@@ -14,9 +14,9 @@ type AgentTable interface {
 	Update(ctx context.Context, agent *Agent) error
 	Save(ctx context.Context, agent *Agent) error
 	Delete(ctx context.Context, agent *Agent) error
-	Has(ctx context.Context, address string) (found bool, err error)
+	Has(ctx context.Context, address []byte) (found bool, err error)
 	// Get returns nil and an error which responds true to ormerrors.IsNotFound() if the record was not found.
-	Get(ctx context.Context, address string) (*Agent, error)
+	Get(ctx context.Context, address []byte) (*Agent, error)
 	List(ctx context.Context, prefixKey AgentIndexKey, opts ...ormlist.Option) (AgentIterator, error)
 	ListRange(ctx context.Context, from, to AgentIndexKey, opts ...ormlist.Option) (AgentIterator, error)
 	DeleteBy(ctx context.Context, prefixKey AgentIndexKey) error
@@ -52,7 +52,7 @@ func (x AgentAddressIndexKey) id() uint32            { return 0 }
 func (x AgentAddressIndexKey) values() []interface{} { return x.vs }
 func (x AgentAddressIndexKey) agentIndexKey()        {}
 
-func (this AgentAddressIndexKey) WithAddress(address string) AgentAddressIndexKey {
+func (this AgentAddressIndexKey) WithAddress(address []byte) AgentAddressIndexKey {
 	this.vs = []interface{}{address}
 	return this
 }
@@ -90,11 +90,11 @@ func (this agentTable) Delete(ctx context.Context, agent *Agent) error {
 	return this.table.Delete(ctx, agent)
 }
 
-func (this agentTable) Has(ctx context.Context, address string) (found bool, err error) {
+func (this agentTable) Has(ctx context.Context, address []byte) (found bool, err error) {
 	return this.table.PrimaryKey().Has(ctx, address)
 }
 
-func (this agentTable) Get(ctx context.Context, address string) (*Agent, error) {
+func (this agentTable) Get(ctx context.Context, address []byte) (*Agent, error) {
 	var agent Agent
 	found, err := this.table.PrimaryKey().Get(ctx, &agent, address)
 	if err != nil {
@@ -136,18 +136,54 @@ func NewAgentTable(db ormtable.Schema) (AgentTable, error) {
 	return agentTable{table}, nil
 }
 
+// singleton store
+type AgentSequenceTable interface {
+	Get(ctx context.Context) (*AgentSequence, error)
+	Save(ctx context.Context, agentSequence *AgentSequence) error
+}
+
+type agentSequenceTable struct {
+	table ormtable.Table
+}
+
+var _ AgentSequenceTable = agentSequenceTable{}
+
+func (x agentSequenceTable) Get(ctx context.Context) (*AgentSequence, error) {
+	agentSequence := &AgentSequence{}
+	_, err := x.table.Get(ctx, agentSequence)
+	return agentSequence, err
+}
+
+func (x agentSequenceTable) Save(ctx context.Context, agentSequence *AgentSequence) error {
+	return x.table.Save(ctx, agentSequence)
+}
+
+func NewAgentSequenceTable(db ormtable.Schema) (AgentSequenceTable, error) {
+	table := db.GetTable(&AgentSequence{})
+	if table == nil {
+		return nil, ormerrors.TableNotFound.Wrap(string((&AgentSequence{}).ProtoReflect().Descriptor().FullName()))
+	}
+	return &agentSequenceTable{table}, nil
+}
+
 type StateStore interface {
 	AgentTable() AgentTable
+	AgentSequenceTable() AgentSequenceTable
 
 	doNotImplement()
 }
 
 type stateStore struct {
-	agent AgentTable
+	agent         AgentTable
+	agentSequence AgentSequenceTable
 }
 
 func (x stateStore) AgentTable() AgentTable {
 	return x.agent
+}
+
+func (x stateStore) AgentSequenceTable() AgentSequenceTable {
+	return x.agentSequence
 }
 
 func (stateStore) doNotImplement() {}
@@ -160,7 +196,13 @@ func NewStateStore(db ormtable.Schema) (StateStore, error) {
 		return nil, err
 	}
 
+	agentSequenceTable, err := NewAgentSequenceTable(db)
+	if err != nil {
+		return nil, err
+	}
+
 	return stateStore{
 		agentTable,
+		agentSequenceTable,
 	}, nil
 }

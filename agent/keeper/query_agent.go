@@ -13,8 +13,14 @@ import (
 // Agent implements the Query/Agent method.
 func (k Keeper) Agent(ctx context.Context, req *v1.QueryAgentRequest) (*v1.QueryAgentResponse, error) {
 
+	// get agent account from address
+	account, err := sdk.AccAddressFromBech32(req.Address)
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// get agent from agent table
-	agent, err := k.ss.AgentTable().Get(ctx, req.Address)
+	agent, err := k.ss.AgentTable().Get(ctx, account)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf("agent with address %s", req.Address)
@@ -27,7 +33,7 @@ func (k Keeper) Agent(ctx context.Context, req *v1.QueryAgentRequest) (*v1.Query
 
 	// return query response
 	return &v1.QueryAgentResponse{
-		Address:  agent.Address,
+		Address:  account.String(),
 		Admin:    admin.String(),
 		Metadata: agent.Metadata,
 	}, nil

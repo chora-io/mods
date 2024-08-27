@@ -15,11 +15,20 @@ message Agent {
   };
 
   // address is the address of the agent.
-  string address = 2;
+  bytes address = 1;
 
   // admin is the address of the agent admin.
-  bytes admin = 3;
+  bytes admin = 2;
 
   // metadata is the metadata of the agent.
-  string metadata = 4;
+  string metadata = 3;
+}
+
+message AgentSequence {
+  option (cosmos.orm.v1.singleton) = {
+    id : 2
+  };
+
+  // sequence is the sequence of the agents.
+  uint64 sequence = 1;
 }

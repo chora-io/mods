@@ -14,6 +14,12 @@ import (
 func (k Keeper) UpdateAgentAdmin(ctx context.Context, req *v1.MsgUpdateAgentAdmin) (*v1.MsgUpdateAgentAdminResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
+	// get agent account from address
+	account, err := sdk.AccAddressFromBech32(req.Address)
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// get account from admin address
 	admin, err := sdk.AccAddressFromBech32(req.Admin)
 	if err != nil {
@@ -21,7 +27,7 @@ func (k Keeper) UpdateAgentAdmin(ctx context.Context, req *v1.MsgUpdateAgentAdmi
 	}
 
 	// get agent from agent table
-	agent, err := k.ss.AgentTable().Get(ctx, req.Address)
+	agent, err := k.ss.AgentTable().Get(ctx, account)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf("agent with address %s: %s", req.Address, err)
@@ -56,13 +62,13 @@ func (k Keeper) UpdateAgentAdmin(ctx context.Context, req *v1.MsgUpdateAgentAdmi
 
 	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateAgentAdmin{
-		Address: agent.Address,
+		Address: req.Address,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
 	return &v1.MsgUpdateAgentAdminResponse{
-		Address: agent.Address,
+		Address: req.Address,
 	}, nil
 }

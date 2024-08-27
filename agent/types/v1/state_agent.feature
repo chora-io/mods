@@ -4,7 +4,7 @@ Feature: Content
     Given agent
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
       "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
     }
@@ -27,7 +27,7 @@ Feature: Content
     Given agent
     """
     {
-      "address": "address"
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4"
     }
     """
     When validate agent
@@ -40,7 +40,7 @@ Feature: Content
     Given agent
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
     }
     """
@@ -54,7 +54,7 @@ Feature: Content
     Given agent
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
     }
     """

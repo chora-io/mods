@@ -31,6 +31,14 @@ func TestValidateGenesis(t *testing.T) {
 				}))
 			},
 		},
+		{
+			name: "valid",
+			setup: func(ctx context.Context, ss agentv1.StateStore) {
+				require.NoError(t, ss.AgentSequenceTable().Save(ctx, &agentv1.AgentSequence{
+					Sequence: 0,
+				}))
+			},
+		},
 	}
 
 	for _, tc := range tcs {

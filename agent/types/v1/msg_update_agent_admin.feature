@@ -4,7 +4,7 @@ Feature: MsgUpdateAgentAdmin
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
       "new_admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
     }
@@ -40,20 +40,20 @@ Feature: MsgUpdateAgentAdmin
     Given message
     """
     {
-      "address": "address"
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4"
     }
     """
     When validate message
     Then expect the error
     """
-    admin: decoding bech32 failed: invalid bech32 string length 7: invalid address
+    admin: empty address string is not allowed: invalid address
     """
 
   Scenario: an error is returned if admin is not a bech32 address
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "foo"
     }
     """
@@ -67,7 +67,7 @@ Feature: MsgUpdateAgentAdmin
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
     }
     """
@@ -81,7 +81,7 @@ Feature: MsgUpdateAgentAdmin
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
       "new_admin": "foo"
     }

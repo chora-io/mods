@@ -4,7 +4,7 @@ Feature: MsgUpdateAgentMetadata
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
       "new_metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
     }
@@ -27,21 +27,21 @@ Feature: MsgUpdateAgentMetadata
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "foo"
     }
     """
     When validate message
     Then expect the error
     """
-    address: decoding bech32 failed: invalid bech32 string length 3: invalid address
+    admin: decoding bech32 failed: invalid bech32 string length 3: invalid address
     """
 
   Scenario: an error is returned if admin is empty
     Given message
     """
     {
-      "address": "address"
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4"
     }
     """
     When validate message
@@ -54,7 +54,7 @@ Feature: MsgUpdateAgentMetadata
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "foo"
     }
     """
@@ -68,7 +68,7 @@ Feature: MsgUpdateAgentMetadata
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
     }
     """
@@ -82,7 +82,7 @@ Feature: MsgUpdateAgentMetadata
     Given message
     """
     {
-      "address": "address",
+      "address": "chora1r05jctvye5rweu4f6n3gle0ycaww6xpueccqpy63erz75gfy3p7snu2hw4",
       "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
     }
     """

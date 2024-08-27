@@ -14,14 +14,20 @@ import (
 func (k Keeper) UpdateAgentMetadata(ctx context.Context, req *v1.MsgUpdateAgentMetadata) (*v1.MsgUpdateAgentMetadataResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	// get account from admin address
+	// get agent account from address
+	account, err := sdk.AccAddressFromBech32(req.Address)
+	if err != nil {
+		return nil, err // internal error
+	}
+
+	// get admin account from admin address
 	admin, err := sdk.AccAddressFromBech32(req.Admin)
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// get agent from agent table
-	agent, err := k.ss.AgentTable().Get(ctx, req.Address)
+	agent, err := k.ss.AgentTable().Get(ctx, account.Bytes())
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf("agent with address %s: %s", req.Address, err)
@@ -50,13 +56,13 @@ func (k Keeper) UpdateAgentMetadata(ctx context.Context, req *v1.MsgUpdateAgentM
 
 	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateAgentMetadata{
-		Address: agent.Address,
+		Address: req.Address,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
 	return &v1.MsgUpdateAgentMetadataResponse{
-		Address: agent.Address,
+		Address: req.Address,
 	}, nil
 }

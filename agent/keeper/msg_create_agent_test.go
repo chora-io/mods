@@ -1,8 +1,10 @@
 package keeper
 
 import (
+	"fmt"
 	"testing"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
@@ -26,6 +28,17 @@ func TestMsgCreateAgent(t *testing.T) {
 
 func (s *msgCreateAgent) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
+}
+
+func (s *msgCreateAgent) AgentSequence(a gocuke.DocString) {
+	var as agentv1.AgentSequence
+	err := jsonpb.UnmarshalString(a.Content, &as)
+	require.NoError(s.t, err)
+
+	err = s.k.ss.AgentSequenceTable().Save(s.sdkCtx, &agentv1.AgentSequence{
+		Sequence: as.Sequence,
+	})
+	require.NoError(s.t, err)
 }
 
 func (s *msgCreateAgent) MsgCreateAgent(a gocuke.DocString) {
@@ -52,6 +65,20 @@ func (s *msgCreateAgent) ExpectStateAgent(a gocuke.DocString) {
 	var expected agentv1.Agent
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
+
+	// set index for table lookup
+	index := agentv1.AgentAddressIndexKey{}
+
+	// get agents from agent table
+	it, err := s.k.ss.AgentTable().List(s.sdkCtx, index)
+	require.NoError(s.t, err)
+
+	for it.Next() {
+		v, err := it.Value()
+		require.NoError(s.t, err)
+
+		fmt.Println("!!!", sdk.AccAddress(v.Address).String())
+	}
 
 	actual, err := s.k.ss.AgentTable().Get(s.sdkCtx, expected.Address)
 	require.NoError(s.t, err)
