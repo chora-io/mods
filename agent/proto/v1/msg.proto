@@ -12,11 +12,16 @@ service Msg {
   // CreateAgent creates an agent.
   rpc CreateAgent(MsgCreateAgent) returns (MsgCreateAgentResponse);
 
+  // RemoveAgent removes an agent.
+  rpc RemoveAgent(MsgRemoveAgent) returns (MsgRemoveAgentResponse);
+
   // UpdateAgentAdmin updates the agent admin.
-  rpc UpdateAgentAdmin(MsgUpdateAgentAdmin) returns (MsgUpdateAgentAdminResponse);
+  rpc UpdateAgentAdmin(MsgUpdateAgentAdmin)
+      returns (MsgUpdateAgentAdminResponse);
 
   // UpdateAgentMetadata updates the agent metadata.
-  rpc UpdateAgentMetadata(MsgUpdateAgentMetadata) returns (MsgUpdateAgentMetadataResponse);
+  rpc UpdateAgentMetadata(MsgUpdateAgentMetadata)
+      returns (MsgUpdateAgentMetadataResponse);
 }
 
 // MsgCreateAgent is the Msg/CreateAgent request type.
@@ -32,6 +37,24 @@ message MsgCreateAgent {
 
 // MsgCreateAgentResponse is the Msg/CreateAgent response type.
 message MsgCreateAgentResponse {
+
+  // address is the address of the agent.
+  string address = 1;
+}
+
+// MsgRemoveAgent is the Msg/RemoveAgent request type.
+message MsgRemoveAgent {
+  option (cosmos.msg.v1.signer) = "admin";
+
+  // address is the address of the agent.
+  string address = 1;
+
+  // admin is the address of the agent admin.
+  string admin = 2;
+}
+
+// MsgRemoveAgentResponse is the Msg/RemoveAgent response type.
+message MsgRemoveAgentResponse {
 
   // address is the address of the agent.
   string address = 1;

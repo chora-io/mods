@@ -6,7 +6,7 @@ Feature: Msg/CreateAgent
   Msg/CreateAgent has the following outcomes:
   - message response returned
   - Agent is added to state
-  - EventCreate is emitted
+  - EventCreateAgent is emitted
 
   Rule: An error is never returned
 
@@ -80,7 +80,7 @@ Feature: Msg/CreateAgent
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventCreate is emitted
+  Rule: EventCreateAgent is emitted
 
     Scenario: event create emitted
       Given agent sequence

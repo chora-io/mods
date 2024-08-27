@@ -11,6 +11,13 @@ message EventCreateAgent {
   string address = 1;
 }
 
+// EventRemoveAgent is an event emitted when an agent is removed.
+message EventRemoveAgent {
+
+  // address is the address of the agent.
+  string address = 1;
+}
+
 // EventUpdateAgentAdmin is an event emitted when the agent admin is updated.
 message EventUpdateAgentAdmin {
 
@@ -18,7 +25,8 @@ message EventUpdateAgentAdmin {
   string address = 1;
 }
 
-// EventUpdateAgentMetadata is an event emitted when the agent metadata is updated.
+// EventUpdateAgentMetadata is an event emitted when the agent metadata is
+// updated.
 message EventUpdateAgentMetadata {
 
   // address is the address of the agent.

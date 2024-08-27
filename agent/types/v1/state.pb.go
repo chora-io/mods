@@ -23,7 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// Agent defines the table and properties of a agent.
+// Agent defines the table and properties of the agent.
 type Agent struct {
 	// address is the address of the agent.
 	Address []byte `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
@@ -87,8 +87,10 @@ func (m *Agent) GetMetadata() string {
 	return ""
 }
 
+// AgentSequence defines the table and properties of the agent sequence.
 type AgentSequence struct {
-	// sequence is the sequence of the agents.
+	// sequence is the sequence of the agent. The sequence is used to generate
+	// agent accounts managed by the agent module.
 	Sequence uint64 `protobuf:"varint,1,opt,name=sequence,proto3" json:"sequence,omitempty"`
 }
 

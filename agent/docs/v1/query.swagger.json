@@ -13,7 +13,7 @@
   "paths": {
     "/chora/agent/v1/agent/{address}": {
       "get": {
-        "summary": "Agent queries a agent by address.",
+        "summary": "Agent queries an agent by address.",
         "operationId": "Agent",
         "responses": {
           "200": {

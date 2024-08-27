@@ -28,12 +28,12 @@ func (k Keeper) CreateAgent(ctx context.Context, req *v1.MsgCreateAgent) (*v1.Ms
 		return nil, err // internal error
 	}
 
-	// generate derivation key
-	derivationKey := make([]byte, 10)
-	binary.LittleEndian.PutUint64(derivationKey, agentSequence.Sequence)
+	// generate account derivation key
+	accountKey := make([]byte, 10)
+	binary.LittleEndian.PutUint64(accountKey, agentSequence.Sequence)
 
-	// create module account using derivation key
-	agentAccount, err := authtypes.NewModuleCredential(group.ModuleName, derivationKey)
+	// create module account using account derivation key
+	agentAccount, err := authtypes.NewModuleCredential(group.ModuleName, accountKey)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func (k Keeper) CreateAgent(ctx context.Context, req *v1.MsgCreateAgent) (*v1.Ms
 		return nil, err // internal error
 	}
 
-	// save next sequence
+	// update agent sequence table
 	err = k.ss.AgentSequenceTable().Save(ctx, &agentv1.AgentSequence{
 		Sequence: agentSequence.Sequence + 1,
 	})
@@ -56,18 +56,18 @@ func (k Keeper) CreateAgent(ctx context.Context, req *v1.MsgCreateAgent) (*v1.Ms
 		return nil, err // internal error
 	}
 
-	// get account from account bytes
-	address := sdk.AccAddress(agentAccount.Address())
+	// get string address from agent account
+	address := sdk.AccAddress(agentAccount.Address()).String()
 
 	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventCreateAgent{
-		Address: address.String(),
+		Address: address,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
 	return &v1.MsgCreateAgentResponse{
-		Address: address.String(),
+		Address: address,
 	}, nil
 }

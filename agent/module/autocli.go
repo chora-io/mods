@@ -40,11 +40,19 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 			EnhanceCustomCommand: false, // use custom commands until v0.51
 			RpcCommandOptions:    []*autocliv1.RpcCommandOptions{
 				//{
-				//	RpcMethod: "Create",
-				//	Use:       "create [metadata]",
-				//	Short:     "submit a transaction to create agent",
+				//	RpcMethod: "CreateAgent",
+				//	Use:       "create-agent [metadata]",
+				//	Short:     "submit a transaction to create an agent",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "metadata"},
+				//	},
+				//},
+				//{
+				//	RpcMethod: "RemoveAgent",
+				//	Use:       "remove-agent [address]",
+				//	Short:     "submit a transaction to remove an agent",
+				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+				//		{ProtoField: "address"},
 				//	},
 				//},
 				//{

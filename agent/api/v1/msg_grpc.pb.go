@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	Msg_CreateAgent_FullMethodName         = "/chora.agent.v1.Msg/CreateAgent"
+	Msg_RemoveAgent_FullMethodName         = "/chora.agent.v1.Msg/RemoveAgent"
 	Msg_UpdateAgentAdmin_FullMethodName    = "/chora.agent.v1.Msg/UpdateAgentAdmin"
 	Msg_UpdateAgentMetadata_FullMethodName = "/chora.agent.v1.Msg/UpdateAgentMetadata"
 )
@@ -32,6 +33,8 @@ const (
 type MsgClient interface {
 	// CreateAgent creates an agent.
 	CreateAgent(ctx context.Context, in *MsgCreateAgent, opts ...grpc.CallOption) (*MsgCreateAgentResponse, error)
+	// RemoveAgent removes an agent.
+	RemoveAgent(ctx context.Context, in *MsgRemoveAgent, opts ...grpc.CallOption) (*MsgRemoveAgentResponse, error)
 	// UpdateAgentAdmin updates the agent admin.
 	UpdateAgentAdmin(ctx context.Context, in *MsgUpdateAgentAdmin, opts ...grpc.CallOption) (*MsgUpdateAgentAdminResponse, error)
 	// UpdateAgentMetadata updates the agent metadata.
@@ -50,6 +53,16 @@ func (c *msgClient) CreateAgent(ctx context.Context, in *MsgCreateAgent, opts ..
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MsgCreateAgentResponse)
 	err := c.cc.Invoke(ctx, Msg_CreateAgent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) RemoveAgent(ctx context.Context, in *MsgRemoveAgent, opts ...grpc.CallOption) (*MsgRemoveAgentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MsgRemoveAgentResponse)
+	err := c.cc.Invoke(ctx, Msg_RemoveAgent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,6 +97,8 @@ func (c *msgClient) UpdateAgentMetadata(ctx context.Context, in *MsgUpdateAgentM
 type MsgServer interface {
 	// CreateAgent creates an agent.
 	CreateAgent(context.Context, *MsgCreateAgent) (*MsgCreateAgentResponse, error)
+	// RemoveAgent removes an agent.
+	RemoveAgent(context.Context, *MsgRemoveAgent) (*MsgRemoveAgentResponse, error)
 	// UpdateAgentAdmin updates the agent admin.
 	UpdateAgentAdmin(context.Context, *MsgUpdateAgentAdmin) (*MsgUpdateAgentAdminResponse, error)
 	// UpdateAgentMetadata updates the agent metadata.
@@ -100,6 +115,9 @@ type UnimplementedMsgServer struct{}
 
 func (UnimplementedMsgServer) CreateAgent(context.Context, *MsgCreateAgent) (*MsgCreateAgentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAgent not implemented")
+}
+func (UnimplementedMsgServer) RemoveAgent(context.Context, *MsgRemoveAgent) (*MsgRemoveAgentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveAgent not implemented")
 }
 func (UnimplementedMsgServer) UpdateAgentAdmin(context.Context, *MsgUpdateAgentAdmin) (*MsgUpdateAgentAdminResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAgentAdmin not implemented")
@@ -142,6 +160,24 @@ func _Msg_CreateAgent_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MsgServer).CreateAgent(ctx, req.(*MsgCreateAgent))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_RemoveAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveAgent)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).RemoveAgent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_RemoveAgent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).RemoveAgent(ctx, req.(*MsgRemoveAgent))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -192,6 +228,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateAgent",
 			Handler:    _Msg_CreateAgent_Handler,
+		},
+		{
+			MethodName: "RemoveAgent",
+			Handler:    _Msg_RemoveAgent_Handler,
 		},
 		{
 			MethodName: "UpdateAgentAdmin",

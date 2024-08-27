@@ -1,10 +1,8 @@
 package keeper
 
 import (
-	"fmt"
 	"testing"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
@@ -65,20 +63,6 @@ func (s *msgCreateAgent) ExpectStateAgent(a gocuke.DocString) {
 	var expected agentv1.Agent
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
-
-	// set index for table lookup
-	index := agentv1.AgentAddressIndexKey{}
-
-	// get agents from agent table
-	it, err := s.k.ss.AgentTable().List(s.sdkCtx, index)
-	require.NoError(s.t, err)
-
-	for it.Next() {
-		v, err := it.Value()
-		require.NoError(s.t, err)
-
-		fmt.Println("!!!", sdk.AccAddress(v.Address).String())
-	}
 
 	actual, err := s.k.ss.AgentTable().Get(s.sdkCtx, expected.Address)
 	require.NoError(s.t, err)

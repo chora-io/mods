@@ -10,7 +10,7 @@ option go_package = "github.com/chora-io/mods/agent/types/v1";
 // Query is the Query service.
 service Query {
 
-  // Agent queries a agent by address.
+  // Agent queries an agent by address.
   rpc Agent(QueryAgentRequest) returns (QueryAgentResponse) {
     option (google.api.http).get = "/chora/agent/v1/agent/{address}";
   }
@@ -23,8 +23,7 @@ service Query {
   // AgentsByAdmin queries agents by admin.
   rpc AgentsByAdmin(QueryAgentsByAdminRequest)
       returns (QueryAgentsByAdminResponse) {
-    option (google.api.http).get =
-        "/chora/agent/v1/agents-by-admin/{admin}";
+    option (google.api.http).get = "/chora/agent/v1/agents-by-admin/{admin}";
   }
 }
 

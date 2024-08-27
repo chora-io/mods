@@ -540,7 +540,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
-	// Agent queries a agent by address.
+	// Agent queries an agent by address.
 	Agent(ctx context.Context, in *QueryAgentRequest, opts ...grpc.CallOption) (*QueryAgentResponse, error)
 	// Agents queries all agents.
 	Agents(ctx context.Context, in *QueryAgentsRequest, opts ...grpc.CallOption) (*QueryAgentsResponse, error)
@@ -585,7 +585,7 @@ func (c *queryClient) AgentsByAdmin(ctx context.Context, in *QueryAgentsByAdminR
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
-	// Agent queries a agent by address.
+	// Agent queries an agent by address.
 	Agent(context.Context, *QueryAgentRequest) (*QueryAgentResponse, error)
 	// Agents queries all agents.
 	Agents(context.Context, *QueryAgentsRequest) (*QueryAgentsResponse, error)

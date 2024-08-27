@@ -12,6 +12,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
 		&MsgCreateAgent{},
+		&MsgRemoveAgent{},
 		&MsgUpdateAgentAdmin{},
 		&MsgUpdateAgentMetadata{},
 	)
@@ -22,6 +23,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateAgent{}, "agent/MsgCreateAgent", nil)
+	cdc.RegisterConcrete(&MsgRemoveAgent{}, "agent/MsgRemoveAgent", nil)
 	cdc.RegisterConcrete(&MsgUpdateAgentAdmin{}, "agent/MsgUpdateAgentAdmin", nil)
 	cdc.RegisterConcrete(&MsgUpdateAgentMetadata{}, "agent/MsgUpdateAgentMetadata", nil)
 }

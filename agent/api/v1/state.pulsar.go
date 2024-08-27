@@ -982,7 +982,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Agent defines the table and properties of a agent.
+// Agent defines the table and properties of the agent.
 type Agent struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1037,12 +1037,14 @@ func (x *Agent) GetMetadata() string {
 	return ""
 }
 
+// AgentSequence defines the table and properties of the agent sequence.
 type AgentSequence struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// sequence is the sequence of the agents.
+	// sequence is the sequence of the agent. The sequence is used to generate
+	// agent accounts managed by the agent module.
 	Sequence uint64 `protobuf:"varint,1,opt,name=sequence,proto3" json:"sequence,omitempty"`
 }
 

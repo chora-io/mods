@@ -30,7 +30,7 @@ const (
 //
 // Query is the Query service.
 type QueryClient interface {
-	// Agent queries a agent by address.
+	// Agent queries an agent by address.
 	Agent(ctx context.Context, in *QueryAgentRequest, opts ...grpc.CallOption) (*QueryAgentResponse, error)
 	// Agents queries all agents.
 	Agents(ctx context.Context, in *QueryAgentsRequest, opts ...grpc.CallOption) (*QueryAgentsResponse, error)
@@ -82,7 +82,7 @@ func (c *queryClient) AgentsByAdmin(ctx context.Context, in *QueryAgentsByAdminR
 //
 // Query is the Query service.
 type QueryServer interface {
-	// Agent queries a agent by address.
+	// Agent queries an agent by address.
 	Agent(context.Context, *QueryAgentRequest) (*QueryAgentResponse, error)
 	// Agents queries all agents.
 	Agents(context.Context, *QueryAgentsRequest) (*QueryAgentsResponse, error)
