@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package chora.admin.v1;
 
-import "cosmos/base/query/v1beta1/pagination.proto";
 import "google/api/annotations.proto";
 
 option go_package = "github.com/chora-io/mods/admin/types/v1";
