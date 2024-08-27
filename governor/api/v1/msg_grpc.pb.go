@@ -19,10 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Msg_Register_FullMethodName = "/chora.governor.v1.Msg/Register"
-	Msg_Remove_FullMethodName   = "/chora.governor.v1.Msg/Remove"
-	Msg_Resign_FullMethodName   = "/chora.governor.v1.Msg/Resign"
-	Msg_Update_FullMethodName   = "/chora.governor.v1.Msg/Update"
+	Msg_CreateGovernor_FullMethodName         = "/chora.governor.v1.Msg/CreateGovernor"
+	Msg_RemoveGovernor_FullMethodName         = "/chora.governor.v1.Msg/RemoveGovernor"
+	Msg_UpdateGovernorMetadata_FullMethodName = "/chora.governor.v1.Msg/UpdateGovernorMetadata"
 )
 
 // MsgClient is the client API for Msg service.
@@ -31,14 +30,12 @@ const (
 //
 // Msg is the Msg service.
 type MsgClient interface {
-	// Register registers a governor (any account).
-	Register(ctx context.Context, in *MsgRegister, opts ...grpc.CallOption) (*MsgRegisterResponse, error)
-	// Remove removes a governor (only admin account).
-	Remove(ctx context.Context, in *MsgRemove, opts ...grpc.CallOption) (*MsgRemoveResponse, error)
-	// Resign resigns a governor (only governor account).
-	Resign(ctx context.Context, in *MsgResign, opts ...grpc.CallOption) (*MsgResignResponse, error)
-	// Update updates a governor (only governor account).
-	Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error)
+	// CreateGovernor registers a governor.
+	CreateGovernor(ctx context.Context, in *MsgCreateGovernor, opts ...grpc.CallOption) (*MsgCreateGovernorResponse, error)
+	// RemoveGovernor removes a governor.
+	RemoveGovernor(ctx context.Context, in *MsgRemoveGovernor, opts ...grpc.CallOption) (*MsgRemoveGovernorResponse, error)
+	// UpdateGovernorMetadata updates a governor.
+	UpdateGovernorMetadata(ctx context.Context, in *MsgUpdateGovernorMetadata, opts ...grpc.CallOption) (*MsgUpdateGovernorMetadataResponse, error)
 }
 
 type msgClient struct {
@@ -49,40 +46,30 @@ func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) Register(ctx context.Context, in *MsgRegister, opts ...grpc.CallOption) (*MsgRegisterResponse, error) {
+func (c *msgClient) CreateGovernor(ctx context.Context, in *MsgCreateGovernor, opts ...grpc.CallOption) (*MsgCreateGovernorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgRegisterResponse)
-	err := c.cc.Invoke(ctx, Msg_Register_FullMethodName, in, out, cOpts...)
+	out := new(MsgCreateGovernorResponse)
+	err := c.cc.Invoke(ctx, Msg_CreateGovernor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Remove(ctx context.Context, in *MsgRemove, opts ...grpc.CallOption) (*MsgRemoveResponse, error) {
+func (c *msgClient) RemoveGovernor(ctx context.Context, in *MsgRemoveGovernor, opts ...grpc.CallOption) (*MsgRemoveGovernorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgRemoveResponse)
-	err := c.cc.Invoke(ctx, Msg_Remove_FullMethodName, in, out, cOpts...)
+	out := new(MsgRemoveGovernorResponse)
+	err := c.cc.Invoke(ctx, Msg_RemoveGovernor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Resign(ctx context.Context, in *MsgResign, opts ...grpc.CallOption) (*MsgResignResponse, error) {
+func (c *msgClient) UpdateGovernorMetadata(ctx context.Context, in *MsgUpdateGovernorMetadata, opts ...grpc.CallOption) (*MsgUpdateGovernorMetadataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgResignResponse)
-	err := c.cc.Invoke(ctx, Msg_Resign_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgUpdateResponse)
-	err := c.cc.Invoke(ctx, Msg_Update_FullMethodName, in, out, cOpts...)
+	out := new(MsgUpdateGovernorMetadataResponse)
+	err := c.cc.Invoke(ctx, Msg_UpdateGovernorMetadata_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,14 +82,12 @@ func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.Call
 //
 // Msg is the Msg service.
 type MsgServer interface {
-	// Register registers a governor (any account).
-	Register(context.Context, *MsgRegister) (*MsgRegisterResponse, error)
-	// Remove removes a governor (only admin account).
-	Remove(context.Context, *MsgRemove) (*MsgRemoveResponse, error)
-	// Resign resigns a governor (only governor account).
-	Resign(context.Context, *MsgResign) (*MsgResignResponse, error)
-	// Update updates a governor (only governor account).
-	Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error)
+	// CreateGovernor registers a governor.
+	CreateGovernor(context.Context, *MsgCreateGovernor) (*MsgCreateGovernorResponse, error)
+	// RemoveGovernor removes a governor.
+	RemoveGovernor(context.Context, *MsgRemoveGovernor) (*MsgRemoveGovernorResponse, error)
+	// UpdateGovernorMetadata updates a governor.
+	UpdateGovernorMetadata(context.Context, *MsgUpdateGovernorMetadata) (*MsgUpdateGovernorMetadataResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -113,17 +98,14 @@ type MsgServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMsgServer struct{}
 
-func (UnimplementedMsgServer) Register(context.Context, *MsgRegister) (*MsgRegisterResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
+func (UnimplementedMsgServer) CreateGovernor(context.Context, *MsgCreateGovernor) (*MsgCreateGovernorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGovernor not implemented")
 }
-func (UnimplementedMsgServer) Remove(context.Context, *MsgRemove) (*MsgRemoveResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Remove not implemented")
+func (UnimplementedMsgServer) RemoveGovernor(context.Context, *MsgRemoveGovernor) (*MsgRemoveGovernorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveGovernor not implemented")
 }
-func (UnimplementedMsgServer) Resign(context.Context, *MsgResign) (*MsgResignResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Resign not implemented")
-}
-func (UnimplementedMsgServer) Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+func (UnimplementedMsgServer) UpdateGovernorMetadata(context.Context, *MsgUpdateGovernorMetadata) (*MsgUpdateGovernorMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateGovernorMetadata not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 func (UnimplementedMsgServer) testEmbeddedByValue()             {}
@@ -146,74 +128,56 @@ func RegisterMsgServer(s grpc.ServiceRegistrar, srv MsgServer) {
 	s.RegisterService(&Msg_ServiceDesc, srv)
 }
 
-func _Msg_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgRegister)
+func _Msg_CreateGovernor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateGovernor)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Register(ctx, in)
+		return srv.(MsgServer).CreateGovernor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_Register_FullMethodName,
+		FullMethod: Msg_CreateGovernor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Register(ctx, req.(*MsgRegister))
+		return srv.(MsgServer).CreateGovernor(ctx, req.(*MsgCreateGovernor))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgRemove)
+func _Msg_RemoveGovernor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveGovernor)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Remove(ctx, in)
+		return srv.(MsgServer).RemoveGovernor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_Remove_FullMethodName,
+		FullMethod: Msg_RemoveGovernor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Remove(ctx, req.(*MsgRemove))
+		return srv.(MsgServer).RemoveGovernor(ctx, req.(*MsgRemoveGovernor))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Resign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgResign)
+func _Msg_UpdateGovernorMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateGovernorMetadata)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Resign(ctx, in)
+		return srv.(MsgServer).UpdateGovernorMetadata(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_Resign_FullMethodName,
+		FullMethod: Msg_UpdateGovernorMetadata_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Resign(ctx, req.(*MsgResign))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdate)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Msg_Update_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Update(ctx, req.(*MsgUpdate))
+		return srv.(MsgServer).UpdateGovernorMetadata(ctx, req.(*MsgUpdateGovernorMetadata))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -226,20 +190,16 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Register",
-			Handler:    _Msg_Register_Handler,
+			MethodName: "CreateGovernor",
+			Handler:    _Msg_CreateGovernor_Handler,
 		},
 		{
-			MethodName: "Remove",
-			Handler:    _Msg_Remove_Handler,
+			MethodName: "RemoveGovernor",
+			Handler:    _Msg_RemoveGovernor_Handler,
 		},
 		{
-			MethodName: "Resign",
-			Handler:    _Msg_Resign_Handler,
-		},
-		{
-			MethodName: "Update",
-			Handler:    _Msg_Update_Handler,
+			MethodName: "UpdateGovernorMetadata",
+			Handler:    _Msg_UpdateGovernorMetadata_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

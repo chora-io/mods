@@ -21,7 +21,7 @@ type msgIssue struct {
 
 func TestMsgIssue(t *testing.T) {
 	gocuke.NewRunner(t, &msgIssue{}).
-		Path("./features/msg_issue.feature").
+		Path("./msg_issue.feature").
 		Run()
 }
 

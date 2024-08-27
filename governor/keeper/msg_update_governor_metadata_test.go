@@ -12,23 +12,23 @@ import (
 	"github.com/chora-io/mods/governor/utils"
 )
 
-type msgUpdateGovernor struct {
+type msgUpdateGovernorMetadata struct {
 	*baseSuite
-	res *v1.MsgUpdateGovernorResponse
+	res *v1.MsgUpdateGovernorMetadataResponse
 	err error
 }
 
-func TestMsgUpdateGovernor(t *testing.T) {
-	gocuke.NewRunner(t, &msgUpdateGovernor{}).
-		Path("./features/msg_update_governor.feature").
+func TestMsgUpdateGovernorMetadata(t *testing.T) {
+	gocuke.NewRunner(t, &msgUpdateGovernorMetadata{}).
+		Path("./msg_update_governor_metadata.feature").
 		Run()
 }
 
-func (s *msgUpdateGovernor) Before(t gocuke.TestingT) {
+func (s *msgUpdateGovernorMetadata) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgUpdateGovernor) Governor(a gocuke.DocString) {
+func (s *msgUpdateGovernorMetadata) Governor(a gocuke.DocString) {
 	var governor governorv1.Governor
 	err := jsonpb.UnmarshalString(a.Content, &governor)
 	require.NoError(s.t, err)
@@ -39,31 +39,31 @@ func (s *msgUpdateGovernor) Governor(a gocuke.DocString) {
 	require.NoError(s.t, err)
 }
 
-func (s *msgUpdateGovernor) MsgUpdateGovernor(a gocuke.DocString) {
-	var msg v1.MsgUpdateGovernor
+func (s *msgUpdateGovernorMetadata) MsgUpdateGovernorMetadata(a gocuke.DocString) {
+	var msg v1.MsgUpdateGovernorMetadata
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.k.UpdateGovernor(s.sdkCtx, &msg)
+	s.res, s.err = s.k.UpdateGovernorMetadata(s.sdkCtx, &msg)
 }
 
-func (s *msgUpdateGovernor) ExpectNoError() {
+func (s *msgUpdateGovernorMetadata) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgUpdateGovernor) ExpectTheError(a gocuke.DocString) {
+func (s *msgUpdateGovernorMetadata) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }
 
-func (s *msgUpdateGovernor) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgUpdateGovernorResponse
+func (s *msgUpdateGovernorMetadata) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgUpdateGovernorMetadataResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgUpdateGovernor) ExpectStateGovernor(a gocuke.DocString) {
+func (s *msgUpdateGovernorMetadata) ExpectStateGovernor(a gocuke.DocString) {
 	var expected governorv1.Governor
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
@@ -75,8 +75,8 @@ func (s *msgUpdateGovernor) ExpectStateGovernor(a gocuke.DocString) {
 	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
-func (s *msgUpdateGovernor) ExpectEventUpdateGovernor(a gocuke.DocString) {
-	var expected v1.EventUpdateGovernor
+func (s *msgUpdateGovernorMetadata) ExpectEventUpdateGovernor(a gocuke.DocString) {
+	var expected v1.EventUpdateGovernorMetadata
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

@@ -24,7 +24,7 @@ func ValidateGenesis(bz json.RawMessage) error {
 
 func validateJSON(bz json.RawMessage) error {
 	_, err := ormdb.NewModuleDB(&governor.ModuleSchema, ormdb.ModuleDBOptions{
-		JSONGovernor: validateMsg,
+		JSONValidator: validateMsg,
 	})
 	if err != nil {
 		return err

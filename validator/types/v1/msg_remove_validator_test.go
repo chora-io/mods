@@ -16,7 +16,7 @@ type msgRemoveValidator struct {
 
 func TestMsgRemoveValidator(t *testing.T) {
 	gocuke.NewRunner(t, &msgRemoveValidator{}).
-		Path("./features/msg_remove_validator.feature").
+		Path("./msg_remove_validator.feature").
 		Run()
 }
 

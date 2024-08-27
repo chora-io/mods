@@ -20,7 +20,7 @@ type msgUpdateMetadata struct {
 
 func TestMsgUpdateMetadata(t *testing.T) {
 	gocuke.NewRunner(t, &msgUpdateMetadata{}).
-		Path("./features/msg_update_metadata.feature").
+		Path("./msg_update_metadata.feature").
 		Run()
 }
 

@@ -26,7 +26,7 @@ func TestValidateGenesis(t *testing.T) {
 			name: "valid",
 			setup: func(ctx context.Context, ss governorv1.StateStore) {
 				require.NoError(t, ss.GovernorTable().Insert(ctx, &governorv1.Governor{
-					Address:  "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+					Address:  []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y="),
 					Metadata: "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
 				}))
 			},

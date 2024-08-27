@@ -20,7 +20,7 @@ type msgUpdateValidator struct {
 
 func TestMsgUpdateValidator(t *testing.T) {
 	gocuke.NewRunner(t, &msgUpdateValidator{}).
-		Path("./features/msg_update_validator.feature").
+		Path("./msg_update_validator.feature").
 		Run()
 }
 

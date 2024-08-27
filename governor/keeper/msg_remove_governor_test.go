@@ -3,6 +3,7 @@ package keeper
 import (
 	"testing"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/gogoproto/jsonpb"
 	"github.com/regen-network/gocuke"
 	"github.com/stretchr/testify/require"
@@ -20,7 +21,7 @@ type msgRemoveGovernor struct {
 
 func TestMsgRemoveGovernor(t *testing.T) {
 	gocuke.NewRunner(t, &msgRemoveGovernor{}).
-		Path("./features/msg_remove_governor.feature").
+		Path("./msg_remove_governor.feature").
 		Run()
 }
 
@@ -39,18 +40,6 @@ func (s *msgRemoveGovernor) Governor(a gocuke.DocString) {
 
 	err = s.k.ss.GovernorTable().Insert(s.sdkCtx, &governorv1.Governor{
 		Address: governor.Address,
-	})
-	require.NoError(s.t, err)
-}
-
-func (s *msgRemoveGovernor) GovernorSigningInfo(a gocuke.DocString) {
-	var missedBlocks governorv1.GovernorSigningInfo
-	err := jsonpb.UnmarshalString(a.Content, &missedBlocks)
-	require.NoError(s.t, err)
-
-	err = s.k.ss.GovernorSigningInfoTable().Insert(s.sdkCtx, &governorv1.GovernorSigningInfo{
-		Address:      missedBlocks.Address,
-		MissedBlocks: missedBlocks.MissedBlocks,
 	})
 	require.NoError(s.t, err)
 }
@@ -80,13 +69,7 @@ func (s *msgRemoveGovernor) ExpectResponse(a gocuke.DocString) {
 }
 
 func (s *msgRemoveGovernor) ExpectNoGovernorWithAddress(a string) {
-	found, err := s.k.ss.GovernorTable().Has(s.sdkCtx, a)
-	require.NoError(s.t, err)
-	require.False(s.t, found)
-}
-
-func (s *msgRemoveGovernor) ExpectNoGovernorSigningInfoWithAddress(a string) {
-	found, err := s.k.ss.GovernorSigningInfoTable().Has(s.sdkCtx, a)
+	found, err := s.k.ss.GovernorTable().Has(s.sdkCtx, sdk.AccAddress(a))
 	require.NoError(s.t, err)
 	require.False(s.t, found)
 }

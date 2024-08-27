@@ -37,8 +37,8 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 			EnhanceCustomCommand: false, // use custom commands until v0.51
 			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
 				//{
-				//	RpcMethod: "AddGovernor",
-				//	Use:       "add-governor [address] [metadata]",
+				//	RpcMethod: "CreateGovernor",
+				//	Use:       "create-governor [address] [metadata]",
 				//	Short:     "submit a transaction to add a governor",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},

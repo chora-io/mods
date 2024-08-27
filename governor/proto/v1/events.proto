@@ -4,29 +4,22 @@ package chora.governor.v1;
 
 option go_package = "github.com/chora-io/mods/governor/types/v1";
 
-// EventRegister is an event emitted when a governor has registered.
-message EventRegister {
+// EventCreateGovernor is an event emitted when a governor has registered.
+message EventCreateGovernor {
 
   // address is the address of the governor.
   string address = 1;
 }
 
-// EventRemove is an event emitted when a governor has been removed.
-message EventRemove {
+// EventRemoveGovernor is an event emitted when a governor has been removed.
+message EventRemoveGovernor {
 
   // address is the address of the governor.
   string address = 1;
 }
 
-// EventResign is an event emitted when a governor has resigned.
-message EventResign {
-
-  // address is the address of the governor.
-  string address = 1;
-}
-
-// EventUpdate is an event emitted when a governor has updated.
-message EventUpdate {
+// EventUpdateGovernorMetadata is an event emitted when a governor has updated.
+message EventUpdateGovernorMetadata {
 
   // address is the address of the governor.
   string address = 1;

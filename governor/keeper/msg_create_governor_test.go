@@ -12,51 +12,51 @@ import (
 	"github.com/chora-io/mods/governor/utils"
 )
 
-type msgAddGovernor struct {
+type msgCreateGovernor struct {
 	*baseSuite
-	res *v1.MsgAddGovernorResponse
+	res *v1.MsgCreateGovernorResponse
 	err error
 }
 
-func TestMsgAddGovernor(t *testing.T) {
-	gocuke.NewRunner(t, &msgAddGovernor{}).
-		Path("./features/msg_add_governor.feature").
+func TestMsgCreateGovernor(t *testing.T) {
+	gocuke.NewRunner(t, &msgCreateGovernor{}).
+		Path("./msg_create_governor.feature").
 		Run()
 }
 
-func (s *msgAddGovernor) Before(t gocuke.TestingT) {
+func (s *msgCreateGovernor) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgAddGovernor) Admin(a string) {
+func (s *msgCreateGovernor) Admin(a string) {
 	require.Equal(s.t, s.admin.String(), a)
 }
 
-func (s *msgAddGovernor) MsgAddGovernor(a gocuke.DocString) {
-	var msg v1.MsgAddGovernor
+func (s *msgCreateGovernor) MsgCreateGovernor(a gocuke.DocString) {
+	var msg v1.MsgCreateGovernor
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.k.AddGovernor(s.sdkCtx, &msg)
+	s.res, s.err = s.k.CreateGovernor(s.sdkCtx, &msg)
 }
 
-func (s *msgAddGovernor) ExpectNoError() {
+func (s *msgCreateGovernor) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgAddGovernor) ExpectTheError(a gocuke.DocString) {
+func (s *msgCreateGovernor) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }
 
-func (s *msgAddGovernor) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgAddGovernorResponse
+func (s *msgCreateGovernor) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgCreateGovernorResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgAddGovernor) ExpectStateGovernor(a gocuke.DocString) {
+func (s *msgCreateGovernor) ExpectStateGovernor(a gocuke.DocString) {
 	var expected governorv1.Governor
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
@@ -68,8 +68,8 @@ func (s *msgAddGovernor) ExpectStateGovernor(a gocuke.DocString) {
 	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
-func (s *msgAddGovernor) ExpectEventAdd(a gocuke.DocString) {
-	var expected v1.EventAddGovernor
+func (s *msgCreateGovernor) ExpectEventCreateGovernor(a gocuke.DocString) {
+	var expected v1.EventCreateGovernor
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

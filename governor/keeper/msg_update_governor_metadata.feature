@@ -1,26 +1,26 @@
-Feature: Msg/UpdateValidator
+Feature: Msg/UpdateGovernorMetadata
 
-  UpdateValidator is successful when:
-  - validator with address exists
+  UpdateGovernorMetadata is successful when:
+  - governor with address exists
 
-  UpdateValidator has the following outcomes:
-  - Validator is updated in state
-  - EventUpdateValidator is emitted
-  - MsgUpdateValidatorResponse is returned
+  UpdateGovernorMetadata has the following outcomes:
+  - Governor is updated in state
+  - EventUpdateGovernorMetadata is emitted
+  - MsgUpdateGovernorMetadataResponse is returned
 
-  Rule: The validator must exist
+  Rule: The governor must exist
 
     Background:
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
-    Scenario: validator exists
-      When msg update validator
+    Scenario: governor exists
+      When msg update governor metadata
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
@@ -29,8 +29,8 @@ Feature: Msg/UpdateValidator
       """
       Then expect no error
 
-    Scenario: validator does not exist
-      When msg update validator
+    Scenario: governor does not exist
+      When msg update governor metadata
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
@@ -39,58 +39,58 @@ Feature: Msg/UpdateValidator
       """
       Then expect the error
       """
-      validator with address chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: not found: not found
+      governor with address chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: not found: not found
       """
 
-  Rule: Validator is updated in state
+  Rule: Governor is updated in state
 
     Background:
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
-    Scenario: state validator updated
-      When msg update validator
+    Scenario: state governor updated
+      When msg update governor metadata
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      Then expect state validator
+      Then expect state governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventUpdateValidator emitted
+  Rule: EventUpdateGovernorMetadata emitted
 
     Background:
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
-    Scenario: event update validator emitted
-      When msg update validator
+    Scenario: event update governor emitted
+      When msg update governor metadata
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      Then expect event update validator
+      Then expect event update governor
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -99,19 +99,19 @@ Feature: Msg/UpdateValidator
 
     # No failing scenario - event is never emitted when message fails
 
-  Rule: MsgUpdateValidatorResponse is returned
+  Rule: MsgUpdateGovernorMetadataResponse is returned
 
     Background:
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
     Scenario: message response returned
-      When msg update validator
+      When msg update governor metadata
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",

@@ -18,7 +18,7 @@ type msgAddValidator struct {
 
 func TestMsgAddValidator(t *testing.T) {
 	gocuke.NewRunner(t, &msgAddValidator{}).
-		Path("./features/msg_add_validator.feature").
+		Path("./msg_add_validator.feature").
 		Run()
 }
 

@@ -18,7 +18,7 @@ type voucher struct {
 
 func TestVoucher(t *testing.T) {
 	gocuke.NewRunner(t, &voucher{}).
-		Path("./features/state_voucher.feature").
+		Path("./state_voucher.feature").
 		Run()
 }
 

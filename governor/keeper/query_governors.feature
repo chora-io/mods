@@ -1,15 +1,15 @@
-Feature: Query/Validators
+Feature: Query/Governors
 
-  Query/Validators is successful when:
+  Query/Governors is successful when:
   - always (an error is never returned)
 
-  Query/Validators has the following outcomes:
+  Query/Governors has the following outcomes:
   - query response returned
 
   Rule: An error is never returned
 
     Scenario: never error
-      When query validators
+      When query governors
       """
       {}
       """
@@ -17,35 +17,35 @@ Feature: Query/Validators
 
   Rule: The query response is returned
 
-    Scenario: response with no validators
-      When query validators
+    Scenario: response with no governors
+      When query governors
       """
       {}
       """
       Then expect response
       """
       {
-        "validators": [],
+        "governors": [],
         "pagination": {}
       }
       """
 
-    Scenario: response with one validator
-      Given validator
+    Scenario: response with one governor
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      When query validators
+      When query governors
       """
       {}
       """
       Then expect response
       """
       {
-        "validators": [
+        "governors": [
           {
             "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
             "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
@@ -57,29 +57,29 @@ Feature: Query/Validators
       }
       """
 
-    Scenario: response with two validators
-      Given validator
+    Scenario: response with two governors
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
+        "address": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
         "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      When query validators
+      When query governors
       """
       {}
       """
       Then expect response
       """
       {
-        "validators": [
+        "governors": [
           {
             "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
             "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"

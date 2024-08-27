@@ -20,7 +20,7 @@ type msgUpdatePolicy struct {
 
 func TestMsgUpdatePolicy(t *testing.T) {
 	gocuke.NewRunner(t, &msgUpdatePolicy{}).
-		Path("./features/msg_update_policy.feature").
+		Path("./msg_update_policy.feature").
 		Run()
 }
 

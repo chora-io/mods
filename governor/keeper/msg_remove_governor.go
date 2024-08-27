@@ -14,15 +14,14 @@ import (
 func (k Keeper) RemoveGovernor(ctx context.Context, req *v1.MsgRemoveGovernor) (*v1.MsgRemoveGovernorResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	adminAddress := k.admin.String()
-	if adminAddress != req.Admin {
-		return nil, sdkerrors.ErrUnauthorized.Wrapf(
-			"admin: expected %s: received %s", adminAddress, req.Admin,
-		)
+	// get account address from address
+	address, err := sdk.AccAddressFromBech32(req.Address)
+	if err != nil {
+		return nil, err // internal error
 	}
 
 	// get governor from governor table
-	governor, err := k.ss.GovernorTable().Get(ctx, req.Address)
+	governor, err := k.ss.GovernorTable().Get(ctx, address)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf(
@@ -32,25 +31,8 @@ func (k Keeper) RemoveGovernor(ctx context.Context, req *v1.MsgRemoveGovernor) (
 		return nil, err // internal error
 	}
 
-	// get signing info from governor signing info table
-	signingInfo, err := k.ss.GovernorSigningInfoTable().Get(ctx, req.Address)
-	if err != nil {
-		if ormerrors.NotFound.Is(err) {
-			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"governor signing info with address %s", req.Address,
-			)
-		}
-		return nil, err // internal error
-	}
-
 	// delete governor from governor table
 	err = k.ss.GovernorTable().Delete(ctx, governor)
-	if err != nil {
-		return nil, err // internal error
-	}
-
-	// delete governor from governor signing info table
-	err = k.ss.GovernorSigningInfoTable().Delete(ctx, signingInfo)
 	if err != nil {
 		return nil, err // internal error
 	}

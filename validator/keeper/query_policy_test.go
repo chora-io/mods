@@ -19,7 +19,7 @@ type queryPolicy struct {
 
 func TestQueryPolicy(t *testing.T) {
 	gocuke.NewRunner(t, &queryPolicy{}).
-		Path("./features/query_policy.feature").
+		Path("./query_policy.feature").
 		Run()
 }
 

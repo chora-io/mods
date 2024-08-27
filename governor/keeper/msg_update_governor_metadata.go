@@ -10,12 +10,18 @@ import (
 	v1 "github.com/chora-io/mods/governor/types/v1"
 )
 
-// UpdateGovernor implements the Msg/UpdateGovernor method.
-func (k Keeper) UpdateGovernor(ctx context.Context, req *v1.MsgUpdateGovernor) (*v1.MsgUpdateGovernorResponse, error) {
+// UpdateGovernorMetadata implements the Msg/UpdateGovernorMetadata method.
+func (k Keeper) UpdateGovernorMetadata(ctx context.Context, req *v1.MsgUpdateGovernorMetadata) (*v1.MsgUpdateGovernorMetadataResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
+	// get account address from address
+	address, err := sdk.AccAddressFromBech32(req.Address)
+	if err != nil {
+		return nil, err // internal error
+	}
+
 	// get governor from governor table
-	governor, err := k.ss.GovernorTable().Get(ctx, req.Address)
+	governor, err := k.ss.GovernorTable().Get(ctx, address)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf("governor with address %s: %s", req.Address, err)
@@ -33,14 +39,14 @@ func (k Keeper) UpdateGovernor(ctx context.Context, req *v1.MsgUpdateGovernor) (
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateGovernor{
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateGovernorMetadata{
 		Address: req.Address,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgUpdateGovernorResponse{
+	return &v1.MsgUpdateGovernorMetadataResponse{
 		Address: req.Address,
 	}, nil
 }

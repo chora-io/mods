@@ -19,7 +19,7 @@ type queryValidators struct {
 
 func TestQueryValidators(t *testing.T) {
 	gocuke.NewRunner(t, &queryValidators{}).
-		Path("./features/query_validators.feature").
+		Path("./query_validators.feature").
 		Run()
 }
 

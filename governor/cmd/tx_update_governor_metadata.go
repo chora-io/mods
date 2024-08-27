@@ -13,7 +13,7 @@ import (
 // TxUpdateGovernorCmd creates and returns the tx update command.
 func TxUpdateGovernorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-governor [new-metadata]",
+		Use:   "update-governor-metadata [new-metadata]",
 		Short: "submit a transaction to update governor metadata",
 		Long:  "submit a transaction to update governor metadata",
 		Args:  cobra.ExactArgs(1),
@@ -23,7 +23,7 @@ func TxUpdateGovernorCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgUpdateGovernor{
+			msg := v1.MsgUpdateGovernorMetadata{
 				Address:     clientCtx.GetFromAddress().String(),
 				NewMetadata: args[0],
 			}

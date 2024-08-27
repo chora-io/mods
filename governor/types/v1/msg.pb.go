@@ -28,26 +28,26 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// MsgRegister is the Msg/Register request type.
-type MsgRegister struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
+// MsgCreateGovernor is the Msg/CreateGovernor request type.
+type MsgCreateGovernor struct {
+	// address is the address of the governor.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 	// metadata is the metadata of the governor.
 	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (m *MsgRegister) Reset()         { *m = MsgRegister{} }
-func (m *MsgRegister) String() string { return proto.CompactTextString(m) }
-func (*MsgRegister) ProtoMessage()    {}
-func (*MsgRegister) Descriptor() ([]byte, []int) {
+func (m *MsgCreateGovernor) Reset()         { *m = MsgCreateGovernor{} }
+func (m *MsgCreateGovernor) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateGovernor) ProtoMessage()    {}
+func (*MsgCreateGovernor) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7a84c7e9509d58dc, []int{0}
 }
-func (m *MsgRegister) XXX_Unmarshal(b []byte) error {
+func (m *MsgCreateGovernor) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgRegister) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgCreateGovernor) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgRegister.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgCreateGovernor.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -57,50 +57,50 @@ func (m *MsgRegister) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *MsgRegister) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgRegister.Merge(m, src)
+func (m *MsgCreateGovernor) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateGovernor.Merge(m, src)
 }
-func (m *MsgRegister) XXX_Size() int {
+func (m *MsgCreateGovernor) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgRegister) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgRegister.DiscardUnknown(m)
+func (m *MsgCreateGovernor) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateGovernor.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgRegister proto.InternalMessageInfo
+var xxx_messageInfo_MsgCreateGovernor proto.InternalMessageInfo
 
-func (m *MsgRegister) GetGovernor() string {
+func (m *MsgCreateGovernor) GetAddress() string {
 	if m != nil {
-		return m.Governor
+		return m.Address
 	}
 	return ""
 }
 
-func (m *MsgRegister) GetMetadata() string {
+func (m *MsgCreateGovernor) GetMetadata() string {
 	if m != nil {
 		return m.Metadata
 	}
 	return ""
 }
 
-// MsgRegisterResponse is the Msg/Register response type.
-type MsgRegisterResponse struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
+// MsgCreateGovernorResponse is the Msg/CreateGovernor response type.
+type MsgCreateGovernorResponse struct {
+	// address is the address of the governor.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *MsgRegisterResponse) Reset()         { *m = MsgRegisterResponse{} }
-func (m *MsgRegisterResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgRegisterResponse) ProtoMessage()    {}
-func (*MsgRegisterResponse) Descriptor() ([]byte, []int) {
+func (m *MsgCreateGovernorResponse) Reset()         { *m = MsgCreateGovernorResponse{} }
+func (m *MsgCreateGovernorResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateGovernorResponse) ProtoMessage()    {}
+func (*MsgCreateGovernorResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7a84c7e9509d58dc, []int{1}
 }
-func (m *MsgRegisterResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgCreateGovernorResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgRegisterResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgCreateGovernorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgRegisterResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgCreateGovernorResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -110,43 +110,43 @@ func (m *MsgRegisterResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return b[:n], nil
 	}
 }
-func (m *MsgRegisterResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgRegisterResponse.Merge(m, src)
+func (m *MsgCreateGovernorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateGovernorResponse.Merge(m, src)
 }
-func (m *MsgRegisterResponse) XXX_Size() int {
+func (m *MsgCreateGovernorResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgRegisterResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgRegisterResponse.DiscardUnknown(m)
+func (m *MsgCreateGovernorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateGovernorResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgRegisterResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgCreateGovernorResponse proto.InternalMessageInfo
 
-func (m *MsgRegisterResponse) GetGovernor() string {
+func (m *MsgCreateGovernorResponse) GetAddress() string {
 	if m != nil {
-		return m.Governor
+		return m.Address
 	}
 	return ""
 }
 
-// MsgRemove is the Msg/Remove request type.
-type MsgRemove struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
+// MsgRemoveGovernor is the Msg/RemoveGovernor request type.
+type MsgRemoveGovernor struct {
+	// address is the address of the governor.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *MsgRemove) Reset()         { *m = MsgRemove{} }
-func (m *MsgRemove) String() string { return proto.CompactTextString(m) }
-func (*MsgRemove) ProtoMessage()    {}
-func (*MsgRemove) Descriptor() ([]byte, []int) {
+func (m *MsgRemoveGovernor) Reset()         { *m = MsgRemoveGovernor{} }
+func (m *MsgRemoveGovernor) String() string { return proto.CompactTextString(m) }
+func (*MsgRemoveGovernor) ProtoMessage()    {}
+func (*MsgRemoveGovernor) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7a84c7e9509d58dc, []int{2}
 }
-func (m *MsgRemove) XXX_Unmarshal(b []byte) error {
+func (m *MsgRemoveGovernor) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgRemove) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgRemoveGovernor) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgRemove.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgRemoveGovernor.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -156,43 +156,43 @@ func (m *MsgRemove) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *MsgRemove) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgRemove.Merge(m, src)
+func (m *MsgRemoveGovernor) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgRemoveGovernor.Merge(m, src)
 }
-func (m *MsgRemove) XXX_Size() int {
+func (m *MsgRemoveGovernor) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgRemove) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgRemove.DiscardUnknown(m)
+func (m *MsgRemoveGovernor) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgRemoveGovernor.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgRemove proto.InternalMessageInfo
+var xxx_messageInfo_MsgRemoveGovernor proto.InternalMessageInfo
 
-func (m *MsgRemove) GetGovernor() string {
+func (m *MsgRemoveGovernor) GetAddress() string {
 	if m != nil {
-		return m.Governor
+		return m.Address
 	}
 	return ""
 }
 
-// MsgRemoveResponse is the Msg/Remove response type.
-type MsgRemoveResponse struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
+// MsgRemoveGovernorResponse is the Msg/RemoveGovernor response type.
+type MsgRemoveGovernorResponse struct {
+	// address is the address of the governor.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *MsgRemoveResponse) Reset()         { *m = MsgRemoveResponse{} }
-func (m *MsgRemoveResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgRemoveResponse) ProtoMessage()    {}
-func (*MsgRemoveResponse) Descriptor() ([]byte, []int) {
+func (m *MsgRemoveGovernorResponse) Reset()         { *m = MsgRemoveGovernorResponse{} }
+func (m *MsgRemoveGovernorResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgRemoveGovernorResponse) ProtoMessage()    {}
+func (*MsgRemoveGovernorResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7a84c7e9509d58dc, []int{3}
 }
-func (m *MsgRemoveResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgRemoveGovernorResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgRemoveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgRemoveGovernorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgRemoveResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgRemoveGovernorResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -202,137 +202,45 @@ func (m *MsgRemoveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return b[:n], nil
 	}
 }
-func (m *MsgRemoveResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgRemoveResponse.Merge(m, src)
+func (m *MsgRemoveGovernorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgRemoveGovernorResponse.Merge(m, src)
 }
-func (m *MsgRemoveResponse) XXX_Size() int {
+func (m *MsgRemoveGovernorResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgRemoveResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgRemoveResponse.DiscardUnknown(m)
+func (m *MsgRemoveGovernorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgRemoveGovernorResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgRemoveResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgRemoveGovernorResponse proto.InternalMessageInfo
 
-func (m *MsgRemoveResponse) GetGovernor() string {
+func (m *MsgRemoveGovernorResponse) GetAddress() string {
 	if m != nil {
-		return m.Governor
+		return m.Address
 	}
 	return ""
 }
 
-// MsgResign is the Msg/Resign request type.
-type MsgResign struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
-}
-
-func (m *MsgResign) Reset()         { *m = MsgResign{} }
-func (m *MsgResign) String() string { return proto.CompactTextString(m) }
-func (*MsgResign) ProtoMessage()    {}
-func (*MsgResign) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7a84c7e9509d58dc, []int{4}
-}
-func (m *MsgResign) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgResign) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgResign.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgResign) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgResign.Merge(m, src)
-}
-func (m *MsgResign) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgResign) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgResign.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgResign proto.InternalMessageInfo
-
-func (m *MsgResign) GetGovernor() string {
-	if m != nil {
-		return m.Governor
-	}
-	return ""
-}
-
-// MsgResignResponse is the Msg/Resign response type.
-type MsgResignResponse struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
-}
-
-func (m *MsgResignResponse) Reset()         { *m = MsgResignResponse{} }
-func (m *MsgResignResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgResignResponse) ProtoMessage()    {}
-func (*MsgResignResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7a84c7e9509d58dc, []int{5}
-}
-func (m *MsgResignResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgResignResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgResignResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgResignResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgResignResponse.Merge(m, src)
-}
-func (m *MsgResignResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgResignResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgResignResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgResignResponse proto.InternalMessageInfo
-
-func (m *MsgResignResponse) GetGovernor() string {
-	if m != nil {
-		return m.Governor
-	}
-	return ""
-}
-
-// MsgUpdate is the Msg/Update request type.
-type MsgUpdate struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
+// MsgUpdateGovernorMetadata is the Msg/UpdateGovernorMetadata request type.
+type MsgUpdateGovernorMetadata struct {
+	// address is the address of the governor.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 	// new_metadata is the new metadata of the governor.
 	NewMetadata string `protobuf:"bytes,2,opt,name=new_metadata,json=newMetadata,proto3" json:"new_metadata,omitempty"`
 }
 
-func (m *MsgUpdate) Reset()         { *m = MsgUpdate{} }
-func (m *MsgUpdate) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdate) ProtoMessage()    {}
-func (*MsgUpdate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7a84c7e9509d58dc, []int{6}
+func (m *MsgUpdateGovernorMetadata) Reset()         { *m = MsgUpdateGovernorMetadata{} }
+func (m *MsgUpdateGovernorMetadata) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateGovernorMetadata) ProtoMessage()    {}
+func (*MsgUpdateGovernorMetadata) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7a84c7e9509d58dc, []int{4}
 }
-func (m *MsgUpdate) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateGovernorMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateGovernorMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdate.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateGovernorMetadata.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -342,50 +250,51 @@ func (m *MsgUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdate.Merge(m, src)
+func (m *MsgUpdateGovernorMetadata) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateGovernorMetadata.Merge(m, src)
 }
-func (m *MsgUpdate) XXX_Size() int {
+func (m *MsgUpdateGovernorMetadata) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdate) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdate.DiscardUnknown(m)
+func (m *MsgUpdateGovernorMetadata) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateGovernorMetadata.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdate proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateGovernorMetadata proto.InternalMessageInfo
 
-func (m *MsgUpdate) GetGovernor() string {
+func (m *MsgUpdateGovernorMetadata) GetAddress() string {
 	if m != nil {
-		return m.Governor
+		return m.Address
 	}
 	return ""
 }
 
-func (m *MsgUpdate) GetNewMetadata() string {
+func (m *MsgUpdateGovernorMetadata) GetNewMetadata() string {
 	if m != nil {
 		return m.NewMetadata
 	}
 	return ""
 }
 
-// MsgUpdateResponse is the Msg/Update response type.
-type MsgUpdateResponse struct {
-	// governor is the address of the governor.
-	Governor string `protobuf:"bytes,1,opt,name=governor,proto3" json:"governor,omitempty"`
+// MsgUpdateGovernorMetadataResponse is the Msg/UpdateGovernorMetadata response
+// type.
+type MsgUpdateGovernorMetadataResponse struct {
+	// address is the address of the governor.
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *MsgUpdateResponse) Reset()         { *m = MsgUpdateResponse{} }
-func (m *MsgUpdateResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateResponse) ProtoMessage()    {}
-func (*MsgUpdateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7a84c7e9509d58dc, []int{7}
+func (m *MsgUpdateGovernorMetadataResponse) Reset()         { *m = MsgUpdateGovernorMetadataResponse{} }
+func (m *MsgUpdateGovernorMetadataResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateGovernorMetadataResponse) ProtoMessage()    {}
+func (*MsgUpdateGovernorMetadataResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7a84c7e9509d58dc, []int{5}
 }
-func (m *MsgUpdateResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateGovernorMetadataResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateGovernorMetadataResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateGovernorMetadataResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -395,62 +304,60 @@ func (m *MsgUpdateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateResponse.Merge(m, src)
+func (m *MsgUpdateGovernorMetadataResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateGovernorMetadataResponse.Merge(m, src)
 }
-func (m *MsgUpdateResponse) XXX_Size() int {
+func (m *MsgUpdateGovernorMetadataResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateResponse.DiscardUnknown(m)
+func (m *MsgUpdateGovernorMetadataResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateGovernorMetadataResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateGovernorMetadataResponse proto.InternalMessageInfo
 
-func (m *MsgUpdateResponse) GetGovernor() string {
+func (m *MsgUpdateGovernorMetadataResponse) GetAddress() string {
 	if m != nil {
-		return m.Governor
+		return m.Address
 	}
 	return ""
 }
 
 func init() {
-	proto.RegisterType((*MsgRegister)(nil), "chora.governor.v1.MsgRegister")
-	proto.RegisterType((*MsgRegisterResponse)(nil), "chora.governor.v1.MsgRegisterResponse")
-	proto.RegisterType((*MsgRemove)(nil), "chora.governor.v1.MsgRemove")
-	proto.RegisterType((*MsgRemoveResponse)(nil), "chora.governor.v1.MsgRemoveResponse")
-	proto.RegisterType((*MsgResign)(nil), "chora.governor.v1.MsgResign")
-	proto.RegisterType((*MsgResignResponse)(nil), "chora.governor.v1.MsgResignResponse")
-	proto.RegisterType((*MsgUpdate)(nil), "chora.governor.v1.MsgUpdate")
-	proto.RegisterType((*MsgUpdateResponse)(nil), "chora.governor.v1.MsgUpdateResponse")
+	proto.RegisterType((*MsgCreateGovernor)(nil), "chora.governor.v1.MsgCreateGovernor")
+	proto.RegisterType((*MsgCreateGovernorResponse)(nil), "chora.governor.v1.MsgCreateGovernorResponse")
+	proto.RegisterType((*MsgRemoveGovernor)(nil), "chora.governor.v1.MsgRemoveGovernor")
+	proto.RegisterType((*MsgRemoveGovernorResponse)(nil), "chora.governor.v1.MsgRemoveGovernorResponse")
+	proto.RegisterType((*MsgUpdateGovernorMetadata)(nil), "chora.governor.v1.MsgUpdateGovernorMetadata")
+	proto.RegisterType((*MsgUpdateGovernorMetadataResponse)(nil), "chora.governor.v1.MsgUpdateGovernorMetadataResponse")
 }
 
 func init() { proto.RegisterFile("chora/governor/v1/msg.proto", fileDescriptor_7a84c7e9509d58dc) }
 
 var fileDescriptor_7a84c7e9509d58dc = []byte{
-	// 351 bytes of a gzipped FileDescriptorProto
+	// 339 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4e, 0xce, 0xc8, 0x2f,
 	0x4a, 0xd4, 0x4f, 0xcf, 0x2f, 0x4b, 0x2d, 0xca, 0xcb, 0x2f, 0xd2, 0x2f, 0x33, 0xd4, 0xcf, 0x2d,
 	0x4e, 0xd7, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x04, 0x4b, 0xea, 0xc1, 0x24, 0xf5, 0xca,
-	0x0c, 0xa5, 0xc4, 0x93, 0xf3, 0x8b, 0x73, 0xf3, 0x8b, 0x41, 0x8a, 0x50, 0xd4, 0x2a, 0x85, 0x70,
-	0x71, 0xfb, 0x16, 0xa7, 0x07, 0xa5, 0xa6, 0x67, 0x16, 0x97, 0xa4, 0x16, 0x09, 0x49, 0x71, 0x71,
-	0xc0, 0xb4, 0x49, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0xc1, 0xf9, 0x20, 0xb9, 0xdc, 0xd4, 0x92,
-	0xc4, 0x94, 0xc4, 0x92, 0x44, 0x09, 0x26, 0x88, 0x1c, 0x8c, 0x6f, 0xc5, 0xdb, 0xf4, 0x7c, 0x83,
-	0x16, 0x5c, 0xa9, 0x92, 0x21, 0x97, 0x30, 0x92, 0xa9, 0x41, 0xa9, 0xc5, 0x05, 0xf9, 0x79, 0xc5,
-	0xa9, 0xf8, 0x4c, 0x57, 0x32, 0xe3, 0xe2, 0x04, 0x6b, 0xc9, 0xcd, 0x2f, 0xc3, 0xab, 0x10, 0xdd,
-	0x2a, 0x7d, 0x2e, 0x41, 0xb8, 0x3e, 0x92, 0x2c, 0x2a, 0xce, 0x4c, 0xcf, 0x23, 0xc7, 0x22, 0x90,
-	0x3e, 0xa2, 0x2c, 0x8a, 0x04, 0x5b, 0x14, 0x5a, 0x90, 0x92, 0x58, 0x82, 0x57, 0xa1, 0x90, 0x22,
-	0x17, 0x4f, 0x5e, 0x6a, 0x79, 0x3c, 0x5a, 0xe0, 0x72, 0xe7, 0xa5, 0x96, 0xfb, 0xe2, 0x08, 0x5f,
-	0x88, 0x5b, 0x20, 0x46, 0x13, 0xe3, 0x16, 0xa3, 0xc3, 0x4c, 0x5c, 0xcc, 0xbe, 0xc5, 0xe9, 0x42,
-	0x41, 0x5c, 0x1c, 0xf0, 0xb8, 0x96, 0xd3, 0xc3, 0x48, 0x27, 0x7a, 0x48, 0xb1, 0x26, 0xa5, 0x86,
-	0x5f, 0x1e, 0x6e, 0xaf, 0x0f, 0x17, 0x1b, 0x34, 0xda, 0x64, 0x70, 0xe9, 0x00, 0xc9, 0x4a, 0xa9,
-	0xe0, 0x93, 0x45, 0x35, 0x0d, 0x1c, 0x37, 0x38, 0x4d, 0x03, 0xc9, 0xe2, 0x36, 0x0d, 0x25, 0x7e,
-	0x7c, 0xb8, 0xd8, 0xa0, 0x11, 0x80, 0xc3, 0x34, 0x88, 0x2c, 0x2e, 0xd3, 0x50, 0x43, 0xd8, 0xc9,
-	0xe5, 0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58,
-	0x8e, 0xe1, 0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f, 0xe5, 0x18, 0xa2, 0xb4, 0xd2, 0x33, 0x4b, 0x32,
-	0x4a, 0x93, 0xf4, 0x92, 0xf3, 0x73, 0xf5, 0xc1, 0x26, 0xe9, 0x66, 0xe6, 0xeb, 0xe7, 0xe6, 0xa7,
-	0x14, 0x23, 0xb2, 0x68, 0x49, 0x65, 0x41, 0x6a, 0xb1, 0x7e, 0x99, 0x61, 0x12, 0x1b, 0x38, 0xe7,
-	0x19, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x88, 0x41, 0xcb, 0x28, 0xc4, 0x03, 0x00, 0x00,
+	0x0c, 0xa5, 0xc4, 0x93, 0xf3, 0x8b, 0x73, 0xf3, 0x8b, 0x41, 0x8a, 0x50, 0xd4, 0x2a, 0x85, 0x73,
+	0x09, 0xfa, 0x16, 0xa7, 0x3b, 0x17, 0xa5, 0x26, 0x96, 0xa4, 0xba, 0x43, 0x35, 0x08, 0x49, 0x70,
+	0xb1, 0x27, 0xa6, 0xa4, 0x14, 0xa5, 0x16, 0x17, 0x4b, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0xc1,
+	0xb8, 0x42, 0x52, 0x5c, 0x1c, 0xb9, 0xa9, 0x25, 0x89, 0x29, 0x89, 0x25, 0x89, 0x12, 0x4c, 0x60,
+	0x29, 0x38, 0xdf, 0x8a, 0xa7, 0xe9, 0xf9, 0x06, 0x2d, 0x98, 0x4a, 0x25, 0x53, 0x2e, 0x49, 0x0c,
+	0x83, 0x83, 0x52, 0x8b, 0x0b, 0xf2, 0xf3, 0x8a, 0x53, 0x71, 0x5b, 0xa0, 0x64, 0x0d, 0x76, 0x4f,
+	0x50, 0x6a, 0x6e, 0x7e, 0x19, 0x11, 0xee, 0xc1, 0x6a, 0x27, 0xaa, 0x66, 0x22, 0xec, 0x4c, 0x03,
+	0x6b, 0x0b, 0x2d, 0x48, 0x41, 0x72, 0xaa, 0x2f, 0xd4, 0x57, 0x78, 0xc2, 0x42, 0x91, 0x8b, 0x27,
+	0x2f, 0xb5, 0x3c, 0x1e, 0x2d, 0x3c, 0xb8, 0xf3, 0x52, 0xcb, 0x7d, 0xb1, 0x07, 0x89, 0x2d, 0x97,
+	0x22, 0x4e, 0x7b, 0x08, 0x3b, 0xd3, 0xe8, 0x3c, 0x13, 0x17, 0xb3, 0x6f, 0x71, 0xba, 0x50, 0x0a,
+	0x17, 0x1f, 0x5a, 0x7c, 0xa9, 0xe8, 0x61, 0xc4, 0xb8, 0x1e, 0x46, 0xe0, 0x4b, 0xe9, 0x10, 0xa3,
+	0x0a, 0xee, 0x8e, 0x14, 0x2e, 0x3e, 0xb4, 0x58, 0xc0, 0x61, 0x0b, 0xaa, 0x2a, 0x5c, 0xb6, 0xe0,
+	0x88, 0x94, 0x1a, 0x2e, 0x31, 0x1c, 0xe1, 0x8e, 0xc3, 0x1c, 0xec, 0xaa, 0xa5, 0x4c, 0x48, 0x51,
+	0x0d, 0xb3, 0xdd, 0xc9, 0xe5, 0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92,
+	0x63, 0x9c, 0xf0, 0x58, 0x8e, 0xe1, 0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f, 0xe5, 0x18, 0xa2, 0xb4,
+	0xd2, 0x33, 0x4b, 0x32, 0x4a, 0x93, 0xf4, 0x92, 0xf3, 0x73, 0xf5, 0xc1, 0x26, 0xeb, 0x66, 0xe6,
+	0xeb, 0xe7, 0xe6, 0xa7, 0x14, 0x23, 0xb2, 0x5c, 0x49, 0x65, 0x41, 0x6a, 0xb1, 0x7e, 0x99, 0x61,
+	0x12, 0x1b, 0x38, 0x27, 0x19, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x52, 0x17, 0x64, 0x55, 0x94,
+	0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -465,14 +372,12 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MsgClient interface {
-	// Register registers a governor (any account).
-	Register(ctx context.Context, in *MsgRegister, opts ...grpc.CallOption) (*MsgRegisterResponse, error)
-	// Remove removes a governor (only admin account).
-	Remove(ctx context.Context, in *MsgRemove, opts ...grpc.CallOption) (*MsgRemoveResponse, error)
-	// Resign resigns a governor (only governor account).
-	Resign(ctx context.Context, in *MsgResign, opts ...grpc.CallOption) (*MsgResignResponse, error)
-	// Update updates a governor (only governor account).
-	Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error)
+	// CreateGovernor registers a governor.
+	CreateGovernor(ctx context.Context, in *MsgCreateGovernor, opts ...grpc.CallOption) (*MsgCreateGovernorResponse, error)
+	// RemoveGovernor removes a governor.
+	RemoveGovernor(ctx context.Context, in *MsgRemoveGovernor, opts ...grpc.CallOption) (*MsgRemoveGovernorResponse, error)
+	// UpdateGovernorMetadata updates a governor.
+	UpdateGovernorMetadata(ctx context.Context, in *MsgUpdateGovernorMetadata, opts ...grpc.CallOption) (*MsgUpdateGovernorMetadataResponse, error)
 }
 
 type msgClient struct {
@@ -483,36 +388,27 @@ func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) Register(ctx context.Context, in *MsgRegister, opts ...grpc.CallOption) (*MsgRegisterResponse, error) {
-	out := new(MsgRegisterResponse)
-	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/Register", in, out, opts...)
+func (c *msgClient) CreateGovernor(ctx context.Context, in *MsgCreateGovernor, opts ...grpc.CallOption) (*MsgCreateGovernorResponse, error) {
+	out := new(MsgCreateGovernorResponse)
+	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/CreateGovernor", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Remove(ctx context.Context, in *MsgRemove, opts ...grpc.CallOption) (*MsgRemoveResponse, error) {
-	out := new(MsgRemoveResponse)
-	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/Remove", in, out, opts...)
+func (c *msgClient) RemoveGovernor(ctx context.Context, in *MsgRemoveGovernor, opts ...grpc.CallOption) (*MsgRemoveGovernorResponse, error) {
+	out := new(MsgRemoveGovernorResponse)
+	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/RemoveGovernor", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Resign(ctx context.Context, in *MsgResign, opts ...grpc.CallOption) (*MsgResignResponse, error) {
-	out := new(MsgResignResponse)
-	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/Resign", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.CallOption) (*MsgUpdateResponse, error) {
-	out := new(MsgUpdateResponse)
-	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/Update", in, out, opts...)
+func (c *msgClient) UpdateGovernorMetadata(ctx context.Context, in *MsgUpdateGovernorMetadata, opts ...grpc.CallOption) (*MsgUpdateGovernorMetadataResponse, error) {
+	out := new(MsgUpdateGovernorMetadataResponse)
+	err := c.cc.Invoke(ctx, "/chora.governor.v1.Msg/UpdateGovernorMetadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -521,105 +417,82 @@ func (c *msgClient) Update(ctx context.Context, in *MsgUpdate, opts ...grpc.Call
 
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
-	// Register registers a governor (any account).
-	Register(context.Context, *MsgRegister) (*MsgRegisterResponse, error)
-	// Remove removes a governor (only admin account).
-	Remove(context.Context, *MsgRemove) (*MsgRemoveResponse, error)
-	// Resign resigns a governor (only governor account).
-	Resign(context.Context, *MsgResign) (*MsgResignResponse, error)
-	// Update updates a governor (only governor account).
-	Update(context.Context, *MsgUpdate) (*MsgUpdateResponse, error)
+	// CreateGovernor registers a governor.
+	CreateGovernor(context.Context, *MsgCreateGovernor) (*MsgCreateGovernorResponse, error)
+	// RemoveGovernor removes a governor.
+	RemoveGovernor(context.Context, *MsgRemoveGovernor) (*MsgRemoveGovernorResponse, error)
+	// UpdateGovernorMetadata updates a governor.
+	UpdateGovernorMetadata(context.Context, *MsgUpdateGovernorMetadata) (*MsgUpdateGovernorMetadataResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
 type UnimplementedMsgServer struct {
 }
 
-func (*UnimplementedMsgServer) Register(ctx context.Context, req *MsgRegister) (*MsgRegisterResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
+func (*UnimplementedMsgServer) CreateGovernor(ctx context.Context, req *MsgCreateGovernor) (*MsgCreateGovernorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGovernor not implemented")
 }
-func (*UnimplementedMsgServer) Remove(ctx context.Context, req *MsgRemove) (*MsgRemoveResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Remove not implemented")
+func (*UnimplementedMsgServer) RemoveGovernor(ctx context.Context, req *MsgRemoveGovernor) (*MsgRemoveGovernorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveGovernor not implemented")
 }
-func (*UnimplementedMsgServer) Resign(ctx context.Context, req *MsgResign) (*MsgResignResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Resign not implemented")
-}
-func (*UnimplementedMsgServer) Update(ctx context.Context, req *MsgUpdate) (*MsgUpdateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+func (*UnimplementedMsgServer) UpdateGovernorMetadata(ctx context.Context, req *MsgUpdateGovernorMetadata) (*MsgUpdateGovernorMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateGovernorMetadata not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
 	s.RegisterService(&_Msg_serviceDesc, srv)
 }
 
-func _Msg_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgRegister)
+func _Msg_CreateGovernor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateGovernor)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Register(ctx, in)
+		return srv.(MsgServer).CreateGovernor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.governor.v1.Msg/Register",
+		FullMethod: "/chora.governor.v1.Msg/CreateGovernor",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Register(ctx, req.(*MsgRegister))
+		return srv.(MsgServer).CreateGovernor(ctx, req.(*MsgCreateGovernor))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgRemove)
+func _Msg_RemoveGovernor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveGovernor)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Remove(ctx, in)
+		return srv.(MsgServer).RemoveGovernor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.governor.v1.Msg/Remove",
+		FullMethod: "/chora.governor.v1.Msg/RemoveGovernor",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Remove(ctx, req.(*MsgRemove))
+		return srv.(MsgServer).RemoveGovernor(ctx, req.(*MsgRemoveGovernor))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Resign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgResign)
+func _Msg_UpdateGovernorMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateGovernorMetadata)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Resign(ctx, in)
+		return srv.(MsgServer).UpdateGovernorMetadata(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.governor.v1.Msg/Resign",
+		FullMethod: "/chora.governor.v1.Msg/UpdateGovernorMetadata",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Resign(ctx, req.(*MsgResign))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdate)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/chora.governor.v1.Msg/Update",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Update(ctx, req.(*MsgUpdate))
+		return srv.(MsgServer).UpdateGovernorMetadata(ctx, req.(*MsgUpdateGovernorMetadata))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -629,27 +502,23 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Register",
-			Handler:    _Msg_Register_Handler,
+			MethodName: "CreateGovernor",
+			Handler:    _Msg_CreateGovernor_Handler,
 		},
 		{
-			MethodName: "Remove",
-			Handler:    _Msg_Remove_Handler,
+			MethodName: "RemoveGovernor",
+			Handler:    _Msg_RemoveGovernor_Handler,
 		},
 		{
-			MethodName: "Resign",
-			Handler:    _Msg_Resign_Handler,
-		},
-		{
-			MethodName: "Update",
-			Handler:    _Msg_Update_Handler,
+			MethodName: "UpdateGovernorMetadata",
+			Handler:    _Msg_UpdateGovernorMetadata_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "chora/governor/v1/msg.proto",
 }
 
-func (m *MsgRegister) Marshal() (dAtA []byte, err error) {
+func (m *MsgCreateGovernor) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -659,12 +528,12 @@ func (m *MsgRegister) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgRegister) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgCreateGovernor) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgRegister) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgCreateGovernor) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -676,17 +545,17 @@ func (m *MsgRegister) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x12
 	}
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintMsg(dAtA, i, uint64(len(m.Address)))
 		i--
 		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgRegisterResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgCreateGovernorResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -696,27 +565,27 @@ func (m *MsgRegisterResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgRegisterResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgCreateGovernorResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgRegisterResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgCreateGovernorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintMsg(dAtA, i, uint64(len(m.Address)))
 		i--
 		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgRemove) Marshal() (dAtA []byte, err error) {
+func (m *MsgRemoveGovernor) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -726,27 +595,27 @@ func (m *MsgRemove) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgRemove) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgRemoveGovernor) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgRemove) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgRemoveGovernor) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintMsg(dAtA, i, uint64(len(m.Address)))
 		i--
 		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgRemoveResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgRemoveGovernorResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -756,27 +625,27 @@ func (m *MsgRemoveResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgRemoveResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgRemoveGovernorResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgRemoveResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgRemoveGovernorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintMsg(dAtA, i, uint64(len(m.Address)))
 		i--
 		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgResign) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdateGovernorMetadata) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -786,72 +655,12 @@ func (m *MsgResign) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgResign) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdateGovernorMetadata) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgResign) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgResignResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgResignResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgResignResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdate) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdate) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdateGovernorMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -863,17 +672,17 @@ func (m *MsgUpdate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x12
 	}
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintMsg(dAtA, i, uint64(len(m.Address)))
 		i--
 		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdateGovernorMetadataResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -883,20 +692,20 @@ func (m *MsgUpdateResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdateGovernorMetadataResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdateGovernorMetadataResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Governor) > 0 {
-		i -= len(m.Governor)
-		copy(dAtA[i:], m.Governor)
-		i = encodeVarintMsg(dAtA, i, uint64(len(m.Governor)))
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintMsg(dAtA, i, uint64(len(m.Address)))
 		i--
 		dAtA[i] = 0xa
 	}
@@ -914,13 +723,13 @@ func encodeVarintMsg(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *MsgRegister) Size() (n int) {
+func (m *MsgCreateGovernor) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Governor)
+	l = len(m.Address)
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
@@ -931,78 +740,52 @@ func (m *MsgRegister) Size() (n int) {
 	return n
 }
 
-func (m *MsgRegisterResponse) Size() (n int) {
+func (m *MsgCreateGovernorResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Governor)
+	l = len(m.Address)
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
 	return n
 }
 
-func (m *MsgRemove) Size() (n int) {
+func (m *MsgRemoveGovernor) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Governor)
+	l = len(m.Address)
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
 	return n
 }
 
-func (m *MsgRemoveResponse) Size() (n int) {
+func (m *MsgRemoveGovernorResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Governor)
+	l = len(m.Address)
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
 	return n
 }
 
-func (m *MsgResign) Size() (n int) {
+func (m *MsgUpdateGovernorMetadata) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Governor)
-	if l > 0 {
-		n += 1 + l + sovMsg(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgResignResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Governor)
-	if l > 0 {
-		n += 1 + l + sovMsg(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgUpdate) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Governor)
+	l = len(m.Address)
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
@@ -1013,13 +796,13 @@ func (m *MsgUpdate) Size() (n int) {
 	return n
 }
 
-func (m *MsgUpdateResponse) Size() (n int) {
+func (m *MsgUpdateGovernorMetadataResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	l = len(m.Governor)
+	l = len(m.Address)
 	if l > 0 {
 		n += 1 + l + sovMsg(uint64(l))
 	}
@@ -1032,7 +815,7 @@ func sovMsg(x uint64) (n int) {
 func sozMsg(x uint64) (n int) {
 	return sovMsg(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *MsgRegister) Unmarshal(dAtA []byte) error {
+func (m *MsgCreateGovernor) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1055,15 +838,15 @@ func (m *MsgRegister) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgRegister: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgCreateGovernor: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgRegister: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgCreateGovernor: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1091,7 +874,7 @@ func (m *MsgRegister) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
+			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -1146,7 +929,7 @@ func (m *MsgRegister) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgRegisterResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgCreateGovernorResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1169,15 +952,15 @@ func (m *MsgRegisterResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgRegisterResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgCreateGovernorResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgRegisterResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgCreateGovernorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1205,7 +988,7 @@ func (m *MsgRegisterResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
+			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1228,7 +1011,7 @@ func (m *MsgRegisterResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgRemove) Unmarshal(dAtA []byte) error {
+func (m *MsgRemoveGovernor) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1251,15 +1034,15 @@ func (m *MsgRemove) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgRemove: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgRemoveGovernor: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgRemove: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgRemoveGovernor: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1287,7 +1070,7 @@ func (m *MsgRemove) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
+			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1310,7 +1093,7 @@ func (m *MsgRemove) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgRemoveResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgRemoveGovernorResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1333,15 +1116,15 @@ func (m *MsgRemoveResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgRemoveResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgRemoveGovernorResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgRemoveResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgRemoveGovernorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1369,7 +1152,7 @@ func (m *MsgRemoveResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
+			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1392,7 +1175,7 @@ func (m *MsgRemoveResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgResign) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdateGovernorMetadata) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1415,15 +1198,15 @@ func (m *MsgResign) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgResign: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdateGovernorMetadata: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgResign: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdateGovernorMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1451,171 +1234,7 @@ func (m *MsgResign) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipMsg(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthMsg
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgResignResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowMsg
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgResignResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgResignResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowMsg
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthMsg
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthMsg
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipMsg(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthMsg
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdate) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowMsg
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdate: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdate: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowMsg
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthMsg
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthMsg
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
+			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -1670,7 +1289,7 @@ func (m *MsgUpdate) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdateGovernorMetadataResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1693,15 +1312,15 @@ func (m *MsgUpdateResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdateGovernorMetadataResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdateGovernorMetadataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Governor", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1729,7 +1348,7 @@ func (m *MsgUpdateResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Governor = string(dAtA[iNdEx:postIndex])
+			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

@@ -14,9 +14,9 @@ type GovernorTable interface {
 	Update(ctx context.Context, governor *Governor) error
 	Save(ctx context.Context, governor *Governor) error
 	Delete(ctx context.Context, governor *Governor) error
-	Has(ctx context.Context, governor string) (found bool, err error)
+	Has(ctx context.Context, address []byte) (found bool, err error)
 	// Get returns nil and an error which responds true to ormerrors.IsNotFound() if the record was not found.
-	Get(ctx context.Context, governor string) (*Governor, error)
+	Get(ctx context.Context, address []byte) (*Governor, error)
 	List(ctx context.Context, prefixKey GovernorIndexKey, opts ...ormlist.Option) (GovernorIterator, error)
 	ListRange(ctx context.Context, from, to GovernorIndexKey, opts ...ormlist.Option) (GovernorIterator, error)
 	DeleteBy(ctx context.Context, prefixKey GovernorIndexKey) error
@@ -42,18 +42,18 @@ type GovernorIndexKey interface {
 }
 
 // primary key starting index..
-type GovernorPrimaryKey = GovernorGovernorIndexKey
+type GovernorPrimaryKey = GovernorAddressIndexKey
 
-type GovernorGovernorIndexKey struct {
+type GovernorAddressIndexKey struct {
 	vs []interface{}
 }
 
-func (x GovernorGovernorIndexKey) id() uint32            { return 0 }
-func (x GovernorGovernorIndexKey) values() []interface{} { return x.vs }
-func (x GovernorGovernorIndexKey) governorIndexKey()     {}
+func (x GovernorAddressIndexKey) id() uint32            { return 0 }
+func (x GovernorAddressIndexKey) values() []interface{} { return x.vs }
+func (x GovernorAddressIndexKey) governorIndexKey()     {}
 
-func (this GovernorGovernorIndexKey) WithGovernor(governor string) GovernorGovernorIndexKey {
-	this.vs = []interface{}{governor}
+func (this GovernorAddressIndexKey) WithAddress(address []byte) GovernorAddressIndexKey {
+	this.vs = []interface{}{address}
 	return this
 }
 
@@ -77,13 +77,13 @@ func (this governorTable) Delete(ctx context.Context, governor *Governor) error 
 	return this.table.Delete(ctx, governor)
 }
 
-func (this governorTable) Has(ctx context.Context, governor string) (found bool, err error) {
-	return this.table.PrimaryKey().Has(ctx, governor)
+func (this governorTable) Has(ctx context.Context, address []byte) (found bool, err error) {
+	return this.table.PrimaryKey().Has(ctx, address)
 }
 
-func (this governorTable) Get(ctx context.Context, governor string) (*Governor, error) {
+func (this governorTable) Get(ctx context.Context, address []byte) (*Governor, error) {
 	var governor Governor
-	found, err := this.table.PrimaryKey().Get(ctx, &governor, governor)
+	found, err := this.table.PrimaryKey().Get(ctx, &governor, address)
 	if err != nil {
 		return nil, err
 	}

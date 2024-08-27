@@ -19,7 +19,7 @@ type queryVouchers struct {
 
 func TestQueryVouchers(t *testing.T) {
 	gocuke.NewRunner(t, &queryVouchers{}).
-		Path("./features/query_vouchers.feature").
+		Path("./query_vouchers.feature").
 		Run()
 }
 

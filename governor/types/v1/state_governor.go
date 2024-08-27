@@ -8,7 +8,7 @@ import (
 
 // Validate validates Governor.
 func (m *Governor) Validate() error {
-	if _, err := sdk.AccAddressFromBech32(m.Address); err != nil {
+	if _, err := sdk.AccAddressFromBech32(sdk.AccAddress(m.Address).String()); err != nil {
 		return errors.ErrParse.Wrapf("address: %s", err)
 	}
 

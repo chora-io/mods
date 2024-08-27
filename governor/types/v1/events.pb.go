@@ -22,24 +22,24 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// EventRegister is an event emitted when a governor has registered.
-type EventRegister struct {
+// EventCreateGovernor is an event emitted when a governor has registered.
+type EventCreateGovernor struct {
 	// address is the address of the governor.
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *EventRegister) Reset()         { *m = EventRegister{} }
-func (m *EventRegister) String() string { return proto.CompactTextString(m) }
-func (*EventRegister) ProtoMessage()    {}
-func (*EventRegister) Descriptor() ([]byte, []int) {
+func (m *EventCreateGovernor) Reset()         { *m = EventCreateGovernor{} }
+func (m *EventCreateGovernor) String() string { return proto.CompactTextString(m) }
+func (*EventCreateGovernor) ProtoMessage()    {}
+func (*EventCreateGovernor) Descriptor() ([]byte, []int) {
 	return fileDescriptor_ec8ffcae9bebabcd, []int{0}
 }
-func (m *EventRegister) XXX_Unmarshal(b []byte) error {
+func (m *EventCreateGovernor) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventRegister) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventCreateGovernor) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventRegister.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventCreateGovernor.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -49,43 +49,43 @@ func (m *EventRegister) XXX_Marshal(b []byte, deterministic bool) ([]byte, error
 		return b[:n], nil
 	}
 }
-func (m *EventRegister) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventRegister.Merge(m, src)
+func (m *EventCreateGovernor) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventCreateGovernor.Merge(m, src)
 }
-func (m *EventRegister) XXX_Size() int {
+func (m *EventCreateGovernor) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventRegister) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventRegister.DiscardUnknown(m)
+func (m *EventCreateGovernor) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventCreateGovernor.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventRegister proto.InternalMessageInfo
+var xxx_messageInfo_EventCreateGovernor proto.InternalMessageInfo
 
-func (m *EventRegister) GetAddress() string {
+func (m *EventCreateGovernor) GetAddress() string {
 	if m != nil {
 		return m.Address
 	}
 	return ""
 }
 
-// EventRemove is an event emitted when a governor has been removed.
-type EventRemove struct {
+// EventRemoveGovernor is an event emitted when a governor has been removed.
+type EventRemoveGovernor struct {
 	// address is the address of the governor.
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *EventRemove) Reset()         { *m = EventRemove{} }
-func (m *EventRemove) String() string { return proto.CompactTextString(m) }
-func (*EventRemove) ProtoMessage()    {}
-func (*EventRemove) Descriptor() ([]byte, []int) {
+func (m *EventRemoveGovernor) Reset()         { *m = EventRemoveGovernor{} }
+func (m *EventRemoveGovernor) String() string { return proto.CompactTextString(m) }
+func (*EventRemoveGovernor) ProtoMessage()    {}
+func (*EventRemoveGovernor) Descriptor() ([]byte, []int) {
 	return fileDescriptor_ec8ffcae9bebabcd, []int{1}
 }
-func (m *EventRemove) XXX_Unmarshal(b []byte) error {
+func (m *EventRemoveGovernor) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventRemove) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventRemoveGovernor) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventRemove.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventRemoveGovernor.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -95,43 +95,43 @@ func (m *EventRemove) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *EventRemove) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventRemove.Merge(m, src)
+func (m *EventRemoveGovernor) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventRemoveGovernor.Merge(m, src)
 }
-func (m *EventRemove) XXX_Size() int {
+func (m *EventRemoveGovernor) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventRemove) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventRemove.DiscardUnknown(m)
+func (m *EventRemoveGovernor) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventRemoveGovernor.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventRemove proto.InternalMessageInfo
+var xxx_messageInfo_EventRemoveGovernor proto.InternalMessageInfo
 
-func (m *EventRemove) GetAddress() string {
+func (m *EventRemoveGovernor) GetAddress() string {
 	if m != nil {
 		return m.Address
 	}
 	return ""
 }
 
-// EventResign is an event emitted when a governor has resigned.
-type EventResign struct {
+// EventUpdateGovernorMetadata is an event emitted when a governor has updated.
+type EventUpdateGovernorMetadata struct {
 	// address is the address of the governor.
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *EventResign) Reset()         { *m = EventResign{} }
-func (m *EventResign) String() string { return proto.CompactTextString(m) }
-func (*EventResign) ProtoMessage()    {}
-func (*EventResign) Descriptor() ([]byte, []int) {
+func (m *EventUpdateGovernorMetadata) Reset()         { *m = EventUpdateGovernorMetadata{} }
+func (m *EventUpdateGovernorMetadata) String() string { return proto.CompactTextString(m) }
+func (*EventUpdateGovernorMetadata) ProtoMessage()    {}
+func (*EventUpdateGovernorMetadata) Descriptor() ([]byte, []int) {
 	return fileDescriptor_ec8ffcae9bebabcd, []int{2}
 }
-func (m *EventResign) XXX_Unmarshal(b []byte) error {
+func (m *EventUpdateGovernorMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventResign) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventUpdateGovernorMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventResign.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventUpdateGovernorMetadata.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -141,65 +141,19 @@ func (m *EventResign) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *EventResign) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventResign.Merge(m, src)
+func (m *EventUpdateGovernorMetadata) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventUpdateGovernorMetadata.Merge(m, src)
 }
-func (m *EventResign) XXX_Size() int {
+func (m *EventUpdateGovernorMetadata) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventResign) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventResign.DiscardUnknown(m)
+func (m *EventUpdateGovernorMetadata) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventUpdateGovernorMetadata.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventResign proto.InternalMessageInfo
+var xxx_messageInfo_EventUpdateGovernorMetadata proto.InternalMessageInfo
 
-func (m *EventResign) GetAddress() string {
-	if m != nil {
-		return m.Address
-	}
-	return ""
-}
-
-// EventUpdate is an event emitted when a governor has updated.
-type EventUpdate struct {
-	// address is the address of the governor.
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
-}
-
-func (m *EventUpdate) Reset()         { *m = EventUpdate{} }
-func (m *EventUpdate) String() string { return proto.CompactTextString(m) }
-func (*EventUpdate) ProtoMessage()    {}
-func (*EventUpdate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ec8ffcae9bebabcd, []int{3}
-}
-func (m *EventUpdate) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *EventUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_EventUpdate.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *EventUpdate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventUpdate.Merge(m, src)
-}
-func (m *EventUpdate) XXX_Size() int {
-	return m.Size()
-}
-func (m *EventUpdate) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventUpdate.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_EventUpdate proto.InternalMessageInfo
-
-func (m *EventUpdate) GetAddress() string {
+func (m *EventUpdateGovernorMetadata) GetAddress() string {
 	if m != nil {
 		return m.Address
 	}
@@ -207,32 +161,31 @@ func (m *EventUpdate) GetAddress() string {
 }
 
 func init() {
-	proto.RegisterType((*EventRegister)(nil), "chora.governor.v1.EventRegister")
-	proto.RegisterType((*EventRemove)(nil), "chora.governor.v1.EventRemove")
-	proto.RegisterType((*EventResign)(nil), "chora.governor.v1.EventResign")
-	proto.RegisterType((*EventUpdate)(nil), "chora.governor.v1.EventUpdate")
+	proto.RegisterType((*EventCreateGovernor)(nil), "chora.governor.v1.EventCreateGovernor")
+	proto.RegisterType((*EventRemoveGovernor)(nil), "chora.governor.v1.EventRemoveGovernor")
+	proto.RegisterType((*EventUpdateGovernorMetadata)(nil), "chora.governor.v1.EventUpdateGovernorMetadata")
 }
 
 func init() { proto.RegisterFile("chora/governor/v1/events.proto", fileDescriptor_ec8ffcae9bebabcd) }
 
 var fileDescriptor_ec8ffcae9bebabcd = []byte{
-	// 193 bytes of a gzipped FileDescriptorProto
+	// 198 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4b, 0xce, 0xc8, 0x2f,
 	0x4a, 0xd4, 0x4f, 0xcf, 0x2f, 0x4b, 0x2d, 0xca, 0xcb, 0x2f, 0xd2, 0x2f, 0x33, 0xd4, 0x4f, 0x2d,
 	0x4b, 0xcd, 0x2b, 0x29, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x04, 0xcb, 0xeb, 0xc1,
-	0xe4, 0xf5, 0xca, 0x0c, 0x95, 0x34, 0xb9, 0x78, 0x5d, 0x41, 0x4a, 0x82, 0x52, 0xd3, 0x33, 0x8b,
-	0x4b, 0x52, 0x8b, 0x84, 0x24, 0xb8, 0xd8, 0x13, 0x53, 0x52, 0x8a, 0x52, 0x8b, 0x8b, 0x25, 0x18,
-	0x15, 0x18, 0x35, 0x38, 0x83, 0x60, 0x5c, 0x25, 0x75, 0x2e, 0x6e, 0xa8, 0xd2, 0xdc, 0xfc, 0xb2,
-	0x54, 0xa2, 0x14, 0x16, 0x67, 0xa6, 0xe7, 0x11, 0xa1, 0x30, 0xb4, 0x20, 0x25, 0xb1, 0x04, 0x8f,
-	0x89, 0x4e, 0x2e, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3,
-	0x84, 0xc7, 0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7, 0x10, 0xa5, 0x95, 0x9e,
-	0x59, 0x92, 0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab, 0x0f, 0xf6, 0x9d, 0x6e, 0x66, 0xbe, 0x7e,
-	0x6e, 0x7e, 0x4a, 0x31, 0x22, 0x14, 0x4a, 0x2a, 0x0b, 0x52, 0x8b, 0xf5, 0xcb, 0x0c, 0x93, 0xd8,
-	0xc0, 0xa1, 0x60, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xfa, 0x80, 0x0b, 0x4a, 0x27, 0x01, 0x00,
-	0x00,
+	0xe4, 0xf5, 0xca, 0x0c, 0x95, 0xf4, 0xb9, 0x84, 0x5d, 0x41, 0x4a, 0x9c, 0x8b, 0x52, 0x13, 0x4b,
+	0x52, 0xdd, 0xa1, 0x32, 0x42, 0x12, 0x5c, 0xec, 0x89, 0x29, 0x29, 0x45, 0xa9, 0xc5, 0xc5, 0x12,
+	0x8c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0x30, 0x2e, 0x5c, 0x43, 0x50, 0x6a, 0x6e, 0x7e, 0x19, 0x31,
+	0x1a, 0xcc, 0xb9, 0xa4, 0xc1, 0x1a, 0x42, 0x0b, 0x52, 0x90, 0x6c, 0xf0, 0x4d, 0x2d, 0x49, 0x4c,
+	0x49, 0x2c, 0x49, 0xc4, 0xad, 0xd1, 0xc9, 0xe5, 0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18,
+	0x1f, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58, 0x8e, 0xe1, 0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f, 0xe5,
+	0x18, 0xa2, 0xb4, 0xd2, 0x33, 0x4b, 0x32, 0x4a, 0x93, 0xf4, 0x92, 0xf3, 0x73, 0xf5, 0xc1, 0x5e,
+	0xd2, 0xcd, 0xcc, 0xd7, 0xcf, 0xcd, 0x4f, 0x29, 0x46, 0x78, 0xbd, 0xa4, 0xb2, 0x20, 0xb5, 0x58,
+	0xbf, 0xcc, 0x30, 0x89, 0x0d, 0xec, 0x75, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0x84, 0x4a,
+	0x92, 0x2e, 0x1c, 0x01, 0x00, 0x00,
 }
 
-func (m *EventRegister) Marshal() (dAtA []byte, err error) {
+func (m *EventCreateGovernor) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -242,12 +195,12 @@ func (m *EventRegister) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventRegister) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventCreateGovernor) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventRegister) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventCreateGovernor) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -262,7 +215,7 @@ func (m *EventRegister) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *EventRemove) Marshal() (dAtA []byte, err error) {
+func (m *EventRemoveGovernor) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -272,12 +225,12 @@ func (m *EventRemove) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventRemove) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventRemoveGovernor) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventRemove) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventRemoveGovernor) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -292,7 +245,7 @@ func (m *EventRemove) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *EventResign) Marshal() (dAtA []byte, err error) {
+func (m *EventUpdateGovernorMetadata) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -302,42 +255,12 @@ func (m *EventResign) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventResign) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventUpdateGovernorMetadata) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventResign) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Address) > 0 {
-		i -= len(m.Address)
-		copy(dAtA[i:], m.Address)
-		i = encodeVarintEvents(dAtA, i, uint64(len(m.Address)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *EventUpdate) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *EventUpdate) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *EventUpdate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventUpdateGovernorMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -363,7 +286,7 @@ func encodeVarintEvents(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *EventRegister) Size() (n int) {
+func (m *EventCreateGovernor) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -376,7 +299,7 @@ func (m *EventRegister) Size() (n int) {
 	return n
 }
 
-func (m *EventRemove) Size() (n int) {
+func (m *EventRemoveGovernor) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -389,20 +312,7 @@ func (m *EventRemove) Size() (n int) {
 	return n
 }
 
-func (m *EventResign) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Address)
-	if l > 0 {
-		n += 1 + l + sovEvents(uint64(l))
-	}
-	return n
-}
-
-func (m *EventUpdate) Size() (n int) {
+func (m *EventUpdateGovernorMetadata) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -421,7 +331,7 @@ func sovEvents(x uint64) (n int) {
 func sozEvents(x uint64) (n int) {
 	return sovEvents(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *EventRegister) Unmarshal(dAtA []byte) error {
+func (m *EventCreateGovernor) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -444,10 +354,10 @@ func (m *EventRegister) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventRegister: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventCreateGovernor: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventRegister: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventCreateGovernor: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -503,7 +413,7 @@ func (m *EventRegister) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *EventRemove) Unmarshal(dAtA []byte) error {
+func (m *EventRemoveGovernor) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -526,10 +436,10 @@ func (m *EventRemove) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventRemove: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventRemoveGovernor: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventRemove: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventRemoveGovernor: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -585,7 +495,7 @@ func (m *EventRemove) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *EventResign) Unmarshal(dAtA []byte) error {
+func (m *EventUpdateGovernorMetadata) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -608,92 +518,10 @@ func (m *EventResign) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventResign: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventUpdateGovernorMetadata: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventResign: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowEvents
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthEvents
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthEvents
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Address = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipEvents(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthEvents
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *EventUpdate) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowEvents
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: EventUpdate: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventUpdate: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventUpdateGovernorMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

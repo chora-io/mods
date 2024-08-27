@@ -19,7 +19,7 @@ type queryBalance struct {
 
 func TestQueryBalance(t *testing.T) {
 	gocuke.NewRunner(t, &queryBalance{}).
-		Path("./features/query_balance.feature").
+		Path("./query_balance.feature").
 		Run()
 }
 

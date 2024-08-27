@@ -18,7 +18,7 @@ type validator struct {
 
 func TestValidator(t *testing.T) {
 	gocuke.NewRunner(t, &validator{}).
-		Path("./features/state_validator.feature").
+		Path("./state_validator.feature").
 		Run()
 }
 

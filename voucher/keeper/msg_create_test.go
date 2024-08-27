@@ -20,7 +20,7 @@ type msgCreate struct {
 
 func TestMsgCreate(t *testing.T) {
 	gocuke.NewRunner(t, &msgCreate{}).
-		Path("./features/msg_create.feature").
+		Path("./msg_create.feature").
 		Run()
 }
 

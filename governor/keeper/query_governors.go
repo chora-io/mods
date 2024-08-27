@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"cosmossdk.io/orm/model/ormlist"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	governorv1 "github.com/chora-io/mods/governor/api/v1"
 	v1 "github.com/chora-io/mods/governor/types/v1"
@@ -36,8 +37,11 @@ func (k Keeper) Governors(ctx context.Context, req *v1.QueryGovernorsRequest) (*
 			return nil, err // internal error
 		}
 
+		// get governor account from address
+		address := sdk.AccAddress(v.Address)
+
 		governor := v1.QueryGovernorsResponse_Governor{
-			Address:  v.Address,
+			Address:  address.String(),
 			Metadata: v.Metadata,
 		}
 

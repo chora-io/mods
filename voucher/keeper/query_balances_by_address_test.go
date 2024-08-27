@@ -19,7 +19,7 @@ type queryBalancesByAddress struct {
 
 func TestQueryBalancesByAddress(t *testing.T) {
 	gocuke.NewRunner(t, &queryBalancesByAddress{}).
-		Path("./features/query_balances_by_address.feature").
+		Path("./query_balances_by_address.feature").
 		Run()
 }
 

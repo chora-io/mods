@@ -5,14 +5,10 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-var _ sdk.Msg = &MsgAddValidator{}
+var _ sdk.Msg = &MsgCreateGovernor{}
 
-// ValidateBasic performs stateless validation on MsgAddValidator.
-func (m MsgAddValidator) ValidateBasic() error {
-	if _, err := sdk.AccAddressFromBech32(m.Admin); err != nil {
-		return sdkerrors.ErrInvalidAddress.Wrapf("admin: %s", err)
-	}
-
+// ValidateBasic performs stateless validation on MsgCreateGovernor.
+func (m MsgCreateGovernor) ValidateBasic() error {
 	if _, err := sdk.AccAddressFromBech32(m.Address); err != nil {
 		return sdkerrors.ErrInvalidAddress.Wrapf("address: %s", err)
 	}
@@ -28,18 +24,18 @@ func (m MsgAddValidator) ValidateBasic() error {
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgAddValidator.
-func (m MsgAddValidator) GetSigners() []sdk.AccAddress {
-	addr, _ := sdk.AccAddressFromBech32(m.Admin)
+// GetSigners returns the expected signers for MsgCreateGovernor.
+func (m MsgCreateGovernor) GetSigners() []sdk.AccAddress {
+	addr, _ := sdk.AccAddressFromBech32(m.Address)
 	return []sdk.AccAddress{addr}
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgAddValidator) Route() string {
+func (m MsgCreateGovernor) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgAddValidator) Type() string {
+func (m MsgCreateGovernor) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

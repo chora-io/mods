@@ -1,4 +1,4 @@
-Feature: MsgUpdateValidator
+Feature: MsgUpdateGovernorMetadata
 
   Scenario: valid message
     Given message

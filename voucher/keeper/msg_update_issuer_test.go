@@ -20,7 +20,7 @@ type msgUpdateIssuer struct {
 
 func TestMsgUpdateIssuer(t *testing.T) {
 	gocuke.NewRunner(t, &msgUpdateIssuer{}).
-		Path("./features/msg_update_issuer.feature").
+		Path("./msg_update_issuer.feature").
 		Run()
 }
 

@@ -13,25 +13,25 @@ import (
 )
 
 var (
-	md_EventRegister         protoreflect.MessageDescriptor
-	fd_EventRegister_address protoreflect.FieldDescriptor
+	md_EventCreateGovernor         protoreflect.MessageDescriptor
+	fd_EventCreateGovernor_address protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_governor_v1_events_proto_init()
-	md_EventRegister = File_chora_governor_v1_events_proto.Messages().ByName("EventRegister")
-	fd_EventRegister_address = md_EventRegister.Fields().ByName("address")
+	md_EventCreateGovernor = File_chora_governor_v1_events_proto.Messages().ByName("EventCreateGovernor")
+	fd_EventCreateGovernor_address = md_EventCreateGovernor.Fields().ByName("address")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventRegister)(nil)
+var _ protoreflect.Message = (*fastReflection_EventCreateGovernor)(nil)
 
-type fastReflection_EventRegister EventRegister
+type fastReflection_EventCreateGovernor EventCreateGovernor
 
-func (x *EventRegister) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventRegister)(x)
+func (x *EventCreateGovernor) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventCreateGovernor)(x)
 }
 
-func (x *EventRegister) slowProtoReflect() protoreflect.Message {
+func (x *EventCreateGovernor) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_governor_v1_events_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -43,43 +43,43 @@ func (x *EventRegister) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventRegister_messageType fastReflection_EventRegister_messageType
-var _ protoreflect.MessageType = fastReflection_EventRegister_messageType{}
+var _fastReflection_EventCreateGovernor_messageType fastReflection_EventCreateGovernor_messageType
+var _ protoreflect.MessageType = fastReflection_EventCreateGovernor_messageType{}
 
-type fastReflection_EventRegister_messageType struct{}
+type fastReflection_EventCreateGovernor_messageType struct{}
 
-func (x fastReflection_EventRegister_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventRegister)(nil)
+func (x fastReflection_EventCreateGovernor_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventCreateGovernor)(nil)
 }
-func (x fastReflection_EventRegister_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventRegister)
+func (x fastReflection_EventCreateGovernor_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventCreateGovernor)
 }
-func (x fastReflection_EventRegister_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventRegister
+func (x fastReflection_EventCreateGovernor_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventCreateGovernor
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventRegister) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventRegister
+func (x *fastReflection_EventCreateGovernor) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventCreateGovernor
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventRegister) Type() protoreflect.MessageType {
-	return _fastReflection_EventRegister_messageType
+func (x *fastReflection_EventCreateGovernor) Type() protoreflect.MessageType {
+	return _fastReflection_EventCreateGovernor_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventRegister) New() protoreflect.Message {
-	return new(fastReflection_EventRegister)
+func (x *fastReflection_EventCreateGovernor) New() protoreflect.Message {
+	return new(fastReflection_EventCreateGovernor)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventRegister) Interface() protoreflect.ProtoMessage {
-	return (*EventRegister)(x)
+func (x *fastReflection_EventCreateGovernor) Interface() protoreflect.ProtoMessage {
+	return (*EventCreateGovernor)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -87,10 +87,10 @@ func (x *fastReflection_EventRegister) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventRegister) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventCreateGovernor) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventRegister_address, value) {
+		if !f(fd_EventCreateGovernor_address, value) {
 			return
 		}
 	}
@@ -107,15 +107,15 @@ func (x *fastReflection_EventRegister) Range(f func(protoreflect.FieldDescriptor
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventRegister) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventCreateGovernor) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRegister.address":
+	case "chora.governor.v1.EventCreateGovernor.address":
 		return x.Address != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRegister"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventCreateGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRegister does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventCreateGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -125,15 +125,15 @@ func (x *fastReflection_EventRegister) Has(fd protoreflect.FieldDescriptor) bool
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRegister) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventCreateGovernor) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRegister.address":
+	case "chora.governor.v1.EventCreateGovernor.address":
 		x.Address = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRegister"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventCreateGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRegister does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventCreateGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -143,16 +143,16 @@ func (x *fastReflection_EventRegister) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventRegister) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventCreateGovernor) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.governor.v1.EventRegister.address":
+	case "chora.governor.v1.EventCreateGovernor.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRegister"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventCreateGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRegister does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventCreateGovernor does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -166,15 +166,15 @@ func (x *fastReflection_EventRegister) Get(descriptor protoreflect.FieldDescript
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRegister) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventCreateGovernor) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRegister.address":
+	case "chora.governor.v1.EventCreateGovernor.address":
 		x.Address = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRegister"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventCreateGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRegister does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventCreateGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -188,40 +188,40 @@ func (x *fastReflection_EventRegister) Set(fd protoreflect.FieldDescriptor, valu
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRegister) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventCreateGovernor) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRegister.address":
-		panic(fmt.Errorf("field address of message chora.governor.v1.EventRegister is not mutable"))
+	case "chora.governor.v1.EventCreateGovernor.address":
+		panic(fmt.Errorf("field address of message chora.governor.v1.EventCreateGovernor is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRegister"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventCreateGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRegister does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventCreateGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventRegister) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventCreateGovernor) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRegister.address":
+	case "chora.governor.v1.EventCreateGovernor.address":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRegister"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventCreateGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRegister does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventCreateGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventRegister) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventCreateGovernor) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventRegister", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventCreateGovernor", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -229,7 +229,7 @@ func (x *fastReflection_EventRegister) WhichOneof(d protoreflect.OneofDescriptor
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventRegister) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventCreateGovernor) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -240,7 +240,7 @@ func (x *fastReflection_EventRegister) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRegister) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventCreateGovernor) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -252,7 +252,7 @@ func (x *fastReflection_EventRegister) SetUnknown(fields protoreflect.RawFields)
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventRegister) IsValid() bool {
+func (x *fastReflection_EventCreateGovernor) IsValid() bool {
 	return x != nil
 }
 
@@ -262,9 +262,9 @@ func (x *fastReflection_EventRegister) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventRegister) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventCreateGovernor) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventRegister)
+		x := input.Message.Interface().(*EventCreateGovernor)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -290,7 +290,7 @@ func (x *fastReflection_EventRegister) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventRegister)
+		x := input.Message.Interface().(*EventCreateGovernor)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -327,7 +327,7 @@ func (x *fastReflection_EventRegister) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventRegister)
+		x := input.Message.Interface().(*EventCreateGovernor)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -359,10 +359,10 @@ func (x *fastReflection_EventRegister) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRegister: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventCreateGovernor: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRegister: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventCreateGovernor: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -433,25 +433,25 @@ func (x *fastReflection_EventRegister) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_EventRemove         protoreflect.MessageDescriptor
-	fd_EventRemove_address protoreflect.FieldDescriptor
+	md_EventRemoveGovernor         protoreflect.MessageDescriptor
+	fd_EventRemoveGovernor_address protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_governor_v1_events_proto_init()
-	md_EventRemove = File_chora_governor_v1_events_proto.Messages().ByName("EventRemove")
-	fd_EventRemove_address = md_EventRemove.Fields().ByName("address")
+	md_EventRemoveGovernor = File_chora_governor_v1_events_proto.Messages().ByName("EventRemoveGovernor")
+	fd_EventRemoveGovernor_address = md_EventRemoveGovernor.Fields().ByName("address")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventRemove)(nil)
+var _ protoreflect.Message = (*fastReflection_EventRemoveGovernor)(nil)
 
-type fastReflection_EventRemove EventRemove
+type fastReflection_EventRemoveGovernor EventRemoveGovernor
 
-func (x *EventRemove) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventRemove)(x)
+func (x *EventRemoveGovernor) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventRemoveGovernor)(x)
 }
 
-func (x *EventRemove) slowProtoReflect() protoreflect.Message {
+func (x *EventRemoveGovernor) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_governor_v1_events_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -463,43 +463,43 @@ func (x *EventRemove) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventRemove_messageType fastReflection_EventRemove_messageType
-var _ protoreflect.MessageType = fastReflection_EventRemove_messageType{}
+var _fastReflection_EventRemoveGovernor_messageType fastReflection_EventRemoveGovernor_messageType
+var _ protoreflect.MessageType = fastReflection_EventRemoveGovernor_messageType{}
 
-type fastReflection_EventRemove_messageType struct{}
+type fastReflection_EventRemoveGovernor_messageType struct{}
 
-func (x fastReflection_EventRemove_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventRemove)(nil)
+func (x fastReflection_EventRemoveGovernor_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventRemoveGovernor)(nil)
 }
-func (x fastReflection_EventRemove_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventRemove)
+func (x fastReflection_EventRemoveGovernor_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventRemoveGovernor)
 }
-func (x fastReflection_EventRemove_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventRemove
+func (x fastReflection_EventRemoveGovernor_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventRemoveGovernor
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventRemove) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventRemove
+func (x *fastReflection_EventRemoveGovernor) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventRemoveGovernor
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventRemove) Type() protoreflect.MessageType {
-	return _fastReflection_EventRemove_messageType
+func (x *fastReflection_EventRemoveGovernor) Type() protoreflect.MessageType {
+	return _fastReflection_EventRemoveGovernor_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventRemove) New() protoreflect.Message {
-	return new(fastReflection_EventRemove)
+func (x *fastReflection_EventRemoveGovernor) New() protoreflect.Message {
+	return new(fastReflection_EventRemoveGovernor)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventRemove) Interface() protoreflect.ProtoMessage {
-	return (*EventRemove)(x)
+func (x *fastReflection_EventRemoveGovernor) Interface() protoreflect.ProtoMessage {
+	return (*EventRemoveGovernor)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -507,10 +507,10 @@ func (x *fastReflection_EventRemove) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventRemove) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventRemoveGovernor) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventRemove_address, value) {
+		if !f(fd_EventRemoveGovernor_address, value) {
 			return
 		}
 	}
@@ -527,15 +527,15 @@ func (x *fastReflection_EventRemove) Range(f func(protoreflect.FieldDescriptor, 
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventRemove) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventRemoveGovernor) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRemove.address":
+	case "chora.governor.v1.EventRemoveGovernor.address":
 		return x.Address != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemoveGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventRemoveGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -545,15 +545,15 @@ func (x *fastReflection_EventRemove) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventRemoveGovernor) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRemove.address":
+	case "chora.governor.v1.EventRemoveGovernor.address":
 		x.Address = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemoveGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventRemoveGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -563,16 +563,16 @@ func (x *fastReflection_EventRemove) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventRemove) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveGovernor) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.governor.v1.EventRemove.address":
+	case "chora.governor.v1.EventRemoveGovernor.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemoveGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRemove does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventRemoveGovernor does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -586,15 +586,15 @@ func (x *fastReflection_EventRemove) Get(descriptor protoreflect.FieldDescriptor
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventRemoveGovernor) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRemove.address":
+	case "chora.governor.v1.EventRemoveGovernor.address":
 		x.Address = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemoveGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventRemoveGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -608,40 +608,40 @@ func (x *fastReflection_EventRemove) Set(fd protoreflect.FieldDescriptor, value 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveGovernor) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRemove.address":
-		panic(fmt.Errorf("field address of message chora.governor.v1.EventRemove is not mutable"))
+	case "chora.governor.v1.EventRemoveGovernor.address":
+		panic(fmt.Errorf("field address of message chora.governor.v1.EventRemoveGovernor is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemoveGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventRemoveGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventRemove) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveGovernor) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventRemove.address":
+	case "chora.governor.v1.EventRemoveGovernor.address":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemove"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventRemoveGovernor"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventRemove does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventRemoveGovernor does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventRemove) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventRemoveGovernor) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventRemove", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventRemoveGovernor", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -649,7 +649,7 @@ func (x *fastReflection_EventRemove) WhichOneof(d protoreflect.OneofDescriptor) 
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventRemove) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventRemoveGovernor) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -660,7 +660,7 @@ func (x *fastReflection_EventRemove) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventRemove) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventRemoveGovernor) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -672,7 +672,7 @@ func (x *fastReflection_EventRemove) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventRemove) IsValid() bool {
+func (x *fastReflection_EventRemoveGovernor) IsValid() bool {
 	return x != nil
 }
 
@@ -682,9 +682,9 @@ func (x *fastReflection_EventRemove) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventRemoveGovernor) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventRemove)
+		x := input.Message.Interface().(*EventRemoveGovernor)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -710,7 +710,7 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventRemove)
+		x := input.Message.Interface().(*EventRemoveGovernor)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -747,7 +747,7 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventRemove)
+		x := input.Message.Interface().(*EventRemoveGovernor)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -779,10 +779,10 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemove: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemoveGovernor: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemove: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemoveGovernor: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -853,25 +853,25 @@ func (x *fastReflection_EventRemove) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_EventResign         protoreflect.MessageDescriptor
-	fd_EventResign_address protoreflect.FieldDescriptor
+	md_EventUpdateGovernorMetadata         protoreflect.MessageDescriptor
+	fd_EventUpdateGovernorMetadata_address protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_governor_v1_events_proto_init()
-	md_EventResign = File_chora_governor_v1_events_proto.Messages().ByName("EventResign")
-	fd_EventResign_address = md_EventResign.Fields().ByName("address")
+	md_EventUpdateGovernorMetadata = File_chora_governor_v1_events_proto.Messages().ByName("EventUpdateGovernorMetadata")
+	fd_EventUpdateGovernorMetadata_address = md_EventUpdateGovernorMetadata.Fields().ByName("address")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventResign)(nil)
+var _ protoreflect.Message = (*fastReflection_EventUpdateGovernorMetadata)(nil)
 
-type fastReflection_EventResign EventResign
+type fastReflection_EventUpdateGovernorMetadata EventUpdateGovernorMetadata
 
-func (x *EventResign) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventResign)(x)
+func (x *EventUpdateGovernorMetadata) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventUpdateGovernorMetadata)(x)
 }
 
-func (x *EventResign) slowProtoReflect() protoreflect.Message {
+func (x *EventUpdateGovernorMetadata) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_governor_v1_events_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -883,43 +883,43 @@ func (x *EventResign) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventResign_messageType fastReflection_EventResign_messageType
-var _ protoreflect.MessageType = fastReflection_EventResign_messageType{}
+var _fastReflection_EventUpdateGovernorMetadata_messageType fastReflection_EventUpdateGovernorMetadata_messageType
+var _ protoreflect.MessageType = fastReflection_EventUpdateGovernorMetadata_messageType{}
 
-type fastReflection_EventResign_messageType struct{}
+type fastReflection_EventUpdateGovernorMetadata_messageType struct{}
 
-func (x fastReflection_EventResign_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventResign)(nil)
+func (x fastReflection_EventUpdateGovernorMetadata_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventUpdateGovernorMetadata)(nil)
 }
-func (x fastReflection_EventResign_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventResign)
+func (x fastReflection_EventUpdateGovernorMetadata_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateGovernorMetadata)
 }
-func (x fastReflection_EventResign_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventResign
+func (x fastReflection_EventUpdateGovernorMetadata_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateGovernorMetadata
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventResign) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventResign
+func (x *fastReflection_EventUpdateGovernorMetadata) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateGovernorMetadata
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventResign) Type() protoreflect.MessageType {
-	return _fastReflection_EventResign_messageType
+func (x *fastReflection_EventUpdateGovernorMetadata) Type() protoreflect.MessageType {
+	return _fastReflection_EventUpdateGovernorMetadata_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventResign) New() protoreflect.Message {
-	return new(fastReflection_EventResign)
+func (x *fastReflection_EventUpdateGovernorMetadata) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateGovernorMetadata)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventResign) Interface() protoreflect.ProtoMessage {
-	return (*EventResign)(x)
+func (x *fastReflection_EventUpdateGovernorMetadata) Interface() protoreflect.ProtoMessage {
+	return (*EventUpdateGovernorMetadata)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -927,10 +927,10 @@ func (x *fastReflection_EventResign) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventResign) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventUpdateGovernorMetadata) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventResign_address, value) {
+		if !f(fd_EventUpdateGovernorMetadata_address, value) {
 			return
 		}
 	}
@@ -947,15 +947,15 @@ func (x *fastReflection_EventResign) Range(f func(protoreflect.FieldDescriptor, 
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventResign) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventUpdateGovernorMetadata) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventResign.address":
+	case "chora.governor.v1.EventUpdateGovernorMetadata.address":
 		return x.Address != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventResign"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdateGovernorMetadata"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventResign does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventUpdateGovernorMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -965,15 +965,15 @@ func (x *fastReflection_EventResign) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventResign) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventUpdateGovernorMetadata) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventResign.address":
+	case "chora.governor.v1.EventUpdateGovernorMetadata.address":
 		x.Address = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventResign"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdateGovernorMetadata"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventResign does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventUpdateGovernorMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -983,16 +983,16 @@ func (x *fastReflection_EventResign) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventResign) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateGovernorMetadata) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.governor.v1.EventResign.address":
+	case "chora.governor.v1.EventUpdateGovernorMetadata.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventResign"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdateGovernorMetadata"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventResign does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventUpdateGovernorMetadata does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1006,15 +1006,15 @@ func (x *fastReflection_EventResign) Get(descriptor protoreflect.FieldDescriptor
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventResign) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventUpdateGovernorMetadata) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventResign.address":
+	case "chora.governor.v1.EventUpdateGovernorMetadata.address":
 		x.Address = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventResign"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdateGovernorMetadata"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventResign does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventUpdateGovernorMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1028,40 +1028,40 @@ func (x *fastReflection_EventResign) Set(fd protoreflect.FieldDescriptor, value 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventResign) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateGovernorMetadata) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventResign.address":
-		panic(fmt.Errorf("field address of message chora.governor.v1.EventResign is not mutable"))
+	case "chora.governor.v1.EventUpdateGovernorMetadata.address":
+		panic(fmt.Errorf("field address of message chora.governor.v1.EventUpdateGovernorMetadata is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventResign"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdateGovernorMetadata"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventResign does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventUpdateGovernorMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventResign) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateGovernorMetadata) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.governor.v1.EventResign.address":
+	case "chora.governor.v1.EventUpdateGovernorMetadata.address":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventResign"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdateGovernorMetadata"))
 		}
-		panic(fmt.Errorf("message chora.governor.v1.EventResign does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.governor.v1.EventUpdateGovernorMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventResign) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventUpdateGovernorMetadata) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventResign", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventUpdateGovernorMetadata", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1069,7 +1069,7 @@ func (x *fastReflection_EventResign) WhichOneof(d protoreflect.OneofDescriptor) 
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventResign) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventUpdateGovernorMetadata) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1080,7 +1080,7 @@ func (x *fastReflection_EventResign) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventResign) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventUpdateGovernorMetadata) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1092,7 +1092,7 @@ func (x *fastReflection_EventResign) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventResign) IsValid() bool {
+func (x *fastReflection_EventUpdateGovernorMetadata) IsValid() bool {
 	return x != nil
 }
 
@@ -1102,9 +1102,9 @@ func (x *fastReflection_EventResign) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventResign) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventUpdateGovernorMetadata) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventResign)
+		x := input.Message.Interface().(*EventUpdateGovernorMetadata)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1130,7 +1130,7 @@ func (x *fastReflection_EventResign) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventResign)
+		x := input.Message.Interface().(*EventUpdateGovernorMetadata)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1167,7 +1167,7 @@ func (x *fastReflection_EventResign) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventResign)
+		x := input.Message.Interface().(*EventUpdateGovernorMetadata)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1199,430 +1199,10 @@ func (x *fastReflection_EventResign) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventResign: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateGovernorMetadata: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventResign: illegal tag %d (wire type %d)", fieldNum, wire)
-			}
-			switch fieldNum {
-			case 1:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
-				}
-				var stringLen uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Address = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
-			default:
-				iNdEx = preIndex
-				skippy, err := runtime.Skip(dAtA[iNdEx:])
-				if err != nil {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
-				}
-				if (skippy < 0) || (iNdEx+skippy) < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if (iNdEx + skippy) > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				if !options.DiscardUnknown {
-					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
-				}
-				iNdEx += skippy
-			}
-		}
-
-		if iNdEx > l {
-			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-		}
-		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
-	}
-	return &protoiface.Methods{
-		NoUnkeyedLiterals: struct{}{},
-		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
-		Size:              size,
-		Marshal:           marshal,
-		Unmarshal:         unmarshal,
-		Merge:             nil,
-		CheckInitialized:  nil,
-	}
-}
-
-var (
-	md_EventUpdate         protoreflect.MessageDescriptor
-	fd_EventUpdate_address protoreflect.FieldDescriptor
-)
-
-func init() {
-	file_chora_governor_v1_events_proto_init()
-	md_EventUpdate = File_chora_governor_v1_events_proto.Messages().ByName("EventUpdate")
-	fd_EventUpdate_address = md_EventUpdate.Fields().ByName("address")
-}
-
-var _ protoreflect.Message = (*fastReflection_EventUpdate)(nil)
-
-type fastReflection_EventUpdate EventUpdate
-
-func (x *EventUpdate) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventUpdate)(x)
-}
-
-func (x *EventUpdate) slowProtoReflect() protoreflect.Message {
-	mi := &file_chora_governor_v1_events_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-var _fastReflection_EventUpdate_messageType fastReflection_EventUpdate_messageType
-var _ protoreflect.MessageType = fastReflection_EventUpdate_messageType{}
-
-type fastReflection_EventUpdate_messageType struct{}
-
-func (x fastReflection_EventUpdate_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventUpdate)(nil)
-}
-func (x fastReflection_EventUpdate_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventUpdate)
-}
-func (x fastReflection_EventUpdate_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdate
-}
-
-// Descriptor returns message descriptor, which contains only the protobuf
-// type information for the message.
-func (x *fastReflection_EventUpdate) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdate
-}
-
-// Type returns the message type, which encapsulates both Go and protobuf
-// type information. If the Go type information is not needed,
-// it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventUpdate) Type() protoreflect.MessageType {
-	return _fastReflection_EventUpdate_messageType
-}
-
-// New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventUpdate) New() protoreflect.Message {
-	return new(fastReflection_EventUpdate)
-}
-
-// Interface unwraps the message reflection interface and
-// returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventUpdate) Interface() protoreflect.ProtoMessage {
-	return (*EventUpdate)(x)
-}
-
-// Range iterates over every populated field in an undefined order,
-// calling f for each field descriptor and value encountered.
-// Range returns immediately if f returns false.
-// While iterating, mutating operations may only be performed
-// on the current field descriptor.
-func (x *fastReflection_EventUpdate) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Address != "" {
-		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_EventUpdate_address, value) {
-			return
-		}
-	}
-}
-
-// Has reports whether a field is populated.
-//
-// Some fields have the property of nullability where it is possible to
-// distinguish between the default value of a field and whether the field
-// was explicitly populated with the default value. Singular message fields,
-// member fields of a oneof, and proto2 scalar fields are nullable. Such
-// fields are populated only if explicitly set.
-//
-// In other cases (aside from the nullable cases above),
-// a proto3 scalar field is populated if it contains a non-zero value, and
-// a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventUpdate) Has(fd protoreflect.FieldDescriptor) bool {
-	switch fd.FullName() {
-	case "chora.governor.v1.EventUpdate.address":
-		return x.Address != ""
-	default:
-		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdate"))
-		}
-		panic(fmt.Errorf("message chora.governor.v1.EventUpdate does not contain field %s", fd.FullName()))
-	}
-}
-
-// Clear clears the field such that a subsequent Has call reports false.
-//
-// Clearing an extension field clears both the extension type and value
-// associated with the given field number.
-//
-// Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdate) Clear(fd protoreflect.FieldDescriptor) {
-	switch fd.FullName() {
-	case "chora.governor.v1.EventUpdate.address":
-		x.Address = ""
-	default:
-		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdate"))
-		}
-		panic(fmt.Errorf("message chora.governor.v1.EventUpdate does not contain field %s", fd.FullName()))
-	}
-}
-
-// Get retrieves the value for a field.
-//
-// For unpopulated scalars, it returns the default value, where
-// the default value of a bytes scalar is guaranteed to be a copy.
-// For unpopulated composite types, it returns an empty, read-only view
-// of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventUpdate) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
-	switch descriptor.FullName() {
-	case "chora.governor.v1.EventUpdate.address":
-		value := x.Address
-		return protoreflect.ValueOfString(value)
-	default:
-		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdate"))
-		}
-		panic(fmt.Errorf("message chora.governor.v1.EventUpdate does not contain field %s", descriptor.FullName()))
-	}
-}
-
-// Set stores the value for a field.
-//
-// For a field belonging to a oneof, it implicitly clears any other field
-// that may be currently set within the same oneof.
-// For extension fields, it implicitly stores the provided ExtensionType.
-// When setting a composite type, it is unspecified whether the stored value
-// aliases the source's memory in any way. If the composite value is an
-// empty, read-only value, then it panics.
-//
-// Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdate) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
-	switch fd.FullName() {
-	case "chora.governor.v1.EventUpdate.address":
-		x.Address = value.Interface().(string)
-	default:
-		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdate"))
-		}
-		panic(fmt.Errorf("message chora.governor.v1.EventUpdate does not contain field %s", fd.FullName()))
-	}
-}
-
-// Mutable returns a mutable reference to a composite type.
-//
-// If the field is unpopulated, it may allocate a composite value.
-// For a field belonging to a oneof, it implicitly clears any other field
-// that may be currently set within the same oneof.
-// For extension fields, it implicitly stores the provided ExtensionType
-// if not already stored.
-// It panics if the field does not contain a composite type.
-//
-// Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdate) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
-	switch fd.FullName() {
-	case "chora.governor.v1.EventUpdate.address":
-		panic(fmt.Errorf("field address of message chora.governor.v1.EventUpdate is not mutable"))
-	default:
-		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdate"))
-		}
-		panic(fmt.Errorf("message chora.governor.v1.EventUpdate does not contain field %s", fd.FullName()))
-	}
-}
-
-// NewField returns a new value that is assignable to the field
-// for the given descriptor. For scalars, this returns the default value.
-// For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventUpdate) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
-	switch fd.FullName() {
-	case "chora.governor.v1.EventUpdate.address":
-		return protoreflect.ValueOfString("")
-	default:
-		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.governor.v1.EventUpdate"))
-		}
-		panic(fmt.Errorf("message chora.governor.v1.EventUpdate does not contain field %s", fd.FullName()))
-	}
-}
-
-// WhichOneof reports which field within the oneof is populated,
-// returning nil if none are populated.
-// It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventUpdate) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
-	switch d.FullName() {
-	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.governor.v1.EventUpdate", d.FullName()))
-	}
-	panic("unreachable")
-}
-
-// GetUnknown retrieves the entire list of unknown fields.
-// The caller may only mutate the contents of the RawFields
-// if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventUpdate) GetUnknown() protoreflect.RawFields {
-	return x.unknownFields
-}
-
-// SetUnknown stores an entire list of unknown fields.
-// The raw fields must be syntactically valid according to the wire format.
-// An implementation may panic if this is not the case.
-// Once stored, the caller must not mutate the content of the RawFields.
-// An empty RawFields may be passed to clear the fields.
-//
-// SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdate) SetUnknown(fields protoreflect.RawFields) {
-	x.unknownFields = fields
-}
-
-// IsValid reports whether the message is valid.
-//
-// An invalid message is an empty, read-only value.
-//
-// An invalid message often corresponds to a nil pointer of the concrete
-// message type, but the details are implementation dependent.
-// Validity is not part of the protobuf data model, and may not
-// be preserved in marshaling or other operations.
-func (x *fastReflection_EventUpdate) IsValid() bool {
-	return x != nil
-}
-
-// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
-// This method may return nil.
-//
-// The returned methods type is identical to
-// "google.golang.org/protobuf/runtime/protoiface".Methods.
-// Consult the protoiface package documentation for details.
-func (x *fastReflection_EventUpdate) ProtoMethods() *protoiface.Methods {
-	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventUpdate)
-		if x == nil {
-			return protoiface.SizeOutput{
-				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-				Size:              0,
-			}
-		}
-		options := runtime.SizeInputToOptions(input)
-		_ = options
-		var n int
-		var l int
-		_ = l
-		l = len(x.Address)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
-		if x.unknownFields != nil {
-			n += len(x.unknownFields)
-		}
-		return protoiface.SizeOutput{
-			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-			Size:              n,
-		}
-	}
-
-	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdate)
-		if x == nil {
-			return protoiface.MarshalOutput{
-				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-				Buf:               input.Buf,
-			}, nil
-		}
-		options := runtime.MarshalInputToOptions(input)
-		_ = options
-		size := options.Size(x)
-		dAtA := make([]byte, size)
-		i := len(dAtA)
-		_ = i
-		var l int
-		_ = l
-		if x.unknownFields != nil {
-			i -= len(x.unknownFields)
-			copy(dAtA[i:], x.unknownFields)
-		}
-		if len(x.Address) > 0 {
-			i -= len(x.Address)
-			copy(dAtA[i:], x.Address)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
-			i--
-			dAtA[i] = 0xa
-		}
-		if input.Buf != nil {
-			input.Buf = append(input.Buf, dAtA...)
-		} else {
-			input.Buf = dAtA
-		}
-		return protoiface.MarshalOutput{
-			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-			Buf:               input.Buf,
-		}, nil
-	}
-	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdate)
-		if x == nil {
-			return protoiface.UnmarshalOutput{
-				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
-				Flags:             input.Flags,
-			}, nil
-		}
-		options := runtime.UnmarshalInputToOptions(input)
-		_ = options
-		dAtA := input.Buf
-		l := len(dAtA)
-		iNdEx := 0
-		for iNdEx < l {
-			preIndex := iNdEx
-			var wire uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-				}
-				if iNdEx >= l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				wire |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			fieldNum := int32(wire >> 3)
-			wireType := int(wire & 0x7)
-			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdate: wiretype end group for non-group")
-			}
-			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdate: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateGovernorMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1705,8 +1285,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// EventRegister is an event emitted when a governor has registered.
-type EventRegister struct {
+// EventCreateGovernor is an event emitted when a governor has registered.
+type EventCreateGovernor struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1715,8 +1295,8 @@ type EventRegister struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *EventRegister) Reset() {
-	*x = EventRegister{}
+func (x *EventCreateGovernor) Reset() {
+	*x = EventCreateGovernor{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_governor_v1_events_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1724,26 +1304,26 @@ func (x *EventRegister) Reset() {
 	}
 }
 
-func (x *EventRegister) String() string {
+func (x *EventCreateGovernor) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventRegister) ProtoMessage() {}
+func (*EventCreateGovernor) ProtoMessage() {}
 
-// Deprecated: Use EventRegister.ProtoReflect.Descriptor instead.
-func (*EventRegister) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventCreateGovernor.ProtoReflect.Descriptor instead.
+func (*EventCreateGovernor) Descriptor() ([]byte, []int) {
 	return file_chora_governor_v1_events_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EventRegister) GetAddress() string {
+func (x *EventCreateGovernor) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-// EventRemove is an event emitted when a governor has been removed.
-type EventRemove struct {
+// EventRemoveGovernor is an event emitted when a governor has been removed.
+type EventRemoveGovernor struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1752,8 +1332,8 @@ type EventRemove struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *EventRemove) Reset() {
-	*x = EventRemove{}
+func (x *EventRemoveGovernor) Reset() {
+	*x = EventRemoveGovernor{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_governor_v1_events_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1761,26 +1341,26 @@ func (x *EventRemove) Reset() {
 	}
 }
 
-func (x *EventRemove) String() string {
+func (x *EventRemoveGovernor) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventRemove) ProtoMessage() {}
+func (*EventRemoveGovernor) ProtoMessage() {}
 
-// Deprecated: Use EventRemove.ProtoReflect.Descriptor instead.
-func (*EventRemove) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventRemoveGovernor.ProtoReflect.Descriptor instead.
+func (*EventRemoveGovernor) Descriptor() ([]byte, []int) {
 	return file_chora_governor_v1_events_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *EventRemove) GetAddress() string {
+func (x *EventRemoveGovernor) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-// EventResign is an event emitted when a governor has resigned.
-type EventResign struct {
+// EventUpdateGovernorMetadata is an event emitted when a governor has updated.
+type EventUpdateGovernorMetadata struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1789,8 +1369,8 @@ type EventResign struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *EventResign) Reset() {
-	*x = EventResign{}
+func (x *EventUpdateGovernorMetadata) Reset() {
+	*x = EventUpdateGovernorMetadata{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_governor_v1_events_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1798,55 +1378,18 @@ func (x *EventResign) Reset() {
 	}
 }
 
-func (x *EventResign) String() string {
+func (x *EventUpdateGovernorMetadata) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventResign) ProtoMessage() {}
+func (*EventUpdateGovernorMetadata) ProtoMessage() {}
 
-// Deprecated: Use EventResign.ProtoReflect.Descriptor instead.
-func (*EventResign) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventUpdateGovernorMetadata.ProtoReflect.Descriptor instead.
+func (*EventUpdateGovernorMetadata) Descriptor() ([]byte, []int) {
 	return file_chora_governor_v1_events_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *EventResign) GetAddress() string {
-	if x != nil {
-		return x.Address
-	}
-	return ""
-}
-
-// EventUpdate is an event emitted when a governor has updated.
-type EventUpdate struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// address is the address of the governor.
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
-}
-
-func (x *EventUpdate) Reset() {
-	*x = EventUpdate{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_chora_governor_v1_events_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *EventUpdate) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EventUpdate) ProtoMessage() {}
-
-// Deprecated: Use EventUpdate.ProtoReflect.Descriptor instead.
-func (*EventUpdate) Descriptor() ([]byte, []int) {
-	return file_chora_governor_v1_events_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *EventUpdate) GetAddress() string {
+func (x *EventUpdateGovernorMetadata) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
@@ -1859,31 +1402,30 @@ var file_chora_governor_v1_events_proto_rawDesc = []byte{
 	0x0a, 0x1e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72,
 	0x2f, 0x76, 0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x12, 0x11, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72,
-	0x2e, 0x76, 0x31, 0x22, 0x29, 0x0a, 0x0d, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x67, 0x69,
-	0x73, 0x74, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x27,
-	0x0a, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x12, 0x18, 0x0a,
-	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
-	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x27, 0x0a, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74,
-	0x52, 0x65, 0x73, 0x69, 0x67, 0x6e, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
-	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
-	0x22, 0x27, 0x0a, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x42, 0xce, 0x01, 0x0a, 0x15, 0x63, 0x6f,
-	0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72,
-	0x2e, 0x76, 0x31, 0x42, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f,
-	0x50, 0x01, 0x5a, 0x42, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63,
-	0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x67, 0x6f, 0x76,
-	0x65, 0x72, 0x6e, 0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f,
-	0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x67, 0x6f, 0x76, 0x65,
-	0x72, 0x6e, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x47, 0x58, 0xaa, 0x02, 0x11, 0x43,
-	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x2e, 0x56, 0x31,
-	0xca, 0x02, 0x11, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f,
-	0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x47, 0x6f, 0x76,
-	0x65, 0x72, 0x6e, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
-	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x13, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x47, 0x6f,
-	0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x2e, 0x76, 0x31, 0x22, 0x2f, 0x0a, 0x13, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64,
+	0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64,
+	0x72, 0x65, 0x73, 0x73, 0x22, 0x2f, 0x0a, 0x13, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x6d,
+	0x6f, 0x76, 0x65, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61,
+	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64,
+	0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x37, 0x0a, 0x1b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x42, 0xce,
+	0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x67, 0x6f, 0x76,
+	0x65, 0x72, 0x6e, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x73,
+	0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x42, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64,
+	0x73, 0x2f, 0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2f, 0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x2f, 0x76, 0x31,
+	0x3b, 0x67, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x47,
+	0x58, 0xaa, 0x02, 0x11, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e,
+	0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x11, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x47, 0x6f,
+	0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x6f, 0x72,
+	0x61, 0x5c, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50,
+	0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x13, 0x43, 0x68, 0x6f, 0x72,
+	0x61, 0x3a, 0x3a, 0x47, 0x6f, 0x76, 0x65, 0x72, 0x6e, 0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1898,12 +1440,11 @@ func file_chora_governor_v1_events_proto_rawDescGZIP() []byte {
 	return file_chora_governor_v1_events_proto_rawDescData
 }
 
-var file_chora_governor_v1_events_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_chora_governor_v1_events_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_chora_governor_v1_events_proto_goTypes = []interface{}{
-	(*EventRegister)(nil), // 0: chora.governor.v1.EventRegister
-	(*EventRemove)(nil),   // 1: chora.governor.v1.EventRemove
-	(*EventResign)(nil),   // 2: chora.governor.v1.EventResign
-	(*EventUpdate)(nil),   // 3: chora.governor.v1.EventUpdate
+	(*EventCreateGovernor)(nil),         // 0: chora.governor.v1.EventCreateGovernor
+	(*EventRemoveGovernor)(nil),         // 1: chora.governor.v1.EventRemoveGovernor
+	(*EventUpdateGovernorMetadata)(nil), // 2: chora.governor.v1.EventUpdateGovernorMetadata
 }
 var file_chora_governor_v1_events_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -1920,7 +1461,7 @@ func file_chora_governor_v1_events_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_governor_v1_events_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventRegister); i {
+			switch v := v.(*EventCreateGovernor); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1932,7 +1473,7 @@ func file_chora_governor_v1_events_proto_init() {
 			}
 		}
 		file_chora_governor_v1_events_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventRemove); i {
+			switch v := v.(*EventRemoveGovernor); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1944,19 +1485,7 @@ func file_chora_governor_v1_events_proto_init() {
 			}
 		}
 		file_chora_governor_v1_events_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventResign); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_chora_governor_v1_events_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventUpdate); i {
+			switch v := v.(*EventUpdateGovernorMetadata); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1974,7 +1503,7 @@ func file_chora_governor_v1_events_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chora_governor_v1_events_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -19,7 +19,7 @@ type queryGovernor struct {
 
 func TestQueryGovernor(t *testing.T) {
 	gocuke.NewRunner(t, &queryGovernor{}).
-		Path("./features/query_governor.feature").
+		Path("./query_governor.feature").
 		Run()
 }
 

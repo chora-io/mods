@@ -16,7 +16,7 @@ type validatorSigningInfo struct {
 
 func TestValidatorSigningInfo(t *testing.T) {
 	gocuke.NewRunner(t, &validatorSigningInfo{}).
-		Path("./features/state_validator_signing_info.feature").
+		Path("./state_validator_signing_info.feature").
 		Run()
 }
 

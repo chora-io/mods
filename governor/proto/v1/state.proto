@@ -9,12 +9,12 @@ option go_package = "github.com/chora-io/mods/governor/types/v1";
 // Governor defines the table and properties of a governor.
 message Governor {
   option (cosmos.orm.v1.table) = {
-    id : 2,
-    primary_key : {fields : "governor"}
+    id : 1,
+    primary_key : {fields : "address"}
   };
 
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  bytes address = 1;
 
   // metadata is the metadata of the governor.
   string metadata = 2;

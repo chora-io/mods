@@ -1,24 +1,24 @@
-Feature: Query/Validator
+Feature: Query/Governor
 
-  Query/Validator is successful when:
-  - validator with address exists
+  Query/Governor is successful when:
+  - governor with address exists
 
-  Query/Validator has the following outcomes:
+  Query/Governor has the following outcomes:
   - query response returned
 
-  Rule: The validator must exist
+  Rule: The governor must exist
 
     Background:
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
-    Scenario: validator exists
-      When query validator
+    Scenario: governor exists
+      When query governor
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
@@ -26,8 +26,8 @@ Feature: Query/Validator
       """
       Then expect no error
 
-    Scenario: validator does not exist
-      When query validator
+    Scenario: governor does not exist
+      When query governor
       """
       {
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
@@ -35,22 +35,22 @@ Feature: Query/Validator
       """
       Then expect the error
       """
-      validator with address chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: not found
+      governor with address chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: not found
       """
 
   Rule: The query response is returned
 
     Background:
-      Given validator
+      Given governor
       """
       {
-        "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
     Scenario: query response returned
-      When query validator
+      When query governor
       """
       {
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"

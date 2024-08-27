@@ -18,14 +18,16 @@ message EventRemoveContent {
   uint64 id = 1;
 }
 
-// EventUpdateContentCurator is an event emitted when content curator is updated.
+// EventUpdateContentCurator is an event emitted when content curator is
+// updated.
 message EventUpdateContentCurator {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// EventUpdateContentMetadata is an event emitted when content metadata is updated.
+// EventUpdateContentMetadata is an event emitted when content metadata is
+// updated.
 message EventUpdateContentMetadata {
 
   // id is the unique identifier of the content.

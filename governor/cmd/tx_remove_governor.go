@@ -13,10 +13,10 @@ import (
 // TxRemoveGovernorCmd creates and returns the tx remove command.
 func TxRemoveGovernorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "remove-governor [address]",
+		Use:   "remove-governor",
 		Short: "submit a transaction to remove a governor",
 		Long:  "submit a transaction to remove a governor",
-		Args:  cobra.ExactArgs(1),
+		Args:  cobra.ExactArgs(0),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -24,8 +24,7 @@ func TxRemoveGovernorCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgRemoveGovernor{
-				Admin:   clientCtx.GetFromAddress().String(),
-				Address: args[0],
+				Address: clientCtx.GetFromAddress().String(),
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

@@ -9,81 +9,65 @@ option go_package = "github.com/chora-io/mods/governor/types/v1";
 // Msg is the Msg service.
 service Msg {
 
-  // Register registers a governor (any account).
-  rpc Register(MsgRegister) returns (MsgRegisterResponse);
+  // CreateGovernor registers a governor.
+  rpc CreateGovernor(MsgCreateGovernor) returns (MsgCreateGovernorResponse);
 
-  // Remove removes a governor (only admin account).
-  rpc Remove(MsgRemove) returns (MsgRemoveResponse);
+  // RemoveGovernor removes a governor.
+  rpc RemoveGovernor(MsgRemoveGovernor) returns (MsgRemoveGovernorResponse);
 
-  // Resign resigns a governor (only governor account).
-  rpc Resign(MsgResign) returns (MsgResignResponse);
-
-  // Update updates a governor (only governor account).
-  rpc Update(MsgUpdate) returns (MsgUpdateResponse);
+  // UpdateGovernorMetadata updates a governor.
+  rpc UpdateGovernorMetadata(MsgUpdateGovernorMetadata)
+      returns (MsgUpdateGovernorMetadataResponse);
 }
 
-// MsgRegister is the Msg/Register request type.
-message MsgRegister {
-  option (cosmos.msg.v1.signer) = "governor";
+// MsgCreateGovernor is the Msg/CreateGovernor request type.
+message MsgCreateGovernor {
+  option (cosmos.msg.v1.signer) = "address";
 
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  string address = 1;
 
   // metadata is the metadata of the governor.
   string metadata = 2;
 }
 
-// MsgRegisterResponse is the Msg/Register response type.
-message MsgRegisterResponse {
+// MsgCreateGovernorResponse is the Msg/CreateGovernor response type.
+message MsgCreateGovernorResponse {
 
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  string address = 1;
 }
 
-// MsgRemove is the Msg/Remove request type.
-message MsgRemove {
-  option (cosmos.msg.v1.signer) = "governor";
+// MsgRemoveGovernor is the Msg/RemoveGovernor request type.
+message MsgRemoveGovernor {
+  option (cosmos.msg.v1.signer) = "address";
 
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  string address = 1;
 }
 
-// MsgRemoveResponse is the Msg/Remove response type.
-message MsgRemoveResponse {
+// MsgRemoveGovernorResponse is the Msg/RemoveGovernor response type.
+message MsgRemoveGovernorResponse {
 
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  string address = 1;
 }
 
-// MsgResign is the Msg/Resign request type.
-message MsgResign {
-  option (cosmos.msg.v1.signer) = "governor";
+// MsgUpdateGovernorMetadata is the Msg/UpdateGovernorMetadata request type.
+message MsgUpdateGovernorMetadata {
+  option (cosmos.msg.v1.signer) = "address";
 
-  // governor is the address of the governor.
-  string governor = 1;
-}
-
-// MsgResignResponse is the Msg/Resign response type.
-message MsgResignResponse {
-
-  // governor is the address of the governor.
-  string governor = 1;
-}
-
-// MsgUpdate is the Msg/Update request type.
-message MsgUpdate {
-  option (cosmos.msg.v1.signer) = "governor";
-
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  string address = 1;
 
   // new_metadata is the new metadata of the governor.
   string new_metadata = 2;
 }
 
-// MsgUpdateResponse is the Msg/Update response type.
-message MsgUpdateResponse {
+// MsgUpdateGovernorMetadataResponse is the Msg/UpdateGovernorMetadata response
+// type.
+message MsgUpdateGovernorMetadataResponse {
 
-  // governor is the address of the governor.
-  string governor = 1;
+  // address is the address of the governor.
+  string address = 1;
 }

@@ -11,10 +11,9 @@ import (
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
-		&MsgAddValidator{},
-		&MsgRemoveValidator{},
-		&MsgUpdatePolicy{},
-		&MsgUpdateValidator{},
+		&MsgCreateGovernor{},
+		&MsgRemoveGovernor{},
+		&MsgUpdateGovernorMetadata{},
 	)
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
@@ -22,8 +21,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgAddValidator{}, "validator/MsgAddValidator", nil)
-	cdc.RegisterConcrete(&MsgRemoveValidator{}, "validator/MsgRemoveValidator", nil)
-	cdc.RegisterConcrete(&MsgUpdatePolicy{}, "validator/MsgUpdatePolicy", nil)
-	cdc.RegisterConcrete(&MsgUpdateValidator{}, "validator/MsgUpdateValidator", nil)
+	cdc.RegisterConcrete(&MsgCreateGovernor{}, "governor/MsgCreateGovernor", nil)
+	cdc.RegisterConcrete(&MsgRemoveGovernor{}, "governor/MsgRemoveGovernor", nil)
+	cdc.RegisterConcrete(&MsgUpdateGovernorMetadata{}, "governor/MsgUpdateGovernorMetadata", nil)
 }

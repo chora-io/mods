@@ -16,10 +16,12 @@ service Msg {
   rpc RemoveContent(MsgRemoveContent) returns (MsgRemoveContentResponse);
 
   // UpdateContentCurator updates the curator of content.
-  rpc UpdateContentCurator(MsgUpdateContentCurator) returns (MsgUpdateContentCuratorResponse);
+  rpc UpdateContentCurator(MsgUpdateContentCurator)
+      returns (MsgUpdateContentCuratorResponse);
 
   // UpdateContentMetadata updates the metadata of content.
-  rpc UpdateContentMetadata(MsgUpdateContentMetadata) returns (MsgUpdateContentMetadataResponse);
+  rpc UpdateContentMetadata(MsgUpdateContentMetadata)
+      returns (MsgUpdateContentMetadataResponse);
 }
 
 // MsgCreateContent is the Msg/CreateContent request type.
@@ -72,7 +74,8 @@ message MsgUpdateContentCurator {
   string new_curator = 3;
 }
 
-// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response type.
+// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response
+// type.
 message MsgUpdateContentCuratorResponse {
 
   // id is the unique identifier of the content.
@@ -93,7 +96,8 @@ message MsgUpdateContentMetadata {
   string new_metadata = 3;
 }
 
-// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response type.
+// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response
+// type.
 message MsgUpdateContentMetadataResponse {
 
   // id is the unique identifier of the content.

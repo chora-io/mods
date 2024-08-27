@@ -16,7 +16,7 @@ type balance struct {
 
 func TestBalance(t *testing.T) {
 	gocuke.NewRunner(t, &balance{}).
-		Path("./features/state_balance.feature").
+		Path("./state_balance.feature").
 		Run()
 }
 
