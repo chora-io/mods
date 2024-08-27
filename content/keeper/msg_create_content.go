@@ -9,8 +9,8 @@ import (
 	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
-// Create implements Msg/Create.
-func (k Keeper) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateResponse, error) {
+// CreateContent implements Msg/CreateContent.
+func (k Keeper) CreateContent(ctx context.Context, req *v1.MsgCreateContent) (*v1.MsgCreateContentResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
 	// get account from curator address
@@ -29,14 +29,14 @@ func (k Keeper) Create(ctx context.Context, req *v1.MsgCreate) (*v1.MsgCreateRes
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventCreate{
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventCreateContent{
 		Id: id,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgCreateResponse{
+	return &v1.MsgCreateContentResponse{
 		Id: id,
 	}, nil
 }

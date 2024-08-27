@@ -14,27 +14,27 @@ import (
 )
 
 var (
-	md_MsgCreate          protoreflect.MessageDescriptor
-	fd_MsgCreate_curator  protoreflect.FieldDescriptor
-	fd_MsgCreate_metadata protoreflect.FieldDescriptor
+	md_MsgCreateContent          protoreflect.MessageDescriptor
+	fd_MsgCreateContent_curator  protoreflect.FieldDescriptor
+	fd_MsgCreateContent_metadata protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgCreate = File_chora_content_v1_msg_proto.Messages().ByName("MsgCreate")
-	fd_MsgCreate_curator = md_MsgCreate.Fields().ByName("curator")
-	fd_MsgCreate_metadata = md_MsgCreate.Fields().ByName("metadata")
+	md_MsgCreateContent = File_chora_content_v1_msg_proto.Messages().ByName("MsgCreateContent")
+	fd_MsgCreateContent_curator = md_MsgCreateContent.Fields().ByName("curator")
+	fd_MsgCreateContent_metadata = md_MsgCreateContent.Fields().ByName("metadata")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgCreate)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgCreateContent)(nil)
 
-type fastReflection_MsgCreate MsgCreate
+type fastReflection_MsgCreateContent MsgCreateContent
 
-func (x *MsgCreate) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgCreate)(x)
+func (x *MsgCreateContent) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgCreateContent)(x)
 }
 
-func (x *MsgCreate) slowProtoReflect() protoreflect.Message {
+func (x *MsgCreateContent) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -46,43 +46,43 @@ func (x *MsgCreate) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgCreate_messageType fastReflection_MsgCreate_messageType
-var _ protoreflect.MessageType = fastReflection_MsgCreate_messageType{}
+var _fastReflection_MsgCreateContent_messageType fastReflection_MsgCreateContent_messageType
+var _ protoreflect.MessageType = fastReflection_MsgCreateContent_messageType{}
 
-type fastReflection_MsgCreate_messageType struct{}
+type fastReflection_MsgCreateContent_messageType struct{}
 
-func (x fastReflection_MsgCreate_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgCreate)(nil)
+func (x fastReflection_MsgCreateContent_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgCreateContent)(nil)
 }
-func (x fastReflection_MsgCreate_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgCreate)
+func (x fastReflection_MsgCreateContent_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateContent)
 }
-func (x fastReflection_MsgCreate_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgCreate
+func (x fastReflection_MsgCreateContent_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateContent
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgCreate) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgCreate
+func (x *fastReflection_MsgCreateContent) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateContent
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgCreate) Type() protoreflect.MessageType {
-	return _fastReflection_MsgCreate_messageType
+func (x *fastReflection_MsgCreateContent) Type() protoreflect.MessageType {
+	return _fastReflection_MsgCreateContent_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgCreate) New() protoreflect.Message {
-	return new(fastReflection_MsgCreate)
+func (x *fastReflection_MsgCreateContent) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateContent)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgCreate) Interface() protoreflect.ProtoMessage {
-	return (*MsgCreate)(x)
+func (x *fastReflection_MsgCreateContent) Interface() protoreflect.ProtoMessage {
+	return (*MsgCreateContent)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -90,16 +90,16 @@ func (x *fastReflection_MsgCreate) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgCreate) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgCreateContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Curator != "" {
 		value := protoreflect.ValueOfString(x.Curator)
-		if !f(fd_MsgCreate_curator, value) {
+		if !f(fd_MsgCreateContent_curator, value) {
 			return
 		}
 	}
 	if x.Metadata != "" {
 		value := protoreflect.ValueOfString(x.Metadata)
-		if !f(fd_MsgCreate_metadata, value) {
+		if !f(fd_MsgCreateContent_metadata, value) {
 			return
 		}
 	}
@@ -116,17 +116,17 @@ func (x *fastReflection_MsgCreate) Range(f func(protoreflect.FieldDescriptor, pr
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgCreate) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgCreateContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreate.curator":
+	case "chora.content.v1.MsgCreateContent.curator":
 		return x.Curator != ""
-	case "chora.content.v1.MsgCreate.metadata":
+	case "chora.content.v1.MsgCreateContent.metadata":
 		return x.Metadata != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -136,17 +136,17 @@ func (x *fastReflection_MsgCreate) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreate) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgCreateContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreate.curator":
+	case "chora.content.v1.MsgCreateContent.curator":
 		x.Curator = ""
-	case "chora.content.v1.MsgCreate.metadata":
+	case "chora.content.v1.MsgCreateContent.metadata":
 		x.Metadata = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -156,19 +156,19 @@ func (x *fastReflection_MsgCreate) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgCreate) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateContent) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgCreate.curator":
+	case "chora.content.v1.MsgCreateContent.curator":
 		value := x.Curator
 		return protoreflect.ValueOfString(value)
-	case "chora.content.v1.MsgCreate.metadata":
+	case "chora.content.v1.MsgCreateContent.metadata":
 		value := x.Metadata
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreate does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContent does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -182,17 +182,17 @@ func (x *fastReflection_MsgCreate) Get(descriptor protoreflect.FieldDescriptor) 
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreate) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgCreateContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreate.curator":
+	case "chora.content.v1.MsgCreateContent.curator":
 		x.Curator = value.Interface().(string)
-	case "chora.content.v1.MsgCreate.metadata":
+	case "chora.content.v1.MsgCreateContent.metadata":
 		x.Metadata = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -206,44 +206,44 @@ func (x *fastReflection_MsgCreate) Set(fd protoreflect.FieldDescriptor, value pr
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreate) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateContent) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreate.curator":
-		panic(fmt.Errorf("field curator of message chora.content.v1.MsgCreate is not mutable"))
-	case "chora.content.v1.MsgCreate.metadata":
-		panic(fmt.Errorf("field metadata of message chora.content.v1.MsgCreate is not mutable"))
+	case "chora.content.v1.MsgCreateContent.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.MsgCreateContent is not mutable"))
+	case "chora.content.v1.MsgCreateContent.metadata":
+		panic(fmt.Errorf("field metadata of message chora.content.v1.MsgCreateContent is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgCreate) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreate.curator":
+	case "chora.content.v1.MsgCreateContent.curator":
 		return protoreflect.ValueOfString("")
-	case "chora.content.v1.MsgCreate.metadata":
+	case "chora.content.v1.MsgCreateContent.metadata":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgCreate) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgCreateContent) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgCreate", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgCreateContent", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -251,7 +251,7 @@ func (x *fastReflection_MsgCreate) WhichOneof(d protoreflect.OneofDescriptor) pr
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgCreate) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgCreateContent) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -262,7 +262,7 @@ func (x *fastReflection_MsgCreate) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreate) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgCreateContent) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -274,7 +274,7 @@ func (x *fastReflection_MsgCreate) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgCreate) IsValid() bool {
+func (x *fastReflection_MsgCreateContent) IsValid() bool {
 	return x != nil
 }
 
@@ -284,9 +284,9 @@ func (x *fastReflection_MsgCreate) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgCreate) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgCreateContent) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgCreate)
+		x := input.Message.Interface().(*MsgCreateContent)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -316,7 +316,7 @@ func (x *fastReflection_MsgCreate) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgCreate)
+		x := input.Message.Interface().(*MsgCreateContent)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -360,7 +360,7 @@ func (x *fastReflection_MsgCreate) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgCreate)
+		x := input.Message.Interface().(*MsgCreateContent)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -392,10 +392,10 @@ func (x *fastReflection_MsgCreate) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreate: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateContent: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreate: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateContent: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -498,25 +498,25 @@ func (x *fastReflection_MsgCreate) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgCreateResponse    protoreflect.MessageDescriptor
-	fd_MsgCreateResponse_id protoreflect.FieldDescriptor
+	md_MsgCreateContentResponse    protoreflect.MessageDescriptor
+	fd_MsgCreateContentResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgCreateResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgCreateResponse")
-	fd_MsgCreateResponse_id = md_MsgCreateResponse.Fields().ByName("id")
+	md_MsgCreateContentResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgCreateContentResponse")
+	fd_MsgCreateContentResponse_id = md_MsgCreateContentResponse.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgCreateResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgCreateContentResponse)(nil)
 
-type fastReflection_MsgCreateResponse MsgCreateResponse
+type fastReflection_MsgCreateContentResponse MsgCreateContentResponse
 
-func (x *MsgCreateResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgCreateResponse)(x)
+func (x *MsgCreateContentResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgCreateContentResponse)(x)
 }
 
-func (x *MsgCreateResponse) slowProtoReflect() protoreflect.Message {
+func (x *MsgCreateContentResponse) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -528,43 +528,43 @@ func (x *MsgCreateResponse) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgCreateResponse_messageType fastReflection_MsgCreateResponse_messageType
-var _ protoreflect.MessageType = fastReflection_MsgCreateResponse_messageType{}
+var _fastReflection_MsgCreateContentResponse_messageType fastReflection_MsgCreateContentResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgCreateContentResponse_messageType{}
 
-type fastReflection_MsgCreateResponse_messageType struct{}
+type fastReflection_MsgCreateContentResponse_messageType struct{}
 
-func (x fastReflection_MsgCreateResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgCreateResponse)(nil)
+func (x fastReflection_MsgCreateContentResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgCreateContentResponse)(nil)
 }
-func (x fastReflection_MsgCreateResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgCreateResponse)
+func (x fastReflection_MsgCreateContentResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateContentResponse)
 }
-func (x fastReflection_MsgCreateResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgCreateResponse
+func (x fastReflection_MsgCreateContentResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateContentResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgCreateResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgCreateResponse
+func (x *fastReflection_MsgCreateContentResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateContentResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgCreateResponse) Type() protoreflect.MessageType {
-	return _fastReflection_MsgCreateResponse_messageType
+func (x *fastReflection_MsgCreateContentResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgCreateContentResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgCreateResponse) New() protoreflect.Message {
-	return new(fastReflection_MsgCreateResponse)
+func (x *fastReflection_MsgCreateContentResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateContentResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgCreateResponse) Interface() protoreflect.ProtoMessage {
-	return (*MsgCreateResponse)(x)
+func (x *fastReflection_MsgCreateContentResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgCreateContentResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -572,10 +572,10 @@ func (x *fastReflection_MsgCreateResponse) Interface() protoreflect.ProtoMessage
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgCreateResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgCreateContentResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgCreateResponse_id, value) {
+		if !f(fd_MsgCreateContentResponse_id, value) {
 			return
 		}
 	}
@@ -592,15 +592,15 @@ func (x *fastReflection_MsgCreateResponse) Range(f func(protoreflect.FieldDescri
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgCreateResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgCreateContentResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreateResponse.id":
+	case "chora.content.v1.MsgCreateContentResponse.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -610,15 +610,15 @@ func (x *fastReflection_MsgCreateResponse) Has(fd protoreflect.FieldDescriptor) 
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreateResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgCreateContentResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreateResponse.id":
+	case "chora.content.v1.MsgCreateContentResponse.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -628,16 +628,16 @@ func (x *fastReflection_MsgCreateResponse) Clear(fd protoreflect.FieldDescriptor
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgCreateResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateContentResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgCreateResponse.id":
+	case "chora.content.v1.MsgCreateContentResponse.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreateResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContentResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -651,15 +651,15 @@ func (x *fastReflection_MsgCreateResponse) Get(descriptor protoreflect.FieldDesc
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreateResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgCreateContentResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreateResponse.id":
+	case "chora.content.v1.MsgCreateContentResponse.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -673,40 +673,40 @@ func (x *fastReflection_MsgCreateResponse) Set(fd protoreflect.FieldDescriptor, 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreateResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateContentResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreateResponse.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgCreateResponse is not mutable"))
+	case "chora.content.v1.MsgCreateContentResponse.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgCreateContentResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgCreateResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateContentResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgCreateResponse.id":
+	case "chora.content.v1.MsgCreateContentResponse.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgCreateContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgCreateResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgCreateContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgCreateResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgCreateContentResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgCreateResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgCreateContentResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -714,7 +714,7 @@ func (x *fastReflection_MsgCreateResponse) WhichOneof(d protoreflect.OneofDescri
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgCreateResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgCreateContentResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -725,7 +725,7 @@ func (x *fastReflection_MsgCreateResponse) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgCreateResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgCreateContentResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -737,7 +737,7 @@ func (x *fastReflection_MsgCreateResponse) SetUnknown(fields protoreflect.RawFie
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgCreateResponse) IsValid() bool {
+func (x *fastReflection_MsgCreateContentResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -747,9 +747,9 @@ func (x *fastReflection_MsgCreateResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgCreateResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgCreateContentResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgCreateResponse)
+		x := input.Message.Interface().(*MsgCreateContentResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -774,7 +774,7 @@ func (x *fastReflection_MsgCreateResponse) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgCreateResponse)
+		x := input.Message.Interface().(*MsgCreateContentResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -809,7 +809,7 @@ func (x *fastReflection_MsgCreateResponse) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgCreateResponse)
+		x := input.Message.Interface().(*MsgCreateContentResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -841,10 +841,10 @@ func (x *fastReflection_MsgCreateResponse) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateContentResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -902,27 +902,27 @@ func (x *fastReflection_MsgCreateResponse) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgDelete         protoreflect.MessageDescriptor
-	fd_MsgDelete_id      protoreflect.FieldDescriptor
-	fd_MsgDelete_curator protoreflect.FieldDescriptor
+	md_MsgRemoveContent         protoreflect.MessageDescriptor
+	fd_MsgRemoveContent_id      protoreflect.FieldDescriptor
+	fd_MsgRemoveContent_curator protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgDelete = File_chora_content_v1_msg_proto.Messages().ByName("MsgDelete")
-	fd_MsgDelete_id = md_MsgDelete.Fields().ByName("id")
-	fd_MsgDelete_curator = md_MsgDelete.Fields().ByName("curator")
+	md_MsgRemoveContent = File_chora_content_v1_msg_proto.Messages().ByName("MsgRemoveContent")
+	fd_MsgRemoveContent_id = md_MsgRemoveContent.Fields().ByName("id")
+	fd_MsgRemoveContent_curator = md_MsgRemoveContent.Fields().ByName("curator")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgDelete)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgRemoveContent)(nil)
 
-type fastReflection_MsgDelete MsgDelete
+type fastReflection_MsgRemoveContent MsgRemoveContent
 
-func (x *MsgDelete) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgDelete)(x)
+func (x *MsgRemoveContent) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgRemoveContent)(x)
 }
 
-func (x *MsgDelete) slowProtoReflect() protoreflect.Message {
+func (x *MsgRemoveContent) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -934,43 +934,43 @@ func (x *MsgDelete) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgDelete_messageType fastReflection_MsgDelete_messageType
-var _ protoreflect.MessageType = fastReflection_MsgDelete_messageType{}
+var _fastReflection_MsgRemoveContent_messageType fastReflection_MsgRemoveContent_messageType
+var _ protoreflect.MessageType = fastReflection_MsgRemoveContent_messageType{}
 
-type fastReflection_MsgDelete_messageType struct{}
+type fastReflection_MsgRemoveContent_messageType struct{}
 
-func (x fastReflection_MsgDelete_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgDelete)(nil)
+func (x fastReflection_MsgRemoveContent_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgRemoveContent)(nil)
 }
-func (x fastReflection_MsgDelete_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgDelete)
+func (x fastReflection_MsgRemoveContent_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgRemoveContent)
 }
-func (x fastReflection_MsgDelete_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgDelete
+func (x fastReflection_MsgRemoveContent_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRemoveContent
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgDelete) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgDelete
+func (x *fastReflection_MsgRemoveContent) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRemoveContent
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgDelete) Type() protoreflect.MessageType {
-	return _fastReflection_MsgDelete_messageType
+func (x *fastReflection_MsgRemoveContent) Type() protoreflect.MessageType {
+	return _fastReflection_MsgRemoveContent_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgDelete) New() protoreflect.Message {
-	return new(fastReflection_MsgDelete)
+func (x *fastReflection_MsgRemoveContent) New() protoreflect.Message {
+	return new(fastReflection_MsgRemoveContent)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgDelete) Interface() protoreflect.ProtoMessage {
-	return (*MsgDelete)(x)
+func (x *fastReflection_MsgRemoveContent) Interface() protoreflect.ProtoMessage {
+	return (*MsgRemoveContent)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -978,16 +978,16 @@ func (x *fastReflection_MsgDelete) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgDelete) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgRemoveContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgDelete_id, value) {
+		if !f(fd_MsgRemoveContent_id, value) {
 			return
 		}
 	}
 	if x.Curator != "" {
 		value := protoreflect.ValueOfString(x.Curator)
-		if !f(fd_MsgDelete_curator, value) {
+		if !f(fd_MsgRemoveContent_curator, value) {
 			return
 		}
 	}
@@ -1004,17 +1004,17 @@ func (x *fastReflection_MsgDelete) Range(f func(protoreflect.FieldDescriptor, pr
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgDelete) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgRemoveContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDelete.id":
+	case "chora.content.v1.MsgRemoveContent.id":
 		return x.Id != uint64(0)
-	case "chora.content.v1.MsgDelete.curator":
+	case "chora.content.v1.MsgRemoveContent.curator":
 		return x.Curator != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1024,17 +1024,17 @@ func (x *fastReflection_MsgDelete) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDelete) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgRemoveContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDelete.id":
+	case "chora.content.v1.MsgRemoveContent.id":
 		x.Id = uint64(0)
-	case "chora.content.v1.MsgDelete.curator":
+	case "chora.content.v1.MsgRemoveContent.curator":
 		x.Curator = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1044,19 +1044,19 @@ func (x *fastReflection_MsgDelete) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgDelete) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgRemoveContent) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgDelete.id":
+	case "chora.content.v1.MsgRemoveContent.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
-	case "chora.content.v1.MsgDelete.curator":
+	case "chora.content.v1.MsgRemoveContent.curator":
 		value := x.Curator
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDelete does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContent does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1070,17 +1070,17 @@ func (x *fastReflection_MsgDelete) Get(descriptor protoreflect.FieldDescriptor) 
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDelete) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgRemoveContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDelete.id":
+	case "chora.content.v1.MsgRemoveContent.id":
 		x.Id = value.Uint()
-	case "chora.content.v1.MsgDelete.curator":
+	case "chora.content.v1.MsgRemoveContent.curator":
 		x.Curator = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1094,44 +1094,44 @@ func (x *fastReflection_MsgDelete) Set(fd protoreflect.FieldDescriptor, value pr
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDelete) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgRemoveContent) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDelete.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgDelete is not mutable"))
-	case "chora.content.v1.MsgDelete.curator":
-		panic(fmt.Errorf("field curator of message chora.content.v1.MsgDelete is not mutable"))
+	case "chora.content.v1.MsgRemoveContent.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgRemoveContent is not mutable"))
+	case "chora.content.v1.MsgRemoveContent.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.MsgRemoveContent is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgDelete) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgRemoveContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDelete.id":
+	case "chora.content.v1.MsgRemoveContent.id":
 		return protoreflect.ValueOfUint64(uint64(0))
-	case "chora.content.v1.MsgDelete.curator":
+	case "chora.content.v1.MsgRemoveContent.curator":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgDelete) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgRemoveContent) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgDelete", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgRemoveContent", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1139,7 +1139,7 @@ func (x *fastReflection_MsgDelete) WhichOneof(d protoreflect.OneofDescriptor) pr
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgDelete) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgRemoveContent) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1150,7 +1150,7 @@ func (x *fastReflection_MsgDelete) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDelete) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgRemoveContent) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1162,7 +1162,7 @@ func (x *fastReflection_MsgDelete) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgDelete) IsValid() bool {
+func (x *fastReflection_MsgRemoveContent) IsValid() bool {
 	return x != nil
 }
 
@@ -1172,9 +1172,9 @@ func (x *fastReflection_MsgDelete) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgDelete) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgRemoveContent) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgDelete)
+		x := input.Message.Interface().(*MsgRemoveContent)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1203,7 +1203,7 @@ func (x *fastReflection_MsgDelete) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgDelete)
+		x := input.Message.Interface().(*MsgRemoveContent)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1245,7 +1245,7 @@ func (x *fastReflection_MsgDelete) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgDelete)
+		x := input.Message.Interface().(*MsgRemoveContent)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1277,10 +1277,10 @@ func (x *fastReflection_MsgDelete) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgDelete: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRemoveContent: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgDelete: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRemoveContent: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1370,25 +1370,25 @@ func (x *fastReflection_MsgDelete) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgDeleteResponse    protoreflect.MessageDescriptor
-	fd_MsgDeleteResponse_id protoreflect.FieldDescriptor
+	md_MsgRemoveContentResponse    protoreflect.MessageDescriptor
+	fd_MsgRemoveContentResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgDeleteResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgDeleteResponse")
-	fd_MsgDeleteResponse_id = md_MsgDeleteResponse.Fields().ByName("id")
+	md_MsgRemoveContentResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgRemoveContentResponse")
+	fd_MsgRemoveContentResponse_id = md_MsgRemoveContentResponse.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgDeleteResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgRemoveContentResponse)(nil)
 
-type fastReflection_MsgDeleteResponse MsgDeleteResponse
+type fastReflection_MsgRemoveContentResponse MsgRemoveContentResponse
 
-func (x *MsgDeleteResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgDeleteResponse)(x)
+func (x *MsgRemoveContentResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgRemoveContentResponse)(x)
 }
 
-func (x *MsgDeleteResponse) slowProtoReflect() protoreflect.Message {
+func (x *MsgRemoveContentResponse) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1400,43 +1400,43 @@ func (x *MsgDeleteResponse) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgDeleteResponse_messageType fastReflection_MsgDeleteResponse_messageType
-var _ protoreflect.MessageType = fastReflection_MsgDeleteResponse_messageType{}
+var _fastReflection_MsgRemoveContentResponse_messageType fastReflection_MsgRemoveContentResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgRemoveContentResponse_messageType{}
 
-type fastReflection_MsgDeleteResponse_messageType struct{}
+type fastReflection_MsgRemoveContentResponse_messageType struct{}
 
-func (x fastReflection_MsgDeleteResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgDeleteResponse)(nil)
+func (x fastReflection_MsgRemoveContentResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgRemoveContentResponse)(nil)
 }
-func (x fastReflection_MsgDeleteResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgDeleteResponse)
+func (x fastReflection_MsgRemoveContentResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgRemoveContentResponse)
 }
-func (x fastReflection_MsgDeleteResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgDeleteResponse
+func (x fastReflection_MsgRemoveContentResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRemoveContentResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgDeleteResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgDeleteResponse
+func (x *fastReflection_MsgRemoveContentResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgRemoveContentResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgDeleteResponse) Type() protoreflect.MessageType {
-	return _fastReflection_MsgDeleteResponse_messageType
+func (x *fastReflection_MsgRemoveContentResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgRemoveContentResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgDeleteResponse) New() protoreflect.Message {
-	return new(fastReflection_MsgDeleteResponse)
+func (x *fastReflection_MsgRemoveContentResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgRemoveContentResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgDeleteResponse) Interface() protoreflect.ProtoMessage {
-	return (*MsgDeleteResponse)(x)
+func (x *fastReflection_MsgRemoveContentResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgRemoveContentResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -1444,10 +1444,10 @@ func (x *fastReflection_MsgDeleteResponse) Interface() protoreflect.ProtoMessage
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgDeleteResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgRemoveContentResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgDeleteResponse_id, value) {
+		if !f(fd_MsgRemoveContentResponse_id, value) {
 			return
 		}
 	}
@@ -1464,15 +1464,15 @@ func (x *fastReflection_MsgDeleteResponse) Range(f func(protoreflect.FieldDescri
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgDeleteResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgRemoveContentResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDeleteResponse.id":
+	case "chora.content.v1.MsgRemoveContentResponse.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDeleteResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDeleteResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1482,15 +1482,15 @@ func (x *fastReflection_MsgDeleteResponse) Has(fd protoreflect.FieldDescriptor) 
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDeleteResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgRemoveContentResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDeleteResponse.id":
+	case "chora.content.v1.MsgRemoveContentResponse.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDeleteResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDeleteResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1500,16 +1500,16 @@ func (x *fastReflection_MsgDeleteResponse) Clear(fd protoreflect.FieldDescriptor
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgDeleteResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgRemoveContentResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgDeleteResponse.id":
+	case "chora.content.v1.MsgRemoveContentResponse.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDeleteResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDeleteResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContentResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1523,15 +1523,15 @@ func (x *fastReflection_MsgDeleteResponse) Get(descriptor protoreflect.FieldDesc
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDeleteResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgRemoveContentResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDeleteResponse.id":
+	case "chora.content.v1.MsgRemoveContentResponse.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDeleteResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDeleteResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1545,40 +1545,40 @@ func (x *fastReflection_MsgDeleteResponse) Set(fd protoreflect.FieldDescriptor, 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDeleteResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgRemoveContentResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDeleteResponse.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgDeleteResponse is not mutable"))
+	case "chora.content.v1.MsgRemoveContentResponse.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgRemoveContentResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDeleteResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDeleteResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgDeleteResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgRemoveContentResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgDeleteResponse.id":
+	case "chora.content.v1.MsgRemoveContentResponse.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgDeleteResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgRemoveContentResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgDeleteResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgRemoveContentResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgDeleteResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgRemoveContentResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgDeleteResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgRemoveContentResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1586,7 +1586,7 @@ func (x *fastReflection_MsgDeleteResponse) WhichOneof(d protoreflect.OneofDescri
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgDeleteResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgRemoveContentResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1597,7 +1597,7 @@ func (x *fastReflection_MsgDeleteResponse) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgDeleteResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgRemoveContentResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1609,7 +1609,7 @@ func (x *fastReflection_MsgDeleteResponse) SetUnknown(fields protoreflect.RawFie
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgDeleteResponse) IsValid() bool {
+func (x *fastReflection_MsgRemoveContentResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -1619,9 +1619,9 @@ func (x *fastReflection_MsgDeleteResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgDeleteResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgRemoveContentResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgDeleteResponse)
+		x := input.Message.Interface().(*MsgRemoveContentResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1646,7 +1646,7 @@ func (x *fastReflection_MsgDeleteResponse) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgDeleteResponse)
+		x := input.Message.Interface().(*MsgRemoveContentResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1681,7 +1681,7 @@ func (x *fastReflection_MsgDeleteResponse) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgDeleteResponse)
+		x := input.Message.Interface().(*MsgRemoveContentResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1713,10 +1713,10 @@ func (x *fastReflection_MsgDeleteResponse) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgDeleteResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRemoveContentResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgDeleteResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgRemoveContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1774,29 +1774,29 @@ func (x *fastReflection_MsgDeleteResponse) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgUpdateCurator             protoreflect.MessageDescriptor
-	fd_MsgUpdateCurator_id          protoreflect.FieldDescriptor
-	fd_MsgUpdateCurator_curator     protoreflect.FieldDescriptor
-	fd_MsgUpdateCurator_new_curator protoreflect.FieldDescriptor
+	md_MsgUpdateContentCurator             protoreflect.MessageDescriptor
+	fd_MsgUpdateContentCurator_id          protoreflect.FieldDescriptor
+	fd_MsgUpdateContentCurator_curator     protoreflect.FieldDescriptor
+	fd_MsgUpdateContentCurator_new_curator protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgUpdateCurator = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateCurator")
-	fd_MsgUpdateCurator_id = md_MsgUpdateCurator.Fields().ByName("id")
-	fd_MsgUpdateCurator_curator = md_MsgUpdateCurator.Fields().ByName("curator")
-	fd_MsgUpdateCurator_new_curator = md_MsgUpdateCurator.Fields().ByName("new_curator")
+	md_MsgUpdateContentCurator = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateContentCurator")
+	fd_MsgUpdateContentCurator_id = md_MsgUpdateContentCurator.Fields().ByName("id")
+	fd_MsgUpdateContentCurator_curator = md_MsgUpdateContentCurator.Fields().ByName("curator")
+	fd_MsgUpdateContentCurator_new_curator = md_MsgUpdateContentCurator.Fields().ByName("new_curator")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgUpdateCurator)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgUpdateContentCurator)(nil)
 
-type fastReflection_MsgUpdateCurator MsgUpdateCurator
+type fastReflection_MsgUpdateContentCurator MsgUpdateContentCurator
 
-func (x *MsgUpdateCurator) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgUpdateCurator)(x)
+func (x *MsgUpdateContentCurator) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentCurator)(x)
 }
 
-func (x *MsgUpdateCurator) slowProtoReflect() protoreflect.Message {
+func (x *MsgUpdateContentCurator) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1808,43 +1808,43 @@ func (x *MsgUpdateCurator) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgUpdateCurator_messageType fastReflection_MsgUpdateCurator_messageType
-var _ protoreflect.MessageType = fastReflection_MsgUpdateCurator_messageType{}
+var _fastReflection_MsgUpdateContentCurator_messageType fastReflection_MsgUpdateContentCurator_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateContentCurator_messageType{}
 
-type fastReflection_MsgUpdateCurator_messageType struct{}
+type fastReflection_MsgUpdateContentCurator_messageType struct{}
 
-func (x fastReflection_MsgUpdateCurator_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgUpdateCurator)(nil)
+func (x fastReflection_MsgUpdateContentCurator_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentCurator)(nil)
 }
-func (x fastReflection_MsgUpdateCurator_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateCurator)
+func (x fastReflection_MsgUpdateContentCurator_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentCurator)
 }
-func (x fastReflection_MsgUpdateCurator_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateCurator
+func (x fastReflection_MsgUpdateContentCurator_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentCurator
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgUpdateCurator) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateCurator
+func (x *fastReflection_MsgUpdateContentCurator) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentCurator
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgUpdateCurator) Type() protoreflect.MessageType {
-	return _fastReflection_MsgUpdateCurator_messageType
+func (x *fastReflection_MsgUpdateContentCurator) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateContentCurator_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgUpdateCurator) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateCurator)
+func (x *fastReflection_MsgUpdateContentCurator) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentCurator)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgUpdateCurator) Interface() protoreflect.ProtoMessage {
-	return (*MsgUpdateCurator)(x)
+func (x *fastReflection_MsgUpdateContentCurator) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateContentCurator)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -1852,22 +1852,22 @@ func (x *fastReflection_MsgUpdateCurator) Interface() protoreflect.ProtoMessage 
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgUpdateCurator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgUpdateContentCurator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgUpdateCurator_id, value) {
+		if !f(fd_MsgUpdateContentCurator_id, value) {
 			return
 		}
 	}
 	if x.Curator != "" {
 		value := protoreflect.ValueOfString(x.Curator)
-		if !f(fd_MsgUpdateCurator_curator, value) {
+		if !f(fd_MsgUpdateContentCurator_curator, value) {
 			return
 		}
 	}
 	if x.NewCurator != "" {
 		value := protoreflect.ValueOfString(x.NewCurator)
-		if !f(fd_MsgUpdateCurator_new_curator, value) {
+		if !f(fd_MsgUpdateContentCurator_new_curator, value) {
 			return
 		}
 	}
@@ -1884,19 +1884,19 @@ func (x *fastReflection_MsgUpdateCurator) Range(f func(protoreflect.FieldDescrip
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgUpdateCurator) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgUpdateContentCurator) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCurator.id":
+	case "chora.content.v1.MsgUpdateContentCurator.id":
 		return x.Id != uint64(0)
-	case "chora.content.v1.MsgUpdateCurator.curator":
+	case "chora.content.v1.MsgUpdateContentCurator.curator":
 		return x.Curator != ""
-	case "chora.content.v1.MsgUpdateCurator.new_curator":
+	case "chora.content.v1.MsgUpdateContentCurator.new_curator":
 		return x.NewCurator != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1906,19 +1906,19 @@ func (x *fastReflection_MsgUpdateCurator) Has(fd protoreflect.FieldDescriptor) b
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCurator) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgUpdateContentCurator) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCurator.id":
+	case "chora.content.v1.MsgUpdateContentCurator.id":
 		x.Id = uint64(0)
-	case "chora.content.v1.MsgUpdateCurator.curator":
+	case "chora.content.v1.MsgUpdateContentCurator.curator":
 		x.Curator = ""
-	case "chora.content.v1.MsgUpdateCurator.new_curator":
+	case "chora.content.v1.MsgUpdateContentCurator.new_curator":
 		x.NewCurator = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1928,22 +1928,22 @@ func (x *fastReflection_MsgUpdateCurator) Clear(fd protoreflect.FieldDescriptor)
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgUpdateCurator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentCurator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgUpdateCurator.id":
+	case "chora.content.v1.MsgUpdateContentCurator.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
-	case "chora.content.v1.MsgUpdateCurator.curator":
+	case "chora.content.v1.MsgUpdateContentCurator.curator":
 		value := x.Curator
 		return protoreflect.ValueOfString(value)
-	case "chora.content.v1.MsgUpdateCurator.new_curator":
+	case "chora.content.v1.MsgUpdateContentCurator.new_curator":
 		value := x.NewCurator
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCurator does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCurator does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1957,19 +1957,19 @@ func (x *fastReflection_MsgUpdateCurator) Get(descriptor protoreflect.FieldDescr
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCurator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgUpdateContentCurator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCurator.id":
+	case "chora.content.v1.MsgUpdateContentCurator.id":
 		x.Id = value.Uint()
-	case "chora.content.v1.MsgUpdateCurator.curator":
+	case "chora.content.v1.MsgUpdateContentCurator.curator":
 		x.Curator = value.Interface().(string)
-	case "chora.content.v1.MsgUpdateCurator.new_curator":
+	case "chora.content.v1.MsgUpdateContentCurator.new_curator":
 		x.NewCurator = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1983,48 +1983,48 @@ func (x *fastReflection_MsgUpdateCurator) Set(fd protoreflect.FieldDescriptor, v
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCurator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentCurator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCurator.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateCurator is not mutable"))
-	case "chora.content.v1.MsgUpdateCurator.curator":
-		panic(fmt.Errorf("field curator of message chora.content.v1.MsgUpdateCurator is not mutable"))
-	case "chora.content.v1.MsgUpdateCurator.new_curator":
-		panic(fmt.Errorf("field new_curator of message chora.content.v1.MsgUpdateCurator is not mutable"))
+	case "chora.content.v1.MsgUpdateContentCurator.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateContentCurator is not mutable"))
+	case "chora.content.v1.MsgUpdateContentCurator.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.MsgUpdateContentCurator is not mutable"))
+	case "chora.content.v1.MsgUpdateContentCurator.new_curator":
+		panic(fmt.Errorf("field new_curator of message chora.content.v1.MsgUpdateContentCurator is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgUpdateCurator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentCurator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCurator.id":
+	case "chora.content.v1.MsgUpdateContentCurator.id":
 		return protoreflect.ValueOfUint64(uint64(0))
-	case "chora.content.v1.MsgUpdateCurator.curator":
+	case "chora.content.v1.MsgUpdateContentCurator.curator":
 		return protoreflect.ValueOfString("")
-	case "chora.content.v1.MsgUpdateCurator.new_curator":
+	case "chora.content.v1.MsgUpdateContentCurator.new_curator":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgUpdateCurator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgUpdateContentCurator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateCurator", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateContentCurator", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -2032,7 +2032,7 @@ func (x *fastReflection_MsgUpdateCurator) WhichOneof(d protoreflect.OneofDescrip
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgUpdateCurator) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgUpdateContentCurator) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -2043,7 +2043,7 @@ func (x *fastReflection_MsgUpdateCurator) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCurator) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgUpdateContentCurator) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -2055,7 +2055,7 @@ func (x *fastReflection_MsgUpdateCurator) SetUnknown(fields protoreflect.RawFiel
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgUpdateCurator) IsValid() bool {
+func (x *fastReflection_MsgUpdateContentCurator) IsValid() bool {
 	return x != nil
 }
 
@@ -2065,9 +2065,9 @@ func (x *fastReflection_MsgUpdateCurator) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgUpdateCurator) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgUpdateContentCurator) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgUpdateCurator)
+		x := input.Message.Interface().(*MsgUpdateContentCurator)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2100,7 +2100,7 @@ func (x *fastReflection_MsgUpdateCurator) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateCurator)
+		x := input.Message.Interface().(*MsgUpdateContentCurator)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2149,7 +2149,7 @@ func (x *fastReflection_MsgUpdateCurator) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateCurator)
+		x := input.Message.Interface().(*MsgUpdateContentCurator)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2181,10 +2181,10 @@ func (x *fastReflection_MsgUpdateCurator) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateCurator: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentCurator: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateCurator: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentCurator: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -2306,25 +2306,25 @@ func (x *fastReflection_MsgUpdateCurator) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgUpdateCuratorResponse    protoreflect.MessageDescriptor
-	fd_MsgUpdateCuratorResponse_id protoreflect.FieldDescriptor
+	md_MsgUpdateContentCuratorResponse    protoreflect.MessageDescriptor
+	fd_MsgUpdateContentCuratorResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgUpdateCuratorResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateCuratorResponse")
-	fd_MsgUpdateCuratorResponse_id = md_MsgUpdateCuratorResponse.Fields().ByName("id")
+	md_MsgUpdateContentCuratorResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateContentCuratorResponse")
+	fd_MsgUpdateContentCuratorResponse_id = md_MsgUpdateContentCuratorResponse.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgUpdateCuratorResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgUpdateContentCuratorResponse)(nil)
 
-type fastReflection_MsgUpdateCuratorResponse MsgUpdateCuratorResponse
+type fastReflection_MsgUpdateContentCuratorResponse MsgUpdateContentCuratorResponse
 
-func (x *MsgUpdateCuratorResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgUpdateCuratorResponse)(x)
+func (x *MsgUpdateContentCuratorResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentCuratorResponse)(x)
 }
 
-func (x *MsgUpdateCuratorResponse) slowProtoReflect() protoreflect.Message {
+func (x *MsgUpdateContentCuratorResponse) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2336,43 +2336,43 @@ func (x *MsgUpdateCuratorResponse) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgUpdateCuratorResponse_messageType fastReflection_MsgUpdateCuratorResponse_messageType
-var _ protoreflect.MessageType = fastReflection_MsgUpdateCuratorResponse_messageType{}
+var _fastReflection_MsgUpdateContentCuratorResponse_messageType fastReflection_MsgUpdateContentCuratorResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateContentCuratorResponse_messageType{}
 
-type fastReflection_MsgUpdateCuratorResponse_messageType struct{}
+type fastReflection_MsgUpdateContentCuratorResponse_messageType struct{}
 
-func (x fastReflection_MsgUpdateCuratorResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgUpdateCuratorResponse)(nil)
+func (x fastReflection_MsgUpdateContentCuratorResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentCuratorResponse)(nil)
 }
-func (x fastReflection_MsgUpdateCuratorResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateCuratorResponse)
+func (x fastReflection_MsgUpdateContentCuratorResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentCuratorResponse)
 }
-func (x fastReflection_MsgUpdateCuratorResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateCuratorResponse
+func (x fastReflection_MsgUpdateContentCuratorResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentCuratorResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgUpdateCuratorResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateCuratorResponse
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentCuratorResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgUpdateCuratorResponse) Type() protoreflect.MessageType {
-	return _fastReflection_MsgUpdateCuratorResponse_messageType
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateContentCuratorResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgUpdateCuratorResponse) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateCuratorResponse)
+func (x *fastReflection_MsgUpdateContentCuratorResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentCuratorResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgUpdateCuratorResponse) Interface() protoreflect.ProtoMessage {
-	return (*MsgUpdateCuratorResponse)(x)
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateContentCuratorResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -2380,10 +2380,10 @@ func (x *fastReflection_MsgUpdateCuratorResponse) Interface() protoreflect.Proto
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgUpdateCuratorResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgUpdateCuratorResponse_id, value) {
+		if !f(fd_MsgUpdateContentCuratorResponse_id, value) {
 			return
 		}
 	}
@@ -2400,15 +2400,15 @@ func (x *fastReflection_MsgUpdateCuratorResponse) Range(f func(protoreflect.Fiel
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgUpdateCuratorResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCuratorResponse.id":
+	case "chora.content.v1.MsgUpdateContentCuratorResponse.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2418,15 +2418,15 @@ func (x *fastReflection_MsgUpdateCuratorResponse) Has(fd protoreflect.FieldDescr
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCuratorResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCuratorResponse.id":
+	case "chora.content.v1.MsgUpdateContentCuratorResponse.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2436,16 +2436,16 @@ func (x *fastReflection_MsgUpdateCuratorResponse) Clear(fd protoreflect.FieldDes
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgUpdateCuratorResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgUpdateCuratorResponse.id":
+	case "chora.content.v1.MsgUpdateContentCuratorResponse.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCuratorResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCuratorResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -2459,15 +2459,15 @@ func (x *fastReflection_MsgUpdateCuratorResponse) Get(descriptor protoreflect.Fi
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCuratorResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCuratorResponse.id":
+	case "chora.content.v1.MsgUpdateContentCuratorResponse.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2481,40 +2481,40 @@ func (x *fastReflection_MsgUpdateCuratorResponse) Set(fd protoreflect.FieldDescr
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCuratorResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCuratorResponse.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateCuratorResponse is not mutable"))
+	case "chora.content.v1.MsgUpdateContentCuratorResponse.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateContentCuratorResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgUpdateCuratorResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateCuratorResponse.id":
+	case "chora.content.v1.MsgUpdateContentCuratorResponse.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateCuratorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentCuratorResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateCuratorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentCuratorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgUpdateCuratorResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateCuratorResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateContentCuratorResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -2522,7 +2522,7 @@ func (x *fastReflection_MsgUpdateCuratorResponse) WhichOneof(d protoreflect.Oneo
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgUpdateCuratorResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -2533,7 +2533,7 @@ func (x *fastReflection_MsgUpdateCuratorResponse) GetUnknown() protoreflect.RawF
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateCuratorResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -2545,7 +2545,7 @@ func (x *fastReflection_MsgUpdateCuratorResponse) SetUnknown(fields protoreflect
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgUpdateCuratorResponse) IsValid() bool {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -2555,9 +2555,9 @@ func (x *fastReflection_MsgUpdateCuratorResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgUpdateCuratorResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgUpdateContentCuratorResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgUpdateCuratorResponse)
+		x := input.Message.Interface().(*MsgUpdateContentCuratorResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2582,7 +2582,7 @@ func (x *fastReflection_MsgUpdateCuratorResponse) ProtoMethods() *protoiface.Met
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateCuratorResponse)
+		x := input.Message.Interface().(*MsgUpdateContentCuratorResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2617,7 +2617,7 @@ func (x *fastReflection_MsgUpdateCuratorResponse) ProtoMethods() *protoiface.Met
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateCuratorResponse)
+		x := input.Message.Interface().(*MsgUpdateContentCuratorResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -2649,10 +2649,10 @@ func (x *fastReflection_MsgUpdateCuratorResponse) ProtoMethods() *protoiface.Met
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateCuratorResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentCuratorResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -2710,29 +2710,29 @@ func (x *fastReflection_MsgUpdateCuratorResponse) ProtoMethods() *protoiface.Met
 }
 
 var (
-	md_MsgUpdateMetadata              protoreflect.MessageDescriptor
-	fd_MsgUpdateMetadata_id           protoreflect.FieldDescriptor
-	fd_MsgUpdateMetadata_curator      protoreflect.FieldDescriptor
-	fd_MsgUpdateMetadata_new_metadata protoreflect.FieldDescriptor
+	md_MsgUpdateContentMetadata              protoreflect.MessageDescriptor
+	fd_MsgUpdateContentMetadata_id           protoreflect.FieldDescriptor
+	fd_MsgUpdateContentMetadata_curator      protoreflect.FieldDescriptor
+	fd_MsgUpdateContentMetadata_new_metadata protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgUpdateMetadata = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateMetadata")
-	fd_MsgUpdateMetadata_id = md_MsgUpdateMetadata.Fields().ByName("id")
-	fd_MsgUpdateMetadata_curator = md_MsgUpdateMetadata.Fields().ByName("curator")
-	fd_MsgUpdateMetadata_new_metadata = md_MsgUpdateMetadata.Fields().ByName("new_metadata")
+	md_MsgUpdateContentMetadata = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateContentMetadata")
+	fd_MsgUpdateContentMetadata_id = md_MsgUpdateContentMetadata.Fields().ByName("id")
+	fd_MsgUpdateContentMetadata_curator = md_MsgUpdateContentMetadata.Fields().ByName("curator")
+	fd_MsgUpdateContentMetadata_new_metadata = md_MsgUpdateContentMetadata.Fields().ByName("new_metadata")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgUpdateMetadata)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgUpdateContentMetadata)(nil)
 
-type fastReflection_MsgUpdateMetadata MsgUpdateMetadata
+type fastReflection_MsgUpdateContentMetadata MsgUpdateContentMetadata
 
-func (x *MsgUpdateMetadata) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgUpdateMetadata)(x)
+func (x *MsgUpdateContentMetadata) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentMetadata)(x)
 }
 
-func (x *MsgUpdateMetadata) slowProtoReflect() protoreflect.Message {
+func (x *MsgUpdateContentMetadata) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2744,43 +2744,43 @@ func (x *MsgUpdateMetadata) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgUpdateMetadata_messageType fastReflection_MsgUpdateMetadata_messageType
-var _ protoreflect.MessageType = fastReflection_MsgUpdateMetadata_messageType{}
+var _fastReflection_MsgUpdateContentMetadata_messageType fastReflection_MsgUpdateContentMetadata_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateContentMetadata_messageType{}
 
-type fastReflection_MsgUpdateMetadata_messageType struct{}
+type fastReflection_MsgUpdateContentMetadata_messageType struct{}
 
-func (x fastReflection_MsgUpdateMetadata_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgUpdateMetadata)(nil)
+func (x fastReflection_MsgUpdateContentMetadata_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentMetadata)(nil)
 }
-func (x fastReflection_MsgUpdateMetadata_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateMetadata)
+func (x fastReflection_MsgUpdateContentMetadata_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentMetadata)
 }
-func (x fastReflection_MsgUpdateMetadata_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateMetadata
+func (x fastReflection_MsgUpdateContentMetadata_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentMetadata
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgUpdateMetadata) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateMetadata
+func (x *fastReflection_MsgUpdateContentMetadata) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentMetadata
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgUpdateMetadata) Type() protoreflect.MessageType {
-	return _fastReflection_MsgUpdateMetadata_messageType
+func (x *fastReflection_MsgUpdateContentMetadata) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateContentMetadata_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgUpdateMetadata) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateMetadata)
+func (x *fastReflection_MsgUpdateContentMetadata) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentMetadata)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgUpdateMetadata) Interface() protoreflect.ProtoMessage {
-	return (*MsgUpdateMetadata)(x)
+func (x *fastReflection_MsgUpdateContentMetadata) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateContentMetadata)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -2788,22 +2788,22 @@ func (x *fastReflection_MsgUpdateMetadata) Interface() protoreflect.ProtoMessage
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgUpdateMetadata) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgUpdateContentMetadata) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgUpdateMetadata_id, value) {
+		if !f(fd_MsgUpdateContentMetadata_id, value) {
 			return
 		}
 	}
 	if x.Curator != "" {
 		value := protoreflect.ValueOfString(x.Curator)
-		if !f(fd_MsgUpdateMetadata_curator, value) {
+		if !f(fd_MsgUpdateContentMetadata_curator, value) {
 			return
 		}
 	}
 	if x.NewMetadata != "" {
 		value := protoreflect.ValueOfString(x.NewMetadata)
-		if !f(fd_MsgUpdateMetadata_new_metadata, value) {
+		if !f(fd_MsgUpdateContentMetadata_new_metadata, value) {
 			return
 		}
 	}
@@ -2820,19 +2820,19 @@ func (x *fastReflection_MsgUpdateMetadata) Range(f func(protoreflect.FieldDescri
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgUpdateMetadata) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgUpdateContentMetadata) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadata.id":
+	case "chora.content.v1.MsgUpdateContentMetadata.id":
 		return x.Id != uint64(0)
-	case "chora.content.v1.MsgUpdateMetadata.curator":
+	case "chora.content.v1.MsgUpdateContentMetadata.curator":
 		return x.Curator != ""
-	case "chora.content.v1.MsgUpdateMetadata.new_metadata":
+	case "chora.content.v1.MsgUpdateContentMetadata.new_metadata":
 		return x.NewMetadata != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2842,19 +2842,19 @@ func (x *fastReflection_MsgUpdateMetadata) Has(fd protoreflect.FieldDescriptor) 
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadata) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgUpdateContentMetadata) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadata.id":
+	case "chora.content.v1.MsgUpdateContentMetadata.id":
 		x.Id = uint64(0)
-	case "chora.content.v1.MsgUpdateMetadata.curator":
+	case "chora.content.v1.MsgUpdateContentMetadata.curator":
 		x.Curator = ""
-	case "chora.content.v1.MsgUpdateMetadata.new_metadata":
+	case "chora.content.v1.MsgUpdateContentMetadata.new_metadata":
 		x.NewMetadata = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2864,22 +2864,22 @@ func (x *fastReflection_MsgUpdateMetadata) Clear(fd protoreflect.FieldDescriptor
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgUpdateMetadata) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentMetadata) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgUpdateMetadata.id":
+	case "chora.content.v1.MsgUpdateContentMetadata.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
-	case "chora.content.v1.MsgUpdateMetadata.curator":
+	case "chora.content.v1.MsgUpdateContentMetadata.curator":
 		value := x.Curator
 		return protoreflect.ValueOfString(value)
-	case "chora.content.v1.MsgUpdateMetadata.new_metadata":
+	case "chora.content.v1.MsgUpdateContentMetadata.new_metadata":
 		value := x.NewMetadata
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadata does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadata does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -2893,19 +2893,19 @@ func (x *fastReflection_MsgUpdateMetadata) Get(descriptor protoreflect.FieldDesc
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadata) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgUpdateContentMetadata) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadata.id":
+	case "chora.content.v1.MsgUpdateContentMetadata.id":
 		x.Id = value.Uint()
-	case "chora.content.v1.MsgUpdateMetadata.curator":
+	case "chora.content.v1.MsgUpdateContentMetadata.curator":
 		x.Curator = value.Interface().(string)
-	case "chora.content.v1.MsgUpdateMetadata.new_metadata":
+	case "chora.content.v1.MsgUpdateContentMetadata.new_metadata":
 		x.NewMetadata = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -2919,48 +2919,48 @@ func (x *fastReflection_MsgUpdateMetadata) Set(fd protoreflect.FieldDescriptor, 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadata) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentMetadata) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadata.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateMetadata is not mutable"))
-	case "chora.content.v1.MsgUpdateMetadata.curator":
-		panic(fmt.Errorf("field curator of message chora.content.v1.MsgUpdateMetadata is not mutable"))
-	case "chora.content.v1.MsgUpdateMetadata.new_metadata":
-		panic(fmt.Errorf("field new_metadata of message chora.content.v1.MsgUpdateMetadata is not mutable"))
+	case "chora.content.v1.MsgUpdateContentMetadata.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateContentMetadata is not mutable"))
+	case "chora.content.v1.MsgUpdateContentMetadata.curator":
+		panic(fmt.Errorf("field curator of message chora.content.v1.MsgUpdateContentMetadata is not mutable"))
+	case "chora.content.v1.MsgUpdateContentMetadata.new_metadata":
+		panic(fmt.Errorf("field new_metadata of message chora.content.v1.MsgUpdateContentMetadata is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgUpdateMetadata) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentMetadata) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadata.id":
+	case "chora.content.v1.MsgUpdateContentMetadata.id":
 		return protoreflect.ValueOfUint64(uint64(0))
-	case "chora.content.v1.MsgUpdateMetadata.curator":
+	case "chora.content.v1.MsgUpdateContentMetadata.curator":
 		return protoreflect.ValueOfString("")
-	case "chora.content.v1.MsgUpdateMetadata.new_metadata":
+	case "chora.content.v1.MsgUpdateContentMetadata.new_metadata":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgUpdateMetadata) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgUpdateContentMetadata) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateMetadata", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateContentMetadata", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -2968,7 +2968,7 @@ func (x *fastReflection_MsgUpdateMetadata) WhichOneof(d protoreflect.OneofDescri
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgUpdateMetadata) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgUpdateContentMetadata) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -2979,7 +2979,7 @@ func (x *fastReflection_MsgUpdateMetadata) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadata) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgUpdateContentMetadata) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -2991,7 +2991,7 @@ func (x *fastReflection_MsgUpdateMetadata) SetUnknown(fields protoreflect.RawFie
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgUpdateMetadata) IsValid() bool {
+func (x *fastReflection_MsgUpdateContentMetadata) IsValid() bool {
 	return x != nil
 }
 
@@ -3001,9 +3001,9 @@ func (x *fastReflection_MsgUpdateMetadata) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgUpdateMetadata) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgUpdateContentMetadata) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgUpdateMetadata)
+		x := input.Message.Interface().(*MsgUpdateContentMetadata)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -3036,7 +3036,7 @@ func (x *fastReflection_MsgUpdateMetadata) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateMetadata)
+		x := input.Message.Interface().(*MsgUpdateContentMetadata)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -3085,7 +3085,7 @@ func (x *fastReflection_MsgUpdateMetadata) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateMetadata)
+		x := input.Message.Interface().(*MsgUpdateContentMetadata)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -3117,10 +3117,10 @@ func (x *fastReflection_MsgUpdateMetadata) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateMetadata: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentMetadata: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -3242,25 +3242,25 @@ func (x *fastReflection_MsgUpdateMetadata) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgUpdateMetadataResponse    protoreflect.MessageDescriptor
-	fd_MsgUpdateMetadataResponse_id protoreflect.FieldDescriptor
+	md_MsgUpdateContentMetadataResponse    protoreflect.MessageDescriptor
+	fd_MsgUpdateContentMetadataResponse_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_msg_proto_init()
-	md_MsgUpdateMetadataResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateMetadataResponse")
-	fd_MsgUpdateMetadataResponse_id = md_MsgUpdateMetadataResponse.Fields().ByName("id")
+	md_MsgUpdateContentMetadataResponse = File_chora_content_v1_msg_proto.Messages().ByName("MsgUpdateContentMetadataResponse")
+	fd_MsgUpdateContentMetadataResponse_id = md_MsgUpdateContentMetadataResponse.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgUpdateMetadataResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgUpdateContentMetadataResponse)(nil)
 
-type fastReflection_MsgUpdateMetadataResponse MsgUpdateMetadataResponse
+type fastReflection_MsgUpdateContentMetadataResponse MsgUpdateContentMetadataResponse
 
-func (x *MsgUpdateMetadataResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgUpdateMetadataResponse)(x)
+func (x *MsgUpdateContentMetadataResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentMetadataResponse)(x)
 }
 
-func (x *MsgUpdateMetadataResponse) slowProtoReflect() protoreflect.Message {
+func (x *MsgUpdateContentMetadataResponse) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_msg_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3272,43 +3272,43 @@ func (x *MsgUpdateMetadataResponse) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgUpdateMetadataResponse_messageType fastReflection_MsgUpdateMetadataResponse_messageType
-var _ protoreflect.MessageType = fastReflection_MsgUpdateMetadataResponse_messageType{}
+var _fastReflection_MsgUpdateContentMetadataResponse_messageType fastReflection_MsgUpdateContentMetadataResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgUpdateContentMetadataResponse_messageType{}
 
-type fastReflection_MsgUpdateMetadataResponse_messageType struct{}
+type fastReflection_MsgUpdateContentMetadataResponse_messageType struct{}
 
-func (x fastReflection_MsgUpdateMetadataResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgUpdateMetadataResponse)(nil)
+func (x fastReflection_MsgUpdateContentMetadataResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgUpdateContentMetadataResponse)(nil)
 }
-func (x fastReflection_MsgUpdateMetadataResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateMetadataResponse)
+func (x fastReflection_MsgUpdateContentMetadataResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentMetadataResponse)
 }
-func (x fastReflection_MsgUpdateMetadataResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateMetadataResponse
+func (x fastReflection_MsgUpdateContentMetadataResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentMetadataResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgUpdateMetadataResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgUpdateMetadataResponse
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgUpdateContentMetadataResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgUpdateMetadataResponse) Type() protoreflect.MessageType {
-	return _fastReflection_MsgUpdateMetadataResponse_messageType
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgUpdateContentMetadataResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgUpdateMetadataResponse) New() protoreflect.Message {
-	return new(fastReflection_MsgUpdateMetadataResponse)
+func (x *fastReflection_MsgUpdateContentMetadataResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgUpdateContentMetadataResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgUpdateMetadataResponse) Interface() protoreflect.ProtoMessage {
-	return (*MsgUpdateMetadataResponse)(x)
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgUpdateContentMetadataResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -3316,10 +3316,10 @@ func (x *fastReflection_MsgUpdateMetadataResponse) Interface() protoreflect.Prot
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgUpdateMetadataResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_MsgUpdateMetadataResponse_id, value) {
+		if !f(fd_MsgUpdateContentMetadataResponse_id, value) {
 			return
 		}
 	}
@@ -3336,15 +3336,15 @@ func (x *fastReflection_MsgUpdateMetadataResponse) Range(f func(protoreflect.Fie
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgUpdateMetadataResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadataResponse.id":
+	case "chora.content.v1.MsgUpdateContentMetadataResponse.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadataResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadataResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadataResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadataResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -3354,15 +3354,15 @@ func (x *fastReflection_MsgUpdateMetadataResponse) Has(fd protoreflect.FieldDesc
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadataResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadataResponse.id":
+	case "chora.content.v1.MsgUpdateContentMetadataResponse.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadataResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadataResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadataResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadataResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -3372,16 +3372,16 @@ func (x *fastReflection_MsgUpdateMetadataResponse) Clear(fd protoreflect.FieldDe
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgUpdateMetadataResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.MsgUpdateMetadataResponse.id":
+	case "chora.content.v1.MsgUpdateContentMetadataResponse.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadataResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadataResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadataResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadataResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -3395,15 +3395,15 @@ func (x *fastReflection_MsgUpdateMetadataResponse) Get(descriptor protoreflect.F
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadataResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadataResponse.id":
+	case "chora.content.v1.MsgUpdateContentMetadataResponse.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadataResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadataResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadataResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadataResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -3417,40 +3417,40 @@ func (x *fastReflection_MsgUpdateMetadataResponse) Set(fd protoreflect.FieldDesc
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadataResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadataResponse.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateMetadataResponse is not mutable"))
+	case "chora.content.v1.MsgUpdateContentMetadataResponse.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.MsgUpdateContentMetadataResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadataResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadataResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadataResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadataResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgUpdateMetadataResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.MsgUpdateMetadataResponse.id":
+	case "chora.content.v1.MsgUpdateContentMetadataResponse.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateMetadataResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.MsgUpdateContentMetadataResponse"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.MsgUpdateMetadataResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.MsgUpdateContentMetadataResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgUpdateMetadataResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateMetadataResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.MsgUpdateContentMetadataResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -3458,7 +3458,7 @@ func (x *fastReflection_MsgUpdateMetadataResponse) WhichOneof(d protoreflect.One
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgUpdateMetadataResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -3469,7 +3469,7 @@ func (x *fastReflection_MsgUpdateMetadataResponse) GetUnknown() protoreflect.Raw
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgUpdateMetadataResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -3481,7 +3481,7 @@ func (x *fastReflection_MsgUpdateMetadataResponse) SetUnknown(fields protoreflec
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgUpdateMetadataResponse) IsValid() bool {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -3491,9 +3491,9 @@ func (x *fastReflection_MsgUpdateMetadataResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgUpdateMetadataResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgUpdateContentMetadataResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgUpdateMetadataResponse)
+		x := input.Message.Interface().(*MsgUpdateContentMetadataResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -3518,7 +3518,7 @@ func (x *fastReflection_MsgUpdateMetadataResponse) ProtoMethods() *protoiface.Me
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateMetadataResponse)
+		x := input.Message.Interface().(*MsgUpdateContentMetadataResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -3553,7 +3553,7 @@ func (x *fastReflection_MsgUpdateMetadataResponse) ProtoMethods() *protoiface.Me
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgUpdateMetadataResponse)
+		x := input.Message.Interface().(*MsgUpdateContentMetadataResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -3585,10 +3585,10 @@ func (x *fastReflection_MsgUpdateMetadataResponse) ProtoMethods() *protoiface.Me
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateMetadataResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentMetadataResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateMetadataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgUpdateContentMetadataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -3658,8 +3658,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// MsgCreate is the Msg/Create request type.
-type MsgCreate struct {
+// MsgCreateContent is the Msg/CreateContent request type.
+type MsgCreateContent struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3670,8 +3670,8 @@ type MsgCreate struct {
 	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (x *MsgCreate) Reset() {
-	*x = MsgCreate{}
+func (x *MsgCreateContent) Reset() {
+	*x = MsgCreateContent{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3679,33 +3679,33 @@ func (x *MsgCreate) Reset() {
 	}
 }
 
-func (x *MsgCreate) String() string {
+func (x *MsgCreateContent) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgCreate) ProtoMessage() {}
+func (*MsgCreateContent) ProtoMessage() {}
 
-// Deprecated: Use MsgCreate.ProtoReflect.Descriptor instead.
-func (*MsgCreate) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgCreateContent.ProtoReflect.Descriptor instead.
+func (*MsgCreateContent) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MsgCreate) GetCurator() string {
+func (x *MsgCreateContent) GetCurator() string {
 	if x != nil {
 		return x.Curator
 	}
 	return ""
 }
 
-func (x *MsgCreate) GetMetadata() string {
+func (x *MsgCreateContent) GetMetadata() string {
 	if x != nil {
 		return x.Metadata
 	}
 	return ""
 }
 
-// MsgCreateResponse is the Msg/Create response type.
-type MsgCreateResponse struct {
+// MsgCreateContentResponse is the Msg/CreateContent response type.
+type MsgCreateContentResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3714,8 +3714,8 @@ type MsgCreateResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *MsgCreateResponse) Reset() {
-	*x = MsgCreateResponse{}
+func (x *MsgCreateContentResponse) Reset() {
+	*x = MsgCreateContentResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3723,26 +3723,26 @@ func (x *MsgCreateResponse) Reset() {
 	}
 }
 
-func (x *MsgCreateResponse) String() string {
+func (x *MsgCreateContentResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgCreateResponse) ProtoMessage() {}
+func (*MsgCreateContentResponse) ProtoMessage() {}
 
-// Deprecated: Use MsgCreateResponse.ProtoReflect.Descriptor instead.
-func (*MsgCreateResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgCreateContentResponse.ProtoReflect.Descriptor instead.
+func (*MsgCreateContentResponse) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MsgCreateResponse) GetId() uint64 {
+func (x *MsgCreateContentResponse) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-// MsgDelete is the Msg/Delete request type.
-type MsgDelete struct {
+// MsgRemoveContent is the Msg/RemoveContent request type.
+type MsgRemoveContent struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3753,8 +3753,8 @@ type MsgDelete struct {
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 }
 
-func (x *MsgDelete) Reset() {
-	*x = MsgDelete{}
+func (x *MsgRemoveContent) Reset() {
+	*x = MsgRemoveContent{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3762,33 +3762,33 @@ func (x *MsgDelete) Reset() {
 	}
 }
 
-func (x *MsgDelete) String() string {
+func (x *MsgRemoveContent) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgDelete) ProtoMessage() {}
+func (*MsgRemoveContent) ProtoMessage() {}
 
-// Deprecated: Use MsgDelete.ProtoReflect.Descriptor instead.
-func (*MsgDelete) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgRemoveContent.ProtoReflect.Descriptor instead.
+func (*MsgRemoveContent) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *MsgDelete) GetId() uint64 {
+func (x *MsgRemoveContent) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *MsgDelete) GetCurator() string {
+func (x *MsgRemoveContent) GetCurator() string {
 	if x != nil {
 		return x.Curator
 	}
 	return ""
 }
 
-// MsgDeleteResponse is the Msg/Delete response type.
-type MsgDeleteResponse struct {
+// MsgRemoveContentResponse is the Msg/RemoveContent response type.
+type MsgRemoveContentResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3797,8 +3797,8 @@ type MsgDeleteResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *MsgDeleteResponse) Reset() {
-	*x = MsgDeleteResponse{}
+func (x *MsgRemoveContentResponse) Reset() {
+	*x = MsgRemoveContentResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3806,26 +3806,26 @@ func (x *MsgDeleteResponse) Reset() {
 	}
 }
 
-func (x *MsgDeleteResponse) String() string {
+func (x *MsgRemoveContentResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgDeleteResponse) ProtoMessage() {}
+func (*MsgRemoveContentResponse) ProtoMessage() {}
 
-// Deprecated: Use MsgDeleteResponse.ProtoReflect.Descriptor instead.
-func (*MsgDeleteResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgRemoveContentResponse.ProtoReflect.Descriptor instead.
+func (*MsgRemoveContentResponse) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *MsgDeleteResponse) GetId() uint64 {
+func (x *MsgRemoveContentResponse) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-// MsgUpdateCurator is the Msg/UpdateCurator request type.
-type MsgUpdateCurator struct {
+// MsgUpdateContentCurator is the Msg/UpdateContentCurator request type.
+type MsgUpdateContentCurator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3838,8 +3838,8 @@ type MsgUpdateCurator struct {
 	NewCurator string `protobuf:"bytes,3,opt,name=new_curator,json=newCurator,proto3" json:"new_curator,omitempty"`
 }
 
-func (x *MsgUpdateCurator) Reset() {
-	*x = MsgUpdateCurator{}
+func (x *MsgUpdateContentCurator) Reset() {
+	*x = MsgUpdateContentCurator{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3847,40 +3847,40 @@ func (x *MsgUpdateCurator) Reset() {
 	}
 }
 
-func (x *MsgUpdateCurator) String() string {
+func (x *MsgUpdateContentCurator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgUpdateCurator) ProtoMessage() {}
+func (*MsgUpdateContentCurator) ProtoMessage() {}
 
-// Deprecated: Use MsgUpdateCurator.ProtoReflect.Descriptor instead.
-func (*MsgUpdateCurator) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgUpdateContentCurator.ProtoReflect.Descriptor instead.
+func (*MsgUpdateContentCurator) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *MsgUpdateCurator) GetId() uint64 {
+func (x *MsgUpdateContentCurator) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *MsgUpdateCurator) GetCurator() string {
+func (x *MsgUpdateContentCurator) GetCurator() string {
 	if x != nil {
 		return x.Curator
 	}
 	return ""
 }
 
-func (x *MsgUpdateCurator) GetNewCurator() string {
+func (x *MsgUpdateContentCurator) GetNewCurator() string {
 	if x != nil {
 		return x.NewCurator
 	}
 	return ""
 }
 
-// MsgUpdateCuratorResponse is the Msg/UpdateCurator response type.
-type MsgUpdateCuratorResponse struct {
+// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response type.
+type MsgUpdateContentCuratorResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3889,8 +3889,8 @@ type MsgUpdateCuratorResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *MsgUpdateCuratorResponse) Reset() {
-	*x = MsgUpdateCuratorResponse{}
+func (x *MsgUpdateContentCuratorResponse) Reset() {
+	*x = MsgUpdateContentCuratorResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3898,26 +3898,26 @@ func (x *MsgUpdateCuratorResponse) Reset() {
 	}
 }
 
-func (x *MsgUpdateCuratorResponse) String() string {
+func (x *MsgUpdateContentCuratorResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgUpdateCuratorResponse) ProtoMessage() {}
+func (*MsgUpdateContentCuratorResponse) ProtoMessage() {}
 
-// Deprecated: Use MsgUpdateCuratorResponse.ProtoReflect.Descriptor instead.
-func (*MsgUpdateCuratorResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgUpdateContentCuratorResponse.ProtoReflect.Descriptor instead.
+func (*MsgUpdateContentCuratorResponse) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *MsgUpdateCuratorResponse) GetId() uint64 {
+func (x *MsgUpdateContentCuratorResponse) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-// MsgUpdateMetadata is the Msg/UpdateMetadata request type.
-type MsgUpdateMetadata struct {
+// MsgUpdateContentMetadata is the Msg/UpdateContentMetadata request type.
+type MsgUpdateContentMetadata struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3930,8 +3930,8 @@ type MsgUpdateMetadata struct {
 	NewMetadata string `protobuf:"bytes,3,opt,name=new_metadata,json=newMetadata,proto3" json:"new_metadata,omitempty"`
 }
 
-func (x *MsgUpdateMetadata) Reset() {
-	*x = MsgUpdateMetadata{}
+func (x *MsgUpdateContentMetadata) Reset() {
+	*x = MsgUpdateContentMetadata{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3939,40 +3939,40 @@ func (x *MsgUpdateMetadata) Reset() {
 	}
 }
 
-func (x *MsgUpdateMetadata) String() string {
+func (x *MsgUpdateContentMetadata) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgUpdateMetadata) ProtoMessage() {}
+func (*MsgUpdateContentMetadata) ProtoMessage() {}
 
-// Deprecated: Use MsgUpdateMetadata.ProtoReflect.Descriptor instead.
-func (*MsgUpdateMetadata) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgUpdateContentMetadata.ProtoReflect.Descriptor instead.
+func (*MsgUpdateContentMetadata) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *MsgUpdateMetadata) GetId() uint64 {
+func (x *MsgUpdateContentMetadata) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *MsgUpdateMetadata) GetCurator() string {
+func (x *MsgUpdateContentMetadata) GetCurator() string {
 	if x != nil {
 		return x.Curator
 	}
 	return ""
 }
 
-func (x *MsgUpdateMetadata) GetNewMetadata() string {
+func (x *MsgUpdateContentMetadata) GetNewMetadata() string {
 	if x != nil {
 		return x.NewMetadata
 	}
 	return ""
 }
 
-// MsgUpdateMetadataResponse is the Msg/UpdateMetadata response type.
-type MsgUpdateMetadataResponse struct {
+// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response type.
+type MsgUpdateContentMetadataResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3981,8 +3981,8 @@ type MsgUpdateMetadataResponse struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *MsgUpdateMetadataResponse) Reset() {
-	*x = MsgUpdateMetadataResponse{}
+func (x *MsgUpdateContentMetadataResponse) Reset() {
+	*x = MsgUpdateContentMetadataResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_msg_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3990,18 +3990,18 @@ func (x *MsgUpdateMetadataResponse) Reset() {
 	}
 }
 
-func (x *MsgUpdateMetadataResponse) String() string {
+func (x *MsgUpdateContentMetadataResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgUpdateMetadataResponse) ProtoMessage() {}
+func (*MsgUpdateContentMetadataResponse) ProtoMessage() {}
 
-// Deprecated: Use MsgUpdateMetadataResponse.ProtoReflect.Descriptor instead.
-func (*MsgUpdateMetadataResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgUpdateContentMetadataResponse.ProtoReflect.Descriptor instead.
+func (*MsgUpdateContentMetadataResponse) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_msg_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *MsgUpdateMetadataResponse) GetId() uint64 {
+func (x *MsgUpdateContentMetadataResponse) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
@@ -4015,75 +4015,84 @@ var file_chora_content_v1_msg_proto_rawDesc = []byte{
 	0x76, 0x31, 0x2f, 0x6d, 0x73, 0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x10, 0x63, 0x68,
 	0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x1a, 0x17,
 	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x6d, 0x73, 0x67, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x73,
-	0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x4f, 0x0a, 0x09, 0x4d, 0x73, 0x67, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1a,
-	0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a,
-	0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x23, 0x0a, 0x11, 0x4d, 0x73, 0x67, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a,
-	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x43, 0x0a,
-	0x09, 0x4d, 0x73, 0x67, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75,
-	0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72,
-	0x61, 0x74, 0x6f, 0x72, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74,
-	0x6f, 0x72, 0x22, 0x23, 0x0a, 0x11, 0x4d, 0x73, 0x67, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x6b, 0x0a, 0x10, 0x4d, 0x73, 0x67, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63,
-	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75,
-	0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x6e, 0x65, 0x77, 0x5f, 0x63, 0x75, 0x72,
-	0x61, 0x74, 0x6f, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x6e, 0x65, 0x77, 0x43,
-	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x75, 0x72,
-	0x61, 0x74, 0x6f, 0x72, 0x22, 0x2a, 0x0a, 0x18, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
-	0x22, 0x6e, 0x0a, 0x11, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12,
-	0x21, 0x0a, 0x0c, 0x6e, 0x65, 0x77, 0x5f, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6e, 0x65, 0x77, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72,
-	0x22, 0x2b, 0x0a, 0x19, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a,
-	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x32, 0xe2, 0x02,
-	0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x4a, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12,
-	0x1b, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e,
-	0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x1a, 0x23, 0x2e, 0x63,
-	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e,
-	0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x4a, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x1b, 0x2e, 0x63, 0x68,
-	0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d,
-	0x73, 0x67, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x1a, 0x23, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x5f, 0x0a,
-	0x0d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x22,
+	0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x56, 0x0a, 0x10, 0x4d, 0x73, 0x67, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x63,
+	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75,
+	0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22,
+	0x2a, 0x0a, 0x18, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x4a, 0x0a, 0x10, 0x4d,
+	0x73, 0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07,
+	0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x2a, 0x0a, 0x18, 0x4d, 0x73, 0x67, 0x52, 0x65,
+	0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x02, 0x69, 0x64, 0x22, 0x72, 0x0a, 0x17, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18,
+	0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x6e, 0x65, 0x77, 0x5f,
+	0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x6e,
+	0x65, 0x77, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07,
+	0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x31, 0x0a, 0x1f, 0x4d, 0x73, 0x67, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x43, 0x75, 0x72, 0x61, 0x74,
+	0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x75, 0x0a, 0x18, 0x4d, 0x73,
+	0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f,
+	0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72,
+	0x12, 0x21, 0x0a, 0x0c, 0x6e, 0x65, 0x77, 0x5f, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6e, 0x65, 0x77, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f,
+	0x72, 0x22, 0x32, 0x0a, 0x20, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x04, 0x52, 0x02, 0x69, 0x64, 0x32, 0xb6, 0x03, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x5f, 0x0a,
+	0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x22,
 	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76,
-	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x75, 0x72, 0x61, 0x74,
-	0x6f, 0x72, 0x1a, 0x2a, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65,
+	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43,
+	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x5f,
+	0x0a, 0x0d, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12,
+	0x22, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e,
+	0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x74, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x29, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x43, 0x75, 0x72, 0x61, 0x74,
+	0x6f, 0x72, 0x1a, 0x31, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65,
 	0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43,
-	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x62,
-	0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
-	0x12, 0x23, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
-	0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x1a, 0x2b, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f,
-	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x42, 0xc3, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x08, 0x4d, 0x73, 0x67,
-	0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x3f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
-	0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64,
-	0x73, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68,
-	0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x63,
-	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02,
-	0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x56,
-	0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e,
-	0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
-	0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f, 0x6e,
-	0x74, 0x65, 0x6e, 0x74, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x77, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43,
+	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x2a,
+	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76,
+	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x1a, 0x32, 0x2e, 0x63, 0x68, 0x6f,
+	0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73,
+	0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0xc3,
+	0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x08, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f, 0x74,
+	0x6f, 0x50, 0x01, 0x5a, 0x3f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x63, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x63, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f,
+	0x72, 0x61, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10,
+	0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31,
+	0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea,
+	0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -4100,24 +4109,24 @@ func file_chora_content_v1_msg_proto_rawDescGZIP() []byte {
 
 var file_chora_content_v1_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_chora_content_v1_msg_proto_goTypes = []interface{}{
-	(*MsgCreate)(nil),                 // 0: chora.content.v1.MsgCreate
-	(*MsgCreateResponse)(nil),         // 1: chora.content.v1.MsgCreateResponse
-	(*MsgDelete)(nil),                 // 2: chora.content.v1.MsgDelete
-	(*MsgDeleteResponse)(nil),         // 3: chora.content.v1.MsgDeleteResponse
-	(*MsgUpdateCurator)(nil),          // 4: chora.content.v1.MsgUpdateCurator
-	(*MsgUpdateCuratorResponse)(nil),  // 5: chora.content.v1.MsgUpdateCuratorResponse
-	(*MsgUpdateMetadata)(nil),         // 6: chora.content.v1.MsgUpdateMetadata
-	(*MsgUpdateMetadataResponse)(nil), // 7: chora.content.v1.MsgUpdateMetadataResponse
+	(*MsgCreateContent)(nil),                 // 0: chora.content.v1.MsgCreateContent
+	(*MsgCreateContentResponse)(nil),         // 1: chora.content.v1.MsgCreateContentResponse
+	(*MsgRemoveContent)(nil),                 // 2: chora.content.v1.MsgRemoveContent
+	(*MsgRemoveContentResponse)(nil),         // 3: chora.content.v1.MsgRemoveContentResponse
+	(*MsgUpdateContentCurator)(nil),          // 4: chora.content.v1.MsgUpdateContentCurator
+	(*MsgUpdateContentCuratorResponse)(nil),  // 5: chora.content.v1.MsgUpdateContentCuratorResponse
+	(*MsgUpdateContentMetadata)(nil),         // 6: chora.content.v1.MsgUpdateContentMetadata
+	(*MsgUpdateContentMetadataResponse)(nil), // 7: chora.content.v1.MsgUpdateContentMetadataResponse
 }
 var file_chora_content_v1_msg_proto_depIdxs = []int32{
-	0, // 0: chora.content.v1.Msg.Create:input_type -> chora.content.v1.MsgCreate
-	2, // 1: chora.content.v1.Msg.Delete:input_type -> chora.content.v1.MsgDelete
-	4, // 2: chora.content.v1.Msg.UpdateCurator:input_type -> chora.content.v1.MsgUpdateCurator
-	6, // 3: chora.content.v1.Msg.UpdateMetadata:input_type -> chora.content.v1.MsgUpdateMetadata
-	1, // 4: chora.content.v1.Msg.Create:output_type -> chora.content.v1.MsgCreateResponse
-	3, // 5: chora.content.v1.Msg.Delete:output_type -> chora.content.v1.MsgDeleteResponse
-	5, // 6: chora.content.v1.Msg.UpdateCurator:output_type -> chora.content.v1.MsgUpdateCuratorResponse
-	7, // 7: chora.content.v1.Msg.UpdateMetadata:output_type -> chora.content.v1.MsgUpdateMetadataResponse
+	0, // 0: chora.content.v1.Msg.CreateContent:input_type -> chora.content.v1.MsgCreateContent
+	2, // 1: chora.content.v1.Msg.RemoveContent:input_type -> chora.content.v1.MsgRemoveContent
+	4, // 2: chora.content.v1.Msg.UpdateContentCurator:input_type -> chora.content.v1.MsgUpdateContentCurator
+	6, // 3: chora.content.v1.Msg.UpdateContentMetadata:input_type -> chora.content.v1.MsgUpdateContentMetadata
+	1, // 4: chora.content.v1.Msg.CreateContent:output_type -> chora.content.v1.MsgCreateContentResponse
+	3, // 5: chora.content.v1.Msg.RemoveContent:output_type -> chora.content.v1.MsgRemoveContentResponse
+	5, // 6: chora.content.v1.Msg.UpdateContentCurator:output_type -> chora.content.v1.MsgUpdateContentCuratorResponse
+	7, // 7: chora.content.v1.Msg.UpdateContentMetadata:output_type -> chora.content.v1.MsgUpdateContentMetadataResponse
 	4, // [4:8] is the sub-list for method output_type
 	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -4132,7 +4141,7 @@ func file_chora_content_v1_msg_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_content_v1_msg_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgCreate); i {
+			switch v := v.(*MsgCreateContent); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4144,7 +4153,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgCreateResponse); i {
+			switch v := v.(*MsgCreateContentResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4156,7 +4165,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgDelete); i {
+			switch v := v.(*MsgRemoveContent); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4168,7 +4177,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgDeleteResponse); i {
+			switch v := v.(*MsgRemoveContentResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4180,7 +4189,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgUpdateCurator); i {
+			switch v := v.(*MsgUpdateContentCurator); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4192,7 +4201,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgUpdateCuratorResponse); i {
+			switch v := v.(*MsgUpdateContentCuratorResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4204,7 +4213,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgUpdateMetadata); i {
+			switch v := v.(*MsgUpdateContentMetadata); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4216,7 +4225,7 @@ func file_chora_content_v1_msg_proto_init() {
 			}
 		}
 		file_chora_content_v1_msg_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgUpdateMetadataResponse); i {
+			switch v := v.(*MsgUpdateContentMetadataResponse); i {
 			case 0:
 				return &v.state
 			case 1:

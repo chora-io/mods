@@ -12,10 +12,10 @@ import (
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
-		&MsgCreate{},
-		&MsgDelete{},
-		&MsgUpdateCurator{},
-		&MsgUpdateMetadata{},
+		&MsgCreateContent{},
+		&MsgRemoveContent{},
+		&MsgUpdateContentCurator{},
+		&MsgUpdateContentMetadata{},
 	)
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
@@ -23,8 +23,8 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	legacy.RegisterAminoMsg(cdc, &MsgCreate{}, "content/v1/MsgCreate")
-	legacy.RegisterAminoMsg(cdc, &MsgDelete{}, "content/v1/MsgDelete")
-	legacy.RegisterAminoMsg(cdc, &MsgUpdateCurator{}, "content/v1/MsgUpdateCurator")
-	legacy.RegisterAminoMsg(cdc, &MsgUpdateMetadata{}, "content/v1/MsgUpdateMetadata")
+	legacy.RegisterAminoMsg(cdc, &MsgCreateContent{}, "content/v1/MsgCreateContent")
+	legacy.RegisterAminoMsg(cdc, &MsgRemoveContent{}, "content/v1/MsgRemoveContent")
+	legacy.RegisterAminoMsg(cdc, &MsgUpdateContentCurator{}, "content/v1/MsgUpdateContentCurator")
+	legacy.RegisterAminoMsg(cdc, &MsgUpdateContentMetadata{}, "content/v1/MsgUpdateContentMetadata")
 }

@@ -5,10 +5,10 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-var _ sdk.Msg = &MsgDelete{}
+var _ sdk.Msg = &MsgUpdateContentCurator{}
 
-// ValidateBasic performs stateless validation on MsgDelete.
-func (m MsgDelete) ValidateBasic() error {
+// ValidateBasic performs stateless validation on MsgUpdateContentCurator.
+func (m MsgUpdateContentCurator) ValidateBasic() error {
 	if m.Id == 0 {
 		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
 	}
@@ -17,21 +17,25 @@ func (m MsgDelete) ValidateBasic() error {
 		return sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
 	}
 
+	if _, err := sdk.AccAddressFromBech32(m.NewCurator); err != nil {
+		return sdkerrors.ErrInvalidAddress.Wrapf("new curator: %s", err)
+	}
+
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgDelete.
-func (m MsgDelete) GetSigners() []sdk.AccAddress {
+// GetSigners returns the expected signers for MsgUpdateContentCurator.
+func (m MsgUpdateContentCurator) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Curator)
 	return []sdk.AccAddress{addr}
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgDelete) Route() string {
+func (m MsgUpdateContentCurator) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgDelete) Type() string {
+func (m MsgUpdateContentCurator) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

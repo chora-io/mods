@@ -5,10 +5,10 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-var _ sdk.Msg = &MsgCreate{}
+var _ sdk.Msg = &MsgCreateContent{}
 
-// ValidateBasic performs stateless validation on MsgCreate.
-func (m MsgCreate) ValidateBasic() error {
+// ValidateBasic performs stateless validation on MsgCreateContent.
+func (m MsgCreateContent) ValidateBasic() error {
 	if _, err := sdk.AccAddressFromBech32(m.Curator); err != nil {
 		return sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
 	}
@@ -24,18 +24,18 @@ func (m MsgCreate) ValidateBasic() error {
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgCreate.
-func (m MsgCreate) GetSigners() []sdk.AccAddress {
+// GetSigners returns the expected signers for MsgCreateContent.
+func (m MsgCreateContent) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Curator)
 	return []sdk.AccAddress{addr}
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgCreate) Route() string {
+func (m MsgCreateContent) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgCreate) Type() string {
+func (m MsgCreateContent) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

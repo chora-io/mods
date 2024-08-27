@@ -19,7 +19,7 @@ type queryContentsByCurator struct {
 
 func TestQueryContentsByCurator(t *testing.T) {
 	gocuke.NewRunner(t, &queryContentsByCurator{}).
-		Path("./features/query_contents_by_curator.feature").
+		Path("./query_contents_by_curator.feature").
 		Run()
 }
 

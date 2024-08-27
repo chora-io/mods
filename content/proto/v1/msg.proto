@@ -9,21 +9,21 @@ option go_package = "github.com/chora-io/mods/content/types/v1";
 // Msg is the Msg service.
 service Msg {
 
-  // Create creates content.
-  rpc Create(MsgCreate) returns (MsgCreateResponse);
+  // CreateContent creates content.
+  rpc CreateContent(MsgCreateContent) returns (MsgCreateContentResponse);
 
-  // Delete deletes content.
-  rpc Delete(MsgDelete) returns (MsgDeleteResponse);
+  // RemoveContent deletes content.
+  rpc RemoveContent(MsgRemoveContent) returns (MsgRemoveContentResponse);
 
-  // UpdateCurator updates the curator of content.
-  rpc UpdateCurator(MsgUpdateCurator) returns (MsgUpdateCuratorResponse);
+  // UpdateContentCurator updates the curator of content.
+  rpc UpdateContentCurator(MsgUpdateContentCurator) returns (MsgUpdateContentCuratorResponse);
 
-  // UpdateMetadata updates the metadata of content.
-  rpc UpdateMetadata(MsgUpdateMetadata) returns (MsgUpdateMetadataResponse);
+  // UpdateContentMetadata updates the metadata of content.
+  rpc UpdateContentMetadata(MsgUpdateContentMetadata) returns (MsgUpdateContentMetadataResponse);
 }
 
-// MsgCreate is the Msg/Create request type.
-message MsgCreate {
+// MsgCreateContent is the Msg/CreateContent request type.
+message MsgCreateContent {
   option (cosmos.msg.v1.signer) = "curator";
 
   // curator is the address of the content curator.
@@ -33,15 +33,15 @@ message MsgCreate {
   string metadata = 2;
 }
 
-// MsgCreateResponse is the Msg/Create response type.
-message MsgCreateResponse {
+// MsgCreateContentResponse is the Msg/CreateContent response type.
+message MsgCreateContentResponse {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// MsgDelete is the Msg/Delete request type.
-message MsgDelete {
+// MsgRemoveContent is the Msg/RemoveContent request type.
+message MsgRemoveContent {
   option (cosmos.msg.v1.signer) = "curator";
 
   // id is the unique identifier of the content.
@@ -51,15 +51,15 @@ message MsgDelete {
   string curator = 2;
 }
 
-// MsgDeleteResponse is the Msg/Delete response type.
-message MsgDeleteResponse {
+// MsgRemoveContentResponse is the Msg/RemoveContent response type.
+message MsgRemoveContentResponse {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// MsgUpdateCurator is the Msg/UpdateCurator request type.
-message MsgUpdateCurator {
+// MsgUpdateContentCurator is the Msg/UpdateContentCurator request type.
+message MsgUpdateContentCurator {
   option (cosmos.msg.v1.signer) = "curator";
 
   // id is the unique identifier of the content.
@@ -72,15 +72,15 @@ message MsgUpdateCurator {
   string new_curator = 3;
 }
 
-// MsgUpdateCuratorResponse is the Msg/UpdateCurator response type.
-message MsgUpdateCuratorResponse {
+// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response type.
+message MsgUpdateContentCuratorResponse {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// MsgUpdateMetadata is the Msg/UpdateMetadata request type.
-message MsgUpdateMetadata {
+// MsgUpdateContentMetadata is the Msg/UpdateContentMetadata request type.
+message MsgUpdateContentMetadata {
   option (cosmos.msg.v1.signer) = "curator";
 
   // id is the unique identifier of the content.
@@ -93,8 +93,8 @@ message MsgUpdateMetadata {
   string new_metadata = 3;
 }
 
-// MsgUpdateMetadataResponse is the Msg/UpdateMetadata response type.
-message MsgUpdateMetadataResponse {
+// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response type.
+message MsgUpdateContentMetadataResponse {
 
   // id is the unique identifier of the content.
   uint64 id = 1;

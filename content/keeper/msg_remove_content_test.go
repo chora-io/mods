@@ -13,23 +13,23 @@ import (
 	"github.com/chora-io/mods/content/utils"
 )
 
-type msgDelete struct {
+type msgRemoveContent struct {
 	*baseSuite
-	res *v1.MsgDeleteResponse
+	res *v1.MsgRemoveContentResponse
 	err error
 }
 
-func TestMsgDelete(t *testing.T) {
-	gocuke.NewRunner(t, &msgDelete{}).
-		Path("./features/msg_delete.feature").
+func TestMsgRemoveContent(t *testing.T) {
+	gocuke.NewRunner(t, &msgRemoveContent{}).
+		Path("./msg_remove_content.feature").
 		Run()
 }
 
-func (s *msgDelete) Before(t gocuke.TestingT) {
+func (s *msgRemoveContent) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgDelete) Content(a gocuke.DocString) {
+func (s *msgRemoveContent) Content(a gocuke.DocString) {
 	var content contentv1.Content
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
@@ -42,31 +42,31 @@ func (s *msgDelete) Content(a gocuke.DocString) {
 	require.Equal(s.t, content.Id, id)
 }
 
-func (s *msgDelete) MsgDelete(a gocuke.DocString) {
-	var msg v1.MsgDelete
+func (s *msgRemoveContent) MsgRemoveContent(a gocuke.DocString) {
+	var msg v1.MsgRemoveContent
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.k.Delete(s.sdkCtx, &msg)
+	s.res, s.err = s.k.RemoveContent(s.sdkCtx, &msg)
 }
 
-func (s *msgDelete) ExpectNoError() {
+func (s *msgRemoveContent) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgDelete) ExpectTheError(a gocuke.DocString) {
+func (s *msgRemoveContent) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }
 
-func (s *msgDelete) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgDeleteResponse
+func (s *msgRemoveContent) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgRemoveContentResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgDelete) ExpectNoStateContentWithId(a string) {
+func (s *msgRemoveContent) ExpectNoStateContentWithId(a string) {
 	id, err := strconv.ParseUint(a, 10, 32)
 	require.NoError(s.t, err)
 
@@ -75,8 +75,8 @@ func (s *msgDelete) ExpectNoStateContentWithId(a string) {
 	require.False(s.t, found)
 }
 
-func (s *msgDelete) ExpectEventDelete(a gocuke.DocString) {
-	var expected v1.EventDelete
+func (s *msgRemoveContent) ExpectEventRemoveContent(a gocuke.DocString) {
+	var expected v1.EventRemoveContent
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

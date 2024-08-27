@@ -12,12 +12,12 @@ import (
 	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
-// TxUpdateCuratorCmd creates and returns the tx update-curator command.
-func TxUpdateCuratorCmd() *cobra.Command {
+// TxUpdateContentMetadataCmd creates and returns the tx update-content-metadata command.
+func TxUpdateContentMetadataCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-curator [id] [new-curator]",
-		Short: "submit a transaction to update content curator",
-		Long:  "submit a transaction to update content curator",
+		Use:   "update-content-metadata [id] [new-metadata]",
+		Short: "submit a transaction to update content metadata",
+		Long:  "submit a transaction to update content metadata",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -30,10 +30,10 @@ func TxUpdateCuratorCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgUpdateCurator{
-				Id:         id,
-				Curator:    clientCtx.GetFromAddress().String(),
-				NewCurator: args[1],
+			msg := v1.MsgUpdateContentMetadata{
+				Id:          id,
+				Curator:     clientCtx.GetFromAddress().String(),
+				NewMetadata: args[1],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

@@ -12,43 +12,43 @@ import (
 	"github.com/chora-io/mods/content/utils"
 )
 
-type msgCreate struct {
+type msgCreateContent struct {
 	*baseSuite
-	res *v1.MsgCreateResponse
+	res *v1.MsgCreateContentResponse
 	err error
 }
 
-func TestMsgCreate(t *testing.T) {
-	gocuke.NewRunner(t, &msgCreate{}).
-		Path("./features/msg_create.feature").
+func TestMsgCreateContent(t *testing.T) {
+	gocuke.NewRunner(t, &msgCreateContent{}).
+		Path("./msg_create_content.feature").
 		Run()
 }
 
-func (s *msgCreate) Before(t gocuke.TestingT) {
+func (s *msgCreateContent) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgCreate) MsgCreate(a gocuke.DocString) {
-	var msg v1.MsgCreate
+func (s *msgCreateContent) MsgCreateContent(a gocuke.DocString) {
+	var msg v1.MsgCreateContent
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.k.Create(s.sdkCtx, &msg)
+	s.res, s.err = s.k.CreateContent(s.sdkCtx, &msg)
 }
 
-func (s *msgCreate) ExpectNoError() {
+func (s *msgCreateContent) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgCreate) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgCreateResponse
+func (s *msgCreateContent) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgCreateContentResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgCreate) ExpectStateContent(a gocuke.DocString) {
+func (s *msgCreateContent) ExpectStateContent(a gocuke.DocString) {
 	var expected contentv1.Content
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
@@ -61,8 +61,8 @@ func (s *msgCreate) ExpectStateContent(a gocuke.DocString) {
 	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
-func (s *msgCreate) ExpectEventCreate(a gocuke.DocString) {
-	var expected v1.EventCreate
+func (s *msgCreateContent) ExpectEventCreateContent(a gocuke.DocString) {
+	var expected v1.EventCreateContent
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

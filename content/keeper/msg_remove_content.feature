@@ -1,12 +1,12 @@
-Feature: Msg/Delete
+Feature: Msg/RemoveContent
 
-  Delete is successful when:
+  RemoveContent is successful when:
   - curator is the content curator
 
-  Delete has the following outcomes:
+  RemoveContent has the following outcomes:
   - message response returned
   - Content is removed from state
-  - EventDelete is emitted
+  - EventRemoveContent is emitted
 
   Rule: The curator must be the content curator
 
@@ -21,7 +21,7 @@ Feature: Msg/Delete
       """
 
     Scenario: curator is content curator
-      When msg delete
+      When msg remove content
       """
       {
         "id": 1,
@@ -31,7 +31,7 @@ Feature: Msg/Delete
       Then expect no error
 
     Scenario: curator is not content curator
-      When msg delete
+      When msg remove content
       """
       {
         "id": 1,
@@ -56,7 +56,7 @@ Feature: Msg/Delete
       """
 
     Scenario: message response returned
-      When msg delete
+      When msg remove content
       """
       {
         "id": 1,
@@ -85,7 +85,7 @@ Feature: Msg/Delete
       """
 
     Scenario: state content removed
-      When msg delete
+      When msg remove content
       """
       {
         "id": 1,
@@ -96,7 +96,7 @@ Feature: Msg/Delete
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventDelete emitted
+  Rule: EventRemoveContent emitted
 
     Background:
       Given content
@@ -109,14 +109,14 @@ Feature: Msg/Delete
       """
 
     Scenario: event delete emitted
-      When msg delete
+      When msg remove content
       """
       {
         "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       }
       """
-      Then expect event delete
+      Then expect event remove content
       """
       {
         "id": 1

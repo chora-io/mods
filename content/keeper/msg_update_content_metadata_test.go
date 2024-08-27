@@ -12,23 +12,23 @@ import (
 	"github.com/chora-io/mods/content/utils"
 )
 
-type msgUpdateCurator struct {
+type msgUpdateContentMetadata struct {
 	*baseSuite
-	res *v1.MsgUpdateCuratorResponse
+	res *v1.MsgUpdateContentMetadataResponse
 	err error
 }
 
-func TestMsgUpdateCurator(t *testing.T) {
-	gocuke.NewRunner(t, &msgUpdateCurator{}).
-		Path("./features/msg_update_curator.feature").
+func TestMsgUpdateContentMetadata(t *testing.T) {
+	gocuke.NewRunner(t, &msgUpdateContentMetadata{}).
+		Path("./msg_update_content_metadata.feature").
 		Run()
 }
 
-func (s *msgUpdateCurator) Before(t gocuke.TestingT) {
+func (s *msgUpdateContentMetadata) Before(t gocuke.TestingT) {
 	s.baseSuite = setupBase(t)
 }
 
-func (s *msgUpdateCurator) Content(a gocuke.DocString) {
+func (s *msgUpdateContentMetadata) Content(a gocuke.DocString) {
 	var content contentv1.Content
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
@@ -41,31 +41,31 @@ func (s *msgUpdateCurator) Content(a gocuke.DocString) {
 	require.Equal(s.t, content.Id, id)
 }
 
-func (s *msgUpdateCurator) MsgUpdateCurator(a gocuke.DocString) {
-	var msg v1.MsgUpdateCurator
+func (s *msgUpdateContentMetadata) MsgUpdateContentMetadata(a gocuke.DocString) {
+	var msg v1.MsgUpdateContentMetadata
 	err := jsonpb.UnmarshalString(a.Content, &msg)
 	require.NoError(s.t, err)
 
-	s.res, s.err = s.k.UpdateCurator(s.sdkCtx, &msg)
+	s.res, s.err = s.k.UpdateContentMetadata(s.sdkCtx, &msg)
 }
 
-func (s *msgUpdateCurator) ExpectNoError() {
+func (s *msgUpdateContentMetadata) ExpectNoError() {
 	require.NoError(s.t, s.err)
 }
 
-func (s *msgUpdateCurator) ExpectTheError(a gocuke.DocString) {
+func (s *msgUpdateContentMetadata) ExpectTheError(a gocuke.DocString) {
 	require.EqualError(s.t, s.err, a.Content)
 }
 
-func (s *msgUpdateCurator) ExpectResponse(a gocuke.DocString) {
-	var expected v1.MsgUpdateCuratorResponse
+func (s *msgUpdateContentMetadata) ExpectResponse(a gocuke.DocString) {
+	var expected v1.MsgUpdateContentMetadataResponse
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgUpdateCurator) ExpectStateContent(a gocuke.DocString) {
+func (s *msgUpdateContentMetadata) ExpectStateContent(a gocuke.DocString) {
 	var expected contentv1.Content
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
@@ -78,8 +78,8 @@ func (s *msgUpdateCurator) ExpectStateContent(a gocuke.DocString) {
 	require.Equal(s.t, expected.Metadata, actual.Metadata)
 }
 
-func (s *msgUpdateCurator) ExpectEventUpdateCurator(a gocuke.DocString) {
-	var expected v1.EventUpdateCurator
+func (s *msgUpdateContentMetadata) ExpectEventUpdateContentMetadata(a gocuke.DocString) {
+	var expected v1.EventUpdateContentMetadata
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 

@@ -28,26 +28,26 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// MsgCreate is the Msg/Create request type.
-type MsgCreate struct {
+// MsgCreateContent is the Msg/CreateContent request type.
+type MsgCreateContent struct {
 	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
 	// metadata is the metadata of the content.
 	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (m *MsgCreate) Reset()         { *m = MsgCreate{} }
-func (m *MsgCreate) String() string { return proto.CompactTextString(m) }
-func (*MsgCreate) ProtoMessage()    {}
-func (*MsgCreate) Descriptor() ([]byte, []int) {
+func (m *MsgCreateContent) Reset()         { *m = MsgCreateContent{} }
+func (m *MsgCreateContent) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateContent) ProtoMessage()    {}
+func (*MsgCreateContent) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{0}
 }
-func (m *MsgCreate) XXX_Unmarshal(b []byte) error {
+func (m *MsgCreateContent) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgCreate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgCreateContent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgCreate.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgCreateContent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -57,50 +57,50 @@ func (m *MsgCreate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *MsgCreate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgCreate.Merge(m, src)
+func (m *MsgCreateContent) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateContent.Merge(m, src)
 }
-func (m *MsgCreate) XXX_Size() int {
+func (m *MsgCreateContent) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgCreate) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgCreate.DiscardUnknown(m)
+func (m *MsgCreateContent) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateContent.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgCreate proto.InternalMessageInfo
+var xxx_messageInfo_MsgCreateContent proto.InternalMessageInfo
 
-func (m *MsgCreate) GetCurator() string {
+func (m *MsgCreateContent) GetCurator() string {
 	if m != nil {
 		return m.Curator
 	}
 	return ""
 }
 
-func (m *MsgCreate) GetMetadata() string {
+func (m *MsgCreateContent) GetMetadata() string {
 	if m != nil {
 		return m.Metadata
 	}
 	return ""
 }
 
-// MsgCreateResponse is the Msg/Create response type.
-type MsgCreateResponse struct {
+// MsgCreateContentResponse is the Msg/CreateContent response type.
+type MsgCreateContentResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *MsgCreateResponse) Reset()         { *m = MsgCreateResponse{} }
-func (m *MsgCreateResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgCreateResponse) ProtoMessage()    {}
-func (*MsgCreateResponse) Descriptor() ([]byte, []int) {
+func (m *MsgCreateContentResponse) Reset()         { *m = MsgCreateContentResponse{} }
+func (m *MsgCreateContentResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateContentResponse) ProtoMessage()    {}
+func (*MsgCreateContentResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{1}
 }
-func (m *MsgCreateResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgCreateContentResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgCreateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgCreateContentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgCreateResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgCreateContentResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -110,45 +110,45 @@ func (m *MsgCreateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return b[:n], nil
 	}
 }
-func (m *MsgCreateResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgCreateResponse.Merge(m, src)
+func (m *MsgCreateContentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateContentResponse.Merge(m, src)
 }
-func (m *MsgCreateResponse) XXX_Size() int {
+func (m *MsgCreateContentResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgCreateResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgCreateResponse.DiscardUnknown(m)
+func (m *MsgCreateContentResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateContentResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgCreateResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgCreateContentResponse proto.InternalMessageInfo
 
-func (m *MsgCreateResponse) GetId() uint64 {
+func (m *MsgCreateContentResponse) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-// MsgDelete is the Msg/Delete request type.
-type MsgDelete struct {
+// MsgRemoveContent is the Msg/RemoveContent request type.
+type MsgRemoveContent struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
 }
 
-func (m *MsgDelete) Reset()         { *m = MsgDelete{} }
-func (m *MsgDelete) String() string { return proto.CompactTextString(m) }
-func (*MsgDelete) ProtoMessage()    {}
-func (*MsgDelete) Descriptor() ([]byte, []int) {
+func (m *MsgRemoveContent) Reset()         { *m = MsgRemoveContent{} }
+func (m *MsgRemoveContent) String() string { return proto.CompactTextString(m) }
+func (*MsgRemoveContent) ProtoMessage()    {}
+func (*MsgRemoveContent) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{2}
 }
-func (m *MsgDelete) XXX_Unmarshal(b []byte) error {
+func (m *MsgRemoveContent) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgDelete) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgRemoveContent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgDelete.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgRemoveContent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -158,50 +158,50 @@ func (m *MsgDelete) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *MsgDelete) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgDelete.Merge(m, src)
+func (m *MsgRemoveContent) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgRemoveContent.Merge(m, src)
 }
-func (m *MsgDelete) XXX_Size() int {
+func (m *MsgRemoveContent) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgDelete) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgDelete.DiscardUnknown(m)
+func (m *MsgRemoveContent) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgRemoveContent.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgDelete proto.InternalMessageInfo
+var xxx_messageInfo_MsgRemoveContent proto.InternalMessageInfo
 
-func (m *MsgDelete) GetId() uint64 {
+func (m *MsgRemoveContent) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-func (m *MsgDelete) GetCurator() string {
+func (m *MsgRemoveContent) GetCurator() string {
 	if m != nil {
 		return m.Curator
 	}
 	return ""
 }
 
-// MsgDeleteResponse is the Msg/Delete response type.
-type MsgDeleteResponse struct {
+// MsgRemoveContentResponse is the Msg/RemoveContent response type.
+type MsgRemoveContentResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *MsgDeleteResponse) Reset()         { *m = MsgDeleteResponse{} }
-func (m *MsgDeleteResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgDeleteResponse) ProtoMessage()    {}
-func (*MsgDeleteResponse) Descriptor() ([]byte, []int) {
+func (m *MsgRemoveContentResponse) Reset()         { *m = MsgRemoveContentResponse{} }
+func (m *MsgRemoveContentResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgRemoveContentResponse) ProtoMessage()    {}
+func (*MsgRemoveContentResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{3}
 }
-func (m *MsgDeleteResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgRemoveContentResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgDeleteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgRemoveContentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgDeleteResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgRemoveContentResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -211,27 +211,27 @@ func (m *MsgDeleteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return b[:n], nil
 	}
 }
-func (m *MsgDeleteResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgDeleteResponse.Merge(m, src)
+func (m *MsgRemoveContentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgRemoveContentResponse.Merge(m, src)
 }
-func (m *MsgDeleteResponse) XXX_Size() int {
+func (m *MsgRemoveContentResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgDeleteResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgDeleteResponse.DiscardUnknown(m)
+func (m *MsgRemoveContentResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgRemoveContentResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgDeleteResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgRemoveContentResponse proto.InternalMessageInfo
 
-func (m *MsgDeleteResponse) GetId() uint64 {
+func (m *MsgRemoveContentResponse) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-// MsgUpdateCurator is the Msg/UpdateCurator request type.
-type MsgUpdateCurator struct {
+// MsgUpdateContentCurator is the Msg/UpdateContentCurator request type.
+type MsgUpdateContentCurator struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	// curator is the address of the content curator.
@@ -240,18 +240,18 @@ type MsgUpdateCurator struct {
 	NewCurator string `protobuf:"bytes,3,opt,name=new_curator,json=newCurator,proto3" json:"new_curator,omitempty"`
 }
 
-func (m *MsgUpdateCurator) Reset()         { *m = MsgUpdateCurator{} }
-func (m *MsgUpdateCurator) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateCurator) ProtoMessage()    {}
-func (*MsgUpdateCurator) Descriptor() ([]byte, []int) {
+func (m *MsgUpdateContentCurator) Reset()         { *m = MsgUpdateContentCurator{} }
+func (m *MsgUpdateContentCurator) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateContentCurator) ProtoMessage()    {}
+func (*MsgUpdateContentCurator) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{4}
 }
-func (m *MsgUpdateCurator) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateContentCurator) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateCurator) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateContentCurator) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateCurator.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateContentCurator.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -261,57 +261,57 @@ func (m *MsgUpdateCurator) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateCurator) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateCurator.Merge(m, src)
+func (m *MsgUpdateContentCurator) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateContentCurator.Merge(m, src)
 }
-func (m *MsgUpdateCurator) XXX_Size() int {
+func (m *MsgUpdateContentCurator) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateCurator) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateCurator.DiscardUnknown(m)
+func (m *MsgUpdateContentCurator) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateContentCurator.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateCurator proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateContentCurator proto.InternalMessageInfo
 
-func (m *MsgUpdateCurator) GetId() uint64 {
+func (m *MsgUpdateContentCurator) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-func (m *MsgUpdateCurator) GetCurator() string {
+func (m *MsgUpdateContentCurator) GetCurator() string {
 	if m != nil {
 		return m.Curator
 	}
 	return ""
 }
 
-func (m *MsgUpdateCurator) GetNewCurator() string {
+func (m *MsgUpdateContentCurator) GetNewCurator() string {
 	if m != nil {
 		return m.NewCurator
 	}
 	return ""
 }
 
-// MsgUpdateCuratorResponse is the Msg/UpdateCurator response type.
-type MsgUpdateCuratorResponse struct {
+// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response type.
+type MsgUpdateContentCuratorResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *MsgUpdateCuratorResponse) Reset()         { *m = MsgUpdateCuratorResponse{} }
-func (m *MsgUpdateCuratorResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateCuratorResponse) ProtoMessage()    {}
-func (*MsgUpdateCuratorResponse) Descriptor() ([]byte, []int) {
+func (m *MsgUpdateContentCuratorResponse) Reset()         { *m = MsgUpdateContentCuratorResponse{} }
+func (m *MsgUpdateContentCuratorResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateContentCuratorResponse) ProtoMessage()    {}
+func (*MsgUpdateContentCuratorResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{5}
 }
-func (m *MsgUpdateCuratorResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateContentCuratorResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateContentCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateCuratorResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateContentCuratorResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -321,27 +321,27 @@ func (m *MsgUpdateCuratorResponse) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateCuratorResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateCuratorResponse.Merge(m, src)
+func (m *MsgUpdateContentCuratorResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateContentCuratorResponse.Merge(m, src)
 }
-func (m *MsgUpdateCuratorResponse) XXX_Size() int {
+func (m *MsgUpdateContentCuratorResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateCuratorResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateCuratorResponse.DiscardUnknown(m)
+func (m *MsgUpdateContentCuratorResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateContentCuratorResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateCuratorResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateContentCuratorResponse proto.InternalMessageInfo
 
-func (m *MsgUpdateCuratorResponse) GetId() uint64 {
+func (m *MsgUpdateContentCuratorResponse) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-// MsgUpdateMetadata is the Msg/UpdateMetadata request type.
-type MsgUpdateMetadata struct {
+// MsgUpdateContentMetadata is the Msg/UpdateContentMetadata request type.
+type MsgUpdateContentMetadata struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	// curator is the address of the content curator.
@@ -350,18 +350,18 @@ type MsgUpdateMetadata struct {
 	NewMetadata string `protobuf:"bytes,3,opt,name=new_metadata,json=newMetadata,proto3" json:"new_metadata,omitempty"`
 }
 
-func (m *MsgUpdateMetadata) Reset()         { *m = MsgUpdateMetadata{} }
-func (m *MsgUpdateMetadata) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateMetadata) ProtoMessage()    {}
-func (*MsgUpdateMetadata) Descriptor() ([]byte, []int) {
+func (m *MsgUpdateContentMetadata) Reset()         { *m = MsgUpdateContentMetadata{} }
+func (m *MsgUpdateContentMetadata) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateContentMetadata) ProtoMessage()    {}
+func (*MsgUpdateContentMetadata) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{6}
 }
-func (m *MsgUpdateMetadata) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateContentMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateContentMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateMetadata.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateContentMetadata.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -371,57 +371,57 @@ func (m *MsgUpdateMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateMetadata) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateMetadata.Merge(m, src)
+func (m *MsgUpdateContentMetadata) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateContentMetadata.Merge(m, src)
 }
-func (m *MsgUpdateMetadata) XXX_Size() int {
+func (m *MsgUpdateContentMetadata) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateMetadata) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateMetadata.DiscardUnknown(m)
+func (m *MsgUpdateContentMetadata) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateContentMetadata.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateMetadata proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateContentMetadata proto.InternalMessageInfo
 
-func (m *MsgUpdateMetadata) GetId() uint64 {
+func (m *MsgUpdateContentMetadata) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-func (m *MsgUpdateMetadata) GetCurator() string {
+func (m *MsgUpdateContentMetadata) GetCurator() string {
 	if m != nil {
 		return m.Curator
 	}
 	return ""
 }
 
-func (m *MsgUpdateMetadata) GetNewMetadata() string {
+func (m *MsgUpdateContentMetadata) GetNewMetadata() string {
 	if m != nil {
 		return m.NewMetadata
 	}
 	return ""
 }
 
-// MsgUpdateMetadataResponse is the Msg/UpdateMetadata response type.
-type MsgUpdateMetadataResponse struct {
+// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response type.
+type MsgUpdateContentMetadataResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *MsgUpdateMetadataResponse) Reset()         { *m = MsgUpdateMetadataResponse{} }
-func (m *MsgUpdateMetadataResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateMetadataResponse) ProtoMessage()    {}
-func (*MsgUpdateMetadataResponse) Descriptor() ([]byte, []int) {
+func (m *MsgUpdateContentMetadataResponse) Reset()         { *m = MsgUpdateContentMetadataResponse{} }
+func (m *MsgUpdateContentMetadataResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateContentMetadataResponse) ProtoMessage()    {}
+func (*MsgUpdateContentMetadataResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f66c37f55f0ffcc9, []int{7}
 }
-func (m *MsgUpdateMetadataResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateContentMetadataResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateMetadataResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateContentMetadataResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateMetadataResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateContentMetadataResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -431,19 +431,19 @@ func (m *MsgUpdateMetadataResponse) XXX_Marshal(b []byte, deterministic bool) ([
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateMetadataResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateMetadataResponse.Merge(m, src)
+func (m *MsgUpdateContentMetadataResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateContentMetadataResponse.Merge(m, src)
 }
-func (m *MsgUpdateMetadataResponse) XXX_Size() int {
+func (m *MsgUpdateContentMetadataResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateMetadataResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateMetadataResponse.DiscardUnknown(m)
+func (m *MsgUpdateContentMetadataResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateContentMetadataResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateMetadataResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateContentMetadataResponse proto.InternalMessageInfo
 
-func (m *MsgUpdateMetadataResponse) GetId() uint64 {
+func (m *MsgUpdateContentMetadataResponse) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
@@ -451,46 +451,46 @@ func (m *MsgUpdateMetadataResponse) GetId() uint64 {
 }
 
 func init() {
-	proto.RegisterType((*MsgCreate)(nil), "chora.content.v1.MsgCreate")
-	proto.RegisterType((*MsgCreateResponse)(nil), "chora.content.v1.MsgCreateResponse")
-	proto.RegisterType((*MsgDelete)(nil), "chora.content.v1.MsgDelete")
-	proto.RegisterType((*MsgDeleteResponse)(nil), "chora.content.v1.MsgDeleteResponse")
-	proto.RegisterType((*MsgUpdateCurator)(nil), "chora.content.v1.MsgUpdateCurator")
-	proto.RegisterType((*MsgUpdateCuratorResponse)(nil), "chora.content.v1.MsgUpdateCuratorResponse")
-	proto.RegisterType((*MsgUpdateMetadata)(nil), "chora.content.v1.MsgUpdateMetadata")
-	proto.RegisterType((*MsgUpdateMetadataResponse)(nil), "chora.content.v1.MsgUpdateMetadataResponse")
+	proto.RegisterType((*MsgCreateContent)(nil), "chora.content.v1.MsgCreateContent")
+	proto.RegisterType((*MsgCreateContentResponse)(nil), "chora.content.v1.MsgCreateContentResponse")
+	proto.RegisterType((*MsgRemoveContent)(nil), "chora.content.v1.MsgRemoveContent")
+	proto.RegisterType((*MsgRemoveContentResponse)(nil), "chora.content.v1.MsgRemoveContentResponse")
+	proto.RegisterType((*MsgUpdateContentCurator)(nil), "chora.content.v1.MsgUpdateContentCurator")
+	proto.RegisterType((*MsgUpdateContentCuratorResponse)(nil), "chora.content.v1.MsgUpdateContentCuratorResponse")
+	proto.RegisterType((*MsgUpdateContentMetadata)(nil), "chora.content.v1.MsgUpdateContentMetadata")
+	proto.RegisterType((*MsgUpdateContentMetadataResponse)(nil), "chora.content.v1.MsgUpdateContentMetadataResponse")
 }
 
 func init() { proto.RegisterFile("chora/content/v1/msg.proto", fileDescriptor_f66c37f55f0ffcc9) }
 
 var fileDescriptor_f66c37f55f0ffcc9 = []byte{
-	// 402 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xcd, 0x4e, 0xea, 0x40,
-	0x1c, 0xc5, 0x69, 0xb9, 0xe1, 0x5e, 0xfe, 0x97, 0x4b, 0xb8, 0xdd, 0x58, 0x6b, 0x52, 0xb5, 0x6c,
-	0x14, 0x62, 0x1b, 0x74, 0xe7, 0xd2, 0xba, 0x22, 0x69, 0x4c, 0x48, 0xdc, 0xb8, 0x21, 0xa5, 0x9d,
-	0x94, 0x46, 0xdb, 0x69, 0x3a, 0x03, 0xc4, 0xad, 0x4f, 0xe0, 0xa3, 0xf8, 0x18, 0x2e, 0x59, 0xba,
-	0x34, 0x65, 0xe1, 0x6b, 0x18, 0xa6, 0x1f, 0xb1, 0xa5, 0x45, 0x5c, 0x36, 0xe7, 0xcc, 0x39, 0x3f,
-	0x38, 0x33, 0x20, 0x59, 0x53, 0x1c, 0x9a, 0x9a, 0x85, 0x7d, 0x8a, 0x7c, 0xaa, 0xcd, 0x07, 0x9a,
-	0x47, 0x1c, 0x35, 0x08, 0x31, 0xc5, 0x42, 0x87, 0x69, 0x6a, 0xa2, 0xa9, 0xf3, 0x81, 0xb4, 0x67,
-	0x61, 0xe2, 0x61, 0xb2, 0xf6, 0xe4, 0xac, 0xca, 0x0d, 0x34, 0x0d, 0xe2, 0xe8, 0x21, 0x32, 0x29,
-	0x12, 0x44, 0xf8, 0x6d, 0xcd, 0x42, 0x93, 0xe2, 0x50, 0xe4, 0x8e, 0xb8, 0x93, 0xe6, 0x28, 0xfd,
-	0x14, 0x24, 0xf8, 0xe3, 0x21, 0x6a, 0xda, 0x26, 0x35, 0x45, 0x9e, 0x49, 0xd9, 0xf7, 0x65, 0xeb,
-	0xe9, 0xe3, 0xa5, 0x97, 0x3a, 0x95, 0x2e, 0xfc, 0xcf, 0x02, 0x47, 0x88, 0x04, 0xd8, 0x27, 0x48,
-	0x68, 0x03, 0xef, 0xda, 0x2c, 0xf3, 0xd7, 0x88, 0x77, 0x6d, 0x45, 0x67, 0xad, 0xd7, 0xe8, 0x01,
-	0xd1, 0x0d, 0xf1, 0x2b, 0x05, 0x9f, 0xa3, 0x28, 0x6d, 0x8a, 0x43, 0x2a, 0x9b, 0xee, 0xa1, 0x63,
-	0x10, 0xe7, 0x36, 0xb0, 0x4d, 0x8a, 0xf4, 0xe4, 0xc7, 0xec, 0x5c, 0x28, 0x1c, 0xc2, 0x5f, 0x1f,
-	0x2d, 0xc6, 0xa9, 0x5a, 0x67, 0x2a, 0xf8, 0x68, 0xa1, 0x97, 0x12, 0xf5, 0x40, 0x2c, 0x96, 0x55,
-	0x82, 0xf9, 0x8c, 0x3e, 0xf6, 0x1a, 0xc9, 0x5f, 0xf9, 0x03, 0xb2, 0x63, 0x68, 0xad, 0xc9, 0xb2,
-	0x51, 0x62, 0xb4, 0x35, 0xad, 0x51, 0xbe, 0x4b, 0x1f, 0xf6, 0x37, 0xfa, 0xaa, 0xe0, 0xce, 0x23,
-	0x1e, 0xea, 0x06, 0x71, 0x84, 0x21, 0x34, 0x92, 0xab, 0x71, 0xa0, 0x16, 0xef, 0x94, 0x9a, 0xcd,
-	0x2c, 0x75, 0xb7, 0x88, 0x59, 0xc7, 0x10, 0x1a, 0xc9, 0xe0, 0xe5, 0x59, 0xb1, 0x58, 0x91, 0x55,
-	0x58, 0x79, 0x0c, 0xff, 0xf2, 0x93, 0x2a, 0xa5, 0xa7, 0x72, 0x1e, 0xa9, 0xf7, 0xbd, 0x27, 0x2b,
-	0x98, 0x40, 0xbb, 0x30, 0x4d, 0x77, 0xcb, 0xe9, 0xd4, 0x24, 0xf5, 0x77, 0x30, 0xa5, 0x1d, 0x57,
-	0xfa, 0x6b, 0x24, 0x73, 0xcb, 0x48, 0xe6, 0xde, 0x23, 0x99, 0x7b, 0x5e, 0xc9, 0xb5, 0xe5, 0x4a,
-	0xae, 0xbd, 0xad, 0xe4, 0xda, 0xdd, 0xa9, 0xe3, 0xd2, 0xe9, 0x6c, 0xa2, 0x5a, 0xd8, 0xd3, 0x58,
-	0xe0, 0x99, 0x8b, 0x35, 0x0f, 0xdb, 0x24, 0x7b, 0xee, 0xf4, 0x31, 0x40, 0x44, 0x9b, 0x0f, 0x26,
-	0x0d, 0xf6, 0x8c, 0x2f, 0x3e, 0x03, 0x00, 0x00, 0xff, 0xff, 0xc7, 0xf9, 0x07, 0xb1, 0x0f, 0x04,
-	0x00, 0x00,
+	// 407 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x94, 0x31, 0x4f, 0xb3, 0x40,
+	0x1c, 0xc6, 0x0b, 0x7d, 0xf3, 0xbe, 0xaf, 0x7f, 0x5b, 0xd3, 0x10, 0x4d, 0x09, 0x03, 0xad, 0x4c,
+	0x96, 0x44, 0x08, 0x75, 0x73, 0x94, 0xcd, 0x84, 0x85, 0x44, 0x07, 0x97, 0x86, 0xc2, 0x85, 0x32,
+	0xc0, 0x11, 0xee, 0x4a, 0xe3, 0xea, 0x27, 0xf0, 0xa3, 0x38, 0xf9, 0x19, 0x1c, 0x3b, 0x3a, 0x9a,
+	0x76, 0xf0, 0x6b, 0x98, 0x5e, 0x0b, 0x0a, 0x39, 0xd2, 0x3a, 0x5e, 0xfe, 0x0f, 0xcf, 0xf3, 0x3b,
+	0xfe, 0x4f, 0x0e, 0x14, 0x7f, 0x86, 0x33, 0xcf, 0xf4, 0x71, 0x42, 0x51, 0x42, 0xcd, 0xdc, 0x32,
+	0x63, 0x12, 0x1a, 0x69, 0x86, 0x29, 0x96, 0x7a, 0x6c, 0x66, 0xec, 0x66, 0x46, 0x6e, 0x29, 0x7d,
+	0x1f, 0x93, 0x18, 0x93, 0x8d, 0xa6, 0x22, 0xd5, 0xee, 0xa1, 0xe7, 0x90, 0xd0, 0xce, 0x90, 0x47,
+	0x91, 0xbd, 0xd5, 0x4b, 0x32, 0xfc, 0xf3, 0xe7, 0x99, 0x47, 0x71, 0x26, 0x0b, 0x43, 0xe1, 0xe2,
+	0xc8, 0x2d, 0x8e, 0x92, 0x02, 0xff, 0x63, 0x44, 0xbd, 0xc0, 0xa3, 0x9e, 0x2c, 0xb2, 0x51, 0x79,
+	0xbe, 0xee, 0x3c, 0x7d, 0xbe, 0xe8, 0x85, 0x52, 0xd3, 0x41, 0xae, 0xfb, 0xba, 0x88, 0xa4, 0x38,
+	0x21, 0x48, 0x3a, 0x01, 0x31, 0x0a, 0x98, 0xf5, 0x1f, 0x57, 0x8c, 0x02, 0xed, 0x96, 0x31, 0xb8,
+	0x28, 0xc6, 0x79, 0xc9, 0x50, 0xd3, 0xfc, 0x64, 0x12, 0x2b, 0x4c, 0xdc, 0xdc, 0x8a, 0x57, 0x63,
+	0x6e, 0x06, 0x7d, 0x87, 0x84, 0x77, 0x69, 0xf0, 0xcd, 0x68, 0xef, 0x2e, 0x7a, 0x70, 0xbc, 0x34,
+	0x80, 0xe3, 0x04, 0x2d, 0x26, 0xc5, 0xb4, 0xcd, 0xa6, 0x90, 0xa0, 0x85, 0xcd, 0xe5, 0xb3, 0x60,
+	0xd0, 0x90, 0xd9, 0x88, 0x39, 0x67, 0x57, 0xaa, 0x7c, 0xe2, 0xec, 0x7e, 0xfa, 0x2f, 0x38, 0xcf,
+	0xa1, 0xb3, 0xe1, 0x2c, 0xd7, 0xb7, 0x05, 0xdd, 0xb0, 0x3b, 0xfc, 0x0d, 0x8e, 0x61, 0xd8, 0x14,
+	0xdb, 0x84, 0x3a, 0x7e, 0x6d, 0x43, 0xdb, 0x21, 0xa1, 0x34, 0x81, 0x6e, 0xb5, 0x52, 0x9a, 0x51,
+	0xaf, 0xa4, 0x51, 0xaf, 0x87, 0xa2, 0xef, 0xd7, 0x94, 0xc1, 0x13, 0xe8, 0x56, 0xfb, 0xc2, 0x0f,
+	0xa8, 0x68, 0x1a, 0x02, 0xf8, 0x5d, 0xa1, 0x70, 0xca, 0x2d, 0xc6, 0x88, 0xeb, 0xc1, 0x93, 0x2a,
+	0xd6, 0xc1, 0xd2, 0x32, 0x75, 0x01, 0x67, 0xfc, 0x3d, 0xeb, 0xfb, 0xbd, 0x0a, 0xad, 0x32, 0x3e,
+	0x5c, 0x5b, 0x04, 0xdf, 0xd8, 0x6f, 0x2b, 0x55, 0x58, 0xae, 0x54, 0xe1, 0x63, 0xa5, 0x0a, 0xcf,
+	0x6b, 0xb5, 0xb5, 0x5c, 0xab, 0xad, 0xf7, 0xb5, 0xda, 0x7a, 0x18, 0x85, 0x11, 0x9d, 0xcd, 0xa7,
+	0x86, 0x8f, 0x63, 0x93, 0xf9, 0x5e, 0x46, 0xd8, 0x8c, 0x71, 0x40, 0xca, 0xa7, 0x87, 0x3e, 0xa6,
+	0x88, 0x98, 0xb9, 0x35, 0xfd, 0xcb, 0x9e, 0x94, 0xab, 0xaf, 0x00, 0x00, 0x00, 0xff, 0xff, 0xca,
+	0xd3, 0xdb, 0x5d, 0x9b, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -505,14 +505,14 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MsgClient interface {
-	// Create creates content.
-	Create(ctx context.Context, in *MsgCreate, opts ...grpc.CallOption) (*MsgCreateResponse, error)
-	// Delete deletes content.
-	Delete(ctx context.Context, in *MsgDelete, opts ...grpc.CallOption) (*MsgDeleteResponse, error)
-	// UpdateCurator updates the curator of content.
-	UpdateCurator(ctx context.Context, in *MsgUpdateCurator, opts ...grpc.CallOption) (*MsgUpdateCuratorResponse, error)
-	// UpdateMetadata updates the metadata of content.
-	UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error)
+	// CreateContent creates content.
+	CreateContent(ctx context.Context, in *MsgCreateContent, opts ...grpc.CallOption) (*MsgCreateContentResponse, error)
+	// RemoveContent deletes content.
+	RemoveContent(ctx context.Context, in *MsgRemoveContent, opts ...grpc.CallOption) (*MsgRemoveContentResponse, error)
+	// UpdateContentCurator updates the curator of content.
+	UpdateContentCurator(ctx context.Context, in *MsgUpdateContentCurator, opts ...grpc.CallOption) (*MsgUpdateContentCuratorResponse, error)
+	// UpdateContentMetadata updates the metadata of content.
+	UpdateContentMetadata(ctx context.Context, in *MsgUpdateContentMetadata, opts ...grpc.CallOption) (*MsgUpdateContentMetadataResponse, error)
 }
 
 type msgClient struct {
@@ -523,36 +523,36 @@ func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) Create(ctx context.Context, in *MsgCreate, opts ...grpc.CallOption) (*MsgCreateResponse, error) {
-	out := new(MsgCreateResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/Create", in, out, opts...)
+func (c *msgClient) CreateContent(ctx context.Context, in *MsgCreateContent, opts ...grpc.CallOption) (*MsgCreateContentResponse, error) {
+	out := new(MsgCreateContentResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/CreateContent", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) Delete(ctx context.Context, in *MsgDelete, opts ...grpc.CallOption) (*MsgDeleteResponse, error) {
-	out := new(MsgDeleteResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/Delete", in, out, opts...)
+func (c *msgClient) RemoveContent(ctx context.Context, in *MsgRemoveContent, opts ...grpc.CallOption) (*MsgRemoveContentResponse, error) {
+	out := new(MsgRemoveContentResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/RemoveContent", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) UpdateCurator(ctx context.Context, in *MsgUpdateCurator, opts ...grpc.CallOption) (*MsgUpdateCuratorResponse, error) {
-	out := new(MsgUpdateCuratorResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/UpdateCurator", in, out, opts...)
+func (c *msgClient) UpdateContentCurator(ctx context.Context, in *MsgUpdateContentCurator, opts ...grpc.CallOption) (*MsgUpdateContentCuratorResponse, error) {
+	out := new(MsgUpdateContentCuratorResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/UpdateContentCurator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, opts ...grpc.CallOption) (*MsgUpdateMetadataResponse, error) {
-	out := new(MsgUpdateMetadataResponse)
-	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/UpdateMetadata", in, out, opts...)
+func (c *msgClient) UpdateContentMetadata(ctx context.Context, in *MsgUpdateContentMetadata, opts ...grpc.CallOption) (*MsgUpdateContentMetadataResponse, error) {
+	out := new(MsgUpdateContentMetadataResponse)
+	err := c.cc.Invoke(ctx, "/chora.content.v1.Msg/UpdateContentMetadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -561,105 +561,105 @@ func (c *msgClient) UpdateMetadata(ctx context.Context, in *MsgUpdateMetadata, o
 
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
-	// Create creates content.
-	Create(context.Context, *MsgCreate) (*MsgCreateResponse, error)
-	// Delete deletes content.
-	Delete(context.Context, *MsgDelete) (*MsgDeleteResponse, error)
-	// UpdateCurator updates the curator of content.
-	UpdateCurator(context.Context, *MsgUpdateCurator) (*MsgUpdateCuratorResponse, error)
-	// UpdateMetadata updates the metadata of content.
-	UpdateMetadata(context.Context, *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error)
+	// CreateContent creates content.
+	CreateContent(context.Context, *MsgCreateContent) (*MsgCreateContentResponse, error)
+	// RemoveContent deletes content.
+	RemoveContent(context.Context, *MsgRemoveContent) (*MsgRemoveContentResponse, error)
+	// UpdateContentCurator updates the curator of content.
+	UpdateContentCurator(context.Context, *MsgUpdateContentCurator) (*MsgUpdateContentCuratorResponse, error)
+	// UpdateContentMetadata updates the metadata of content.
+	UpdateContentMetadata(context.Context, *MsgUpdateContentMetadata) (*MsgUpdateContentMetadataResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
 type UnimplementedMsgServer struct {
 }
 
-func (*UnimplementedMsgServer) Create(ctx context.Context, req *MsgCreate) (*MsgCreateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+func (*UnimplementedMsgServer) CreateContent(ctx context.Context, req *MsgCreateContent) (*MsgCreateContentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateContent not implemented")
 }
-func (*UnimplementedMsgServer) Delete(ctx context.Context, req *MsgDelete) (*MsgDeleteResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+func (*UnimplementedMsgServer) RemoveContent(ctx context.Context, req *MsgRemoveContent) (*MsgRemoveContentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveContent not implemented")
 }
-func (*UnimplementedMsgServer) UpdateCurator(ctx context.Context, req *MsgUpdateCurator) (*MsgUpdateCuratorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCurator not implemented")
+func (*UnimplementedMsgServer) UpdateContentCurator(ctx context.Context, req *MsgUpdateContentCurator) (*MsgUpdateContentCuratorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateContentCurator not implemented")
 }
-func (*UnimplementedMsgServer) UpdateMetadata(ctx context.Context, req *MsgUpdateMetadata) (*MsgUpdateMetadataResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateMetadata not implemented")
+func (*UnimplementedMsgServer) UpdateContentMetadata(ctx context.Context, req *MsgUpdateContentMetadata) (*MsgUpdateContentMetadataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateContentMetadata not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
 	s.RegisterService(&_Msg_serviceDesc, srv)
 }
 
-func _Msg_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgCreate)
+func _Msg_CreateContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateContent)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Create(ctx, in)
+		return srv.(MsgServer).CreateContent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.content.v1.Msg/Create",
+		FullMethod: "/chora.content.v1.Msg/CreateContent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Create(ctx, req.(*MsgCreate))
+		return srv.(MsgServer).CreateContent(ctx, req.(*MsgCreateContent))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgDelete)
+func _Msg_RemoveContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveContent)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Delete(ctx, in)
+		return srv.(MsgServer).RemoveContent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.content.v1.Msg/Delete",
+		FullMethod: "/chora.content.v1.Msg/RemoveContent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Delete(ctx, req.(*MsgDelete))
+		return srv.(MsgServer).RemoveContent(ctx, req.(*MsgRemoveContent))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateCurator)
+func _Msg_UpdateContentCurator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateContentCurator)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).UpdateCurator(ctx, in)
+		return srv.(MsgServer).UpdateContentCurator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.content.v1.Msg/UpdateCurator",
+		FullMethod: "/chora.content.v1.Msg/UpdateContentCurator",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateCurator(ctx, req.(*MsgUpdateCurator))
+		return srv.(MsgServer).UpdateContentCurator(ctx, req.(*MsgUpdateContentCurator))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateMetadata)
+func _Msg_UpdateContentMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateContentMetadata)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).UpdateMetadata(ctx, in)
+		return srv.(MsgServer).UpdateContentMetadata(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chora.content.v1.Msg/UpdateMetadata",
+		FullMethod: "/chora.content.v1.Msg/UpdateContentMetadata",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateMetadata(ctx, req.(*MsgUpdateMetadata))
+		return srv.(MsgServer).UpdateContentMetadata(ctx, req.(*MsgUpdateContentMetadata))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -669,27 +669,27 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Create",
-			Handler:    _Msg_Create_Handler,
+			MethodName: "CreateContent",
+			Handler:    _Msg_CreateContent_Handler,
 		},
 		{
-			MethodName: "Delete",
-			Handler:    _Msg_Delete_Handler,
+			MethodName: "RemoveContent",
+			Handler:    _Msg_RemoveContent_Handler,
 		},
 		{
-			MethodName: "UpdateCurator",
-			Handler:    _Msg_UpdateCurator_Handler,
+			MethodName: "UpdateContentCurator",
+			Handler:    _Msg_UpdateContentCurator_Handler,
 		},
 		{
-			MethodName: "UpdateMetadata",
-			Handler:    _Msg_UpdateMetadata_Handler,
+			MethodName: "UpdateContentMetadata",
+			Handler:    _Msg_UpdateContentMetadata_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "chora/content/v1/msg.proto",
 }
 
-func (m *MsgCreate) Marshal() (dAtA []byte, err error) {
+func (m *MsgCreateContent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -699,12 +699,12 @@ func (m *MsgCreate) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgCreate) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgCreateContent) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgCreate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgCreateContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -726,7 +726,7 @@ func (m *MsgCreate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgCreateResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgCreateContentResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -736,12 +736,12 @@ func (m *MsgCreateResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgCreateResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgCreateContentResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgCreateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgCreateContentResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -754,7 +754,7 @@ func (m *MsgCreateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgDelete) Marshal() (dAtA []byte, err error) {
+func (m *MsgRemoveContent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -764,12 +764,12 @@ func (m *MsgDelete) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgDelete) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgRemoveContent) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgDelete) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgRemoveContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -789,7 +789,7 @@ func (m *MsgDelete) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgDeleteResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgRemoveContentResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -799,12 +799,12 @@ func (m *MsgDeleteResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgDeleteResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgRemoveContentResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgDeleteResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgRemoveContentResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -817,7 +817,7 @@ func (m *MsgDeleteResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateCurator) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdateContentCurator) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -827,12 +827,12 @@ func (m *MsgUpdateCurator) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateCurator) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentCurator) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateCurator) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentCurator) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -859,7 +859,7 @@ func (m *MsgUpdateCurator) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateCuratorResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdateContentCuratorResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -869,12 +869,12 @@ func (m *MsgUpdateCuratorResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateCuratorResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentCuratorResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -887,7 +887,7 @@ func (m *MsgUpdateCuratorResponse) MarshalToSizedBuffer(dAtA []byte) (int, error
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateMetadata) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdateContentMetadata) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -897,12 +897,12 @@ func (m *MsgUpdateMetadata) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateMetadata) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentMetadata) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -929,7 +929,7 @@ func (m *MsgUpdateMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgUpdateMetadataResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgUpdateContentMetadataResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -939,12 +939,12 @@ func (m *MsgUpdateMetadataResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgUpdateMetadataResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentMetadataResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgUpdateMetadataResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgUpdateContentMetadataResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -968,7 +968,7 @@ func encodeVarintMsg(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *MsgCreate) Size() (n int) {
+func (m *MsgCreateContent) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -985,7 +985,7 @@ func (m *MsgCreate) Size() (n int) {
 	return n
 }
 
-func (m *MsgCreateResponse) Size() (n int) {
+func (m *MsgCreateContentResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -997,7 +997,7 @@ func (m *MsgCreateResponse) Size() (n int) {
 	return n
 }
 
-func (m *MsgDelete) Size() (n int) {
+func (m *MsgRemoveContent) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1013,7 +1013,7 @@ func (m *MsgDelete) Size() (n int) {
 	return n
 }
 
-func (m *MsgDeleteResponse) Size() (n int) {
+func (m *MsgRemoveContentResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1025,7 +1025,7 @@ func (m *MsgDeleteResponse) Size() (n int) {
 	return n
 }
 
-func (m *MsgUpdateCurator) Size() (n int) {
+func (m *MsgUpdateContentCurator) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1045,7 +1045,7 @@ func (m *MsgUpdateCurator) Size() (n int) {
 	return n
 }
 
-func (m *MsgUpdateCuratorResponse) Size() (n int) {
+func (m *MsgUpdateContentCuratorResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1057,7 +1057,7 @@ func (m *MsgUpdateCuratorResponse) Size() (n int) {
 	return n
 }
 
-func (m *MsgUpdateMetadata) Size() (n int) {
+func (m *MsgUpdateContentMetadata) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1077,7 +1077,7 @@ func (m *MsgUpdateMetadata) Size() (n int) {
 	return n
 }
 
-func (m *MsgUpdateMetadataResponse) Size() (n int) {
+func (m *MsgUpdateContentMetadataResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1095,7 +1095,7 @@ func sovMsg(x uint64) (n int) {
 func sozMsg(x uint64) (n int) {
 	return sovMsg(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *MsgCreate) Unmarshal(dAtA []byte) error {
+func (m *MsgCreateContent) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1118,10 +1118,10 @@ func (m *MsgCreate) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreate: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgCreateContent: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreate: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgCreateContent: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1209,7 +1209,7 @@ func (m *MsgCreate) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgCreateResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgCreateContentResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1232,10 +1232,10 @@ func (m *MsgCreateResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgCreateContentResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgCreateContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1278,7 +1278,7 @@ func (m *MsgCreateResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgDelete) Unmarshal(dAtA []byte) error {
+func (m *MsgRemoveContent) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1301,10 +1301,10 @@ func (m *MsgDelete) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDelete: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgRemoveContent: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDelete: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgRemoveContent: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1379,7 +1379,7 @@ func (m *MsgDelete) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgDeleteResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgRemoveContentResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1402,10 +1402,10 @@ func (m *MsgDeleteResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgRemoveContentResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgRemoveContentResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1448,7 +1448,7 @@ func (m *MsgDeleteResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateCurator) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdateContentCurator) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1471,10 +1471,10 @@ func (m *MsgUpdateCurator) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateCurator: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdateContentCurator: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateCurator: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdateContentCurator: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1581,7 +1581,7 @@ func (m *MsgUpdateCurator) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateCuratorResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdateContentCuratorResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1604,10 +1604,10 @@ func (m *MsgUpdateCuratorResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateCuratorResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdateContentCuratorResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdateContentCuratorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1650,7 +1650,7 @@ func (m *MsgUpdateCuratorResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateMetadata) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdateContentMetadata) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1673,10 +1673,10 @@ func (m *MsgUpdateMetadata) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateMetadata: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdateContentMetadata: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdateContentMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1783,7 +1783,7 @@ func (m *MsgUpdateMetadata) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgUpdateMetadataResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgUpdateContentMetadataResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1806,10 +1806,10 @@ func (m *MsgUpdateMetadataResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateMetadataResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgUpdateContentMetadataResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateMetadataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgUpdateContentMetadataResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

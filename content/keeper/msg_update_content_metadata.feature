@@ -1,12 +1,12 @@
-Feature: Msg/UpdateMetadata
+Feature: Msg/UpdateContentMetadata
 
-  UpdateMetadata is successful when:
+  UpdateContentMetadata is successful when:
   - curator is the content curator
 
-  UpdateMetadata has the following outcomes:
+  UpdateContentMetadata has the following outcomes:
   - message response returned
   - Content is updated in state
-  - EventUpdateMetadata is emitted
+  - EventUpdateContentMetadata is emitted
 
   Rule: The curator must be the content curator
 
@@ -21,7 +21,7 @@ Feature: Msg/UpdateMetadata
       """
 
     Scenario: curator is content curator
-      When msg update metadata
+      When msg update content metadata
       """
       {
         "id": 1,
@@ -32,7 +32,7 @@ Feature: Msg/UpdateMetadata
       Then expect no error
 
     Scenario: curator is not content curator
-      When msg update metadata
+      When msg update content metadata
       """
       {
         "id": 1,
@@ -58,7 +58,7 @@ Feature: Msg/UpdateMetadata
       """
 
     Scenario: message response returned
-      When msg update metadata
+      When msg update content metadata
       """
       {
         "id": 1,
@@ -88,7 +88,7 @@ Feature: Msg/UpdateMetadata
       """
 
     Scenario: state content updated
-      When msg update metadata
+      When msg update content metadata
       """
       {
         "id": 1,
@@ -107,7 +107,7 @@ Feature: Msg/UpdateMetadata
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventUpdateMetadata emitted
+  Rule: EventUpdateContentMetadata emitted
 
     Background:
       Given content
@@ -120,7 +120,7 @@ Feature: Msg/UpdateMetadata
       """
 
     Scenario: event update metadata emitted
-      When msg update metadata
+      When msg update content metadata
       """
       {
         "id": 1,
@@ -128,7 +128,7 @@ Feature: Msg/UpdateMetadata
         "new_metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
-      Then expect event update metadata
+      Then expect event update content metadata
       """
       {
         "id": 1

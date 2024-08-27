@@ -10,10 +10,10 @@ import (
 	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
-// TxCreateCmd creates and returns the tx create command.
-func TxCreateCmd() *cobra.Command {
+// TxCreateContentCmd creates and returns the tx create command.
+func TxCreateContentCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create [metadata]",
+		Use:   "create-content [metadata]",
 		Short: "submit a transaction to create content",
 		Long:  "submit a transaction to create content",
 		Args:  cobra.ExactArgs(1),
@@ -23,7 +23,7 @@ func TxCreateCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgCreate{
+			msg := v1.MsgCreateContent{
 				Curator:  clientCtx.GetFromAddress().String(),
 				Metadata: args[0],
 			}

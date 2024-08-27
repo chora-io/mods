@@ -19,7 +19,7 @@ type queryContents struct {
 
 func TestQueryContents(t *testing.T) {
 	gocuke.NewRunner(t, &queryContents{}).
-		Path("./features/query_contents.feature").
+		Path("./query_contents.feature").
 		Run()
 }
 

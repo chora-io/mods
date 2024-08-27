@@ -65,8 +65,8 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//	},
 				//},
 				//{
-				//	RpcMethod: "UpdateMetadata",
-				//	Use:       "update-metadata [id] [new-metadata]",
+				//	RpcMethod: "UpdateContentMetadata",
+				//	Use:       "update-content-metadata [id] [new-metadata]",
 				//	Short:     "submit a transaction to update content metadata",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},

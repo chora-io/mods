@@ -1,12 +1,12 @@
-Feature: Msg/UpdateCurator
+Feature: Msg/UpdateContentCurator
 
-  UpdateCurator is successful when:
+  UpdateContentCurator is successful when:
   - curator is the content curator
 
-  UpdateCurator has the following outcomes:
+  UpdateContentCurator has the following outcomes:
   - message response returned
   - Content is updated in state
-  - EventUpdateCurator is emitted
+  - EventUpdateContentCurator is emitted
 
   Rule: The curator must be the content curator
 
@@ -21,7 +21,7 @@ Feature: Msg/UpdateCurator
       """
 
     Scenario: curator is content curator
-      When msg update curator
+      When msg update content curator
       """
       {
         "id": 1,
@@ -32,7 +32,7 @@ Feature: Msg/UpdateCurator
       Then expect no error
 
     Scenario: curator is not content curator
-      When msg update curator
+      When msg update content curator
       """
       {
         "id": 1,
@@ -58,7 +58,7 @@ Feature: Msg/UpdateCurator
       """
 
     Scenario: message response returned
-      When msg update curator
+      When msg update content curator
       """
       {
         "id": 1,
@@ -88,7 +88,7 @@ Feature: Msg/UpdateCurator
       """
 
     Scenario: state content updated
-      When msg update curator
+      When msg update content curator
       """
       {
         "id": 1,
@@ -107,7 +107,7 @@ Feature: Msg/UpdateCurator
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventUpdateCurator emitted
+  Rule: EventUpdateContentCurator emitted
 
     Background:
       Given content
@@ -120,7 +120,7 @@ Feature: Msg/UpdateCurator
       """
 
     Scenario: event update curator emitted
-      When msg update curator
+      When msg update content curator
       """
       {
         "id": 1,
@@ -128,7 +128,7 @@ Feature: Msg/UpdateCurator
         "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
-      Then expect event update curator
+      Then expect event update content curator
       """
       {
         "id": 1

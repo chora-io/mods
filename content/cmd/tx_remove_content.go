@@ -12,12 +12,12 @@ import (
 	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
-// TxDeleteCmd creates and returns the tx delete command.
-func TxDeleteCmd() *cobra.Command {
+// TxRemoveContentCmd creates and returns the tx delete command.
+func TxRemoveContentCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "delete [id]",
-		Short: "submit a transaction to delete content",
-		Long:  "submit a transaction to delete content",
+		Use:   "remove-content [id]",
+		Short: "submit a transaction to remove content",
+		Long:  "submit a transaction to remove content",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -30,7 +30,7 @@ func TxDeleteCmd() *cobra.Command {
 				return err
 			}
 
-			msg := v1.MsgDelete{
+			msg := v1.MsgRemoveContent{
 				Id:      id,
 				Curator: clientCtx.GetFromAddress().String(),
 			}

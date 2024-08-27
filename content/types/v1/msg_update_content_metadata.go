@@ -5,10 +5,10 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-var _ sdk.Msg = &MsgUpdateMetadata{}
+var _ sdk.Msg = &MsgUpdateContentMetadata{}
 
-// ValidateBasic performs stateless validation on MsgUpdateMetadata.
-func (m MsgUpdateMetadata) ValidateBasic() error {
+// ValidateBasic performs stateless validation on MsgUpdateContentMetadata.
+func (m MsgUpdateContentMetadata) ValidateBasic() error {
 	if m.Id == 0 {
 		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
 	}
@@ -28,18 +28,18 @@ func (m MsgUpdateMetadata) ValidateBasic() error {
 	return nil
 }
 
-// GetSigners returns the expected signers for MsgUpdateMetadata.
-func (m MsgUpdateMetadata) GetSigners() []sdk.AccAddress {
+// GetSigners returns the expected signers for MsgUpdateContentMetadata.
+func (m MsgUpdateContentMetadata) GetSigners() []sdk.AccAddress {
 	addr, _ := sdk.AccAddressFromBech32(m.Curator)
 	return []sdk.AccAddress{addr}
 }
 
 // Route implements the LegacyMsg interface.
-func (m MsgUpdateMetadata) Route() string {
+func (m MsgUpdateContentMetadata) Route() string {
 	return sdk.MsgTypeURL(&m)
 }
 
 // Type implements the LegacyMsg interface.
-func (m MsgUpdateMetadata) Type() string {
+func (m MsgUpdateContentMetadata) Type() string {
 	return sdk.MsgTypeURL(&m)
 }

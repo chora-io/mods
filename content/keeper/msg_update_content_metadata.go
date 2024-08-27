@@ -10,8 +10,8 @@ import (
 	v1 "github.com/chora-io/mods/content/types/v1"
 )
 
-// UpdateMetadata implements the Msg/UpdateMetadata method.
-func (k Keeper) UpdateMetadata(ctx context.Context, req *v1.MsgUpdateMetadata) (*v1.MsgUpdateMetadataResponse, error) {
+// UpdateContentMetadata implements the Msg/UpdateContentMetadata method.
+func (k Keeper) UpdateContentMetadata(ctx context.Context, req *v1.MsgUpdateContentMetadata) (*v1.MsgUpdateContentMetadataResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
 	// get account from curator address
@@ -49,14 +49,14 @@ func (k Keeper) UpdateMetadata(ctx context.Context, req *v1.MsgUpdateMetadata) (
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateMetadata{
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventUpdateContentMetadata{
 		Id: content.Id,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgUpdateMetadataResponse{
+	return &v1.MsgUpdateContentMetadataResponse{
 		Id: content.Id,
 	}, nil
 }

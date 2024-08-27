@@ -18,10 +18,10 @@ func TxCmd() *cobra.Command {
 	}
 
 	cmd.AddCommand(
-		TxCreateCmd(),
-		TxDeleteCmd(),
-		TxUpdateCuratorCmd(),
-		TxUpdateMetadataCmd(),
+		TxCreateContentCmd(),
+		TxRemoveContentCmd(),
+		TxUpdateContentCuratorCmd(),
+		TxUpdateContentMetadataCmd(),
 	)
 
 	return cmd

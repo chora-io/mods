@@ -8,7 +8,7 @@ The events are defined in the proto files available to view on [Buf Schema Regis
 
 <!-- listed alphabetically -->
 
-- [EventCreate](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventCreate)
-- [EventDelete](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventDelete)
-- [EventUpdateCurator](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventUpdateCurator)
-- [EventUpdateMetadata](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventUpdateMetadata)
+- [EventCreateContent](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventCreateContent)
+- [EventRemoveContent](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventRemoveContent)
+- [EventUpdateContentCurator](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventUpdateContentCurator)
+- [EventUpdateContentMetadata](https://buf.build/chora/content/docs/main:chora.content.v1#chora.content.v1.EventUpdateContentMetadata)

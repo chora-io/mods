@@ -18,7 +18,7 @@ type content struct {
 
 func TestContent(t *testing.T) {
 	gocuke.NewRunner(t, &content{}).
-		Path("./features/state_content.feature").
+		Path("./state_content.feature").
 		Run()
 }
 

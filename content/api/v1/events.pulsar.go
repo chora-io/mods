@@ -13,25 +13,25 @@ import (
 )
 
 var (
-	md_EventCreate    protoreflect.MessageDescriptor
-	fd_EventCreate_id protoreflect.FieldDescriptor
+	md_EventCreateContent    protoreflect.MessageDescriptor
+	fd_EventCreateContent_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_events_proto_init()
-	md_EventCreate = File_chora_content_v1_events_proto.Messages().ByName("EventCreate")
-	fd_EventCreate_id = md_EventCreate.Fields().ByName("id")
+	md_EventCreateContent = File_chora_content_v1_events_proto.Messages().ByName("EventCreateContent")
+	fd_EventCreateContent_id = md_EventCreateContent.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventCreate)(nil)
+var _ protoreflect.Message = (*fastReflection_EventCreateContent)(nil)
 
-type fastReflection_EventCreate EventCreate
+type fastReflection_EventCreateContent EventCreateContent
 
-func (x *EventCreate) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventCreate)(x)
+func (x *EventCreateContent) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventCreateContent)(x)
 }
 
-func (x *EventCreate) slowProtoReflect() protoreflect.Message {
+func (x *EventCreateContent) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_events_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -43,43 +43,43 @@ func (x *EventCreate) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventCreate_messageType fastReflection_EventCreate_messageType
-var _ protoreflect.MessageType = fastReflection_EventCreate_messageType{}
+var _fastReflection_EventCreateContent_messageType fastReflection_EventCreateContent_messageType
+var _ protoreflect.MessageType = fastReflection_EventCreateContent_messageType{}
 
-type fastReflection_EventCreate_messageType struct{}
+type fastReflection_EventCreateContent_messageType struct{}
 
-func (x fastReflection_EventCreate_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventCreate)(nil)
+func (x fastReflection_EventCreateContent_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventCreateContent)(nil)
 }
-func (x fastReflection_EventCreate_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventCreate)
+func (x fastReflection_EventCreateContent_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventCreateContent)
 }
-func (x fastReflection_EventCreate_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventCreate
+func (x fastReflection_EventCreateContent_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventCreateContent
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventCreate) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventCreate
+func (x *fastReflection_EventCreateContent) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventCreateContent
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventCreate) Type() protoreflect.MessageType {
-	return _fastReflection_EventCreate_messageType
+func (x *fastReflection_EventCreateContent) Type() protoreflect.MessageType {
+	return _fastReflection_EventCreateContent_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventCreate) New() protoreflect.Message {
-	return new(fastReflection_EventCreate)
+func (x *fastReflection_EventCreateContent) New() protoreflect.Message {
+	return new(fastReflection_EventCreateContent)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventCreate) Interface() protoreflect.ProtoMessage {
-	return (*EventCreate)(x)
+func (x *fastReflection_EventCreateContent) Interface() protoreflect.ProtoMessage {
+	return (*EventCreateContent)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -87,10 +87,10 @@ func (x *fastReflection_EventCreate) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventCreate) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventCreateContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_EventCreate_id, value) {
+		if !f(fd_EventCreateContent_id, value) {
 			return
 		}
 	}
@@ -107,15 +107,15 @@ func (x *fastReflection_EventCreate) Range(f func(protoreflect.FieldDescriptor, 
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventCreate) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventCreateContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.EventCreate.id":
+	case "chora.content.v1.EventCreateContent.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -125,15 +125,15 @@ func (x *fastReflection_EventCreate) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventCreate) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventCreateContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventCreate.id":
+	case "chora.content.v1.EventCreateContent.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -143,16 +143,16 @@ func (x *fastReflection_EventCreate) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventCreate) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventCreateContent) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.EventCreate.id":
+	case "chora.content.v1.EventCreateContent.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventCreate does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventCreateContent does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -166,15 +166,15 @@ func (x *fastReflection_EventCreate) Get(descriptor protoreflect.FieldDescriptor
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventCreate) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventCreateContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventCreate.id":
+	case "chora.content.v1.EventCreateContent.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -188,40 +188,40 @@ func (x *fastReflection_EventCreate) Set(fd protoreflect.FieldDescriptor, value 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventCreate) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventCreateContent) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventCreate.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.EventCreate is not mutable"))
+	case "chora.content.v1.EventCreateContent.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.EventCreateContent is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventCreate) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventCreateContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventCreate.id":
+	case "chora.content.v1.EventCreateContent.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreate"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventCreateContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventCreate does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventCreateContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventCreate) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventCreateContent) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventCreate", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventCreateContent", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -229,7 +229,7 @@ func (x *fastReflection_EventCreate) WhichOneof(d protoreflect.OneofDescriptor) 
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventCreate) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventCreateContent) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -240,7 +240,7 @@ func (x *fastReflection_EventCreate) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventCreate) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventCreateContent) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -252,7 +252,7 @@ func (x *fastReflection_EventCreate) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventCreate) IsValid() bool {
+func (x *fastReflection_EventCreateContent) IsValid() bool {
 	return x != nil
 }
 
@@ -262,9 +262,9 @@ func (x *fastReflection_EventCreate) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventCreate) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventCreateContent) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventCreate)
+		x := input.Message.Interface().(*EventCreateContent)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -289,7 +289,7 @@ func (x *fastReflection_EventCreate) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventCreate)
+		x := input.Message.Interface().(*EventCreateContent)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -324,7 +324,7 @@ func (x *fastReflection_EventCreate) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventCreate)
+		x := input.Message.Interface().(*EventCreateContent)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -356,10 +356,10 @@ func (x *fastReflection_EventCreate) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventCreate: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventCreateContent: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventCreate: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventCreateContent: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -417,25 +417,25 @@ func (x *fastReflection_EventCreate) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_EventUpdateCurator    protoreflect.MessageDescriptor
-	fd_EventUpdateCurator_id protoreflect.FieldDescriptor
+	md_EventRemoveContent    protoreflect.MessageDescriptor
+	fd_EventRemoveContent_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_events_proto_init()
-	md_EventUpdateCurator = File_chora_content_v1_events_proto.Messages().ByName("EventUpdateCurator")
-	fd_EventUpdateCurator_id = md_EventUpdateCurator.Fields().ByName("id")
+	md_EventRemoveContent = File_chora_content_v1_events_proto.Messages().ByName("EventRemoveContent")
+	fd_EventRemoveContent_id = md_EventRemoveContent.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventUpdateCurator)(nil)
+var _ protoreflect.Message = (*fastReflection_EventRemoveContent)(nil)
 
-type fastReflection_EventUpdateCurator EventUpdateCurator
+type fastReflection_EventRemoveContent EventRemoveContent
 
-func (x *EventUpdateCurator) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventUpdateCurator)(x)
+func (x *EventRemoveContent) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventRemoveContent)(x)
 }
 
-func (x *EventUpdateCurator) slowProtoReflect() protoreflect.Message {
+func (x *EventRemoveContent) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_events_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -447,43 +447,43 @@ func (x *EventUpdateCurator) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventUpdateCurator_messageType fastReflection_EventUpdateCurator_messageType
-var _ protoreflect.MessageType = fastReflection_EventUpdateCurator_messageType{}
+var _fastReflection_EventRemoveContent_messageType fastReflection_EventRemoveContent_messageType
+var _ protoreflect.MessageType = fastReflection_EventRemoveContent_messageType{}
 
-type fastReflection_EventUpdateCurator_messageType struct{}
+type fastReflection_EventRemoveContent_messageType struct{}
 
-func (x fastReflection_EventUpdateCurator_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventUpdateCurator)(nil)
+func (x fastReflection_EventRemoveContent_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventRemoveContent)(nil)
 }
-func (x fastReflection_EventUpdateCurator_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventUpdateCurator)
+func (x fastReflection_EventRemoveContent_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventRemoveContent)
 }
-func (x fastReflection_EventUpdateCurator_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdateCurator
+func (x fastReflection_EventRemoveContent_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventRemoveContent
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventUpdateCurator) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdateCurator
+func (x *fastReflection_EventRemoveContent) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventRemoveContent
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventUpdateCurator) Type() protoreflect.MessageType {
-	return _fastReflection_EventUpdateCurator_messageType
+func (x *fastReflection_EventRemoveContent) Type() protoreflect.MessageType {
+	return _fastReflection_EventRemoveContent_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventUpdateCurator) New() protoreflect.Message {
-	return new(fastReflection_EventUpdateCurator)
+func (x *fastReflection_EventRemoveContent) New() protoreflect.Message {
+	return new(fastReflection_EventRemoveContent)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventUpdateCurator) Interface() protoreflect.ProtoMessage {
-	return (*EventUpdateCurator)(x)
+func (x *fastReflection_EventRemoveContent) Interface() protoreflect.ProtoMessage {
+	return (*EventRemoveContent)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -491,10 +491,10 @@ func (x *fastReflection_EventUpdateCurator) Interface() protoreflect.ProtoMessag
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventUpdateCurator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventRemoveContent) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_EventUpdateCurator_id, value) {
+		if !f(fd_EventRemoveContent_id, value) {
 			return
 		}
 	}
@@ -511,15 +511,15 @@ func (x *fastReflection_EventUpdateCurator) Range(f func(protoreflect.FieldDescr
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventUpdateCurator) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventRemoveContent) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateCurator.id":
+	case "chora.content.v1.EventRemoveContent.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -529,15 +529,15 @@ func (x *fastReflection_EventUpdateCurator) Has(fd protoreflect.FieldDescriptor)
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateCurator) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventRemoveContent) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateCurator.id":
+	case "chora.content.v1.EventRemoveContent.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -547,16 +547,16 @@ func (x *fastReflection_EventUpdateCurator) Clear(fd protoreflect.FieldDescripto
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventUpdateCurator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveContent) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.EventUpdateCurator.id":
+	case "chora.content.v1.EventRemoveContent.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateCurator does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventRemoveContent does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -570,15 +570,15 @@ func (x *fastReflection_EventUpdateCurator) Get(descriptor protoreflect.FieldDes
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateCurator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventRemoveContent) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateCurator.id":
+	case "chora.content.v1.EventRemoveContent.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -592,40 +592,40 @@ func (x *fastReflection_EventUpdateCurator) Set(fd protoreflect.FieldDescriptor,
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateCurator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveContent) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateCurator.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.EventUpdateCurator is not mutable"))
+	case "chora.content.v1.EventRemoveContent.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.EventRemoveContent is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventUpdateCurator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventRemoveContent) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateCurator.id":
+	case "chora.content.v1.EventRemoveContent.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateCurator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventRemoveContent"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateCurator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventRemoveContent does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventUpdateCurator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventRemoveContent) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventUpdateCurator", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventRemoveContent", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -633,7 +633,7 @@ func (x *fastReflection_EventUpdateCurator) WhichOneof(d protoreflect.OneofDescr
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventUpdateCurator) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventRemoveContent) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -644,7 +644,7 @@ func (x *fastReflection_EventUpdateCurator) GetUnknown() protoreflect.RawFields 
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateCurator) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventRemoveContent) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -656,7 +656,7 @@ func (x *fastReflection_EventUpdateCurator) SetUnknown(fields protoreflect.RawFi
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventUpdateCurator) IsValid() bool {
+func (x *fastReflection_EventRemoveContent) IsValid() bool {
 	return x != nil
 }
 
@@ -666,9 +666,9 @@ func (x *fastReflection_EventUpdateCurator) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventUpdateCurator) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventRemoveContent) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventUpdateCurator)
+		x := input.Message.Interface().(*EventRemoveContent)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -693,7 +693,7 @@ func (x *fastReflection_EventUpdateCurator) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdateCurator)
+		x := input.Message.Interface().(*EventRemoveContent)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -728,7 +728,7 @@ func (x *fastReflection_EventUpdateCurator) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdateCurator)
+		x := input.Message.Interface().(*EventRemoveContent)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -760,10 +760,10 @@ func (x *fastReflection_EventUpdateCurator) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateCurator: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemoveContent: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateCurator: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventRemoveContent: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -821,25 +821,25 @@ func (x *fastReflection_EventUpdateCurator) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_EventUpdateMetadata    protoreflect.MessageDescriptor
-	fd_EventUpdateMetadata_id protoreflect.FieldDescriptor
+	md_EventUpdateContentCurator    protoreflect.MessageDescriptor
+	fd_EventUpdateContentCurator_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_events_proto_init()
-	md_EventUpdateMetadata = File_chora_content_v1_events_proto.Messages().ByName("EventUpdateMetadata")
-	fd_EventUpdateMetadata_id = md_EventUpdateMetadata.Fields().ByName("id")
+	md_EventUpdateContentCurator = File_chora_content_v1_events_proto.Messages().ByName("EventUpdateContentCurator")
+	fd_EventUpdateContentCurator_id = md_EventUpdateContentCurator.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventUpdateMetadata)(nil)
+var _ protoreflect.Message = (*fastReflection_EventUpdateContentCurator)(nil)
 
-type fastReflection_EventUpdateMetadata EventUpdateMetadata
+type fastReflection_EventUpdateContentCurator EventUpdateContentCurator
 
-func (x *EventUpdateMetadata) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventUpdateMetadata)(x)
+func (x *EventUpdateContentCurator) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventUpdateContentCurator)(x)
 }
 
-func (x *EventUpdateMetadata) slowProtoReflect() protoreflect.Message {
+func (x *EventUpdateContentCurator) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_events_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -851,43 +851,43 @@ func (x *EventUpdateMetadata) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventUpdateMetadata_messageType fastReflection_EventUpdateMetadata_messageType
-var _ protoreflect.MessageType = fastReflection_EventUpdateMetadata_messageType{}
+var _fastReflection_EventUpdateContentCurator_messageType fastReflection_EventUpdateContentCurator_messageType
+var _ protoreflect.MessageType = fastReflection_EventUpdateContentCurator_messageType{}
 
-type fastReflection_EventUpdateMetadata_messageType struct{}
+type fastReflection_EventUpdateContentCurator_messageType struct{}
 
-func (x fastReflection_EventUpdateMetadata_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventUpdateMetadata)(nil)
+func (x fastReflection_EventUpdateContentCurator_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventUpdateContentCurator)(nil)
 }
-func (x fastReflection_EventUpdateMetadata_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventUpdateMetadata)
+func (x fastReflection_EventUpdateContentCurator_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateContentCurator)
 }
-func (x fastReflection_EventUpdateMetadata_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdateMetadata
+func (x fastReflection_EventUpdateContentCurator_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateContentCurator
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventUpdateMetadata) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventUpdateMetadata
+func (x *fastReflection_EventUpdateContentCurator) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateContentCurator
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventUpdateMetadata) Type() protoreflect.MessageType {
-	return _fastReflection_EventUpdateMetadata_messageType
+func (x *fastReflection_EventUpdateContentCurator) Type() protoreflect.MessageType {
+	return _fastReflection_EventUpdateContentCurator_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventUpdateMetadata) New() protoreflect.Message {
-	return new(fastReflection_EventUpdateMetadata)
+func (x *fastReflection_EventUpdateContentCurator) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateContentCurator)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventUpdateMetadata) Interface() protoreflect.ProtoMessage {
-	return (*EventUpdateMetadata)(x)
+func (x *fastReflection_EventUpdateContentCurator) Interface() protoreflect.ProtoMessage {
+	return (*EventUpdateContentCurator)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -895,10 +895,10 @@ func (x *fastReflection_EventUpdateMetadata) Interface() protoreflect.ProtoMessa
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventUpdateMetadata) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventUpdateContentCurator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_EventUpdateMetadata_id, value) {
+		if !f(fd_EventUpdateContentCurator_id, value) {
 			return
 		}
 	}
@@ -915,15 +915,15 @@ func (x *fastReflection_EventUpdateMetadata) Range(f func(protoreflect.FieldDesc
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventUpdateMetadata) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventUpdateContentCurator) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateMetadata.id":
+	case "chora.content.v1.EventUpdateContentCurator.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -933,15 +933,15 @@ func (x *fastReflection_EventUpdateMetadata) Has(fd protoreflect.FieldDescriptor
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventUpdateContentCurator) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateMetadata.id":
+	case "chora.content.v1.EventUpdateContentCurator.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -951,16 +951,16 @@ func (x *fastReflection_EventUpdateMetadata) Clear(fd protoreflect.FieldDescript
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventUpdateMetadata) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateContentCurator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.EventUpdateMetadata.id":
+	case "chora.content.v1.EventUpdateContentCurator.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateMetadata does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentCurator does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -974,15 +974,15 @@ func (x *fastReflection_EventUpdateMetadata) Get(descriptor protoreflect.FieldDe
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventUpdateContentCurator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateMetadata.id":
+	case "chora.content.v1.EventUpdateContentCurator.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -996,40 +996,40 @@ func (x *fastReflection_EventUpdateMetadata) Set(fd protoreflect.FieldDescriptor
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateContentCurator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateMetadata.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.EventUpdateMetadata is not mutable"))
+	case "chora.content.v1.EventUpdateContentCurator.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.EventUpdateContentCurator is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventUpdateMetadata) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateContentCurator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventUpdateMetadata.id":
+	case "chora.content.v1.EventUpdateContentCurator.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateMetadata"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentCurator"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventUpdateMetadata does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentCurator does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventUpdateMetadata) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventUpdateContentCurator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventUpdateMetadata", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventUpdateContentCurator", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1037,7 +1037,7 @@ func (x *fastReflection_EventUpdateMetadata) WhichOneof(d protoreflect.OneofDesc
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventUpdateMetadata) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventUpdateContentCurator) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1048,7 +1048,7 @@ func (x *fastReflection_EventUpdateMetadata) GetUnknown() protoreflect.RawFields
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventUpdateMetadata) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventUpdateContentCurator) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1060,7 +1060,7 @@ func (x *fastReflection_EventUpdateMetadata) SetUnknown(fields protoreflect.RawF
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventUpdateMetadata) IsValid() bool {
+func (x *fastReflection_EventUpdateContentCurator) IsValid() bool {
 	return x != nil
 }
 
@@ -1070,9 +1070,9 @@ func (x *fastReflection_EventUpdateMetadata) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventUpdateContentCurator) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventUpdateMetadata)
+		x := input.Message.Interface().(*EventUpdateContentCurator)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1097,7 +1097,7 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdateMetadata)
+		x := input.Message.Interface().(*EventUpdateContentCurator)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1132,7 +1132,7 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventUpdateMetadata)
+		x := input.Message.Interface().(*EventUpdateContentCurator)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1164,10 +1164,10 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateMetadata: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateContentCurator: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateContentCurator: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1225,25 +1225,25 @@ func (x *fastReflection_EventUpdateMetadata) ProtoMethods() *protoiface.Methods 
 }
 
 var (
-	md_EventDelete    protoreflect.MessageDescriptor
-	fd_EventDelete_id protoreflect.FieldDescriptor
+	md_EventUpdateContentMetadata    protoreflect.MessageDescriptor
+	fd_EventUpdateContentMetadata_id protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_events_proto_init()
-	md_EventDelete = File_chora_content_v1_events_proto.Messages().ByName("EventDelete")
-	fd_EventDelete_id = md_EventDelete.Fields().ByName("id")
+	md_EventUpdateContentMetadata = File_chora_content_v1_events_proto.Messages().ByName("EventUpdateContentMetadata")
+	fd_EventUpdateContentMetadata_id = md_EventUpdateContentMetadata.Fields().ByName("id")
 }
 
-var _ protoreflect.Message = (*fastReflection_EventDelete)(nil)
+var _ protoreflect.Message = (*fastReflection_EventUpdateContentMetadata)(nil)
 
-type fastReflection_EventDelete EventDelete
+type fastReflection_EventUpdateContentMetadata EventUpdateContentMetadata
 
-func (x *EventDelete) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_EventDelete)(x)
+func (x *EventUpdateContentMetadata) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_EventUpdateContentMetadata)(x)
 }
 
-func (x *EventDelete) slowProtoReflect() protoreflect.Message {
+func (x *EventUpdateContentMetadata) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_content_v1_events_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1255,43 +1255,43 @@ func (x *EventDelete) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_EventDelete_messageType fastReflection_EventDelete_messageType
-var _ protoreflect.MessageType = fastReflection_EventDelete_messageType{}
+var _fastReflection_EventUpdateContentMetadata_messageType fastReflection_EventUpdateContentMetadata_messageType
+var _ protoreflect.MessageType = fastReflection_EventUpdateContentMetadata_messageType{}
 
-type fastReflection_EventDelete_messageType struct{}
+type fastReflection_EventUpdateContentMetadata_messageType struct{}
 
-func (x fastReflection_EventDelete_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_EventDelete)(nil)
+func (x fastReflection_EventUpdateContentMetadata_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_EventUpdateContentMetadata)(nil)
 }
-func (x fastReflection_EventDelete_messageType) New() protoreflect.Message {
-	return new(fastReflection_EventDelete)
+func (x fastReflection_EventUpdateContentMetadata_messageType) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateContentMetadata)
 }
-func (x fastReflection_EventDelete_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventDelete
+func (x fastReflection_EventUpdateContentMetadata_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateContentMetadata
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_EventDelete) Descriptor() protoreflect.MessageDescriptor {
-	return md_EventDelete
+func (x *fastReflection_EventUpdateContentMetadata) Descriptor() protoreflect.MessageDescriptor {
+	return md_EventUpdateContentMetadata
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_EventDelete) Type() protoreflect.MessageType {
-	return _fastReflection_EventDelete_messageType
+func (x *fastReflection_EventUpdateContentMetadata) Type() protoreflect.MessageType {
+	return _fastReflection_EventUpdateContentMetadata_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_EventDelete) New() protoreflect.Message {
-	return new(fastReflection_EventDelete)
+func (x *fastReflection_EventUpdateContentMetadata) New() protoreflect.Message {
+	return new(fastReflection_EventUpdateContentMetadata)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_EventDelete) Interface() protoreflect.ProtoMessage {
-	return (*EventDelete)(x)
+func (x *fastReflection_EventUpdateContentMetadata) Interface() protoreflect.ProtoMessage {
+	return (*EventUpdateContentMetadata)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -1299,10 +1299,10 @@ func (x *fastReflection_EventDelete) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_EventDelete) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_EventUpdateContentMetadata) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_EventDelete_id, value) {
+		if !f(fd_EventUpdateContentMetadata_id, value) {
 			return
 		}
 	}
@@ -1319,15 +1319,15 @@ func (x *fastReflection_EventDelete) Range(f func(protoreflect.FieldDescriptor, 
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_EventDelete) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_EventUpdateContentMetadata) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.EventDelete.id":
+	case "chora.content.v1.EventUpdateContentMetadata.id":
 		return x.Id != uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1337,15 +1337,15 @@ func (x *fastReflection_EventDelete) Has(fd protoreflect.FieldDescriptor) bool {
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventDelete) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_EventUpdateContentMetadata) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventDelete.id":
+	case "chora.content.v1.EventUpdateContentMetadata.id":
 		x.Id = uint64(0)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1355,16 +1355,16 @@ func (x *fastReflection_EventDelete) Clear(fd protoreflect.FieldDescriptor) {
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_EventDelete) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateContentMetadata) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.EventDelete.id":
+	case "chora.content.v1.EventUpdateContentMetadata.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventDelete does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentMetadata does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -1378,15 +1378,15 @@ func (x *fastReflection_EventDelete) Get(descriptor protoreflect.FieldDescriptor
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventDelete) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_EventUpdateContentMetadata) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.EventDelete.id":
+	case "chora.content.v1.EventUpdateContentMetadata.id":
 		x.Id = value.Uint()
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -1400,40 +1400,40 @@ func (x *fastReflection_EventDelete) Set(fd protoreflect.FieldDescriptor, value 
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventDelete) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateContentMetadata) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventDelete.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.EventDelete is not mutable"))
+	case "chora.content.v1.EventUpdateContentMetadata.id":
+		panic(fmt.Errorf("field id of message chora.content.v1.EventUpdateContentMetadata is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_EventDelete) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_EventUpdateContentMetadata) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.EventDelete.id":
+	case "chora.content.v1.EventUpdateContentMetadata.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventDelete"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.EventUpdateContentMetadata"))
 		}
-		panic(fmt.Errorf("message chora.content.v1.EventDelete does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.content.v1.EventUpdateContentMetadata does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_EventDelete) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_EventUpdateContentMetadata) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventDelete", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.content.v1.EventUpdateContentMetadata", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -1441,7 +1441,7 @@ func (x *fastReflection_EventDelete) WhichOneof(d protoreflect.OneofDescriptor) 
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_EventDelete) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_EventUpdateContentMetadata) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -1452,7 +1452,7 @@ func (x *fastReflection_EventDelete) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_EventDelete) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_EventUpdateContentMetadata) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -1464,7 +1464,7 @@ func (x *fastReflection_EventDelete) SetUnknown(fields protoreflect.RawFields) {
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_EventDelete) IsValid() bool {
+func (x *fastReflection_EventUpdateContentMetadata) IsValid() bool {
 	return x != nil
 }
 
@@ -1474,9 +1474,9 @@ func (x *fastReflection_EventDelete) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_EventDelete) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_EventUpdateContentMetadata) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*EventDelete)
+		x := input.Message.Interface().(*EventUpdateContentMetadata)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1501,7 +1501,7 @@ func (x *fastReflection_EventDelete) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*EventDelete)
+		x := input.Message.Interface().(*EventUpdateContentMetadata)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1536,7 +1536,7 @@ func (x *fastReflection_EventDelete) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*EventDelete)
+		x := input.Message.Interface().(*EventUpdateContentMetadata)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -1568,10 +1568,10 @@ func (x *fastReflection_EventDelete) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventDelete: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateContentMetadata: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventDelete: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: EventUpdateContentMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1641,8 +1641,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// EventCreate is an event emitted when content is created.
-type EventCreate struct {
+// EventCreateContent is an event emitted when content is created.
+type EventCreateContent struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1651,8 +1651,8 @@ type EventCreate struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *EventCreate) Reset() {
-	*x = EventCreate{}
+func (x *EventCreateContent) Reset() {
+	*x = EventCreateContent{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_events_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1660,26 +1660,26 @@ func (x *EventCreate) Reset() {
 	}
 }
 
-func (x *EventCreate) String() string {
+func (x *EventCreateContent) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventCreate) ProtoMessage() {}
+func (*EventCreateContent) ProtoMessage() {}
 
-// Deprecated: Use EventCreate.ProtoReflect.Descriptor instead.
-func (*EventCreate) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventCreateContent.ProtoReflect.Descriptor instead.
+func (*EventCreateContent) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_events_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EventCreate) GetId() uint64 {
+func (x *EventCreateContent) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-// EventUpdateCurator is an event emitted when content curator is updated.
-type EventUpdateCurator struct {
+// EventRemoveContent is an event emitted when content is deleted.
+type EventRemoveContent struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1688,8 +1688,8 @@ type EventUpdateCurator struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *EventUpdateCurator) Reset() {
-	*x = EventUpdateCurator{}
+func (x *EventRemoveContent) Reset() {
+	*x = EventRemoveContent{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_events_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1697,26 +1697,26 @@ func (x *EventUpdateCurator) Reset() {
 	}
 }
 
-func (x *EventUpdateCurator) String() string {
+func (x *EventRemoveContent) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventUpdateCurator) ProtoMessage() {}
+func (*EventRemoveContent) ProtoMessage() {}
 
-// Deprecated: Use EventUpdateCurator.ProtoReflect.Descriptor instead.
-func (*EventUpdateCurator) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventRemoveContent.ProtoReflect.Descriptor instead.
+func (*EventRemoveContent) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_events_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *EventUpdateCurator) GetId() uint64 {
+func (x *EventRemoveContent) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-// EventUpdateMetadata is an event emitted when content metadata is updated.
-type EventUpdateMetadata struct {
+// EventUpdateContentCurator is an event emitted when content curator is updated.
+type EventUpdateContentCurator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1725,8 +1725,8 @@ type EventUpdateMetadata struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *EventUpdateMetadata) Reset() {
-	*x = EventUpdateMetadata{}
+func (x *EventUpdateContentCurator) Reset() {
+	*x = EventUpdateContentCurator{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_events_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1734,26 +1734,26 @@ func (x *EventUpdateMetadata) Reset() {
 	}
 }
 
-func (x *EventUpdateMetadata) String() string {
+func (x *EventUpdateContentCurator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventUpdateMetadata) ProtoMessage() {}
+func (*EventUpdateContentCurator) ProtoMessage() {}
 
-// Deprecated: Use EventUpdateMetadata.ProtoReflect.Descriptor instead.
-func (*EventUpdateMetadata) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventUpdateContentCurator.ProtoReflect.Descriptor instead.
+func (*EventUpdateContentCurator) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_events_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *EventUpdateMetadata) GetId() uint64 {
+func (x *EventUpdateContentCurator) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-// EventDelete is an event emitted when content is deleted.
-type EventDelete struct {
+// EventUpdateContentMetadata is an event emitted when content metadata is updated.
+type EventUpdateContentMetadata struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1762,8 +1762,8 @@ type EventDelete struct {
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *EventDelete) Reset() {
-	*x = EventDelete{}
+func (x *EventUpdateContentMetadata) Reset() {
+	*x = EventUpdateContentMetadata{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_content_v1_events_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1771,18 +1771,18 @@ func (x *EventDelete) Reset() {
 	}
 }
 
-func (x *EventDelete) String() string {
+func (x *EventUpdateContentMetadata) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EventDelete) ProtoMessage() {}
+func (*EventUpdateContentMetadata) ProtoMessage() {}
 
-// Deprecated: Use EventDelete.ProtoReflect.Descriptor instead.
-func (*EventDelete) Descriptor() ([]byte, []int) {
+// Deprecated: Use EventUpdateContentMetadata.ProtoReflect.Descriptor instead.
+func (*EventUpdateContentMetadata) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_events_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *EventDelete) GetId() uint64 {
+func (x *EventUpdateContentMetadata) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
@@ -1795,28 +1795,30 @@ var file_chora_content_v1_events_proto_rawDesc = []byte{
 	0x0a, 0x1d, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f,
 	0x76, 0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
 	0x10, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76,
-	0x31, 0x22, 0x1d, 0x0a, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
-	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
-	0x22, 0x24, 0x0a, 0x12, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43,
-	0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x25, 0x0a, 0x13, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x0e, 0x0a,
-	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x1d, 0x0a,
-	0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x0e, 0x0a, 0x02,
-	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x42, 0xc6, 0x01, 0x0a,
-	0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65,
-	0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x72, 0x6f,
-	0x74, 0x6f, 0x50, 0x01, 0x5a, 0x3f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x63,
-	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x63, 0x6f, 0x6e, 0x74,
-	0x65, 0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68,
-	0x6f, 0x72, 0x61, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02,
-	0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56,
-	0x31, 0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
-	0xea, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
-	0x74, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x31, 0x22, 0x24, 0x0a, 0x12, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x24, 0x0a, 0x12, 0x45, 0x76, 0x65, 0x6e, 0x74,
+	0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a,
+	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2b, 0x0a,
+	0x19, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x43, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2c, 0x0a, 0x1a, 0x45, 0x76,
+	0x65, 0x6e, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74,
+	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x42, 0xc6, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d,
+	0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76,
+	0x31, 0x42, 0x0b, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
+	0x5a, 0x3f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f,
+	0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x76,
+	0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f,
+	0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c,
+	0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31,
+	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43,
+	0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x3a, 0x3a, 0x56,
+	0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1833,10 +1835,10 @@ func file_chora_content_v1_events_proto_rawDescGZIP() []byte {
 
 var file_chora_content_v1_events_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_chora_content_v1_events_proto_goTypes = []interface{}{
-	(*EventCreate)(nil),         // 0: chora.content.v1.EventCreate
-	(*EventUpdateCurator)(nil),  // 1: chora.content.v1.EventUpdateCurator
-	(*EventUpdateMetadata)(nil), // 2: chora.content.v1.EventUpdateMetadata
-	(*EventDelete)(nil),         // 3: chora.content.v1.EventDelete
+	(*EventCreateContent)(nil),         // 0: chora.content.v1.EventCreateContent
+	(*EventRemoveContent)(nil),         // 1: chora.content.v1.EventRemoveContent
+	(*EventUpdateContentCurator)(nil),  // 2: chora.content.v1.EventUpdateContentCurator
+	(*EventUpdateContentMetadata)(nil), // 3: chora.content.v1.EventUpdateContentMetadata
 }
 var file_chora_content_v1_events_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -1853,7 +1855,7 @@ func file_chora_content_v1_events_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_content_v1_events_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventCreate); i {
+			switch v := v.(*EventCreateContent); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1865,7 +1867,7 @@ func file_chora_content_v1_events_proto_init() {
 			}
 		}
 		file_chora_content_v1_events_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventUpdateCurator); i {
+			switch v := v.(*EventRemoveContent); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1877,7 +1879,7 @@ func file_chora_content_v1_events_proto_init() {
 			}
 		}
 		file_chora_content_v1_events_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventUpdateMetadata); i {
+			switch v := v.(*EventUpdateContentCurator); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1889,7 +1891,7 @@ func file_chora_content_v1_events_proto_init() {
 			}
 		}
 		file_chora_content_v1_events_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EventDelete); i {
+			switch v := v.(*EventUpdateContentMetadata); i {
 			case 0:
 				return &v.state
 			case 1:

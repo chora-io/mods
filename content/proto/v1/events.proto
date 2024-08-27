@@ -4,29 +4,29 @@ package chora.content.v1;
 
 option go_package = "github.com/chora-io/mods/content/types/v1";
 
-// EventCreate is an event emitted when content is created.
-message EventCreate {
+// EventCreateContent is an event emitted when content is created.
+message EventCreateContent {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// EventUpdateCurator is an event emitted when content curator is updated.
-message EventUpdateCurator {
+// EventRemoveContent is an event emitted when content is deleted.
+message EventRemoveContent {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// EventUpdateMetadata is an event emitted when content metadata is updated.
-message EventUpdateMetadata {
+// EventUpdateContentCurator is an event emitted when content curator is updated.
+message EventUpdateContentCurator {
 
   // id is the unique identifier of the content.
   uint64 id = 1;
 }
 
-// EventDelete is an event emitted when content is deleted.
-message EventDelete {
+// EventUpdateContentMetadata is an event emitted when content metadata is updated.
+message EventUpdateContentMetadata {
 
   // id is the unique identifier of the content.
   uint64 id = 1;

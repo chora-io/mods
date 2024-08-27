@@ -22,24 +22,24 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-// EventCreate is an event emitted when content is created.
-type EventCreate struct {
+// EventCreateContent is an event emitted when content is created.
+type EventCreateContent struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *EventCreate) Reset()         { *m = EventCreate{} }
-func (m *EventCreate) String() string { return proto.CompactTextString(m) }
-func (*EventCreate) ProtoMessage()    {}
-func (*EventCreate) Descriptor() ([]byte, []int) {
+func (m *EventCreateContent) Reset()         { *m = EventCreateContent{} }
+func (m *EventCreateContent) String() string { return proto.CompactTextString(m) }
+func (*EventCreateContent) ProtoMessage()    {}
+func (*EventCreateContent) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f76c8d47db49fa98, []int{0}
 }
-func (m *EventCreate) XXX_Unmarshal(b []byte) error {
+func (m *EventCreateContent) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventCreate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventCreateContent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventCreate.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventCreateContent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -49,43 +49,43 @@ func (m *EventCreate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *EventCreate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventCreate.Merge(m, src)
+func (m *EventCreateContent) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventCreateContent.Merge(m, src)
 }
-func (m *EventCreate) XXX_Size() int {
+func (m *EventCreateContent) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventCreate) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventCreate.DiscardUnknown(m)
+func (m *EventCreateContent) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventCreateContent.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventCreate proto.InternalMessageInfo
+var xxx_messageInfo_EventCreateContent proto.InternalMessageInfo
 
-func (m *EventCreate) GetId() uint64 {
+func (m *EventCreateContent) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-// EventUpdateCurator is an event emitted when content curator is updated.
-type EventUpdateCurator struct {
+// EventRemoveContent is an event emitted when content is deleted.
+type EventRemoveContent struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *EventUpdateCurator) Reset()         { *m = EventUpdateCurator{} }
-func (m *EventUpdateCurator) String() string { return proto.CompactTextString(m) }
-func (*EventUpdateCurator) ProtoMessage()    {}
-func (*EventUpdateCurator) Descriptor() ([]byte, []int) {
+func (m *EventRemoveContent) Reset()         { *m = EventRemoveContent{} }
+func (m *EventRemoveContent) String() string { return proto.CompactTextString(m) }
+func (*EventRemoveContent) ProtoMessage()    {}
+func (*EventRemoveContent) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f76c8d47db49fa98, []int{1}
 }
-func (m *EventUpdateCurator) XXX_Unmarshal(b []byte) error {
+func (m *EventRemoveContent) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventUpdateCurator) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventRemoveContent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventUpdateCurator.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventRemoveContent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -95,43 +95,43 @@ func (m *EventUpdateCurator) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return b[:n], nil
 	}
 }
-func (m *EventUpdateCurator) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventUpdateCurator.Merge(m, src)
+func (m *EventRemoveContent) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventRemoveContent.Merge(m, src)
 }
-func (m *EventUpdateCurator) XXX_Size() int {
+func (m *EventRemoveContent) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventUpdateCurator) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventUpdateCurator.DiscardUnknown(m)
+func (m *EventRemoveContent) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventRemoveContent.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventUpdateCurator proto.InternalMessageInfo
+var xxx_messageInfo_EventRemoveContent proto.InternalMessageInfo
 
-func (m *EventUpdateCurator) GetId() uint64 {
+func (m *EventRemoveContent) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-// EventUpdateMetadata is an event emitted when content metadata is updated.
-type EventUpdateMetadata struct {
+// EventUpdateContentCurator is an event emitted when content curator is updated.
+type EventUpdateContentCurator struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *EventUpdateMetadata) Reset()         { *m = EventUpdateMetadata{} }
-func (m *EventUpdateMetadata) String() string { return proto.CompactTextString(m) }
-func (*EventUpdateMetadata) ProtoMessage()    {}
-func (*EventUpdateMetadata) Descriptor() ([]byte, []int) {
+func (m *EventUpdateContentCurator) Reset()         { *m = EventUpdateContentCurator{} }
+func (m *EventUpdateContentCurator) String() string { return proto.CompactTextString(m) }
+func (*EventUpdateContentCurator) ProtoMessage()    {}
+func (*EventUpdateContentCurator) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f76c8d47db49fa98, []int{2}
 }
-func (m *EventUpdateMetadata) XXX_Unmarshal(b []byte) error {
+func (m *EventUpdateContentCurator) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventUpdateMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventUpdateContentCurator) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventUpdateMetadata.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventUpdateContentCurator.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -141,43 +141,43 @@ func (m *EventUpdateMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return b[:n], nil
 	}
 }
-func (m *EventUpdateMetadata) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventUpdateMetadata.Merge(m, src)
+func (m *EventUpdateContentCurator) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventUpdateContentCurator.Merge(m, src)
 }
-func (m *EventUpdateMetadata) XXX_Size() int {
+func (m *EventUpdateContentCurator) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventUpdateMetadata) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventUpdateMetadata.DiscardUnknown(m)
+func (m *EventUpdateContentCurator) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventUpdateContentCurator.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventUpdateMetadata proto.InternalMessageInfo
+var xxx_messageInfo_EventUpdateContentCurator proto.InternalMessageInfo
 
-func (m *EventUpdateMetadata) GetId() uint64 {
+func (m *EventUpdateContentCurator) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
 	return 0
 }
 
-// EventDelete is an event emitted when content is deleted.
-type EventDelete struct {
+// EventUpdateContentMetadata is an event emitted when content metadata is updated.
+type EventUpdateContentMetadata struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *EventDelete) Reset()         { *m = EventDelete{} }
-func (m *EventDelete) String() string { return proto.CompactTextString(m) }
-func (*EventDelete) ProtoMessage()    {}
-func (*EventDelete) Descriptor() ([]byte, []int) {
+func (m *EventUpdateContentMetadata) Reset()         { *m = EventUpdateContentMetadata{} }
+func (m *EventUpdateContentMetadata) String() string { return proto.CompactTextString(m) }
+func (*EventUpdateContentMetadata) ProtoMessage()    {}
+func (*EventUpdateContentMetadata) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f76c8d47db49fa98, []int{3}
 }
-func (m *EventDelete) XXX_Unmarshal(b []byte) error {
+func (m *EventUpdateContentMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *EventDelete) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *EventUpdateContentMetadata) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_EventDelete.Marshal(b, m, deterministic)
+		return xxx_messageInfo_EventUpdateContentMetadata.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -187,19 +187,19 @@ func (m *EventDelete) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *EventDelete) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EventDelete.Merge(m, src)
+func (m *EventUpdateContentMetadata) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EventUpdateContentMetadata.Merge(m, src)
 }
-func (m *EventDelete) XXX_Size() int {
+func (m *EventUpdateContentMetadata) XXX_Size() int {
 	return m.Size()
 }
-func (m *EventDelete) XXX_DiscardUnknown() {
-	xxx_messageInfo_EventDelete.DiscardUnknown(m)
+func (m *EventUpdateContentMetadata) XXX_DiscardUnknown() {
+	xxx_messageInfo_EventUpdateContentMetadata.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_EventDelete proto.InternalMessageInfo
+var xxx_messageInfo_EventUpdateContentMetadata proto.InternalMessageInfo
 
-func (m *EventDelete) GetId() uint64 {
+func (m *EventUpdateContentMetadata) GetId() uint64 {
 	if m != nil {
 		return m.Id
 	}
@@ -207,32 +207,32 @@ func (m *EventDelete) GetId() uint64 {
 }
 
 func init() {
-	proto.RegisterType((*EventCreate)(nil), "chora.content.v1.EventCreate")
-	proto.RegisterType((*EventUpdateCurator)(nil), "chora.content.v1.EventUpdateCurator")
-	proto.RegisterType((*EventUpdateMetadata)(nil), "chora.content.v1.EventUpdateMetadata")
-	proto.RegisterType((*EventDelete)(nil), "chora.content.v1.EventDelete")
+	proto.RegisterType((*EventCreateContent)(nil), "chora.content.v1.EventCreateContent")
+	proto.RegisterType((*EventRemoveContent)(nil), "chora.content.v1.EventRemoveContent")
+	proto.RegisterType((*EventUpdateContentCurator)(nil), "chora.content.v1.EventUpdateContentCurator")
+	proto.RegisterType((*EventUpdateContentMetadata)(nil), "chora.content.v1.EventUpdateContentMetadata")
 }
 
 func init() { proto.RegisterFile("chora/content/v1/events.proto", fileDescriptor_f76c8d47db49fa98) }
 
 var fileDescriptor_f76c8d47db49fa98 = []byte{
-	// 205 bytes of a gzipped FileDescriptorProto
+	// 207 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4d, 0xce, 0xc8, 0x2f,
 	0x4a, 0xd4, 0x4f, 0xce, 0xcf, 0x2b, 0x49, 0xcd, 0x2b, 0xd1, 0x2f, 0x33, 0xd4, 0x4f, 0x2d, 0x4b,
 	0xcd, 0x2b, 0x29, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x00, 0x4b, 0xeb, 0x41, 0xa5,
-	0xf5, 0xca, 0x0c, 0x95, 0x64, 0xb9, 0xb8, 0x5d, 0x41, 0x2a, 0x9c, 0x8b, 0x52, 0x13, 0x4b, 0x52,
-	0x85, 0xf8, 0xb8, 0x98, 0x32, 0x53, 0x24, 0x18, 0x15, 0x18, 0x35, 0x58, 0x82, 0x98, 0x32, 0x53,
-	0x94, 0x54, 0xb8, 0x84, 0xc0, 0xd2, 0xa1, 0x05, 0x29, 0x89, 0x25, 0xa9, 0xce, 0xa5, 0x45, 0x89,
-	0x25, 0xf9, 0x45, 0x18, 0xaa, 0x54, 0xb9, 0x84, 0x91, 0x54, 0xf9, 0xa6, 0x96, 0x24, 0xa6, 0x24,
-	0x96, 0x24, 0x62, 0x28, 0x83, 0xd9, 0xe5, 0x92, 0x9a, 0x93, 0x8a, 0x69, 0x97, 0x93, 0xf3, 0x89,
-	0x47, 0x72, 0x8c, 0x17, 0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x38, 0xe1, 0xb1, 0x1c, 0xc3,
-	0x85, 0xc7, 0x72, 0x0c, 0x37, 0x1e, 0xcb, 0x31, 0x44, 0x69, 0xa6, 0x67, 0x96, 0x64, 0x94, 0x26,
-	0xe9, 0x25, 0xe7, 0xe7, 0xea, 0x83, 0x7d, 0xa0, 0x9b, 0x99, 0xaf, 0x9f, 0x9b, 0x9f, 0x52, 0x0c,
-	0xf7, 0x68, 0x49, 0x65, 0x41, 0x6a, 0xb1, 0x7e, 0x99, 0x61, 0x12, 0x1b, 0xd8, 0xa3, 0xc6, 0x80,
-	0x00, 0x00, 0x00, 0xff, 0xff, 0x98, 0x52, 0x98, 0xfa, 0x09, 0x01, 0x00, 0x00,
+	0xf5, 0xca, 0x0c, 0x95, 0x54, 0xb8, 0x84, 0x5c, 0x41, 0x2a, 0x9c, 0x8b, 0x52, 0x13, 0x4b, 0x52,
+	0x9d, 0x21, 0x12, 0x42, 0x7c, 0x5c, 0x4c, 0x99, 0x29, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0x2c, 0x41,
+	0x4c, 0x99, 0x29, 0x70, 0x55, 0x41, 0xa9, 0xb9, 0xf9, 0x65, 0x38, 0x55, 0x69, 0x73, 0x49, 0x82,
+	0x55, 0x85, 0x16, 0xa4, 0x20, 0xcc, 0x72, 0x2e, 0x2d, 0x4a, 0x2c, 0xc9, 0x2f, 0xc2, 0x50, 0xac,
+	0xc3, 0x25, 0x85, 0xa9, 0xd8, 0x37, 0xb5, 0x24, 0x31, 0x25, 0xb1, 0x24, 0x11, 0x5d, 0xb5, 0x93,
+	0xf3, 0x89, 0x47, 0x72, 0x8c, 0x17, 0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x38, 0xe1, 0xb1,
+	0x1c, 0xc3, 0x85, 0xc7, 0x72, 0x0c, 0x37, 0x1e, 0xcb, 0x31, 0x44, 0x69, 0xa6, 0x67, 0x96, 0x64,
+	0x94, 0x26, 0xe9, 0x25, 0xe7, 0xe7, 0xea, 0x83, 0x7d, 0xa7, 0x9b, 0x99, 0xaf, 0x9f, 0x9b, 0x9f,
+	0x52, 0x0c, 0x0f, 0x84, 0x92, 0xca, 0x82, 0xd4, 0x62, 0xfd, 0x32, 0xc3, 0x24, 0x36, 0x70, 0x20,
+	0x18, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0xbd, 0x29, 0x80, 0x68, 0x25, 0x01, 0x00, 0x00,
 }
 
-func (m *EventCreate) Marshal() (dAtA []byte, err error) {
+func (m *EventCreateContent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -242,12 +242,12 @@ func (m *EventCreate) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventCreate) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventCreateContent) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventCreate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventCreateContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -260,7 +260,7 @@ func (m *EventCreate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *EventUpdateCurator) Marshal() (dAtA []byte, err error) {
+func (m *EventRemoveContent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -270,12 +270,12 @@ func (m *EventUpdateCurator) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventUpdateCurator) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventRemoveContent) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventUpdateCurator) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventRemoveContent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -288,7 +288,7 @@ func (m *EventUpdateCurator) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *EventUpdateMetadata) Marshal() (dAtA []byte, err error) {
+func (m *EventUpdateContentCurator) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -298,12 +298,12 @@ func (m *EventUpdateMetadata) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventUpdateMetadata) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventUpdateContentCurator) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventUpdateMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventUpdateContentCurator) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -316,7 +316,7 @@ func (m *EventUpdateMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *EventDelete) Marshal() (dAtA []byte, err error) {
+func (m *EventUpdateContentMetadata) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -326,12 +326,12 @@ func (m *EventDelete) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *EventDelete) MarshalTo(dAtA []byte) (int, error) {
+func (m *EventUpdateContentMetadata) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *EventDelete) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *EventUpdateContentMetadata) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -355,7 +355,7 @@ func encodeVarintEvents(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *EventCreate) Size() (n int) {
+func (m *EventCreateContent) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -367,7 +367,7 @@ func (m *EventCreate) Size() (n int) {
 	return n
 }
 
-func (m *EventUpdateCurator) Size() (n int) {
+func (m *EventRemoveContent) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -379,7 +379,7 @@ func (m *EventUpdateCurator) Size() (n int) {
 	return n
 }
 
-func (m *EventUpdateMetadata) Size() (n int) {
+func (m *EventUpdateContentCurator) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -391,7 +391,7 @@ func (m *EventUpdateMetadata) Size() (n int) {
 	return n
 }
 
-func (m *EventDelete) Size() (n int) {
+func (m *EventUpdateContentMetadata) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -409,7 +409,7 @@ func sovEvents(x uint64) (n int) {
 func sozEvents(x uint64) (n int) {
 	return sovEvents(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *EventCreate) Unmarshal(dAtA []byte) error {
+func (m *EventCreateContent) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -432,10 +432,10 @@ func (m *EventCreate) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventCreate: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventCreateContent: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventCreate: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventCreateContent: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -478,7 +478,7 @@ func (m *EventCreate) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *EventUpdateCurator) Unmarshal(dAtA []byte) error {
+func (m *EventRemoveContent) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -501,10 +501,10 @@ func (m *EventUpdateCurator) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventUpdateCurator: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventRemoveContent: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventUpdateCurator: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventRemoveContent: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -547,7 +547,7 @@ func (m *EventUpdateCurator) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *EventUpdateMetadata) Unmarshal(dAtA []byte) error {
+func (m *EventUpdateContentCurator) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -570,10 +570,10 @@ func (m *EventUpdateMetadata) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventUpdateMetadata: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventUpdateContentCurator: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventUpdateMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventUpdateContentCurator: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -616,7 +616,7 @@ func (m *EventUpdateMetadata) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *EventDelete) Unmarshal(dAtA []byte) error {
+func (m *EventUpdateContentMetadata) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -639,10 +639,10 @@ func (m *EventDelete) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: EventDelete: wiretype end group for non-group")
+			return fmt.Errorf("proto: EventUpdateContentMetadata: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EventDelete: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: EventUpdateContentMetadata: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
