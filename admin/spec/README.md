@@ -2,9 +2,9 @@
 
 The `admin` module enables a network to have a dynamic network admin. A network admin is an account that has permission to update module parameters.
 
-Depending on how each module is configured in a blockchain application, the admin account can have full control over module parameters (i.e. all modules are configured to use the admin account) or partial control over module parameters (i.e. only some modules are configured to use the admin account).
+Depending on how each module is configured in a blockchain application, the admin account can have full control over module parameters, i.e. all modules are configured to use the admin module, or partial control over module parameters, i.e. only some modules are configured to use the admin module.
 
-A network could also have multiple admin accounts depending on how the blockchain application is configured (i.e. the application is configured to run multiple instances of the module and permissions to update module parameters are distributed among the admin accounts).
+A network could also have multiple network admins depending on how the blockchain application is configured, i.e. the blockchain application could be configured to run multiple instances of the admin module and permissions to update module parameters are distributed among admins.
 
 ## Contents
 
