@@ -72,7 +72,7 @@ func (s *msgRemoveAgent) ExpectNoStateAgent(a gocuke.DocString) {
 
 	actual, err := s.k.ss.AgentTable().Get(s.sdkCtx, expected.Address)
 	require.Nil(s.t, actual)
-	// require.EqualError(s.t, s.err, "not found")
+	require.EqualError(s.t, err, "not found")
 }
 
 func (s *msgRemoveAgent) ExpectEventRemoveAgent(a gocuke.DocString) {
