@@ -294,7 +294,8 @@ func (m *MsgUpdateContentCurator) GetNewCurator() string {
 	return ""
 }
 
-// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response type.
+// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response
+// type.
 type MsgUpdateContentCuratorResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -404,7 +405,8 @@ func (m *MsgUpdateContentMetadata) GetNewMetadata() string {
 	return ""
 }
 
-// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response type.
+// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response
+// type.
 type MsgUpdateContentMetadataResponse struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`

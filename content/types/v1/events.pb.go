@@ -114,7 +114,8 @@ func (m *EventRemoveContent) GetId() uint64 {
 	return 0
 }
 
-// EventUpdateContentCurator is an event emitted when content curator is updated.
+// EventUpdateContentCurator is an event emitted when content curator is
+// updated.
 type EventUpdateContentCurator struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -160,7 +161,8 @@ func (m *EventUpdateContentCurator) GetId() uint64 {
 	return 0
 }
 
-// EventUpdateContentMetadata is an event emitted when content metadata is updated.
+// EventUpdateContentMetadata is an event emitted when content metadata is
+// updated.
 type EventUpdateContentMetadata struct {
 	// id is the unique identifier of the content.
 	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`

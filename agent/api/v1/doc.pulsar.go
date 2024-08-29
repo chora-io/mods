@@ -13,6 +13,8 @@ import (
 // 	protoc        (unknown)
 // source: chora/agent/v1/doc.proto
 
+// WARNING: This module is not ready for production use.
+//
 // chora.agent.v1 describes the API for the agent module.
 //
 // The following outlines revisions and tagged versions of the compiled code in

@@ -13,6 +13,8 @@ import (
 // 	protoc        (unknown)
 // source: chora/voucher/v1/doc.proto
 
+// WARNING: This module is not ready for production use.
+//
 // chora.voucher.v1 describes the API for the voucher module.
 //
 // The following outlines revisions and tagged versions of the compiled code in

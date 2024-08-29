@@ -13,6 +13,8 @@ import (
 // 	protoc        (unknown)
 // source: chora/governor/v1/doc.proto
 
+// WARNING: This module is not ready for production use.
+//
 // chora.governor.v1 describes the API for the governor module.
 //
 // The following outlines revisions and tagged versions of the compiled code in

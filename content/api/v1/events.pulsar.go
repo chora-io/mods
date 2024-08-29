@@ -1715,7 +1715,8 @@ func (x *EventRemoveContent) GetId() uint64 {
 	return 0
 }
 
-// EventUpdateContentCurator is an event emitted when content curator is updated.
+// EventUpdateContentCurator is an event emitted when content curator is
+// updated.
 type EventUpdateContentCurator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1752,7 +1753,8 @@ func (x *EventUpdateContentCurator) GetId() uint64 {
 	return 0
 }
 
-// EventUpdateContentMetadata is an event emitted when content metadata is updated.
+// EventUpdateContentMetadata is an event emitted when content metadata is
+// updated.
 type EventUpdateContentMetadata struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

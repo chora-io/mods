@@ -13,6 +13,8 @@ import (
 // 	protoc        (unknown)
 // source: chora/validator/v1/doc.proto
 
+// WARNING: This module is not ready for production use.
+//
 // chora.validator.v1 describes the API for the validator module.
 //
 // The following outlines revisions and tagged versions of the compiled code in

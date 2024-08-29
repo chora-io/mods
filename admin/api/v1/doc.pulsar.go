@@ -13,6 +13,8 @@ import (
 // 	protoc        (unknown)
 // source: chora/admin/v1/doc.proto
 
+// WARNING: This module is not ready for production use.
+//
 // chora.admin.v1 describes the API for the admin module.
 //
 // The following outlines revisions and tagged versions of the compiled code in

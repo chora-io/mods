@@ -13,6 +13,8 @@ import (
 // 	protoc        (unknown)
 // source: chora/content/v1/doc.proto
 
+// WARNING: This module is not ready for production use.
+//
 // chora.content.v1 describes the API for the content module.
 //
 // The following outlines revisions and tagged versions of the compiled code in

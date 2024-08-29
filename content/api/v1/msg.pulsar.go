@@ -3879,7 +3879,8 @@ func (x *MsgUpdateContentCurator) GetNewCurator() string {
 	return ""
 }
 
-// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response type.
+// MsgUpdateContentCuratorResponse is the Msg/UpdateContentCurator response
+// type.
 type MsgUpdateContentCuratorResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -3971,7 +3972,8 @@ func (x *MsgUpdateContentMetadata) GetNewMetadata() string {
 	return ""
 }
 
-// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response type.
+// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response
+// type.
 type MsgUpdateContentMetadataResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
