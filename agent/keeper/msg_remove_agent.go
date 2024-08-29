@@ -4,9 +4,10 @@ import (
 	"context"
 
 	"cosmossdk.io/orm/types/ormerrors"
-	v1 "github.com/chora-io/mods/agent/types/v1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+
+	v1 "github.com/chora-io/mods/agent/types/v1"
 )
 
 // RemoveAgent implements Msg/RemoveAgent.

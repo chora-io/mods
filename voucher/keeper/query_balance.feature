@@ -15,9 +15,7 @@ Feature: Query/Balance
         "id": 1,
         "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "amount": "1.25",
-        "expiration": {
-          "seconds": 1609459200
-        }
+        "expiration": "2021-01-01T00:00:00Z"
       }
       """
 
@@ -68,9 +66,7 @@ Feature: Query/Balance
         "id": 1,
         "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "amount": "1.250000000000000000",
-        "expiration": {
-          "seconds": 1609459200
-        }
+        "expiration": "2021-01-01T00:00:00Z"
       }
       """
       When query balance
@@ -102,9 +98,7 @@ Feature: Query/Balance
         "id": 1,
         "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "amount": "1.25",
-        "expiration": {
-          "seconds": 1609459200
-        }
+        "expiration": "2021-01-01T00:00:00Z"
       }
       """
       Given balance
@@ -113,9 +107,7 @@ Feature: Query/Balance
         "id": 1,
         "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
         "amount": "1.25",
-        "expiration": {
-          "seconds": 1640995200
-        }
+        "expiration": "2022-01-01T00:00:00Z"
       }
       """
       When query balance

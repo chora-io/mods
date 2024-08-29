@@ -3,9 +3,10 @@ package keeper
 import (
 	"context"
 
+	sdk "github.com/cosmos/cosmos-sdk/types"
+
 	governorv1 "github.com/chora-io/mods/governor/api/v1"
 	v1 "github.com/chora-io/mods/governor/types/v1"
-	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
 // CreateGovernor implements Msg/CreateGovernor.

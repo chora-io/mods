@@ -172,9 +172,7 @@ Feature: Msg/Issue
         "id": 1,
         "address": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
         "amount": "1.250000000000000000",
-        "expiration": {
-          "seconds": 1609459200
-        }
+        "expiration": "2021-01-01T00:00:00Z"
       }
       """
 
@@ -185,9 +183,7 @@ Feature: Msg/Issue
         "id": 1,
         "address": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
         "amount": "1.25",
-        "expiration": {
-          "seconds": 1609459200
-        }
+        "expiration": "2021-01-01T00:00:00Z"
       }
       """
       When msg issue
@@ -206,9 +202,7 @@ Feature: Msg/Issue
         "id": 1,
         "address": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
         "amount": "2.500000000000000000",
-        "expiration": {
-          "seconds": 1609459200
-        }
+        "expiration": "2021-01-01T00:00:00Z"
       }
       """
 
