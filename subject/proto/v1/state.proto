@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package chora.subject.v1;
+
+import "cosmos/orm/v1/orm.proto";
+
+option go_package = "github.com/chora-io/mods/subject/types/v1";
+
+// Subject defines the table and properties of the subject.
+message Subject {
+  option (cosmos.orm.v1.table) = {
+    id : 1,
+    primary_key : {fields : "address"}
+    index : {id : 1, fields : "steward"}
+  };
+
+  // address is the address of the subject.
+  bytes address = 1;
+
+  // steward is the address of the subject steward.
+  bytes steward = 2;
+
+  // metadata is the metadata of the subject.
+  string metadata = 3;
+}
+
+// SubjectSequence defines the table and properties of the subject sequence.
+message SubjectSequence {
+  option (cosmos.orm.v1.singleton) = {
+    id : 2
+  };
+
+  // sequence is the sequence of the subject. The sequence is used to generate
+  // subject accounts managed by the subject module.
+  uint64 sequence = 1;
+}

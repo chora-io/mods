@@ -29,7 +29,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
+        module: ["admin", "content", "governor", "subject", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -38,12 +38,6 @@ jobs:
           PATTERNS: |
             admin/**/**.proto
         if: matrix.module == 'admin'
-      - uses: technote-space/get-diff-action@v6
-        id: git-diff-agent
-        with:
-          PATTERNS: |
-            agent/**/**.proto
-        if: matrix.module == 'agent'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-content
         with:
@@ -56,6 +50,12 @@ jobs:
           PATTERNS: |
             governor/**/**.proto
         if: matrix.module == 'governor'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-subject
+        with:
+          PATTERNS: |
+            subject/**/**.proto
+        if: matrix.module == 'subject'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -76,11 +76,6 @@ jobs:
         if: steps.git-diff-admin.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
-          input: 'agent/proto'
-          buf_token: ${{ secrets.BUF_TOKEN }}
-        if: steps.git-diff-agent.outputs.diff
-      - uses: bufbuild/buf-push-action@v1
-        with:
           input: 'content/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
         if: steps.git-diff-content.outputs.diff
@@ -89,6 +84,11 @@ jobs:
           input: 'governor/proto'
           buf_token: ${{ secrets.BUF_TOKEN }}
         if: steps.git-diff-governor.outputs.diff
+      - uses: bufbuild/buf-push-action@v1
+        with:
+          input: 'subject/proto'
+          buf_token: ${{ secrets.BUF_TOKEN }}
+        if: steps.git-diff-subject.outputs.diff
       - uses: bufbuild/buf-push-action@v1
         with:
           input: 'validator/proto'

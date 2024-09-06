@@ -13,12 +13,6 @@ updates:
     open-pull-requests-limit: 5
 
   - package-ecosystem: "gomod"
-    directory: "/agent"
-    schedule:
-      interval: daily
-    open-pull-requests-limit: 5
-
-  - package-ecosystem: "gomod"
     directory: "/content"
     schedule:
       interval: daily
@@ -26,6 +20,12 @@ updates:
 
   - package-ecosystem: "gomod"
     directory: "/governor"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "gomod"
+    directory: "/subject"
     schedule:
       interval: daily
     open-pull-requests-limit: 5

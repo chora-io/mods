@@ -29,7 +29,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
+        module: ["admin", "content", "governor", "subject", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -40,14 +40,6 @@ jobs:
             admin/go.mod
             admin/go.sum
         if: matrix.module == 'admin'
-      - uses: technote-space/get-diff-action@v6
-        id: git-diff-agent
-        with:
-          PATTERNS: |
-            agent/**/**.go
-            agent/go.mod
-            agent/go.sum
-        if: matrix.module == 'agent'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-content
         with:
@@ -64,6 +56,14 @@ jobs:
             governor/go.mod
             governor/go.sum
         if: matrix.module == 'governor'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-subject
+        with:
+          PATTERNS: |
+            subject/**/**.go
+            subject/go.mod
+            subject/go.sum
+        if: matrix.module == 'subject'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -83,9 +83,9 @@ jobs:
       - uses: bufbuild/buf-setup-action@v1
         if: |
           steps.git-diff-admin.outputs.diff ||
-          steps.git-diff-agent.outputs.diff ||
           steps.git-diff-content.outputs.diff ||
           steps.git-diff-governor.outputs.diff ||
+          steps.git-diff-subject.outputs.diff ||
           steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
@@ -95,11 +95,6 @@ jobs:
         if: steps.git-diff-content.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
-          input: 'agent/proto'
-          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=agent/proto'
-        if: steps.git-diff-agent.outputs.diff
-      - uses: bufbuild/buf-breaking-action@v1
-        with:
           input: 'content/proto'
           against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=content/proto'
         if: steps.git-diff-content.outputs.diff
@@ -107,7 +102,12 @@ jobs:
         with:
           input: 'governor/proto'
           against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=governor/proto'
-        if: steps.git-diff-agent.outputs.diff
+        if: steps.git-diff-governor.outputs.diff
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          input: 'subject/proto'
+          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.pull_request.base.ref }},ref=HEAD~1,subdir=subject/proto'
+        if: steps.git-diff-subject.outputs.diff
       - uses: bufbuild/buf-breaking-action@v1
         with:
           input: 'validator/proto'

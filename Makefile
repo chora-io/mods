@@ -89,7 +89,7 @@ protoImage=ghcr.io/cosmos/proto-builder:$(protoVersion)
 containerProtoFmt=chora-mods-proto-fmt-$(protoVersion)
 containerProtoGen=chora-mods-proto-gen-$(protoVersion)
 
-proto-all: proto-lint-fix proto-format proto-gen-admin proto-gen-agent proto-gen-content proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
+proto-all: proto-lint-fix proto-format proto-gen-admin proto-gen-content proto-gen-governor proto-gen-subject proto-gen-validator proto-gen-voucher proto-check-breaking
 
 proto-lint:
 	@protolint .
@@ -107,11 +107,6 @@ proto-gen-admin:
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-admin$$"; then docker start -a $(containerProtoGen)-admin; else docker run --name $(containerProtoGen)-admin -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
 		sh -c 'cd admin; ./scripts/protocgen.sh'; fi
 
-proto-gen-agent:
-	@echo "Generating protobuf files"
-	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-agent$$"; then docker start -a $(containerProtoGen)-agent; else docker run --name $(containerProtoGen)-agent -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
-		sh -c 'cd agent; ./scripts/protocgen.sh'; fi
-
 proto-gen-content:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-content$$"; then docker start -a $(containerProtoGen)-content; else docker run --name $(containerProtoGen)-content -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
@@ -121,6 +116,11 @@ proto-gen-governor:
 	@echo "Generating protobuf files"
 	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-governor$$"; then docker start -a $(containerProtoGen)-governor; else docker run --name $(containerProtoGen)-governor -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
 		sh -c 'cd governor; ./scripts/protocgen.sh'; fi
+
+proto-gen-subject:
+	@echo "Generating protobuf files"
+	@if docker ps -a --format '{{.Names}}' | grep -Eq "^${containerProtoGen}-subject$$"; then docker start -a $(containerProtoGen)-subject; else docker run --name $(containerProtoGen)-subject -v $(CURDIR):/workspace --workdir /workspace $(protoImage) \
+		sh -c 'cd subject; ./scripts/protocgen.sh'; fi
 
 proto-gen-validator:
 	@echo "Generating protobuf files"
@@ -135,7 +135,7 @@ proto-gen-voucher:
 proto-check-breaking:
 	@docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf:1.9.0 breaking --against https://github.com/chora-io/mods.git#branch=main
 
-.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-admin proto-gen-agent proto-gen-content proto-gen-governor proto-gen-validator proto-gen-voucher proto-check-breaking
+.PHONY: proto-all proto-lint proto-lint-fix proto-format proto-gen-admin proto-gen-content proto-gen-governor proto-gen-subject proto-gen-validator proto-gen-voucher proto-check-breaking
 
 ###############################################################################
 ###                                  Tests                                  ###
@@ -158,11 +158,6 @@ test-admin:
 	@cd admin && go test ./... \
 		-coverprofile=../coverage-admin.out -covermode=atomic
 
-test-agent:
-	@echo "Testing Module agent"
-	@cd agent && go test ./... \
-		-coverprofile=../coverage-agent.out -covermode=atomic
-
 test-content:
 	@echo "Testing Module content"
 	@cd content && go test ./... \
@@ -172,6 +167,11 @@ test-governor:
 	@echo "Testing Module governor"
 	@cd governor && go test ./... \
 		-coverprofile=../coverage-governor.out -covermode=atomic
+
+test-subject:
+	@echo "Testing Module subject"
+	@cd subject && go test ./... \
+		-coverprofile=../coverage-subject.out -covermode=atomic
 
 test-validator:
 	@echo "Testing Module validator"
@@ -191,7 +191,7 @@ test-clean:
 	@find . -name 'coverage.txt' -delete
 	@find . -name 'coverage*.out' -delete
 
-.PHONY: test test-all test-admin test-agent test-content test-governor test-validator test-voucher test-coverage test-clean
+.PHONY: test test-all test-admin test-content test-governor test-subject test-validator test-voucher test-coverage test-clean
 
 ###############################################################################
 ###                              Documentation                              ###

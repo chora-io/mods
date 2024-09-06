@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+// WARNING: This module is not ready for production use.
+//
+// chora.subject.v1 describes the API for the subject module.
+//
+// The following outlines revisions and tagged versions of the compiled code in
+// relation to tagged releases in https://github.com/chora-io/mods:
+//
+// - Revision 0: (in progress)
+//
+package chora.subject.v1;
+
+option go_package = "github.com/chora-io/mods/subject/types/v1";

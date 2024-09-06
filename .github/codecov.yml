@@ -16,15 +16,15 @@ coverage:
       admin:
         paths:
           - "admin/"
-      agent:
-        paths:
-          - "agent/"
       content:
         paths:
           - "content/"
       governor:
         paths:
           - "governor/"
+      subject:
+        paths:
+          - "subject/"
       validator:
         paths:
           - "validator/"

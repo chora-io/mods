@@ -31,7 +31,7 @@ func (k Keeper) RemoveValidator(ctx context.Context, req *v1.MsgRemoveValidator)
 	// get account from account bytes
 	valOperator := sdk.AccAddress(validator.Operator)
 
-	// verify admin is agent admin
+	// verify operator is validator operator
 	if !reqOperator.Equals(valOperator) {
 		return nil, sdkerrors.ErrUnauthorized.Wrapf(
 			"operator %s: validator operator %s", req.Operator, validator.Operator,

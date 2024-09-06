@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package chora.subject.v1;
+
+option go_package = "github.com/chora-io/mods/subject/types/v1";
+
+// EventCreateSubject is an event emitted when an subject is created.
+message EventCreateSubject {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// EventRemoveSubject is an event emitted when an subject is removed.
+message EventRemoveSubject {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// EventUpdateSubjectSteward is an event emitted when the subject steward is
+// updated.
+message EventUpdateSubjectSteward {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// EventUpdateSubjectMetadata is an event emitted when the subject metadata is
+// updated.
+message EventUpdateSubjectMetadata {
+
+  // address is the address of the subject.
+  string address = 1;
+}

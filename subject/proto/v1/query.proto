@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package chora.subject.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/chora-io/mods/subject/types/v1";
+
+// Query is the Query service.
+service Query {
+
+  // Subject queries an subject by address.
+  rpc Subject(QuerySubjectRequest) returns (QuerySubjectResponse) {
+    option (google.api.http).get = "/chora/subject/v1/subject/{address}";
+  }
+
+  // Subjects queries all subjects.
+  rpc Subjects(QuerySubjectsRequest) returns (QuerySubjectsResponse) {
+    option (google.api.http).get = "/chora/subject/v1/subjects";
+  }
+
+  // SubjectsBySteward queries subjects by steward.
+  rpc SubjectsBySteward(QuerySubjectsByStewardRequest)
+      returns (QuerySubjectsByStewardResponse) {
+    option (google.api.http).get =
+        "/chora/subject/v1/subjects-by-steward/{steward}";
+  }
+}
+
+// QuerySubjectRequest is the Query/Subject request type.
+message QuerySubjectRequest {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// QuerySubjectResponse is the Query/Subject response type.
+message QuerySubjectResponse {
+
+  // address is the address of the subject.
+  string address = 1;
+
+  // steward is the address of the subject steward.
+  string steward = 2;
+
+  // metadata is the metadata of the subject.
+  string metadata = 3;
+}
+
+// QuerySubjectsRequest is the Query/Subjects request type.
+message QuerySubjectsRequest {
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QuerySubjectsResponse is the Query/Subjects response type.
+message QuerySubjectsResponse {
+
+  // subjects is the list of subjects.
+  repeated Subject subjects = 1;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+
+  // Subject is the subject properties.
+  message Subject {
+
+    // address is the address of the subject.
+    string address = 1;
+
+    // steward is the address of the subject steward.
+    string steward = 2;
+
+    // metadata is the metadata of the subject.
+    string metadata = 3;
+  }
+}
+
+// QuerySubjectsByStewardRequest is the Query/SubjectsBySteward request type.
+message QuerySubjectsByStewardRequest {
+
+  // steward is the address of the subject steward.
+  string steward = 1;
+
+  // pagination is the optional pagination of the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+// QuerySubjectsByStewardResponse is the Query/SubjectsBySteward response type.
+message QuerySubjectsByStewardResponse {
+
+  // steward is the address of the subject steward.
+  string steward = 1;
+
+  // subjects is the list of subjects managed by the steward.
+  repeated Subject subjects = 2;
+
+  // pagination is the pagination of the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 3;
+
+  // Subject is the subject properties.
+  message Subject {
+
+    // address is the address of the subject.
+    string address = 1;
+
+    // metadata is the metadata of the subject.
+    string metadata = 2;
+  }
+}

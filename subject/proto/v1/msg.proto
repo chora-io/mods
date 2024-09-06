@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package chora.subject.v1;
+
+import "cosmos/msg/v1/msg.proto";
+
+option go_package = "github.com/chora-io/mods/subject/types/v1";
+
+// Msg is the Msg service.
+service Msg {
+
+  // CreateSubject creates an subject.
+  rpc CreateSubject(MsgCreateSubject) returns (MsgCreateSubjectResponse);
+
+  // RemoveSubject removes an subject.
+  rpc RemoveSubject(MsgRemoveSubject) returns (MsgRemoveSubjectResponse);
+
+  // UpdateSubjectSteward updates the subject steward.
+  rpc UpdateSubjectSteward(MsgUpdateSubjectSteward)
+      returns (MsgUpdateSubjectStewardResponse);
+
+  // UpdateSubjectMetadata updates the subject metadata.
+  rpc UpdateSubjectMetadata(MsgUpdateSubjectMetadata)
+      returns (MsgUpdateSubjectMetadataResponse);
+}
+
+// MsgCreateSubject is the Msg/CreateSubject request type.
+message MsgCreateSubject {
+  option (cosmos.msg.v1.signer) = "steward";
+
+  // steward is the address of the subject steward.
+  string steward = 1;
+
+  // metadata is the metadata of the subject.
+  string metadata = 2;
+}
+
+// MsgCreateSubjectResponse is the Msg/CreateSubject response type.
+message MsgCreateSubjectResponse {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// MsgRemoveSubject is the Msg/RemoveSubject request type.
+message MsgRemoveSubject {
+  option (cosmos.msg.v1.signer) = "steward";
+
+  // address is the address of the subject.
+  string address = 1;
+
+  // steward is the address of the subject steward.
+  string steward = 2;
+}
+
+// MsgRemoveSubjectResponse is the Msg/RemoveSubject response type.
+message MsgRemoveSubjectResponse {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// MsgUpdateSubjectSteward is the Msg/UpdateSubjectSteward request type.
+message MsgUpdateSubjectSteward {
+  option (cosmos.msg.v1.signer) = "steward";
+
+  // address is the address of the subject.
+  string address = 1;
+
+  // steward is the address of the subject steward.
+  string steward = 2;
+
+  // new_steward is the address of the new steward.
+  string new_steward = 3;
+}
+
+// MsgUpdateSubjectStewardResponse is the Msg/UpdateSubjectSteward response
+// type.
+message MsgUpdateSubjectStewardResponse {
+
+  // address is the address of the subject.
+  string address = 1;
+}
+
+// MsgUpdateSubjectMetadata is the Msg/UpdateSubjectMetadata request type.
+message MsgUpdateSubjectMetadata {
+  option (cosmos.msg.v1.signer) = "steward";
+
+  // address is the address of the subject.
+  string address = 1;
+
+  // steward is the address of the subject steward.
+  string steward = 2;
+
+  // new_metadata is the new metadata of the subject.
+  string new_metadata = 3;
+}
+
+// MsgUpdateSubjectMetadataResponse is the Msg/UpdateSubjectMetadata response
+// type.
+message MsgUpdateSubjectMetadataResponse {
+
+  // address is the address of the subject.
+  string address = 1;
+}

@@ -28,7 +28,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
+        module: ["admin", "content", "governor", "subject", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -39,14 +39,6 @@ jobs:
             admin/go.mod
             admin/go.sum
         if: matrix.module == 'admin'
-      - uses: technote-space/get-diff-action@v6
-        id: git-diff-agent
-        with:
-          PATTERNS: |
-            agent/**/**.go
-            agent/go.mod
-            agent/go.sum
-        if: matrix.module == 'agent'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-content
         with:
@@ -63,6 +55,14 @@ jobs:
             governor/go.mod
             governor/go.sum
         if: matrix.module == 'governor'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-subject
+        with:
+          PATTERNS: |
+            subject/**/**.go
+            subject/go.mod
+            subject/go.sum
+        if: matrix.module == 'subject'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-voucher
         with:
@@ -85,16 +85,16 @@ jobs:
         if: steps.git-diff-admin.outputs.diff
       - uses: actions/setup-go@v5
         with:
-          go-version-file: 'agent/go.mod'
-        if: steps.git-diff-agent.outputs.diff
-      - uses: actions/setup-go@v5
-        with:
           go-version-file: 'content/go.mod'
         if: steps.git-diff-content.outputs.diff
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'governor/go.mod'
         if: steps.git-diff-governor.outputs.diff
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'subject/go.mod'
+        if: steps.git-diff-subject.outputs.diff
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'validator/go.mod'
@@ -109,16 +109,16 @@ jobs:
         if: steps.git-diff-admin.outputs.diff
       - uses: golangci/golangci-lint-action@v6
         with:
-          working-directory: "agent"
-        if: steps.git-diff-agent.outputs.diff
-      - uses: golangci/golangci-lint-action@v6
-        with:
           working-directory: "content"
         if: steps.git-diff-content.outputs.diff
       - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "governor"
         if: steps.git-diff-governor.outputs.diff
+      - uses: golangci/golangci-lint-action@v6
+        with:
+          working-directory: "subject"
+        if: steps.git-diff-subject.outputs.diff
       - uses: golangci/golangci-lint-action@v6
         with:
           working-directory: "validator"
@@ -134,7 +134,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
+        module: ["admin", "content", "governor", "subject", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -143,12 +143,6 @@ jobs:
           PATTERNS: |
             admin/**/**.proto
         if: matrix.module == 'admin'
-      - uses: technote-space/get-diff-action@v6
-        id: git-diff-agent
-        with:
-          PATTERNS: |
-            agent/**/**.proto
-        if: matrix.module == 'agent'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-content
         with:
@@ -161,6 +155,12 @@ jobs:
           PATTERNS: |
             governor/**/**.proto
         if: matrix.module == 'governor'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-subject
+        with:
+          PATTERNS: |
+            subject/**/**.proto
+        if: matrix.module == 'subject'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -176,9 +176,9 @@ jobs:
       - uses: bufbuild/buf-setup-action@v1
         if: |
           steps.git-diff-admin.outputs.diff ||
-          steps.git-diff-agent.outputs.diff ||
           steps.git-diff-content.outputs.diff ||
           steps.git-diff-governor.outputs.diff ||
+          steps.git-diff-subject.outputs.diff ||
           steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
@@ -187,16 +187,16 @@ jobs:
         if: steps.git-diff-admin.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
-          input: 'agent/proto'
-        if: steps.git-diff-agent.outputs.diff
-      - uses: bufbuild/buf-lint-action@v1
-        with:
           input: 'content/proto'
         if: steps.git-diff-content.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: 'governor/proto'
         if: steps.git-diff-governor.outputs.diff
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: 'subject/proto'
+        if: steps.git-diff-subject.outputs.diff
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: 'validator/proto'
@@ -212,7 +212,7 @@ jobs:
       pull-requests: read  # for technote-space/get-diff-action to get git reference
     strategy:
       matrix:
-        module: ["admin", "agent", "content", "governor", "validator", "voucher"]
+        module: ["admin", "content", "governor", "subject", "validator", "voucher"]
     steps:
       - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
@@ -221,12 +221,6 @@ jobs:
           PATTERNS: |
             admin/**/**.proto
         if: matrix.module == 'admin'
-      - uses: technote-space/get-diff-action@v6
-        id: git-diff-agent
-        with:
-          PATTERNS: |
-            agent/**/**.proto
-        if: matrix.module == 'agent'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-content
         with:
@@ -239,6 +233,12 @@ jobs:
           PATTERNS: |
             governor/**/**.proto
         if: matrix.module == 'governor'
+      - uses: technote-space/get-diff-action@v6
+        id: git-diff-subject
+        with:
+          PATTERNS: |
+            subject/**/**.proto
+        if: matrix.module == 'subject'
       - uses: technote-space/get-diff-action@v6
         id: git-diff-validator
         with:
@@ -257,16 +257,16 @@ jobs:
         if: steps.git-diff-admin.outputs.diff
       - uses: actions/setup-go@v5
         with:
-          go-version-file: 'agent/go.mod'
-        if: steps.git-diff-agent.outputs.diff
-      - uses: actions/setup-go@v5
-        with:
           go-version-file: 'content/go.mod'
         if: steps.git-diff-content.outputs.diff
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'governor/go.mod'
         if: steps.git-diff-governor.outputs.diff
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'subject/go.mod'
+        if: steps.git-diff-subject.outputs.diff
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'validator/go.mod'
@@ -279,23 +279,23 @@ jobs:
         run: go install github.com/yoheimuta/protolint/cmd/protolint@latest
         if: |
           steps.git-diff-admin.outputs.diff ||
-          steps.git-diff-agent.outputs.diff ||
           steps.git-diff-content.outputs.diff ||
           steps.git-diff-governor.outputs.diff ||
+          steps.git-diff-subject.outputs.diff ||
           steps.git-diff-validator.outputs.diff ||
           steps.git-diff-voucher.outputs.diff
       - name: Run protolint
         run: protolint ./admin
         if: steps.git-diff-admin.outputs.diff
       - name: Run protolint
-        run: protolint ./agent
-        if: steps.git-diff-agent.outputs.diff
-      - name: Run protolint
         run: protolint ./content
         if: steps.git-diff-content.outputs.diff
       - name: Run protolint
         run: protolint ./governor
         if: steps.git-diff-governor.outputs.diff
+      - name: Run protolint
+        run: protolint ./subject
+        if: steps.git-diff-subject.outputs.diff
       - name: Run protolint
         run: protolint ./validator
         if: steps.git-diff-validator.outputs.diff
