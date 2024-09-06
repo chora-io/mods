@@ -33,12 +33,11 @@ func (s *msgUpdateContentCurator) Content(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
 
-	id, err := s.k.ss.ContentTable().InsertReturningId(s.sdkCtx, &contentv1.Content{
-		Curator:  content.Curator,
-		Metadata: content.Metadata,
+	err = s.k.ss.ContentTable().Insert(s.sdkCtx, &contentv1.Content{
+		Curator: content.Curator,
+		Hash:    content.Hash,
 	})
 	require.NoError(s.t, err)
-	require.Equal(s.t, content.Id, id)
 }
 
 func (s *msgUpdateContentCurator) MsgUpdateContentCurator(a gocuke.DocString) {
@@ -70,12 +69,11 @@ func (s *msgUpdateContentCurator) ExpectStateContent(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.k.ss.ContentTable().Get(s.sdkCtx, expected.Id)
+	actual, err := s.k.ss.ContentTable().Get(s.sdkCtx, expected.Hash)
 	require.NoError(s.t, err)
 
-	require.Equal(s.t, expected.Id, actual.Id)
 	require.Equal(s.t, expected.Curator, actual.Curator)
-	require.Equal(s.t, expected.Metadata, actual.Metadata)
+	require.Equal(s.t, expected.Hash, actual.Hash)
 }
 
 func (s *msgUpdateContentCurator) ExpectEventUpdateContentCurator(a gocuke.DocString) {

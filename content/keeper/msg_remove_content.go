@@ -21,11 +21,11 @@ func (k Keeper) RemoveContent(ctx context.Context, req *v1.MsgRemoveContent) (*v
 	}
 
 	// get content from content table
-	content, err := k.ss.ContentTable().Get(ctx, req.Id)
+	content, err := k.ss.ContentTable().Get(ctx, req.Hash)
 	if err != nil {
 		if ormerrors.NotFound.Is(err) {
 			return nil, sdkerrors.ErrNotFound.Wrapf(
-				"content with id %d: %s", req.Id, err,
+				"content with hash %s: %s", req.Hash, err,
 			)
 		}
 		return nil, err // internal error
@@ -49,13 +49,13 @@ func (k Keeper) RemoveContent(ctx context.Context, req *v1.MsgRemoveContent) (*v
 
 	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventRemoveContent{
-		Id: content.Id,
+		Hash: content.Hash,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
 	return &v1.MsgRemoveContentResponse{
-		Id: content.Id,
+		Hash: content.Hash,
 	}, nil
 }

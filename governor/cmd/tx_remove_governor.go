@@ -14,8 +14,8 @@ import (
 func TxRemoveGovernorCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "remove-governor",
-		Short: "submit a transaction to remove a governor",
-		Long:  "submit a transaction to remove a governor",
+		Short: "submit transaction to remove governor",
+		Long:  "submit transaction to remove governor",
 		Args:  cobra.ExactArgs(0),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

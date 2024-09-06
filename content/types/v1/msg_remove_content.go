@@ -9,12 +9,16 @@ var _ sdk.Msg = &MsgRemoveContent{}
 
 // ValidateBasic performs stateless validation on MsgRemoveContent.
 func (m MsgRemoveContent) ValidateBasic() error {
-	if m.Id == 0 {
-		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
-	}
-
 	if _, err := sdk.AccAddressFromBech32(m.Curator); err != nil {
 		return sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
+	}
+
+	if m.Hash == "" {
+		return sdkerrors.ErrInvalidRequest.Wrap("hash: empty string is not allowed")
+	}
+
+	if len(m.Hash) > HashMaxLength {
+		return sdkerrors.ErrInvalidRequest.Wrapf("hash: exceeds max length %d", HashMaxLength)
 	}
 
 	return nil

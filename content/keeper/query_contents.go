@@ -15,7 +15,7 @@ import (
 func (k Keeper) Contents(ctx context.Context, req *v1.QueryContentsRequest) (*v1.QueryContentsResponse, error) {
 
 	// set the index for table lookup
-	index := contentv1.ContentIdIndexKey{}
+	index := contentv1.ContentHashIndexKey{}
 
 	// set the pagination for table lookup
 	pgnReq, err := utils.GogoPageReqToPulsarPageReq(req.Pagination)
@@ -40,9 +40,8 @@ func (k Keeper) Contents(ctx context.Context, req *v1.QueryContentsRequest) (*v1
 		curator := sdk.AccAddress(v.Curator).String()
 
 		content := v1.QueryContentsResponse_Content{
-			Id:       v.Id,
-			Curator:  curator,
-			Metadata: v.Metadata,
+			Curator: curator,
+			Hash:    v.Hash,
 		}
 
 		contents = append(contents, &content)

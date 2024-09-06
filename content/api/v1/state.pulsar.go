@@ -14,18 +14,16 @@ import (
 )
 
 var (
-	md_Content          protoreflect.MessageDescriptor
-	fd_Content_id       protoreflect.FieldDescriptor
-	fd_Content_curator  protoreflect.FieldDescriptor
-	fd_Content_metadata protoreflect.FieldDescriptor
+	md_Content         protoreflect.MessageDescriptor
+	fd_Content_hash    protoreflect.FieldDescriptor
+	fd_Content_curator protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_content_v1_state_proto_init()
 	md_Content = File_chora_content_v1_state_proto.Messages().ByName("Content")
-	fd_Content_id = md_Content.Fields().ByName("id")
+	fd_Content_hash = md_Content.Fields().ByName("hash")
 	fd_Content_curator = md_Content.Fields().ByName("curator")
-	fd_Content_metadata = md_Content.Fields().ByName("metadata")
 }
 
 var _ protoreflect.Message = (*fastReflection_Content)(nil)
@@ -93,21 +91,15 @@ func (x *fastReflection_Content) Interface() protoreflect.ProtoMessage {
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_Content) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Id != uint64(0) {
-		value := protoreflect.ValueOfUint64(x.Id)
-		if !f(fd_Content_id, value) {
+	if x.Hash != "" {
+		value := protoreflect.ValueOfString(x.Hash)
+		if !f(fd_Content_hash, value) {
 			return
 		}
 	}
 	if len(x.Curator) != 0 {
 		value := protoreflect.ValueOfBytes(x.Curator)
 		if !f(fd_Content_curator, value) {
-			return
-		}
-	}
-	if x.Metadata != "" {
-		value := protoreflect.ValueOfString(x.Metadata)
-		if !f(fd_Content_metadata, value) {
 			return
 		}
 	}
@@ -126,12 +118,10 @@ func (x *fastReflection_Content) Range(f func(protoreflect.FieldDescriptor, prot
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_Content) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.content.v1.Content.id":
-		return x.Id != uint64(0)
+	case "chora.content.v1.Content.hash":
+		return x.Hash != ""
 	case "chora.content.v1.Content.curator":
 		return len(x.Curator) != 0
-	case "chora.content.v1.Content.metadata":
-		return x.Metadata != ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.Content"))
@@ -148,12 +138,10 @@ func (x *fastReflection_Content) Has(fd protoreflect.FieldDescriptor) bool {
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_Content) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.content.v1.Content.id":
-		x.Id = uint64(0)
+	case "chora.content.v1.Content.hash":
+		x.Hash = ""
 	case "chora.content.v1.Content.curator":
 		x.Curator = nil
-	case "chora.content.v1.Content.metadata":
-		x.Metadata = ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.Content"))
@@ -170,15 +158,12 @@ func (x *fastReflection_Content) Clear(fd protoreflect.FieldDescriptor) {
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_Content) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.content.v1.Content.id":
-		value := x.Id
-		return protoreflect.ValueOfUint64(value)
+	case "chora.content.v1.Content.hash":
+		value := x.Hash
+		return protoreflect.ValueOfString(value)
 	case "chora.content.v1.Content.curator":
 		value := x.Curator
 		return protoreflect.ValueOfBytes(value)
-	case "chora.content.v1.Content.metadata":
-		value := x.Metadata
-		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.Content"))
@@ -199,12 +184,10 @@ func (x *fastReflection_Content) Get(descriptor protoreflect.FieldDescriptor) pr
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_Content) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.content.v1.Content.id":
-		x.Id = value.Uint()
+	case "chora.content.v1.Content.hash":
+		x.Hash = value.Interface().(string)
 	case "chora.content.v1.Content.curator":
 		x.Curator = value.Bytes()
-	case "chora.content.v1.Content.metadata":
-		x.Metadata = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.Content"))
@@ -225,12 +208,10 @@ func (x *fastReflection_Content) Set(fd protoreflect.FieldDescriptor, value prot
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_Content) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.Content.id":
-		panic(fmt.Errorf("field id of message chora.content.v1.Content is not mutable"))
+	case "chora.content.v1.Content.hash":
+		panic(fmt.Errorf("field hash of message chora.content.v1.Content is not mutable"))
 	case "chora.content.v1.Content.curator":
 		panic(fmt.Errorf("field curator of message chora.content.v1.Content is not mutable"))
-	case "chora.content.v1.Content.metadata":
-		panic(fmt.Errorf("field metadata of message chora.content.v1.Content is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.Content"))
@@ -244,12 +225,10 @@ func (x *fastReflection_Content) Mutable(fd protoreflect.FieldDescriptor) protor
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_Content) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.content.v1.Content.id":
-		return protoreflect.ValueOfUint64(uint64(0))
+	case "chora.content.v1.Content.hash":
+		return protoreflect.ValueOfString("")
 	case "chora.content.v1.Content.curator":
 		return protoreflect.ValueOfBytes(nil)
-	case "chora.content.v1.Content.metadata":
-		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.content.v1.Content"))
@@ -319,14 +298,11 @@ func (x *fastReflection_Content) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		if x.Id != 0 {
-			n += 1 + runtime.Sov(uint64(x.Id))
-		}
-		l = len(x.Curator)
+		l = len(x.Hash)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
-		l = len(x.Metadata)
+		l = len(x.Curator)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
@@ -359,13 +335,6 @@ func (x *fastReflection_Content) ProtoMethods() *protoiface.Methods {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if len(x.Metadata) > 0 {
-			i -= len(x.Metadata)
-			copy(dAtA[i:], x.Metadata)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Metadata)))
-			i--
-			dAtA[i] = 0x1a
-		}
 		if len(x.Curator) > 0 {
 			i -= len(x.Curator)
 			copy(dAtA[i:], x.Curator)
@@ -373,10 +342,12 @@ func (x *fastReflection_Content) ProtoMethods() *protoiface.Methods {
 			i--
 			dAtA[i] = 0x12
 		}
-		if x.Id != 0 {
-			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+		if len(x.Hash) > 0 {
+			i -= len(x.Hash)
+			copy(dAtA[i:], x.Hash)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Hash)))
 			i--
-			dAtA[i] = 0x8
+			dAtA[i] = 0xa
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -428,10 +399,10 @@ func (x *fastReflection_Content) ProtoMethods() *protoiface.Methods {
 			}
 			switch fieldNum {
 			case 1:
-				if wireType != 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 				}
-				x.Id = 0
+				var stringLen uint64
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -441,11 +412,24 @@ func (x *fastReflection_Content) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.Id |= uint64(b&0x7F) << shift
+					stringLen |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Hash = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
 			case 2:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Curator", wireType)
@@ -479,38 +463,6 @@ func (x *fastReflection_Content) ProtoMethods() *protoiface.Methods {
 				if x.Curator == nil {
 					x.Curator = []byte{}
 				}
-				iNdEx = postIndex
-			case 3:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
-				}
-				var stringLen uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Metadata = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
@@ -566,12 +518,10 @@ type Content struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// id is the unique identifier of the content.
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// hash is the content hash of the content.
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	// curator is the address of the content curator.
 	Curator []byte `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
-	// metadata is the metadata of the content.
-	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
 func (x *Content) Reset() {
@@ -594,11 +544,11 @@ func (*Content) Descriptor() ([]byte, []int) {
 	return file_chora_content_v1_state_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Content) GetId() uint64 {
+func (x *Content) GetHash() string {
 	if x != nil {
-		return x.Id
+		return x.Hash
 	}
-	return 0
+	return ""
 }
 
 func (x *Content) GetCurator() []byte {
@@ -608,13 +558,6 @@ func (x *Content) GetCurator() []byte {
 	return nil
 }
 
-func (x *Content) GetMetadata() string {
-	if x != nil {
-		return x.Metadata
-	}
-	return ""
-}
-
 var File_chora_content_v1_state_proto protoreflect.FileDescriptor
 
 var file_chora_content_v1_state_proto_rawDesc = []byte{
@@ -622,27 +565,26 @@ var file_chora_content_v1_state_proto_rawDesc = []byte{
 	0x76, 0x31, 0x2f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x10,
 	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31,
 	0x1a, 0x17, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x6f, 0x72, 0x6d, 0x2f, 0x76, 0x31, 0x2f,
-	0x6f, 0x72, 0x6d, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x6e, 0x0a, 0x07, 0x43, 0x6f, 0x6e,
-	0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04,
-	0x52, 0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1a,
-	0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x1d, 0xf2, 0x9e, 0xd3, 0x8e,
-	0x03, 0x17, 0x0a, 0x06, 0x0a, 0x02, 0x69, 0x64, 0x10, 0x01, 0x12, 0x0b, 0x0a, 0x07, 0x63, 0x75,
-	0x72, 0x61, 0x74, 0x6f, 0x72, 0x10, 0x01, 0x18, 0x01, 0x42, 0xc5, 0x01, 0x0a, 0x14, 0x63, 0x6f,
-	0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e,
-	0x76, 0x31, 0x42, 0x0a, 0x53, 0x74, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
-	0x5a, 0x3f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f,
-	0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65,
-	0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e,
-	0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x76,
-	0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e,
-	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f,
-	0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c,
-	0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31,
-	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43,
-	0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x3a, 0x3a, 0x56,
-	0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x72, 0x6d, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x56, 0x0a, 0x07, 0x43, 0x6f, 0x6e,
+	0x74, 0x65, 0x6e, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61,
+	0x74, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74,
+	0x6f, 0x72, 0x3a, 0x1d, 0xf2, 0x9e, 0xd3, 0x8e, 0x03, 0x17, 0x0a, 0x06, 0x0a, 0x04, 0x68, 0x61,
+	0x73, 0x68, 0x12, 0x0b, 0x0a, 0x07, 0x63, 0x75, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x10, 0x01, 0x18,
+	0x01, 0x42, 0xc5, 0x01, 0x0a, 0x14, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x53, 0x74, 0x61, 0x74,
+	0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x3f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
+	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f,
+	0x64, 0x73, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2f, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2f, 0x76, 0x31, 0x3b,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa,
+	0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x2e,
+	0x56, 0x31, 0xca, 0x02, 0x10, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f, 0x6e, 0x74, 0x65,
+	0x6e, 0x74, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1c, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x43, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (

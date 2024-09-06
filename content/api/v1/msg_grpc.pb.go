@@ -19,10 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Msg_CreateContent_FullMethodName         = "/chora.content.v1.Msg/CreateContent"
-	Msg_RemoveContent_FullMethodName         = "/chora.content.v1.Msg/RemoveContent"
-	Msg_UpdateContentCurator_FullMethodName  = "/chora.content.v1.Msg/UpdateContentCurator"
-	Msg_UpdateContentMetadata_FullMethodName = "/chora.content.v1.Msg/UpdateContentMetadata"
+	Msg_CreateContent_FullMethodName        = "/chora.content.v1.Msg/CreateContent"
+	Msg_RemoveContent_FullMethodName        = "/chora.content.v1.Msg/RemoveContent"
+	Msg_UpdateContentCurator_FullMethodName = "/chora.content.v1.Msg/UpdateContentCurator"
 )
 
 // MsgClient is the client API for Msg service.
@@ -37,8 +36,6 @@ type MsgClient interface {
 	RemoveContent(ctx context.Context, in *MsgRemoveContent, opts ...grpc.CallOption) (*MsgRemoveContentResponse, error)
 	// UpdateContentCurator updates the curator of content.
 	UpdateContentCurator(ctx context.Context, in *MsgUpdateContentCurator, opts ...grpc.CallOption) (*MsgUpdateContentCuratorResponse, error)
-	// UpdateContentMetadata updates the metadata of content.
-	UpdateContentMetadata(ctx context.Context, in *MsgUpdateContentMetadata, opts ...grpc.CallOption) (*MsgUpdateContentMetadataResponse, error)
 }
 
 type msgClient struct {
@@ -79,16 +76,6 @@ func (c *msgClient) UpdateContentCurator(ctx context.Context, in *MsgUpdateConte
 	return out, nil
 }
 
-func (c *msgClient) UpdateContentMetadata(ctx context.Context, in *MsgUpdateContentMetadata, opts ...grpc.CallOption) (*MsgUpdateContentMetadataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgUpdateContentMetadataResponse)
-	err := c.cc.Invoke(ctx, Msg_UpdateContentMetadata_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility.
@@ -101,8 +88,6 @@ type MsgServer interface {
 	RemoveContent(context.Context, *MsgRemoveContent) (*MsgRemoveContentResponse, error)
 	// UpdateContentCurator updates the curator of content.
 	UpdateContentCurator(context.Context, *MsgUpdateContentCurator) (*MsgUpdateContentCuratorResponse, error)
-	// UpdateContentMetadata updates the metadata of content.
-	UpdateContentMetadata(context.Context, *MsgUpdateContentMetadata) (*MsgUpdateContentMetadataResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -121,9 +106,6 @@ func (UnimplementedMsgServer) RemoveContent(context.Context, *MsgRemoveContent) 
 }
 func (UnimplementedMsgServer) UpdateContentCurator(context.Context, *MsgUpdateContentCurator) (*MsgUpdateContentCuratorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateContentCurator not implemented")
-}
-func (UnimplementedMsgServer) UpdateContentMetadata(context.Context, *MsgUpdateContentMetadata) (*MsgUpdateContentMetadataResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateContentMetadata not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 func (UnimplementedMsgServer) testEmbeddedByValue()             {}
@@ -200,24 +182,6 @@ func _Msg_UpdateContentCurator_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateContentMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateContentMetadata)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).UpdateContentMetadata(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Msg_UpdateContentMetadata_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateContentMetadata(ctx, req.(*MsgUpdateContentMetadata))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -236,10 +200,6 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateContentCurator",
 			Handler:    _Msg_UpdateContentCurator_Handler,
-		},
-		{
-			MethodName: "UpdateContentMetadata",
-			Handler:    _Msg_UpdateContentMetadata_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

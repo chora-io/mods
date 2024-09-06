@@ -12,6 +12,6 @@ message Admin {
     id : 1,
   };
 
-  // address is the address of the admin.
-  bytes address = 1;
+  // admin is the address of the admin account.
+  bytes admin = 1;
 }

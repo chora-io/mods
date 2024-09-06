@@ -12,9 +12,8 @@ Feature: Query/Content
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -22,7 +21,7 @@ Feature: Query/Content
       When query content
       """
       {
-        "id": 1
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Then expect no error
@@ -31,12 +30,12 @@ Feature: Query/Content
       When query content
       """
       {
-        "id": 2
+        "hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       Then expect the error
       """
-      content with id 2: not found
+      content with hash chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf: not found
       """
 
   Rule: The query response is returned
@@ -45,9 +44,8 @@ Feature: Query/Content
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -55,15 +53,14 @@ Feature: Query/Content
       When query content
       """
       {
-        "id": 1
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Then expect response
       """
       {
-        "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 

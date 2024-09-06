@@ -26,6 +26,7 @@ func TestValidateGenesis(t *testing.T) {
 			name: "valid",
 			setup: func(ctx context.Context, ss agentv1.StateStore) {
 				require.NoError(t, ss.AgentTable().Insert(ctx, &agentv1.Agent{
+					Address:  []byte("G+ksLYTNBuzyqdTij+Xkx1ztGDzOMACTUcjF6iEkiH0="),
 					Admin:    []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y="),
 					Metadata: "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
 				}))

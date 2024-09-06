@@ -13,12 +13,12 @@ func (m MsgCreateContent) ValidateBasic() error {
 		return sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
 	}
 
-	if m.Metadata == "" {
-		return sdkerrors.ErrInvalidRequest.Wrap("metadata: empty string is not allowed")
+	if m.Hash == "" {
+		return sdkerrors.ErrInvalidRequest.Wrap("hash: empty string is not allowed")
 	}
 
-	if len(m.Metadata) > MetadataMaxLength {
-		return sdkerrors.ErrInvalidRequest.Wrapf("metadata: exceeds max length %d", MetadataMaxLength)
+	if len(m.Hash) > HashMaxLength {
+		return sdkerrors.ErrInvalidRequest.Wrapf("hash: exceeds max length %d", HashMaxLength)
 	}
 
 	return nil

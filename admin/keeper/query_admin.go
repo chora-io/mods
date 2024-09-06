@@ -23,7 +23,7 @@ func (k Keeper) Admin(ctx context.Context, req *v1.QueryAdminRequest) (*v1.Query
 	}
 
 	// get account from account bytes
-	curator := sdk.AccAddress(admin.Address)
+	curator := sdk.AccAddress(admin.Admin)
 
 	// return query response
 	return &v1.QueryAdminResponse{

@@ -9,12 +9,16 @@ var _ sdk.Msg = &MsgUpdateContentCurator{}
 
 // ValidateBasic performs stateless validation on MsgUpdateContentCurator.
 func (m MsgUpdateContentCurator) ValidateBasic() error {
-	if m.Id == 0 {
-		return sdkerrors.ErrInvalidRequest.Wrap("id: empty or zero is not allowed")
-	}
-
 	if _, err := sdk.AccAddressFromBech32(m.Curator); err != nil {
 		return sdkerrors.ErrInvalidAddress.Wrapf("curator: %s", err)
+	}
+
+	if m.Hash == "" {
+		return sdkerrors.ErrInvalidRequest.Wrap("hash: empty string is not allowed")
+	}
+
+	if len(m.Hash) > HashMaxLength {
+		return sdkerrors.ErrInvalidRequest.Wrapf("hash: exceeds max length %d", HashMaxLength)
 	}
 
 	if _, err := sdk.AccAddressFromBech32(m.NewCurator); err != nil {

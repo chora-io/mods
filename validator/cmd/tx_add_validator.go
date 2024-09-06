@@ -14,8 +14,8 @@ import (
 func TxAddValidatorCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "add-validator [address] [metadata]",
-		Short: "submit a transaction to add a validator",
-		Long:  "submit a transaction to add a validator",
+		Short: "submit transaction to create validator",
+		Long:  "submit transaction to create validator",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

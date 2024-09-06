@@ -13,9 +13,9 @@ import (
 // TxCreateContentCmd creates and returns the tx create command.
 func TxCreateContentCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-content [metadata]",
-		Short: "submit a transaction to create content",
-		Long:  "submit a transaction to create content",
+		Use:   "create-content [hash]",
+		Short: "submit transaction to create content",
+		Long:  "submit transaction to create content",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -24,8 +24,8 @@ func TxCreateContentCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgCreateContent{
-				Curator:  clientCtx.GetFromAddress().String(),
-				Metadata: args[0],
+				Curator: clientCtx.GetFromAddress().String(),
+				Hash:    args[0],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

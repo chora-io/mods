@@ -16,8 +16,8 @@ import (
 func TxUpdateMetadataCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-metadata [id] [new-metadata]",
-		Short: "submit a transaction to update voucher metadata",
-		Long:  "submit a transaction to update voucher metadata",
+		Short: "submit transaction to update voucher metadata",
+		Long:  "submit transaction to update voucher metadata",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

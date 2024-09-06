@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Chora Geonode Module - REST and gRPC Gateway Documentation",
+    "title": "Chora Agent Module - REST and gRPC Gateway Documentation",
     "description": "Documentation describing REST and gRPC endpoints for queries.",
     "version": "v0.0.0"
   },

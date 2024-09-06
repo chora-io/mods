@@ -15,7 +15,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "Agent",
 					Use:       "agent [address]",
-					Short:     "query agent by address",
+					Short:     "query agent",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 						{ProtoField: "address"},
 					},
@@ -23,7 +23,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "Agents",
 					Use:       "agents",
-					Short:     "query all agents",
+					Short:     "query agents",
 				},
 				{
 					RpcMethod: "AgentsByAdmin",
@@ -42,7 +42,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "CreateAgent",
 				//	Use:       "create-agent [metadata]",
-				//	Short:     "submit a transaction to create an agent",
+				//	Short:     "submit transaction to create agent",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "metadata"},
 				//	},
@@ -50,7 +50,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "RemoveAgent",
 				//	Use:       "remove-agent [address]",
-				//	Short:     "submit a transaction to remove an agent",
+				//	Short:     "submit transaction to remove agent",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//	},
@@ -58,7 +58,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateAgentAdmin",
 				//	Use:       "update-agent-admin [address] [new-admin]",
-				//	Short:     "submit a transaction to update agent admin",
+				//	Short:     "submit transaction to update agent admin",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//		{ProtoField: "new_admin"},
@@ -66,8 +66,8 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//},
 				//{
 				//	RpcMethod: "UpdateAgentMetadata",
-				//	Use:       "update-metadata [address] [new-metadata]",
-				//	Short:     "submit a transaction to update agent metadata",
+				//	Use:       "update-agent-metadata [address] [new-metadata]",
+				//	Short:     "submit transaction to update agent metadata",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//		{ProtoField: "new_metadata"},

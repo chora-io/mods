@@ -14,8 +14,8 @@ import (
 func TxRemoveAgentCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "remove-agent [address]",
-		Short: "submit a transaction to remove an agent",
-		Long:  "submit a transaction to remove an agent",
+		Short: "submit transaction to remove agent",
+		Long:  "submit transaction to remove agent",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

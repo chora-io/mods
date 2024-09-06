@@ -14,9 +14,8 @@ Feature: Msg/RemoveContent
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -24,8 +23,8 @@ Feature: Msg/RemoveContent
       When msg remove content
       """
       {
-        "id": 1,
-        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Then expect no error
@@ -34,8 +33,8 @@ Feature: Msg/RemoveContent
       When msg remove content
       """
       {
-        "id": 1,
-        "curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
+        "curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Then expect the error
@@ -49,9 +48,8 @@ Feature: Msg/RemoveContent
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -59,14 +57,14 @@ Feature: Msg/RemoveContent
       When msg remove content
       """
       {
-        "id": 1,
-        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Then expect response
       """
       {
-        "id": 1
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -78,9 +76,8 @@ Feature: Msg/RemoveContent
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -88,11 +85,11 @@ Feature: Msg/RemoveContent
       When msg remove content
       """
       {
-        "id": 1,
-        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
-      Then expect no state content with id "1"
+      Then expect no state content with hash "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
 
     # No failing scenario - state is never updated when message fails
 
@@ -102,9 +99,8 @@ Feature: Msg/RemoveContent
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -112,14 +108,14 @@ Feature: Msg/RemoveContent
       When msg remove content
       """
       {
-        "id": 1,
-        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
+        "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Then expect event remove content
       """
       {
-        "id": 1
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 

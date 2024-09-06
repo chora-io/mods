@@ -10,17 +10,17 @@ option go_package = "github.com/chora-io/mods/content/types/v1";
 // Query is the Query service.
 service Query {
 
-  // Content queries a content by id.
+  // Content queries content by hash.
   rpc Content(QueryContentRequest) returns (QueryContentResponse) {
-    option (google.api.http).get = "/chora/content/v1/content/{id}";
+    option (google.api.http).get = "/chora/content/v1/content/{hash}";
   }
 
-  // Contents queries all contents.
+  // Contents queries all content.
   rpc Contents(QueryContentsRequest) returns (QueryContentsResponse) {
     option (google.api.http).get = "/chora/content/v1/contents";
   }
 
-  // ContentsByCurator queries contents by curator.
+  // ContentsByCurator queries content by curator.
   rpc ContentsByCurator(QueryContentsByCuratorRequest)
       returns (QueryContentsByCuratorResponse) {
     option (google.api.http).get =
@@ -31,21 +31,18 @@ service Query {
 // QueryContentRequest is the Query/Content request type.
 message QueryContentRequest {
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
+  // hash is the content hash of the content.
+  string hash = 1;
 }
 
 // QueryContentResponse is the Query/Content response type.
 message QueryContentResponse {
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
+  // hash is the content hash of the content.
+  string hash = 1;
 
   // curator is the address of the content curator.
   string curator = 2;
-
-  // metadata is the metadata of the content.
-  string metadata = 3;
 }
 
 // QueryContentsRequest is the Query/Contents request type.
@@ -58,7 +55,7 @@ message QueryContentsRequest {
 // QueryContentsResponse is the Query/Contents response type.
 message QueryContentsResponse {
 
-  // contents is the list of contents.
+  // contents is the list of content.
   repeated Content contents = 1;
 
   // pagination is the pagination of the response.
@@ -67,14 +64,11 @@ message QueryContentsResponse {
   // Content is the content properties.
   message Content {
 
-    // id is the unique identifier of the content.
-    uint64 id = 1;
+    // hash is the content hash of the content.
+    string hash = 1;
 
     // curator is the address of the content curator.
     string curator = 2;
-
-    // metadata is the metadata of the content.
-    string metadata = 3;
   }
 }
 
@@ -94,7 +88,7 @@ message QueryContentsByCuratorResponse {
   // curator is the address of the content curator.
   string curator = 1;
 
-  // contents is the list of contents managed by the curator.
+  // contents is the list of content managed by the curator.
   repeated Content contents = 2;
 
   // pagination is the pagination of the response.
@@ -103,10 +97,7 @@ message QueryContentsByCuratorResponse {
   // Content is the content properties.
   message Content {
 
-    // id is the unique identifier of the content.
-    uint64 id = 1;
-
-    // metadata is the metadata of the content.
-    string metadata = 2;
+    // hash is the content hash of the content.
+    string hash = 1;
   }
 }

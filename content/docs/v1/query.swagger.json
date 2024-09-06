@@ -11,9 +11,9 @@
     "application/json"
   ],
   "paths": {
-    "/chora/content/v1/content/{id}": {
+    "/chora/content/v1/content/{hash}": {
       "get": {
-        "summary": "Content queries a content by id.",
+        "summary": "Content queries content by hash.",
         "operationId": "Content",
         "responses": {
           "200": {
@@ -31,12 +31,11 @@
         },
         "parameters": [
           {
-            "name": "id",
-            "description": "id is the unique identifier of the content.",
+            "name": "hash",
+            "description": "hash is the content hash of the content.",
             "in": "path",
             "required": true,
-            "type": "string",
-            "format": "uint64"
+            "type": "string"
           }
         ],
         "tags": [
@@ -46,7 +45,7 @@
     },
     "/chora/content/v1/contents": {
       "get": {
-        "summary": "Contents queries all contents.",
+        "summary": "Contents queries all content.",
         "operationId": "Contents",
         "responses": {
           "200": {
@@ -109,7 +108,7 @@
     },
     "/chora/content/v1/contents-by-curator/{curator}": {
       "get": {
-        "summary": "ContentsByCurator queries contents by curator.",
+        "summary": "ContentsByCurator queries content by curator.",
         "operationId": "ContentsByCurator",
         "responses": {
           "200": {
@@ -182,18 +181,13 @@
     "chora.content.v1.QueryContentResponse": {
       "type": "object",
       "properties": {
-        "id": {
+        "hash": {
           "type": "string",
-          "format": "uint64",
-          "description": "id is the unique identifier of the content."
+          "description": "hash is the content hash of the content."
         },
         "curator": {
           "type": "string",
           "description": "curator is the address of the content curator."
-        },
-        "metadata": {
-          "type": "string",
-          "description": "metadata is the metadata of the content."
         }
       },
       "description": "QueryContentResponse is the Query/Content response type."
@@ -210,7 +204,7 @@
           "items": {
             "$ref": "#/definitions/chora.content.v1.QueryContentsByCuratorResponse.Content"
           },
-          "description": "contents is the list of contents managed by the curator."
+          "description": "contents is the list of content managed by the curator."
         },
         "pagination": {
           "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
@@ -222,14 +216,9 @@
     "chora.content.v1.QueryContentsByCuratorResponse.Content": {
       "type": "object",
       "properties": {
-        "id": {
+        "hash": {
           "type": "string",
-          "format": "uint64",
-          "description": "id is the unique identifier of the content."
-        },
-        "metadata": {
-          "type": "string",
-          "description": "metadata is the metadata of the content."
+          "description": "hash is the content hash of the content."
         }
       },
       "description": "Content is the content properties."
@@ -242,7 +231,7 @@
           "items": {
             "$ref": "#/definitions/chora.content.v1.QueryContentsResponse.Content"
           },
-          "description": "contents is the list of contents."
+          "description": "contents is the list of content."
         },
         "pagination": {
           "$ref": "#/definitions/cosmos.base.query.v1beta1.PageResponse",
@@ -254,18 +243,13 @@
     "chora.content.v1.QueryContentsResponse.Content": {
       "type": "object",
       "properties": {
-        "id": {
+        "hash": {
           "type": "string",
-          "format": "uint64",
-          "description": "id is the unique identifier of the content."
+          "description": "hash is the content hash of the content."
         },
         "curator": {
           "type": "string",
           "description": "curator is the address of the content curator."
-        },
-        "metadata": {
-          "type": "string",
-          "description": "metadata is the metadata of the content."
         }
       },
       "description": "Content is the content properties."

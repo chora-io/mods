@@ -34,9 +34,8 @@ Feature: Query/Contents
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       When query contents
@@ -48,9 +47,8 @@ Feature: Query/Contents
       {
         "contents": [
           {
-            "id": 1,
             "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-            "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+            "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
           }
         ],
         "pagination": {
@@ -63,17 +61,15 @@ Feature: Query/Contents
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
       Given content
       """
       {
-        "id": 2,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+        "hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
       }
       """
       When query contents
@@ -85,14 +81,12 @@ Feature: Query/Contents
       {
         "contents": [
           {
-            "id": 1,
             "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-            "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+            "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
           },
           {
-            "id": 2,
             "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-            "metadata": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
+            "hash": "chora:13toVfwypkE1AwUzQmuBHk28WWwCa5QCynCrBuoYgMvN2iroywJ5Vi1.rdf"
           }
         ],
         "pagination": {

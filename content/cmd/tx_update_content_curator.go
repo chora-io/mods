@@ -1,8 +1,6 @@
 package cmd
 
 import (
-	"strconv"
-
 	"github.com/spf13/cobra"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -15,9 +13,9 @@ import (
 // TxUpdateContentCuratorCmd creates and returns the tx update-curator command.
 func TxUpdateContentCuratorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-content-curator [id] [new-curator]",
-		Short: "submit a transaction to update content curator",
-		Long:  "submit a transaction to update content curator",
+		Use:   "update-content-curator [hash] [new-curator]",
+		Short: "submit transaction to update content curator",
+		Long:  "submit transaction to update content curator",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -25,14 +23,9 @@ func TxUpdateContentCuratorCmd() *cobra.Command {
 				return err
 			}
 
-			id, err := strconv.ParseUint(args[0], 0, 64)
-			if err != nil {
-				return err
-			}
-
 			msg := v1.MsgUpdateContentCurator{
-				Id:         id,
 				Curator:    clientCtx.GetFromAddress().String(),
+				Hash:       args[0],
 				NewCurator: args[1],
 			}
 

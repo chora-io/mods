@@ -53,12 +53,11 @@ func (s *msgCreateContent) ExpectStateContent(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &expected)
 	require.NoError(s.t, err)
 
-	actual, err := s.k.ss.ContentTable().Get(s.sdkCtx, expected.Id)
+	actual, err := s.k.ss.ContentTable().Get(s.sdkCtx, expected.Hash)
 	require.NoError(s.t, err)
 
-	require.Equal(s.t, expected.Id, actual.Id)
 	require.Equal(s.t, expected.Curator, actual.Curator)
-	require.Equal(s.t, expected.Metadata, actual.Metadata)
+	require.Equal(s.t, expected.Hash, actual.Hash)
 }
 
 func (s *msgCreateContent) ExpectEventCreateContent(a gocuke.DocString) {

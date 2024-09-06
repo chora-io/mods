@@ -39,7 +39,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "CreateGovernor",
 				//	Use:       "create-governor [address] [metadata]",
-				//	Short:     "submit a transaction to add a governor",
+				//	Short:     "submit transaction to add governor",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//		{ProtoField: "metadata"},
@@ -48,7 +48,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "RemoveGovernor",
 				//	Use:       "remove-governor [address]",
-				//	Short:     "submit a transaction to remove a governor",
+				//	Short:     "submit transaction to remove governor",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//	},
@@ -56,7 +56,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "UpdatePolicy",
 					Use:       "update-policy [admin] [signed-blocks-window] [min-signed-per-window]",
-					Short:     "submit a transaction to update a governor",
+					Short:     "submit transaction to update governor",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 						{ProtoField: "admin"},
 						{ProtoField: "signed_blocks_window"},
@@ -66,7 +66,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateGovernor",
 				//	Use:       "update-governor [address] [metadata]",
-				//	Short:     "submit a transaction to update a governor",
+				//	Short:     "submit transaction to update governor",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//		{ProtoField: "metadata"},

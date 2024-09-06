@@ -4,9 +4,9 @@ info:
   description: Documentation describing REST and gRPC endpoints for queries.
   version: v0.0.0
 paths:
-  /chora/content/v1/content/{id}:
+  /chora/content/v1/content/{hash}:
     get:
-      summary: Content queries a content by id.
+      summary: Content queries content by hash.
       operationId: Content
       responses:
         '200':
@@ -14,16 +14,12 @@ paths:
           schema:
             type: object
             properties:
-              id:
+              hash:
                 type: string
-                format: uint64
-                description: id is the unique identifier of the content.
+                description: hash is the content hash of the content.
               curator:
                 type: string
                 description: curator is the address of the content curator.
-              metadata:
-                type: string
-                description: metadata is the metadata of the content.
             description: QueryContentResponse is the Query/Content response type.
         default:
           description: An unexpected error response.
@@ -48,17 +44,16 @@ paths:
                       type: string
                       format: byte
       parameters:
-        - name: id
-          description: id is the unique identifier of the content.
+        - name: hash
+          description: hash is the content hash of the content.
           in: path
           required: true
           type: string
-          format: uint64
       tags:
         - Query
   /chora/content/v1/contents:
     get:
-      summary: Contents queries all contents.
+      summary: Contents queries all content.
       operationId: Contents
       responses:
         '200':
@@ -71,18 +66,14 @@ paths:
                 items:
                   type: object
                   properties:
-                    id:
+                    hash:
                       type: string
-                      format: uint64
-                      description: id is the unique identifier of the content.
+                      description: hash is the content hash of the content.
                     curator:
                       type: string
                       description: curator is the address of the content curator.
-                    metadata:
-                      type: string
-                      description: metadata is the metadata of the content.
                   description: Content is the content properties.
-                description: contents is the list of contents.
+                description: contents is the list of content.
               pagination:
                 description: pagination is the pagination of the response.
                 type: object
@@ -186,7 +177,7 @@ paths:
         - Query
   /chora/content/v1/contents-by-curator/{curator}:
     get:
-      summary: ContentsByCurator queries contents by curator.
+      summary: ContentsByCurator queries content by curator.
       operationId: ContentsByCurator
       responses:
         '200':
@@ -202,15 +193,11 @@ paths:
                 items:
                   type: object
                   properties:
-                    id:
+                    hash:
                       type: string
-                      format: uint64
-                      description: id is the unique identifier of the content.
-                    metadata:
-                      type: string
-                      description: metadata is the metadata of the content.
+                      description: hash is the content hash of the content.
                   description: Content is the content properties.
-                description: contents is the list of contents managed by the curator.
+                description: contents is the list of content managed by the curator.
               pagination:
                 description: pagination is the pagination of the response.
                 type: object
@@ -323,16 +310,12 @@ definitions:
   chora.content.v1.QueryContentResponse:
     type: object
     properties:
-      id:
+      hash:
         type: string
-        format: uint64
-        description: id is the unique identifier of the content.
+        description: hash is the content hash of the content.
       curator:
         type: string
         description: curator is the address of the content curator.
-      metadata:
-        type: string
-        description: metadata is the metadata of the content.
     description: QueryContentResponse is the Query/Content response type.
   chora.content.v1.QueryContentsByCuratorResponse:
     type: object
@@ -345,15 +328,11 @@ definitions:
         items:
           type: object
           properties:
-            id:
+            hash:
               type: string
-              format: uint64
-              description: id is the unique identifier of the content.
-            metadata:
-              type: string
-              description: metadata is the metadata of the content.
+              description: hash is the content hash of the content.
           description: Content is the content properties.
-        description: contents is the list of contents managed by the curator.
+        description: contents is the list of content managed by the curator.
       pagination:
         description: pagination is the pagination of the response.
         type: object
@@ -379,13 +358,9 @@ definitions:
   chora.content.v1.QueryContentsByCuratorResponse.Content:
     type: object
     properties:
-      id:
+      hash:
         type: string
-        format: uint64
-        description: id is the unique identifier of the content.
-      metadata:
-        type: string
-        description: metadata is the metadata of the content.
+        description: hash is the content hash of the content.
     description: Content is the content properties.
   chora.content.v1.QueryContentsResponse:
     type: object
@@ -395,18 +370,14 @@ definitions:
         items:
           type: object
           properties:
-            id:
+            hash:
               type: string
-              format: uint64
-              description: id is the unique identifier of the content.
+              description: hash is the content hash of the content.
             curator:
               type: string
               description: curator is the address of the content curator.
-            metadata:
-              type: string
-              description: metadata is the metadata of the content.
           description: Content is the content properties.
-        description: contents is the list of contents.
+        description: contents is the list of content.
       pagination:
         description: pagination is the pagination of the response.
         type: object
@@ -430,16 +401,12 @@ definitions:
   chora.content.v1.QueryContentsResponse.Content:
     type: object
     properties:
-      id:
+      hash:
         type: string
-        format: uint64
-        description: id is the unique identifier of the content.
+        description: hash is the content hash of the content.
       curator:
         type: string
         description: curator is the address of the content curator.
-      metadata:
-        type: string
-        description: metadata is the metadata of the content.
     description: Content is the content properties.
   cosmos.base.query.v1beta1.PageRequest:
     type: object

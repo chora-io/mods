@@ -14,9 +14,8 @@ Feature: Msg/UpdateContentCurator
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -24,8 +23,8 @@ Feature: Msg/UpdateContentCurator
       When msg update content curator
       """
       {
-        "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
         "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -35,8 +34,8 @@ Feature: Msg/UpdateContentCurator
       When msg update content curator
       """
       {
-        "id": 1,
         "curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
         "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -51,9 +50,8 @@ Feature: Msg/UpdateContentCurator
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -61,15 +59,15 @@ Feature: Msg/UpdateContentCurator
       When msg update content curator
       """
       {
-        "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
+         "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
+       "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
       Then expect response
       """
       {
-        "id": 1
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -81,9 +79,8 @@ Feature: Msg/UpdateContentCurator
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -91,17 +88,16 @@ Feature: Msg/UpdateContentCurator
       When msg update content curator
       """
       {
-        "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
         "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
       Then expect state content
       """
       {
-        "id": 1,
         "curator": "hEyiXxUCaFQmkbuhO9r+QDscjIY=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -113,9 +109,8 @@ Feature: Msg/UpdateContentCurator
       Given content
       """
       {
-        "id": 1,
         "curator": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y=",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 
@@ -123,15 +118,15 @@ Feature: Msg/UpdateContentCurator
       When msg update content curator
       """
       {
-        "id": 1,
         "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
         "new_curator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
       Then expect event update content curator
       """
       {
-        "id": 1
+        "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
       """
 

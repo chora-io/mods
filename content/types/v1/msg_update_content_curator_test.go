@@ -1,6 +1,8 @@
 package v1
 
 import (
+	"strconv"
+	"strings"
 	"testing"
 
 	"github.com/cosmos/gogoproto/jsonpb"
@@ -28,6 +30,13 @@ func (s *msgUpdateContentCurator) Message(a gocuke.DocString) {
 	s.msg = &MsgUpdateContentCurator{}
 	err := jsonpb.UnmarshalString(a.Content, s.msg)
 	require.NoError(s.t, err)
+}
+
+func (s *msgUpdateContentCurator) HashWithLength(a string) {
+	length, err := strconv.ParseInt(a, 10, 64)
+	require.NoError(s.t, err)
+
+	s.msg.Hash = strings.Repeat("x", int(length))
 }
 
 func (s *msgUpdateContentCurator) ValidateMessage() {

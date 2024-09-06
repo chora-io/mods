@@ -50,10 +50,10 @@ func setupBase(t gocuke.TestingT) *baseSuite {
 	s.sdkCtx = sdk.NewContext(cms, tmproto.Header{}, false, log.NewNopLogger()).WithContext(ormCtx)
 
 	// create store service
-	service := runtime.NewKVStoreService(key)
+	ss := runtime.NewKVStoreService(key)
 
 	// create and set keeper
-	s.k = NewKeeper(service)
+	s.k = NewKeeper(ss)
 
 	return s
 }

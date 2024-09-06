@@ -31,8 +31,8 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // QueryContentRequest is the Query/Content request type.
 type QueryContentRequest struct {
-	// id is the unique identifier of the content.
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// hash is the content hash of the content.
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 }
 
 func (m *QueryContentRequest) Reset()         { *m = QueryContentRequest{} }
@@ -68,21 +68,19 @@ func (m *QueryContentRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_QueryContentRequest proto.InternalMessageInfo
 
-func (m *QueryContentRequest) GetId() uint64 {
+func (m *QueryContentRequest) GetHash() string {
 	if m != nil {
-		return m.Id
+		return m.Hash
 	}
-	return 0
+	return ""
 }
 
 // QueryContentResponse is the Query/Content response type.
 type QueryContentResponse struct {
-	// id is the unique identifier of the content.
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// hash is the content hash of the content.
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
-	// metadata is the metadata of the content.
-	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
 func (m *QueryContentResponse) Reset()         { *m = QueryContentResponse{} }
@@ -118,23 +116,16 @@ func (m *QueryContentResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_QueryContentResponse proto.InternalMessageInfo
 
-func (m *QueryContentResponse) GetId() uint64 {
+func (m *QueryContentResponse) GetHash() string {
 	if m != nil {
-		return m.Id
+		return m.Hash
 	}
-	return 0
+	return ""
 }
 
 func (m *QueryContentResponse) GetCurator() string {
 	if m != nil {
 		return m.Curator
-	}
-	return ""
-}
-
-func (m *QueryContentResponse) GetMetadata() string {
-	if m != nil {
-		return m.Metadata
 	}
 	return ""
 }
@@ -187,7 +178,7 @@ func (m *QueryContentsRequest) GetPagination() *query.PageRequest {
 
 // QueryContentsResponse is the Query/Contents response type.
 type QueryContentsResponse struct {
-	// contents is the list of contents.
+	// contents is the list of content.
 	Contents []*QueryContentsResponse_Content `protobuf:"bytes,1,rep,name=contents,proto3" json:"contents,omitempty"`
 	// pagination is the pagination of the response.
 	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
@@ -242,12 +233,10 @@ func (m *QueryContentsResponse) GetPagination() *query.PageResponse {
 
 // Content is the content properties.
 type QueryContentsResponse_Content struct {
-	// id is the unique identifier of the content.
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// hash is the content hash of the content.
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,2,opt,name=curator,proto3" json:"curator,omitempty"`
-	// metadata is the metadata of the content.
-	Metadata string `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
 func (m *QueryContentsResponse_Content) Reset()         { *m = QueryContentsResponse_Content{} }
@@ -283,23 +272,16 @@ func (m *QueryContentsResponse_Content) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_QueryContentsResponse_Content proto.InternalMessageInfo
 
-func (m *QueryContentsResponse_Content) GetId() uint64 {
+func (m *QueryContentsResponse_Content) GetHash() string {
 	if m != nil {
-		return m.Id
+		return m.Hash
 	}
-	return 0
+	return ""
 }
 
 func (m *QueryContentsResponse_Content) GetCurator() string {
 	if m != nil {
 		return m.Curator
-	}
-	return ""
-}
-
-func (m *QueryContentsResponse_Content) GetMetadata() string {
-	if m != nil {
-		return m.Metadata
 	}
 	return ""
 }
@@ -363,7 +345,7 @@ func (m *QueryContentsByCuratorRequest) GetPagination() *query.PageRequest {
 type QueryContentsByCuratorResponse struct {
 	// curator is the address of the content curator.
 	Curator string `protobuf:"bytes,1,opt,name=curator,proto3" json:"curator,omitempty"`
-	// contents is the list of contents managed by the curator.
+	// contents is the list of content managed by the curator.
 	Contents []*QueryContentsByCuratorResponse_Content `protobuf:"bytes,2,rep,name=contents,proto3" json:"contents,omitempty"`
 	// pagination is the pagination of the response.
 	Pagination *query.PageResponse `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
@@ -425,10 +407,8 @@ func (m *QueryContentsByCuratorResponse) GetPagination() *query.PageResponse {
 
 // Content is the content properties.
 type QueryContentsByCuratorResponse_Content struct {
-	// id is the unique identifier of the content.
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	// metadata is the metadata of the content.
-	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	// hash is the content hash of the content.
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 }
 
 func (m *QueryContentsByCuratorResponse_Content) Reset() {
@@ -466,16 +446,9 @@ func (m *QueryContentsByCuratorResponse_Content) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_QueryContentsByCuratorResponse_Content proto.InternalMessageInfo
 
-func (m *QueryContentsByCuratorResponse_Content) GetId() uint64 {
+func (m *QueryContentsByCuratorResponse_Content) GetHash() string {
 	if m != nil {
-		return m.Id
-	}
-	return 0
-}
-
-func (m *QueryContentsByCuratorResponse_Content) GetMetadata() string {
-	if m != nil {
-		return m.Metadata
+		return m.Hash
 	}
 	return ""
 }
@@ -494,41 +467,39 @@ func init() {
 func init() { proto.RegisterFile("chora/content/v1/query.proto", fileDescriptor_4470c37943e78342) }
 
 var fileDescriptor_4470c37943e78342 = []byte{
-	// 531 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x94, 0x4f, 0x8b, 0xd3, 0x40,
-	0x18, 0xc6, 0x3b, 0xa9, 0xba, 0x75, 0x16, 0x44, 0x47, 0x85, 0x10, 0x6a, 0x28, 0x81, 0xed, 0x56,
-	0xa1, 0x33, 0xa6, 0x22, 0x7a, 0xde, 0x82, 0x1e, 0x3c, 0xa8, 0xc5, 0x93, 0x88, 0x30, 0x4d, 0x86,
-	0x6c, 0xc0, 0x66, 0xb2, 0x99, 0x69, 0xa1, 0x2c, 0x8b, 0x7f, 0x3e, 0xc1, 0x82, 0x1f, 0xc4, 0x4f,
-	0xe0, 0xdd, 0xe3, 0x82, 0x17, 0x8f, 0xd2, 0xfa, 0x39, 0x44, 0x3a, 0x33, 0xe9, 0x26, 0xad, 0xb1,
-	0xab, 0xb8, 0xb7, 0x84, 0xf7, 0x7d, 0x9f, 0xfc, 0xde, 0xe7, 0xc9, 0x0c, 0x6c, 0x06, 0xfb, 0x3c,
-	0xa3, 0x24, 0xe0, 0x89, 0x64, 0x89, 0x24, 0x13, 0x9f, 0x1c, 0x8c, 0x59, 0x36, 0xc5, 0x69, 0xc6,
-	0x25, 0x47, 0x57, 0x55, 0x15, 0x9b, 0x2a, 0x9e, 0xf8, 0xce, 0x9d, 0x80, 0x8b, 0x11, 0x17, 0x64,
-	0x48, 0x05, 0xd3, 0xad, 0x64, 0xe2, 0x0f, 0x99, 0xa4, 0x3e, 0x49, 0x69, 0x14, 0x27, 0x54, 0xc6,
-	0x3c, 0xd1, 0xd3, 0x4e, 0x33, 0xe2, 0x3c, 0x7a, 0xc3, 0x08, 0x4d, 0x63, 0x42, 0x93, 0x84, 0x4b,
-	0x55, 0x14, 0xba, 0xea, 0xed, 0xc0, 0xeb, 0xcf, 0x17, 0xf3, 0x7d, 0x2d, 0x3e, 0x60, 0x07, 0x63,
-	0x26, 0x24, 0xba, 0x02, 0xad, 0x38, 0xb4, 0x41, 0x0b, 0x74, 0x2e, 0x0c, 0xac, 0x38, 0xf4, 0x5e,
-	0xc1, 0x1b, 0xe5, 0x36, 0x91, 0xf2, 0x44, 0xb0, 0xd5, 0x3e, 0x64, 0xc3, 0xad, 0x60, 0x9c, 0x51,
-	0xc9, 0x33, 0xdb, 0x6a, 0x81, 0xce, 0xe5, 0x41, 0xfe, 0x8a, 0x1c, 0xd8, 0x18, 0x31, 0x49, 0x43,
-	0x2a, 0xa9, 0x5d, 0x57, 0xa5, 0xe5, 0xbb, 0xf7, 0xba, 0xac, 0x2e, 0x72, 0x8a, 0x47, 0x10, 0x9e,
-	0xae, 0xa3, 0xbe, 0xb2, 0xdd, 0x6b, 0x63, 0xbd, 0x3b, 0x5e, 0xec, 0x8e, 0xb5, 0x4d, 0x66, 0x77,
-	0xfc, 0x8c, 0x46, 0xcc, 0xcc, 0x0e, 0x0a, 0x93, 0xde, 0x4f, 0x00, 0x6f, 0xae, 0x7c, 0xc0, 0xf0,
-	0x3f, 0x81, 0x0d, 0x63, 0xab, 0xb0, 0x41, 0xab, 0xde, 0xd9, 0xee, 0x11, 0xbc, 0xea, 0x36, 0xfe,
-	0xed, 0x28, 0xce, 0xad, 0x58, 0x0a, 0xa0, 0xc7, 0x25, 0xdc, 0xba, 0xc2, 0xdd, 0xdd, 0x88, 0xab,
-	0xe5, 0x8a, 0xbc, 0xce, 0x53, 0xb8, 0x65, 0xd4, 0xff, 0x93, 0xc1, 0xef, 0x01, 0xbc, 0x55, 0xda,
-	0x62, 0x6f, 0xda, 0xd7, 0x63, 0xb9, 0xd5, 0x05, 0x5d, 0x50, 0xd6, 0x2d, 0x87, 0x60, 0xfd, 0x73,
-	0x08, 0xc7, 0x16, 0x74, 0xab, 0x18, 0x4c, 0x1a, 0xd5, 0x10, 0x2f, 0x0a, 0x39, 0x59, 0x2a, 0xa7,
-	0x87, 0x1b, 0x72, 0x5a, 0x53, 0x3f, 0xcf, 0xc0, 0xee, 0x57, 0x07, 0x56, 0x8c, 0xc5, 0x2a, 0xc7,
-	0xd2, 0xfb, 0x5c, 0x87, 0x17, 0x15, 0x34, 0x7a, 0x07, 0x4e, 0x15, 0x76, 0xfe, 0xbc, 0x99, 0xf1,
-	0xd6, 0x69, 0x6f, 0x6a, 0xd3, 0x9c, 0x5e, 0xfb, 0xc3, 0xd7, 0x1f, 0x1f, 0xad, 0x16, 0x72, 0xc9,
-	0xda, 0x25, 0x93, 0x3f, 0x1e, 0xc6, 0xe1, 0x11, 0x7a, 0x0b, 0x1b, 0xb9, 0x77, 0xa8, 0xbd, 0xf1,
-	0x10, 0x68, 0x86, 0xdd, 0x33, 0x1e, 0x16, 0xcf, 0x53, 0x10, 0x4d, 0xe4, 0x54, 0x42, 0x08, 0xf4,
-	0x09, 0xc0, 0x6b, 0x6b, 0xe9, 0x21, 0x72, 0xf6, 0x9c, 0x35, 0xd3, 0xdd, 0xbf, 0xfd, 0x31, 0xbc,
-	0x07, 0x0a, 0xce, 0x47, 0xa4, 0x1a, 0xae, 0x3b, 0x9c, 0x76, 0xcd, 0xbf, 0x48, 0x0e, 0xcd, 0xc3,
-	0xd1, 0x5e, 0xff, 0xcb, 0xcc, 0x05, 0x27, 0x33, 0x17, 0x7c, 0x9f, 0xb9, 0xe0, 0x78, 0xee, 0xd6,
-	0x4e, 0xe6, 0x6e, 0xed, 0xdb, 0xdc, 0xad, 0xbd, 0xbc, 0x1d, 0xc5, 0x72, 0x7f, 0x3c, 0xc4, 0x01,
-	0x1f, 0x69, 0xd1, 0x6e, 0xcc, 0xc9, 0x88, 0x87, 0x62, 0x29, 0x2e, 0xa7, 0x29, 0x13, 0x8b, 0x5b,
-	0xfb, 0x92, 0xba, 0x88, 0xef, 0xfd, 0x0a, 0x00, 0x00, 0xff, 0xff, 0x94, 0x81, 0xaf, 0x96, 0x04,
-	0x06, 0x00, 0x00,
+	// 511 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x94, 0x41, 0x6f, 0xd3, 0x30,
+	0x14, 0xc7, 0xeb, 0x16, 0xd8, 0xf0, 0x2e, 0x60, 0x40, 0xaa, 0xa2, 0x2e, 0xaa, 0x2c, 0xd1, 0x75,
+	0x48, 0xb5, 0x49, 0x39, 0x8c, 0xf3, 0x8a, 0xe0, 0xc0, 0x05, 0x2a, 0x4e, 0x1c, 0x90, 0xdc, 0x60,
+	0xa5, 0x91, 0x68, 0x9c, 0xc5, 0x6e, 0xa5, 0x6a, 0x9a, 0x10, 0xfb, 0x04, 0x48, 0x7c, 0x10, 0x3e,
+	0x02, 0x57, 0x8e, 0x93, 0xb8, 0x70, 0x44, 0x2d, 0xe2, 0x33, 0x70, 0x44, 0xb1, 0x9d, 0x2d, 0x69,
+	0x97, 0x65, 0x43, 0xda, 0xcd, 0xc9, 0x7b, 0xef, 0xef, 0xdf, 0xfb, 0xbf, 0x27, 0xc3, 0x96, 0x3f,
+	0x16, 0x09, 0xa3, 0xbe, 0x88, 0x14, 0x8f, 0x14, 0x9d, 0x79, 0xf4, 0x60, 0xca, 0x93, 0x39, 0x89,
+	0x13, 0xa1, 0x04, 0xba, 0xa3, 0xa3, 0xc4, 0x46, 0xc9, 0xcc, 0x73, 0x1e, 0xf9, 0x42, 0x4e, 0x84,
+	0xa4, 0x23, 0x26, 0xb9, 0x49, 0xa5, 0x33, 0x6f, 0xc4, 0x15, 0xf3, 0x68, 0xcc, 0x82, 0x30, 0x62,
+	0x2a, 0x14, 0x91, 0xa9, 0x76, 0x5a, 0x81, 0x10, 0xc1, 0x07, 0x4e, 0x59, 0x1c, 0x52, 0x16, 0x45,
+	0x42, 0xe9, 0xa0, 0x34, 0x51, 0xbc, 0x0b, 0xef, 0xbd, 0x4e, 0xeb, 0x07, 0x46, 0x7c, 0xc8, 0x0f,
+	0xa6, 0x5c, 0x2a, 0x84, 0xe0, 0x8d, 0x31, 0x93, 0xe3, 0x26, 0x68, 0x83, 0xee, 0xed, 0xa1, 0x3e,
+	0xe3, 0x67, 0xf0, 0x7e, 0x31, 0x55, 0xc6, 0x22, 0x92, 0xfc, 0xbc, 0x5c, 0xd4, 0x84, 0x1b, 0xfe,
+	0x34, 0x61, 0x4a, 0x24, 0xcd, 0xba, 0xfe, 0x9d, 0x7d, 0xe2, 0x77, 0x45, 0x15, 0x99, 0xdd, 0xf8,
+	0x1c, 0xc2, 0x33, 0x74, 0xad, 0xb5, 0xd5, 0xef, 0x10, 0xd3, 0x27, 0x49, 0xfb, 0x24, 0xc6, 0x12,
+	0xdb, 0x27, 0x79, 0xc5, 0x02, 0x6e, 0x6b, 0x87, 0xb9, 0x4a, 0xfc, 0x07, 0xc0, 0x07, 0x2b, 0x17,
+	0x58, 0xce, 0x97, 0x70, 0xd3, 0x5a, 0x28, 0x9b, 0xa0, 0xdd, 0xe8, 0x6e, 0xf5, 0x29, 0x59, 0x75,
+	0x96, 0x9c, 0x5b, 0x4a, 0xb2, 0x96, 0x4f, 0x05, 0xd0, 0x8b, 0x02, 0x6e, 0x43, 0xe3, 0xee, 0x54,
+	0xe2, 0x1a, 0xb9, 0x3c, 0xaf, 0xb3, 0x07, 0x37, 0xac, 0xfa, 0x15, 0x8d, 0xfc, 0x04, 0xe0, 0x76,
+	0x81, 0x76, 0x7f, 0x3e, 0x30, 0xa1, 0xcc, 0xd2, 0x5c, 0x2d, 0x28, 0xd4, 0xae, 0x98, 0x5d, 0xff,
+	0x6f, 0xb3, 0xff, 0x02, 0xe8, 0x96, 0x31, 0x58, 0xd7, 0xcb, 0x21, 0xde, 0xe4, 0xe6, 0x51, 0xd7,
+	0xf3, 0x78, 0x5a, 0x31, 0x8f, 0x35, 0xf5, 0xeb, 0x1c, 0xcc, 0xf6, 0x85, 0x83, 0xe9, 0x7f, 0x6b,
+	0xc0, 0x9b, 0x1a, 0x0e, 0x1d, 0x83, 0xb3, 0xcc, 0x87, 0x17, 0x77, 0x60, 0x3d, 0x74, 0x3a, 0x55,
+	0x69, 0x86, 0x07, 0x77, 0x8f, 0x7f, 0xfc, 0xfe, 0x52, 0xc7, 0xa8, 0x4d, 0xd7, 0x1e, 0x88, 0xec,
+	0x78, 0x98, 0xd2, 0x1c, 0xa1, 0x8f, 0x70, 0x33, 0x73, 0x09, 0x75, 0x2a, 0xd7, 0xda, 0x50, 0xec,
+	0x5c, 0x72, 0xfd, 0x31, 0xd6, 0x18, 0x2d, 0xe4, 0x94, 0x62, 0x48, 0xf4, 0x15, 0xc0, 0xbb, 0x6b,
+	0x73, 0x42, 0xf4, 0xf2, 0x13, 0x35, 0x4c, 0x8f, 0xaf, 0xba, 0x02, 0x78, 0x4f, 0xc3, 0x79, 0x88,
+	0x96, 0xc3, 0xf5, 0x46, 0xf3, 0x9e, 0xdd, 0x3a, 0x7a, 0x68, 0x0f, 0x47, 0xfb, 0x83, 0xef, 0x0b,
+	0x17, 0x9c, 0x2c, 0x5c, 0xf0, 0x6b, 0xe1, 0x82, 0xcf, 0x4b, 0xb7, 0x76, 0xb2, 0x74, 0x6b, 0x3f,
+	0x97, 0x6e, 0xed, 0xed, 0x6e, 0x10, 0xaa, 0xf1, 0x74, 0x44, 0x7c, 0x31, 0x31, 0xa2, 0xbd, 0x50,
+	0xd0, 0x89, 0x78, 0x2f, 0x4f, 0xc5, 0xd5, 0x3c, 0xe6, 0x32, 0x7d, 0x73, 0x6f, 0xe9, 0x67, 0xf4,
+	0xc9, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x38, 0x6d, 0xe4, 0x70, 0xc2, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -543,11 +514,11 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
-	// Content queries a content by id.
+	// Content queries content by hash.
 	Content(ctx context.Context, in *QueryContentRequest, opts ...grpc.CallOption) (*QueryContentResponse, error)
-	// Contents queries all contents.
+	// Contents queries all content.
 	Contents(ctx context.Context, in *QueryContentsRequest, opts ...grpc.CallOption) (*QueryContentsResponse, error)
-	// ContentsByCurator queries contents by curator.
+	// ContentsByCurator queries content by curator.
 	ContentsByCurator(ctx context.Context, in *QueryContentsByCuratorRequest, opts ...grpc.CallOption) (*QueryContentsByCuratorResponse, error)
 }
 
@@ -588,11 +559,11 @@ func (c *queryClient) ContentsByCurator(ctx context.Context, in *QueryContentsBy
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
-	// Content queries a content by id.
+	// Content queries content by hash.
 	Content(context.Context, *QueryContentRequest) (*QueryContentResponse, error)
-	// Contents queries all contents.
+	// Contents queries all content.
 	Contents(context.Context, *QueryContentsRequest) (*QueryContentsResponse, error)
-	// ContentsByCurator queries contents by curator.
+	// ContentsByCurator queries content by curator.
 	ContentsByCurator(context.Context, *QueryContentsByCuratorRequest) (*QueryContentsByCuratorResponse, error)
 }
 
@@ -709,10 +680,12 @@ func (m *QueryContentRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.Id != 0 {
-		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+	if len(m.Hash) > 0 {
+		i -= len(m.Hash)
+		copy(dAtA[i:], m.Hash)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Hash)))
 		i--
-		dAtA[i] = 0x8
+		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
@@ -737,13 +710,6 @@ func (m *QueryContentResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Metadata) > 0 {
-		i -= len(m.Metadata)
-		copy(dAtA[i:], m.Metadata)
-		i = encodeVarintQuery(dAtA, i, uint64(len(m.Metadata)))
-		i--
-		dAtA[i] = 0x1a
-	}
 	if len(m.Curator) > 0 {
 		i -= len(m.Curator)
 		copy(dAtA[i:], m.Curator)
@@ -751,10 +717,12 @@ func (m *QueryContentResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x12
 	}
-	if m.Id != 0 {
-		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+	if len(m.Hash) > 0 {
+		i -= len(m.Hash)
+		copy(dAtA[i:], m.Hash)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Hash)))
 		i--
-		dAtA[i] = 0x8
+		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
@@ -863,13 +831,6 @@ func (m *QueryContentsResponse_Content) MarshalToSizedBuffer(dAtA []byte) (int, 
 	_ = i
 	var l int
 	_ = l
-	if len(m.Metadata) > 0 {
-		i -= len(m.Metadata)
-		copy(dAtA[i:], m.Metadata)
-		i = encodeVarintQuery(dAtA, i, uint64(len(m.Metadata)))
-		i--
-		dAtA[i] = 0x1a
-	}
 	if len(m.Curator) > 0 {
 		i -= len(m.Curator)
 		copy(dAtA[i:], m.Curator)
@@ -877,10 +838,12 @@ func (m *QueryContentsResponse_Content) MarshalToSizedBuffer(dAtA []byte) (int, 
 		i--
 		dAtA[i] = 0x12
 	}
-	if m.Id != 0 {
-		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+	if len(m.Hash) > 0 {
+		i -= len(m.Hash)
+		copy(dAtA[i:], m.Hash)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Hash)))
 		i--
-		dAtA[i] = 0x8
+		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
@@ -1003,17 +966,12 @@ func (m *QueryContentsByCuratorResponse_Content) MarshalToSizedBuffer(dAtA []byt
 	_ = i
 	var l int
 	_ = l
-	if len(m.Metadata) > 0 {
-		i -= len(m.Metadata)
-		copy(dAtA[i:], m.Metadata)
-		i = encodeVarintQuery(dAtA, i, uint64(len(m.Metadata)))
+	if len(m.Hash) > 0 {
+		i -= len(m.Hash)
+		copy(dAtA[i:], m.Hash)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Hash)))
 		i--
-		dAtA[i] = 0x12
-	}
-	if m.Id != 0 {
-		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
-		i--
-		dAtA[i] = 0x8
+		dAtA[i] = 0xa
 	}
 	return len(dAtA) - i, nil
 }
@@ -1035,8 +993,9 @@ func (m *QueryContentRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.Id != 0 {
-		n += 1 + sovQuery(uint64(m.Id))
+	l = len(m.Hash)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
 	}
 	return n
 }
@@ -1047,14 +1006,11 @@ func (m *QueryContentResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.Id != 0 {
-		n += 1 + sovQuery(uint64(m.Id))
-	}
-	l = len(m.Curator)
+	l = len(m.Hash)
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
 	}
-	l = len(m.Metadata)
+	l = len(m.Curator)
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
 	}
@@ -1099,14 +1055,11 @@ func (m *QueryContentsResponse_Content) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.Id != 0 {
-		n += 1 + sovQuery(uint64(m.Id))
-	}
-	l = len(m.Curator)
+	l = len(m.Hash)
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
 	}
-	l = len(m.Metadata)
+	l = len(m.Curator)
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
 	}
@@ -1159,10 +1112,7 @@ func (m *QueryContentsByCuratorResponse_Content) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.Id != 0 {
-		n += 1 + sovQuery(uint64(m.Id))
-	}
-	l = len(m.Metadata)
+	l = len(m.Hash)
 	if l > 0 {
 		n += 1 + l + sovQuery(uint64(l))
 	}
@@ -1205,10 +1155,10 @@ func (m *QueryContentRequest) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}
-			m.Id = 0
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowQuery
@@ -1218,11 +1168,24 @@ func (m *QueryContentRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Hash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipQuery(dAtA[iNdEx:])
@@ -1274,10 +1237,10 @@ func (m *QueryContentResponse) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}
-			m.Id = 0
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowQuery
@@ -1287,11 +1250,24 @@ func (m *QueryContentResponse) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Hash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Curator", wireType)
@@ -1323,38 +1299,6 @@ func (m *QueryContentResponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Curator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthQuery
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthQuery
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Metadata = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1613,10 +1557,10 @@ func (m *QueryContentsResponse_Content) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}
-			m.Id = 0
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowQuery
@@ -1626,11 +1570,24 @@ func (m *QueryContentsResponse_Content) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Hash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Curator", wireType)
@@ -1662,38 +1619,6 @@ func (m *QueryContentsResponse_Content) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Curator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthQuery
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthQuery
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Metadata = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -2016,27 +1941,8 @@ func (m *QueryContentsByCuratorResponse_Content) Unmarshal(dAtA []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
-			}
-			m.Id = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowQuery
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 2:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -2064,7 +1970,7 @@ func (m *QueryContentsByCuratorResponse_Content) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Metadata = string(dAtA[iNdEx:postIndex])
+			m.Hash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

@@ -42,7 +42,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "Create",
 				//	Use:       "create [metadata]",
-				//	Short:     "submit a transaction to create content",
+				//	Short:     "submit transaction to create content",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "metadata"},
 				//	},
@@ -50,7 +50,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "Delete",
 				//	Use:       "delete [id]",
-				//	Short:     "submit a transaction to delete content",
+				//	Short:     "submit transaction to delete content",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},
 				//	},
@@ -58,7 +58,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateCurator",
 				//	Use:       "update-curator [id] [new-curator]",
-				//	Short:     "submit a transaction to update content curator",
+				//	Short:     "submit transaction to update content curator",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},
 				//		{ProtoField: "new_curator"},
@@ -67,7 +67,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateContentMetadata",
 				//	Use:       "update-content-metadata [id] [new-metadata]",
-				//	Short:     "submit a transaction to update content metadata",
+				//	Short:     "submit transaction to update content metadata",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},
 				//		{ProtoField: "new_metadata"},

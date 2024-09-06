@@ -1,7 +1,6 @@
 package keeper
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/cosmos/gogoproto/jsonpb"
@@ -34,12 +33,11 @@ func (s *msgRemoveContent) Content(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
 
-	id, err := s.k.ss.ContentTable().InsertReturningId(s.sdkCtx, &contentv1.Content{
-		Curator:  content.Curator,
-		Metadata: content.Metadata,
+	err = s.k.ss.ContentTable().Insert(s.sdkCtx, &contentv1.Content{
+		Curator: content.Curator,
+		Hash:    content.Hash,
 	})
 	require.NoError(s.t, err)
-	require.Equal(s.t, content.Id, id)
 }
 
 func (s *msgRemoveContent) MsgRemoveContent(a gocuke.DocString) {
@@ -66,11 +64,8 @@ func (s *msgRemoveContent) ExpectResponse(a gocuke.DocString) {
 	require.Equal(s.t, &expected, s.res)
 }
 
-func (s *msgRemoveContent) ExpectNoStateContentWithId(a string) {
-	id, err := strconv.ParseUint(a, 10, 32)
-	require.NoError(s.t, err)
-
-	found, err := s.k.ss.ContentTable().Has(s.sdkCtx, id)
+func (s *msgRemoveContent) ExpectNoStateContentWithHash(a string) {
+	found, err := s.k.ss.ContentTable().Has(s.sdkCtx, a)
 	require.NoError(s.t, err)
 	require.False(s.t, found)
 }

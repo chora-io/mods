@@ -1,4 +1,4 @@
 package v1
 
-// MetadataMaxLength is the maximum length of metadata.
-const MetadataMaxLength = 128
+// HashMaxLength is the maximum length of content hash.
+const HashMaxLength = 128

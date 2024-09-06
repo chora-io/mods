@@ -14,8 +14,8 @@ import (
 func TxUpdateAgentMetadataCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-agent-metadata [address] [new-metadata]",
-		Short: "submit a transaction to update agent metadata",
-		Long:  "submit a transaction to update agent metadata",
+		Short: "submit transaction to update agent metadata",
+		Long:  "submit transaction to update agent metadata",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

@@ -16,8 +16,8 @@ import (
 func TxUpdateIssuerCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-issuer [id] [new-issuer]",
-		Short: "submit a transaction to update voucher issuer",
-		Long:  "submit a transaction to update voucher issuer",
+		Short: "submit transaction to update voucher issuer",
+		Long:  "submit transaction to update voucher issuer",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

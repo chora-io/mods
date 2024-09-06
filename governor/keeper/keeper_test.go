@@ -57,10 +57,10 @@ func setupBase(t gocuke.TestingT) *baseSuite {
 	require.NoError(t, err)
 
 	// create store service
-	service := runtime.NewKVStoreService(key)
+	ss := runtime.NewKVStoreService(key)
 
 	// create and set keeper
-	s.k = NewKeeper(service, s.admin)
+	s.k = NewKeeper(ss, s.admin)
 
 	return s
 }

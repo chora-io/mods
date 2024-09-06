@@ -33,7 +33,7 @@ func (s *queryAdmin) Admin(a gocuke.DocString) {
 	require.NoError(s.t, err)
 
 	err = s.k.ss.AdminTable().Save(s.sdkCtx, &adminv1.Admin{
-		Address: admin.Address,
+		Admin: admin.Admin,
 	})
 	require.NoError(s.t, err)
 }

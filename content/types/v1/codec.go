@@ -15,7 +15,6 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 		&MsgCreateContent{},
 		&MsgRemoveContent{},
 		&MsgUpdateContentCurator{},
-		&MsgUpdateContentMetadata{},
 	)
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
@@ -26,5 +25,4 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	legacy.RegisterAminoMsg(cdc, &MsgCreateContent{}, "content/v1/MsgCreateContent")
 	legacy.RegisterAminoMsg(cdc, &MsgRemoveContent{}, "content/v1/MsgRemoveContent")
 	legacy.RegisterAminoMsg(cdc, &MsgUpdateContentCurator{}, "content/v1/MsgUpdateContentCurator")
-	legacy.RegisterAminoMsg(cdc, &MsgUpdateContentMetadata{}, "content/v1/MsgUpdateContentMetadata")
 }

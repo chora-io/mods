@@ -32,12 +32,11 @@ func (s *queryContentsByCurator) Content(a gocuke.DocString) {
 	err := jsonpb.UnmarshalString(a.Content, &content)
 	require.NoError(s.t, err)
 
-	id, err := s.k.ss.ContentTable().InsertReturningId(s.sdkCtx, &contentv1.Content{
-		Curator:  content.Curator,
-		Metadata: content.Metadata,
+	err = s.k.ss.ContentTable().Insert(s.sdkCtx, &contentv1.Content{
+		Curator: content.Curator,
+		Hash:    content.Hash,
 	})
 	require.NoError(s.t, err)
-	require.Equal(s.t, content.Id, id)
 }
 
 func (s *queryContentsByCurator) QueryContentsByCurator(a gocuke.DocString) {

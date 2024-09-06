@@ -5,7 +5,7 @@ Feature: MsgCreate
     """
     {
       "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-      "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
+      "hash": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
     }
     """
     When validate message
@@ -35,7 +35,7 @@ Feature: MsgCreate
     curator: decoding bech32 failed: invalid bech32 string length 3: invalid address
     """
 
-  Scenario: an error is returned if metadata is empty
+  Scenario: an error is returned if hash is empty
     Given message
     """
     {
@@ -45,19 +45,19 @@ Feature: MsgCreate
     When validate message
     Then expect the error
     """
-    metadata: empty string is not allowed: invalid request
+    hash: empty string is not allowed: invalid request
     """
 
-  Scenario: an error is returned if metadata exceeds 128 characters
+  Scenario: an error is returned if hash exceeds 128 characters
     Given message
     """
     {
       "curator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
     }
     """
-    And metadata with length "129"
+    And hash with length "129"
     When validate message
     Then expect the error
     """
-    metadata: exceeds max length 128: invalid request
+    hash: exceeds max length 128: invalid request
     """

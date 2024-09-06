@@ -30,11 +30,11 @@ const (
 //
 // Query is the Query service.
 type QueryClient interface {
-	// Content queries a content by id.
+	// Content queries content by hash.
 	Content(ctx context.Context, in *QueryContentRequest, opts ...grpc.CallOption) (*QueryContentResponse, error)
-	// Contents queries all contents.
+	// Contents queries all content.
 	Contents(ctx context.Context, in *QueryContentsRequest, opts ...grpc.CallOption) (*QueryContentsResponse, error)
-	// ContentsByCurator queries contents by curator.
+	// ContentsByCurator queries content by curator.
 	ContentsByCurator(ctx context.Context, in *QueryContentsByCuratorRequest, opts ...grpc.CallOption) (*QueryContentsByCuratorResponse, error)
 }
 
@@ -82,11 +82,11 @@ func (c *queryClient) ContentsByCurator(ctx context.Context, in *QueryContentsBy
 //
 // Query is the Query service.
 type QueryServer interface {
-	// Content queries a content by id.
+	// Content queries content by hash.
 	Content(context.Context, *QueryContentRequest) (*QueryContentResponse, error)
-	// Contents queries all contents.
+	// Contents queries all content.
 	Contents(context.Context, *QueryContentsRequest) (*QueryContentsResponse, error)
-	// ContentsByCurator queries contents by curator.
+	// ContentsByCurator queries content by curator.
 	ContentsByCurator(context.Context, *QueryContentsByCuratorRequest) (*QueryContentsByCuratorResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }

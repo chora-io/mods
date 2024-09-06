@@ -14,8 +14,8 @@ import (
 func TxCreateGovernorCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "create-governor [metadata]",
-		Short: "submit a transaction to add a governor",
-		Long:  "submit a transaction to add a governor",
+		Short: "submit transaction to create governor",
+		Long:  "submit transaction to create governor",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

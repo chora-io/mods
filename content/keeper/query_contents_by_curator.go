@@ -45,8 +45,7 @@ func (k Keeper) ContentsByCurator(ctx context.Context, req *v1.QueryContentsByCu
 		}
 
 		content := v1.QueryContentsByCuratorResponse_Content{
-			Id:       v.Id,
-			Metadata: v.Metadata,
+			Hash: v.Hash,
 		}
 
 		contents = append(contents, &content)

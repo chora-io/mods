@@ -14,8 +14,8 @@ import (
 func TxRemoveValidatorCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "remove-validator [address]",
-		Short: "submit a transaction to remove a validator",
-		Long:  "submit a transaction to remove a validator",
+		Short: "submit transaction to remove validator",
+		Long:  "submit transaction to remove validator",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

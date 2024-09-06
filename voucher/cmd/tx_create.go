@@ -14,8 +14,8 @@ import (
 func TxCreateCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "create [metadata]",
-		Short: "submit a transaction to create voucher",
-		Long:  "submit a transaction to create voucher",
+		Short: "submit transaction to create voucher",
+		Long:  "submit transaction to create voucher",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

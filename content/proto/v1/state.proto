@@ -10,16 +10,13 @@ option go_package = "github.com/chora-io/mods/content/types/v1";
 message Content {
   option (cosmos.orm.v1.table) = {
     id : 1,
-    primary_key : {fields : "id", auto_increment : true}
+    primary_key : {fields : "hash"}
     index : {id : 1, fields : "curator"}
   };
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
+  // hash is the content hash of the content.
+  string hash = 1;
 
   // curator is the address of the content curator.
   bytes curator = 2;
-
-  // metadata is the metadata of the content.
-  string metadata = 3;
 }

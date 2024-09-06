@@ -11,14 +11,12 @@ import (
 
 type ContentTable interface {
 	Insert(ctx context.Context, content *Content) error
-	InsertReturningId(ctx context.Context, content *Content) (uint64, error)
-	LastInsertedSequence(ctx context.Context) (uint64, error)
 	Update(ctx context.Context, content *Content) error
 	Save(ctx context.Context, content *Content) error
 	Delete(ctx context.Context, content *Content) error
-	Has(ctx context.Context, id uint64) (found bool, err error)
+	Has(ctx context.Context, hash string) (found bool, err error)
 	// Get returns nil and an error which responds true to ormerrors.IsNotFound() if the record was not found.
-	Get(ctx context.Context, id uint64) (*Content, error)
+	Get(ctx context.Context, hash string) (*Content, error)
 	List(ctx context.Context, prefixKey ContentIndexKey, opts ...ormlist.Option) (ContentIterator, error)
 	ListRange(ctx context.Context, from, to ContentIndexKey, opts ...ormlist.Option) (ContentIterator, error)
 	DeleteBy(ctx context.Context, prefixKey ContentIndexKey) error
@@ -44,18 +42,18 @@ type ContentIndexKey interface {
 }
 
 // primary key starting index..
-type ContentPrimaryKey = ContentIdIndexKey
+type ContentPrimaryKey = ContentHashIndexKey
 
-type ContentIdIndexKey struct {
+type ContentHashIndexKey struct {
 	vs []interface{}
 }
 
-func (x ContentIdIndexKey) id() uint32            { return 0 }
-func (x ContentIdIndexKey) values() []interface{} { return x.vs }
-func (x ContentIdIndexKey) contentIndexKey()      {}
+func (x ContentHashIndexKey) id() uint32            { return 0 }
+func (x ContentHashIndexKey) values() []interface{} { return x.vs }
+func (x ContentHashIndexKey) contentIndexKey()      {}
 
-func (this ContentIdIndexKey) WithId(id uint64) ContentIdIndexKey {
-	this.vs = []interface{}{id}
+func (this ContentHashIndexKey) WithHash(hash string) ContentHashIndexKey {
+	this.vs = []interface{}{hash}
 	return this
 }
 
@@ -73,7 +71,7 @@ func (this ContentCuratorIndexKey) WithCurator(curator []byte) ContentCuratorInd
 }
 
 type contentTable struct {
-	table ormtable.AutoIncrementTable
+	table ormtable.Table
 }
 
 func (this contentTable) Insert(ctx context.Context, content *Content) error {
@@ -92,21 +90,13 @@ func (this contentTable) Delete(ctx context.Context, content *Content) error {
 	return this.table.Delete(ctx, content)
 }
 
-func (this contentTable) InsertReturningId(ctx context.Context, content *Content) (uint64, error) {
-	return this.table.InsertReturningPKey(ctx, content)
+func (this contentTable) Has(ctx context.Context, hash string) (found bool, err error) {
+	return this.table.PrimaryKey().Has(ctx, hash)
 }
 
-func (this contentTable) LastInsertedSequence(ctx context.Context) (uint64, error) {
-	return this.table.LastInsertedSequence(ctx)
-}
-
-func (this contentTable) Has(ctx context.Context, id uint64) (found bool, err error) {
-	return this.table.PrimaryKey().Has(ctx, id)
-}
-
-func (this contentTable) Get(ctx context.Context, id uint64) (*Content, error) {
+func (this contentTable) Get(ctx context.Context, hash string) (*Content, error) {
 	var content Content
-	found, err := this.table.PrimaryKey().Get(ctx, &content, id)
+	found, err := this.table.PrimaryKey().Get(ctx, &content, hash)
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +133,7 @@ func NewContentTable(db ormtable.Schema) (ContentTable, error) {
 	if table == nil {
 		return nil, ormerrors.TableNotFound.Wrap(string((&Content{}).ProtoReflect().Descriptor().FullName()))
 	}
-	return contentTable{table.(ormtable.AutoIncrementTable)}, nil
+	return contentTable{table}, nil
 }
 
 type StateStore interface {

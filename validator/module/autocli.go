@@ -39,7 +39,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "AddValidator",
 				//	Use:       "add-validator [address] [metadata]",
-				//	Short:     "submit a transaction to add a validator",
+				//	Short:     "submit transaction to create validator",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//		{ProtoField: "metadata"},
@@ -48,7 +48,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "RemoveValidator",
 				//	Use:       "remove-validator [address]",
-				//	Short:     "submit a transaction to remove a validator",
+				//	Short:     "submit transaction to remove a validator",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//	},
@@ -56,7 +56,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "UpdatePolicy",
 					Use:       "update-policy [admin] [signed-blocks-window] [min-signed-per-window]",
-					Short:     "submit a transaction to update a validator",
+					Short:     "submit transaction to update a validator",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 						{ProtoField: "admin"},
 						{ProtoField: "signed_blocks_window"},
@@ -66,7 +66,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateValidator",
 				//	Use:       "update-validator [address] [metadata]",
-				//	Short:     "submit a transaction to update a validator",
+				//	Short:     "submit transaction to update validator",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
 				//		{ProtoField: "metadata"},

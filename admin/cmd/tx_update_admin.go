@@ -14,8 +14,8 @@ import (
 func TxUpdateAdminCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-admin [new-admin]",
-		Short: "submit a transaction to update the admin account",
-		Long:  "submit a transaction to update the admin account",
+		Short: "submit transaction to update admin",
+		Long:  "submit transaction to update admin",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

@@ -67,7 +67,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "Create",
 				//	Use:       "create [metadata]",
-				//	Short:     "submit a transaction to create voucher",
+				//	Short:     "submit transaction to create voucher",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "metadata"},
 				//	},
@@ -75,7 +75,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "Issue",
 				//	Use:       "issue [id] [recipient] [amount] [expiration] [metadata]",
-				//	Short:     "submit a transaction to issue vouchers",
+				//	Short:     "submit transaction to issue vouchers",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},
 				//		{ProtoField: "recipient"},
@@ -87,7 +87,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateIssuer",
 				//	Use:       "update-issuer [id] [new-issuer]",
-				//	Short:     "submit a transaction to update voucher issuer",
+				//	Short:     "submit transaction to update voucher issuer",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},
 				//		{ProtoField: "new_issuer"},
@@ -96,7 +96,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateMetadata",
 				//	Use:       "update-issuer [id] [new-metadata]",
-				//	Short:     "submit a transaction to update voucher metadata",
+				//	Short:     "submit transaction to update voucher metadata",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "id"},
 				//		{ProtoField: "new_metadata"},

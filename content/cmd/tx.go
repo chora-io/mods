@@ -21,7 +21,6 @@ func TxCmd() *cobra.Command {
 		TxCreateContentCmd(),
 		TxRemoveContentCmd(),
 		TxUpdateContentCuratorCmd(),
-		TxUpdateContentMetadataCmd(),
 	)
 
 	return cmd

@@ -20,9 +20,9 @@ func (k Keeper) CreateContent(ctx context.Context, req *v1.MsgCreateContent) (*v
 	}
 
 	// insert content into content table
-	id, err := k.ss.ContentTable().InsertReturningId(ctx, &contentv1.Content{
-		Curator:  curator,
-		Metadata: req.Metadata,
+	err = k.ss.ContentTable().Insert(ctx, &contentv1.Content{
+		Curator: curator,
+		Hash:    req.Hash,
 	})
 	if err != nil {
 		return nil, err // internal error
@@ -30,13 +30,13 @@ func (k Keeper) CreateContent(ctx context.Context, req *v1.MsgCreateContent) (*v
 
 	// emit event
 	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventCreateContent{
-		Id: id,
+		Hash: req.Hash,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
 	return &v1.MsgCreateContentResponse{
-		Id: id,
+		Hash: req.Hash,
 	}, nil
 }

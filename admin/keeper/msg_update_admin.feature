@@ -1,12 +1,12 @@
-Feature: Msg/Update
+Feature: Msg/UpdateAdmin
 
-  Update is successful when:
+  UpdateAdmin is successful when:
   - admin is the admin account
 
-  Update has the following outcomes:
+  UpdateAdmin has the following outcomes:
   - message response returned
   - Admin is updated in state
-  - EventUpdate is emitted
+  - EventUpdateAdmin is emitted
 
   Rule: The admin must be the admin account
 
@@ -14,7 +14,7 @@ Feature: Msg/Update
       Given admin
       """
       {
-        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 
@@ -47,7 +47,7 @@ Feature: Msg/Update
       Given admin
       """
       {
-        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 
@@ -75,7 +75,7 @@ Feature: Msg/Update
       Given admin
       """
       {
-        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 
@@ -90,19 +90,19 @@ Feature: Msg/Update
       Then expect state admin
       """
       {
-        "address": "hEyiXxUCaFQmkbuhO9r+QDscjIY="
+        "admin": "hEyiXxUCaFQmkbuhO9r+QDscjIY="
       }
       """
 
     # No failing scenario - state is never updated when message fails
 
-  Rule: EventUpdate emitted
+  Rule: EventUpdateAdmin emitted
 
     Background:
       Given admin
       """
       {
-        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 

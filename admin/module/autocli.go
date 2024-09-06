@@ -27,7 +27,7 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//{
 				//	RpcMethod: "UpdateAdmin",
 				//	Use:       "update-admin [new-admin]",
-				//	Short:     "submit a transaction to update the admin account",
+				//	Short:     "submit transaction to update admin",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "new_admin"},
 				//	},

@@ -18,10 +18,6 @@ service Msg {
   // UpdateContentCurator updates the curator of content.
   rpc UpdateContentCurator(MsgUpdateContentCurator)
       returns (MsgUpdateContentCuratorResponse);
-
-  // UpdateContentMetadata updates the metadata of content.
-  rpc UpdateContentMetadata(MsgUpdateContentMetadata)
-      returns (MsgUpdateContentMetadataResponse);
 }
 
 // MsgCreateContent is the Msg/CreateContent request type.
@@ -31,44 +27,44 @@ message MsgCreateContent {
   // curator is the address of the content curator.
   string curator = 1;
 
-  // metadata is the metadata of the content.
-  string metadata = 2;
+  // hash is the content hash of the content.
+  string hash = 2;
 }
 
 // MsgCreateContentResponse is the Msg/CreateContent response type.
 message MsgCreateContentResponse {
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
+  // hash is the content hash of the content.
+  string hash = 1;
 }
 
 // MsgRemoveContent is the Msg/RemoveContent request type.
 message MsgRemoveContent {
   option (cosmos.msg.v1.signer) = "curator";
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
-
   // curator is the address of the content curator.
-  string curator = 2;
+  string curator = 1;
+
+  // hash is the content hash of the content.
+  string hash = 2;
 }
 
 // MsgRemoveContentResponse is the Msg/RemoveContent response type.
 message MsgRemoveContentResponse {
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
+  // hash is the content hash of the content.
+  string hash = 1;
 }
 
 // MsgUpdateContentCurator is the Msg/UpdateContentCurator request type.
 message MsgUpdateContentCurator {
   option (cosmos.msg.v1.signer) = "curator";
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
-
   // curator is the address of the content curator.
-  string curator = 2;
+  string curator = 1;
+
+  // hash is the content hash of the content.
+  string hash = 2;
 
   // new_curator is the address of the new curator.
   string new_curator = 3;
@@ -78,28 +74,6 @@ message MsgUpdateContentCurator {
 // type.
 message MsgUpdateContentCuratorResponse {
 
-  // id is the unique identifier of the content.
-  uint64 id = 1;
-}
-
-// MsgUpdateContentMetadata is the Msg/UpdateContentMetadata request type.
-message MsgUpdateContentMetadata {
-  option (cosmos.msg.v1.signer) = "curator";
-
-  // id is the unique identifier of the content.
-  uint64 id = 1;
-
-  // curator is the address of the content curator.
-  string curator = 2;
-
-  // new_metadata is the new metadata of the content.
-  string new_metadata = 3;
-}
-
-// MsgUpdateContentMetadataResponse is the Msg/UpdateContentMetadata response
-// type.
-message MsgUpdateContentMetadataResponse {
-
-  // id is the unique identifier of the content.
-  uint64 id = 1;
+  // hash is the content hash of the content.
+  string hash = 1;
 }
