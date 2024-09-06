@@ -9,8 +9,8 @@ option go_package = "github.com/chora-io/mods/validator/types/v1";
 // Msg is the Msg service.
 service Msg {
 
-  // AddValidator adds a validator (restricted to admin).
-  rpc AddValidator(MsgAddValidator) returns (MsgAddValidatorResponse);
+  // CreateValidator adds a validator (restricted to admin).
+  rpc CreateValidator(MsgCreateValidator) returns (MsgCreateValidatorResponse);
 
   // RemoveValidator removes a validator (restricted to admin).
   rpc RemoveValidator(MsgRemoveValidator) returns (MsgRemoveValidatorResponse);
@@ -22,25 +22,19 @@ service Msg {
   rpc UpdateValidator(MsgUpdateValidator) returns (MsgUpdateValidatorResponse);
 }
 
-// MsgAddValidator is the Msg/AddValidator request type.
-message MsgAddValidator {
+// MsgCreateValidator is the Msg/CreateValidator request type.
+message MsgCreateValidator {
   option (cosmos.msg.v1.signer) = "admin";
 
-  // admin is the address of the admin.
-  string admin = 1;
-
-  // address is the address of the validator.
-  string address = 2;
-
   // operator is the address of the operator.
-  string operator = 3;
+  string operator = 1;
 
   // metadata is the metadata of the validator.
-  string metadata = 4;
+  string metadata = 2;
 }
 
-// MsgAddValidatorResponse is the Msg/AddValidator response type.
-message MsgAddValidatorResponse {
+// MsgCreateValidatorResponse is the Msg/CreateValidator response type.
+message MsgCreateValidatorResponse {
 
   // address is the address of the validator.
   string address = 1;
@@ -48,10 +42,10 @@ message MsgAddValidatorResponse {
 
 // MsgRemoveValidator is the Msg/RemoveValidator request type.
 message MsgRemoveValidator {
-  option (cosmos.msg.v1.signer) = "admin";
+  option (cosmos.msg.v1.signer) = "operator";
 
-  // admin is the address of the admin.
-  string admin = 1;
+  // operator is the address of the operator.
+  string operator = 1;
 
   // address is the address of the validator.
   string address = 2;

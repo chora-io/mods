@@ -11,7 +11,7 @@ import (
 func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*sdk.Msg)(nil),
-		&MsgAddValidator{},
+		&MsgCreateValidator{},
 		&MsgRemoveValidator{},
 		&MsgUpdatePolicy{},
 		&MsgUpdateValidator{},
@@ -22,7 +22,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 
 // RegisterLegacyAminoCodec registers legacy amino codec.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgAddValidator{}, "validator/MsgAddValidator", nil)
+	cdc.RegisterConcrete(&MsgCreateValidator{}, "validator/MsgCreateValidator", nil)
 	cdc.RegisterConcrete(&MsgRemoveValidator{}, "validator/MsgRemoveValidator", nil)
 	cdc.RegisterConcrete(&MsgUpdatePolicy{}, "validator/MsgUpdatePolicy", nil)
 	cdc.RegisterConcrete(&MsgUpdateValidator{}, "validator/MsgUpdateValidator", nil)

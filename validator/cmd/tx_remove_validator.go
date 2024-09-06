@@ -24,8 +24,8 @@ func TxRemoveValidatorCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgRemoveValidator{
-				Admin:   clientCtx.GetFromAddress().String(),
-				Address: args[0],
+				Operator: clientCtx.GetFromAddress().String(),
+				Address:  args[0],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

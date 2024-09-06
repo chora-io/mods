@@ -13,10 +13,10 @@ import (
 // TxUpdateValidatorCmd creates and returns the tx update command.
 func TxUpdateValidatorCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-validator [new-metadata]",
+		Use:   "update-validator [address] [new-metadata]",
 		Short: "submit transaction to update validator metadata",
 		Long:  "submit transaction to update validator metadata",
-		Args:  cobra.ExactArgs(1),
+		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -24,8 +24,9 @@ func TxUpdateValidatorCmd() *cobra.Command {
 			}
 
 			msg := v1.MsgUpdateValidator{
-				Address:     clientCtx.GetFromAddress().String(),
-				NewMetadata: args[0],
+				Operator:    clientCtx.GetFromAddress().String(),
+				Address:     args[0],
+				NewMetadata: args[1],
 			}
 
 			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)

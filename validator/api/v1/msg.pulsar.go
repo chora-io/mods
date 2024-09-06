@@ -14,31 +14,27 @@ import (
 )
 
 var (
-	md_MsgAddValidator          protoreflect.MessageDescriptor
-	fd_MsgAddValidator_admin    protoreflect.FieldDescriptor
-	fd_MsgAddValidator_address  protoreflect.FieldDescriptor
-	fd_MsgAddValidator_operator protoreflect.FieldDescriptor
-	fd_MsgAddValidator_metadata protoreflect.FieldDescriptor
+	md_MsgCreateValidator          protoreflect.MessageDescriptor
+	fd_MsgCreateValidator_operator protoreflect.FieldDescriptor
+	fd_MsgCreateValidator_metadata protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_msg_proto_init()
-	md_MsgAddValidator = File_chora_validator_v1_msg_proto.Messages().ByName("MsgAddValidator")
-	fd_MsgAddValidator_admin = md_MsgAddValidator.Fields().ByName("admin")
-	fd_MsgAddValidator_address = md_MsgAddValidator.Fields().ByName("address")
-	fd_MsgAddValidator_operator = md_MsgAddValidator.Fields().ByName("operator")
-	fd_MsgAddValidator_metadata = md_MsgAddValidator.Fields().ByName("metadata")
+	md_MsgCreateValidator = File_chora_validator_v1_msg_proto.Messages().ByName("MsgCreateValidator")
+	fd_MsgCreateValidator_operator = md_MsgCreateValidator.Fields().ByName("operator")
+	fd_MsgCreateValidator_metadata = md_MsgCreateValidator.Fields().ByName("metadata")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgAddValidator)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgCreateValidator)(nil)
 
-type fastReflection_MsgAddValidator MsgAddValidator
+type fastReflection_MsgCreateValidator MsgCreateValidator
 
-func (x *MsgAddValidator) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgAddValidator)(x)
+func (x *MsgCreateValidator) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgCreateValidator)(x)
 }
 
-func (x *MsgAddValidator) slowProtoReflect() protoreflect.Message {
+func (x *MsgCreateValidator) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_msg_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -50,43 +46,43 @@ func (x *MsgAddValidator) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgAddValidator_messageType fastReflection_MsgAddValidator_messageType
-var _ protoreflect.MessageType = fastReflection_MsgAddValidator_messageType{}
+var _fastReflection_MsgCreateValidator_messageType fastReflection_MsgCreateValidator_messageType
+var _ protoreflect.MessageType = fastReflection_MsgCreateValidator_messageType{}
 
-type fastReflection_MsgAddValidator_messageType struct{}
+type fastReflection_MsgCreateValidator_messageType struct{}
 
-func (x fastReflection_MsgAddValidator_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgAddValidator)(nil)
+func (x fastReflection_MsgCreateValidator_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgCreateValidator)(nil)
 }
-func (x fastReflection_MsgAddValidator_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgAddValidator)
+func (x fastReflection_MsgCreateValidator_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateValidator)
 }
-func (x fastReflection_MsgAddValidator_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgAddValidator
+func (x fastReflection_MsgCreateValidator_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateValidator
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgAddValidator) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgAddValidator
+func (x *fastReflection_MsgCreateValidator) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateValidator
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgAddValidator) Type() protoreflect.MessageType {
-	return _fastReflection_MsgAddValidator_messageType
+func (x *fastReflection_MsgCreateValidator) Type() protoreflect.MessageType {
+	return _fastReflection_MsgCreateValidator_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgAddValidator) New() protoreflect.Message {
-	return new(fastReflection_MsgAddValidator)
+func (x *fastReflection_MsgCreateValidator) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateValidator)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgAddValidator) Interface() protoreflect.ProtoMessage {
-	return (*MsgAddValidator)(x)
+func (x *fastReflection_MsgCreateValidator) Interface() protoreflect.ProtoMessage {
+	return (*MsgCreateValidator)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -94,28 +90,16 @@ func (x *fastReflection_MsgAddValidator) Interface() protoreflect.ProtoMessage {
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgAddValidator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Admin != "" {
-		value := protoreflect.ValueOfString(x.Admin)
-		if !f(fd_MsgAddValidator_admin, value) {
-			return
-		}
-	}
-	if x.Address != "" {
-		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_MsgAddValidator_address, value) {
-			return
-		}
-	}
+func (x *fastReflection_MsgCreateValidator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Operator != "" {
 		value := protoreflect.ValueOfString(x.Operator)
-		if !f(fd_MsgAddValidator_operator, value) {
+		if !f(fd_MsgCreateValidator_operator, value) {
 			return
 		}
 	}
 	if x.Metadata != "" {
 		value := protoreflect.ValueOfString(x.Metadata)
-		if !f(fd_MsgAddValidator_metadata, value) {
+		if !f(fd_MsgCreateValidator_metadata, value) {
 			return
 		}
 	}
@@ -132,21 +116,17 @@ func (x *fastReflection_MsgAddValidator) Range(f func(protoreflect.FieldDescript
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgAddValidator) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgCreateValidator) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidator.admin":
-		return x.Admin != ""
-	case "chora.validator.v1.MsgAddValidator.address":
-		return x.Address != ""
-	case "chora.validator.v1.MsgAddValidator.operator":
+	case "chora.validator.v1.MsgCreateValidator.operator":
 		return x.Operator != ""
-	case "chora.validator.v1.MsgAddValidator.metadata":
+	case "chora.validator.v1.MsgCreateValidator.metadata":
 		return x.Metadata != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -156,21 +136,17 @@ func (x *fastReflection_MsgAddValidator) Has(fd protoreflect.FieldDescriptor) bo
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidator) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgCreateValidator) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidator.admin":
-		x.Admin = ""
-	case "chora.validator.v1.MsgAddValidator.address":
-		x.Address = ""
-	case "chora.validator.v1.MsgAddValidator.operator":
+	case "chora.validator.v1.MsgCreateValidator.operator":
 		x.Operator = ""
-	case "chora.validator.v1.MsgAddValidator.metadata":
+	case "chora.validator.v1.MsgCreateValidator.metadata":
 		x.Metadata = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -180,25 +156,19 @@ func (x *fastReflection_MsgAddValidator) Clear(fd protoreflect.FieldDescriptor) 
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgAddValidator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateValidator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.MsgAddValidator.admin":
-		value := x.Admin
-		return protoreflect.ValueOfString(value)
-	case "chora.validator.v1.MsgAddValidator.address":
-		value := x.Address
-		return protoreflect.ValueOfString(value)
-	case "chora.validator.v1.MsgAddValidator.operator":
+	case "chora.validator.v1.MsgCreateValidator.operator":
 		value := x.Operator
 		return protoreflect.ValueOfString(value)
-	case "chora.validator.v1.MsgAddValidator.metadata":
+	case "chora.validator.v1.MsgCreateValidator.metadata":
 		value := x.Metadata
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidator does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidator does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -212,21 +182,17 @@ func (x *fastReflection_MsgAddValidator) Get(descriptor protoreflect.FieldDescri
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgCreateValidator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidator.admin":
-		x.Admin = value.Interface().(string)
-	case "chora.validator.v1.MsgAddValidator.address":
-		x.Address = value.Interface().(string)
-	case "chora.validator.v1.MsgAddValidator.operator":
+	case "chora.validator.v1.MsgCreateValidator.operator":
 		x.Operator = value.Interface().(string)
-	case "chora.validator.v1.MsgAddValidator.metadata":
+	case "chora.validator.v1.MsgCreateValidator.metadata":
 		x.Metadata = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidator does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -240,52 +206,44 @@ func (x *fastReflection_MsgAddValidator) Set(fd protoreflect.FieldDescriptor, va
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateValidator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidator.admin":
-		panic(fmt.Errorf("field admin of message chora.validator.v1.MsgAddValidator is not mutable"))
-	case "chora.validator.v1.MsgAddValidator.address":
-		panic(fmt.Errorf("field address of message chora.validator.v1.MsgAddValidator is not mutable"))
-	case "chora.validator.v1.MsgAddValidator.operator":
-		panic(fmt.Errorf("field operator of message chora.validator.v1.MsgAddValidator is not mutable"))
-	case "chora.validator.v1.MsgAddValidator.metadata":
-		panic(fmt.Errorf("field metadata of message chora.validator.v1.MsgAddValidator is not mutable"))
+	case "chora.validator.v1.MsgCreateValidator.operator":
+		panic(fmt.Errorf("field operator of message chora.validator.v1.MsgCreateValidator is not mutable"))
+	case "chora.validator.v1.MsgCreateValidator.metadata":
+		panic(fmt.Errorf("field metadata of message chora.validator.v1.MsgCreateValidator is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidator does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgAddValidator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateValidator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidator.admin":
+	case "chora.validator.v1.MsgCreateValidator.operator":
 		return protoreflect.ValueOfString("")
-	case "chora.validator.v1.MsgAddValidator.address":
-		return protoreflect.ValueOfString("")
-	case "chora.validator.v1.MsgAddValidator.operator":
-		return protoreflect.ValueOfString("")
-	case "chora.validator.v1.MsgAddValidator.metadata":
+	case "chora.validator.v1.MsgCreateValidator.metadata":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidator"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidator"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidator does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidator does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgAddValidator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgCreateValidator) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.MsgAddValidator", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.MsgCreateValidator", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -293,7 +251,7 @@ func (x *fastReflection_MsgAddValidator) WhichOneof(d protoreflect.OneofDescript
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgAddValidator) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgCreateValidator) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -304,7 +262,7 @@ func (x *fastReflection_MsgAddValidator) GetUnknown() protoreflect.RawFields {
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidator) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgCreateValidator) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -316,7 +274,7 @@ func (x *fastReflection_MsgAddValidator) SetUnknown(fields protoreflect.RawField
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgAddValidator) IsValid() bool {
+func (x *fastReflection_MsgCreateValidator) IsValid() bool {
 	return x != nil
 }
 
@@ -326,9 +284,9 @@ func (x *fastReflection_MsgAddValidator) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgCreateValidator) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgAddValidator)
+		x := input.Message.Interface().(*MsgCreateValidator)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -340,14 +298,6 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		l = len(x.Admin)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
-		l = len(x.Address)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
 		l = len(x.Operator)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
@@ -366,7 +316,7 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgAddValidator)
+		x := input.Message.Interface().(*MsgCreateValidator)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -390,26 +340,12 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 			copy(dAtA[i:], x.Metadata)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Metadata)))
 			i--
-			dAtA[i] = 0x22
+			dAtA[i] = 0x12
 		}
 		if len(x.Operator) > 0 {
 			i -= len(x.Operator)
 			copy(dAtA[i:], x.Operator)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Operator)))
-			i--
-			dAtA[i] = 0x1a
-		}
-		if len(x.Address) > 0 {
-			i -= len(x.Address)
-			copy(dAtA[i:], x.Address)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
-			i--
-			dAtA[i] = 0x12
-		}
-		if len(x.Admin) > 0 {
-			i -= len(x.Admin)
-			copy(dAtA[i:], x.Admin)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Admin)))
 			i--
 			dAtA[i] = 0xa
 		}
@@ -424,7 +360,7 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgAddValidator)
+		x := input.Message.Interface().(*MsgCreateValidator)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -456,77 +392,13 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgAddValidator: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateValidator: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgAddValidator: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateValidator: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Admin", wireType)
-				}
-				var stringLen uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Admin = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
-			case 2:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
-				}
-				var stringLen uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Address = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
-			case 3:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Operator", wireType)
 				}
@@ -558,7 +430,7 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 				}
 				x.Operator = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
-			case 4:
+			case 2:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Metadata", wireType)
 				}
@@ -626,25 +498,25 @@ func (x *fastReflection_MsgAddValidator) ProtoMethods() *protoiface.Methods {
 }
 
 var (
-	md_MsgAddValidatorResponse         protoreflect.MessageDescriptor
-	fd_MsgAddValidatorResponse_address protoreflect.FieldDescriptor
+	md_MsgCreateValidatorResponse         protoreflect.MessageDescriptor
+	fd_MsgCreateValidatorResponse_address protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_msg_proto_init()
-	md_MsgAddValidatorResponse = File_chora_validator_v1_msg_proto.Messages().ByName("MsgAddValidatorResponse")
-	fd_MsgAddValidatorResponse_address = md_MsgAddValidatorResponse.Fields().ByName("address")
+	md_MsgCreateValidatorResponse = File_chora_validator_v1_msg_proto.Messages().ByName("MsgCreateValidatorResponse")
+	fd_MsgCreateValidatorResponse_address = md_MsgCreateValidatorResponse.Fields().ByName("address")
 }
 
-var _ protoreflect.Message = (*fastReflection_MsgAddValidatorResponse)(nil)
+var _ protoreflect.Message = (*fastReflection_MsgCreateValidatorResponse)(nil)
 
-type fastReflection_MsgAddValidatorResponse MsgAddValidatorResponse
+type fastReflection_MsgCreateValidatorResponse MsgCreateValidatorResponse
 
-func (x *MsgAddValidatorResponse) ProtoReflect() protoreflect.Message {
-	return (*fastReflection_MsgAddValidatorResponse)(x)
+func (x *MsgCreateValidatorResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgCreateValidatorResponse)(x)
 }
 
-func (x *MsgAddValidatorResponse) slowProtoReflect() protoreflect.Message {
+func (x *MsgCreateValidatorResponse) slowProtoReflect() protoreflect.Message {
 	mi := &file_chora_validator_v1_msg_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -656,43 +528,43 @@ func (x *MsgAddValidatorResponse) slowProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-var _fastReflection_MsgAddValidatorResponse_messageType fastReflection_MsgAddValidatorResponse_messageType
-var _ protoreflect.MessageType = fastReflection_MsgAddValidatorResponse_messageType{}
+var _fastReflection_MsgCreateValidatorResponse_messageType fastReflection_MsgCreateValidatorResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgCreateValidatorResponse_messageType{}
 
-type fastReflection_MsgAddValidatorResponse_messageType struct{}
+type fastReflection_MsgCreateValidatorResponse_messageType struct{}
 
-func (x fastReflection_MsgAddValidatorResponse_messageType) Zero() protoreflect.Message {
-	return (*fastReflection_MsgAddValidatorResponse)(nil)
+func (x fastReflection_MsgCreateValidatorResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgCreateValidatorResponse)(nil)
 }
-func (x fastReflection_MsgAddValidatorResponse_messageType) New() protoreflect.Message {
-	return new(fastReflection_MsgAddValidatorResponse)
+func (x fastReflection_MsgCreateValidatorResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateValidatorResponse)
 }
-func (x fastReflection_MsgAddValidatorResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgAddValidatorResponse
+func (x fastReflection_MsgCreateValidatorResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateValidatorResponse
 }
 
 // Descriptor returns message descriptor, which contains only the protobuf
 // type information for the message.
-func (x *fastReflection_MsgAddValidatorResponse) Descriptor() protoreflect.MessageDescriptor {
-	return md_MsgAddValidatorResponse
+func (x *fastReflection_MsgCreateValidatorResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgCreateValidatorResponse
 }
 
 // Type returns the message type, which encapsulates both Go and protobuf
 // type information. If the Go type information is not needed,
 // it is recommended that the message descriptor be used instead.
-func (x *fastReflection_MsgAddValidatorResponse) Type() protoreflect.MessageType {
-	return _fastReflection_MsgAddValidatorResponse_messageType
+func (x *fastReflection_MsgCreateValidatorResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgCreateValidatorResponse_messageType
 }
 
 // New returns a newly allocated and mutable empty message.
-func (x *fastReflection_MsgAddValidatorResponse) New() protoreflect.Message {
-	return new(fastReflection_MsgAddValidatorResponse)
+func (x *fastReflection_MsgCreateValidatorResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgCreateValidatorResponse)
 }
 
 // Interface unwraps the message reflection interface and
 // returns the underlying ProtoMessage interface.
-func (x *fastReflection_MsgAddValidatorResponse) Interface() protoreflect.ProtoMessage {
-	return (*MsgAddValidatorResponse)(x)
+func (x *fastReflection_MsgCreateValidatorResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgCreateValidatorResponse)(x)
 }
 
 // Range iterates over every populated field in an undefined order,
@@ -700,10 +572,10 @@ func (x *fastReflection_MsgAddValidatorResponse) Interface() protoreflect.ProtoM
 // Range returns immediately if f returns false.
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
-func (x *fastReflection_MsgAddValidatorResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+func (x *fastReflection_MsgCreateValidatorResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
 	if x.Address != "" {
 		value := protoreflect.ValueOfString(x.Address)
-		if !f(fd_MsgAddValidatorResponse_address, value) {
+		if !f(fd_MsgCreateValidatorResponse_address, value) {
 			return
 		}
 	}
@@ -720,15 +592,15 @@ func (x *fastReflection_MsgAddValidatorResponse) Range(f func(protoreflect.Field
 // In other cases (aside from the nullable cases above),
 // a proto3 scalar field is populated if it contains a non-zero value, and
 // a repeated field is populated if it is non-empty.
-func (x *fastReflection_MsgAddValidatorResponse) Has(fd protoreflect.FieldDescriptor) bool {
+func (x *fastReflection_MsgCreateValidatorResponse) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidatorResponse.address":
+	case "chora.validator.v1.MsgCreateValidatorResponse.address":
 		return x.Address != ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidatorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidatorResponse"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidatorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidatorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -738,15 +610,15 @@ func (x *fastReflection_MsgAddValidatorResponse) Has(fd protoreflect.FieldDescri
 // associated with the given field number.
 //
 // Clear is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidatorResponse) Clear(fd protoreflect.FieldDescriptor) {
+func (x *fastReflection_MsgCreateValidatorResponse) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidatorResponse.address":
+	case "chora.validator.v1.MsgCreateValidatorResponse.address":
 		x.Address = ""
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidatorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidatorResponse"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidatorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidatorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -756,16 +628,16 @@ func (x *fastReflection_MsgAddValidatorResponse) Clear(fd protoreflect.FieldDesc
 // the default value of a bytes scalar is guaranteed to be a copy.
 // For unpopulated composite types, it returns an empty, read-only view
 // of the value; to obtain a mutable reference, use Mutable.
-func (x *fastReflection_MsgAddValidatorResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateValidatorResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.MsgAddValidatorResponse.address":
+	case "chora.validator.v1.MsgCreateValidatorResponse.address":
 		value := x.Address
 		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidatorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidatorResponse"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidatorResponse does not contain field %s", descriptor.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidatorResponse does not contain field %s", descriptor.FullName()))
 	}
 }
 
@@ -779,15 +651,15 @@ func (x *fastReflection_MsgAddValidatorResponse) Get(descriptor protoreflect.Fie
 // empty, read-only value, then it panics.
 //
 // Set is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidatorResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+func (x *fastReflection_MsgCreateValidatorResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidatorResponse.address":
+	case "chora.validator.v1.MsgCreateValidatorResponse.address":
 		x.Address = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidatorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidatorResponse"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidatorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidatorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
@@ -801,40 +673,40 @@ func (x *fastReflection_MsgAddValidatorResponse) Set(fd protoreflect.FieldDescri
 // It panics if the field does not contain a composite type.
 //
 // Mutable is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidatorResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateValidatorResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidatorResponse.address":
-		panic(fmt.Errorf("field address of message chora.validator.v1.MsgAddValidatorResponse is not mutable"))
+	case "chora.validator.v1.MsgCreateValidatorResponse.address":
+		panic(fmt.Errorf("field address of message chora.validator.v1.MsgCreateValidatorResponse is not mutable"))
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidatorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidatorResponse"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidatorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidatorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // NewField returns a new value that is assignable to the field
 // for the given descriptor. For scalars, this returns the default value.
 // For lists, maps, and messages, this returns a new, empty, mutable value.
-func (x *fastReflection_MsgAddValidatorResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+func (x *fastReflection_MsgCreateValidatorResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgAddValidatorResponse.address":
+	case "chora.validator.v1.MsgCreateValidatorResponse.address":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
-			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgAddValidatorResponse"))
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: chora.validator.v1.MsgCreateValidatorResponse"))
 		}
-		panic(fmt.Errorf("message chora.validator.v1.MsgAddValidatorResponse does not contain field %s", fd.FullName()))
+		panic(fmt.Errorf("message chora.validator.v1.MsgCreateValidatorResponse does not contain field %s", fd.FullName()))
 	}
 }
 
 // WhichOneof reports which field within the oneof is populated,
 // returning nil if none are populated.
 // It panics if the oneof descriptor does not belong to this message.
-func (x *fastReflection_MsgAddValidatorResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+func (x *fastReflection_MsgCreateValidatorResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
 	switch d.FullName() {
 	default:
-		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.MsgAddValidatorResponse", d.FullName()))
+		panic(fmt.Errorf("%s is not a oneof field in chora.validator.v1.MsgCreateValidatorResponse", d.FullName()))
 	}
 	panic("unreachable")
 }
@@ -842,7 +714,7 @@ func (x *fastReflection_MsgAddValidatorResponse) WhichOneof(d protoreflect.Oneof
 // GetUnknown retrieves the entire list of unknown fields.
 // The caller may only mutate the contents of the RawFields
 // if the mutated bytes are stored back into the message with SetUnknown.
-func (x *fastReflection_MsgAddValidatorResponse) GetUnknown() protoreflect.RawFields {
+func (x *fastReflection_MsgCreateValidatorResponse) GetUnknown() protoreflect.RawFields {
 	return x.unknownFields
 }
 
@@ -853,7 +725,7 @@ func (x *fastReflection_MsgAddValidatorResponse) GetUnknown() protoreflect.RawFi
 // An empty RawFields may be passed to clear the fields.
 //
 // SetUnknown is a mutating operation and unsafe for concurrent use.
-func (x *fastReflection_MsgAddValidatorResponse) SetUnknown(fields protoreflect.RawFields) {
+func (x *fastReflection_MsgCreateValidatorResponse) SetUnknown(fields protoreflect.RawFields) {
 	x.unknownFields = fields
 }
 
@@ -865,7 +737,7 @@ func (x *fastReflection_MsgAddValidatorResponse) SetUnknown(fields protoreflect.
 // message type, but the details are implementation dependent.
 // Validity is not part of the protobuf data model, and may not
 // be preserved in marshaling or other operations.
-func (x *fastReflection_MsgAddValidatorResponse) IsValid() bool {
+func (x *fastReflection_MsgCreateValidatorResponse) IsValid() bool {
 	return x != nil
 }
 
@@ -875,9 +747,9 @@ func (x *fastReflection_MsgAddValidatorResponse) IsValid() bool {
 // The returned methods type is identical to
 // "google.golang.org/protobuf/runtime/protoiface".Methods.
 // Consult the protoiface package documentation for details.
-func (x *fastReflection_MsgAddValidatorResponse) ProtoMethods() *protoiface.Methods {
+func (x *fastReflection_MsgCreateValidatorResponse) ProtoMethods() *protoiface.Methods {
 	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
-		x := input.Message.Interface().(*MsgAddValidatorResponse)
+		x := input.Message.Interface().(*MsgCreateValidatorResponse)
 		if x == nil {
 			return protoiface.SizeOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -903,7 +775,7 @@ func (x *fastReflection_MsgAddValidatorResponse) ProtoMethods() *protoiface.Meth
 	}
 
 	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
-		x := input.Message.Interface().(*MsgAddValidatorResponse)
+		x := input.Message.Interface().(*MsgCreateValidatorResponse)
 		if x == nil {
 			return protoiface.MarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -940,7 +812,7 @@ func (x *fastReflection_MsgAddValidatorResponse) ProtoMethods() *protoiface.Meth
 		}, nil
 	}
 	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
-		x := input.Message.Interface().(*MsgAddValidatorResponse)
+		x := input.Message.Interface().(*MsgCreateValidatorResponse)
 		if x == nil {
 			return protoiface.UnmarshalOutput{
 				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
@@ -972,10 +844,10 @@ func (x *fastReflection_MsgAddValidatorResponse) ProtoMethods() *protoiface.Meth
 			fieldNum := int32(wire >> 3)
 			wireType := int(wire & 0x7)
 			if wireType == 4 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgAddValidatorResponse: wiretype end group for non-group")
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateValidatorResponse: wiretype end group for non-group")
 			}
 			if fieldNum <= 0 {
-				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgAddValidatorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgCreateValidatorResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 			}
 			switch fieldNum {
 			case 1:
@@ -1046,15 +918,15 @@ func (x *fastReflection_MsgAddValidatorResponse) ProtoMethods() *protoiface.Meth
 }
 
 var (
-	md_MsgRemoveValidator         protoreflect.MessageDescriptor
-	fd_MsgRemoveValidator_admin   protoreflect.FieldDescriptor
-	fd_MsgRemoveValidator_address protoreflect.FieldDescriptor
+	md_MsgRemoveValidator          protoreflect.MessageDescriptor
+	fd_MsgRemoveValidator_operator protoreflect.FieldDescriptor
+	fd_MsgRemoveValidator_address  protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_chora_validator_v1_msg_proto_init()
 	md_MsgRemoveValidator = File_chora_validator_v1_msg_proto.Messages().ByName("MsgRemoveValidator")
-	fd_MsgRemoveValidator_admin = md_MsgRemoveValidator.Fields().ByName("admin")
+	fd_MsgRemoveValidator_operator = md_MsgRemoveValidator.Fields().ByName("operator")
 	fd_MsgRemoveValidator_address = md_MsgRemoveValidator.Fields().ByName("address")
 }
 
@@ -1123,9 +995,9 @@ func (x *fastReflection_MsgRemoveValidator) Interface() protoreflect.ProtoMessag
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_MsgRemoveValidator) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Admin != "" {
-		value := protoreflect.ValueOfString(x.Admin)
-		if !f(fd_MsgRemoveValidator_admin, value) {
+	if x.Operator != "" {
+		value := protoreflect.ValueOfString(x.Operator)
+		if !f(fd_MsgRemoveValidator_operator, value) {
 			return
 		}
 	}
@@ -1150,8 +1022,8 @@ func (x *fastReflection_MsgRemoveValidator) Range(f func(protoreflect.FieldDescr
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_MsgRemoveValidator) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgRemoveValidator.admin":
-		return x.Admin != ""
+	case "chora.validator.v1.MsgRemoveValidator.operator":
+		return x.Operator != ""
 	case "chora.validator.v1.MsgRemoveValidator.address":
 		return x.Address != ""
 	default:
@@ -1170,8 +1042,8 @@ func (x *fastReflection_MsgRemoveValidator) Has(fd protoreflect.FieldDescriptor)
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgRemoveValidator) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgRemoveValidator.admin":
-		x.Admin = ""
+	case "chora.validator.v1.MsgRemoveValidator.operator":
+		x.Operator = ""
 	case "chora.validator.v1.MsgRemoveValidator.address":
 		x.Address = ""
 	default:
@@ -1190,8 +1062,8 @@ func (x *fastReflection_MsgRemoveValidator) Clear(fd protoreflect.FieldDescripto
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_MsgRemoveValidator) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "chora.validator.v1.MsgRemoveValidator.admin":
-		value := x.Admin
+	case "chora.validator.v1.MsgRemoveValidator.operator":
+		value := x.Operator
 		return protoreflect.ValueOfString(value)
 	case "chora.validator.v1.MsgRemoveValidator.address":
 		value := x.Address
@@ -1216,8 +1088,8 @@ func (x *fastReflection_MsgRemoveValidator) Get(descriptor protoreflect.FieldDes
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgRemoveValidator) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgRemoveValidator.admin":
-		x.Admin = value.Interface().(string)
+	case "chora.validator.v1.MsgRemoveValidator.operator":
+		x.Operator = value.Interface().(string)
 	case "chora.validator.v1.MsgRemoveValidator.address":
 		x.Address = value.Interface().(string)
 	default:
@@ -1240,8 +1112,8 @@ func (x *fastReflection_MsgRemoveValidator) Set(fd protoreflect.FieldDescriptor,
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgRemoveValidator) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgRemoveValidator.admin":
-		panic(fmt.Errorf("field admin of message chora.validator.v1.MsgRemoveValidator is not mutable"))
+	case "chora.validator.v1.MsgRemoveValidator.operator":
+		panic(fmt.Errorf("field operator of message chora.validator.v1.MsgRemoveValidator is not mutable"))
 	case "chora.validator.v1.MsgRemoveValidator.address":
 		panic(fmt.Errorf("field address of message chora.validator.v1.MsgRemoveValidator is not mutable"))
 	default:
@@ -1257,7 +1129,7 @@ func (x *fastReflection_MsgRemoveValidator) Mutable(fd protoreflect.FieldDescrip
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_MsgRemoveValidator) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "chora.validator.v1.MsgRemoveValidator.admin":
+	case "chora.validator.v1.MsgRemoveValidator.operator":
 		return protoreflect.ValueOfString("")
 	case "chora.validator.v1.MsgRemoveValidator.address":
 		return protoreflect.ValueOfString("")
@@ -1330,7 +1202,7 @@ func (x *fastReflection_MsgRemoveValidator) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		l = len(x.Admin)
+		l = len(x.Operator)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
@@ -1374,10 +1246,10 @@ func (x *fastReflection_MsgRemoveValidator) ProtoMethods() *protoiface.Methods {
 			i--
 			dAtA[i] = 0x12
 		}
-		if len(x.Admin) > 0 {
-			i -= len(x.Admin)
-			copy(dAtA[i:], x.Admin)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Admin)))
+		if len(x.Operator) > 0 {
+			i -= len(x.Operator)
+			copy(dAtA[i:], x.Operator)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Operator)))
 			i--
 			dAtA[i] = 0xa
 		}
@@ -1432,7 +1304,7 @@ func (x *fastReflection_MsgRemoveValidator) ProtoMethods() *protoiface.Methods {
 			switch fieldNum {
 			case 1:
 				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Admin", wireType)
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Operator", wireType)
 				}
 				var stringLen uint64
 				for shift := uint(0); ; shift += 7 {
@@ -1460,7 +1332,7 @@ func (x *fastReflection_MsgRemoveValidator) ProtoMethods() *protoiface.Methods {
 				if postIndex > l {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
 				}
-				x.Admin = string(dAtA[iNdEx:postIndex])
+				x.Operator = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
 			case 2:
 				if wireType != 2 {
@@ -3898,24 +3770,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// MsgAddValidator is the Msg/AddValidator request type.
-type MsgAddValidator struct {
+// MsgCreateValidator is the Msg/CreateValidator request type.
+type MsgCreateValidator struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// admin is the address of the admin.
-	Admin string `protobuf:"bytes,1,opt,name=admin,proto3" json:"admin,omitempty"`
-	// address is the address of the validator.
-	Address string `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
 	// operator is the address of the operator.
-	Operator string `protobuf:"bytes,3,opt,name=operator,proto3" json:"operator,omitempty"`
+	Operator string `protobuf:"bytes,1,opt,name=operator,proto3" json:"operator,omitempty"`
 	// metadata is the metadata of the validator.
-	Metadata string `protobuf:"bytes,4,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata string `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
-func (x *MsgAddValidator) Reset() {
-	*x = MsgAddValidator{}
+func (x *MsgCreateValidator) Reset() {
+	*x = MsgCreateValidator{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_validator_v1_msg_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3923,47 +3791,33 @@ func (x *MsgAddValidator) Reset() {
 	}
 }
 
-func (x *MsgAddValidator) String() string {
+func (x *MsgCreateValidator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgAddValidator) ProtoMessage() {}
+func (*MsgCreateValidator) ProtoMessage() {}
 
-// Deprecated: Use MsgAddValidator.ProtoReflect.Descriptor instead.
-func (*MsgAddValidator) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgCreateValidator.ProtoReflect.Descriptor instead.
+func (*MsgCreateValidator) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_msg_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *MsgAddValidator) GetAdmin() string {
-	if x != nil {
-		return x.Admin
-	}
-	return ""
-}
-
-func (x *MsgAddValidator) GetAddress() string {
-	if x != nil {
-		return x.Address
-	}
-	return ""
-}
-
-func (x *MsgAddValidator) GetOperator() string {
+func (x *MsgCreateValidator) GetOperator() string {
 	if x != nil {
 		return x.Operator
 	}
 	return ""
 }
 
-func (x *MsgAddValidator) GetMetadata() string {
+func (x *MsgCreateValidator) GetMetadata() string {
 	if x != nil {
 		return x.Metadata
 	}
 	return ""
 }
 
-// MsgAddValidatorResponse is the Msg/AddValidator response type.
-type MsgAddValidatorResponse struct {
+// MsgCreateValidatorResponse is the Msg/CreateValidator response type.
+type MsgCreateValidatorResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3972,8 +3826,8 @@ type MsgAddValidatorResponse struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (x *MsgAddValidatorResponse) Reset() {
-	*x = MsgAddValidatorResponse{}
+func (x *MsgCreateValidatorResponse) Reset() {
+	*x = MsgCreateValidatorResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chora_validator_v1_msg_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3981,18 +3835,18 @@ func (x *MsgAddValidatorResponse) Reset() {
 	}
 }
 
-func (x *MsgAddValidatorResponse) String() string {
+func (x *MsgCreateValidatorResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MsgAddValidatorResponse) ProtoMessage() {}
+func (*MsgCreateValidatorResponse) ProtoMessage() {}
 
-// Deprecated: Use MsgAddValidatorResponse.ProtoReflect.Descriptor instead.
-func (*MsgAddValidatorResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use MsgCreateValidatorResponse.ProtoReflect.Descriptor instead.
+func (*MsgCreateValidatorResponse) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_msg_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MsgAddValidatorResponse) GetAddress() string {
+func (x *MsgCreateValidatorResponse) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
@@ -4005,8 +3859,8 @@ type MsgRemoveValidator struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// admin is the address of the admin.
-	Admin string `protobuf:"bytes,1,opt,name=admin,proto3" json:"admin,omitempty"`
+	// operator is the address of the operator.
+	Operator string `protobuf:"bytes,1,opt,name=operator,proto3" json:"operator,omitempty"`
 	// address is the address of the validator.
 	Address string `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
 }
@@ -4031,9 +3885,9 @@ func (*MsgRemoveValidator) Descriptor() ([]byte, []int) {
 	return file_chora_validator_v1_msg_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *MsgRemoveValidator) GetAdmin() string {
+func (x *MsgRemoveValidator) GetOperator() string {
 	if x != nil {
-		return x.Admin
+		return x.Operator
 	}
 	return ""
 }
@@ -4286,97 +4140,95 @@ var file_chora_validator_v1_msg_proto_rawDesc = []byte{
 	0x72, 0x2f, 0x76, 0x31, 0x2f, 0x6d, 0x73, 0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x12,
 	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e,
 	0x76, 0x31, 0x1a, 0x17, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x6d, 0x73, 0x67, 0x2f, 0x76,
-	0x31, 0x2f, 0x6d, 0x73, 0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x85, 0x01, 0x0a, 0x0f,
-	0x4d, 0x73, 0x67, 0x41, 0x64, 0x64, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12,
-	0x14, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12,
-	0x1a, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x0a, 0x82, 0xe7, 0xb0, 0x2a, 0x05, 0x61, 0x64,
-	0x6d, 0x69, 0x6e, 0x22, 0x33, 0x0a, 0x17, 0x4d, 0x73, 0x67, 0x41, 0x64, 0x64, 0x56, 0x61, 0x6c,
-	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
-	0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x50, 0x0a, 0x12, 0x4d, 0x73, 0x67, 0x52,
-	0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x14,
-	0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61,
-	0x64, 0x6d, 0x69, 0x6e, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x3a, 0x0a,
-	0x82, 0xe7, 0xb0, 0x2a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x22, 0x36, 0x0a, 0x1a, 0x4d, 0x73,
-	0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72,
-	0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
-	0x73, 0x73, 0x22, 0x98, 0x01, 0x0a, 0x0f, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x30, 0x0a, 0x14,
-	0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x5f, 0x77, 0x69,
-	0x6e, 0x64, 0x6f, 0x77, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x73, 0x69, 0x67, 0x6e,
-	0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x12, 0x31,
-	0x0a, 0x15, 0x6d, 0x69, 0x6e, 0x5f, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x5f, 0x70, 0x65, 0x72,
-	0x5f, 0x77, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x6d,
-	0x69, 0x6e, 0x53, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x50, 0x65, 0x72, 0x57, 0x69, 0x6e, 0x64, 0x6f,
-	0x77, 0x3a, 0x0a, 0x82, 0xe7, 0xb0, 0x2a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x22, 0x7e, 0x0a,
-	0x17, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x14, 0x73, 0x69, 0x67, 0x6e,
-	0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x5f, 0x77, 0x69, 0x6e, 0x64, 0x6f, 0x77,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x42, 0x6c,
-	0x6f, 0x63, 0x6b, 0x73, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x12, 0x31, 0x0a, 0x15, 0x6d, 0x69,
-	0x6e, 0x5f, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x5f, 0x70, 0x65, 0x72, 0x5f, 0x77, 0x69, 0x6e,
-	0x64, 0x6f, 0x77, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x6d, 0x69, 0x6e, 0x53, 0x69,
-	0x67, 0x6e, 0x65, 0x64, 0x50, 0x65, 0x72, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x22, 0x7c, 0x0a,
-	0x12, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
+	0x31, 0x2f, 0x6d, 0x73, 0x67, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x58, 0x0a, 0x12, 0x4d,
+	0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
+	0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1a, 0x0a,
+	0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x0a, 0x82, 0xe7, 0xb0, 0x2a, 0x05,
+	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x22, 0x36, 0x0a, 0x1a, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x59, 0x0a,
+	0x12, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61,
 	0x74, 0x6f, 0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12,
 	0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x21, 0x0a, 0x0c, 0x6e, 0x65, 0x77,
-	0x5f, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x0b, 0x6e, 0x65, 0x77, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x0d, 0x82, 0xe7,
-	0xb0, 0x2a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x36, 0x0a, 0x1a, 0x4d,
+	0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x3a, 0x0d, 0x82, 0xe7, 0xb0, 0x2a, 0x08,
+	0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x36, 0x0a, 0x1a, 0x4d, 0x73, 0x67, 0x52,
+	0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x22, 0x98, 0x01, 0x0a, 0x0f, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f,
+	0x6c, 0x69, 0x63, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x30, 0x0a, 0x14, 0x73, 0x69,
+	0x67, 0x6e, 0x65, 0x64, 0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x5f, 0x77, 0x69, 0x6e, 0x64,
+	0x6f, 0x77, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64,
+	0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x12, 0x31, 0x0a, 0x15,
+	0x6d, 0x69, 0x6e, 0x5f, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x5f, 0x70, 0x65, 0x72, 0x5f, 0x77,
+	0x69, 0x6e, 0x64, 0x6f, 0x77, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x6d, 0x69, 0x6e,
+	0x53, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x50, 0x65, 0x72, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x3a,
+	0x0a, 0x82, 0xe7, 0xb0, 0x2a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x22, 0x7e, 0x0a, 0x17, 0x4d,
+	0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x14, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64,
+	0x5f, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x5f, 0x77, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x42, 0x6c, 0x6f, 0x63,
+	0x6b, 0x73, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x12, 0x31, 0x0a, 0x15, 0x6d, 0x69, 0x6e, 0x5f,
+	0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x5f, 0x70, 0x65, 0x72, 0x5f, 0x77, 0x69, 0x6e, 0x64, 0x6f,
+	0x77, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x6d, 0x69, 0x6e, 0x53, 0x69, 0x67, 0x6e,
+	0x65, 0x64, 0x50, 0x65, 0x72, 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x22, 0x7c, 0x0a, 0x12, 0x4d,
 	0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
-	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64,
-	0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72,
-	0x65, 0x73, 0x73, 0x32, 0x9f, 0x03, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x60, 0x0a, 0x0c, 0x41,
-	0x64, 0x64, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x23, 0x2e, 0x63, 0x68,
-	0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31,
-	0x2e, 0x4d, 0x73, 0x67, 0x41, 0x64, 0x64, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x1a, 0x2b, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x41, 0x64, 0x64, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x69, 0x0a,
-	0x0f, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x12, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56,
-	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x1a, 0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73,
-	0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x60, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x12, 0x23, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61,
-	0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73,
-	0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x1a, 0x2b, 0x2e,
-	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e,
-	0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69,
-	0x63, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x69, 0x0a, 0x0f, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x26, 0x2e,
-	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e,
-	0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x6f, 0x72, 0x1a, 0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61,
-	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0xd3, 0x01, 0x0a, 0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68,
-	0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31,
-	0x42, 0x08, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x45, 0x67, 0x69,
-	0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69,
-	0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
-	0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58, 0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72,
-	0x61, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02,
-	0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72,
-	0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1e, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69,
-	0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
-	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x14, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61,
-	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x72, 0x12, 0x1a, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x18, 0x0a,
+	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x21, 0x0a, 0x0c, 0x6e, 0x65, 0x77, 0x5f, 0x6d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6e,
+	0x65, 0x77, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x3a, 0x0d, 0x82, 0xe7, 0xb0, 0x2a,
+	0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x36, 0x0a, 0x1a, 0x4d, 0x73, 0x67,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x32, 0xa8, 0x03, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x69, 0x0a, 0x0f, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x26, 0x2e, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76,
+	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x1a, 0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c,
+	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x69, 0x0a, 0x0f, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e,
+	0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67,
+	0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x1a,
+	0x2e, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
+	0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x56, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x60, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x12,
+	0x23, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
+	0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6f,
+	0x6c, 0x69, 0x63, 0x79, 0x1a, 0x2b, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c,
+	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x69, 0x0a, 0x0f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x12, 0x26, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c,
+	0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x1a, 0x2e, 0x2e, 0x63,
+	0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76,
+	0x31, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0xd3, 0x01, 0x0a,
+	0x16, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64,
+	0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x42, 0x08, 0x4d, 0x73, 0x67, 0x50, 0x72, 0x6f, 0x74,
+	0x6f, 0x50, 0x01, 0x5a, 0x45, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x63, 0x68, 0x6f, 0x72, 0x61, 0x2d, 0x69, 0x6f, 0x2f, 0x6d, 0x6f, 0x64, 0x73, 0x2f, 0x76, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x6f, 0x72,
+	0x61, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x76,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x56, 0x58,
+	0xaa, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x6f, 0x72, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x12, 0x43, 0x68, 0x6f, 0x72, 0x61, 0x5c, 0x56, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1e, 0x43, 0x68, 0x6f,
+	0x72, 0x61, 0x5c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5c, 0x56, 0x31, 0x5c,
+	0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x14, 0x43, 0x68,
+	0x6f, 0x72, 0x61, 0x3a, 0x3a, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x3a, 0x3a,
+	0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -4393,8 +4245,8 @@ func file_chora_validator_v1_msg_proto_rawDescGZIP() []byte {
 
 var file_chora_validator_v1_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_chora_validator_v1_msg_proto_goTypes = []interface{}{
-	(*MsgAddValidator)(nil),            // 0: chora.validator.v1.MsgAddValidator
-	(*MsgAddValidatorResponse)(nil),    // 1: chora.validator.v1.MsgAddValidatorResponse
+	(*MsgCreateValidator)(nil),         // 0: chora.validator.v1.MsgCreateValidator
+	(*MsgCreateValidatorResponse)(nil), // 1: chora.validator.v1.MsgCreateValidatorResponse
 	(*MsgRemoveValidator)(nil),         // 2: chora.validator.v1.MsgRemoveValidator
 	(*MsgRemoveValidatorResponse)(nil), // 3: chora.validator.v1.MsgRemoveValidatorResponse
 	(*MsgUpdatePolicy)(nil),            // 4: chora.validator.v1.MsgUpdatePolicy
@@ -4403,11 +4255,11 @@ var file_chora_validator_v1_msg_proto_goTypes = []interface{}{
 	(*MsgUpdateValidatorResponse)(nil), // 7: chora.validator.v1.MsgUpdateValidatorResponse
 }
 var file_chora_validator_v1_msg_proto_depIdxs = []int32{
-	0, // 0: chora.validator.v1.Msg.AddValidator:input_type -> chora.validator.v1.MsgAddValidator
+	0, // 0: chora.validator.v1.Msg.CreateValidator:input_type -> chora.validator.v1.MsgCreateValidator
 	2, // 1: chora.validator.v1.Msg.RemoveValidator:input_type -> chora.validator.v1.MsgRemoveValidator
 	4, // 2: chora.validator.v1.Msg.UpdatePolicy:input_type -> chora.validator.v1.MsgUpdatePolicy
 	6, // 3: chora.validator.v1.Msg.UpdateValidator:input_type -> chora.validator.v1.MsgUpdateValidator
-	1, // 4: chora.validator.v1.Msg.AddValidator:output_type -> chora.validator.v1.MsgAddValidatorResponse
+	1, // 4: chora.validator.v1.Msg.CreateValidator:output_type -> chora.validator.v1.MsgCreateValidatorResponse
 	3, // 5: chora.validator.v1.Msg.RemoveValidator:output_type -> chora.validator.v1.MsgRemoveValidatorResponse
 	5, // 6: chora.validator.v1.Msg.UpdatePolicy:output_type -> chora.validator.v1.MsgUpdatePolicyResponse
 	7, // 7: chora.validator.v1.Msg.UpdateValidator:output_type -> chora.validator.v1.MsgUpdateValidatorResponse
@@ -4425,7 +4277,7 @@ func file_chora_validator_v1_msg_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_chora_validator_v1_msg_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgAddValidator); i {
+			switch v := v.(*MsgCreateValidator); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4437,7 +4289,7 @@ func file_chora_validator_v1_msg_proto_init() {
 			}
 		}
 		file_chora_validator_v1_msg_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MsgAddValidatorResponse); i {
+			switch v := v.(*MsgCreateValidatorResponse); i {
 			case 0:
 				return &v.state
 			case 1:

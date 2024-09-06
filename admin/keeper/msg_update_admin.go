@@ -30,12 +30,12 @@ func (k Keeper) UpdateAdmin(ctx context.Context, req *v1.MsgUpdateAdmin) (*v1.Ms
 	}
 
 	// get account from account bytes
-	adminAdmin := sdk.AccAddress(admin.Admin)
+	stateAdmin := sdk.AccAddress(admin.Address)
 
 	// verify admin is admin account
-	if !reqAdmin.Equals(adminAdmin) {
+	if !reqAdmin.Equals(stateAdmin) {
 		return nil, sdkerrors.ErrUnauthorized.Wrapf(
-			"admin %s: admin account %s", reqAdmin, adminAdmin,
+			"admin %s: admin account %s", reqAdmin, stateAdmin,
 		)
 	}
 
@@ -46,7 +46,7 @@ func (k Keeper) UpdateAdmin(ctx context.Context, req *v1.MsgUpdateAdmin) (*v1.Ms
 	}
 
 	// set new admin
-	admin.Admin = newAdmin
+	admin.Address = newAdmin
 
 	// update admin in admin table
 	err = k.ss.AdminTable().Save(ctx, admin)

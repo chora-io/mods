@@ -10,20 +10,23 @@ import (
 	v1 "github.com/chora-io/mods/validator/types/v1"
 )
 
-// AddValidator implements Msg/AddValidator.
-func (k Keeper) AddValidator(ctx context.Context, req *v1.MsgAddValidator) (*v1.MsgAddValidatorResponse, error) {
+// CreateValidator implements Msg/CreateValidator.
+func (k Keeper) CreateValidator(ctx context.Context, req *v1.MsgCreateValidator) (*v1.MsgCreateValidatorResponse, error) {
 	sdkCtx := sdk.UnwrapSDKContext(ctx)
 
-	adminAddress := k.admin.String()
-	if adminAddress != req.Admin {
+	operator := k.admin.String()
+	if operator != req.Operator {
 		return nil, sdkerrors.ErrUnauthorized.Wrapf(
-			"admin: expected %s: received %s", adminAddress, req.Admin,
+			"operator: expected %s: received %s", operator, req.Operator,
 		)
 	}
 
+	// TODO: generate validator address
+	validator := req.Operator
+
 	// insert validator into validator table
 	err := k.ss.ValidatorTable().Insert(ctx, &validatorv1.Validator{
-		Address:  req.Address,
+		Address:  validator,
 		Metadata: req.Metadata,
 	})
 	if err != nil {
@@ -32,21 +35,21 @@ func (k Keeper) AddValidator(ctx context.Context, req *v1.MsgAddValidator) (*v1.
 
 	// insert validator into validator signing info table
 	err = k.ss.ValidatorSigningInfoTable().Insert(ctx, &validatorv1.ValidatorSigningInfo{
-		Address: req.Address,
+		Address: validator,
 	})
 	if err != nil {
 		return nil, err // internal error
 	}
 
 	// emit event
-	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventAddValidator{
-		Address: req.Address,
+	if err = sdkCtx.EventManager().EmitTypedEvent(&v1.EventCreateValidator{
+		Address: validator,
 	}); err != nil {
 		return nil, err // internal error
 	}
 
 	// return response
-	return &v1.MsgAddValidatorResponse{
-		Address: req.Address,
+	return &v1.MsgCreateValidatorResponse{
+		Address: validator,
 	}, nil
 }

@@ -4,8 +4,8 @@ package chora.validator.v1;
 
 option go_package = "github.com/chora-io/mods/validator/types/v1";
 
-// EventAddValidator is an event emitted when a validator is added.
-message EventAddValidator {
+// EventCreateValidator is an event emitted when a validator is created.
+message EventCreateValidator {
 
   // address is the address of the validator.
   string address = 1;

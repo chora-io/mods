@@ -19,7 +19,7 @@ func TxCmd() *cobra.Command {
 	}
 
 	cmd.AddCommand(
-		TxAddValidatorCmd(),
+		TxCreateValidatorCmd(),
 		TxRemoveValidatorCmd(),
 		TxUpdateValidatorCmd(),
 	)

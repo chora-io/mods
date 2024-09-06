@@ -12,7 +12,7 @@ Feature: Query/Admin
       Given admin
       """
       {
-        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 

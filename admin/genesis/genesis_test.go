@@ -25,7 +25,7 @@ func TestValidateGenesis(t *testing.T) {
 		{
 			name: "valid",
 			setup: func(ctx context.Context, ss adminv1.StateStore) {
-				require.NoError(t, ss.AdminTable().Save(ctx, &adminv1.Admin{Admin: []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y=")}))
+				require.NoError(t, ss.AdminTable().Save(ctx, &adminv1.Admin{Address: []byte("BTZfSbi0JKqguZ/tIAPUIhdAa7Y=")}))
 			},
 		},
 	}

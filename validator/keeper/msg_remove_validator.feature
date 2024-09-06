@@ -1,7 +1,6 @@
 Feature: Msg/RemoveValidator
 
   RemoveValidator is successful when:
-  - admin is the admin address
   - validator with address exists
 
   RemoveValidator has the following outcomes:
@@ -10,56 +9,13 @@ Feature: Msg/RemoveValidator
   - EventRemoveValidator is emitted
   - MsgRemoveValidatorResponse is returned
 
-  Rule: The admin must be the admin address
-
-    Background:
-      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-      And validator
-      """
-      {
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
-      }
-      """
-      And validator signing info
-      """
-      {
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "missed_blocks": [],
-        "missed_blocks_count": 0
-      }
-      """
-
-    Scenario: admin is admin address
-      When msg remove validator
-      """
-      {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
-      }
-      """
-      Then expect no error
-
-    Scenario: admin is not admin address
-      When msg remove validator
-      """
-      {
-        "admin": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
-        "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
-      }
-      """
-      Then expect the error
-      """
-      admin: expected chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38: received chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup: unauthorized
-      """
-
   Rule: The validator must exist
 
     Background:
-      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-      And validator
+      Given validator
       """
       {
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -77,7 +33,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -87,7 +43,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "operator": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
         "address": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
       }
       """
@@ -99,10 +55,10 @@ Feature: Msg/RemoveValidator
   Rule: Validator is removed from state
 
     Background:
-      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-      And validator
+      Given validator
       """
       {
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -120,7 +76,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -131,10 +87,10 @@ Feature: Msg/RemoveValidator
   Rule: ValidatorSigningInfo is removed from state
 
     Background:
-      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-      And validator
+      Given validator
       """
       {
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -152,7 +108,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -163,10 +119,10 @@ Feature: Msg/RemoveValidator
   Rule: EventRemoveValidator emitted
 
     Background:
-      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-      And validator
+      Given validator
       """
       {
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -184,7 +140,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """
@@ -200,10 +156,10 @@ Feature: Msg/RemoveValidator
   Rule: MsgRemoveValidatorResponse is returned
 
     Background:
-      Given admin "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38"
-      And validator
+      Given validator
       """
       {
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "metadata": "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf"
       }
@@ -221,7 +177,7 @@ Feature: Msg/RemoveValidator
       When msg remove validator
       """
       {
-        "admin": "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
+        "operator": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup",
         "address": "chora1s3x2yhc4qf59gf53hwsnhkh7gqa3eryxnu6nup"
       }
       """

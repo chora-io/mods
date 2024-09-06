@@ -37,11 +37,10 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 			EnhanceCustomCommand: false, // use custom commands until v0.51
 			RpcCommandOptions: []*autocliv1.RpcCommandOptions{
 				//{
-				//	RpcMethod: "AddValidator",
-				//	Use:       "add-validator [address] [metadata]",
+				//	RpcMethod: "CreateValidator",
+				//	Use:       "create-validator [metadata]",
 				//	Short:     "submit transaction to create validator",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-				//		{ProtoField: "address"},
 				//		{ProtoField: "metadata"},
 				//	},
 				//},
@@ -55,21 +54,20 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				//},
 				{
 					RpcMethod: "UpdatePolicy",
-					Use:       "update-policy [admin] [signed-blocks-window] [min-signed-per-window]",
+					Use:       "update-policy [signed-blocks-window] [min-signed-per-window]",
 					Short:     "submit transaction to update a validator",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
-						{ProtoField: "admin"},
 						{ProtoField: "signed_blocks_window"},
 						{ProtoField: "min_signed_per_window"},
 					},
 				},
 				//{
 				//	RpcMethod: "UpdateValidator",
-				//	Use:       "update-validator [address] [metadata]",
+				//	Use:       "update-validator [address] [new-metadata]",
 				//	Short:     "submit transaction to update validator",
 				//	PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 				//		{ProtoField: "address"},
-				//		{ProtoField: "metadata"},
+				//		{ProtoField: "new_metadata"},
 				//	},
 				//},
 			},

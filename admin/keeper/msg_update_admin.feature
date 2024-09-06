@@ -1,7 +1,7 @@
 Feature: Msg/UpdateAdmin
 
   UpdateAdmin is successful when:
-  - admin is the admin account
+  - admin is admin account
 
   UpdateAdmin has the following outcomes:
   - message response returned
@@ -14,7 +14,7 @@ Feature: Msg/UpdateAdmin
       Given admin
       """
       {
-        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 
@@ -47,7 +47,7 @@ Feature: Msg/UpdateAdmin
       Given admin
       """
       {
-        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 
@@ -75,7 +75,7 @@ Feature: Msg/UpdateAdmin
       Given admin
       """
       {
-        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 
@@ -90,7 +90,7 @@ Feature: Msg/UpdateAdmin
       Then expect state admin
       """
       {
-        "admin": "hEyiXxUCaFQmkbuhO9r+QDscjIY="
+        "address": "hEyiXxUCaFQmkbuhO9r+QDscjIY="
       }
       """
 
@@ -102,7 +102,7 @@ Feature: Msg/UpdateAdmin
       Given admin
       """
       {
-        "admin": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
+        "address": "BTZfSbi0JKqguZ/tIAPUIhdAa7Y="
       }
       """
 

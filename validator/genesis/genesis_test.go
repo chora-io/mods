@@ -26,6 +26,7 @@ func TestValidateGenesis(t *testing.T) {
 			name: "valid",
 			setup: func(ctx context.Context, ss validatorv1.StateStore) {
 				require.NoError(t, ss.ValidatorTable().Insert(ctx, &validatorv1.Validator{
+					Operator: "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
 					Address:  "chora1q5m97jdcksj24g9enlkjqq75ygt5q6ak54jk38",
 					Metadata: "chora:13toVfvC2YxrrfSXWB5h2BGHiXZURsKxWUz72uDRDSPMCrYPguGUXSC.rdf",
 				}))

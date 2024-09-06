@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Msg_AddValidator_FullMethodName    = "/chora.validator.v1.Msg/AddValidator"
+	Msg_CreateValidator_FullMethodName = "/chora.validator.v1.Msg/CreateValidator"
 	Msg_RemoveValidator_FullMethodName = "/chora.validator.v1.Msg/RemoveValidator"
 	Msg_UpdatePolicy_FullMethodName    = "/chora.validator.v1.Msg/UpdatePolicy"
 	Msg_UpdateValidator_FullMethodName = "/chora.validator.v1.Msg/UpdateValidator"
@@ -31,8 +31,8 @@ const (
 //
 // Msg is the Msg service.
 type MsgClient interface {
-	// AddValidator adds a validator (restricted to admin).
-	AddValidator(ctx context.Context, in *MsgAddValidator, opts ...grpc.CallOption) (*MsgAddValidatorResponse, error)
+	// CreateValidator adds a validator (restricted to admin).
+	CreateValidator(ctx context.Context, in *MsgCreateValidator, opts ...grpc.CallOption) (*MsgCreateValidatorResponse, error)
 	// RemoveValidator removes a validator (restricted to admin).
 	RemoveValidator(ctx context.Context, in *MsgRemoveValidator, opts ...grpc.CallOption) (*MsgRemoveValidatorResponse, error)
 	// UpdatePolicy updates the policy (restricted to admin).
@@ -49,10 +49,10 @@ func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) AddValidator(ctx context.Context, in *MsgAddValidator, opts ...grpc.CallOption) (*MsgAddValidatorResponse, error) {
+func (c *msgClient) CreateValidator(ctx context.Context, in *MsgCreateValidator, opts ...grpc.CallOption) (*MsgCreateValidatorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MsgAddValidatorResponse)
-	err := c.cc.Invoke(ctx, Msg_AddValidator_FullMethodName, in, out, cOpts...)
+	out := new(MsgCreateValidatorResponse)
+	err := c.cc.Invoke(ctx, Msg_CreateValidator_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,8 +95,8 @@ func (c *msgClient) UpdateValidator(ctx context.Context, in *MsgUpdateValidator,
 //
 // Msg is the Msg service.
 type MsgServer interface {
-	// AddValidator adds a validator (restricted to admin).
-	AddValidator(context.Context, *MsgAddValidator) (*MsgAddValidatorResponse, error)
+	// CreateValidator adds a validator (restricted to admin).
+	CreateValidator(context.Context, *MsgCreateValidator) (*MsgCreateValidatorResponse, error)
 	// RemoveValidator removes a validator (restricted to admin).
 	RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error)
 	// UpdatePolicy updates the policy (restricted to admin).
@@ -113,8 +113,8 @@ type MsgServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMsgServer struct{}
 
-func (UnimplementedMsgServer) AddValidator(context.Context, *MsgAddValidator) (*MsgAddValidatorResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddValidator not implemented")
+func (UnimplementedMsgServer) CreateValidator(context.Context, *MsgCreateValidator) (*MsgCreateValidatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateValidator not implemented")
 }
 func (UnimplementedMsgServer) RemoveValidator(context.Context, *MsgRemoveValidator) (*MsgRemoveValidatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveValidator not implemented")
@@ -146,20 +146,20 @@ func RegisterMsgServer(s grpc.ServiceRegistrar, srv MsgServer) {
 	s.RegisterService(&Msg_ServiceDesc, srv)
 }
 
-func _Msg_AddValidator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgAddValidator)
+func _Msg_CreateValidator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateValidator)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).AddValidator(ctx, in)
+		return srv.(MsgServer).CreateValidator(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_AddValidator_FullMethodName,
+		FullMethod: Msg_CreateValidator_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).AddValidator(ctx, req.(*MsgAddValidator))
+		return srv.(MsgServer).CreateValidator(ctx, req.(*MsgCreateValidator))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -226,8 +226,8 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddValidator",
-			Handler:    _Msg_AddValidator_Handler,
+			MethodName: "CreateValidator",
+			Handler:    _Msg_CreateValidator_Handler,
 		},
 		{
 			MethodName: "RemoveValidator",

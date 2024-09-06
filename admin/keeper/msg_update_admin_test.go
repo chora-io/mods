@@ -34,7 +34,7 @@ func (s *msgUpdateAdmin) Admin(a gocuke.DocString) {
 	require.NoError(s.t, err)
 
 	err = s.k.ss.AdminTable().Save(s.sdkCtx, &adminv1.Admin{
-		Admin: admin.Admin,
+		Address: admin.Address,
 	})
 	require.NoError(s.t, err)
 }
@@ -71,7 +71,7 @@ func (s *msgUpdateAdmin) ExpectStateAdmin(a gocuke.DocString) {
 	actual, err := s.k.ss.AdminTable().Get(s.sdkCtx)
 	require.NoError(s.t, err)
 
-	require.Equal(s.t, expected.Admin, actual.Admin)
+	require.Equal(s.t, expected.Address, actual.Address)
 }
 
 func (s *msgUpdateAdmin) ExpectEventUpdate(a gocuke.DocString) {

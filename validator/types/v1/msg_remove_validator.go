@@ -9,8 +9,8 @@ var _ sdk.Msg = &MsgRemoveValidator{}
 
 // ValidateBasic performs stateless validation on MsgRemoveValidator.
 func (m MsgRemoveValidator) ValidateBasic() error {
-	if _, err := sdk.AccAddressFromBech32(m.Admin); err != nil {
-		return sdkerrors.ErrInvalidAddress.Wrapf("admin: %s", err)
+	if _, err := sdk.AccAddressFromBech32(m.Operator); err != nil {
+		return sdkerrors.ErrInvalidAddress.Wrapf("operator: %s", err)
 	}
 
 	if _, err := sdk.AccAddressFromBech32(m.Address); err != nil {
@@ -22,7 +22,7 @@ func (m MsgRemoveValidator) ValidateBasic() error {
 
 // GetSigners returns the expected signers for MsgRemoveValidator.
 func (m MsgRemoveValidator) GetSigners() []sdk.AccAddress {
-	addr, _ := sdk.AccAddressFromBech32(m.Admin)
+	addr, _ := sdk.AccAddressFromBech32(m.Operator)
 	return []sdk.AccAddress{addr}
 }
 

@@ -38,7 +38,9 @@ func (s *msgRemoveValidator) Validator(a gocuke.DocString) {
 	require.NoError(s.t, err)
 
 	err = s.k.ss.ValidatorTable().Insert(s.sdkCtx, &validatorv1.Validator{
-		Address: validator.Address,
+		Operator: validator.Operator,
+		Address:  validator.Address,
+		Metadata: validator.Metadata,
 	})
 	require.NoError(s.t, err)
 }
